@@ -1,0 +1,56 @@
+
+<template name="decyzjaModal">
+    <div id="decyzjaModalId" class="modal fade" tabindex="-1" data-width="760"  style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{> decyzjaModalInner}}
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="decyzjaModalInner">
+    <div class="modal-header">
+        <h4>
+<!--Istnieje już Zespół Realizacyjny o podanym składzie!-->
+{{_ 'decyzjaModalInner.deiIstZesR'}}</h4>
+    </div>
+    <div class="modal-body" id="modalBody">
+        <div class="row">
+            <div class="col-md-12">
+                {{#if ZRDoubleList}}
+                    {{> reactiveTable
+                    class = "table table-bordered table-hover"
+                    fields = settings.fields
+                    settings = settings
+                    collection = ZRDoubleList}}
+                {{/if}}
+            </div>
+        </div>
+        <br/>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-5">
+<!--Chcę dodać Kwestię do realizacji temu Zespołowi-->
+<input type="submit" data-dismiss="modal" class="btn btn-success" id="nowyZRButton" value="{{_ 'decyzjaModalInner.deiChcDodK'}}"/>
+                </div>
+                <div class="col-md-5">
+<!--Chcę przyjąć do realizacji w moim Zespole Realizacyjnym-->
+<input type="submit" data-dismiss="modal" class="btn btn-success" id="istniejacyZRButton" value="{{_ 'decyzjaModalInner.deiChcPrzR'}}"/>
+                </div>
+                <div class="col-md-2">
+<!--Powrót-->
+<input type="submit" data-dismiss="modal" class="btn btn-default" id="anulujButton" value="{{_ 'glob.globPowrot'}}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="zespolDoubleTemplatee">
+    {{zespolR}}
+</template>

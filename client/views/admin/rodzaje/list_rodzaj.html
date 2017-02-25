@@ -1,0 +1,43 @@
+
+<template name="listRodzaj">
+    {{#if currentUser}}
+        <div class="main">
+            <legend>
+<!--Lista rodzajów-->
+{{_ "listRodzaj.liRoLiRodz"}}</legend>
+            <div class="row">
+                <div class="col col-md-6">
+                    <div class="input-group">
+                  <span class="input-group-btn">
+                    <a href="{{pathFor 'addRodzaj'}}" class="btn btn-primary"><span
+                            class="glyphicon glyphicon-plus"></span> 
+<!--Dodaj-->
+{{_ "glob.globaDodaj"}}</a>
+                      </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{> reactiveTable
+                    class = "table table-bordered table-hover"
+                    fields = settings.fields
+                    settings = settings
+                    collection = RodzajList
+                    }}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</template>
+
+
+<template name="editColumnRodzaj">
+    <a title="Edytuj" id="editRodzaj" href="{{ pathFor 'editRodzaj'}}"><i
+            class="glyphicon glyphicon-pencil clickable"></i></a>
+</template>
+
+
+<template name="tematRodzaj">
+    {{tematNazwa}}
+</template>

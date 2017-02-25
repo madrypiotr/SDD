@@ -1,0 +1,87 @@
+
+<template name="managePriorities">
+
+        <div class="row">
+            <div class="col-md-2">
+                
+    {{#if isRealizowana status}}
+        <strong> 
+<!--Priorytet w realizacji-->
+{{_ "managePriorities.mpPriorRea"}}: </strong>
+    {{else}}
+<section class="dymek"> 
+	<!--Priorytet-->
+	{{_ "managePriorities.mpPrioryte"}}<ul>
+	<a data-toggle="modal"  href="#PriorMain">
+	<li class="fa fa-info-circle"> 
+	{{_ "managePriorities.mpPrioInfo"}} </li></a></ul>
+                <div class="modal fade" id="PriorMain" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "dym.dymPriMain"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "dym.dymTXPrMaA"}}</p>
+								<p>{{_ "dym.dymTXPrMaB"}}</p>
+								<p>{{_ "dym.dymTXPrMaC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</section>
+    {{/if}}
+                    <b class="color-red"> {{priority priorytet}}</b>
+            </div>
+            {{#unless koszZrealizowanaArchiwum czyAktywny status}}
+                <div class="col-md-11">
+                    <form>
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-danger" value="-5" {{isSelected -5 idParent glosujacy status idKwestia}}>-5
+                            </button>
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-danger" value="-4" {{isSelected -4 idParent glosujacy status idKwestia}}>-4
+                            </button>
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-danger" value="-3" {{isSelected -3 idParent glosujacy status idKwestia}}>-3
+                            </button>
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-danger" value="-2" {{isSelected -2 idParent glosujacy status idKwestia}}>-2
+                            </button>
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-danger" value="-1" {{isSelected -1 idParent glosujacy status idKwestia}}>-1
+                            </button>
+<!--Oznacza wstrzymanie się od głosu-->
+<button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-default" value="0"
+                                    data-toggle="tooltip" data-placement="top"
+                                    title="{{_ 'managePriorities.mpOzWsSiGl'}}" {{isUserOrDoradcaLogged}}>
+                                &nbsp;0
+                            </button>
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-success" value="1" {{isSelected 1 idParent glosujacy status idKwestia}}>+1
+                            </button>
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-success" value="2" {{isSelected 2 idParent glosujacy status idKwestia}}>+2
+                            </button>
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-success" value="3" {{isSelected 3 idParent glosujacy status idKwestia}}>+3
+                            </button>
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-success" value="4" {{isSelected 4 idParent glosujacy status idKwestia}}>+4
+                            </button>
+                            <button id="priorytetButton" name="{{idKwestia}}" type="button"
+                                    class="btn btn-xs btn-success" value="5" {{isSelected 5 idParent glosujacy status idKwestia}}>+5
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            {{/unless}}
+        </div>
+
+</template>

@@ -1,0 +1,101 @@
+
+<template name="listTemat">
+    {{#if currentUser}}
+        <div class="main">
+            <legend>
+<!--Kategoryzacja-->
+{{_ "listTemat.LiTeKatego"}}</legend>
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="input-group">
+                        <a href="{{pathFor 'addTemat'}}" class="btn btn-primary">
+                            <i class="fa fa-plus"></i> 
+<!--Dodaj Temat-->
+{{_ "listTemat.LiTeDodTem"}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="tematTable">
+                    {{> reactiveTable
+                    class = "table table-bordered table-hover"
+                    fields = settingsTemat.fields
+                    settings = settingsTemat
+                    collection = listTemat
+                    }}
+                </div>
+            </div>
+
+            <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pull-right">
+                        <span>
+<!--Liczba rodzajów w temacie-->
+{{_ "listTemat.LiTeLiRoWT"}} <strong>{{getTemat}}</strong>: </span><span
+                            class="badge">{{rodzajCount}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="input-group">
+                        <button id="reloadAll" class="btn btn-default">
+                            <i class="fa fa-refresh"></i> 
+<!--Wszystkie rodzaje-->
+{{_ "listTemat.LiTeWszyRo"}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="rodzajTable">
+                    {{> reactiveTable
+                    class = "table table-bordered table-hover"
+                    fields = settingsRodzaj.fields
+                    settings = settingsRodzaj
+                    collection = listRodzaj
+                    }}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</template>
+
+
+<template name="optionsColumnTemat">
+    <div class="pull-right">
+        
+<!--Edytuj-->
+<a class="btn btn-xs btn-default" data-toggle="tooltip" title="{{_ 'glob.globEdytuj'}}" href="{{ pathFor 'editTemat' _id}}">
+            <i class="fa fa-edit clickable"></i>
+<!--Edytuj-->
+{{_ "glob.globEdytuj"}}
+        </a>
+        
+<!--Dodaj Rodzaj-->
+<a class="btn btn-xs btn-default" data-toggle="tooltip" title="{{_ 'optionsColumnTemat.oCoDodRodz'}}"
+           href="{{ pathFor 'addRodzaj' _id}}">
+            <i class="fa fa-plus clickable"></i>
+<!--Dodaj Rodzaj-->
+{{_ "optionsColumnTemat.oCoDodRodz"}}
+        </a>
+        
+<!--Odśwież Rodzaje-->
+<a class="btn btn-xs btn-default" data-toggle="tooltip" title="{{_ 'optionsColumnTemat.oCoOdswRod'}}" href="#" id="reload" name="{{_id}}">
+            <i class="fa fa-filter clickable" name="{{_id}}"></i>
+        </a>
+    </div>
+</template>
+
+
+<template name="optionsColumnRodzaj">
+    <div class="pull-right">
+        <a class="btn btn-xs btn-default" data-toggle="tooltip" title="Edytuj" href="{{ pathFor 'editRodzaj' _id}}">
+            <i class="fa fa-edit clickable"></i> 
+<!--Edytuj Rodzaj-->
+{{_ "optionsColumnRodzaj.oCrEdyRodz"}}
+        </a>
+    </div>
+</template>

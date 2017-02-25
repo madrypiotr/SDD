@@ -1,0 +1,138 @@
+
+<template name="ZRTemplate">
+    {{#if statusGlosowanaOsobowaRealizowanaZrealizowana status typ czyAktywny}}
+<div class="prawy">
+        <legend>
+<!--Zespół Realizacyjny-->
+{{_ "ZRTemplate.zrZesRreal"}}</legend>
+            <table class="table manageTable">
+                <tr>
+                    <td><b>
+<!--Nazwa Zespołu-->
+{{_ "ZRTemplate.zrNazwaZeR"}}</b></td>
+                    <td>
+                        {{#if isInKoszOrZrealizowana czyAktywny status}}
+                            {{#if zespol.nazwa}}
+                                {{zespol.nazwa}}
+                            {{else}}
+<!--Brak-->
+{{_ "ZRTemplate.zrTempBrak"}}
+                            {{/if}}
+                        {{else}}
+                            <!--{{#if isInZRFoo idZR}}-->
+                                <!--<button class="btn btn-info" id="zrList" style="margin: 2px">{{getZRName idZR status}}</button>-->
+                            <!--{{else}}-->
+                            {{getZRName idZR status}}
+                            <!--{{/if}}-->
+                        {{/if}}
+                    </td>
+                </tr>
+                <tr>
+                    <!--dla kwestii zrealizowanych i w koszu,kiedy zr sie nie moze zmeiniac i jest zapisane na stale w kwestii-->
+                    {{#if isInKoszOrZrealizowana czyAktywny status}}
+                        {{#each  myZR zespol.czlonkowie}}
+                            <td><strong>
+<!--Członek nr-->
+{{_ "ZRTemplate.zrCzlonkNr"}} {{number}}</strong> &nbsp; &nbsp;
+                                <button class="btn btn-success" disabled>{{member}}</button>
+                            </td>
+                        {{/each}}
+                    {{else}}
+                        <!--dla kwestii w realizacji,glos,gdy zr moze ulec zmianie-->
+                        {{#with getZRCzlonkowie idZR status}}
+                            {{#each  myZR this}}
+                                <td><strong>
+<!--Członek nr-->
+{{_ "ZRTemplate.zrCzlonkNr"}} {{number}}</strong> &nbsp; &nbsp;
+                                    <button class="btn btn-success" disabled>{{member}}</button>
+                                </td>
+                            {{/each}}
+                        {{/with}}
+                    {{/if}}
+                </tr>
+            </table>
+</div>			
+    {{else}}
+	
+<div class="prawy">
+<section class="dymek"><strong>
+<!--Zespół Realizacyjny-->
+{{_ "ZRTemplate.zrZesRreal"}}:</strong><ul>
+
+<a data-toggle="modal"  href="#tworzenieZespolow"><li class="fa fa-info-circle"> <!--Dlaczego to ważne?-->
+{{_ "ZRTemplate.zrZesOtwZR"}}</li></a></ul>
+
+	<div class="modal fade" id="tworzenieZespolow" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+						{{_ 'dym.dymZeTworz'}}
+					</p>
+				</div>
+				<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXzTwoA'}}</p>
+					<p>{{_ 'dym.dymTXzTwoB'}}</p>
+					<p>{{_ 'dym.dymTXzTwoC'}}</p>
+					<p>{{_ 'dym.dymTXzTwoD'}}</p>
+					</small>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+                        {{#if pierwszyCzlonekFullName idZR}}
+                            <button class="btn btn-success" id="czlonek1" {{isActualUser 0 idZR}} style="visibility: visible">{{pierwszyCzlonekFullName idZR}}</button>
+                        {{else}}
+                            <button style="border-style: solid; border-width: 2px; border-color:gray"  class="btn" id="czlonek1" {{isInZR idZR}}>
+<!--Dołączam-->
+{{_ "ZRTemplate.zrDolaczam"}}</button>
+                        {{/if}}
+                        {{#unless drugiCzlonekFullName idZR}}
+                            <button style="border-style: solid; border-width: 2px; border-color:gray"  class="btn" id="czlonek2" {{isInZR idZR}}>
+<!--Dołączam-->
+{{_ "ZRTemplate.zrDolaczam"}}</button>
+                        {{else}}
+                            <button class="btn btn-success" id="czlonek2" {{isActualUser 1 idZR}}>{{drugiCzlonekFullName idZR}}</button>
+                        {{/unless}}
+                        {{#unless trzeciCzlonekFullName idZR}}
+                            <button style="border-style: solid; border-width: 2px; border-color:gray" class="btn" id="czlonek3" {{isInZR idZR}}>
+<!--Dołączam-->
+{{_ "ZRTemplate.zrDolaczam"}}</button>
+                        {{else}}
+                            <button class="btn btn-success" id="czlonek3" {{isActualUser 2 idZR}}>{{trzeciCzlonekFullName idZR}}</button>
+{{/unless}}
+
+<section class="dymek">&nbsp;&nbsp;<button class="btn btn-primary" id="listaZR" {{hasAccess}}>
+<!--Sprawdź istniejące ZR-->
+{{_ "ZRTemplate.zrSprIstZR"}}</button><ul>
+
+<a data-toggle="modal" href="#dlaczgoWazne"><li class="fa fa-info-circle"> 
+<!--Dlaczego to ważne?-->
+{{_ "ZRTemplate.zrDlaczWaz"}}</li></a></ul>
+	<div class="modal fade" id="dlaczgoWazne" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+						{{_ 'dym.dymZespRea'}}
+					</p>
+				</div>
+				<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXzeReA'}}</p>
+					<p>{{_ 'dym.dymTXzeReB'}}</p>
+					<p>{{_ 'dym.dymTXzeReC'}}</p>
+					</small>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</div>	
+    {{/if}}
+</template>

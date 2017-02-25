@@ -1,0 +1,115 @@
+<template name="editParametrModal">
+    <!--data-backdrop="static"-->
+    <div id="editParametrMod"  class="modal fade" data-keyboard="false"  tabindex="-1" data-width="960" style="display:none;" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{> editParametrModalInner}}
+            </div>
+        </div>
+    </div>
+    {{> GlobalNotifications}}
+</template>
+
+<!-- SDD - Szablon | Panel  -->
+<template name="editParametrModalInner">
+    {{#with parametrInScope}}
+        <div class="modal-body">
+            <div class="row">
+                <div class="col col-md-10">
+                    <form class="form-horizontal" id="parametrFormEditModal">
+                        <legend>
+<!--Edycja parametru-->
+{{_ 'editParametrModalInner.epmEdParam'}}</legend>
+                        <div class="form-group">
+
+
+                            {{#if nazwaOrganizacjiInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <textarea name="nazwaOrganizacji" type="text" class="form-control" id="param" maxlength="100"
+                                              value="{{parametrInScope.value}}" rows="2" required></textarea>
+                                </div>
+                            {{/if}}
+                            {{#if terytoriumInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="terytorium" type="text" class="form-control" id="param"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+                            {{#if kontaktInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="kontakty" type="text" class="form-control" id="param"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+                            {{#if statutInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <textarea name="regulamin" type="text" class="form-control" id="param"
+                                              value="{{parametrInScope.value}}" rows="6" required></textarea>
+                                </div>
+                            {{/if}}
+                            {{#if voteDurationInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="voteDuration" type="number" class="form-control" id="param" min="1"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+                            {{#if czasWyczekiwaniaKwestiiSpecjalnejInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="czasWyczekiwaniaKwestiiSpec" type="number" class="form-control" id="param" min="1"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+                            {{#if editVoteQuantityInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="voteQuantity" type="number" class="form-control" id="param" min="1"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+                            {{#if editIssuePauseInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="addIssuePause" type="number" class="form-control" id="param" min="1"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+                            {{#if editCommentPauseInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="addCommentPause" type="number" class="form-control" id="param" min="1"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+                            {{#if editReferencePauseInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="addReferencePause" type="number" class="form-control" id="param" min="1"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+                            {{#if editRRDurationInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="okresSkladaniaRR" type="number" class="form-control" id="param" min="1"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+                        </div>
+                        <div class="form-group" style="text-align: center">
+<!--Zmień-->
+<input type="submit" class="btn btn-success" value="{{_ 'editParametrModalInner.epmodZmien'}}"/>
+<!--Anuluj-->
+<input type="reset" class="btn btn-danger" value="{{_ 'editParametrModalInner.epmoAnuluj'}}"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {{/with}}
+</template>

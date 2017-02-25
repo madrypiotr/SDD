@@ -1,0 +1,55 @@
+
+<template name="addNazwaModal">
+    <div id="addNazwa" class="modal fade" data-keyboard="false" data-backdrop="static" tabindex="-1" data-width="760" style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{> addNazwaModalInner}}
+            </div>
+        </div>
+    </div>
+    {{> GlobalNotifications}}
+</template>
+
+
+<template name="addNazwaModalInner">
+    <div class="modal-header">
+        <h4>
+<!--Nadaj nazwę temu Zespołowi Realizacyjnemu-->
+{{_ 'addNazwaModalInner.aniNaNazZZ'}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <label>
+<!--Zespół Realizacyjny ds.-->
+{{_ 'addNazwaModalInner.aniZesReDs'}}</label>
+ <!--Nazwa Zespołu Realizacyjnego-->
+<input name="nazwaZR" id="nazwaZR" class="form-control"  placeholder="{{_ 'addNazwaModalInner.aniNazwaZR'}}"/>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-md-12">
+                <p><u>
+<!--Objaśnienie-->
+{{_ 'addNazwaModalInner.aniObjasni'}}:</u></p>
+                <p>
+<!--Pierwsza część nazwy ZR, czyli prefiks (Zespół Realizacyjny ds.) już jest, a więc wprowadź jedynie ciąg dalszy nazwy, np.: (Rozpisania Konkursu), albo (Projektu Ogrodzenia Osiedla), lub (Jawności Finansów), itp... Podaj tylko zakończenie zgodne z charakterem rozpatrywanej Kwestii.-->
+{{_ 'addNazwaModalInner.aniTrObjas'}}
+                </p>
+            </div>
+        </div>
+        <br/>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-12">
+                <!--<button class="btn btn-default" id="zapiszButton">Powrót</button>-->
+                <button class="btn btn-success" id="zapiszButton">
+<!--Zapisz-->
+{{_ 'glob.globZapisz'}}</button>
+            </div>
+        </div>
+    </div>
+</template>

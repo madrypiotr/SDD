@@ -1,0 +1,60 @@
+<template name="addHonorowy">
+<div class="pinfo-realiz">{{_ "glob.glThisPage"}}: <b>{{_ "addHonorowy.pinfoZgHon"}}</b>  
+	<a data-toggle="modal" href="#honor"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="honor" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "addHonorowy.pinfoZgHon"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "addHonorowy.pinfoZgHoA"}}</p>
+                                <p>{{_ "addHonorowy.pinfoZgHoB"}}</p>
+								<p>{{_ "addHonorowy.pinfoZgHoC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
+        <div class="col col-md-10">
+            <form class="form-horizontal" id="honorowyForm">
+                <legend>
+<!--Zgłoszenie na członka honorowego-->
+{{_ 'addHonorowy.adhZgHonor'}}</legend>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3" for="email">
+<!--e-mail-->
+{{_ 'glob.globaEmail'}}:</label>
+                    <div class="col-xs-9">
+                        <input type="text"  name="email" id="email" required  class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3" for="uzasadnienie">
+<!--Uzasadnienie-->
+{{_ 'addHonorowy.adhUzasadn'}}:</label>
+                    <div class="col-xs-9">
+<!--Uzasadnij dlaczego chcesz powołać na stanowisko członka honorowego właśnie tę osobę-->
+<textarea   name="uzasadnienie" id="uzasadnienie" required  class="form-control" rows="3" placeholder="{{_ 'addHonorowy.adhUzDlacz'}}"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-9">
+<!--Zgłoś-->
+<input type="submit" class="btn btn-primary" value="{{_ 'addHonorowy.adhonZglos'}}" id="submitHonorowy">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                    </div>
+                </div>
+                <br/>
+            </form>
+        </div>
+    </div>
+</template>

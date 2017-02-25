@@ -1,0 +1,43 @@
+<template name="loginForm">
+    <div class="main">
+        <h3 class="col-xs-offset-3">
+<!--Logowanie-->
+{{_ 'loginForm.lfoLogowan'}}<br/><br/></h3>
+
+        <form class="form-horizontal" id="loginForm">
+            <div class="form-group">
+                <label for="inputLogin" class="control-label col-xs-3">
+<!--Login-->
+{{_ 'loginForm.lformLogin'}}</label>
+
+                <div class="col-xs-6">
+<!--Login-->
+<input name="login" type="text" class="form-control" id="inputLogin" placeholder="{{_ 'loginForm.lformLogin'}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="control-label col-xs-3">
+<!--Hasło-->
+{{_ 'loginForm.lformHaslo'}}</label>
+
+                <div class="col-xs-6">
+<!--Hasło-->
+<input name="password" type="password" class="form-control" id="inputPassword" placeholder="{{_ 'loginForm.lformHaslo'}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-1">
+                    <button type="submit" class="btn btn-primary">
+<!--Zaloguj się-->
+{{_ 'loginForm.lfoZaloSie'}}</button>
+                </div>
+                <div class="col-xs-1">
+                    <button type="button" class="btn btn-primary" id="forgottenPassword">
+<!--Nie pamiętam hasła-->
+{{_ 'loginForm.lfoNiePamH'}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {{> GlobalNotifications}}
+</template>

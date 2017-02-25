@@ -1,0 +1,54 @@
+
+<template name="addRealizationReportModal">
+    <div id="addRRModal" class="modal fade" data-keyboard="false" data-backdrop="static" tabindex="-1" data-width="760" style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{> addRealizationReportModalInner}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="addRealizationReportModalInner">
+    <div class="modal-header">
+        <h4>
+            <!--Nowy Raport Realizacyjny-->
+            {{_ "addRealizationReportModalInner.addNowyRRe"}}
+        </h4>
+    </div>
+    <div class="modal-body">
+        <br/>
+        <form class="form-horizontal" id="addRRForm">
+            <div class="form-group" id="title">
+                <label class="control-label col-md-2" for="raportTitile">
+                    <!--Tytuł:-->
+                    {{_ "addRealizationReportModalInner.addRealTyt"}}
+                </label>
+                <div class="col-md-10">
+                    <!--Tytuł:-->
+                    <textarea class="form-control" rows="2" placeholder="{{_ 'addRealizationReportModalInner.addRealTyt'}}" id="raportTitile"
+                        name="raportTitle" required></textarea>
+                </div>
+            </div>
+            <div class="form-group" id="description">
+                <label class="control-label col-md-2" for="raportDescription">
+                    <!--Opis-->
+                    {{_ "addRealizationReportModalInner.addReaOpis"}}
+                </label>
+                <div class="col-md-10">
+                    <!--Opis-->
+                    <textarea class="form-control" rows="6" placeholder="{{_ 'addRealizationReportModalInner.addReaOpis'}}" id="raportDescription"
+                        name="raportDescription" required></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-9">
+                    <!--Dodaj-->
+                    <input type="submit" class="btn btn-success" id="addRR" value="{{_ 'glob.globaDodaj'}}">
+                    <!--Anuluj-->
+                    <input type="button" class="btn btn-default" id="anuluj" value="{{_ 'glob.globAnuluj'}}" data-dismiss="modal" >
+                </div>
+            </div>
+        </form>
+    </div>
+</template>

@@ -1,0 +1,48 @@
+<template name="notificationList">
+<!--{{#if currentUser}}-->
+<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "dym.dymINpowia"}}</b>  
+	<a data-toggle="modal" href="#powia"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="powia" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "dym.dymINpowia"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "dym.dymTXpowiA"}}</p>
+								<p>{{_ "dym.dymTXpowiB"}}</p>
+								<p>{{_ "dym.dymTXpowiC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <div class="main">
+        <div class="row">
+            <div class="col-md-12">
+                {{> reactiveTable
+                class = "table table-bordered table-hover"
+                fields = settings.fields
+                settings = settings
+                collection = "PowiadomieniaList"
+                }}
+            </div>
+        </div>
+    </div>
+        <!--{{/if}}-->
+</template>
+
+
+<template name="tematLink">
+    <a href="{{ pathFor 'notificationInfo'}}">{{notificationTitle}}</a>
+</template>
+
+
+<template name="dataWpr">
+    {{date}}
+</template>

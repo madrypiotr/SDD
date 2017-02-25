@@ -1,0 +1,270 @@
+<template name="addKwestiaForm">
+<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "addKwestiaForm.pinfoDodKw"}}</b>  
+	<a data-toggle="modal" href="#dodkw"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="dodkw" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "addKwestiaForm.pinfoDodKw"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "addKwestiaForm.pinfoDodKA"}}</p>
+								<p><strong>{{_ "addKwestiaForm.pinfoDodKB"}}</strong></p>
+								<p>{{_ "addKwestiaForm.pinfoDodKC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+	<div class="main">
+		<div class="row">
+			<div class="col col-md-10">
+				<form class="form-horizontal" id="kwestiaForm">
+					<section class="dymek">
+						<small>
+							<legend>
+								<!--Dodaj Kwestię-->{{_ "addKwestiaForm.addKwDodaj"}}
+							</legend>
+						</small>
+						<ul>
+							<a data-toggle="modal" href="#addKwestia">
+								<small class="fontSizeSmall">
+									<!--Sprawdź istniejące...-->{{_ "dym.dymSprawdz"}}
+									<sub class="fa fa-external-link"></sub>
+								</small>
+							</a>
+						</ul>
+						<div class="modal fade" id="addKwestia" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<p class="modal-title">{{_ "dym.dymSpraDod"}}
+										</p>
+									</div>
+									<div class="modal-body">
+										<p>{{_ "dym.dymTXZaDod"}}</p>
+										<p><strong>{{_ "dym.dymTXZaDoA"}}</strong></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<div class="form-group" id="kwestiaNazwaGroup">
+						<label class="control-label col-xs-3" for="inputEmail">
+							<section class="dymek">
+								<!--Nazwa Kwestii-->
+								{{_ "addKwestiaForm.adNazKwest"}}:
+								<ul align="left">
+									<a data-toggle="modal" href="#addNameKw">
+										<small class="fontSizeSmall">
+											<!--Jak nazwać?-->{{_ "dym.dymJakNazw"}}
+											<sub class="fa fa-external-link"></sub>
+										</small>
+									</a>
+								</ul>
+								<div class="modal fade" id="addNameKw" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<p class="modal-title" align="left">{{_ "dym.dymNazyKwe"}}</p>
+											</div>
+											<div class="modal-body" align="left">
+												<small>{{_ "dym.dymTXZnazK"}}</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</label>
+						<div class="col-xs-9">
+							<!--Nazwa Kwestii-->
+							<input class="form-control" name="kwestiaNazwa" maxlength="85" id="kwestiaNazwa" placeholder="{{_ 'addKwestiaForm.adNazKwest'}}" value="{{kwestiaNazwa}}" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<!--Temat-->
+						<label class="control-label col-xs-3" for="sugerowanyTemat">
+							<section class="dymek">
+								{{_ "glob.globaTemat"}}:
+								<ul align="left">
+									<a data-toggle="modal" href="#addTemat" class="fa fa-info-circle">
+									<!--info i zachęta w dymku-->
+									<small class="fontSizeSmall">
+									<sub class="fa fa-external-link"></sub>
+									</small>
+									</a>
+								</ul>
+								<div class="modal fade" id="addTemat" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<p class="modal-title" align="left">
+													{{_ "dym.dymTeCzyDz"}}
+												</p>
+											</div>
+											<div class="modal-body" align="left">
+												<small>
+													{{_ "dym.dymTXKaSpo"}}
+												</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</label>
+						<div class="col-xs-9">
+							<!--Wybierz istniejący-->
+							<input type="button" class="btn btn-primary" id="chooseTopicBtn" value="{{_ 'addKwestiaForm.addWybIstn'}}">
+							<!--Wprowadź nowy-->
+							<input type="button" class="btn btn-default" id="addTopicBtn" value="{{_ 'addKwestiaForm.addWprNowy'}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-3 col-xs-9">
+							<!--Wybierz lub wprowadź Temat-->
+							<input class="form-control" name="sugerowanyTemat" id="sugerowanyTemat" placeholder="{{_ 'addKwestiaForm.addWybWprT'}}" value="{{topic}}" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="sugerowanyRodzaj">
+							<section class="dymek">
+								<!--Rodzaj-->
+								{{_ "glob.globRodzaj"}}:
+								<ul align="left">
+									<a data-toggle="modal" href="#addRodzaj" class="fa fa-info-circle">
+									<!--info i zachęta w dymku-->
+									<small class="fontSizeSmall">
+									<sub class="fa fa-external-link"></sub>
+									</small>
+									</a>
+								</ul>
+								<div class="modal fade" id="addRodzaj" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<p class="modal-title" align="left">
+													{{_ "dym.dymRoCzyUs"}}
+												</p>
+											</div>
+											<div class="modal-body" align="left">
+												<small>
+													{{_ "dym.dymTXSyNiN"}}
+												</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</label>
+						<div class="col-xs-9">
+							<!--Wybierz istniejący-->
+							<input type="button" class="btn btn-primary" id="chooseTypeBtn" value="{{_ 'addKwestiaForm.addWybIstn'}}">
+							<!--Wprowadź nowy-->
+							<input type="button" class="btn btn-default" id="addTypeBtn" value="{{_ 'addKwestiaForm.addWprNowy'}}">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-3 col-xs-9">
+							<!--Wybierz lub wprowadź Rodzaj-->
+							<input class="form-control" name="sugerowanyRodzaj" id="sugerowanyRodzaj" placeholder="{{_ 'addKwestiaForm.adWyLuWpRo'}}" value="{{type}}" required>
+						</div>
+					</div>
+					<div class="form-group" id="krotkaTrescGroup">
+						<label class="control-label col-xs-3" for="tresc">
+							<section class="dymek">
+								<!--Krótka treść Kwestii-->
+								{{_ "addKwestiaForm.addKrTrKwe"}}:
+								<ul align="left">
+									<a data-toggle="modal" href="#addKrTr">
+									<small class="fontSizeSmall">{{_ "dym.dymPodpowi"}}
+									<sub class="fa fa-external-link"></sub>
+									</small>
+									</a>
+								</ul>
+								<div class="modal fade" id="addKrTr" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<p class="modal-title" align="left">
+													{{_ "dym.dymJakKrOp"}}
+												</p>
+											</div>
+											<div class="modal-body" align="left">
+												<small>
+													{{_ "dym.dymTXwJedn"}}
+												</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</label>
+						<div class="col-xs-9">
+							<!--Krótka treść-->
+							<textarea class="form-control" rows="3" name="krotkaTresc" maxlength="410" id="krotkaTresc" placeholder="{{_ 'addKwestiaForm.addKrTresc'}}" required>{{krotkaTresc}}</textarea>
+						</div>
+					</div>
+					<div class="form-group" id="szczegolowaTrescGroup">
+						<label class="control-label col-xs-3" for="inputEmail">
+							<section class="dymek">
+								<!--Opis z uzasadnieniem-->
+								{{_ "addKwestiaForm.adOpUzasad"}}:
+								<ul align="left">
+									<a data-toggle="modal" href="#addUzasadn">
+									<small class="fontSizeSmall">{{_ "dym.dymKilkWsk"}}
+									<sub class="fa fa-external-link"></sub>
+									</small>
+									</a>
+								</ul>
+								<div class="modal fade" id="addUzasadn" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<p class="modal-title" align="left">
+													{{_ "dym.dymJakOpIu"}}
+												</p>
+											</div>
+											<div class="modal-body" align="left">
+												<small>
+													{{_ "dym.dymTXTuJes"}}
+												</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</label>
+						<div class="col-xs-9">
+							<!--Opis z uzasadnieniem-->
+							<textarea class="form-control" rows="6" name="szczegolowaTresc" maxlength="1010" id="szczegolowaTresc" placeholder="{{_ 'addKwestiaForm.adOpUzasad'}}" required>{{szczegolowaTresc}}</textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-3 col-xs-9">
+							<!--Dodaj tę Kwestię-->
+							<input type="submit" class="btn btn-primary" value="{{_ 'addKwestiaForm.adDodTeKwe'}}" id="submitAddKwestia">
+							<!--Anuluj-->
+							<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{{>chooseTopicModal}}
+	{{>chooseTypeModal}}
+	{{>addTypeModal}}
+	{{>addTopicModal}}
+	{{>GlobalNotifications}}
+</template>

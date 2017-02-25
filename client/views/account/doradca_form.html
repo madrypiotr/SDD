@@ -1,0 +1,77 @@
+<template name="doradcaForm">
+    <div class="main">
+        <legend>
+<!--Aplikowanie na doradcę w organizacji-->
+{{_ 'doradcaForm.dorAplDora'}} {{nazwaOrganizacji}}</legend>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="doradcaFormApp">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--e-mail-->
+{{_ 'glob.globaEmail'}}: </label>
+
+                        <div class="col-xs-9">
+<!--e-mail-->
+<input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.globaEmail'}}"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="firstName">
+<!--Imię-->
+{{_ 'glob.globalImie'}}: </label>
+
+                        <div class="col-xs-9">
+<!--Imię-->
+<input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.globalImie'}}"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="lastName">
+<!--Nazwisko-->
+{{_ 'glob.glNazwisko'}}: </label>
+
+                        <div class="col-xs-9">
+<!--Nazwisko-->
+<input name="lastName" type="text" class="form-control" id="lastName"
+                                   placeholder="{{_ 'glob.glNazwisko'}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="city">
+<!--Nazwisko-->
+{{_ 'glob.glNazwisko'}}: </label>
+
+                        <div class="col-xs-9">
+<!--Miasto-->
+<input name="city" type="text" class="form-control" id="city"
+                         placeholder="{{_ 'glob.globMiasto'}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="uwagiStatus">
+<!--Dodatkowe-->
+{{_ 'doradcaForm.dorDodatko'}}: </label>
+
+                        <div class="col-xs-9">
+<!--Napisz parę słów do nas, o sobie i powodach Twojego wniosku...-->
+<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'doradcaForm.dorNaParSl'}}"></textarea>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+<!--Aplikuję do doradztwa-->
+<input type="submit" class="btn btn-primary" value="{{_ 'doradcaForm.dorApNaDor'}}" id="submitButton">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

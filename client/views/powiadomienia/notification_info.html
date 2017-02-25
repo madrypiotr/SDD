@@ -1,0 +1,286 @@
+
+<template name="notificationInfo">
+    <div class="main">
+        <div class="row">
+            <div class="col col-md-12">
+                <table class="table">
+                    {{#if notificationTypeMessage}}
+                        {{>notificationNewMessage
+                            idPowiadomienie=this._id}}
+                    {{/if}}
+                    {{#if notificationTypeNewIssue}}
+                        {{>notificationNewIssue
+                            idPowiadomienie=this._id}}
+                    {{/if}}
+                    {{#if notificationTypeLobbingMessage}}
+                        {{>notificationLobbingMessage
+                        idPowiadomienie=this._id}}
+                    {{/if}}
+                    {{#if notificationTypeApplicationConfirmationAcceptedRejected}}
+                        {{>notificationApplicationAnswer
+                            idPowiadomienie=this._id
+                        }}
+                    {{/if}}
+                    {{#if notificationTypeHonorowyInvitation}}
+                        {{>notificationHonorowyInvitation
+                        idPowiadomienie=this._id}}
+                    {{/if}}
+                    {{#if notificationTypeVoteStarted}}
+                        {{>notificationVoteStarted
+                        idPowiadomienie=this._id}}
+                    {{/if}}
+                    {{#if notificationTypeNoActivity}}
+                        {{>notificationNoActivity
+                        idPowiadomienie=this._id}}
+                    {{/if}}
+                    {{#if notificationTypeLackOfRealizationReport}}
+                        {{>notificationLackOfRealizationReport
+                        idPowiadomienie=this._id}}
+                    {{/if}}
+                 </table>
+                <button id="backToNotificationList" class="btn btn-primary">
+                    <span class="fa fa-arrow-left"></span> 
+<!--Powrót do powiadomień-->
+{{_ 'notificationInfo.noiPowPowi'}}
+                </button>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="notificationNewMessage">
+    {{#with powiadomienie idPowiadomienie}}
+        <tr>
+            <td><b>
+<!--Data wysłania-->
+{{_ 'notificationNewMessage.nnmDataWys'}}:</b></td>
+            <td>{{dataWprowadzenia}}</td>
+        </tr>
+        <tr>
+            <td><b>
+<!--Nadawca-->
+{{_ 'notificationNewMessage.nnmNadawca'}}:</b></td>
+            <td>{{sender}}</td><br/>
+        </tr>
+        <tr>
+            <td><b>
+<!--Tytuł-->
+{{_ 'notificationNewMessage.nnmesTytul'}}:</b></td>
+            <td>{{tytul}}</td><br/>
+        </tr>
+        &nbsp;
+        <tr><b>
+<!--Treść-->
+{{_ 'notificationNewMessage.nnmesTresc'}}:</b></tr>
+        <tr>
+            <td>
+ <!--SDD-->
+{{_ 'notificationNewMessage.nnmessaSDD'}}<br />
+                {{organisationName}}<br />
+
+                {{welcomeGender}} {{userData}}!<br /><br />
+
+                {{tresc}}<br /><br/>
+
+ <!--Pozdrawiam,-->
+{{_ 'notificationNewMessage.nnmPozdraw'}}<br/>
+                {{sender}}
+            </td><br/>
+        </tr>
+    {{/with}}
+</template>
+
+
+<template name="notificationNewIssue">
+    {{#with powiadomienie idPowiadomienie}}
+        {{#with actualKwestia this.idKwestia}}
+            <div>
+<!--SDD-->
+{{_ 'notificationNewIssue.nnissueSDD'}}</div>
+            <div>{{organisationName}}</div>
+            {{welcomeGender}} {{userData}}! <br /><br />
+            
+<!--Do systemu wprowadzono nową Kwestię-->
+{{_ 'notificationNewIssue.nniWprowad'}}: <b>{{kwestiaNazwa}}</b><br />
+            <b>
+<!--Temat-->
+{{_ 'glob.globaTemat'}}:</b> {{temat}}<br/>
+            <b>
+<!--Rodzaj-->
+{{_ 'glob.globRodzaj'}}:</b> {{rodzaj}}<br />
+            
+<!--dotyczącą-->
+{{_ 'notificationNewIssue.nnisdotycz'}}: <b>{{krotkaTresc}}</b> <br /><br />
+
+            
+<!--Zapraszamy do deliberacji tej Kwestii, dyskusji i nadania priorytetu.-->
+{{_ 'notificationNewIssue.nniZaprasz'}} <br />
+            <a href="{{pathFor 'informacjeKwestia'}}">
+<!--Link do Kwestii-->
+{{_ 'notificationNewIssue.nniLinkKwe'}}</a>
+        {{/with}}
+    {{/with}}
+</template>
+
+
+<template name="notificationLackOfRealizationReport">
+    {{#with powiadomienie idPowiadomienie}}
+        {{#with actualKwestia this.idKwestia}}
+            <div>
+<!--SDD-->
+{{_ 'notificationLackOfRealizationReport.nlreporSDD'}}</div>
+            <div>{{organisationName}}</div>
+            {{welcomeGender}} {{userData}}! <br /><br />
+
+            
+<!--Brak w systemie Raportu Realizacyjnego Kwestii-->
+{{_ 'notificationLackOfRealizationReport.nlrBrakRRe'}}: <b>{{kwestiaNazwa}}</b><br />
+            <b>
+<!--Temat-->
+{{_ 'glob.globaTemat'}}:</b> {{temat}},<br/>
+            <b>
+<!--Rodzaj-->
+{{_ 'glob.globRodzaj'}}:</b> {{rodzaj}}<br />
+            
+<!--dotyczącej-->
+{{_ 'notificationLackOfRealizationReport.nlreDotycz'}}: <b>{{krotkaTresc}}</b> <br/><br/>
+        {{/with}}
+            <b>
+<!--Zespół Realizacyjny-->
+{{_ 'notificationLackOfRealizationReport.nlrZesReal'}}:</b><br/>
+            {{#each czlonekZR zespol}}
+                {{fullName}} - <a href="{{url}}">
+<!--Napisz-->
+{{_ 'notificationLackOfRealizationReport.nlreNapisz'}}</a><br/>
+            {{/each}}
+            <br/><br/>
+        {{#with actualKwestia this.idKwestia}}
+            
+<!--Idź do dyskusji realizacyjnej-->
+{{_ 'notificationLackOfRealizationReport.nlrIdzReal'}}: <a href="{{pathFor 'informacjeKwestia'}}">
+<!--Link do Kwestii-->
+{{_ 'notificationLackOfRealizationReport.nlrLinkKwe'}}</a><br/><br/>
+        {{/with}}
+    {{/with}}
+</template>
+
+
+<template name="notificationApplicationAnswer">
+    {{#with powiadomienie idPowiadomienie}}
+            <div>SDD</div>
+            <div>{{organisationName}}</div>
+            {{welcomeGender}} {{userData}}! <br /><br />
+
+            {{#if applicationConfirmation}}
+                {{#with actualKwestia this.idKwestia}}
+                    Dziękujemy za aplikowanie na stanowisko Członka Zwyczajnego w systemie SDD {{organisationName}}.<br />
+                    Aby zobaczyć szczegóły kwestii kliknij <a href="{{pathFor 'informacjeKwestia'}}">tutaj</a>
+                {{/with}}
+            {{else}}
+                {{#with actualKwestia this.idKwestia}}
+                    {{#if applicationRejected}}
+                        {{organisationName}}, do której wstąpiłeś jako {{userTypeData}} nie zaakceptowała Twojego wniosku.<br/>
+                         <br/><br />
+                    {{else}}
+                        Z radością informujemy,że Twoja aplikacja na stanowisko {{userTypeData}} w systemie SDD {{organisationName}} <br />
+                        została rozpatrzona pozytywnie.
+                    {{/if}}
+                {{/with}}
+            {{/if}}
+            <br /><br />
+    {{/with}}
+</template>
+
+
+<template name="notificationHonorowyInvitation">
+    {{#with powiadomienie idPowiadomienie}}
+        <div>SDD</div>
+        <div>{{organisationName}}</div>
+        Szanowny/a {{userData}}! <br /><br />
+
+        Zostałeś zaproszony do aplikowania na stanowisko Członka Honorowego w systemie SDD {{organisationName}}.<br />
+        Aby potwierdzić / odrzucić chęć aplikowania na powyższe stanowisko kliknij
+        {{#with actualUserDraft this.idUserDraft}}
+            <a href={{pathFor 'answer_invitation'}}>tutaj</a>.<br/>
+        {{/with}}
+        <br /><br />
+    {{/with}}
+</template>
+
+
+<template name="notificationLobbingMessage">
+    {{#with powiadomienie idPowiadomienie}}
+        {{#with actualKwestia this.idKwestia}}
+            <div>SDD</div>
+            <div>{{organisationName}}</div>
+            {{welcomeGender}} {{userData}}! <br /><br />
+
+            <div>Zachęcam Cię do wsparcia Kwestii: <b><a href="{{pathFor 'informacjeKwestia'}}">{{kwestiaNazwa}}</a></b></div> <br />
+
+            <b>Temat:</b> {{temat}}<br />
+            <b>Rodzaj:</b> {{rodzaj}} <br /><br />
+
+            <b>Szczegóły:</b> <br />
+            {{krotkaTresc}}<br /><br />
+        {{/with}}
+            <b>Uzasadnienie:</b><br/>
+            {{uzasadnienie}}<br/><br/>
+            Dziękuję!<br/>
+            {{sender}}
+    {{/with}}
+</template>
+
+
+<template name="notificationVoteStarted">
+    {{#with powiadomienie idPowiadomienie}}
+        <div>SDD</div>
+        <div>{{organisationName}}</div>
+        {{welcomeGender}} {{userData}}! <br /><br />
+
+        Informujemy o trwającej procedurze głosowania Kwestii: {{kwestia.kwestiaNazwa}}<br/>
+        <b>Temat:</b> {{temat}},<br/>
+        <b>Rodzaj:</b> {{rodzaj}}<br/>
+        dotyczącej:<b>{{kwestia.krotkaTresc}}</b> <br/><br/>
+
+        <b>Zakończenie głosowania:</b> {{dataGlosowania}}<br/><br/>
+
+        {{#if nadanoPriorytet idOdbiorca}}
+            Dziękujemy za głosowanie!<br/>
+            <b>Nadany priorytet:</b> {{mojPriorytet idOdbiorca}}<br/>
+            Możesz jeszcze zmienić jego wielkość zanim zakończy się głosowanie.<br/><br/>
+            {{#with actualKwestia this.idKwestia}}
+                <b><a href="{{pathFor 'informacjeKwestia'}}">Link do Kwestii</a></b><br/>
+            {{/with}}
+        {{else}}
+            {{#with actualKwestia this.idKwestia}}
+                <b>Nie zagłosowałaś/eś jeszcze w tej Kwestii, zapraszamy: <a href="{{pathFor 'informacjeKwestia'}}">
+                    Link do Kwestii</a>
+                </b><br/>
+            {{/with}}
+        {{/if}}
+
+        <b>Aktualna siła priorytetu:</b> {{kwestia.wartoscPriorytetu}}<br/>
+        <b>Wymagane kworum:</b> {{kworum}} osób / aktualna obecność: {{attendance}}<br/><br/>
+
+        Jest to automatyczna informacja z systemu SDD {{organizacja}}<br/>
+        Nie odpowiadaj na nią.<br/>
+    {{/with}}
+</template>
+
+
+<template name="notificationNoActivity">
+    {{#with powiadomienie idPowiadomienie}}
+        <div>SDD</div>
+        <div>{{organisationName}}</div>
+        {{welcomeGender}} {{userData}}! <br /><br />
+
+
+        {{tresc}}<br/>
+        {{#with actualKwestia this.idKwestia}}
+            <b>{{kwestiaNazwa}}<br/>
+            <a href="{{pathFor 'informacjeKwestia'}}">Link do Kwestii</a></b>
+        {{/with}}
+        <br/>
+    {{/with}}
+</template>

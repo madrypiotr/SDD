@@ -1,0 +1,80 @@
+
+<template name="kwestiaTopButtons">
+    {{#if isArchiwalna status typ}}
+        <div class="col-md-12">
+        <div class="btn-toolbar pull-right" role="toolbar" aria-label="...">
+            <div class="btn-group" role="group" aria-label="...">
+            <button id="backToList" class="btn btn-primary">
+                <span class="fa fa-arrow-left"></span> 
+<!--Powrót-->
+{{_ "glob.globPowrot"}}
+            </button>
+            </div>
+        </div>
+        </div>
+    {{else}}
+        <div class="col-md-12">
+            {{#if isRealizowanaNieaktywny status czyAktywny}}
+                {{#unless isGlobalParams typ}}
+                    {{#with actualIssue idKwestia}}
+                        <a href="{{pathFor 'listRaport'}}" type="button" class="btn pull-left" style="background-color: darkgrey" >
+                            <span class="fa fa-list-alt"></span> 
+<!--Lista RR-->
+{{_ "kwestiaTopButtons.ktBuListRR"}}
+                        </a>
+                    {{/with}}
+                {{/unless}}
+            {{/if}}
+            <div class="btn-toolbar pull-right" role="toolbar" aria-label="...">
+                <div class="btn-group" role="group" aria-label="...">
+
+                    <button id="backToList" class="btn btn-primary">
+                        <span class="fa fa-arrow-left"></span> 
+<!--Powrót-->
+{{_ "glob.globPowrot"}}
+                    </button>
+                    {{#if isRealizowanaNieaktywny status czyAktywny}}
+                        {{#unless isGlobalParams typ}}
+                            {{#if isInZR idZespolRealizacyjny}}
+                                <button id="addRealizationReportClick" name="{{idKwestia}}" class="btn btn-success" {{hasUserRights idKwestia}}>
+                                    <span class="fa fa-check-circle-o"></span>
+<!--Raport Realizacyjny-->
+{{_ "kwestiaTopButtons.ktBuRapRea"}}
+                                </button>
+                            {{/if}}
+                        {{/unless}}
+                    {{/if}}
+                    {{#unless isKwestiaAccessOrChangeParams typ status czyAktywny}}
+                       {{#unless isRealizowanaNieaktywny status czyAktywny}}
+                            <button id="addOptionButton" class="btn btn-primary" {{hasUserRights idKwestia}}>
+                                <span class="fa fa-plus"></span> 
+<!--Dodaj Opcję-->
+{{_ "kwestiaTopButtons.ktBuDodajO"}}
+                            </button>
+                        {{/unless}}
+                    {{/unless}}
+                </div>
+
+                {{> addRealizationReportModal idKwestia=idKwestia}}
+                {{> uzasadnienieArchiwumModal idKwestia=idKwestia}}
+                {{> uzasadnienieKoszModal idKwestia=idKwestia}}
+                <div class="btn-group" role="group" aria-label="...">
+                    {{#unless isKwestiaAccessOrChangeParamsRealizacja typ status czyAktywny}}
+                        <button id="doArchiwum" name="{{idKwestia}}" class="btn btn-warning" {{hasUserRights idKwestia}}>
+                            <span class="fa fa-lock"></span> 
+<!--Do Archiwum-->
+{{_ "kwestiaTopButtons.ktBuDoArch"}}
+                        </button>
+                    {{/unless}}
+                    {{#unless isKwestiaAccessOrChangeParamsRealizacja typ status czyAktywny}}
+                        <button id="doKosza" name="{{idKwestia}}" class="btn btn-danger" {{hasUserRights idKwestia}}>
+                            <span class="fa fa-trash"></span> 
+<!--Do Kosza-->
+{{_ "kwestiaTopButtons.ktBuDoKosz"}}
+                        </button>
+                    {{/unless}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</template>

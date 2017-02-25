@@ -1,0 +1,29 @@
+
+<template name="opcjeList">
+    <div class="col-md-12">
+        {{#if OpcjeList}}
+            <legend>
+<!--Opcje Kwestii-->
+{{_ "opcjeList.opLiOpKwes"}}</legend>
+            {{> reactiveTable
+            class = "table table-bordered table-hover"
+            fields = settings.fields
+            settings = settings
+            collection = OpcjeList
+            }}
+        {{/if}}
+    </div>
+</template>
+
+<template name="statusKwestia">
+    {{status}}
+</template>
+
+
+<template name="opcjeNazwaKwestiLink">
+    {{#if isKwestiaMain actualKwestiaId}}
+        {{this.kwestiaNazwa}}
+    {{else}}
+        <a href="{{ pathFor 'informacjeKwestia'}}" id="kwestiaIdClick" class="kwestiaId">{{this.kwestiaNazwa}}</a>
+    {{/if}}
+</template>

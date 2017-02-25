@@ -1,0 +1,44 @@
+
+<template name="addTematForm">
+    <div class="main">
+        <legend>
+<!--Dodaj Temat-->
+{{_ "addTematForm.aTfDoTemat"}}</legend>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="tematForm">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Nazwa Tematu:-->
+{{_ "addTematForm.aTfNazTema"}}</label>
+
+                        <div class="col-xs-9">
+<!--Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)-->
+<input name="nazwaTemat" type="text" class="form-control" id="inputNazwaTemat" placeholder="{{_ 'addTematForm.aTfNaTeItp'}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Opis:-->
+{{_ "addTematForm.aTformOpis"}}</label>
+
+                        <div class="col-xs-9">
+<!--Opis:-->
+<textarea class="form-control" name="opis" id="opis" placeholder="{{_ 'addTematForm.aTformOpis'}}" required></textarea>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+<!--Zapisz-->
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.globZapisz'}}">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

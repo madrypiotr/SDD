@@ -1,0 +1,40 @@
+
+<template name="addTypeModal">
+    <div id="addTypeModalId" class="modal fade" tabindex="-1" data-width="760"  style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{> addTypeModalInner}}
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="addTypeModalInner">
+    <div class="modal-header">
+        <h4>
+<!--Dodaj typ dla tematu-->
+{{_ "addTypeModalInner.aTmoDodTyp"}}: {{topicName}}</h4>
+    </div>
+    <div class="modal-body" id="modalBody">
+        <div class="row">
+            <div class="col-md-12">
+ <!--Rodzaj-->
+<input class="form-control" name="typeName" maxlength="85" id="typeName"
+				placeholder="{{_ 'glob.globRodzaj'}}" required>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+<!--Dodaj-->
+<input type="button" class="btn btn-success" id="addTypeModalBtn" value="{{_ 'glob.globaDodaj'}}"/>
+<!--Powrót-->
+<input type="button" data-dismiss="modal" class="btn btn-default" value="{{_ 'glob.globPowrot'}}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

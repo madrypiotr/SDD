@@ -1,0 +1,54 @@
+<template name="archiwumList">
+<div class="pinfo-arch">{{_ "glob.glThisPage"}}: <b>{{_ "archiwumList.pinfoArchi"}}</b>  
+	<a data-toggle="modal" href="#archiw"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="archiw" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "archiwumList.pinfoArchi"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "archiwumList.pinfoArchA"}}</p>
+								<p>{{_ "archiwumList.pinfoArchB"}}</p>
+								<p>{{_ "archiwumList.pinfoArchC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <div class="main">
+        <div class="row">
+            <div class="col-md-12">
+                <!--{{#if ArchiwumListCount}}-->
+                    {{> reactiveTable
+                    class = "table table-bordered table-hover"
+                    fields = settings.fields
+                    settings = settings
+                    collection = "ArchiwumList"
+                    }}
+                <!--{{else}}-->
+                    <!--<label>Brak Kwestii</label>-->
+                <!--{{/if}}-->
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="nazwaKwestiiArchiwumLink">
+    <a href="{{ pathFor 'informacjeKwestia'}}">{{this.kwestiaNazwa}}</a>
+</template>
+
+
+<template name="tematKwestiiArchiwum">
+    {{getTemat idTemat}}
+</template>
+
+
+<template name="rodzajKwestiiArchiwum">
+    {{getRodzaj idRodzaj}}
+</template>

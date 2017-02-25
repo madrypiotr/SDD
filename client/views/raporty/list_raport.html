@@ -1,0 +1,57 @@
+<template name="listRaport">
+<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "listRaport.pinfoLiRap"}}</b>  
+	<a data-toggle="modal" href="#lira"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="lira" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "listRaport.pinfoLiRap"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "listRaport.pinfoLiRaA"}}</p>
+								<p>{{_ "listRaport.pinfoLiRaB"}}</p>
+								<p>{{_ "listRaport.pinfoLiRaC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    {{#if currentUser}}
+        <div class="main">
+            <legend>{{kwestiaNazwa}}</legend>
+            <h4>
+<!--Lista raportów-->
+{{_ 'listRaport.lraListRap'}}</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    {{> reactiveTable
+                    class = "table table-bordered table-hover"
+                    fields = settings.fields
+                    settings = settings
+                    collection = RaportListAdmin
+                    }}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</template>
+
+
+<template name="dataUtworzenia">
+    {{dataUtworzenia}}
+</template>
+
+
+<template name="raportDetails">
+    {{#with raport _id}}
+        <a href="{{pathFor 'informacjeRaport'}}">{{this.tytul}}</a>
+    {{/with}}
+</template>
+
+
+

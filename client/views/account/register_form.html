@@ -1,0 +1,154 @@
+
+<template name="registerForm">
+    <div class="main">
+        <legend>
+<!--Utwórz konto-->
+{{_ 'registerForm.rFoUtwKont'}}</legend>
+        {{#if  lessThanFiveUsers}}
+            <div class="row">
+                <div class="col col-md-10">
+                    <form class="form-horizontal" id="userForm">
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="inputEmail">
+<!--e-mail-->
+{{_ 'glob.globaEmail'}}: </label>
+
+                            <div class="col-xs-9">
+<!--e-mail-->
+<input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.globaEmail'}}" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="firstName">
+<!--Imię-->
+{{_ 'glob.globalImie'}}: </label>
+
+                            <div class="col-xs-9">
+<!--Imię-->
+<input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.globalImie'}}" required >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="lastName">
+<!--Nazwisko-->
+{{_ 'glob.glNazwisko'}}: </label>
+
+                            <div class="col-xs-9">
+<!--Nazwisko-->
+<input name="lastName" type="text" class="form-control" id="lastName" placeholder="{{_ 'glob.glNazwisko'}}"  required >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="inputPassword">
+<!--Hasło-->
+{{_ 'registerForm.rFormHaslo'}}: </label>
+
+                            <div class="col-xs-9">
+<!--Hasło-->
+<input name="password" type="password" class="form-control" id="inputPassword"
+                                       placeholder="{{_ 'registerForm.rFormHaslo'}}" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="confirmPassword">
+<!--Potwierdź hasło-->
+{{_ 'registerForm.rFoPotwHas'}}: </label>
+
+                            <div class="col-xs-9">
+<!--Potwierdź hasło-->
+<input name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="{{_ 'registerForm.rFoPotwHas'}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="phoneNumber">
+<!--PESEL-->
+{{_ 'glob.globaPESEL'}}: </label>
+
+                            <div class="col-xs-9">
+<!--PESEL-->
+<input name="pesel" type="text" class="form-control" id="pesel" placeholder="{{_ 'glob.globaPESEL'}}"  required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="postalAddress">
+<!--Adres-->
+{{_ 'glob.globaAdres'}}: </label>
+                            <div class="col-xs-9">
+<!--Adres-->
+<textarea name="address" rows="3" class="form-control" id="postalAddress" placeholder="{{_ 'glob.globaAdres'}}"  required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">
+<!--Kod pocztowy-->
+{{_ 'glob.gloKodPocz'}}: </label>
+                            <div class="col-xs-9">
+<!--Kod pocztowy-->
+<input class="form-control" type="text" name="ZipCode" id="ZipCode" placeholder="{{_ 'glob.gloKodPocz'}}" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">
+<!--Miasto-->
+{{_ 'glob.globMiasto'}}: </label>
+                            <div class="col-xs-9">
+<!--Miasto-->
+<input name="city" type="text" class="form-control" id="city" placeholder="{{_ 'glob.globMiasto'}}"  required >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="uwagiStatus">
+<!--Dodatkowe-->
+{{_ 'registerForm.rFoDodatko'}}: </label>
+
+                            <div class="col-xs-9">
+<!--Uwagi...-->
+<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'registerForm.rFormUwagi'}}"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">
+<!--Język użytkownika-->
+{{_ 'registerForm.rFoJezUzyt'}}: </label>
+
+                            <div class="col-xs-9">
+                                <select name="language" id="language" class="form-control" required>
+                                    <option value="0">
+<!--Wybierz język-->
+{{_ 'registerForm.rFoWybJezy'}}</option>
+                                    {{#each getLanguages}}
+                                        <option value="{{shortName}}">{{languageName}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-3 col-xs-9">
+                                <div class="input-group">
+                                    <input type="checkbox" name="statutConfirmation"  {{isSelected 'kobieta'}} required/>
+                                    <span id="statutConfirmationSpan">
+<!--Potwierdzam znajomość-->
+{{_ 'registerForm.rFoPotZnaj'}} <a id="statutBootbox">
+<!--Regulaminu-->
+{{_ 'registerForm.rFoRegulam'}}</a> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-3 col-xs-9">
+<!--Zapisz-->
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.globZapisz'}}" id="submitRegistration">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {{else}}
+            
+<!--Rejestracja nie możliwa z powodu osiągnięcia limitu osób, które mogą się zarejestrować samodzielnie. Aby aplikować kliknij dołącz.-->
+{{_ 'registerForm.rFoRnieMoz'}}
+        {{/if}}
+    </div>
+</template>

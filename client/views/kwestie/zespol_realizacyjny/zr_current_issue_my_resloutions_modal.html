@@ -1,0 +1,60 @@
+
+<template name="zrModalCurrentIssueMyResolutions">
+    <div id="zrCurrentIssueMyResolutions" class="modal fade" tabindex="-1" data-width="760" style="display:none;">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{> zrModalCurrentIssueMyResolutionsInner}}
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="zrModalCurrentIssueMyResolutionsInner">
+    <div class="modal-header">
+        <h4>
+<!--Rezygnacja z udziału w Zespole Realizacyjnym-->
+{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrRezygRR'}}</h4>
+    </div>
+    <div class="modal-body">
+        <p class="col-md-12 bg-danger padding-15">
+            <b>
+<!--Przemyśl ten krok! Jego skutkiem może być nie zrealizowanie podjętej uchwały!-->
+{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrPrzemys'}}</b>
+        </p>
+        <br/>
+        &nbsp;
+        &nbsp;
+        <h5><b>
+<!--Uchwały, których realizacją się opiekujesz-->
+{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrUchwaly'}}: </b></h5>
+        <div class="row">
+            <div class="col-md-12">
+                {{> reactiveTable
+                class = "table table-bordered table-hover"
+                fields = settings.fields
+                settings = settings
+                collection = IssuesList}}
+            </div>
+        </div>
+        <br/>
+    </div>
+    <div class="modal-footer">
+        &nbsp;
+        <p class="col-md-12 bg-danger padding-15" style="text-align: center">
+            <b>
+<!--Mimo wszystko opuszczasz Zespół Realizacyjny?-->
+{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrMimoWsz'}}</b>
+        </p>
+        &nbsp;
+        <div class="row">
+            <div class="col-md-12 centered">
+ <!--Tak-->
+<input type="submit" class="btn btn-success" id="agreeButton" value="{{_ 'zrModalCurrentIssueMyResolutionsInner.zmreTakTak'}}"/>
+ <!--Anuluj-->
+<input type="reset" data-dismiss="modal" class="btn btn-danger" id="anulujButton" value="{{_ 'glob.globAnuluj'}}"/>
+            </div>
+        </div>
+    </div>
+</template>

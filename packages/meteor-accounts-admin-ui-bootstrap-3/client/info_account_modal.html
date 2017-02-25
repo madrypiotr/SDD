@@ -1,0 +1,46 @@
+
+<template name="infoAccountModal">
+	<div id="infoaccount" class="modal fade" tabindex="-1" data-width="760" style="display:none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{{> infoAccountModalInner}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="infoAccountModalInner">
+	<div class="modal-header">
+<!--Szczegóły profilu-->
+		<h4>{{_ 'infoAccountModalInner.imiSzczPro'}}</h4>
+	</div>
+	{{#with userInScope}}
+	 	<div class="modal-body">
+			<ul class="list-group">
+<!--Nazwa użytkownika-->
+				<li class="list-group-item"><strong>{{_ 'infoAccountModalInner.imiNazUzyt'}}</strong>
+					<span class="pull-right">
+						{{#if profile.name}}
+							{{profile.name}}
+						{{else}}
+							{{email}}
+						{{/if}}
+					</span>
+				</li>
+<!--e-mail-->
+		<li class="list-group-item"><strong>{{_ 'glob.globaEmail'}}</strong><span class="pull-right">{{email}}</span></li>
+<!--ID-->
+		<li class="list-group-item"><strong>{{_ 'infoAccountModalInner.imoinnerID'}}</strong><span class="pull-right">{{_id}}</span></li>
+				{{#each rolePairs}}
+<!--Status-->
+		<li class="list-group-item"><strong>{{_ 'infoAccountModalInner.iminStatus'}}</strong><span class="pull-right">{{value}}</span></li>
+				{{/each}}
+			</ul>
+	 	</div>
+	 	<div class="modal-footer">
+<!--OK-->
+		<button type="button" data-dismiss="modal" class="btn btn-primary">{{_ 'infoAccountModalInner.imoinnerOK'}}</button>
+		</div>
+	{{/with}}
+</template>

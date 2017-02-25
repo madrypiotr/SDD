@@ -1,0 +1,368 @@
+<template name="header">
+	{{>language}}
+<nav class="navbar navbar-default" role="navigation">
+
+    <!-- Grupowanie "marki" i przycisku rozwijania mobilnego menu -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+	
+    <!-- Grupowanie elementów menu w celu lepszego wyświetlania na urządzeniach moblinych -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+<!--    MENU GŁÓWNE     --> 	
+
+		<div id="mainmenu">
+			{{#if isAdmin}}
+			<ul class="nav navbar-nav">
+				<li class="{{activeRouteClass 'listLanguages'}}">
+					<a href="{{pathFor 'listLanguages'}}">
+						<i class="fa fa-language"></i> 
+						<!--Języki-->
+						{{_ 'header.headJezyki'}}
+					</a>
+				</li>
+			</ul>
+			{{/if}}
+			{{#unless isAdmin}}
+			<ul class="nav navbar-nav">
+				<li class="{{activeRouteClass 'listKwestia'}}">
+					<a href="{{pathFor 'listKwestia'}}">
+						<section class="dymek">
+							<i class="fa fa-file-o">&nbsp;&nbsp;&nbsp;</i> 
+							<ul align="left">
+					<a data-toggle="modal" href="#menuKwestia" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="menuKwestia" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+
+					{{_ 'dym.dymINkwest'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXKwesA'}}</p>
+					<p>{{_ 'dym.dymTXKwesB'}}</p>
+					<p>{{_ 'dym.dymTXKwesC'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+							<!--Kwestie-->
+							{{_ 'header.heaKwestie'}}
+					</a>
+				</li>
+				{{#if currentUser}}
+				<li class="{{activeRouteClass 'glosowanie'}}">
+					<a href="{{pathFor 'glosowanie'}}">
+						<section class="dymek">
+							<i class="fa fa-file-text-o">&nbsp;&nbsp;&nbsp;</i> 
+							<ul align="left">
+					<a data-toggle="modal" href="#menuGlosowanie" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="menuGlosowanie" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'dym.dymINgloso'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXglosA'}}</p>
+					<p><strong>{{_ 'dym.dymTXglosB'}}</strong></p>
+					<p>{{_ 'dym.dymTXglosC'}}</p>
+					<p>{{_ 'dym.dymTXglosD'}}</p>
+					<p>{{_ 'dym.dymTXglosE'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+							<!--Głosowanie-->
+							{{_ 'header.heaGlosowa'}}
+					</a>
+				</li>
+				{{/if}}
+				<li class="{{activeRouteClass 'realizacja'}}">
+					<a href="{{pathFor 'realizacja'}}">
+						<section class="dymek">
+							<i class="fa fa-file-text">&nbsp;&nbsp;&nbsp;</i> 
+							<ul align="left">
+					<a data-toggle="modal" href="#menuRealizacja" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="menuRealizacja" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'dym.dymINreali'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXrealA'}}</p>
+					<p>{{_ 'dym.dymTXrealB'}}</p>
+					<p>{{_ 'dym.dymTXrealC'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+							<!--Realizacja-->
+							{{_ 'header.heaRealiza'}}
+					</a>
+				</li>
+				<li class="{{activeRouteClass 'archiwum'}}">
+					<a href="{{pathFor 'archiwum'}}">
+						<section class="dymek">
+							<span class="fa fa-file-archive-o">&nbsp;&nbsp;&nbsp;</span> 
+							<ul align="left">
+					<a data-toggle="modal" href="#menuArchiwum" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="menuArchiwum" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'dym.dymINarchi'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXarchA'}}</p>
+					<p>{{_ 'dym.dymTXarchB'}}</p>
+					<p>{{_ 'dym.dymTXarchC'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+							<!--Archiwum-->
+							{{_ 'header.heaArchiwu'}}
+					</a>
+				</li>
+				{{#if currentUser}}
+				<li class="{{activeRouteClass 'administracjaUserMain'}}">
+					<a href="{{pathFor 'administracjaUserMain'}}">
+						<section class="dymek">
+							<i class="fa fa-gears">&nbsp;&nbsp;</i> 
+							<ul align="left">
+					<a data-toggle="modal" href="#menuUstawienia" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="menuUstawienia" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'dym.dymINustaw'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXustaA'}}</p>
+					<p>{{_ 'dym.dymTXustaB'}}</p>
+					<p>{{_ 'dym.dymTXustaC'}}</p>
+					<p>{{_ 'dym.dymTXustaD'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+							<!--Ustawienia-->
+							{{_ 'header.heaUstawie'}}
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+			{{/unless}}
+			{{#unless currentUser}}
+			<ul class="nav navbar-nav navbar-right">
+				<li class="{{activeRouteClass 'login_form'}}">
+					<a href="{{pathFor 'login_form'}}">
+						<i class="fa fa-sign-in"></i> 
+						<!--Zaloguj się-->
+						{{_ 'header.heaZaloSie'}}
+					</a>
+				</li>
+				{{#if lessThanFiveUsers}}
+				<li class="{{activeRouteClass 'register_form'}}">
+					<a href="{{pathFor 'register_form'}}">
+						<i class="fa fa-user-plus"></i> 
+						<!--Zarejestruj się-->
+						{{_ 'header.heaZareSie'}}
+					</a>
+				</li>
+				{{else}}
+				<li>
+					<a class="cursor-pointer" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						<i class="fa fa-male"></i> 
+						<!--Dołącz-->
+						{{_ 'header.headDolacz'}}
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						<li>
+							<a href="{{pathFor 'czlonek_zwyczajny_form'}}">
+								<!--jako Członek zwyczajny-->
+								{{_ 'header.heaCzlZwyc'}} 
+							</a>
+						</li>
+						<li>
+							<a href="{{pathFor 'doradca_form'}}">
+								<!--jako Doradca-->
+								{{_ 'header.heaDoradca'}}
+							</a>
+						</li>
+						<li>
+							<a href="#" id="newRootClick">
+								<!--Nowy węzeł sieci-->
+								{{_ 'header.heaNoWezSi'}}
+							</a>
+						</li>
+					</ul>
+				</li>
+				{{/if}}
+			</ul>
+			{{/unless}}
+			<ul class="nav navbar-nav navbar-right">
+				{{#if currentUser}}
+				<li class="{{activeRouteClass 'notification_list'}} ">
+					<a href="{{pathFor 'notification_list'}}">
+						<section class="dymek">
+							<i class="fa fa-bullhorn">&nbsp;&nbsp;&nbsp;</i> 
+							<ul align="left">
+					<a data-toggle="modal" href="#menuPow" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="menuPow" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'dym.dymINpowia'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXpowiA'}}</p>
+					<p>{{_ 'dym.dymTXpowiB'}}</p>
+					<p>{{_ 'dym.dymTXpowiC'}}</p>
+					<p>{{_ 'dym.dymTXpowiD'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+							<!--Powiadomienia-->
+							{{#if anyNotRead}}
+							<span class="badge notification-counter" style="background-color:red" id="notification-counter">{{issuesNotReadCount}}</span>
+							{{/if}}
+					</a>
+				</li>
+				{{> loginButtons}}
+				{{/if}}
+			</ul>
+        </div>
+		
+<!--   KONIEC MENU GŁÓWNEGO     --> 	
+
+
+    </div><!-- /.navbar-collapse -->
+
+</nav>
+</template>
+
+<template name="language">
+	<div class="row">
+		<div class="col-md-12">
+		
+<div class="podnies-firme">		
+		
+			<div class="pull-left">
+				<span class="navbar-brand clickable" id="organizationName">
+					<i class="info-circle fa fa-server"></i>
+					<!--SDD-->
+					{{_ "language.lanSystSDD"}}
+					<a data-toggle="modal" href="#infoSyst">
+					<small class="fontSize"><sup class="info-circle fa fa-question-circle"></sup></small>							
+					</a>
+					<div class="modal fade" id="infoSyst" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<p class="modal-title">{{_ "dym.dymSystemD"}}
+									</p>
+								</div>
+								<div class="fontSize">
+									<div class="modal-body">
+										<p>{{_ "dym.dymTXsystA"}}</p>
+										<p>{{_ "dym.dymTXsystB"}}</p>
+										<p>{{_ "dym.dymTXsystC"}}</p>
+										<p>{{_ "dym.dymTXsystD"}}</p>
+										<center>
+											<!--moreAboutSDD (event jeszze nie opracowany)-->
+											<a href="http://www.syncodec.org" target="_blank"> <input type="button" class="btn btn-default btn-xs" id="moreAboutSDD" value="{{_ 'dym.dymTXsystE'}}">
+											</a>
+										</center>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					- <strong>{{nazwaOrg}}</strong>
+				</span>
+			</div>
+			
+</div>			
+			
+			
+			<div class="pull-right">
+				<div class="btn-group">
+					<button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false">
+					{{getUserLang}} <span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right">
+						{{#each langs}}
+						<li><a class="lang">{{shortName}}</a></li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

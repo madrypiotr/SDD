@@ -1,0 +1,44 @@
+<!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI - DODANIE -->
+<template name="addLanguage">
+    <div class="main">
+        <legend>
+<!--Dodaj język-->
+{{_ "addLanguage.alDodJezyk"}}</legend>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="languageForm">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="languageName">
+<!--Nazwa języka: -->
+{{_ "addLanguage.alNazwJezy"}}</label>
+
+                        <div class="col-xs-9">
+<!--Nazwa (np. polski, angielski itp.)-->
+<input name="languageName" type="text" class="form-control" id="languageName" placeholder="{{_ 'addLanguage.alPoAngItp'}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="languageShortName">
+<!--Skrót: -->
+{{_ "addLanguage.alangSkrot"}}</label>
+
+                        <div class="col-xs-9">
+<!--Skrót (np. pl, en, itp...)-->
+<input name="languageShortName" type="text" class="form-control" id="languageShortName" placeholder="{{_ 'addLanguage.alSkrPlEnI'}}" required>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+<!--Zapisz-->
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.globZapisz'}}">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

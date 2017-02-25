@@ -1,0 +1,51 @@
+
+<template name="listZespolRealizacyjnyModal">
+    <div id="listZespolRealizacyjny" class="modal fade" tabindex="-1" data-width="760" style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{> listZespolRealizacyjnyModalInner}}
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="listZespolRealizacyjnyModalInner">
+    <div class="modal-header">
+        <h4>
+<!--Zespoły Realizacyjne-->
+{{_ 'listZespolRealizacyjnyModalInner.lizZesReal'}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                {{> reactiveTable
+                class = "table table-bordered table-hover"
+                fields = settings.fields
+                settings = settings
+                collection = ZRList}}
+            </div>
+        </div>
+        <br/>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-12">
+ <!--Powrót-->
+<input type="submit" data-dismiss="modal" class="btn btn-default" id="anulujButton" value="{{_ 'glob.globPowrot'}}"/>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<template name="zespolTemplate">
+    {{zespolR}}
+</template>
+
+
+<template name="zespolOptionsTemplate">
+    <button class="btn btn-success" id="powolajZR">
+<!--Powołaj ZR-->
+{{_ 'zespolOptionsTemplate.zotPowolZR'}}</button>
+</template>

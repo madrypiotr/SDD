@@ -1,0 +1,232 @@
+<template name="administracjaUserMain">
+    {{#if currentUser}}
+        <div class="main">
+            <div>
+               <ul class="nav nav-tabs" role="tablist">
+                   <li role="presentation" class="active"><a href="#twojeKwestie" aria-controls="twojeKwestie" role="tab" data-toggle="tab">
+<!--Moje kwestie-->
+						<section class="dymek">
+							<span class="fa fa-star">&nbsp;&nbsp;&nbsp;</span> 
+							<ul align="left">
+					<a data-toggle="modal" href="#mojeKwestie" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="mojeKwestie" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'administracjaUserMain.aumMojeKwe'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'administracjaUserMain.pinfoMojeA'}}</p>
+					<p>{{_ 'administracjaUserMain.pinfoMojeB'}}</p>
+					<p>{{_ 'administracjaUserMain.pinfoMojeC'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+{{_ 'administracjaUserMain.aumMojeKwe'}}</a></li>
+
+                    <li role="presentation"><a href="#parametry" aria-controls="parametry" role="tab" data-toggle="tab">
+						<section class="dymek">
+							<span class="fa fa-cubes">&nbsp;&nbsp;&nbsp;</span> 
+							<ul align="left">
+					<a data-toggle="modal" href="#ParGlob" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="ParGlob" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'administracjaUserMain.aumParGlob'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXParGA'}}</p>
+					<p>{{_ 'dym.dymTXParGB'}}</p>
+					<p>{{_ 'dym.dymTXParGC'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+<!--Parametry globalne-->
+{{_ 'administracjaUserMain.aumParGlob'}}</a></li>
+
+                     <li role="presentation"><a href="#uzytkownicy" aria-controls="uzytkownicy" role="tab" data-toggle="tab">
+						<section class="dymek">
+							<span class="fa fa-users">&nbsp;&nbsp;&nbsp;</span> 
+							<ul align="left">
+					<a data-toggle="modal" href="#WykUzytk" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="WykUzytk" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'administracjaUserMain.aumWyUzytk'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXWykUz'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+					
+<!--Wykaz Użytkowników-->
+{{_ 'administracjaUserMain.aumWyUzytk'}}</a></li>
+
+                    {{#if isCzlonek}}
+                    <li role="presentation"><a href="#zglosHonorowy" aria-controls="zglosHonorowy" role="tab" data-toggle="tab">
+						<section class="dymek">
+							<span class="fa fa-user-secret">&nbsp;&nbsp;&nbsp;</span> 
+							<ul align="left">
+					<a data-toggle="modal" href="#ZglCzlHon" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="ZglCzlHon" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'administracjaUserMain.aumZgCzHon'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXCzHoA'}}</p>
+					<p>{{_ 'dym.dymTXCzHoB'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+<!--Zgłoszenie członka honorowego-->
+{{_ 'administracjaUserMain.aumZgCzHon'}}</a></li>
+                    {{/if}}
+                    {{#if isDoradca}}
+                        <li role="presentation"><a href="#aplikujNaZwyczajnego" aria-controls="aplikujNaZwyczajnego" role="tab" data-toggle="tab">
+<!--Aplikuj na członka zwyczajnego-->
+{{_ 'administracjaUserMain.aumAplCzZw'}}</a></li>
+                    {{/if}}
+            </ul>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="twojeKwestie">
+
+<div class="pinfo-arch">{{_ "glob.glThisPage"}}: <b>{{_ "administracjaUserMain.pinfoMojeK"}}</b>  
+	<a data-toggle="modal" href="#mojek"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="mojek" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "administracjaUserMain.pinfoMojeK"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "administracjaUserMain.pinfoMojeA"}}</p>
+                                <p>{{_ "administracjaUserMain.pinfoMojeB"}}</p>
+								<p>{{_ "administracjaUserMain.pinfoMojeC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                        {{#if listOfIssuesCount}}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{> reactiveTable
+                                    class = "table table-bordered table-hover"
+                                    fields = settings.fields
+                                    settings = settings
+                                    collection = listOfIssues
+                                    }}
+                                </div>
+                            </div>
+                        {{else}}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>
+<!--Nie utworzyłeś jeszcze żadnej Kwestii.-->
+{{_ 'administracjaUserMain.aumNieUtwo'}}</label>
+                                </div>
+                            </div>
+                        {{/if}}
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="parametry">
+                        <br />
+                        {{> listParametr}}
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="zglosHonorowy">
+                        <br />
+                        {{> addHonorowy}}
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="uzytkownicy">
+                        <br />
+                        {{> profileList}}
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="aplikujNaZwyczajnego">
+                        <br />
+                        {{#if kwestiaDraftExists}}
+                            {{#with myKwestia}}
+                                <div class="col-md-12 bg-warning padding-15" style="text-align: center ">
+                                    <p>
+<!--Przepraszamy!-->
+{{_ 'administracjaUserMain.aumPrzepra'}}</p>
+                                    <p>
+<!--Istnieje już Kwestia Aplikacyjna! Aby ją zobaczyć kliknij-->
+{{_ 'administracjaUserMain.aumIstnKwA'}}Istnieje już Kwestia Aplikacyjna! Aby ją zobaczyć kliknij
+                                        <a href="{{pathFor 'informacjeKwestia'}}">
+<!--tutaj-->
+{{_ 'administracjaUserMain.aumaitutaj'}}</a>
+                                    </p>
+                                </div>
+                            {{/with}}
+                        {{else}}
+                            {{#with myData}}
+                                {{> czlonekZwyczajnyForm}}
+                            {{/with}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    {{>GlobalNotifications}}
+</template>
+
+
+<template name="lobbujZaKwestia">
+    {{#if IAmOwnerKwestiaGlosowanaOrDEliberowana}}
+        <a href="#" id="lobbujZaKwestia">
+<!--Lobbuj za kwestią-->
+{{_ 'lobbujZaKwestia.lobbLobbuj'}}</a>
+    {{/if}}
+</template>
+

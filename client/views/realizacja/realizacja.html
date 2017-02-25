@@ -1,0 +1,79 @@
+<template name="realizacjaTab1">
+        <div class="main">
+<div class="pinfo-realiz">{{_ "glob.glThisPage"}}: <b>{{_ "realizacjaTab1.pinfoReali"}}</b>  
+	<a data-toggle="modal" href="#realiza"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="realiza" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "realizacjaTab1.pinfoReali"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "realizacjaTab1.pinfoRealA"}}</p>
+								<p><strong> &nbsp;&nbsp;&nbsp;&nbsp; {{_ "realizacjaTab1.pinfoRealB"}}</strong></p>
+								<p>{{_ "realizacjaTab1.pinfoRealC"}}</p>
+								<p>{{_ "realizacjaTab1.pinfoRealD"}}</p>
+								<p>{{_ "realizacjaTab1.pinfoRealE"}}</p>
+								<p>{{_ "realizacjaTab1.pinfoRealF"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    {{> reactiveTable
+                    class = "table table-bordered table-hover"
+                    fields = settings.fields
+                    settings = settings
+                    collection = "RealizacjaList"
+                    }}
+
+                </div>
+            </div>
+        </div>
+    {{>GlobalNotifications}}</template>
+
+
+<template name="editColumnRealization">
+<!--Drukuj Uchwałę do pliku PDF-->
+	<a id="printResolution" data-toggle="tooltip" data-placement="top" title="{{_ 'editColumnRealization.retDrukPDF'}}"> <i class="glyphicon glyphicon-print clickable"></i>
+    </a>
+</template>
+
+
+<template name="listKwestiaRealzacjaColumnLabel">
+    <span data-toggle="tooltip" title="{{title}}">{{text}}</span>
+</template>
+
+
+<template name="dataRealizKwestia">
+    {{date}}
+</template>
+
+
+<template name="numerUchwKwestia">
+    {{number}}
+</template>
+
+
+<template name="raport">
+    {{#if hasZR}}
+        {{#if reportCurrentDurationExists raporty}}
+            {{#with currentReport raporty}}
+                <a href="{{pathFor 'informacjeRaport'}}">
+<!--Pokaż-->
+{{_ 'raport.raporPokaz'}}</a>
+            {{/with}}
+        {{else}}
+            <a href="#" id="showReport">
+<!--Pokaż-->
+{{_ 'raport.raporPokaz'}}</a>
+        {{/if}}
+    {{/if}}
+</template>

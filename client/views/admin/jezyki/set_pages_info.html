@@ -1,0 +1,45 @@
+<!-- SDD - Szablon | Panel Panel ADMINISTRACJA - JĘZYKI - USTAWIANIE -->
+<template name="setPagesInfo">
+    <div class="main">
+        <legend>
+<!--Ustaw informacje dla stron w języku: -->
+{{_ "setPagesInfo.sPinUstJez"}} {{shortName}}</legend>
+        <div class="row">
+            <div class="col col-md-12">
+                <form class="form-horizontal" id="infoPagesForm">
+                    <div class="row">
+                        <div class="col-md-12">
+<!--W dół-->
+<button class="btn btn-sm btn-default pull-right" id="infoTop" title="{{_ 'setPagesInfo.sPixfoWDol'}}"><i class="fa fa-chevron-circle-down"></i></button>
+                        </div>
+                    </div>
+                    <br/>
+                    {{#each getAllRoutes}}
+                        <div class="form-group">
+                            <label class="control-label col-xs-2" for="{{routeName}}">{{getLabel routeName}}:</label>
+
+                            <div class="col-xs-10">
+                                <textarea name="{{routeName}}" rows="3" class="form-control" id="{{routeName}}"
+                                          placeholder="">{{getInfoText routeName}}</textarea>
+                            </div>
+                        </div>
+                    {{/each}}
+                    <div class="form-group">
+                        <div class="col-xs-offset-2 col-xs-10">
+<!--Zapisz-->
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.globZapisz'}}">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+<!--W górę-->
+<button class="btn btn-sm btn-default pull-right" id="infoDown" title="{{_ 'setPagesInfo.sPinfwGore'}}"><i class="fa fa-chevron-circle-up"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

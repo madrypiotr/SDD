@@ -1,0 +1,44 @@
+<!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI - EDYCJA -->
+<template name="editLanguage">
+    <div class="main">
+        <legend>
+<!--Edytuj język-->
+{{_ "editLanguage.edlEdJezyk"}}</legend>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="languageEditForm">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="languageName">
+<!--Nazwa języka: -->
+{{_ "editLanguage.edlNazwJez"}}</label>
+
+                        <div class="col-xs-9">
+<!--Nazwa (np. polski, angielski itp.)-->
+<input name="languageName" type="text" class="form-control" id="languageName" placeholder="{{_ 'editLanguage.edlPoAnItp'}}" value="{{languageName}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="languageShortName">
+<!--Skrót: -->
+{{_ "editLanguage.edlanSkrot"}}</label>
+
+                        <div class="col-xs-9">
+<!--Skrót (np. pl, en, itp...)-->
+<input name="languageShortName" type="text" class="form-control" id="languageShortName" placeholder="{{_ 'editLanguage.edlSkrPlEn'}}" value="{{shortName}}" required>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+<!--Zapisz-->
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.globZapisz'}}">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

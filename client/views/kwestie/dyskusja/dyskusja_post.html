@@ -1,0 +1,428 @@
+
+<template name="discussionPostItem">
+    <div class="panel panel-default noborder">
+        {{#if isDoArchiwum}}
+            <div class="panel-heading doArchiwumClass" role="tab" id="heading{{idPost}}"
+                 style="background-color: #ffeeaa">
+                <h4 class="panel-title">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-left">
+                                <div class="col-md-12">
+                                    {{> discussionRating
+                                    idPost=idPost
+                                    wartoscPriorytetu=wartoscPriorytetu
+                                    userFullName=userFullName
+                                    addDate=addDate
+                                    }}
+                                </div>
+                            </div>
+                            <div class="pull-right">
+                                <h6>
+                                <a class="btn btn-xs btn-default pull-right" role="button" data-toggle="collapse"
+                                data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
+                                aria-controls="{{idPost}}">
+                                {{getAnswersCount idPost}} 
+<!--odniesień-->
+{{_ 'discussionPostItem.dPiodniesi'}}&nbsp; <i
+                                class="glyphicon glyphicon-triangle-bottom"></i>
+                                </a>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-wraping">
+                                {{getText wiadomosc idPost}}
+
+                                {{#if textTooLong wiadomosc}}
+                                    <small>
+                                        {{#if isInTab idPost}}
+                                            [ <a id="zwinText" name="{{idPost}}">
+<!--mniej-->
+{{_ 'discussionPostItem.dPitemniej'}}</a> ]
+                                        {{else}}
+                                            [ <a id="rozwinText" name="{{idPost}}">
+<!--więcej-->
+{{_ 'discussionPostItem.dPitwiecej'}}</a> ]
+                                        {{/if}}
+                                    </small>
+                                {{/if}}
+                            </p>
+                            <h5>
+<!--Uzasadnienie-->
+{{_ 'discussionPostItem.dPiUzasadn'}}: <small>{{uzasadnienie}}</small></h5>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </h4>
+            </div>
+            <div id="{{idPost}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{idPost}}">
+                <div class="panel-body">
+                    {{#each getAnswers idPost}}
+                        {{> discussionAnswerItem
+                        wiadomosc = wiadomosc
+                        userFullName = userFullName
+                        wartoscPriorytetu = wartoscPriorytetu
+                        idPost = _id
+                        }}
+                    {{/each}}
+                    {{> discussionAnswerForm
+                        idKwestia=idKwestia
+                        idPost=idPost
+                    }}
+                </div>
+            </div>
+        {{else}}
+            {{#if isDoKosza}}
+                <div class="panel-heading doKoszaClass" role="tab" id="heading{{idPost}}"
+                     style="background-color: #ffcccc">
+                    <h4 class="panel-title">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    {{> discussionRating
+                                    idPost=idPost
+                                    wartoscPriorytetu=wartoscPriorytetu
+                                    userFullName=userFullName
+                                    addDate=addDate
+                                    }}
+                                </div>
+                                <div class="pull-right">
+                                    <h6>
+                                        <a class="btn btn-xs btn-default pull-right" role="button"
+                                           data-toggle="collapse"
+                                           data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
+                                           aria-controls="{{idPost}}">
+                                            {{getAnswersCount idPost}} 
+<!--odniesień-->
+{{_ 'discussionPostItem.dPiodniesi'}}&nbsp; <i
+                                                class="glyphicon glyphicon-triangle-bottom"></i>
+                                        </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text-wraping">
+                                    {{getText wiadomosc idPost}}
+                                    {{#if textTooLong wiadomosc}}
+                                        <small>
+                                            {{#if isInTab idPost}}
+                                                [ <a id="zwinText" name="{{idPost}}">
+<!--mniej-->
+{{_ 'discussionPostItem.dPitemniej'}}</a> ]
+                                            {{else}}
+                                                [ <a id="rozwinText" name="{{idPost}}">
+<!--więcej-->
+{{_ 'discussionPostItem.dPitwiecej'}}</a> ]
+                                            {{/if}}
+                                        </small>
+                                    {{/if}}
+                                </p>
+                                <h5>
+<!--Uzasadnienie-->
+{{_ 'discussionPostItem.dPiUzasadn'}}: <small>{{uzasadnienie}}</small></h5>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </h4>
+                </div>
+                <div id="{{idPost}}" class="panel-collapse collapse in" role="tabpanel"
+                     aria-labelledby="heading{{idPost}}">
+                    <div class="panel-body">
+                        {{#each getAnswers idPost}}
+                            {{> discussionAnswerItem
+                            wiadomosc = wiadomosc
+                            userFullName = userFullName
+                            wartoscPriorytetu = wartoscPriorytetu
+                            idPost = _id
+                            }}
+                        {{/each}}
+                        {{> discussionAnswerForm
+                        idKwestia=idKwestia
+                        idPost=idPost
+                        }}
+                    </div>
+                </div>
+            {{else}}
+                {{#if isDoWK}}
+                    <div class="panel-heading doWKClass" role="tab" id="heading{{idPost}}"
+                         style="background-color: #C3EEA5">
+                        <h4 class="panel-title">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pull-left">
+                                        {{> discussionRating
+                                        idPost=idPost
+                                        wartoscPriorytetu=wartoscPriorytetu
+                                        userFullName=userFullName
+                                        addDate=addDate}}
+                                    </div>
+                                    <div class="pull-right">
+                                        <h6>
+                                            <a class="btn btn-xs btn-default pull-right" role="button" data-toggle="collapse"
+                                               data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
+                                               aria-controls="{{idPost}}">
+                                                {{getAnswersCount idPost}} 
+<!--odniesień-->
+{{_ 'discussionPostItem.dPiodniesi'}}&nbsp; <i
+                                                    class="glyphicon glyphicon-triangle-bottom"></i>
+                                            </a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-wraping">
+                                        {{getText wiadomosc idPost}}
+                                        {{#if textTooLong wiadomosc}}
+                                            <small>
+                                                {{#if isInTab idPost}}
+                                                    [ <a id="zwinText" name="{{idPost}}">
+<!--mniej-->
+{{_ 'discussionPostItem.dPitemniej'}}</a> ]
+                                                {{else}}
+                                                    [ <a id="rozwinText" name="{{idPost}}">
+<!--więcej-->
+{{_ 'discussionPostItem.dPitwiecej'}}</a> ]
+                                                {{/if}}
+                                            </small>
+                                        {{/if}}
+                                    </p>
+                                    <h5>
+<!--Uzasadnienie-->
+{{_ 'discussionPostItem.dPiUzasadn'}}: <small>{{uzasadnienie}}</small></h5>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </h4>
+                    </div>
+                    <div id="{{idPost}}" class="panel-collapse collapse in" role="tabpanel"
+                         aria-labelledby="heading{{idPost}}">
+                        <div class="panel-body">
+                            {{#each getAnswers idPost}}
+                                {{> discussionAnswerItem
+                                wiadomosc = wiadomosc
+                                userFullName = userFullName
+                                wartoscPriorytetu = wartoscPriorytetu
+                                idPost = _id
+                                }}
+                            {{/each}}
+                            {{> discussionAnswerForm
+                            idKwestia=idKwestia
+                            idPost=idPost
+                            }}
+                        </div>
+                    </div>
+                {{else}}
+                    {{#if isRaportRealizacyjny}}
+                    <div class="panel-heading doRealizationRaportClass{{this.idRaport}}" role="tab" id="heading{{idPost}}"
+                    style="background-color: lightgreen">
+                    <h4 class="panel-title">
+                    <div class="row">
+                    <div class="col-md-12">
+                    <div class="pull-left">
+                    <div class="col-md-12">
+                    {{> discussionRating
+                    idPost=idPost
+                    wartoscPriorytetu=wartoscPriorytetu
+                    userFullName=userFullName
+                    addDate=addDate
+                    }}
+                </div>
+                    </div>
+                    <div class="pull-right">
+                        <h6>
+                            <a class="btn btn-xs btn-default pull-right" role="button" data-toggle="collapse"
+                               data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
+                               aria-controls="{{idPost}}">
+                                {{getAnswersCount idPost}} 
+<!--odniesień-->
+{{_ 'discussionPostItem.dPiodniesi'}}&nbsp; <i
+                                    class="glyphicon glyphicon-triangle-bottom"></i>
+                            </a>
+                        </h6>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>
+<!--Raport Realizacyjny-->
+{{_ 'discussionPostItem.dPiRapReal'}}</h4>
+                            <br/>
+                            <p class="text-wraping">
+                                Temat:{{getText wiadomosc idPost}}
+                                {{#if textTooLong wiadomosc}}
+                                    <small>
+                                        {{#if isInTab idPost}}
+                                            [ <a id="zwinText" name="{{idPost}}">
+<!--mniej-->
+{{_ 'discussionPostItem.dPitemniej'}}</a> ]
+                                        {{else}}
+                                            [ <a id="rozwinText" name="{{idPost}}">
+<!--więcej-->
+{{_ 'discussionPostItem.dPitwiecej'}}</a> ]
+                                        {{/if}}
+                                    </small>
+                                {{/if}}
+                            </p>
+                            <h5><b>
+<!--Opis-->
+{{_ 'discussionPostItem.dPitemOpis'}}:</b></h5> <small>{{uzasadnienie}}</small>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    </h4>
+                    </div>
+                    <div id="{{idPost}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{idPost}}">
+                        <div class="panel-body">
+                            {{#each getAnswers idPost}}
+                                {{> discussionAnswerItem
+                                wiadomosc = wiadomosc
+                                userFullName = userFullName
+                                wartoscPriorytetu = wartoscPriorytetu
+                                idPost = _id
+                                }}
+                            {{/each}}
+                            {{> discussionAnswerForm
+                            idKwestia=idKwestia
+                            idPost=idPost
+                            }}
+                        </div>
+                    </div>
+                {{else}}
+                    <div class="panel-heading" role="tab" id="heading{{idPost}}">
+                        <h4 class="panel-title">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pull-left">
+                                        {{> discussionRating
+                                        idPost=idPost
+                                        wartoscPriorytetu=wartoscPriorytetu
+                                        userFullName=userFullName
+                                        addDate=addDate}}
+                                    </div>
+                                    <div class="pull-right">
+                                        <h6>
+                                            <a class="btn btn-xs btn-default collapsed pull-right" role="button"
+                                               data-toggle="collapse"
+                                               data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="false"
+                                               aria-controls="{{idPost}}">
+                                                {{getAnswersCount idPost}} 
+<!--odniesień-->
+{{_ 'discussionPostItem.dPiodniesi'}}&nbsp; <i
+                                                    class="glyphicon glyphicon-triangle-bottom"></i>
+                                            </a>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-wraping">
+                                        {{getText wiadomosc idPost}}
+                                        {{#if textTooLong wiadomosc}}
+                                            <small>
+                                                {{#if isInTab idPost}}
+                                                    [ <a id="zwinText" name="{{idPost}}">
+<!--mniej-->
+{{_ 'discussionPostItem.dPitemniej'}}</a> ]
+                                                {{else}}
+                                                    [ <a id="rozwinText" name="{{idPost}}">
+<!--więcej-->
+{{_ 'discussionPostItem.dPitwiecej'}}</a> ]
+                                                {{/if}}
+                                            </small>
+                                        {{/if}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </h4>
+                    </div>
+                    <div id="{{idPost}}" class="panel-collapse collapse" role="tabpanel"
+                         aria-labelledby="heading{{idPost}}">
+                        <div class="panel-body">
+                            {{#each getAnswers idPost}}
+                                {{> discussionAnswerItem
+                                wiadomosc = wiadomosc
+                                userFullName = userFullName
+                                wartoscPriorytetu = wartoscPriorytetu
+                                idPost = _id
+                                }}
+                            {{/each}}
+                            {{> discussionAnswerForm
+                                idKwestia=idKwestia
+                                idPost=idPost
+                            }}
+                        </div>
+                    </div>
+                {{/if}}
+            {{/if}}
+            {{/if}}
+        {{/if}}
+    </div>
+</template>
+
+
+<template name="discussionAnswerForm">
+    <form id="dyskusjaAnswerForm" class="form-horizontal">
+        <div class="form-group">
+            {{#if hasUserRights}}
+                <div class="col-xs-7">
+<!--odniesienie do komentarza ...-->
+<textarea id="answer_message" name="answer_message{{idPost}}" type="text" class="form-control" placeholder="{{_ 'discussionAnswerForm.dAfodnKome'}}" required></textarea>
+                </div>
+            <input id="idKwestiaAnswer" name="idKwestiaAnswer" type="hidden" value="{{idKwestia}}">
+            <input id="idPost" name="idPost" type="hidden" value="{{idPost}}">
+<!--Dodaj odniesieni-->
+<input type="submit" for="dyskusjaAnswerForm" class="btn btn-sm btn-default" value="{{_ 'discussionAnswerForm.dAfDodOdni'}}"> <br> <small>
+<!--Uwaga: odniesienia nie można usuwać ani zmieniać-->
+{{_ 'discussionAnswerForm.dAfNieZmie'}}</small>
+            {{/if}}
+        </div>
+    </form>
+    {{> GlobalNotifications}}
+</template>
+
+
+<template name="discussionAnswerItem">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pull-left">
+                {{> discussionRating
+                idPost = idPost
+                wartoscPriorytetu=wartoscPriorytetu
+                userFullName=userFullName
+                addDate=addDate}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-wraping">
+                {{getAnswerText wiadomosc idPost}}
+                {{#if textAnswerTooLong wiadomosc}}
+                    <small>
+                        {{#if isAnswerInTab idPost}}
+                            [ <a id="zwinTextAnswer" name="{{idPost}}">
+<!--mniej-->
+{{_ 'discussionAnswerItem.dAitemniej'}}</a> ]
+                        {{else}}
+                            [ <a id="rozwinTextAnswer" name="{{idPost}}">
+<!--więcej-->
+{{_ 'discussionAnswerItem.dAitwiecej'}}</a> ]
+                        {{/if}}
+                    </small>
+                {{/if}}
+            </p>
+        </div>
+    </div>
+    <hr/>
+</template>

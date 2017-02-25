@@ -1,0 +1,11 @@
+
+<template name="accessDenied">
+  <div class="access-denied jumbotron">
+    <h2>403</h2>
+    <p>
+<!--Nie posiadasz dostępu do tej części strony!-->
+{{_ 'accessDenied.acdBraDost'}} <a href="{{pathFor 'login_form'}}">
+<!--Zaloguj się-->
+{{_ 'accessDenied.acdZaloguj'}}</a>.</p>
+  </div>
+</template>

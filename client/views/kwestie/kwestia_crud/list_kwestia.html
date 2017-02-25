@@ -1,0 +1,184 @@
+<template name="listKwestia">
+<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "dym.dymINkwest"}}</b>  
+	<a data-toggle="modal" href="#wykKwInfo"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="wykKwInfo" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "dym.dymINkwest"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "dym.dymTXKwesA"}}</p>
+								<p>{{_ "dym.dymTXKwesB"}}</p>
+								<p>{{_ "dym.dymTXKwesC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+	<div class="main" >
+		<div class="row">
+			<div class="col-lg-6 ">
+			
+				{{#if currentUser}}
+				{{#if isZwyczajnyLogged}}
+				<div class="btn-group">
+					<section class="dymek">
+						<small>
+							<a id="addKwestiaButton" class="btn btn-primary">
+								<i class="fa fa-plus"></i>
+								<!--Dodaj nową Kwestię-->{{_ 'listKwestia.liDodaNowa'}}
+							</a>
+						</small>
+						<ul align="left">
+							<a data-toggle="modal" href="#addZanimDod">
+									<small>{{_ 'dym.dymZaniDod'}}
+									<sub class="fa fa-external-link"></sub>
+									</small>
+							</a>
+						</ul>
+						<div class="modal fade" id="addZanimDod" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<p class="modal-title" align="left">
+											{{_ 'dym.dymDodKwes'}}
+										</p>
+									</div>
+									<div class="modal-body" align="left">
+										<small>
+										<p>{{_ 'dym.dymTXdoKwA'}}</p>
+										<p>{{_ 'dym.dymTXdoKwB'}}</p>
+										<p><strong>{{_ 'dym.dymTXdoKwC'}}</strong></p>
+										</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+				
+				{{/if}}
+ 		{{/if}}
+		
+					
+	<!--Szukanie Kwestii-->
+			<div class="pull-right col-lg-6 col-md-4 col-sm-6 col-xs-6">
+				<section class="dymek">
+					{{> reactiveTableFilter
+					id="customFilter"
+					label="Szukanie Kwestii"
+					fields=getFilterFields}}
+					<!--Wpisz frazę nazwy-->
+					<ul>
+						<li class="fa fa-info-circle"><small>
+							{{_ 'listKwestia.liWpFraNaz'}}</small>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				{{#if isDataSortEnabled}}
+				{{> reactiveTable
+				class = "table table-bordered table-hover"
+				fields = settings2.fields
+				settings = settings2
+				collection = "KwestiaList"
+				}}
+				{{else}}
+				{{> reactiveTable
+				class = "table table-bordered table-hover"
+				fields = settings.fields
+				settings = settings
+				collection = "KwestiaList"
+				}}
+				{{/if}}
+			</div>
+		</div>
+	</div>
+	{{> GlobalNotifications}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="tematKwestia">
+	{{topicName}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="rodzajKwestia">
+	{{typeName}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="dataGlKwestia">
+	{{date}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="kworumNumber">
+	<b>{{getUsersCount}}</b>
+	<small>{{getKworum}}</small>
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="dataUtwKwestia">
+	{{date}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="id">
+	{{id}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="nazwaKwestiLink">
+	<a href="{{ pathFor 'informacjeKwestia'}}" id="kwestiaIdClick" class="kwestiaId">{{issueName}}</a>
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="nazwaKwestii">
+	{{this.kwestiaNazwa}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="priorytetKwestia">
+	<b>{{priorytet}}</b>
+	{{#if nadanyPriorytet}}
+	<small>{{myGlos}}</small>
+	{{else}}
+	<small style="color:#C9302C">
+	<b>{{myGlos}}</b>
+	</small>
+	{{/if}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="editColumnKwestia">
+	<a title="Edytuj" id="editKwestia" href="{{ pathFor 'editKwestia'}}">
+	<i
+		class="glyphicon glyphicon-pencil clickable">
+	</i>
+	</a>
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="listKwestiaColumnLabel">
+	<span data-toggle="tooltip" title="{{title}}">{{text}}</span>
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="sugerowanyTemat">
+	{{sugerowanyTemat}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="sugerowanyRodzaj">
+	{{sugerowanyRodzaj}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="statusKwestii">
+	{{status}}
+</template>
+<!-- SDD - Szablon | Panel -->
+<template name="noData">
+	<div class="">
+		<!--Brak danych do wyświetlania...-->
+		{{_ "noData.noBrakDany"}}
+	</div>
+</template>

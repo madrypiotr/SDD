@@ -1,0 +1,56 @@
+
+<template name="kwestiaDetails">
+    <div class="clearfix"></div>
+        {{#if isOsobowa typ}}
+<!--Tytuł-->
+{{_ "kwestiaDetails.KwDetTytul"}}
+               {{krotkaTresc}}
+<!--Dane aplikująego-->
+{{_ "kwestiaDetails.KwDetDaApl"}}
+                {{#if isHonorowyType typ}}
+<!--e-mail-->
+{{_ "glob.globaEmail"}}: 
+                        {{szczegolowaTresc.email}}
+                {{/if}}
+                {{#unless isHonorowyType typ}}
+<!--Imię i Nazwisko-->
+{{_ "kwestiaDetails.KwDetimNaz"}}:
+                    {{szczegolowaTresc.fullName}}
+                {{#if protectorZR}}
+<!--e-mail-->
+{{_ "glob.globaEmail"}}: 
+                        {{szczegolowaTresc.email}}
+<!--PESEL-->
+{{_ "glob.globaPESEL"}}:
+                        {{szczegolowaTresc.pesel}}
+<!--Adres-->
+{{_ "glob.globaAdres"}}: 
+                        {{szczegolowaTresc.address}}
+<!--Kod pocztowy-->
+{{_ "glob.gloKodPocz"}}: 
+                        {{szczegolowaTresc.zip}}
+                {{/if}}
+<!--Miasto-->
+{{_ "glob.globMiasto"}}: 
+                        {{szczegolowaTresc.city}}
+                {{/unless}}
+<!--Dodatkowe-->
+{{_ "kwestiaDetails.KwDetDodat"}}
+                {{szczegolowaTresc.uwagi}}
+        {{else}}
+            {{#if isGlobalParamsChange typ}}
+<!--Parametr-->
+{{_ "kwestiaDetails.KwDetParam"}}: 
+                    {{szczegolowaTresc.title}}
+<!--Wartość początkowa-->
+{{_ "kwestiaDetails.KwDetWartP"}}:
+                    {{szczegolowaTresc.oldValue}}
+<!--Proponowana wartość-->
+{{_ "kwestiaDetails.KwDetPrWar"}}: 
+                   {{szczegolowaTresc.newValue}}
+            {{else}}
+<!--Krótka treść Kwestii-->
+Treść Kwestii: <strong>{{krotkaTresc}}. </strong> {{szczegolowaTresc}}
+            {{/if}}
+        {{/if}}
+</template>

@@ -1,0 +1,74 @@
+<!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI - WYKAZ -->
+<template name="listLanguages">
+    {{#if currentUser}}
+        <div class="main">
+            <legend>
+<!--Lista języków-->
+{{_ "listLanguages.llaLisJezy"}}</legend>
+            <div class="row">
+                <div class="col col-md-6">
+                    <div class="input-group">
+                        <a href="{{pathFor 'addLanguage'}}" class="btn btn-primary">
+                            <i class="fa fa-plus"></i> 
+<!--Dodaj-->
+{{_ "glob.globaDodaj"}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{> reactiveTable
+                    class = "table table-bordered table-hover"
+                    fields = settings.fields
+                    settings = settings
+                    collection = languages
+                    }}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</template>
+
+<!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI - OPCJE -->
+<template name="languageOptions">
+    <div class="pull-right">
+        {{#if isLangEnabled _id}}
+            
+<!--Wyłącz-->
+<button class="btn btn-default btn-xs" id="hideLang" data-toggle="tooltip" title="{{_ 'languageOptions.lOpWylaJez'}}"
+                    name="{{_id}}">
+                 <i class="fa fa-toggle-on" name="{{_id}}"></i>
+            </button>
+        {{else}}
+            
+<!--Włącz-->
+<button class="btn btn-default btn-xs" id="launchLang" data-toggle="tooltip" title="{{_ 'languageOptions.lOpWlaczJe'}}"
+                    name="{{_id}}">
+ <!--Włącz-->
+{{_ "languageOptions.lOpWlaczJe"}} <i class="fa fa-toggle-off" name="{{_id}}"></i>
+            </button>
+        {{/if}}
+        
+<!--Edytuj-->
+<a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'languageOptions.EdytujJezy'}}"
+           href="{{ pathFor 'editLanguage' _id}}">
+<!--Edytuj-->
+{{_ "glob.globEdytuj"}} <i class="fa fa-edit"></i></a>
+        
+<!--Info kontekstowe-->
+<a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'languageOptions.lOpInkonte'}}" href="{{pathFor 'setPagesInfo' _id}}">
+<!--Info kontekstowe-->
+{{_ "languageOptions.lOpInkonte"}} <i class="fa fa-pencil"></i></a>
+    </div>
+</template>
+
+<!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI -->
+<template name="nameLanguage">
+    {{languageName}}
+</template>
+
+<!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI -->
+<template name="shortNameLanguage">
+    {{shortName}}
+</template>

@@ -1,0 +1,857 @@
+{
+  "glob":{
+	"glThisPage":"Jesteś na stronie",
+	"glAboutPag":"info",
+	"globStatut":"Statut",
+	"globZapisz":"Zapisz",
+	"globAnuluj":"Anuluj",
+	"globaDodaj":"Dodaj",
+	"globEdytuj":"Edytuj",
+	"gloWybierz":"Wybierz",
+	"globPowrot":"Powrót",
+	"globaTemat":"Temat",
+	"globRodzaj":"Rodzaj",
+	"globaEmail":"e-mail",
+	"globalImie":"Imię",
+	"glNazwisko":"Nazwisko",
+	"globaPESEL":"PESEL",
+	"globaAdres":"Adres",
+	"gloKodPocz":"Kod pocztowy",
+	"globMiasto":"Miasto"
+  },
+  "header":{
+	"headJezyki":"Języki",
+	"heaKwestie":"Kwestie",
+	"heaGlosowa":"Głosow.",
+	"heaRealiza":"Realiz.",
+	"heaArchiwu":"Arch.",
+	"heaUstawie":"Ustaw.",
+	"heaZaloSie":"Logowanie",
+	"heaZareSie":"Zarejestruj",
+	"headDolacz":"Dołącz",
+	"heaCzlZwyc":"jako Członek Zwyczajny",
+	"heaDoradca":"jako Doradca",
+	"heaNoWezSi":"Nowy węzeł sieci"
+  },
+  "dym":{
+	  "dymSystemD":"O Systemie Deliberacyjno Decyzyjnym...",
+			"dymTXsystA":"Witaj w Systemie, który umożliwi Ci wpływ na wszystko, cokolwiek będzie procedowane w społeczności objętej tym Systemem. Zasadą nadrzędną jest równy dostęp uczestników do wnioskowania, uzgadniania i głosowania Kwestii, czyli pomysłów, wniosków, projektów. Jego celem jest umożliwienie ludziom zarządzania swoją aktywnością zgodnie z wolą Ogółu, bez koniecznosci posługiwania się wybieralnymi funkcjami zarządczymi.",
+			"dymTXsystB":"Nie potrzeba tu wybierać jednoosobowego decydenta, ani gremium w rodzaju zarządu. Te funkcje zastępuje niniejszy system informatyczny. Wszelkie decyzje wynikają z woli Ogółu tu zgromadzonych. Jego działanie najlepiej zrozumiesz, widząc go jako Zebranie Ogólne Członków, które trwa nieprzerwanie. To w tzw. realnym życiu nie jest możliwe. Dzięki temu Systemowi stało się wykonalne. Specjalne ciała decyzyjne w postaci zarządów stały się zbędne.",
+			"dymTXsystC":"Konsekwentnie - nie ma w tym Systemie administratora, który mógłby arbitralnie cokolwiek zmieniać, korygować parametry, dopisywać użytkowników, ograniczać im prawa, usuwać... Wiemy ile to rodzi nieporozumień i często słusznych protestów i oskarżeń o despotyzm. Wszelkie parametry indywidualne oraz globalne ustawienia, sposób i tryb działania Systemu ustalane są tylko decyzją Ogółu na starcie Systemu, a także zmieniane w dowolnej chwili.",
+			"dymTXsystD":"Twórcy Systemu życzą wielu sukcesów i zadowolenia z jego używania!",
+			"dymTXsystE":"Obszerniejszy opis Systemu",
+	"dymZaniDod":"O dodawaniu Kwestii",
+	  "dymDodKwes":"Dodawanie Kwestii",
+			"dymTXdoKwA":"Każdy może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez ogół użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
+			"dymTXdoKwB":"Priorytety poszczególnych użytkowników sumują się i najlepsze Kwestie przechodzą do głosowania. Pozytywne głosowanie powoduje, że Kwestia staje się uchwałą obowiązującą wszyskich, zgromadzonych tu, użytkowników.",
+			"dymTXdoKwC":"Prosimy o rozważne dodawanie. Dodanej Kwestii nie można usuwać ani edytować.",
+	  "dymTemCzyl":"Temat, czyli dziedzina funkcjonowania.",
+			"dymTXkazda":"Każda społeczność posiada swój specyficzny zasób tematyki. System więc nie narzuca wszystkim jakiegoś zestawu określeń, które i tak nie byłyby w większości wykorzystane. Budujemy pakiet tematyczny od początku stosownie do potrzeb. Zanim samodzielnie ustalisz jego nazwę, sprawdź, czy istnieje już Temat odpowiedni dla Twojej Kwestii? Przykładowy Temat to: organizacja, finanse, kultura, polityka, ekonomia, zdrowie, rozrywka, przemysł, transport, itp. dziedzina ... Najlepiej ujmij Temat jednym słowem.",
+	  "dymRodzCzy":"Rodzaj, czyli uszczegółowienie w temacie",
+			"dymTXSyNie":"System nie narzuca Ci konkretnych nazw, ale prosimy o dobór określeń adekwatny do treści, abyśmy potem mogli łatwo odnajdywać Kwestie w oczekiwanych dziedzinach. Zanim samodzielnie ustalisz jego nazwę, sprawdź, czy istnieje już Rodzaj odpowiedni dla Tematu Twojej Kwestii? Przykładowy Rodzaj w Temacie organizacja to: zebranie, konferencja, zlot, impreza, wykład ... W temacie finanse: składki, dotacje, terminy, jawność, ... itp... Najlepiej ujmij Rodzaj jednym słowem.",
+	"dymSprawdz":"Sprawdź istniejące...",
+		"dymSpraDod":"Sprawdź istniejące Kwestie",
+			"dymTXZaDod":"Najpierw sprawdź, czy może już taka Kwestia jest dyskutowana? Jeżeli tak - dołącz do deliberacji istniejącej Kwestii. Masz też inne rozwiązanie - możesz dodać tutaj własną wersję lub dodać Kwestię-Opcję (z poziomu szczegółów tej pierwotnej). Kwestia-Opcja będzie przywiązana do tej istniejącej, ale równoprawna w deliberacji.",
+			"dymTXZaDoA":"Prosimy o rozważne nazywanie. Dodanej nazwy Kwestii nie można usuwać ani edytować.",
+	"dymJakNazw":"Jak nazwać?...",
+		"dymNazyKwe":"Nazywanie Kwestii",
+			"dymTXZnazK":"Najlepiej krótko i zwięźle, aby rzut oka wyjaśniał ogólnie Kwestię. Dokładniejsze precyzowanie nastąpi poniżej. Prosimy o rozważne nazywanie. Dodanej nazwy nie można zmienić, a Kwestii nie można usunąć. Zanim dodasz nową Kwestię - sprawdź, czy może już taki Temat jest dyskutowany? Jeżeli tak - dołącz do deliberacji istniejącej Kwestii.",
+		"dymTeCzyDz":"Temat, czyli dziedzina funkcjonowania.",
+			"dymTXKaSpo":"Każda społeczność posiada swój specyficzny zasób tematyki. System więc nie narzuca wszystkim jakiegoś zestawu określeń, które i tak nie byłyby w większości wykorzystane. Budujemy pakiet tematyczny od początku stosownie do potrzeb. Zanim samodzielnie ustalisz jego nazwę, sprawdź, czy istnieje już Temat odpowiedni dla Twojej Kwestii? Przykładowy Temat to: organizacja, finanse, kultura, polityka, ekonomia, zdrowie, rozrywka, przemysł, transport, itp. dziedzina ... Najlepiej ujmij Temat jednym słowem.",
+
+	  "dymZeTworz":"Tworzenie Zespołów Realizacyjnych",
+			"dymTXzTwoA":"Powstanie Zespołu Realizacyjnego, to jeden z trzech warunków (poza wymaganym kworum i wielkością priorytetu), aby Kwestia mogła przejść do realizacji (stać się uchwałą).",
+			"dymTXzTwoB":"Aby stać się Członkiem ZR wystarczy kliknąć w \"Dołączam\". Pojawi się Twoje nazwisko. Możesz też zrezygnować z udziału w ZR klikając ponownie. Zespół jest skompletowany gdy już będzie troje jego Członków.",
+			"dymTXzTwoC":"Udział w Zespole Realizacyjnym jest funkcją społeczną organizacyjno-kontrolną. Członkowie ZR zobowiaząni są do koordynowania realizacji uchwały wygenerowanej przez tę Kwestię i przekazywania do Systemu relacji na temat rozwoju spraw, z nią związanych.",
+			"dymTXzTwoD":"Członek ZR składa Raporty Realizacyjne o postępach w realizacji, lub jakichkolwiek trudnościach w realizacji tej Kwestii. Częstotliwość Raportów Realizacyjnych ustala Ogół Członków w \"Parametrach globalnych\" Systemu.",
+			
+	  "dymZespRea":"Nie dubluj kompetencji Zespołów Realizacyjnych",
+			"dymTXzeReA":"Zanim zdecydujesz o utworzeniu ZR, zorientuj się, czy w tym temacie nie działa już odpowiedni Zespół Realizacyjny.",
+			"dymTXzeReB":"Czyli ...",
+			"dymTXzeReC":"... zanim, jako trzeci członek, klikniesz w \"Dołączam\", a więc - zatwierdzisz 3-osobowy skład ZR - zapoznaj się z wykazem dotychczas powołanych Zespołów, aby ewentualnie jednemu z nich przekazać realizację tej Kwestii.",
+			
+		"dymRoCzyUs":"Rodzaj, czyli uszczegółowienie w temacie",
+			"dymTXSyNiN":"System nie narzuca Ci konkretnych nazw, ale prosimy o dobór określeń adekwatny do treści, abyśmy potem mogli łatwo odnajdywać Kwestie w oczekiwanych dziedzinach. Zanim samodzielnie ustalisz jego nazwę, sprawdź, czy istnieje już Rodzaj odpowiedni dla Tematu Twojej Kwestii? Przykładowy Rodzaj w Temacie organizacja to: zebranie, konferencja, zlot, impreza, wykład ... W temacie finanse: składki, dotacje, terminy, jawność, ... itp... Najlepiej ujmij Rodzaj jednym słowem.",
+	"dymPodpowi":"Podpowiedź...",
+		"dymJakKrOp":"Jak krótko opisać Kwestię?",
+			"dymTXwJedn":"W jednym zdaniu podaj najistotniejszą informację, która określi charakter problemu, propozycji, itp...",
+	  "dymKilkWsk":"Kilka wskazówek...",
+		"dymJakOpIu":"Jak opisać i uzasadnić wnioskowaną Kwestię?",
+		  "dymTXTuJes":"Tutaj jest miejsce na dowolnie obszerną argumentację, która przyda się dyskutujacym i decydujacym o jej losie współużytkownikom Systemu. Opisz istotę propozycji, jak ona miałaby funkcjonować po wejściu do praktyki, jakie korzyści miałaby przynieść? Ten opis zdecyduje o powodzeniu deliberacji, a więc postaraj się tu przekonać nas do Twojego pomysłu.",
+
+		"dymINkwest":"KWESTIE",
+		  "dymTXKwesA":"Kwestię może wnieść każdy użytkownik. Od ogółu będzie zależało, jak Twoja Kwestia będzie przyjęta i czy będzie ona zaczątkiem pożytecznej sprawy dla wszystkich? Kwestia, to problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez ogół użytkowników Systemu. ",
+		  "dymTXKwesB":"Kiedy Twoja Kwestia uzyska odpowiednie wsparcie, przejdzie do głosowania. Pozytywne głosowanie Kwestii kończy się wygenerowaniem uchwały i z tą chwilą zaczyna się realizacja Kwestii (tej uchwały).",
+		  "dymTXKwesC":"Życie Kwestii może być nieskończone lub też zakończone w \"zrealizowanych\", albo w \"koszu\". Trzecią formą życia Kwestii może być postać ciągłego aspirowania do awansu, czyli przebywanie w deliberacji/dyskusji. Brak awansu do głosowania może wynikać z: braku chętnych do składu Zespołu Realizacyjnego, braku wsparcia przez użytkowników (zerowy, lub ujemny priorytet), albo braku kworum.",
+
+		"dymINgloso":"GŁOSOWANIE",
+		  "dymTXglosA":"Trzy najwyżej notowane Kwestie przechodzą do głosowania. Informację o tym fakcie otrzymasz e-mail'em. Nie musisz koniecznie sprawdzać skrzynki pocztowej, te same informacje i o wielu innych wydarzeniach zobaczysz tutaj (zakładka Powiadomienia)",
+		  "dymTXglosB":"Aby Kwestia przeszła do głosowania muszą być spełnione 3 warunki:",
+		  "dymTXglosC":"1. odpowiednie wsparcie Kwestii przez użytkowników (wysoki dodatni priorytet). W danym momencie tylko 3 najwyżej oceniane Kwestie przechodzą do głosowania,",
+		  "dymTXglosD":"2. istnienie wymaganego kworym obecnych w głosowaniu,",
+		  "dymTXglosE":"3. akces troje chętnych do składu Zespołu Realizacyjnego.",
+
+		"dymINreali":"Realizacja",
+		  "dymTXrealA":"Tu zobaczysz Kwestie, które z powodzeniem przeszły proces deliberacji, a później głosowania.",
+		  "dymTXrealB":"W takim wypadku generowana jest uchwała, a tym samym rozpoczyna się jej realizacja pilotowana przez Zespół Realizacyjny.",
+		  "dymTXrealC":"Realizacja Kwestii trwa tak długo, dopóki ogół użytkowników nie uzna ja za zrealizowaną, przesyłając ją do dzału Zrealizowane, do Archiwum. Jeśli będzie ona uznana za nietrafioną, lub w inny sposób nie do realizacji, może być też skierowana do Kosza.",
+
+		"dymINarchi":"Archiwum",
+		  "dymTXarchA":"Archiwum służy składowaniu Kwestii skierowanych tu z różnych powodów, takich jak brak wymaganego poziomu priorytetu przez Kwestię, decyzję uczestników o rezygnacji z dyskusji nad Kwestią i innych.", 
+		  "dymTXarchB":"Dane w archiwum są prezentowane w identycznym formacie jak w wykazie Kwestii. Dopóki nie zawnioskuje się o przywrócenie do deliberacji - Kwestia ta będzie archiwalną.",
+		  "dymTXarchC":"Archiwum pełni funkcję porządkującą. W Systemie nie ma admina. Wszystkie decyzje będą wynikały z deliberacji i nadawania priorytetów.",
+
+		"dymINustaw":"Ustawienia",
+		  "dymTXustaA":"Panel Ustawienia zapewnia użytkownikom zarządzanie funkcjami Systemu, zmianę parametrów oraz informacje o stanie Systemu.",
+		  "dymTXustaB":"Znajdziesz w nim wykaz Twoich Kwestii, tych przez Ciebie wniesionych do Systemu).",
+		  "dymTXustaC":"Możesz tu zaproponować Ogółowi zmiany w funkcjonowaniu Ststemu, poprzez zmianę któregoś z wybranych parametrów.",
+		  "dymTXustaD":"Zobaczysz wykaz użytkowników, z możliwością skontaktowania się z którymś z nich.",
+
+		"dymINpowia":"POWIADOMIENIA",
+		
+		  "dymTXpowiA":"Tutaj znajdziesz informacje o wydarzeniach w Systemie wraz z linkami do miejsc, gdzie one były procedowane. Powiadomienia te zostały również wysłane na Twój adres e-mail.",
+		  "dymTXpowiB":"Czemu to służy? Znika problem dochowania tajności, ponieważ z założenia - WEWNĄTRZ ORGANIZACJI WSZYSTKO JEST JAWNE I NATYCHMIAST DOSTĘPNE! Nie ma potrzeby zwracania się z prosbą do kogokolwiek, jako że wszelkie dokumenty znajdują się systemie gotowe do pobrania.",
+		  "dymTXpowiC":"Dzieki takiemu podejściu, brak jest tendencji dla \"świata zewnetrznego\" do chęci odkrycia tajników procedowania. Również dla Członków Systemu wszystko jest dostępne i UDOKUMENTOWANE! To wlasnie druga (ważniejsza) - dokumentacyjna funkcja (oprócz informacyjnej). Ten rejestr wydarzeń służy Twojej pewności, że nie jest możliwa manipulacja post factum.",
+		  "dymTXpowiD":"Jest to związane z ogólną \"filozofią\" podejścia, która tu zakłada brak procedur tajnych. Dlatego też wszelkie zdarzenia i ich wyniki są natychmiast po ich zaistnieniu dostępne dla Ogółu Członków - użytkowników Systemu.",
+		  
+		"dymPrioDys":"Priorytet w dyskusji, komentarzach i odniesieniach",
+	  "dymTenPrSo":"Ten priorytet sortuje wypowiedzi ...",
+		  "dymTXPrDyA":"W dyskusji (w odróżnieniu od priorytetowania Kwestii, które decyduje o jej randze), priorytet tutaj służy sortowaniu wypowiedzi, aby te, które są mocniej akceptowane lokowały się wyżej w wykazie.",
+		  "dymTXPrDyB":"W ten sposób, wypowiedzi mało istotne, a nawet spam lub trolling będa lokowane nizej, nie zaśmiecając istotnego wątku dyskusji.",
+	  "dymPriMain":"Priorytet Kwestii",
+		  "dymTXPrMaA":"Nadaj priorytet Kwestii zgodnie z tym, na ile uważasz ją za ważną. Jeśli Twoje zdanie podczas deliberacji ulegnie zmianie, w każdym momencie możesz zmieniać wielkość priorytetu.",
+		  "dymTXPrMaB":"Suma priorytetów nadanych przez użytkowników Systemu, to najważniejszy czynnik decydujacy o losie każdej Kwestii.",
+		  "dymTXPrMaC":"Kwestie są domyślnie szeregowane na wykazie od najwyżej wycenionej. Te Kwestie, które są na szczycie, po spełnieniu innych warunków (odpowiednie kworum i skompletowany Zespół Realizacyjny), przechodzą do realizacji.",
+		"dymRealizA":"Kwestie, które zostały pozytywnie zweryfikowane w głosowaniu przechodzą do realizacji. Zostaje to udokumentowane wygenerowaniem przez System uchwały.",
+		"dymRealizB":"Przykładem może być Kwestia osobowa (członkostwo użytkownika), która również znajduje się w realizacji tak długo, dopóki użytkownik jest aktywny w Systemie.",
+		"dymRealizC":"Kwestia w realizacji również podlega priorytetowaniu, co daje orientację uzytkownikom o jej stanie, a w razie obniżenia jej priorytetu realizacyjnego, Kwestia wypada z realizacji do archiwum lub do kosza (zależnie od decyzji ogółu uzytkowników). Nie jest celowe utrzymywanie Kwestii w realizacji, co do której ogół nie ma przekonania, nie jest trafiona, lub po prostu brak możliwosci dla jej realizacji. Ogół również ma prawo się pomylić, natomiast wycowanie błędnej decyzji następuje szybko.",
+		"dymZrealiz":"Kwestie zrealizowane, to np. Kwestie dotyczące ustawień globalnych, Kwestii okolicznościowych, dotyczacych jednorazowych wydarzeń, lub prcedur zakończonych jednoznacznie sfinalizowanych, itp...",
+		"dymTXHibeA":"Hibernowaniu podlegają wyłacznie te Kwestie-Opcje, które przegrały głosowanie i trwają w zamrożeniu, dopóki zwycieska Kwestia-Opcja jest w realizacji.",
+		"dymTXHibeB":"Kiedy Kwestia-Opcja wypadnie z realizacji, Kwestie hibernowane są przywracane do deliberacji.",
+		"dymTXHibeC":"To logiczne, że spośród opcji, tylko jedna może znajdować się w realizacji.",
+		"dymTXKoszA":"Do kosza kierowane są Kwestie zgodnie z wolą ogółu, po zaakceptowaniu wniosku dowolnego użytkownika.",
+		"dymTXKoszB":"(przycisk: Do Kosza).",
+		
+		  "dymTXParGA":"Ponieważ System działa bez administratora organizacyjnego, wszelkie ustawienia startowe są definiowane przez Ogół Członków i są rozpatrywane na tej samej zasadzie, jak każda inna Kwestia. System będzie funkcjonował tak, jak te parametry zostaną ustawione.",
+		"dymTXParGB":"Zmienić można parametry, począwszy od nazwy i kontaktów organizacji, po szczegółowe zachowania w funkcjach czasu. Każdy Członek może podać nową wartość dowolnego parametru, tworząc automatycznie Kwestię techniczną do przyjęcia przez Ogół. Przejście takiej Kwestii do realizacji oznacza automatyczną zmianę parametru na nową wartość.",
+		 "dymTXParGC":"Ustalone już parametry można również później zmieniać. W danym czasie można procedować zmianę jednego parametru. Po jego ustaleniu można zmieniać kolejny.",
+		 
+		"dymTXWykUz":"Znajdziesz tutaj wykaz użytkowników Systemu oraz bedziesz mógł się z nimi kontaktować.",
+		  "dymTXCzHoA":"Każdy użytkownik może zaproponować osobę do współpracy w harakterze Członka Honorowego. Wystarczy uzyskać zgodę tej osoby a następnie podać jej e-mail i uzasadnić.",
+		  "dymTXCzHoB":"Kandydat otrzyma powiadomienie z Systemu a użytkownicy rozpatrzą jego akces.",
+		  "":""
+  },
+  "language":{
+	"lanSystSDD":"SDD"
+  },
+  "addLanguage":{
+	"alDodJezyk":"Dodaj język",
+	"alNazwJezy":"Nazwa języka: ",
+	"alPoAngItp":"Nazwa (np. polski, angielski itp.)",
+	"alangSkrot":"Skrót: ",
+	"alSkrPlEnI":"Skrót (np. pl, en, itp...)"
+  },
+  "editLanguage":{
+	"edlEdJezyk":"Edytuj język",
+	"edlNazwJez":"Nazwa języka: ",
+	"edlPoAnItp":"Nazwa (np. polski, angielski itp.)",
+	"edlanSkrot":"Skrót: ",
+	"edlSkrPlEn":"Skrót (np. pl, en, itp...)"
+  },
+  "listLanguages":{
+	"llaLisJezy":"Lista języków"
+  },
+  "languageOptions":{
+	"lOpWylaJez":"Wyłącz",
+	"lOpWlaczJe":"Włącz",
+	"lOpInkonte":"Info kontekstowe"
+  },
+  "setPagesInfo":{
+	"sPinUstJez":"Ustaw informacje dla stron w języku: ",
+	"sPixfoWDol":"W dół",
+	"sPinfwGore":"W górę"
+  },
+  "addRodzajForm":{
+	"adfDodRodz":"Dodaj Rodzaj",
+	"adfNazRodz":"Nazwa Rodzaju",
+	"adfNazRoIt":"Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)",
+	"adfCzasDys":"Czas dyskusji:",
+	"adfCzDysDn":"Czas dyskusji (dni). Domyślnie 7 dni",
+	"adfCzGloso":"Czas głosowania:",
+	"adfCzGlGod":"Czas głosowania (h). Domyślnie 24 h.",
+	"adfWymagKw":"Wymagane kworum:",
+	"adfKwesZwy":"Kwestia zwykła",
+	"adfKwStatu":"Kwestia statutowa"
+  },
+  "editRodzajForm":{
+	"erfEdyRodz":"Edytuj Rodzaj",
+	"erfNazRodz":"Nazwa Rodzaju:",
+	"erfNaRodIt":"Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)",
+	"erfCzasDys":"Czas dyskusji:",
+	"erfCzDysDn":"Czas dyskusji (dni). Domyślnie 7 dni",
+	"erfCzGloso":"Czas głosowania:",
+	"erfCzGlGod":"Czas głosowania (h). Domyślnie 24 h.",
+	"erfWymKwor":"Wymagane kworum:"
+  },
+  "listRodzaj":{
+	"liRoLiRodz":"Lista rodzajów"
+  },
+  "addTematForm":{
+	"aTfDoTemat":"Dodaj Temat",
+    "aTfNazTema":"Nazwa Tematu:",
+    "aTfNaTeItp":"Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)",
+    "aTformOpis":"Opis:"
+  },
+  "editTematForm":{
+	"etfEdTemaT":"Edytuj Temat",
+    "etfNaTemat":"Nazwa Tematu:",
+    "etfNaTeItp":"Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)",
+    "etfOpTemat":"Opis Tematu:"
+  },
+  "listTemat":{
+	"LiTeKatego":"Kategoryzacja",
+	"LiTeDodTem":"Dodaj Temat",
+	"LiTeLiRoWT":"Liczba rodzajów w temacie",
+	"LiTeWszyRo":"Wszystkie rodzaje"
+  },
+  "optionsColumnTemat":{
+	"oCoDodRodz":"Dodaj Rodzaj",
+	"oCoOdswRod":"Odśwież Rodzaje"
+  },
+  "optionsColumnRodzaj":{
+	"oCrEdyRodz":"Edytuj Rodzaj"
+  },
+  "archiwum":{
+	"arcArchiwu":"Archiwum",
+	"arcHiberno":"Hibernowane",
+	"archiwKosz":"Kosz"
+  },
+  "archiwumList":{
+	"pinfoArchi":"ARCHIWUM",
+	"pinfoArchA":".",
+	"pinfoArchB":".",
+	"pinfoArchC":".",
+	"NiMaKwArch":"Aktualnie nie ma Kwestii w Archiwum"
+  },
+  "informacjeKwestiaArchiwum":{
+	"infoKwArch":"Informacje o Kwestii archiwalnej",
+	"wstrGlosPr":"Wstrzymałeś się od głosu nadając tej Kwestii priorytet",
+	"nadKwPrior":"Nadałeś tej Kwestii priorytet",
+	"nieNadPrio":"Nie nadałeś jeszcze tej Kwestii priorytetu",
+	"przenKwest":"Przeniesienie Kwestii",
+	"archDoKosz":"Do Kosza",
+	"archDoDeli":"Do Deliberacji",
+	"archRealiz":"Zobacz Realizację",
+	"datWprKwes":"Data wprowadzenia Kwestii",
+	"archdataGl":"Data głosowania",
+	"finDelibGl":"Finał deliberacji i głosowania",
+	"archiNazKw":"Nazwa Kwestii",
+	"archPriory":"Priorytet",
+	"archRodzaj":"Rodzaj",
+	"archTreKwe":"Treść Kwestii",
+	"archKrTrKw":"Krótka treść",
+	"archOpUzas":"Opis z uzasadnieniem",
+	"archDysKwe":"Dyskusja Kwestii"
+  },
+  "hibernowaneList":{
+	"pinfoHiber":"HIBERNOWANE",
+	"pinfoHibeA":".",
+	"pinfoHibeB":".",
+	"pinfoHibeC":".",
+	"NieHiberno":"Aktualnie żadna Kwestia nie jest hibernowana"
+  },
+  "kosz":{
+	"pinfoDoKos":"KOSZ",
+	"pinfoDoKoA":".",
+	"pinfoDoKoB":".",
+	"pinfoDoKoC":".",
+	"NieKoszKwe":"Żadna Kwestia nie została umieszczona w Koszu"
+  },
+  "modalInner":{
+	"moiZamknij":"Zamknij"
+  },
+  "addRealizationReportModalInner":{
+    "addNowyRRe":"Nowy Raport Realizacyjny",
+    "addRealTyt":"Tytuł:",
+    "addReaOpis":"Opis"
+  },
+  "discussionPostItem":{
+	"dPiodniesi":"odniesień",
+	"dPitemniej":"mniej",
+	"dPitwiecej":"więcej",
+	"dPiUzasadn":"Uzasadnienie",
+	"dPiRapReal":"Raport Realizacyjny",
+	"dPitemOpis":"Opis"
+  },
+  "discussionAnswerForm":{
+	"dAfodnKome":"odniesienie do komentarza ...",
+	"dAfDodOdni":"Dodaj odniesienie",
+	"dAfNieZmie":"Uwaga: odniesienia nie można usuwać ani zmieniać"
+  },
+  "discussionAnswerItem":{
+	"dAitemniej":"mniej",
+	"dAitwiecej":"więcej"
+  },
+  "uzasadnienieArchiwumModalInner":{
+	"umiUzasPro":"Uzasadnij propozycję",
+	"umiZaWnios":"Zamierzasz wnioskować o skierowanie tej",
+	"umiKweArch":"Kwestii do Archiwum",
+	"umiGdziOds":", gdzie odsyłane są Kwestie niekoniecznie aktualne i pilne oraz oczekujące na lepsze warunki dla ich ponownego rozpatrzenia.",
+	"umiPodPoni":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
+	"umiUzasadn":"uzasadnienie",
+	"umiWprzWyp":"W przeciwnym wypadku naciśnij",
+	"umiZatwier":"Zatwierdź"
+  },
+  "uzasadnienieDeliberacjaModalInner":{
+	"udiUzasPro":"Uzasadnij propozycję",
+	"udiZaWnios":"Zamierzasz wnioskować o skierowanie tej ",
+	"udiKweDeli":"Kwestii do Deliberacji",
+	"udiGdziKwD":", gdzie są Kwestie dyskutowane.",
+	"udiPodPoni":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
+	"udiUzasadn":"uzasadnienie",
+	"udiWprzWyp":"W przeciwnym wypadku naciśnij ",
+	"udiZatwier":"Zatwierdź"
+  },
+  "uzasadnienieKoszModalInner":{
+	"ukiUzasPro":"Uzasadnij propozycję",
+	"ukiZaWnios":"Zamierzasz wnioskować o skierowanie tej ",
+	"ukiKwDoKos":"Kwestii do Kosza, ",
+	"ukiGdziOds":"gdzie odsyłane są Kwestie nieudane, błędne, bez szans na wdrożenie. Zostaną one ostatecznie zarchiwizowane (bez możliwości wznowienia).",
+	"ukiPodPoni":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
+	"ukiUzasadn":"uzasadnienie",
+	"ukiWprzWyp":"W przeciwnym wypadku naciśnij ",
+	"ukiZatwier":"Zatwierdź"
+  },
+  "addKwestiaForm":{
+  "pinfoDodKw":"DODAWANIE KWESTII",
+  "pinfoDodKA":"Jeśli masz jakiś problem do rozwiązania, pomysł, wniosek, najpierw sprawdź, czy może już taka Kwestia jest dyskutowana?",
+  "pinfoDodKB":"Jeżeli tak - dołącz do deliberacji istniejącej Kwestii..",
+  "pinfoDodKC":"Masz inne rozwiązanie? Możesz dodać tutaj własną wersję lub dodać Kwestię-Opcję (z poziomu szczegółów tej pierwotnej). Kwestia-Opcja będzie przywiązana do tej istniejącej, ale równoprawna w deliberacji. Prosimy o rozważne nazywanie. Dodanej nazwy Kwestii nie można usuwać ani edytować.",
+    "addKwDodaj":"Dodaj Kwestię",
+	"adNazKwest":"Nazwa Kwestii",
+	"addWybIstn":"Wybierz istniejący",
+	"addWprNowy":"Wprowadź nowy",
+	"addWybWprT":"Wybierz lub wprowadź Temat",
+	"adWyLuWpRo":"Wybierz lub wprowadź Rodzaj",
+	"addKrTrKwe":"Krótka treść Kwestii",
+	"addKrTresc":"Krótka treść",
+	"adOpUzasad":"Opis z uzasadnieniem",
+	"adDodTeKwe":"Dodaj tę Kwestię"
+  },
+  "activateAccount":{
+	"acTrwaAkty":"Trwa aktywowanie konta",
+	"acSprPozni":"Jeżeli zbyt długo czekasz na reakcję Systemu, spróbuj odświeżyć przeglądarkę lub spróbuj aktywować konto później",
+	"activInfor":"Informacja.",
+	"acWyBlSpPo":"Wystąpił błąd. Spróbuj ponownie",
+	"acDziZaAkt":"Dziękujemy za aktywację konta!",
+	"acWysLoHas":"Na podany przez Ciebie email w Aplikacji zostanie wysłany login i hasło.",
+	"acKoAktPrz":"Twoje konto zostało już aktywowane. Przejdź ",
+	"activtutaj":"tutaj",
+	"acAbySieZa":" aby, się zalogować."
+  },
+  "answerInvitation":{
+	"ansPrzepra":"Przepraszamy,",
+	"ansWnasOrg":" w naszej organizacji ",
+	"ansCzasPrz":"Czas przyjęcia zaproszenia jako ",
+	"answeMinal":" minął.",
+	"answeWitaj":"Witaj",
+	"ansZostZap":"Zostałeś zaproszony do aplikowania jako ",
+	"ansCzyChAp":"Czy chcesz aplikować?",
+	"ansChceApl":"Chcę aplikować",
+	"ansNieDzie":"Nie, dziękuję",
+	"ansJuzPotw":"Już potwierdziłeś chęć aplikowania do naszej organizacji",
+	"ansAbZobSz":"Aby zobaczyć szczegóły kwestii kliknij ",
+	"answeTutaj":" tutaj",
+	"ansOdrzZap":"Odrzuciłeś zaproszenie do aplikowania jako ",
+	"ansDziekuj":"Dziękujemy za potwierdzenie chęci przynależenia do naszej organizacji",
+	"ansWnasWia":"W następnej wiadomości otrzymasz dane do logowania.",
+	"ansOtrzHon":"Otrzymałeś właśnie status Członka Honorowego",
+	"ansMozSled":"Możesz śledzić na bieżąco kwestię",
+	"ansDziOdpo":"Dziękujemy za udzielenie odpowiedzi.",
+	"answSystem":"System"
+  },
+  "czlonekZwyczajnyForm":{
+	"cZwAplCzwy":"Aplikowanie na Członka Zwyczajnego w organizacji",
+	"cZwUzuBrPo":"Uzupełnij brakujące pola we wniosku.",
+	"cZwDodatko":"Dodatkowe",
+	"cZwNaParSl":"Napisz parę słów do nas, o sobie i powodach Twojego wniosku...",
+	"cZwJezUzyt":"Język użytkownika",
+	"cZwWyJezyk":"Wybierz język",
+	"cZwPotwZna":"Potwierdzam znajomość",
+	"cZwRegulam":"Regulaminu",
+	"cZwAplPrzy":"Aplikuję o przyjęcie"
+  },
+  "doradcaForm":{
+	"dorAplDora":"Aplikowanie na doradcę w organizacji",
+	"dorDodatko":"Dodatkowe",
+	"dorNaParSl":"Napisz parę słów do nas, o sobie i powodach Twojego wniosku...",
+	"dorApNaDor":"Aplikuję do doradztwa"
+  },
+  "profileEdit":{
+	"prfEdProfi":"Edytuj profil"
+  },
+  "fillDataHonorowyModalInner":{
+	"fdhAbyUzDo":"Aby uzyskać dostęp, należy uzupełnić wymagane pola.",
+	"fdhZatwier":"Zatwierdź"
+  },
+  "forgottenPassword":{
+	"fpaResetHa":"Resetuj hasło"
+  },
+    "loginForm":{
+	"lfoLogowan":"Logowanie",
+	"lformLogin":"Login",
+	"lformHaslo":"Hasło",
+	"lfoZaloSie":"Zaloguj się",
+	"lfoNiePamH":"Nie pamiętam hasła"
+  },
+    "loginFormTop":{
+	"lftrmLogin":"Login",
+	"lftrmHaslo":"Hasło",
+	"lftZapamMn":"Zapamiętaj mnie",
+	"lftZaloSie":"Zaloguj się"
+  },
+  "manageAccount":{
+	"mAcTwoProf":"Twój profil",
+	"mAcEdyProf":"Edytuj profil",
+	"mAccoLogin":"Login",
+	"mAcImiNazw":"Imię i Nazwisko",
+	"mAcRolaSys":"Rola w Systemie",
+	"mAcRanking":"Ranking"
+  },
+  "_loginButtonsAdditionalLoggedInDropdownActions":{
+	"lBaMojProf":"Mój profil"
+  },
+  "registerForm":{
+	"rFoUtwKont":"Utwórz konto",
+	"rFormHaslo":"Hasło",
+	"rFoPotwHas":"Potwierdź hasło",
+	"rFoDodatko":"Dodatkowe",
+	"rFormUwagi":"Uwagi...",
+	"rFoJezUzyt":"Język użytkownika",
+	"rFoWybJezy":"Wybierz język",
+	"rFoPotZnaj":"Potwierdzam znajomość",
+	"rFoRegulam":"Regulaminu",
+	"rFoRnieMoz":"Rejestracja nie możliwa z powodu osiągnięcia limitu osób, które mogą się zarejestrować samodzielnie. Aby aplikować kliknij dołącz."
+  },
+  "resetPassword":{
+	"resReseHas":"Resetuj hasło",
+	"resNoweHas":"Nowe hasło",
+	"resPotwHas":"Potwierdź hasło"
+  },
+  "infoAccountModalInner":{
+	"imiSzczPro":"Szczegóły profilu",
+	"imiNazUzyt":"Nazwa użytkownika",
+	"imoinnerID":"ID",
+	"iminStatus":"Status",
+	"imoinnerOK":"OK"
+  },
+  "updateAccountModalInner":{
+	"upinEdycja":"Edycja",
+	"upiNazUzyt":"Nazwa użytkownika",
+	"upinneUsun":"Usuń",
+	"upiNiMaSta":"To konto nie ma przypisanego statusu.",
+	"upiDodStat":"Dodaj status",
+	"upiJuzUsta":"Statusy są już ustawione.",
+	"upinGotowe":"Gotowe"
+  },
+"listKwestia":{
+    "liDodaNowa":"Dodaj nową Kwestię",
+	"liWpFraNaz":"Wpisz frazę nazwy Kwestii..."
+  },
+  "noData":{
+	"noBrakDany":"Brak danych do wyświetlania..."
+  },
+  "addKwestiaOpcjaForm":{
+  "pinfoDoKwO":"DODAWANIE OPCJI",
+  "pinfoDoKwA":".",
+  "pinfoDoKwB":".",
+  "pinfoDoKwC":".",
+    "aKwOpDoKwe":"Dodawanie Kwestii-Opcji",
+    "aKwOpcOpiA":"opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis.",
+    "aKwOpNaKwe":"Nazwa Kwestii Opcji:",
+    "aKwOpkroTr":"Krótka treść",
+	"aKwOpDaApl":"Dane aplikującego",
+    "aKwOpOpUza":"Opis z uzasadnieniem",
+	"aKwImieNaz":"Imię i Nazwisko"
+  },
+  "opcjeList":{
+	"opLiOpKwes":"Opcje Kwestii"
+  },
+  "previewKwestiaOpcja":{
+	"pkoKwestia":"Kwestia",
+	"pkoNazKwes":"Nazwa Kwestii",
+	"pkoKrTrKwe":"Krótka treść Kwestii",
+	"pkoDaneApl":"Dane aplikującego",
+	"pkoImNazwi":"Imię i Nazwisko",
+	"pkoOpisUza":"Opis z uzasadnieniem",
+	"pKwoPopraw":"Popraw",
+	"pkoUwZlWnN":"UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do Systemu."
+  },
+  "discussionPostForm":{
+    "diWpiszKom":"wpisz komentarz ...",
+	"diDodajKom":"Dodaj komentarz",
+	"diUwagaKom":"Uwaga: komentarza nie można usuwać ani zmieniać"
+  },
+  "discussionRating":{
+	"drAktPrior":"Priorytet tej wypowiedzi",
+	"drNadPriTr":"Nadaj priorytet tej treści",
+	"drPopLuNie":"Udziel wsparcia lub nie",
+	"drAutTresc":"Autor Treści"
+  },
+  "addTopicModalInner":{
+	"aToMdoTema":"Dodaj temat",
+	"aToModOpis":"Opis"
+  },
+  "addTypeModalInner":{
+	"aTmoDodTyp":"Dodaj typ dla tematu"
+  },
+  "chooseTopicModalInner":{
+	"ctmWyTemat":"Wybierz temat"
+  },
+  "kwestiaDetails":{
+	"KwDetTytul":"Tytuł",
+    "KwDetDaApl":"Dane aplikująego",
+	"KwDetimNaz":"Imię i Nazwisko",
+	"KwDetDodat":"Dodatkowe",
+	"KwDetParam":"Parametr",
+    "KwDetWartP":"Wartość początkowa",
+	"KwDetPrWar":"Proponowana wartość",
+    "KwDetKrTrK":"Krótka treść Kwestii",
+	"KwDetOpUza":"Opis z uzasadnieniem"
+  },
+  "managePriorities":{
+	"mpPriorRea":"Priorytet w realizacji",
+    "mpPrioryte":"Priorytet",
+    "mpPrioInfo":"Info",
+	"mpOzWsSiGl":"Oznacza wstrzymanie się od głosu"
+  },
+  "ZRTemplate":{
+	"zrZesRreal":"Zespół Realizacyjny",
+	"zrZesOtwZR":"O tworzeniu ZR",
+    "zrNazwaZeR":"Nazwa Zespołu",
+	"zrTempBrak":"Brak",
+	"zrCzlonkNr":"Członek nr",
+    "zrDolaczam":"Dołączam",
+	"zrSprIstZR":"Sprawdź istniejące ZR",
+	"zrDlaczWaz":"Dlaczego to ważne?"
+  },
+  "kwestiaTopButtons":{
+    "ktBuListRR":"Lista RR",
+	"ktBuRapRea":"Raport Realizacyjny",
+	"ktBuDodajO":"Dodaj Opcję",
+    "ktBuDoArch":"Do Archiwum",
+	"ktBuDoKosz":"Do Kosza"
+  },
+  "informacjeKwestia":{
+    "ikSzczegKw":"Szczegóły Kwestii",
+	"ikZespReal":"Zespół Realizacyjny"
+  },
+  "issueDetails":{
+  "pinfoDetKw":"SZCZEGÓŁY KWESTII",
+  "pinfoDetKA":".",
+  "pinfoDetKB":".",
+  "pinfoDetKC":".",
+  "pinfoKwKos":"KWESTIA W KOSZU",
+  "pinfoKwKoA":".",
+  "pinfoKwKoB":".",
+  "pinfoKwKoC":".",
+    "iDeKwestia":"Kwestia",
+	"iDetailsOd":"od",
+	"iDetaUwaga":"Uwaga!",
+    "iDeObecnyc":"Obecnych",
+	"iDetaAwiec":"a więc",
+	"iDetKworum":"kworum",
+    "iDeSpelnio":"spełnione",
+	"iDetaiBrak":"brak",
+	"iDetDlUzKw":"dla uzyskania kworum",
+    "iDeZRskomp":"Zespół Realizacyjny skompletowany",
+	"iDetBrJesz":"Brak jeszcze",
+    "iDeZespolu":"Zespołu Realizacyjnego",
+	"iDeInfKosz":"UWAGA! Kwestia nieaktywna (znajduje się w koszu!)",
+    "iDePowOdrz":"Powód odrzucenia kwestii",
+    "iDeWstPrio":"Wstrzymałeś się od głosu nadając tej Kwestii priorytet",
+    "iDeNadKwPr":"Nadałeś tej Kwestii priorytet",
+    "iDeNieNadP":"Nie nadałeś jeszcze tej Kwestii priorytetu",
+    "iDePriDeGl":"Priorytet w głosowaniu",
+    "iDetDyskKw":"Dyskusja Kwestii"
+  },
+  "zrOptions":{
+	"zrRezUdzZR":"Rezygnacja z udziału w Zespole Realizacyjnym",
+    "zrRezygnuj":"Rezygnuj",
+	"zrPiszDoCz":"Napisz wiadomość do Członka ZR",
+	"zrNapWiado":"Napisz wiadomość"
+  },
+  "addNazwaModalInner":{
+	"aniNaNazZZ":"Nadaj nazwę temu Zespołowi Realizacyjnemu",
+	"aniZesReDs":"Zespół Realizacyjny ds.",
+	"aniNazwaZR":"Nazwa Zespołu Realizacyjnego",
+	"aniObjasni":"Objaśnienie",
+	"aniTrObjas":"Pierwsza część nazwy ZR, czyli prefiks (Zespół Realizacyjny ds.) już jest, a więc wprowadź jedynie ciąg dalszy nazwy, np.: (Rozpisania Konkursu), albo (Projektu Ogrodzenia Osiedla), lub (Jawności Finansów), itp... Podaj tylko zakończenie zgodne z charakterem rozpatrywanej Kwestii."
+  },
+  "decyzjaModalInner":{
+	"deiIstZesR":"Istnieje już Zespół Realizacyjny o podanym składzie!",
+	"deiChcDodK":"Chcę dodać Kwestię do realizacji temu Zespołowi",
+	"deiChcPrzR":"Chcę przyjąć do realizacji w moim Zespole Realizacyjnym"
+  },
+  "listZespolRealizacyjnyModalInner":{
+	"lizZesReal":"Zespoły Realizacyjne"
+  },
+  "zespolOptionsTemplate":{
+	"zotPowolZR":"Powołaj ZR"
+  },
+  "listZespolRealizacyjnyDoubleModalInner":{
+	"lzdWyZeRea":"Wybierz Zespół Realizacyjny",
+	"lzdRezygnu":"Rezygnuj"
+  },
+  "zespolDoubleTemplateOptions":{
+	"zdtPowolZR":"Powołaj ZR"
+  },
+  "zrModalCurrentIssueMyResolutionsInner":{
+	"zmrRezygRR":"Rezygnacja z udziału w Zespole Realizacyjnym",
+	"zmrPrzemys":"Przemyśl ten krok! Jego skutkiem może być nie zrealizowanie podjętej uchwały!",
+	"zmrUchwaly":"Uchwały, których realizacją się opiekujesz",
+	"zmrMimoWsz":"Mimo wszystko opuszczasz Zespół Realizacyjny?",
+	"zmreTakTak":"Tak"
+  },
+  "previewKwestia":{
+	"pKwKwestia":"Kwestia",
+	"pKwKrotTre":"Krótka treść",
+    "pKwOpisUza":"Opis z uzasadnieniem",
+	"pKwNieWyco":"UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do Systemu",
+	"pKwePopraw":"Popraw"
+  },
+  "notificationInfo":{
+	"noiPowPowi":"Powrót do powiadomień"
+  },
+  "notificationNewMessage":{
+	"nnmDataWys":"Data wysłania",
+	"nnmNadawca":"Nadawca",
+	"nnmesTytul":"Tytuł",
+	"nnmesTresc":"Treść",
+	"nnmessaSDD":"SDD",
+	"nnmPozdraw":"Pozdrawiam,"
+  },
+  "notificationNewIssue":{
+	"nnissueSDD":"SDD",
+	"nniWprowad":"Do Systemu wprowadzono nową Kwestię",
+	"nnisdotycz":"dotyczącą",
+	"nniZaprasz":"Zapraszamy do deliberacji tej Kwestii, dyskusji i nadania priorytetu.",
+	"nniLinkKwe":"Link do Kwestii"
+  },
+  "notificationLackOfRealizationReport":{
+	"nlreporSDD":"SDD",
+	"nlrBrakRRe":"Brak w Systemie Raportu Realizacyjnego Kwestii",
+	"nlreDotycz":"dotyczącej",
+	"nlrZesReal":"Zespół Realizacyjny",
+	"nlreNapisz":"Napisz",
+	"nlrIdzReal":"Idź do dyskusji realizacyjnej",
+	"nlrLinkKwe":"Link do Kwestii"
+  },
+  "adminTemplate":{
+	"admPanUreg":"Panel ustawień regionalnych.",
+	"admStatSys":"Statystyki Systemu",
+	"admInfDany":"Informacje o ilości danych w Systemie.",
+	"admUzytkow":"Użytkownicy",
+	"admiTematy":"Tematy",
+	"admRodzaje":"Rodzaje",
+	"admParamet":"Parametry",
+	"admRaporty":"Raporty",
+	"admKwestie":"Kwestie"
+  },
+  "listRaport":{
+	"pinfoLiRap":"LISTA RAPORTÓW",
+	"pinfoLiRaA":".",
+	"pinfoLiRaB":".",
+	"pinfoLiRaC":".",
+	"lraListRap":"Lista raportów"
+  },
+  "informacjeRaport":{
+	"pinfoRaRea":"RAPORT REALIZACYJNY",
+	"pinfoRaReA":".",
+	"pinfoRaReB":".",
+	"pinfoRaReC":".",
+	"inrRapReal":"Raport Realizacyjny",
+	"inrDataUtw":"Data utworzenia",
+	"inrapAutor":"Autor",
+	"inrapTytul":"Tytuł",
+	"inraSzczeg":"Szczegóły",
+	"inrZobaRap":"Zobacz wszystkie raporty dla tej Kwestii"
+  },
+  "editColumnRealization":{
+	"retDrukPDF":"Drukuj Uchwałę do pliku PDF"
+  },
+  "raport":{
+	"raporPokaz":"Pokaż"
+  },
+  "realizacja":{
+	"rzcRealizo":"Realizowane",
+	"rzcZrealiz":"Zrealizowane"
+  },
+  "realizacjaTab1":{
+	"pinfoReali":"REALIZOWANE",
+	"pinfoRealA":"Tu znajdują się Kwestie, które pozytywnie przeszły deliberację i głosowanie. Reprezentują one obowiązujace uchwały podjęte przez Ogół. Sposób ich realizacji można śledzić w Raportach Realizacyjnych. Realizacja (a tym samym ważność uchwały) obowiązuje do czasu zmiany atrybutu tej Kwestii.",
+	"pinfoRealB":"Zdjęcie z realizacji może nastąpić z następujacych przyczyn:",
+	"pinfoRealC":"- spadku priorytetu Kwestii do zera, lub wartości ujemnej,",
+	"pinfoRealD":"- wycofania Kwestii z realizacji (Archiwum, Kosz) decyzją Ogółu,",
+	"pinfoRealE":"- przeniesienia Kwestii do zrealizowanych decyzją Ogółu,",
+	"pinfoRealF":"- rezygnacji wszystkich Członków Zespołu Realizacyjnego z opieki nad Kwestią,"
+  },
+  "realizacjaTab2":{
+	"pinfoZreal":"ZREALIZOWANE",
+	"pinfoZreaA":".",
+	"pinfoZreaB":".",
+	"pinfoZreaC":".",
+	"rttLiKwZre":"Lista Kwestii zrealizowanych",
+	"rttJeNieMa":"Jeszcze nie ma Kwestii zrealizowanych ..."
+  },
+  "dashBoard":{
+	"dsbPanUzyt":"Panel użytkownika",
+	"dsbInfPane":"Informacje na temat Panelu użytkownika.",
+	"dsbStatPan":"Statystyki panelu",
+	"dsbInfoDan":"Informacje o ilości danych w Systemie."
+  },
+  "editParametrModalInner":{
+	"epmEdParam":"Edycja parametru",
+	"epmodZmien":"Zmień"
+  },
+  "listParametr":{
+	"pinfoParGl":"PARAMETRY GLOBALNE",
+	"pinfoParGA":".",
+	"pinfoParGB":".",
+	"pinfoParGC":".",
+	"lipZobKwes":"Zobacz",
+	"lipIstniej":"Jeden parametr jest w trakcie zmiany. Kolejną można dokonać po finalizacji obecnej.",
+	"lipDaneOrg":"Dane organizacji",
+	"lipNazwOrg":"Nazwa organizacji",
+	"lipTerytor":"Terytorium",
+	"lipKontakt":"Kontakty",
+	"lipaRegula":"Regulamin",
+	"lipGlosowa":"Głosowanie",
+	"lipCzGłoso":"Czas głosowania(w godzinach)",
+	"lipWyczekK":"Czas wyczekiwania kwestii i komentarzy specjalnych (w dniach)",
+	"lipIlKwGlo":"Ilość kwesti przechodzących do głosowania",
+	"lipMinPauz":"Ilość minut koniecznej pauzy do ponownej akcjii tego samego typu",
+	"lipDodKwes":"Dodanie kwestii",
+	"lipDodKome":"Dodanie komentarza w ramach danej kwestii",
+	"lipDodOdni":"Dodanie odniesienia w ramach danego komentarza",
+	"lipRapReal":"Raporty Realizacyjne",
+	"lipOkSklRR":"Okres składania Raportów Realizacyjnych (w dniach)"
+  },
+  "profileList":{
+	"pinfoProfi":"WYKAZ UŻYTKOWNIKÓW",
+	"pinfoProfA":".",
+	"pinfoProfB":".",
+	"pinfoProfC":"."
+  },
+  "userEmailContact":{
+	"prliNapisz":"Napisz"
+  },
+  "sendMessage":{
+	"pinfoNowWi":"WYSŁANIE WIADOMOŚCI",
+	"pinfoNowWA":".",
+	"pinfoNowWB":".",
+	"pinfoNowWC":".",
+	"semNowaWia":"Nowa wiadomość do ",
+	"semessagOd":"Od",
+	"semessagDo":"Do",
+	"semesTresc":"Treść",
+	"semeWyślij":"Wyślij"
+  },
+  "addHonorowy":{
+	"pinfoZgHon":"PROPOZYCJE",
+	"pinfoZgHoA":".",
+	"pinfoZgHoB":".",
+	"pinfoZgHoC":".",
+	"adhZgHonor":"Zgłoszenie na Członka Honorowego",
+	"adhUzasadn":"Uzasadnienie",
+	"adhUzDlacz":"Uzasadnij dlaczego chcesz powołać na stanowisko Członka Honorowego właśnie tę osobę",
+	"adhonZglos":"Zgłoś"
+  },
+  "administracjaUserMain":{
+	"pinfoMojeK":"MOJE KWESTIE",
+	"pinfoMojeA":"Tutaj znajdziesz wszystkie Kwestie, przez Ciebie dodane.",
+	"pinfoMojeB":"Możesz z tego miejsca przeglądać ich szczegóły.",
+	"pinfoMojeC":"Możesz stąd lobbować, czyli wysyłać użytkownikom prośby wsparcia Kwestii, na których szczególnie Ci zależy.",
+	"aumMojeKwe":"Moje Kwestie",
+	"aumParGlob":"Parametry",
+	"aumWyUzytk":"Użytkownicy",
+	"aumZgCzHon":"Propozycje",
+	"aumAplCzZw":"Aplikuj na Członka Zwyczajnego",
+	"aumNieUtwo":"Nie utworzyłeś jeszcze żadnej Kwestii.",
+	"aumPrzepra":"Przepraszamy!",
+	"aumIstnKwA":"Istnieje już Kwestia Aplikacyjna! Aby ją zobaczyć kliknij",
+	"aumaitutaj":"tutaj"
+  },
+  "lobbujZaKwestia":{
+	"lobbLobbuj":"Lobbuj za kwestią"
+  },
+  "accessDenied":{
+	"acdBraDost":"Nie posiadasz dostępu do tej części strony!",
+	"acdZaloguj":"Zaloguj się"
+  },
+  "accessDeniedUser":{
+	"acuBraDost":"Nie posiadasz dostępu do Systemu!"
+  },
+  "notFound":{
+	"nfoBrakStr":"Przepraszamy, strona o podanym adresie nie istnieje."
+  },
+  "subMenu":{
+	"smenJezyki":"Języki"
+  },
+  "pageInfo":{
+    "pl":{
+      "home":"Strona główna",
+      "admin":"Strona administratora",
+      "login_form":"Formularz logowania",
+      "profile_edit":"Edycja profilu",
+      "manage_account":"Zarządzanie kontem",
+      "setPagesInfo":"Informacje o stronach",
+      "listRodzaj":"Lista rodzajów",
+      "addRodzaj":"Dodaj rodzaj",
+      "editRodzaj":"Edytuj rodzaj",
+      "listRaport":"Lista raportów",
+      "addRaport":"Dodaj raport",
+      "listUsers":"Lista użytkowników",
+      "addUser":"Dodaj użytkownika",
+      "editUser":"Edytuj użytkownika",
+      "listParametr":"Lista parametrów",
+      "editParametry":"Edytuj parametry",
+      "previewParametr":"Podgląd parametrów",
+      "listTemat":"Lista tematów",
+      "addTemat":"Dodaj temat",
+      "editTemat":"Edytuj temat",
+      "listKwestiaAdmin":"Lista Kwestii administracja",
+      "listaKwestiiOczekujacych":"Lista Kwestii oczekujących",
+      "kwestiaOczekujaca":"Kwestia oczekująca",
+      "listLanguages":"Lista języków",
+      "addLanguage":"Dodaj język",
+      "editLanguage":"Edytuj język",
+      "listKwestia":"Lista Kwestii",
+      "addKwestia":"Dodaj Kwestię",
+      "addKwestiaOpcja":"Dodaj opcję Kwestii",
+      "editKwestia":"Edytuj Kwestię",
+      "previewKwestiaOpcja":"Podgląd opcji Kwestii",
+      "previewKwestia":"Podgląd Kwestii",
+      "informacjeKwestia":"Kwestia",
+      "dyskusjaKwestia":"Dyskusja Kwestii",
+      "archiwum":"Archiwum",
+      "informacjeKwestiaArchiwum":"Kwestia archiwum",
+      "realizacja":"Realizacja",
+      "glosowanie":"Głosowanie",
+      "profile_list":"Lista profili",
+      "profileInfo":"Informacje o profilu",
+      "administracjaUserMain":"Widok administracji",
+	  "activate_account":"Aktywacja konta",
+	  "answer_invitation":"Odpowiedź na zaproszenie",
+	  "forgotten_password":"Zapomniane hasło",
+	  "reset_password":"Reset hasła",
+	  "register_form":"Formularz rejestracyjny",
+	  "doradca_form":"Formularz zgłoszenia Doradcy",
+	  "czlonek_zwyczajny_form":"Formularz zgłoszenia Członka",
+	  "informacjeRaport":"Raport informacje",
+	  "sendMessage":"Wysłanie Wiadomości",
+	  "notification_list":"Lista powiadomień",
+	  "notificationInfo":"Powiadomienia"
+	  }
+  }
+}

@@ -1,0 +1,28 @@
+<template name="loginFormTop">
+    <form class="form-inline" role="form">
+        <div class="form-group">
+            <label class="sr-only" for="inputLogin">
+<!--Login-->
+{{_ 'loginFormTop.lftrmLogin'}}</label>
+            
+<!--Login-->
+<input name="login" type="text" class="form-control" id="inputLogin" placeholder="{{_ 'loginFormTop.lftrmLogin'}}">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="inputPassword">
+<!--Hasło-->
+{{_ 'loginFormTop.lftrmHaslo'}}</label>
+            
+<!--Hasło-->
+<input name="password" type="password" class="form-control" id="inputPassword" placeholder="{{_ 'loginFormTop.lftrmHaslo'}}">
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox"> 
+<!--Zapamiętaj mnie-->
+{{_ 'loginFormTop.lftZapamMn'}} </label>
+        </div>
+        <button type="submit" class="btn btn-primary">
+<!--Zaloguj się-->
+{{_ 'loginFormTop.lftZaloSie'}}</button>
+    </form>
+</template>

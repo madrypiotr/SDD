@@ -1,0 +1,74 @@
+
+<template name="updateAccountModal">
+<!-- pm nie będzie admina operującego na kontach uzytkowników 
+- rejestrację finalizuje decyzja ogółu
+- edycja danych samodzielna za akceptacją ogółu
+- wyrejestrowanie samodzielne z powiadomieniem ogółu
+- nie istnieje dodawanie statusów przez admina -->
+	<div id="updateaccount" class="modal fade" tabindex="-1" data-width="760" style="display:none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{{> updateAccountModalInner}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="updateAccountModalInner">
+	{{#with userInScope}}
+		<div class="modal-header">
+			<h4>
+<!--Edycja-->
+{{_ 'updateAccountModalInner.upinEdycja'}} {{email}}</h4>
+		</div>
+		<div class="modal-body">
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon">
+<!--Nazwa użytkownika-->
+{{_ 'updateAccountModalInner.upiNazUzyt'}}</span>
+					<input data-user-id="{{_id}}" class="form-control admin-user-info" name="profile.name" value="{{profile.name}}" placeholder="{{email}}">
+				</div>
+			</div>
+			{{#if roles}}
+				<ul class="list-group">
+					{{#each roles}}
+						<li class="list-group-item">
+							<button data-user-id="{{../_id}}" class="btn btn-danger btn-xs remove-role" type="button">
+<!--Usuń-->
+{{_ 'updateAccountModalInner.upinneUsun'}}</button>
+							<span class="pull-right">{{this}}</span>
+						</li>
+					{{/each}}
+				</ul>
+			{{else}}
+<!--To konto nie ma przypisanego statusu.-->
+				{{_ 'updateAccountModalInner.upiNiMaSta'}}
+			{{/if}}
+			{{#if unsetRoles}}
+			<div class="btn-group clearfix full-width">
+				<button type="button" class="btn btn-success dropdown-toggle pull-right" data-toggle="dropdown">
+					<span class="glyphicon glyphicon-plus"></span>
+<!--Dodaj status-->
+{{_ 'updateAccountModalInner.upiDodStat'}}
+				</button>
+				<ul class="dropdown-menu pull-right" role="menu">
+					{{#each unsetRoles}}
+						<li><a href="#" class="add-role" data-user-id="{{../_id}}">{{this}}</a></li>
+					{{/each}}
+				</ul>
+			</div>
+			{{else}}
+			<em>
+<!--Statusy są już ustawione.-->
+{{_ 'updateAccountModalInner.upiJuzUsta'}} ustawione.</em>
+			{{/if}}
+		</div>
+		<div class="modal-footer">
+			<button type="button" data-dismiss="modal" class="btn btn-primary">
+<!--Gotowe-->
+{{_ 'updateAccountModalInner.upinGotowe'}}</button>
+		</div>
+	{{/with}}
+</template>

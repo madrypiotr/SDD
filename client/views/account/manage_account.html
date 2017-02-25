@@ -1,0 +1,64 @@
+<template name="manageAccount">
+    <div class="main">
+        <legend>
+<!--Twój profil-->
+{{_ 'manageAccount.mAcTwoProf'}}</legend>
+
+        <div class="pull-right">
+            <a href="{{pathFor 'profile_edit'}}" class="btn btn-primary">
+                <span class="glyphicon glyphicon-pencil"></span> 
+<!--Edytuj profil-->
+{{_ 'manageAccount.mAcEdyProf'}}</a>
+        </div>
+
+        <div class="clearfix"></div>
+        <hr/>
+        <table class="table table-bordered manageTable">
+            <tr>
+                <td><span class="glyphicon glyphicon-user"></span><strong> 
+<!--Login-->
+{{_ 'manageAccount.mAccoLogin'}}</strong></td>
+                <td>{{username}}</td>
+            </tr>
+            <tr>
+                <td><span class="glyphicon glyphicon-envelope"></span><strong> 
+<!--e-mail-->
+{{_ 'glob.globaEmail'}}</strong></td>
+                <td>{{test emails}}</td>
+            </tr>
+            <tr>
+                <td><span class="glyphicon glyphicon-info-sign"></span><strong> 
+<!--Imię i Nazwisko-->
+{{_ 'manageAccount.mAcImiNazw'}}</strong></td>
+                <td>{{profile.fullName}}</td>
+            </tr>
+            {{#if profile.pesel}}
+                <tr>
+                    <td><span class="fa fa-envelope"></span><strong> 
+<!--PESEL-->
+{{_ 'glob.globaPESEL'}}</strong></td>
+                    <td>{{profile.pesel}}</td>
+                </tr>
+            {{/if}}
+            <tr>
+                <td><span class="glyphicon glyphicon-book"></span><strong> 
+<!--Rola w systemie-->
+{{_ 'manageAccount.mAcRolaSys'}}</strong></td>
+                <td>{{profile.userType}}
+                </td>
+            </tr>
+            <tr>
+                <td><span class="glyphicon glyphicon-map-marker"></span><strong> 
+<!--Adres-->
+{{_ 'glob.globaAdres'}}</strong></td>
+                <td>{{profile.address}}, {{profile.zip}} {{profile.city}}</td>
+            </tr>
+            <tr>
+                <td><span class="glyphicon glyphicon-star"></span><strong> 
+<!--Ranking-->
+{{_ 'manageAccount.mAcRanking'}}</strong></td>
+                <td>{{profile.rADking}}</td>
+            </tr>
+        </table>
+    </div>
+</template>

@@ -1,0 +1,95 @@
+
+<template name="editRodzajForm">
+    <div class="main">
+        <legend>
+<!--Edytuj Rodzaj-->
+{{_ "editRodzajForm.erfEdyRodz"}}</legend>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="rodzajForm">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">
+<!--Temat:-->
+{{_ "glob.globaTemat"}}:</label>
+
+                        <div class="col-xs-9">
+                            <select name="tematy" id="tematy" class="form-control required">
+                                {{#each tematToList}}
+                                    {{#if isSelected _id}}
+                                        <option value="{{this._id}}" selected>
+                                            {{this.nazwaTemat}}
+                                        </option>
+                                    {{else}}
+                                        <option value="{{this._id}}">
+                                            {{this.nazwaTemat}}
+                                        </option>
+                                    {{/if}}
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputNazwaRodzaj">
+<!--Nazwa Rodzaju:-->
+{{_ "editRodzajForm.erfNazRodz"}}</label>
+
+                        <div class="col-xs-9">
+<!--Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)-->
+<input name="nazwaRodzaj" type="text" class="form-control required" id="inputNazwaRodzaj" placeholder="{{_ 'editRodzajForm.erfNaRodIt'}}" value={{nazwaRodzaj}}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputCzasDyskusji">
+<!--Czas dyskusji:-->
+{{_ "editRodzajForm.erfCzasDys"}}</label>
+
+                        <div class="col-xs-9">
+<!--Czas dyskusji (dni). Domyślnie 7 dni-->
+<input name="czasDyskusji" type="number" value={{czasDyskusji}} class="form-control" id="czasDyskusji" placeholder="{{_ 'editRodzajForm.erfCzDysDn'}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputCzasGlosowania">
+<!--Czas głosowania:-->
+{{_ "editRodzajForm.erfCzGloso"}}</label>
+
+                        <div class="col-xs-9">
+<!--Czas głosowania (h). Domyślnie 24 h.-->
+<input name="czasGlosowania" type="text" value={{czasGlosowania}} class="form-control" id="czasGlosowania" placeholder="{{_ 'editRodzajForm.erfCzGlGod'}}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputWymaganeKworum">
+<!--Wymagane kworum:-->
+{{_ "editRodzajForm.erfWymKwor"}}</label>
+
+                        <div class="col-xs-9">
+                            <select id="kworumSelect" name="kworumSelect" class="form-control required">
+                                <option value="">
+<!--Wybierz-->
+{{_ "glob.gloWybierz"}}</option>
+                                {{#each kworumList}}
+                                    {{#if isSelectedKworum value}}
+                                        <option id={{this.index}} value={{this.value}} selected>{{this.name}}</option>
+                                    {{else}}
+                                        <option id={{this.index}} value={{this.value}}>{{this.name}}</option>
+                                    {{/if}}
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+<!--Zapisz-->
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.globZapisz'}}">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

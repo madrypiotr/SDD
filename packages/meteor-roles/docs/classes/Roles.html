@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Roles - The meteor-roles API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="The meteor-roles API"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: v1.2.12</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/Roles.html">Roles</a></li>
+            
+                <li><a href="../classes/Roles                                                                                                    // 22.html">Roles                                                                                                    // 22</a></li>
+            
+                <li><a href="../classes/Roles                                                                                            // 22.html">Roles                                                                                            // 22</a></li>
+            
+                <li><a href="UIHelpers.html">UIHelpers</a></li>
+            
+                <li><a href="../classes/UIHelpers                                                                                                // 42
+/                                                                                                              // 43
+ isInRole: function (role, group) {                                                                               // 44
+   var user = Meteor.user(),                                                                                      // 45
+       comma = (role || &#x27;&#x27;).indexOf(&#x27;,&#x27;),                                                                         // 46
+       roles                                                                                                      // 47
+                                                                                                                  // 48
+   if (!user) return false                                                                                        // 49
+   if (!Match.test(role, String)) return false                                                                    // 50
+                                                                                                                  // 51
+   if (comma !== -1) {                                                                                            // 52
+     roles = _.reduce(role.split(&#x27;,&#x27;), function (memo, r) {                                                       // 53
+       if (!r || !r.trim()) {                                                                                     // 54
+         return memo                                                                                              // 55
+       }                                                                                                          // 56
+       memo.push(r.trim())                                                                                        // 57
+       return memo                                                                                                // 58
+     }, [])                                                                                                       // 59
+   } else {                                                                                                       // 60
+     roles = [role]                                                                                               // 61
+   }                                                                                                              // 62
+                                                                                                                  // 63
+   if (Match.test(group, String)) {                                                                               // 64
+     return Roles.userIsInRole(user, roles, group)                                                                // 65
+   }                                                                                                              // 66
+                                                                                                                  // 67
+   return Roles.userIsInRole(user, roles)                                                                         // 68
+ }                                                                                                                // 69
+}                                                                                                                  // 70
+                                                                                                                  // 71
+if (Package.ui) {                                                                                                  // 72
+ _.each(Roles._uiHelpers, function (func, name) {                                                                 // 73
+   Package.ui.UI.registerHelper(name, func)                                                                       // 74
+ })                                                                                                               // 75
+} else if (Package.handlebars) {                                                                                   // 76
+ _.each(Roles._uiHelpers, function (func, name) {                                                                 // 77
+   Package.handlebars.Handlebars.registerHelper(name, func)                                                       // 78
+ })                                                                                                               // 79
+} else {                                                                                                           // 80
+ console.log &amp;&amp; console.log(&#x27;WARNING: Roles template helpers not registered. Handlebars or UI package not found&#x27;) // 81
+}                                                                                                                  // 82
+                                                                                                                  // 83
+}());                                                                                                              // 84
+                                                                                                                  // 85
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);.html">UIHelpers                                                                                                // 42
+/                                                                                                              // 43
+ isInRole: function (role, group) {                                                                               // 44
+   var user = Meteor.user(),                                                                                      // 45
+       comma = (role || &#x27;&#x27;).indexOf(&#x27;,&#x27;),                                                                         // 46
+       roles                                                                                                      // 47
+                                                                                                                  // 48
+   if (!user) return false                                                                                        // 49
+   if (!Match.test(role, String)) return false                                                                    // 50
+                                                                                                                  // 51
+   if (comma !== -1) {                                                                                            // 52
+     roles = _.reduce(role.split(&#x27;,&#x27;), function (memo, r) {                                                       // 53
+       if (!r || !r.trim()) {                                                                                     // 54
+         return memo                                                                                              // 55
+       }                                                                                                          // 56
+       memo.push(r.trim())                                                                                        // 57
+       return memo                                                                                                // 58
+     }, [])                                                                                                       // 59
+   } else {                                                                                                       // 60
+     roles = [role]                                                                                               // 61
+   }                                                                                                              // 62
+                                                                                                                  // 63
+   if (Match.test(group, String)) {                                                                               // 64
+     return Roles.userIsInRole(user, roles, group)                                                                // 65
+   }                                                                                                              // 66
+                                                                                                                  // 67
+   return Roles.userIsInRole(user, roles)                                                                         // 68
+ }                                                                                                                // 69
+}                                                                                                                  // 70
+                                                                                                                  // 71
+if (Package.ui) {                                                                                                  // 72
+ _.each(Roles._uiHelpers, function (func, name) {                                                                 // 73
+   Package.ui.UI.registerHelper(name, func)                                                                       // 74
+ })                                                                                                               // 75
+} else if (Package.handlebars) {                                                                                   // 76
+ _.each(Roles._uiHelpers, function (func, name) {                                                                 // 77
+   Package.handlebars.Handlebars.registerHelper(name, func)                                                       // 78
+ })                                                                                                               // 79
+} else {                                                                                                           // 80
+ console.log &amp;&amp; console.log(&#x27;WARNING: Roles template helpers not registered. Handlebars or UI package not found&#x27;) // 81
+}                                                                                                                  // 82
+                                                                                                                  // 83
+}());                                                                                                              // 84
+                                                                                                                  // 85
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/Roles.html">Roles</a></li>
+            
+                <li><a href="../modules/Roles                                                                                                   __ 6
+_                                                                                                                __ 7
+                                                                                                                  __ 8
+_**                                                                                                                __ 9
+Roles collection documents consist only of an id and a role name.                                               __ 10
+  ex: { _id:&lt;uuid&gt;, name: &quot;admin&quot; }                                                                             __ 11
+_                                                                                                                __ 12
+if (!Meteor.roles) {                                                                                               __ 13
+ Meteor.roles = new Meteor.Collection(&quot;roles&quot;)                                                                    __ 14
+}                                                                                                                  __ 15
+                                                                                                                  __ 16
+_**                                                                                                                __ 17
+Role-based authorization compatible with built-in Meteor accounts package.                                      __ 18
+                                                                                                                __ 19
+Stores user&#x27;s current roles in a &#x27;roles&#x27; field on the user object.                                              __ 20
+                                                                                                                __ 21.html">Roles                                                                                                   // 6
+/                                                                                                                // 7
+                                                                                                                  // 8
+/**                                                                                                                // 9
+Roles collection documents consist only of an id and a role name.                                               // 10
+  ex: { _id:&lt;uuid&gt;, name: &quot;admin&quot; }                                                                             // 11
+/                                                                                                                // 12
+if (!Meteor.roles) {                                                                                               // 13
+ Meteor.roles = new Meteor.Collection(&quot;roles&quot;)                                                                    // 14
+}                                                                                                                  // 15
+                                                                                                                  // 16
+/**                                                                                                                // 17
+Role-based authorization compatible with built-in Meteor accounts package.                                      // 18
+                                                                                                                // 19
+Stores user&#x27;s current roles in a &#x27;roles&#x27; field on the user object.                                              // 20
+                                                                                                                // 21</a></li>
+            
+                <li><a href="../modules/Roles                                                                                           __ 6
+_                                                                                                        __ 7
+                                                                                                          __ 8
+_**                                                                                                        __ 9
+Roles collection documents consist only of an id and a role name.                                       __ 10
+  ex: { _id:&lt;uuid&gt;, name: &quot;admin&quot; }                                                                     __ 11
+_                                                                                                        __ 12
+if (!Meteor.roles) {                                                                                       __ 13
+ Meteor.roles = new Meteor.Collection(&quot;roles&quot;)                                                            __ 14
+}                                                                                                          __ 15
+                                                                                                          __ 16
+_**                                                                                                        __ 17
+Role-based authorization compatible with built-in Meteor accounts package.                              __ 18
+                                                                                                        __ 19
+Stores user&#x27;s current roles in a &#x27;roles&#x27; field on the user object.                                      __ 20
+                                                                                                        __ 21.html">Roles                                                                                           // 6
+/                                                                                                        // 7
+                                                                                                          // 8
+/**                                                                                                        // 9
+Roles collection documents consist only of an id and a role name.                                       // 10
+  ex: { _id:&lt;uuid&gt;, name: &quot;admin&quot; }                                                                     // 11
+/                                                                                                        // 12
+if (!Meteor.roles) {                                                                                       // 13
+ Meteor.roles = new Meteor.Collection(&quot;roles&quot;)                                                            // 14
+}                                                                                                          // 15
+                                                                                                          // 16
+/**                                                                                                        // 17
+Role-based authorization compatible with built-in Meteor accounts package.                              // 18
+                                                                                                        // 19
+Stores user&#x27;s current roles in a &#x27;roles&#x27; field on the user object.                                      // 20
+                                                                                                        // 21</a></li>
+            
+                <li><a href="../modules/UIHelpers.html">UIHelpers</a></li>
+            
+                <li><a href="../modules/UIHelpers                                                                                               __ 10
+_                                                                                                                __ 11
+                                                                                                                  __ 12
+____________________________________________________________                                                       __ 13
+__ UI helpers                                                                                                      __ 14
+__                                                                                                                 __ 15
+__ Use a semi-private variable rather than declaring UI                                                            __ 16
+__ helpers directly so that we can unit test the helpers.                                                          __ 17
+__ XXX For some reason, the UI helpers are not registered                                                          __ 18
+__ before the tests run.                                                                                           __ 19
+__                                                                                                                 __ 20
+Roles._uiHelpers = {                                                                                               __ 21
+                                                                                                                  __ 22
+ _**                                                                                                              __ 23
+UI helper to check if current user is in at least one                                                         __ 24
+of the target roles.  For use in client-side templates.                                                       __ 25
+                                                                                                              __ 26.html">UIHelpers                                                                                               // 10
+/                                                                                                                // 11
+                                                                                                                  // 12
+////////////////////////////////////////////////////////////                                                       // 13
+// UI helpers                                                                                                      // 14
+//                                                                                                                 // 15
+// Use a semi-private variable rather than declaring UI                                                            // 16
+// helpers directly so that we can unit test the helpers.                                                          // 17
+// XXX For some reason, the UI helpers are not registered                                                          // 18
+// before the tests run.                                                                                           // 19
+//                                                                                                                 // 20
+Roles._uiHelpers = {                                                                                               // 21
+                                                                                                                  // 22
+ /**                                                                                                              // 23
+UI helper to check if current user is in at least one                                                         // 24
+of the target roles.  For use in client-side templates.                                                       // 25
+                                                                                                              // 26</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>Roles Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/roles_roles_common.js.html#l17"><code>roles&#x2F;roles_common.js:17</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/Roles.html">Roles</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>Role-based authorization compatible with built-in Meteor accounts package.</p>
+<p>Stores user&#39;s current roles in a &#39;roles&#39; field on the user object.</p>
+
+</div>
+
+
+    <div class="constructor">
+        <h2>Constructor</h2>
+        <div id="method_Roles" class="method item">
+    <h3 class="name"><code>Roles</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l17"><code>roles&#x2F;roles_common.js:17</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+    </div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method protected">
+                                <a href="#method__update_$addToSet_fn">_update_$addToSet_fn</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method__update_$set_fn">_update_$set_fn</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method protected">
+                                <a href="#method__updateUserRoles">_updateUserRoles</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_addUsersToRoles">addUsersToRoles</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_createRole">createRole</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_deleteRole">deleteRole</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getAllRoles">getAllRoles</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getGroupsForUser">getGroupsForUser</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getRolesForUser">getRolesForUser</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getUsersInRole">getUsersInRole</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeUsersFromRoles">removeUsersFromRoles</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_setUserRoles">setUserRoles</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_userIsInRole">userIsInRole</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                        
+                            <li class="index-item property">
+                                <a href="#property_GLOBAL_GROUP">GLOBAL_GROUP</a>
+
+                                
+                                    <span class="flag static">static</span>
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__update_$addToSet_fn" class="method item protected">
+    <h3 class="name"><code>_update_$addToSet_fn</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>roles</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[group]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l559"><code>roles&#x2F;roles_common.js:559</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Private function &#39;template&#39; that uses $addToSet to construct an update 
+object for MongoDB.  Passed to _updateUserRoles</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">roles</code>
+                        <span class="type">Array</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[group]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Object</span>:
+                    
+                    <p>update object for use in MongoDB update command</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__update_$set_fn" class="method item protected">
+    <h3 class="name"><code>_update_$set_fn</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>roles</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[group]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l534"><code>roles&#x2F;roles_common.js:534</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Private function &#39;template&#39; that uses $set to construct an update object
+for MongoDB.  Passed to _updateUserRoles</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">roles</code>
+                        <span class="type">Array</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[group]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Object</span>:
+                    
+                    <p>update object for use in MongoDB update command</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__updateUserRoles" class="method item protected">
+    <h3 class="name"><code>_updateUserRoles</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>users</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>roles</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>group</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>updateFactory</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>roles</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[group]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag protected">protected</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l585"><code>roles&#x2F;roles_common.js:585</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Internal function that users the Template pattern to adds or sets roles 
+for users.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">users</code>
+                        <span class="type">Array | String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>user id(s) or object(s) with an _id field</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">roles</code>
+                        <span class="type">Array | String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>name(s) of roles/permissions to add users to</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">group</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Group name. If not null or undefined, roles will be
+                        specific to that group.<br>                        Group names can not start with &#39;$&#39;.
+                        Periods in names &#39;.&#39; are automatically converted
+                        to underscores.
+                        The special group Roles.GLOBAL_GROUP provides 
+                        a convenient way to assign blanket roles/permissions
+                        across all groups.  The roles/permissions in the 
+                        Roles.GLOBAL_GROUP group will be automatically 
+                        included in checks for any group.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">updateFactory</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Func which returns an update object that
+                        will be passed to Mongo.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">roles</code>
+                        <span class="type">Array</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[group]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                         
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_addUsersToRoles" class="method item">
+    <h3 class="name"><code>addUsersToRoles</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>users</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>roles</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[group]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l112"><code>roles&#x2F;roles_common.js:112</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Add users to roles. Will create roles as needed.</p>
+<p>NOTE: Mixing grouped and non-grouped roles for the same user
+      is not supported and will throw an error.</p>
+<p>Makes 2 calls to database:</p>
+<ol>
+<li>retrieve list of all existing roles</li>
+<li>update users&#39; roles</li>
+</ol>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">users</code>
+                        <span class="type">Array | String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>User id(s) or object(s) with an _id field</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">roles</code>
+                        <span class="type">Array | String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Name(s) of roles/permissions to add users to</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[group]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Optional group name. If supplied, roles will be
+                        specific to that group.<br>                        Group names can not start with &#39;$&#39; or numbers.
+                        Periods in names &#39;.&#39; are automatically converted
+                        to underscores.
+                        The special group Roles.GLOBAL_GROUP provides 
+                        a convenient way to assign blanket roles/permissions
+                        across all groups.  The roles/permissions in the 
+                        Roles.GLOBAL_GROUP group will be automatically 
+                        included in checks for any group.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Roles.addUsersToRoles(userId, &#39;admin&#39;)
+Roles.addUsersToRoles(userId, [&#39;view-secrets&#39;], &#39;example.com&#39;)
+Roles.addUsersToRoles([user1, user2], [&#39;user&#39;,&#39;editor&#39;])
+Roles.addUsersToRoles([user1, user2], [&#39;glorious-admin&#39;, &#39;perform-action&#39;], &#39;example.org&#39;)
+Roles.addUsersToRoles(userId, &#39;admin&#39;, Roles.GLOBAL_GROUP)</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_createRole" class="method item">
+    <h3 class="name"><code>createRole</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>role</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l55"><code>roles&#x2F;roles_common.js:55</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Create a new role. Whitespace will be trimmed.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">role</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Name of role</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">String</span>:
+                    
+                    <p>id of new role</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_deleteRole" class="method item">
+    <h3 class="name"><code>deleteRole</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>role</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l88"><code>roles&#x2F;roles_common.js:88</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Delete an existing role.  Will throw &quot;Role in use&quot; error if any users
+are currently assigned to the target role.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">role</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Name of role</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_getAllRoles" class="method item">
+    <h3 class="name"><code>getAllRoles</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Cursor</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l411"><code>roles&#x2F;roles_common.js:411</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Retrieve set of all existing roles</p>
+
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Cursor</span>:
+                    
+                    <p>cursor of existing roles</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getGroupsForUser" class="method item">
+    <h3 class="name"><code>getGroupsForUser</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>user</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[role]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Array</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l486"><code>roles&#x2F;roles_common.js:486</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Retrieve users groups, if any</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">user</code>
+                        <span class="type">String | Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>User Id or actual user object</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[role]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Optional name of roles to restrict groups to.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Array</span>:
+                    
+                    <p>Array of user&#39;s groups, unsorted. Roles.GLOBAL_GROUP will be omitted</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getRolesForUser" class="method item">
+    <h3 class="name"><code>getRolesForUser</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>user</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[group]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Array</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l369"><code>roles&#x2F;roles_common.js:369</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Retrieve users roles</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">user</code>
+                        <span class="type">String | Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>User Id or actual user object</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[group]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Optional name of group to restrict roles to.
+                        User&#39;s Roles.GLOBAL_GROUP will also be included.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Array</span>:
+                    
+                    <p>Array of user&#39;s roles, unsorted.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getUsersInRole" class="method item">
+    <h3 class="name"><code>getUsersInRole</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>role</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[group]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Cursor</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l421"><code>roles&#x2F;roles_common.js:421</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Retrieve all users who are in target role.  </p>
+<p>NOTE: This is an expensive query; it performs a full collection scan
+on the users collection since there is no index set on the &#39;roles&#39; field.<br>This is by design as most queries will specify an _id so the _id index is 
+used automatically.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">role</code>
+                        <span class="type">Array | String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Name of role/permission.  If array, users 
+                           returned will have at least one of the roles
+                           specified but need not have <em>all</em> roles.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[group]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Optional name of group to restrict roles to.
+                        User&#39;s Roles.GLOBAL_GROUP will also be checked.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Cursor</span>:
+                    
+                    <p>cursor of users in role</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeUsersFromRoles" class="method item">
+    <h3 class="name"><code>removeUsersFromRoles</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>users</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>roles</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[group]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l177"><code>roles&#x2F;roles_common.js:177</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Remove users from roles</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">users</code>
+                        <span class="type">Array | String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>User id(s) or object(s) with an _id field</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">roles</code>
+                        <span class="type">Array | String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Name(s) of roles to add users to</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[group]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Optional. Group name. If supplied, only that
+                        group will have roles removed.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Roles.removeUsersFromRoles(users.bob, &#39;admin&#39;)
+Roles.removeUsersFromRoles([users.bob, users.joe], [&#39;editor&#39;])
+Roles.removeUsersFromRoles([users.bob, users.joe], [&#39;editor&#39;, &#39;user&#39;])
+Roles.removeUsersFromRoles(users.eve, [&#39;user&#39;], &#39;group1&#39;)</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_setUserRoles" class="method item">
+    <h3 class="name"><code>setUserRoles</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>users</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>roles</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[group]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l148"><code>roles&#x2F;roles_common.js:148</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Set a users roles/permissions.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">users</code>
+                        <span class="type">Array | String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>User id(s) or object(s) with an _id field</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">roles</code>
+                        <span class="type">Array | String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Name(s) of roles/permissions to add users to</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[group]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Optional group name. If supplied, roles will be
+                        specific to that group.<br>                        Group names can not start with &#39;$&#39;.
+                        Periods in names &#39;.&#39; are automatically converted
+                        to underscores.
+                        The special group Roles.GLOBAL_GROUP provides 
+                        a convenient way to assign blanket roles/permissions
+                        across all groups.  The roles/permissions in the 
+                        Roles.GLOBAL_GROUP group will be automatically 
+                        included in checks for any group.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Roles.setUserRoles(userId, &#39;admin&#39;)
+Roles.setUserRoles(userId, [&#39;view-secrets&#39;], &#39;example.com&#39;)
+Roles.setUserRoles([user1, user2], [&#39;user&#39;,&#39;editor&#39;])
+Roles.setUserRoles([user1, user2], [&#39;glorious-admin&#39;, &#39;perform-action&#39;], &#39;example.org&#39;)
+Roles.setUserRoles(userId, &#39;admin&#39;, Roles.GLOBAL_GROUP)</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_userIsInRole" class="method item">
+    <h3 class="name"><code>userIsInRole</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>user</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>roles</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[group]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Boolean</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l257"><code>roles&#x2F;roles_common.js:257</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Check if user has specified permissions/roles</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">user</code>
+                        <span class="type">String | Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>User Id or actual user object</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">roles</code>
+                        <span class="type">String | Array</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Name of role/permission or Array of 
+                           roles/permissions to check against.  If array, 
+                           will return true if user is in <em>any</em> role.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[group]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Optional. Name of group.  If supplied, limits check
+                        to just that group.
+                        The user&#39;s Roles.GLOBAL_GROUP will always be checked
+                        whether group is specified or not.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Boolean</span>:
+                    
+                    <p>true if user is in <em>any</em> of the target roles</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>// non-group usage
+Roles.userIsInRole(user, &#39;admin&#39;)
+Roles.userIsInRole(user, [&#39;admin&#39;,&#39;editor&#39;])
+Roles.userIsInRole(userId, &#39;admin&#39;)
+Roles.userIsInRole(userId, [&#39;admin&#39;,&#39;editor&#39;])
+
+// per-group usage
+Roles.userIsInRole(user,   [&#39;admin&#39;,&#39;editor&#39;], &#39;group1&#39;)
+Roles.userIsInRole(userId, [&#39;admin&#39;,&#39;editor&#39;], &#39;group1&#39;)
+Roles.userIsInRole(userId, [&#39;admin&#39;,&#39;editor&#39;], Roles.GLOBAL_GROUP)
+
+// this format can also be used as short-hand for Roles.GLOBAL_GROUP
+Roles.userIsInRole(user, &#39;admin&#39;)</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+
+        
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_GLOBAL_GROUP" class="property item">
+    <h3 class="name"><code>GLOBAL_GROUP</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+
+    
+        <span class="flag final">final</span>
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/roles_roles_common.js.html#l35"><code>roles&#x2F;roles_common.js:35</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Constant used to reference the special &#39;global&#39; group that 
+can be used to apply blanket permissions across all groups.</p>
+
+    </div>
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>Roles.addUsersToRoles(user, &#39;admin&#39;, Roles.GLOBAL_GROUP)
+Roles.userIsInRole(user, &#39;admin&#39;) // =&gt; true
+
+Roles.setUserRoles(user, &#39;support-staff&#39;, Roles.GLOBAL_GROUP)
+Roles.userIsInRole(user, &#39;support-staff&#39;) // =&gt; true
+Roles.userIsInRole(user, &#39;admin&#39;) // =&gt; false</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

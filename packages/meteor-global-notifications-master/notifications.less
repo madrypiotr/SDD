@@ -1,0 +1,87 @@
+@margin: 10px;
+@padding: 10px;
+@animationSpeed: 200ms;
+
+@colorRed: #C9302C;
+@colorYellow: #F0AD4E;
+@colorBlue: #286090;
+@colorGreen: #449D44;
+@colorWhite: #fff;
+
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+.global-notifications {
+    z-index: 100;
+    position: absolute;
+    bottom: @margin;
+    right: @margin;
+    border-radius: 6px 6px 6px 6px;
+
+
+    .global-notification {
+        display: inline-block;
+        float: right;
+        clear: right;
+        max-width: 400px;
+        padding: @padding*2 @padding*3;
+        margin-top: @margin;
+        border-radius: 6px 6px 6px 6px;
+        
+        &.error {
+            background-color: @colorRed;
+            color: @colorWhite;
+            border-color: #2E6DA4;
+        }
+        &.warning {
+            background-color: @colorYellow;
+            border-color: #985F0D;
+        }
+        &.info {
+            background-color: @colorBlue;
+            color: @colorWhite;
+            border-color: #122B40;
+        }
+        &.success {
+            background-color: @colorGreen;
+            color: @colorWhite;
+            border-color: #255625;
+        }
+
+        // ANIMATION
+         -webkit-transition: transform @animationSpeed linear, transform 0.4s 0.2s ease;
+         -moz-transition: transform @animationSpeed linear, transform 0.4s 0.2s ease;
+         -o-transition: transform @animationSpeed linear, transform 0.4s 0.2s ease;
+         transition: transform @animationSpeed linear, transform 0.4s 0.2s ease;
+
+        &.animate {
+            -webkit-transform: translateX(1000px);
+            -moz-transform: translateX(1000px);
+            -ms-transform: translateX(1000px);
+            -o-transform: translateX(1000px);
+            transform: translateX(1000px);
+        }
+
+        h1 {
+            margin: 0;
+            margin-bottom: @margin;
+            padding: 0;
+            font-family: @font-family-sans-serif;
+        }
+        h3 {
+            margin: 0;
+            margin-bottom: @margin;
+            padding: 0;
+            font-family: @font-family-sans-serif;
+        }
+        p {
+            margin: 0;
+            font-family: @font-family-sans-serif;
+        }
+        button.ok {
+        }
+        button.cancel {
+            margin-left: @margin;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+
+<template name="previewKwestiaOpcja">
+    <div class="main">
+        <legend>
+<!--Kwestia-->
+{{_ "previewKwestiaOpcja.pkoKwestia"}}</legend>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal">
+                    <div class="form-group" id="kwestiaNazwaGroup">
+                        <label class=" col-xs-offset-1 col-xs-2">
+<!--Nazwa Kwestii-->
+{{_ "previewKwestiaOpcja.pkoNazKwes"}}:</label>
+                        <div class="col-xs-9">
+                            {{kwestiaNazwa}}
+                        </div>
+                    </div>
+                    <div class="form-group" id="krotkaTrescGroup">
+                        <label class="col-xs-offset-1 col-xs-2">
+<!--Krótka treść Kwestii-->
+{{_ "previewKwestiaOpcja.pkoKrTrKwe"}}</label>
+                        <div class="col-xs-9">
+                            {{krotkaTresc}}
+                        </div>
+                    </div>
+                    {{#if isKwestiaOsobowa}}
+                        <div class="form-group" id="daneAplikanta">
+                            <label class="col-xs-offset-1 col-xs-2" for="daneAplikantaGroup">
+<!--Dane aplikującego-->
+{{_ "previewKwestiaOpcja.pkoDaneApl"}}</label>
+
+                            <div class="col-xs-9">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td><strong>
+<!--Imię i Nazwisko-->
+{{_ "previewKwestiaOpcja.pkoImNazwi"}}: </strong></td><td>{{szczegolowaTresc.fullName}}</td>
+                                    </tr>
+                                    {{#if protectorZR}}
+                                        <tr>
+                                            <td><strong>
+<!--e-mail-->
+{{_ "glob.globaEmail"}} </strong></td><td>{{szczegolowaTresc.email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>
+<!--PESEL-->
+{{_ "glob.globaPESEL"}} </strong></td><td>{{szczegolowaTresc.pesel}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>
+<!--Adres-->
+{{_ "glob.globaAdres"}} </strong></td><td>{{szczegolowaTresc.address}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>
+<!--Kod pocztowy-->
+{{_ "glob.gloKodPocz"}} </strong></td><td>{{szczegolowaTresc.zip}}</td>
+                                        </tr>
+                                    {{/if}}
+                                    <tr>
+                                        <td><strong>
+<!--Miasto-->
+{{_ "glob.globMiasto"}} </strong></td><td>{{szczegolowaTresc.city}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group" id="szczegolowaTrescGroup">
+                            <label class="control-label col-xs-3" for="inputEmail">
+<!--Opis z uzasadnieniem-->
+{{_ "previewKwestiaOpcja.pkoOpisUza"}}</label>
+
+                            <div class="col-xs-9">
+                               {{szczegolowaTresc.uwagi}}
+                            </div>
+                        </div>
+                    {{else}}
+                        <div class="form-group" id="szczegolowaTrescGroup">
+                            <label class="col-xs-offset-1 col-xs-2">
+<!--Opis z uzasadnieniem-->
+{{_ "previewKwestiaOpcja.pkoOpisUza"}}</label>
+                            <div class="col-xs-9">
+                                {{szczegolowaTresc}}
+                            </div>
+                        </div>
+                    {{/if}}
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <a href="{{pathFor "addKwestiaOpcja"}}" id="edit" type="button" class="btn btn-primary">
+<!--Popraw-->
+{{_ "previewKwestiaOpcja.pKwoPopraw"}}</a>
+                            <a id="save" type="button" class="btn btn-primary">
+<!--Dodaj-->
+{{_ "glob.globaDodaj"}}</a>
+                            <a id="cancel" type="reset" class="btn btn-default">
+<!--Anuluj-->
+{{_ "glob.globAnuluj"}}</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p class="col-md-12 bg-warning padding-15">
+            
+<!--UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do systemu.-->
+{{_ "previewKwestiaOpcja.pkoUwZlWnN"}}
+        </p>
+    </div>
+</template>

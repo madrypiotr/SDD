@@ -1,0 +1,152 @@
+<!-- Szczegóły Kwestii wraz z dyskusją -->
+
+<template name="discussionMain">
+    <!-- SCRIPT przenieść we własciwe miejsce zamiast powielać -->
+    <script>
+        <!-- czcionka Google -->
+        <link href='http://fonts.googleapis.com/css?family=Coda&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    </script>
+    <input type="hidden" value="{{raporty}}" id="reportsIds"/>
+    <div class="row">
+        <input id="status" name="status" type="hidden" value="{{status}}">
+        <div class="col-xs-12">
+            {{#each getPosts _id}}
+            {{> discussionPostItem
+            wiadomosc = wiadomosc
+            uzasadnienie=uzasadnienie
+            idUser = idUser
+            userFullName = userFullName
+            addDate=addDate
+            idKwestia=idKwestia
+            idRaport=idRaport
+            idPost=_id
+            wartoscPriorytetu = wartoscPriorytetu
+            }}
+            {{/each}}
+        </div>
+    </div>
+    {{> discussionPostForm
+    status=status
+    idKwestia=_id
+    czyAktywny=czyAktywny
+    }}
+</template>
+
+<template name="discussionPostForm">
+    <form id="dyskusjaForm" class="form-horizontal">
+        <div class="form-group">
+            {{#if HasUserRights status czyAktywny}}
+            <div class="col-xs-9">
+                <!--wpisz komentarz ...-->
+                <textarea id="message" name="message" type="text" class="form-control" required placeholder="{{_ 'discussionPostForm.diWpiszKom'}}"></textarea>
+            </div>
+            <input id="idKwestia" name="idKwestia" type="hidden" value="{{idKwestia}}">
+            <!--Dodaj komentarz-->
+            <input type="submit" for="dyskusjaForm" class="btn btn-primary" value="{{_ 'discussionPostForm.diDodajKom'}}">  <br> 
+            <small>
+                <!--Uwaga: komentarza nie można usuwać ani zmieniać-->
+                {{_ "discussionPostForm.diUwagaKom"}}
+            </small>
+            {{/if}}
+        </div>
+    </form>
+</template>
+
+<template name="discussionRating">
+    <div>
+        <form>
+            <section class="dymek">
+                <small>
+                    <!--Priorytet tej wypowiedzi-->{{_ "discussionRating.drAktPrior"}}:
+                </small>
+                <ul>
+                    <a data-toggle="modal" href="#discusMain">
+                        <p class="fa fa-question-circle"><small> 
+                            {{_ "dym.dymTenPrSo"}}
+                            <sub class="fa fa-external-link"></sub></small>
+                        </p>
+                    </a>
+                </ul>
+                <div class="modal fade" id="discusMain" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "dym.dymPrioDys"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "dym.dymTXPrDyA"}}</p>
+								<p>{{_ "dym.dymTXPrDyB"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <i class=" label {{getLabelClass wartoscPriorytetu}}">{{wartoscPriorytetu}}</i>  
+            <small>
+                <section class="dymek">
+                    <!--Nadaj priorytet tej treści-->
+                    {{_ "discussionRating.drNadPriTr"}}
+                    <ul>
+                        <a href="#">
+                            <li class="fa fa-info-circle">
+                                <!--Udziel wsparcia lub nie-->
+                                {{_ "discussionRating.drPopLuNie"}}
+                            </li>
+                        </a>
+                    </ul>
+                </section>
+            </small>
+            {{#unless isGlosowanaZrealizowanaKosz}}
+            <div class="btn-group" role="group" aria-label="...">
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postNegativePriority"
+                value="-5" {{isUserLogged}}>-5
+                </button>
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postNegativePriority"
+                value="-4" {{isUserLogged}}>-4
+                </button>
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postNegativePriority"
+                value="-3" {{isUserLogged}}>-3
+                </button>
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postNegativePriority"
+                value="-2" {{isUserLogged}}>-2
+                </button>
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postNegativePriority"
+                value="-1" {{isUserLogged}}>-1
+                </button>
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postPositivePriority"
+                value="1" {{isUserLogged}}>+1
+                </button>
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postPositivePriority"
+                value="2" {{isUserLogged}}>+2
+                </button>
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postPositivePriority"
+                value="3" {{isUserLogged}}>+3
+                </button>
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postPositivePriority"
+                value="4" {{isUserLogged}}>+4
+                </button>
+                <button id="ratingButton" name="{{idPost}}" type="button" class="btn btn-xs postPositivePriority"
+                value="5" {{isUserLogged}}>+5
+                </button>
+            </div>
+            {{/unless}}
+            <section class="dymek">
+                <b class="fontSize">{{userFullName}},</b>
+                <ul>
+                    <li>
+                        <!--Autor Treści-->
+                        {{_ "discussionRating.drAutTresc"}}
+                    </li>
+                </ul>
+            </section>
+            <small>{{getSimpleDate addDate}}</small>
+            <small class="fontSizeSmall">{{getFullHourDate addDate}}</small> 
+        </form>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="yourPath/animatedModal.min.js"></script>		
+</template>

@@ -1,0 +1,143 @@
+<template name="addKwestiaOpcjaForm">
+<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "addKwestiaOpcjaForm.pinfoDoKwO"}}</b>  
+	<a data-toggle="modal" href="#dokwo"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="dokwo" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "addKwestiaOpcjaForm.pinfoDoKwO"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "addKwestiaOpcjaForm.pinfoDoKwA"}}</p>
+								<p>{{_ "addKwestiaOpcjaForm.pinfoDoKwB"}}</p>
+								<p>{{_ "addKwestiaOpcjaForm.pinfoDoKwC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <div class="main">
+        <strong>
+<!--Dodaj Kwestię Opcję-->
+{{_ "addKwestiaOpcjaForm.aKwOpDoKwe"}} 	</strong>
+&nbsp;&nbsp;&nbsp; 
+<small>
+{{_ "addKwestiaOpcjaForm.aKwOpcOpiA"}}<br />
+</small>
+        <hr/>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="kwestiaOpcjaForm">
+                    <div class="form-group" id="kwestiaNazwaGroup">
+                        <label class="control-label col-xs-3"
+                               for="inputEmail">
+<!--Nazwa Kwestii Opcji:-->
+{{_ "addKwestiaOpcjaForm.aKwOpNaKwe"}}							  </label>
+
+                        <div class="col-xs-9">
+                            <input class="form-control required" name="kwestiaNazwa" id="kwestiaNazwa"
+                                   placeholder="Nazwa Kwestii" value={{kwestiaNazwa}}>
+                        </div>
+                    </div>
+                    <div class="form-group" id="tematyGroup">
+                        <label class="control-label col-xs-3"
+                               for="inputEmail">
+<!--Temat:-->
+{{_ "glob.globaTemat"}}:</label>
+
+                        <div class="col-xs-3">
+                            <input type="text" readonly name="temat" id="temat" class="form-control"
+                                   value="{{tematNazwa}}"/>
+                        </div>
+                    </div>
+                    <div class="form-group" id="rodzajeGroup">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Rodzaj-->
+{{_ "glob.globRodzaj"}}:</label>
+
+                        <div class="col-xs-3">
+                            <input type="text" readonly name="rodzaj" id="rodzaj" class="form-control"
+                                   value="{{rodzajNazwa}}"/>
+                        </div>
+                    </div>
+                    <div class="form-group" id="krotkaTrescGroup">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Krótka treść-->
+{{_ "addKwestiaOpcjaForm.aKwOpkroTr"}}:</label>
+
+                        <div class="col-xs-9">
+                            <textarea class="form-control" name="krotkaTresc" id="krotkaTresc" maxlength="500"
+                                      placeholder="Krótka treść" value={{krotkaTresc}} required></textarea>
+                        </div>
+                    </div>
+                    {{#if isKwestiaOsobowa}}
+                        <div class="form-group" id="daneAplikanta">
+                            <label class="control-label col-xs-3" for="daneAplikantaGroup">
+<!--Dane aplikującego-->
+{{_ "addKwestiaOpcjaForm.aKwOpDaApl"}}</label>
+
+                            <div class="col-xs-9" rows="10">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td><strong>{{_ "addKwestiaOpcjaForm.aKwImieNaz"}}: </strong></td><td>{{szczegolowaTresc.fullName}}</td>
+                                    </tr>
+                                    {{#if protectorZR}}
+                                        <tr>
+                                            <td><strong>{{_ "glob.globaEmail"}}: </strong></td><td>{{szczegolowaTresc.email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>{{_ "glob.globaPESEL"}}: </strong></td><td>{{szczegolowaTresc.pesel}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>{{_ "glob.globaAdres"}}: </strong></td><td>{{szczegolowaTresc.address}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>{{_ "glob.gloKodPocz"}}: </strong></td><td>{{szczegolowaTresc.zip}}</td>
+                                        </tr>
+                                    {{/if}}
+                                        <tr>
+                                            <td><strong>{{_ "glob.globMiasto"}}: </strong></td><td>{{szczegolowaTresc.city}}</td>
+                                        </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group" id="szczegolowaTrescGroup">
+                            <label class="control-label col-xs-3" for="inputEmail">
+<!--Opis z uzasadnieniem-->
+{{_ "addKwestiaOpcjaForm.aKwOpOpUza"}}:</label>
+
+                            <div class="col-xs-9">
+<!--Opis z uzasadnieniem-->
+<textarea class="form-control" name="szczegolowaTrescUwagi" maxlength="1500" value={{szczegolowaTresc.uwagi}} id="szczegolowaTrescUwagi" placeholder="{{_ 'addKwestiaOpcjaForm.aKwOpOpUza'}}" required></textarea>
+                            </div>
+                        </div>
+                    {{else}}
+                        <div class="form-group" id="szczegolowaTrescGroup">
+                            <label class="control-label col-xs-3" for="inputEmail">
+<!--Opis z uzasadnieniem-->
+{{_ "addKwestiaOpcjaForm.aKwOpOpUza"}}:</label>
+
+                            <div class="col-xs-9">
+<!--Opis z uzasadnieniem-->
+<textarea class="form-control" name="szczegolowaTresc" maxlength="1500" value={{szczegolowaTresc}} id="szczegolowaTresc" placeholder="{{_ 'addKwestiaOpcjaForm.aKwOpOpUza'}}" required></textarea>
+                            </div>
+                        </div>
+                    {{/if}}
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+<!--Dodaj Kwestię Opcję-->
+<input type="submit" class="btn btn-primary" value="{{_ 'addKwestiaOpcjaForm.aKwOpDoKwe'}}" id="submitAddKwestiaOpcja">
+<!--Anuluj-->
+<input id="anuluj" type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

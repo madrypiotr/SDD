@@ -1,0 +1,22 @@
+SDD<br/>
+{{organizacja}}
+<br />
+{{welcomeGender}} {{userData}}! <br /><br />
+
+Brak w systemie Raportu Realizacyjnego Kwestii: <b>{{nazwaKwestii}}</b><br />
+<b>Temat:</b> {{temat}},<br/>
+<b>Rodzaj:</b> {{rodzaj}}<br />
+dotyczącej: <b>{{krotkaTresc}}</b> <br/><br/>
+
+<b>Zespół Realizacyjny:</b><br/>
+{{#each czlonekZR idZespolRealizacyjny}}
+    {{fullName}} - <a href="{{url}}">Napisz</a><br/>
+{{/each}}
+<br/><br/>
+
+Idź do dyskusji realizacyjnej: <a href="{{url}}">Link do Kwestii</a><br/><br/>
+
+<hr />
+Jest to automatyczna informacja z systemu SDD {{organizacja}}<br />
+Nie odpowiadaj na nią. <br/>
+Logowanie do systemu: <a href="{{urlLogin}}">Zaloguj</a>

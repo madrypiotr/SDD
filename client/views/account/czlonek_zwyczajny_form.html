@@ -1,0 +1,137 @@
+
+<template name="czlonekZwyczajnyForm">
+    <div class="main">
+        <legend>
+<!--Aplikowanie na członka zwyczajnego w organizacji-->
+{{_ 'czlonekZwyczajnyForm.cZwAplCzwy'}} {{nazwaOrganizacji}}</legend>
+        {{#if currentUser}}
+            <p class="col-md-12 bg-danger padding-15">
+ <!--Uzupełnij brakujące pola we wniosku.-->
+{{_ 'czlonekZwyczajnyForm.cZwUzuBrPo'}}
+            </p>
+            <br/>
+        {{/if}}
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="userForm">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--e-mail-->
+{{_ 'glob.globaEmail'}}: </label>
+
+                        <div class="col-xs-9">
+<!--e-mail-->
+<input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.globaEmail'}}"
+                                   value={{email}}
+                                           required {{isNotEmpty}}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+<!--Imię-->
+<label class="control-label col-xs-3" for="firstName">{{_ 'glob.globalImie'}}: </label>
+
+                        <div class="col-xs-9">
+<!--Imię-->
+<input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.globalImie'}}"
+                                   value={{profile.firstName}}
+                                           required {{isNotEmpty}}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+<!--Nazwisko-->
+<label class="control-label col-xs-3" for="lastName">{{_ 'glob.glNazwisko'}}: </label>
+
+                        <div class="col-xs-9">
+<!--Nazwisko-->
+<input name="lastName" type="text" class="form-control" id="lastName" placeholder="{{_ 'glob.glNazwisko'}}" value={{profile.lastName}} required {{isNotEmpty}}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="phoneNumber">
+<!--PESEL-->
+{{_ 'glob.globaPESEL'}}: </label>
+
+                        <div class="col-xs-9">
+<!--PESEL-->
+<input name="pesel" type="text" class="form-control" id="pesel" placeholder="{{_ 'glob.globaPESEL'}}" value={{profile.pesel}} required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="postalAddress">
+<!--Adres-->
+{{_ 'glob.globaAdres'}}: </label>
+
+                        <div class="col-xs-9">
+   <!--Adres-->
+<textarea name="address" rows="3" class="form-control" id="postalAddress" placeholder="{{_ 'glob.globaAdres'}}" value={{profile.address}} required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">
+<!--Kod pocztowy-->
+{{_ 'glob.gloKodPocz'}}: </label>
+                        <div class="col-xs-9">
+<!--Kod pocztowy-->
+<input class="form-control" type="text" name="ZipCode" id="ZipCode" placeholder="{{_ 'glob.gloKodPocz'}}" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">
+<!--Miasto-->
+{{_ 'glob.globMiasto'}}: </label>
+                        <div class="col-xs-9">
+<!--Miasto-->
+<input name="city" type="text" class="form-control" id="city" placeholder="{{_ 'glob.globMiasto'}}" value={{profile.city}} required {{isNotEmpty}}>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="uwagiStatus">
+<!--Dodatkowe-->
+{{_ 'czlonekZwyczajnyForm.cZwDodatko'}}: </label>
+
+                        <div class="col-xs-9">
+<!--Napisz parę słów do nas, o sobie i powodach Twojego wniosku...-->
+<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'czlonekZwyczajnyForm.cZwNaParSl'}}"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3">
+<!--Język użytkownika-->
+{{_ 'czlonekZwyczajnyForm.cZwJezUzyt'}}: </label>
+
+                        <div class="col-xs-9">
+                            <select name="language" id="language" class="form-control" required>
+                                <option value="0">
+<!--Wybierz język-->
+{{_ 'czlonekZwyczajnyForm.cZwWyJezyk'}}</option>
+                                {{#each getLanguages}}
+                                    <option value="{{shortName}}">{{languageName}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <div class="input-group">
+                                <input type="checkbox" name="statutConfirmation"  required/>
+                                <span id="statutConfirmationSpan">
+<!--Potwierdzam znajomość-->
+{{_ 'czlonekZwyczajnyForm.cZwPotwZna'}} <a id="statutBootbox">
+<!--Regulaminu-->
+{{_ 'czlonekZwyczajnyForm.cZwRegulam'}}</a> </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+<!--Aplikuję o przyjęcie-->
+<input type="submit" class="btn btn-primary" value="{{_ 'czlonekZwyczajnyForm.cZwAplPrzy" id="submitZwyczajny'}}">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

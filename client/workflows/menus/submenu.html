@@ -1,0 +1,15 @@
+<template name="subMenu">
+    {{#if currentUser}}
+        <ul class="nav nav-tabs">
+            {{#unless isAdminUser}}
+                <!--<li class="{{activeRouteClass 'listParametr'}}"><a href="{{pathFor 'listParametr'}}">Parametry globalne</a></li>-->
+                <!-- <li class="{{activeRouteClass 'listRaport'}}"><a href="{{pathFor 'listRaport'}}">Raporty</a></li> -->
+            {{/unless}}
+            {{#if isAdminUser}}
+                <li class="{{activeRouteClass 'listLanguages'}}"><a href="{{pathFor 'listLanguages'}}">Języki</a></li>
+            {{/if}}
+                <!-- <li class="{{activeRouteClass 'listTemat'}}"><a href="{{pathFor 'listTemat'}}">Kategoryzacja</a></li> -->
+                <!-- <li class="{{activeRouteClass 'listaKwestiiOczekujacych'}}"><a href="{{pathFor 'listaKwestiiOczekujacych'}}">Kwestie oczekujące</a></li> -->
+        </ul>
+    {{/if}}
+</template>

@@ -1,0 +1,58 @@
+<template name="activateAccount">
+    {{#if notActivatedAccount}}
+    {{> spinner}}
+    <div class="col-md-12 bg-warning padding-15" style="text-align: center ">
+        <p>
+            <!--Trwa aktywowanie konta-->
+            {{_ "activateAccount.acTrwaAkty"}}
+        </p>
+        <p>
+            <!--Jeżeli zbyt długo czekasz na reakcję systemu, spróbuj odświeżyć przeglądarkę lub spróbuj aktywować konto później-->
+            {{_ "activateAccount.acSprPozni"}}
+        </p>
+    </div>
+    {{else}}
+		{{#if notFound}}
+		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
+			<p>
+				<!--Uwaga!-->
+				{{_ "activateAccount.activUwaga"}}
+			</p>
+			<p>
+				<!--Wystąpił błąd. Spróbuj ponownie-->
+				{{_ "activateAccount.acWyBlSpPo"}}
+			</p>
+		</div>
+		{{else}}
+			{{#if activatedAccountRightNow}}
+			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
+				<p>
+					<!--Dziękujemy za aktywację konta!-->
+					{{_ "activateAccount.acDziZaAkt"}}
+				</p>
+				<p>
+					<!--Na podany przez Ciebie email w Aplikacji zostanie wysłany login i hasło.-->
+					{{_ "activateAccount.acWysLoHas"}}
+				</p>
+			</div>
+			{{else}}
+			<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
+				<p>
+					<!--Informacja.-->
+					{{_ "activateAccount.activInfor"}}
+				</p>
+				<p>
+					<!--Twoje konto zostało już aktywowane. Przejdź -->
+					{{_ "activateAccount.acKoAktPrz"}} 
+					<a href="{{link}}">
+						<!--tutaj-->
+						{{_ "activateAccount.activtutaj"}}
+					</a>
+					<!-- aby, się zalogować.-->
+					{{_ "activateAccount.acAbySieZa"}}
+				</p>
+			</div>
+			{{/if}}
+		{{/if}}
+    {{/if}}
+</template>

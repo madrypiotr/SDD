@@ -1,0 +1,125 @@
+<template name="answerInvitation">
+    {{#if userNotAnswered}}
+		{{#if timeExpired}}
+		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
+			<p>
+				<!--Przepraszamy,-->
+				{{_ 'answerInvitation.ansPrzepra'}},
+			</p>
+			<p >
+				<!--Czas przyjęcia zaproszenia jako -->
+				{{_ 'answerInvitation.ansCzasPrz'}} {{position}} 
+				<!-- w naszej organizacji -->
+				{{_ 'answerInvitation.ansWnasOrg'}} {{organizationName}} 
+				<!-- minął.-->
+				{{_ 'answerInvitation.answeMinal'}}
+			</p>
+		</div>
+		{{else}}
+		<div class="main">
+			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
+				<p>
+					<!--Witaj-->
+					{{_ 'answerInvitation.answeWitaj'}} {{fullName}}!
+				</p>
+				<br>
+				<p>
+					<!--Zostałeś zaproszony do aplikowania jako -->
+					{{_ 'answerInvitation.ansZostZap'}} {{position}} 
+					<!-- w naszej organizacji -->
+					{{_ 'answerInvitation.ansWnasOrg'}} {{organizationName}}.
+				</p>
+				<br>
+				<p>
+					<!--Czy chcesz aplikować?-->
+					{{_ 'answerInvitation.ansCzyChAp'}}
+				</p>
+			</div>
+			<br>
+			&nbsp;
+			<div style="text-align: center ">
+				<!--Chcę aplikować-->
+				<input type="submit" class="btn btn-primary" value="{{_ 'answerInvitation.ansChceApl'}}" id="apply">
+				<!--Nie, dziękuję-->
+				<input type="reset" class="btn btn-default" value="{{_ 'answerInvitation.ansNieDzie'}}" id="refuse">
+			</div>
+		</div>
+		{{/if}}
+		{{else}}
+		{{#if answerPositive}}
+		<div class="col-md-12 bg-success padding-15" style="text-align: center ">
+			<p>
+				<!--Już potwierdziłeś chęć aplikowania do naszej organizacji-->
+				{{_ 'answerInvitation.ansJuzPotw'}} {{organizationName}}.
+			</p>
+			{{#with actualKwestia}}
+			<p>
+				<!--Aby zobaczyć szczegóły kwestii kliknij -->
+				{{_ 'answerInvitation.ansAbZobSz'}} 
+				<a href="{{pathFor 'informacjeKwestia'}}">
+					<!-- tutaj-->
+					{{_ 'answerInvitation.answeTutaj'}}
+				</a>
+			</p>
+			{{/with}}
+		</div>
+		{{/if}}
+		{{#if answerNegative}}
+		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
+			<p>
+				<!--Przepraszamy,-->
+				{{_ 'answerInvitation.ansPrzepra'}}
+			</p>
+			<p>
+				<!--Odrzuciłeś zaproszenie do aplikowania jako -->
+				{{_ 'answerInvitation.ansOdrzZap'}} {{position}} 
+				<!-- w naszej organizacji -->
+				{{_ 'answerInvitation.ansWnasOrg'}} {{organizationName}}.
+			</p>
+		</div>
+		{{/if}}
+		{{#if answeredNow}}
+		{{#if ansPos}}
+		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
+			<p>
+				<!--Dziękujemy za potwierdzenie chęci przynależenia do naszej organizacji-->
+				{{_ 'answerInvitation.ansDziekuj'}} {{organizationName}}!
+			</p>
+			{{#if isGuest}}
+			<p>
+				<!--W następnej wiadomości otrzymasz dane do logowania.-->
+				{{_ 'answerInvitation.ansWnasWia'}}
+			</p>
+			{{else}}
+			<p>
+				<!--Otrzymałeś właśnie status Członka Honorowego-->
+				{{_ 'answerInvitation.ansOtrzHon'}}
+			</p>
+			{{/if}}
+			{{#with actualKwestia}}
+			<p>
+				<!--Możesz śledzić na bieżąco kwestię-->
+				{{_ 'answerInvitation.ansMozSled'}} 
+				<a href="{{pathFor 'informacjeKwestia'}}">
+					<!-- tutaj-->
+					{{_ 'answerInvitation.answeTutaj'}}
+				</a>
+			</p>
+			{{/with}}
+		</div>
+		{{else}}
+		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
+			<p>
+				<!--Dziękujemy za udzielenie odpowiedzi.-->
+				{{_ 'answerInvitation.ansDziOdpo'}}
+			</p>
+			<p>
+				<!--System-->
+				{{_ 'answerInvitation.answSystem'}} {{organizationName}}
+			</p>
+		</div>
+		{{/if}}
+		{{/if}}
+    {{/if}}
+    {{> GlobalNotifications}}
+</template>

@@ -1,0 +1,53 @@
+<template name="previewKwestia">
+<!-- podgląd Kwestii przed dodaniem -->
+    <div class="main">
+        <legend>
+<!--Kwestia-->
+{{_ "previewKwestia.pKwKwestia"}} <strong>{{kwestiaNazwa}}</strong>, <small>
+<!--Temat-->
+{{_ "glob.globaTemat"}}: {{temat}}, 
+<!--Rodzaj-->
+{{_ "glob.globRodzaj"}}: {{rodzaj}}</small></legend>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal">
+                    <div class="form-group" id="krotkaTrescGroup">
+                        <label class="col-xs-offset-1 col-xs-2">
+<!--Krótka treść-->
+{{_ "previewKwestia.pKwKrotTre"}}:</label>
+                        <div class="col-xs-9">
+                            {{krotkaTresc}}
+                        </div>
+                    </div>
+                    <div class="form-group" id="szczegolowaTrescGroup">
+                        <label class="col-xs-offset-1 col-xs-2">
+<!--Opis z uzasadnieniem-->
+{{_ "previewKwestia.pKwOpisUza"}}:</label>
+                        <div class="col-xs-9">
+                            {{szczegolowaTresc}}
+                        </div>
+                    </div>
+<p class="col-md-12 bg-warning padding-15">
+
+<!--UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do systemu-->
+{{_ "previewKwestia.pKwNieWyco"}}
+</p>
+                    <div class="form-group" id="formGroup" >
+                        <div class="col-xs-offset-3 col-xs-9">
+                            <a href="{{pathFor "addKwestia"}}" id="edit" type="button"
+                               class="btn btn-primary">
+<!--Popraw-->
+{{_ "previewKwestia.pKwePopraw"}}</a>
+                            <button id="save" type="button" class="btn btn-primary">
+<!--Dodaj-->
+{{_ "glob.globaDodaj"}}</button>
+                            <button id="cancel" type="reset" class="btn btn-default">
+<!--Anuluj-->
+{{_ "glob.globAnuluj"}}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

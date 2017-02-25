@@ -1,0 +1,79 @@
+<template name="informacjeRaport">
+<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "informacjeRaport.pinfoRaRea"}}</b>  
+	<a data-toggle="modal" href="#rare"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="rare" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "informacjeRaport.pinfoRaRea"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "informacjeRaport.pinfoRaReA"}}</p>
+								<p>{{_ "informacjeRaport.pinfoRaReB"}}</p>
+								<p>{{_ "informacjeRaport.pinfoRaReC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <div class="main">
+        <legend>{{kwestiaNazwa}}</legend>
+        <h4>
+<!--Raport Realizacyjny-->
+{{_ 'informacjeRaport.inrRapReal'}}</h4>
+        <br/>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal">
+                    <div class="form-group" id="kwestiaNazwaGroup">
+                        <label class=" col-xs-offset-1 col-xs-2">
+<!--Data utworzenia-->
+{{_ 'informacjeRaport.inrDataUtw'}}:</label>
+
+                        <div class="col-xs-9">
+                            {{dataUtworzenia}}
+                        </div>
+                    </div>
+                    <div class="form-group" id="kwestiaNazwaGroup">
+                        <label class=" col-xs-offset-1 col-xs-2">
+<!--Autor-->
+{{_ 'informacjeRaport.inrapAutor'}}:</label>
+                        <div class="col-xs-9">
+                            {{autorFullName}}
+                        </div>
+                    </div>
+                    <div class="form-group" id="kwestiaNazwaGroup">
+                        <label class=" col-xs-offset-1 col-xs-2">
+<!--Tytuł-->
+{{_ 'informacjeRaport.inrapTytul'}}:</label>
+                        <div class="col-xs-9">
+                            {{tytul}}
+                        </div>
+                    </div>
+                    <div class="form-group" id="kwestiaNazwaGroup">
+                        <label class=" col-xs-offset-1 col-xs-2">
+<!--Szczegóły-->
+{{_ 'informacjeRaport.inraSzczeg'}}:</label>
+
+                        <div class="col-xs-9">
+                            {{opis}}
+                        </div>
+                    </div>
+                    <div class="pull-left">
+                        {{#with issueReport}}
+                            <a href="{{pathFor "listRaport"}}" type="button"
+                               class="btn btn-primary">
+<!--Zobacz wszystkie raporty dla tej Kwestii-->
+{{_ 'informacjeRaport.inrZobaRap'}}</a>
+                        {{/with}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

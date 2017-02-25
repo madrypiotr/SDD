@@ -1,0 +1,82 @@
+<template name="profileEdit">
+
+    <div class="main">
+        <legend>
+<!--Edytuj profil-->
+{{_ 'profileEdit.prfEdProfi'}}</legend>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="profileForm">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputImię">
+<!--Imię-->
+{{_ 'glob.globalImie'}}:</label>
+
+                        <div class="col-xs-9">
+                            <input name="name" class="form-control" id="firstName" value="{{profile.firstName}}"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputNazwisko">
+<!--Nazwisko-->
+{{_ 'glob.glNazwisko'}}:</label>
+
+                        <div class="col-xs-9">
+                            <input name="surname" class="form-control" id="lastName" value="{{profile.lastName}}"
+                                   required>
+                        </div>
+                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<label class="control-label col-xs-3" for="inputEmail">Email:</label>-->
+
+                        <!--<div class="col-xs-9">-->
+                            <!--<input name="email" type="email" class="form-control" id="inputEmail" value="{{email}}"-->
+                                   <!--required>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    {{#if userZwyczajny}}
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="inputAdres">
+<!--Adres-->
+{{_ 'glob.globaAdres'}}:</label>
+
+                            <div class="col-xs-9">
+                                <textarea name="address" class="form-control" id="address"
+                                          value="{{profile.address}}" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-xs-3" for="inputZipcode">
+<!--Kod pocztowy-->
+{{_ 'glob.gloKodPocz'}}:</label>
+
+                            <div class="col-xs-9">
+                                <input name="zipcode" type="text" class="form-control" id="zipcode" value="{{profile.zip}}" required>
+                            </div>
+                        </div>
+                    {{/if}}
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputMiasto">
+<!--Miasto-->
+{{_ 'glob.globMiasto'}}: </label>
+                        <div class="col-xs-9">
+                            <input name="city" class="form-control" id="city" value="{{profile.city}}" required>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+<!--Zapisz-->
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.globZapisz'}}">
+                            <a href="{{pathFor 'manage_account'}}" class="btn btn-default">
+<!--Anuluj-->
+{{_ 'glob.globAnuluj'}}</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

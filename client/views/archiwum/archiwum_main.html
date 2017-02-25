@@ -1,0 +1,118 @@
+
+<template name="archiwum">
+    <!--{{#if currentUser}}-->
+        <div class="main">
+            <div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#archiwum" aria-controls="archiwum" role="tab" data-toggle="tab">
+<!--Archiwum-->
+
+						<section class="dymek">
+							<span class="fa fa-file-archive-o">&nbsp;&nbsp;&nbsp;</span> 
+							<ul align="left">
+					<a data-toggle="modal" href="#PodmenuArchiwum" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="PodmenuArchiwum" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'dym.dymINarchi'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXarchA'}}</p>
+					<p>{{_ 'dym.dymTXarchB'}}</p>
+					<p>{{_ 'dym.dymTXarchC'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+
+{{_ 'archiwum.arcArchiwu'}}</a></li>
+                    <li role="presentation"><a href="#hibernowane" aria-controls="hibernowane" role="tab" data-toggle="tab">
+<!--Hibernowane-->
+
+						<section class="dymek">
+							<i class="fa fa-hourglass-half ">&nbsp;&nbsp;&nbsp;</i> 
+							<ul align="left">
+					<a data-toggle="modal" href="#PodmenuHibernowane" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="PodmenuHibernowane" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'archiwum.arcHiberno'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXHibeA'}}</p>
+					<p>{{_ 'dym.dymTXHibeB'}}</p>
+					<p>{{_ 'dym.dymTXHibeC'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+{{_ 'archiwum.arcHiberno'}}</a></li>
+                    <li role="presentation"><a href="#kosz" aria-controls="kosz" role="tab" data-toggle="tab">
+<!--Kosz-->
+					<section class="dymek">
+							<i class="fa fa-trash ">&nbsp;&nbsp;&nbsp;</i> 
+							<ul align="left">
+					<a data-toggle="modal" href="#PodmenuKosz" class="fa fa-info-circle">
+					<!--info i zachęta w dymku-->
+					</a>
+					</ul>
+					<div class="modal fade" id="PodmenuKosz" role="dialog">
+					<div class="modal-dialog">
+					<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<p class="modal-title" align="left">
+					{{_ 'archiwum.archiwKosz'}}
+					</p>
+					</div>
+					<div class="modal-body" align="left">
+					<small>
+					<p>{{_ 'dym.dymTXKoszA'}}</p>
+					<p>{{_ 'dym.dymTXKoszB'}}</p>
+					</small>
+					</div>
+					</div>
+					</div>
+					</div>
+					</section>
+{{_ 'archiwum.archiwKosz'}}</a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="archiwum">
+                        {{> archiwumList}}
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="hibernowane">
+                        <br />
+                        {{> hibernowaneList}}
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="kosz">
+                        <br />
+                        {{> kosz}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!--{{/if}}-->
+</template>
+

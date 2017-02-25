@@ -1,0 +1,323 @@
+<template name="listParametr">
+<div class="pinfo-realiz">{{_ "glob.glThisPage"}}: <b>{{_ "listParametr.pinfoParGl"}}</b>  
+	<a data-toggle="modal" href="#liparam"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="liparam" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "listParametr.pinfoParGl"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "listParametr.pinfoParGA"}}</p>
+								<p>{{_ "listParametr.pinfoParGB"}}</p>
+								<p>{{_ "listParametr.pinfoParGC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <div class="row">
+            {{#unless noKwestiaParameters}}
+                <p class="col-md-12 bg-warning padding-15 color-red">
+<!--Istnieje kwestia administrowana dotycząca zmiany parametrów globalnych.-->
+{{_ 'listParametr.lipIstniej'}}
+                </p>
+            {{/unless}}
+            <div class="col col-md-6">
+                <div class="input-group">
+                    <div class="btn-group">
+                        {{#if isUserCzlonek}}
+                            {{#if noKwestiaParameters}}
+                                <!--<a href="{{pathFor 'editParametry'}}" class="btn btn-primary">-->
+                                    <!--<i class="fa fa-edit"></i>{{_ 'glob.globEdytuj'}}-->
+                                <!--</a>-->
+                             {{else}}
+                                <a  id="parametersClick" class="kwestiaId btn btn-primary">
+                                    <i class="fa fa-edit"></i>
+<!--Zobacz kwestię-->
+{{_ 'listParametr.lipZobKwes'}}
+                                </a>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="parametrForm">
+                    <legend>
+<!--Dane organizacji-->
+{{_ 'listParametr.lipDaneOrg'}}</legend>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Nazwa organizacji-->
+{{_ 'listParametr.lipNazwOrg'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="nazwaOrganizacji" type="text" class="form-control" id="nazwaOrganizacji"
+                                   readonly value={{nazwaOrganizacji}}>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a class="btn btn-primary" id="editOrganisationName">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Terytorium-->
+{{_ 'listParametr.lipTerytor'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="terytorium" type="text" class="form-control" id="terytorium" readonly
+                                   value={{terytorium}}>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editTeritory" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Kontakty-->
+{{_ 'listParametr.lipKontakt'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="kontakty" type="text" class="form-control" id="kontakty" readonly
+                                   value={{kontakty}}>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editContacts" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Statut-->
+{{_ 'glob.globStatut'}}:</label>
+
+                        <div class="col-xs-8">
+                            <textarea name="regulamin" class="form-control" id="regulamin" readonly rows="3"
+                                      value={{regulamin}}></textarea>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editStatute" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+
+                    </div>
+
+                    <br/>
+                    <legend>
+<!--Głosowanie-->
+{{_ 'listParametr.lipGlosowa'}}</legend>
+
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Czas głosowania(w godzinach)-->
+{{_ 'listParametr.lipCzGłoso'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="CzasGlosowania" class="form-control" id="CzasGlosowania" readonly
+                                   value={{voteDuration}}>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editVoteDuration" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="CzasWyczekiwaniaKwestiiSpec">
+<!--Czas wyczekiwania kwestii i komentarzy specjalnych (w dniach)-->
+{{_ 'listParametr.lipWyczekK'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="CzasWyczekiwaniaKwestiiSpec" class="form-control" id="CzasWyczekiwaniaKwestiiSpec" readonly
+                                   value={{czasWyczekiwaniaKwestiiSpecjalnej}}>
+                        </div>
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editIssueWaiting" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Ilość kwesti przechodzących do głosowania-->
+{{_ 'listParametr.lipIlKwGlo'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="IloscKwestiiDoGlosowania" class="form-control" id="IloscKwestiiDoGlosowania" readonly
+                                      value={{voteQuantity}}>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editVoteQuantity" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                    <br/>
+                    <legend>
+<!--Ilość minut koniecznej pauzy do ponownej akcjii tego samego typu-->
+{{_ 'listParametr.lipMinPauz'}}</legend>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="addIssuePause">
+<!--Dodanie kwestii-->
+{{_ 'listParametr.lipDodKwes'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="addIssuePause" class="form-control" id="addIssuePause" readonly
+                                   value={{addIssuePause}}>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editIssuePause" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="add">
+<!--Dodanie komentarza w ramach danej kwestii-->
+{{_ 'listParametr.lipDodKome'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="addCommentPause" class="form-control" id="addCommentPause" readonly
+                                   value={{addCommentPause}}>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editCommentPause" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="addReferencePause">
+<!--Dodanie odniesienia w ramach danego komentarza-->
+{{_ 'listParametr.lipDodOdni'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="addReferencePause" class="form-control" id="addReferencePause" readonly
+                                   value={{addReferencePause}}>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editReferencePause" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                    <br/>
+
+                    <legend>
+<!--Raporty Realizacyjne-->
+{{_ 'listParametr.lipRapReal'}}</legend>
+
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Okres składania Raportów Realizacyjnych (w dniach)-->
+{{_ 'listParametr.lipOkSklRR'}}:</label>
+
+                        <div class="col-xs-8">
+                            <input name="okresSkladaniaRR" class="form-control" id="okresSkladaniaRR" readonly
+                                   value={{okresSkladaniaRR}}>
+                        </div>
+
+                        <div class="btn-group col-xs-1">
+                            {{#if isUserCzlonek}}
+                                {{#if noKwestiaParameters}}
+                                    <a id="editRRDuration" class="btn btn-primary">
+                                        <i class="fa fa-edit"></i>
+<!--Edytuj-->
+{{_ 'glob.globEdytuj'}}
+                                    </a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    {{>editParametrModal}}
+</template>

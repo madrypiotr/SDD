@@ -1,0 +1,22 @@
+<template name="modalWindow">
+    <div id="modalWindow" class="modal fade" tabindex="-1" data-width="760" style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{> modalInner}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="modalInner">
+    <div class="modal-header">
+        <h4>{{ modalTitle }}</h4>
+    </div>
+    <div class="modal-body">
+        {{ modalContent }}
+    </div>
+    <div class="modal-footer">
+<!--Zamknij-->
+<button type="button" data-dismiss="modal" class="btn btn-primary">{{_ 'modalInner.moiZamknij'}}</button>
+    </div>
+</template>

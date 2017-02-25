@@ -1,0 +1,44 @@
+
+<template name="editTematForm">
+    <div class="main">
+        <legend>
+<!--Edytuj Temat-->
+{{_ "editTematForm.etfEdTemaT"}}</legend>
+        <div class="row">
+            <div class="col col-md-10">
+                <form class="form-horizontal" id="tematForm">
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Nazwa Tematu:-->
+{{_ "editTematForm.etfNaTemat"}}</label>
+
+                        <div class="col-xs-9">
+<!--Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)-->
+<input name="nazwaTemat" type="text" value={{nazwaTemat}} class="form-control" id="inputNazwaTemat" placeholder="{{_ 'editTematForm.etfNaTeItp'}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" for="inputEmail">
+<!--Opis Tematu:-->
+{{_ "editTematForm.etfOpTemat"}}</label>
+
+                        <div class="col-xs-9">
+<!--Opis Tematu:-->
+<textarea class="form-control" value={{opis}} name="opis" id="opis" placeholder="{{_ 'editTematForm.etfOpTemat'}}" required></textarea>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-9">
+<!--Zapisz-->
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.globZapisz'}}">
+<!--Anuluj-->
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

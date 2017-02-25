@@ -1,0 +1,55 @@
+<template name="profileList">
+    <!--{{#if currentUser}}-->
+<div class="pinfo-realiz">{{_ "glob.glThisPage"}}: <b>{{_ "profileList.pinfoProfi"}}</b>  
+	<a data-toggle="modal" href="#profi"><button>{{_ "glob.glAboutPag"}}
+	</button></a></div>
+                <div class="modal fade" id="profi" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "profileList.pinfoProfi"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "profileList.pinfoProfA"}}</p>
+								<p>{{_ "profileList.pinfoProfB"}}</p>
+								<p>{{_ "profileList.pinfoProfC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+        <div class="main">
+<!--Lista użytkowników-->
+            <div class="row">
+                <div class="col-md-12">
+                    {{> reactiveTable
+                    class = "table table-bordered table-hover"
+                    fields = settings.fields
+                    settings = settings
+                    collection = "UsersList"
+                    }}
+                </div>
+            </div>
+        </div>
+        {{> updateRolesModal}}
+        {{> deleteAccountModal}}
+        {{> infoAccountModal}}
+        {{> updateAccountModal}}
+    <!--{{/if}}-->
+</template>
+
+
+<template name="userEmailContact">
+    {{#if myProfile this._id}}
+        {{email}}
+    {{else}}
+        <a href="{{ pathFor 'sendMessage' this._id}}" id="sendMessage">
+<!--Napisz-->
+{{_ 'userEmailContact.prliNapisz'}}</a>
+    {{/if}}
+</template>
+
