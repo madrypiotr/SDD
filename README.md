@@ -10,7 +10,7 @@ Na razie testujemy ...
 * korekty
 * tłumaczenie serwisu
 * testy
-* Finalizowanie projektu SDD (http://www.debesciak.eu/sdd/)
+* Finalizowanie projektu SDD
 
 =======
 # Witajcie w Testach #
