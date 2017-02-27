@@ -4,6 +4,7 @@
 	"glAboutPag":"info",
 	"globStatut":"Statut",
 	"globZapisz":"Zapisz",
+	"globClose":"Zamknij",
 	"globAnuluj":"Anuluj",
 	"globaDodaj":"Dodaj",
 	"globEdytuj":"Edytuj",
@@ -35,15 +36,15 @@
   },
   "dym":{
 	  "dymSystemD":"O Systemie Deliberacyjno Decyzyjnym...",
-			"dymTXsystA":"Witaj w Systemie, który umożliwi Ci wpływ na wszystko, cokolwiek będzie procedowane w społeczności objętej tym Systemem. Zasadą nadrzędną jest równy dostęp uczestników do wnioskowania, uzgadniania i głosowania Kwestii, czyli pomysłów, wniosków, projektów. Jego celem jest umożliwienie ludziom zarządzania swoją aktywnością zgodnie z wolą Ogółu, bez koniecznosci posługiwania się wybieralnymi funkcjami zarządczymi.",
+			"dymTXsystA":"SDD umożliwi Ci wpływ na wszystko, cokolwiek będzie procedowane w społeczności objętej tym Systemem. Zasadą nadrzędną jest równy dostęp uczestników do wnioskowania, uzgadniania i głosowania Kwestii, czyli pomysłów, wniosków, projektów. Jego celem jest umożliwienie ludziom zarządzania swoją aktywnością zgodnie z wolą Ogółu, bez koniecznosci posługiwania się wybieralnymi funkcjami zarządczymi.",
 			"dymTXsystB":"Nie potrzeba tu wybierać jednoosobowego decydenta, ani gremium w rodzaju zarządu. Te funkcje zastępuje niniejszy system informatyczny. Wszelkie decyzje wynikają z woli Ogółu tu zgromadzonych. Jego działanie najlepiej zrozumiesz, widząc go jako Zebranie Ogólne Członków, które trwa nieprzerwanie. To w tzw. realnym życiu nie jest możliwe. Dzięki temu Systemowi stało się wykonalne. Specjalne ciała decyzyjne w postaci zarządów stały się zbędne.",
-			"dymTXsystC":"Konsekwentnie - nie ma w tym Systemie administratora, który mógłby arbitralnie cokolwiek zmieniać, korygować parametry, dopisywać użytkowników, ograniczać im prawa, usuwać... Wiemy ile to rodzi nieporozumień i często słusznych protestów i oskarżeń o despotyzm. Wszelkie parametry indywidualne oraz globalne ustawienia, sposób i tryb działania Systemu ustalane są tylko decyzją Ogółu na starcie Systemu, a także zmieniane w dowolnej chwili.",
+			"dymTXsystC":"Konsekwentnie - nie ma w tym Systemie administratora, który mógłby arbitralnie cokolwiek zmieniać, korygować parametry, dopisywać Użytkowników, ograniczać im prawa, usuwać... Wiemy ile to rodzi nieporozumień i często słusznych protestów i oskarżeń o despotyzm. Wszelkie parametry indywidualne oraz globalne ustawienia, sposób i tryb działania Systemu ustalane są tylko decyzją Ogółu na starcie Systemu, a także zmieniane w dowolnej chwili.",
 			"dymTXsystD":"Twórcy Systemu życzą wielu sukcesów i zadowolenia z jego używania!",
 			"dymTXsystE":"Obszerniejszy opis Systemu",
 	"dymZaniDod":"O dodawaniu Kwestii",
 	  "dymDodKwes":"Dodawanie Kwestii",
-			"dymTXdoKwA":"Każdy może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez ogół użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
-			"dymTXdoKwB":"Priorytety poszczególnych użytkowników sumują się i najlepsze Kwestie przechodzą do głosowania. Pozytywne głosowanie powoduje, że Kwestia staje się uchwałą obowiązującą wszyskich, zgromadzonych tu, użytkowników.",
+			"dymTXdoKwA":"Każdy może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
+			"dymTXdoKwB":"Priorytety poszczególnych Użytkowników sumują się i najlepsze Kwestie przechodzą do głosowania. Pozytywne głosowanie powoduje, że Kwestia staje się uchwałą obowiązującą wszyskich, zgromadzonych tu, Użytkowników.",
 			"dymTXdoKwC":"Prosimy o rozważne dodawanie. Dodanej Kwestii nie można usuwać ani edytować.",
 	  "dymTemCzyl":"Temat, czyli dziedzina funkcjonowania.",
 			"dymTXkazda":"Każda społeczność posiada swój specyficzny zasób tematyki. System więc nie narzuca wszystkim jakiegoś zestawu określeń, które i tak nie byłyby w większości wykorzystane. Budujemy pakiet tematyczny od początku stosownie do potrzeb. Zanim samodzielnie ustalisz jego nazwę, sprawdź, czy istnieje już Temat odpowiedni dla Twojej Kwestii? Przykładowy Temat to: organizacja, finanse, kultura, polityka, ekonomia, zdrowie, rozrywka, przemysł, transport, itp. dziedzina ... Najlepiej ujmij Temat jednym słowem.",
@@ -80,39 +81,39 @@
 		  "dymTXTuJes":"Tutaj jest miejsce na dowolnie obszerną argumentację, która przyda się dyskutujacym i decydujacym o jej losie współużytkownikom Systemu. Opisz istotę propozycji, jak ona miałaby funkcjonować po wejściu do praktyki, jakie korzyści miałaby przynieść? Ten opis zdecyduje o powodzeniu deliberacji, a więc postaraj się tu przekonać nas do Twojego pomysłu.",
 
 		"dymINkwest":"KWESTIE",
-		  "dymTXKwesA":"Kwestię może wnieść każdy użytkownik. Od ogółu będzie zależało, jak Twoja Kwestia będzie przyjęta i czy będzie ona zaczątkiem pożytecznej sprawy dla wszystkich? Kwestia, to problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez ogół użytkowników Systemu. ",
+		  "dymTXKwesA":"Kwestię może wnieść każdy Użytkownik. Od Ogółu będzie zależało, jak Twoja Kwestia będzie przyjęta i czy będzie ona zaczątkiem pożytecznej sprawy dla wszystkich? Kwestia, to problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników Systemu. ",
 		  "dymTXKwesB":"Kiedy Twoja Kwestia uzyska odpowiednie wsparcie, przejdzie do głosowania. Pozytywne głosowanie Kwestii kończy się wygenerowaniem uchwały i z tą chwilą zaczyna się realizacja Kwestii (tej uchwały).",
-		  "dymTXKwesC":"Życie Kwestii może być nieskończone lub też zakończone w \"zrealizowanych\", albo w \"koszu\". Trzecią formą życia Kwestii może być postać ciągłego aspirowania do awansu, czyli przebywanie w deliberacji/dyskusji. Brak awansu do głosowania może wynikać z: braku chętnych do składu Zespołu Realizacyjnego, braku wsparcia przez użytkowników (zerowy, lub ujemny priorytet), albo braku kworum.",
+		  "dymTXKwesC":"Życie Kwestii może być nieskończone lub też zakończone w \"zrealizowanych\", albo w \"koszu\". Trzecią formą życia Kwestii może być postać ciągłego aspirowania do awansu, czyli przebywanie w deliberacji/dyskusji. Brak awansu do głosowania może wynikać z: braku chętnych do składu Zespołu Realizacyjnego, braku wsparcia przez Użytkowników (zerowy, lub ujemny priorytet), albo braku kworum.",
 
 		"dymINgloso":"GŁOSOWANIE",
 		  "dymTXglosA":"Trzy najwyżej notowane Kwestie przechodzą do głosowania. Informację o tym fakcie otrzymasz e-mail'em. Nie musisz koniecznie sprawdzać skrzynki pocztowej, te same informacje i o wielu innych wydarzeniach zobaczysz tutaj (zakładka Powiadomienia)",
 		  "dymTXglosB":"Aby Kwestia przeszła do głosowania muszą być spełnione 3 warunki:",
-		  "dymTXglosC":"1. odpowiednie wsparcie Kwestii przez użytkowników (wysoki dodatni priorytet). W danym momencie tylko 3 najwyżej oceniane Kwestie przechodzą do głosowania,",
+		  "dymTXglosC":"1. odpowiednie wsparcie Kwestii przez Użytkowników (wysoki dodatni priorytet). W danym momencie tylko 3 najwyżej oceniane Kwestie przechodzą do głosowania,",
 		  "dymTXglosD":"2. istnienie wymaganego kworym obecnych w głosowaniu,",
 		  "dymTXglosE":"3. akces troje chętnych do składu Zespołu Realizacyjnego.",
 
 		"dymINreali":"Realizacja",
 		  "dymTXrealA":"Tu zobaczysz Kwestie, które z powodzeniem przeszły proces deliberacji, a później głosowania.",
 		  "dymTXrealB":"W takim wypadku generowana jest uchwała, a tym samym rozpoczyna się jej realizacja pilotowana przez Zespół Realizacyjny.",
-		  "dymTXrealC":"Realizacja Kwestii trwa tak długo, dopóki ogół użytkowników nie uzna ja za zrealizowaną, przesyłając ją do dzału Zrealizowane, do Archiwum. Jeśli będzie ona uznana za nietrafioną, lub w inny sposób nie do realizacji, może być też skierowana do Kosza.",
+		  "dymTXrealC":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ja za zrealizowaną, przesyłając ją do dzału Zrealizowane, do Archiwum. Jeśli będzie ona uznana za nietrafioną, lub w inny sposób nie do realizacji, może być też skierowana do Kosza.",
 
-		"dymINarchi":"Archiwum",
+		"dymINarchi":"ARCHIWUM",
 		  "dymTXarchA":"Archiwum służy składowaniu Kwestii skierowanych tu z różnych powodów, takich jak brak wymaganego poziomu priorytetu przez Kwestię, decyzję uczestników o rezygnacji z dyskusji nad Kwestią i innych.", 
 		  "dymTXarchB":"Dane w archiwum są prezentowane w identycznym formacie jak w wykazie Kwestii. Dopóki nie zawnioskuje się o przywrócenie do deliberacji - Kwestia ta będzie archiwalną.",
 		  "dymTXarchC":"Archiwum pełni funkcję porządkującą. W Systemie nie ma admina. Wszystkie decyzje będą wynikały z deliberacji i nadawania priorytetów.",
 
 		"dymINustaw":"Ustawienia",
-		  "dymTXustaA":"Panel Ustawienia zapewnia użytkownikom zarządzanie funkcjami Systemu, zmianę parametrów oraz informacje o stanie Systemu.",
+		  "dymTXustaA":"Panel Ustawienia zapewnia Użytkownikom zarządzanie funkcjami Systemu, zmianę parametrów oraz informacje o stanie Systemu.",
 		  "dymTXustaB":"Znajdziesz w nim wykaz Twoich Kwestii, tych przez Ciebie wniesionych do Systemu).",
 		  "dymTXustaC":"Możesz tu zaproponować Ogółowi zmiany w funkcjonowaniu Ststemu, poprzez zmianę któregoś z wybranych parametrów.",
-		  "dymTXustaD":"Zobaczysz wykaz użytkowników, z możliwością skontaktowania się z którymś z nich.",
+		  "dymTXustaD":"Zobaczysz wykaz Użytkowników, z możliwością skontaktowania się z którymś z nich.",
 
 		"dymINpowia":"POWIADOMIENIA",
 		
 		  "dymTXpowiA":"Tutaj znajdziesz informacje o wydarzeniach w Systemie wraz z linkami do miejsc, gdzie one były procedowane. Powiadomienia te zostały również wysłane na Twój adres e-mail.",
 		  "dymTXpowiB":"Czemu to służy? Znika problem dochowania tajności, ponieważ z założenia - WEWNĄTRZ ORGANIZACJI WSZYSTKO JEST JAWNE I NATYCHMIAST DOSTĘPNE! Nie ma potrzeby zwracania się z prosbą do kogokolwiek, jako że wszelkie dokumenty znajdują się systemie gotowe do pobrania.",
 		  "dymTXpowiC":"Dzieki takiemu podejściu, brak jest tendencji dla \"świata zewnetrznego\" do chęci odkrycia tajników procedowania. Również dla Członków Systemu wszystko jest dostępne i UDOKUMENTOWANE! To wlasnie druga (ważniejsza) - dokumentacyjna funkcja (oprócz informacyjnej). Ten rejestr wydarzeń służy Twojej pewności, że nie jest możliwa manipulacja post factum.",
-		  "dymTXpowiD":"Jest to związane z ogólną \"filozofią\" podejścia, która tu zakłada brak procedur tajnych. Dlatego też wszelkie zdarzenia i ich wyniki są natychmiast po ich zaistnieniu dostępne dla Ogółu Członków - użytkowników Systemu.",
+		  "dymTXpowiD":"Jest to związane z ogólną \"filozofią\" podejścia, która tu zakłada brak procedur tajnych. Dlatego też wszelkie zdarzenia i ich wyniki są natychmiast po ich zaistnieniu dostępne dla Ogółu Członków - Użytkowników Systemu.",
 		  
 		"dymPrioDys":"Priorytet w dyskusji, komentarzach i odniesieniach",
 	  "dymTenPrSo":"Ten priorytet sortuje wypowiedzi ...",
@@ -120,25 +121,29 @@
 		  "dymTXPrDyB":"W ten sposób, wypowiedzi mało istotne, a nawet spam lub trolling będa lokowane nizej, nie zaśmiecając istotnego wątku dyskusji.",
 	  "dymPriMain":"Priorytet Kwestii",
 		  "dymTXPrMaA":"Nadaj priorytet Kwestii zgodnie z tym, na ile uważasz ją za ważną. Jeśli Twoje zdanie podczas deliberacji ulegnie zmianie, w każdym momencie możesz zmieniać wielkość priorytetu.",
-		  "dymTXPrMaB":"Suma priorytetów nadanych przez użytkowników Systemu, to najważniejszy czynnik decydujacy o losie każdej Kwestii.",
+		  "dymTXPrMaB":"Suma priorytetów nadanych przez Użytkowników Systemu, to najważniejszy czynnik decydujacy o losie każdej Kwestii.",
 		  "dymTXPrMaC":"Kwestie są domyślnie szeregowane na wykazie od najwyżej wycenionej. Te Kwestie, które są na szczycie, po spełnieniu innych warunków (odpowiednie kworum i skompletowany Zespół Realizacyjny), przechodzą do realizacji.",
 		"dymRealizA":"Kwestie, które zostały pozytywnie zweryfikowane w głosowaniu przechodzą do realizacji. Zostaje to udokumentowane wygenerowaniem przez System uchwały.",
-		"dymRealizB":"Przykładem może być Kwestia osobowa (członkostwo użytkownika), która również znajduje się w realizacji tak długo, dopóki użytkownik jest aktywny w Systemie.",
-		"dymRealizC":"Kwestia w realizacji również podlega priorytetowaniu, co daje orientację uzytkownikom o jej stanie, a w razie obniżenia jej priorytetu realizacyjnego, Kwestia wypada z realizacji do archiwum lub do kosza (zależnie od decyzji ogółu uzytkowników). Nie jest celowe utrzymywanie Kwestii w realizacji, co do której ogół nie ma przekonania, nie jest trafiona, lub po prostu brak możliwosci dla jej realizacji. Ogół również ma prawo się pomylić, natomiast wycowanie błędnej decyzji następuje szybko.",
+		"dymRealizB":"Przykładem może być Kwestia osobowa (członkostwo użytkownika), która również znajduje się w realizacji tak długo, dopóki Użytkownik jest aktywny w Systemie.",
+		"dymRealizC":"Kwestia w realizacji również podlega priorytetowaniu, co daje orientację Użytkownikom o jej stanie, a w razie obniżenia jej priorytetu realizacyjnego, Kwestia wypada z realizacji do archiwum lub do kosza (zależnie od decyzji Ogółu Użytkowników). Nie jest celowe utrzymywanie Kwestii w realizacji, co do której Ogół nie ma przekonania, nie jest trafiona, lub po prostu brak możliwosci dla jej realizacji. Ogół również ma prawo się pomylić, natomiast wycowanie błędnej decyzji następuje szybko.",
 		"dymZrealiz":"Kwestie zrealizowane, to np. Kwestie dotyczące ustawień globalnych, Kwestii okolicznościowych, dotyczacych jednorazowych wydarzeń, lub prcedur zakończonych jednoznacznie sfinalizowanych, itp...",
+
+	"dymTXHiber":"HIBERNOWANE",
 		"dymTXHibeA":"Hibernowaniu podlegają wyłacznie te Kwestie-Opcje, które przegrały głosowanie i trwają w zamrożeniu, dopóki zwycieska Kwestia-Opcja jest w realizacji.",
 		"dymTXHibeB":"Kiedy Kwestia-Opcja wypadnie z realizacji, Kwestie hibernowane są przywracane do deliberacji.",
 		"dymTXHibeC":"To logiczne, że spośród opcji, tylko jedna może znajdować się w realizacji.",
-		"dymTXKoszA":"Do kosza kierowane są Kwestie zgodnie z wolą ogółu, po zaakceptowaniu wniosku dowolnego użytkownika.",
+
+	"dymTXxKosz":"KOSZ",
+	"dymTXKoszA":"Do kosza kierowane są Kwestie zgodnie z wolą Ogółu, po zaakceptowaniu wniosku dowolnego Użytkownika.",
 		"dymTXKoszB":"(przycisk: Do Kosza).",
 		
 		  "dymTXParGA":"Ponieważ System działa bez administratora organizacyjnego, wszelkie ustawienia startowe są definiowane przez Ogół Członków i są rozpatrywane na tej samej zasadzie, jak każda inna Kwestia. System będzie funkcjonował tak, jak te parametry zostaną ustawione.",
 		"dymTXParGB":"Zmienić można parametry, począwszy od nazwy i kontaktów organizacji, po szczegółowe zachowania w funkcjach czasu. Każdy Członek może podać nową wartość dowolnego parametru, tworząc automatycznie Kwestię techniczną do przyjęcia przez Ogół. Przejście takiej Kwestii do realizacji oznacza automatyczną zmianę parametru na nową wartość.",
 		 "dymTXParGC":"Ustalone już parametry można również później zmieniać. W danym czasie można procedować zmianę jednego parametru. Po jego ustaleniu można zmieniać kolejny.",
 		 
-		"dymTXWykUz":"Znajdziesz tutaj wykaz użytkowników Systemu oraz bedziesz mógł się z nimi kontaktować.",
-		  "dymTXCzHoA":"Każdy użytkownik może zaproponować osobę do współpracy w harakterze Członka Honorowego. Wystarczy uzyskać zgodę tej osoby a następnie podać jej e-mail i uzasadnić.",
-		  "dymTXCzHoB":"Kandydat otrzyma powiadomienie z Systemu a użytkownicy rozpatrzą jego akces.",
+		"dymTXWykUz":"Znajdziesz tutaj wykaz Użytkowników Systemu oraz bedziesz mógł się z nimi kontaktować.",
+		  "dymTXCzHoA":"Każdy Użytkownik może zaproponować osobę do współpracy w harakterze Członka Honorowego. Wystarczy uzyskać zgodę tej osoby a następnie podać jej e-mail i uzasadnić.",
+		  "dymTXCzHoB":"Kandydat otrzyma powiadomienie z Systemu a Użytkownicy rozpatrzą jego akces.",
 		  "":""
   },
   "language":{
@@ -226,13 +231,6 @@
 	"arcHiberno":"Hibernowane",
 	"archiwKosz":"Kosz"
   },
-  "archiwumList":{
-	"pinfoArchi":"ARCHIWUM",
-	"pinfoArchA":".",
-	"pinfoArchB":".",
-	"pinfoArchC":".",
-	"NiMaKwArch":"Aktualnie nie ma Kwestii w Archiwum"
-  },
   "informacjeKwestiaArchiwum":{
 	"infoKwArch":"Informacje o Kwestii archiwalnej",
 	"wstrGlosPr":"Wstrzymałeś się od głosu nadając tej Kwestii priorytet",
@@ -252,23 +250,6 @@
 	"archKrTrKw":"Krótka treść",
 	"archOpUzas":"Opis z uzasadnieniem",
 	"archDysKwe":"Dyskusja Kwestii"
-  },
-  "hibernowaneList":{
-	"pinfoHiber":"HIBERNOWANE",
-	"pinfoHibeA":".",
-	"pinfoHibeB":".",
-	"pinfoHibeC":".",
-	"NieHiberno":"Aktualnie żadna Kwestia nie jest hibernowana"
-  },
-  "kosz":{
-	"pinfoDoKos":"KOSZ",
-	"pinfoDoKoA":".",
-	"pinfoDoKoB":".",
-	"pinfoDoKoC":".",
-	"NieKoszKwe":"Żadna Kwestia nie została umieszczona w Koszu"
-  },
-  "modalInner":{
-	"moiZamknij":"Zamknij"
   },
   "addRealizationReportModalInner":{
     "addNowyRRe":"Nowy Raport Realizacyjny",
@@ -360,13 +341,13 @@
 	"ansChceApl":"Chcę aplikować",
 	"ansNieDzie":"Nie, dziękuję",
 	"ansJuzPotw":"Już potwierdziłeś chęć aplikowania do naszej organizacji",
-	"ansAbZobSz":"Aby zobaczyć szczegóły kwestii kliknij ",
+	"ansAbZobSz":"Aby zobaczyć szczegóły Kwestii kliknij ",
 	"answeTutaj":" tutaj",
 	"ansOdrzZap":"Odrzuciłeś zaproszenie do aplikowania jako ",
 	"ansDziekuj":"Dziękujemy za potwierdzenie chęci przynależenia do naszej organizacji",
 	"ansWnasWia":"W następnej wiadomości otrzymasz dane do logowania.",
 	"ansOtrzHon":"Otrzymałeś właśnie status Członka Honorowego",
-	"ansMozSled":"Możesz śledzić na bieżąco kwestię",
+	"ansMozSled":"Możesz śledzić na bieżąco Kwestię",
 	"ansDziOdpo":"Dziękujemy za udzielenie odpowiedzi.",
 	"answSystem":"System"
   },
@@ -375,7 +356,7 @@
 	"cZwUzuBrPo":"Uzupełnij brakujące pola we wniosku.",
 	"cZwDodatko":"Dodatkowe",
 	"cZwNaParSl":"Napisz parę słów do nas, o sobie i powodach Twojego wniosku...",
-	"cZwJezUzyt":"Język użytkownika",
+	"cZwJezUzyt":"Język Użytkownika",
 	"cZwWyJezyk":"Wybierz język",
 	"cZwPotwZna":"Potwierdzam znajomość",
 	"cZwRegulam":"Regulaminu",
@@ -427,7 +408,7 @@
 	"rFoPotwHas":"Potwierdź hasło",
 	"rFoDodatko":"Dodatkowe",
 	"rFormUwagi":"Uwagi...",
-	"rFoJezUzyt":"Język użytkownika",
+	"rFoJezUzyt":"Język Użytkownika",
 	"rFoWybJezy":"Wybierz język",
 	"rFoPotZnaj":"Potwierdzam znajomość",
 	"rFoRegulam":"Regulaminu",
@@ -440,14 +421,14 @@
   },
   "infoAccountModalInner":{
 	"imiSzczPro":"Szczegóły profilu",
-	"imiNazUzyt":"Nazwa użytkownika",
+	"imiNazUzyt":"Nazwa Użytkownika",
 	"imoinnerID":"ID",
 	"iminStatus":"Status",
 	"imoinnerOK":"OK"
   },
   "updateAccountModalInner":{
 	"upinEdycja":"Edycja",
-	"upiNazUzyt":"Nazwa użytkownika",
+	"upiNazUzyt":"Nazwa Użytkownika",
 	"upinneUsun":"Usuń",
 	"upiNiMaSta":"To konto nie ma przypisanego statusu.",
 	"upiDodStat":"Dodaj status",
@@ -568,7 +549,7 @@
 	"iDetBrJesz":"Brak jeszcze",
     "iDeZespolu":"Zespołu Realizacyjnego",
 	"iDeInfKosz":"UWAGA! Kwestia nieaktywna (znajduje się w koszu!)",
-    "iDePowOdrz":"Powód odrzucenia kwestii",
+    "iDePowOdrz":"Powód odrzucenia Kwestii",
     "iDeWstPrio":"Wstrzymałeś się od głosu nadając tej Kwestii priorytet",
     "iDeNadKwPr":"Nadałeś tej Kwestii priorytet",
     "iDeNieNadP":"Nie nadałeś jeszcze tej Kwestii priorytetu",
@@ -705,8 +686,8 @@
 	"rttJeNieMa":"Jeszcze nie ma Kwestii zrealizowanych ..."
   },
   "dashBoard":{
-	"dsbPanUzyt":"Panel użytkownika",
-	"dsbInfPane":"Informacje na temat Panelu użytkownika.",
+	"dsbPanUzyt":"Panel Użytkownika",
+	"dsbInfPane":"Informacje na temat Panelu Użytkownika.",
 	"dsbStatPan":"Statystyki panelu",
 	"dsbInfoDan":"Informacje o ilości danych w Systemie."
   },
@@ -728,11 +709,11 @@
 	"lipaRegula":"Regulamin",
 	"lipGlosowa":"Głosowanie",
 	"lipCzGłoso":"Czas głosowania(w godzinach)",
-	"lipWyczekK":"Czas wyczekiwania kwestii i komentarzy specjalnych (w dniach)",
-	"lipIlKwGlo":"Ilość kwesti przechodzących do głosowania",
+	"lipWyczekK":"Czas wyczekiwania Kwestii i komentarzy specjalnych (w dniach)",
+	"lipIlKwGlo":"Ilość Kwesti przechodzących do głosowania",
 	"lipMinPauz":"Ilość minut koniecznej pauzy do ponownej akcjii tego samego typu",
-	"lipDodKwes":"Dodanie kwestii",
-	"lipDodKome":"Dodanie komentarza w ramach danej kwestii",
+	"lipDodKwes":"Dodanie Kwestii",
+	"lipDodKome":"Dodanie komentarza w ramach danej Kwestii",
 	"lipDodOdni":"Dodanie odniesienia w ramach danego komentarza",
 	"lipRapReal":"Raporty Realizacyjne",
 	"lipOkSklRR":"Okres składania Raportów Realizacyjnych (w dniach)"
@@ -771,7 +752,7 @@
 	"pinfoMojeK":"MOJE KWESTIE",
 	"pinfoMojeA":"Tutaj znajdziesz wszystkie Kwestie, przez Ciebie dodane.",
 	"pinfoMojeB":"Możesz z tego miejsca przeglądać ich szczegóły.",
-	"pinfoMojeC":"Możesz stąd lobbować, czyli wysyłać użytkownikom prośby wsparcia Kwestii, na których szczególnie Ci zależy.",
+	"pinfoMojeC":"Możesz stąd lobbować, czyli wysyłać Użytkownikom prośby wsparcia Kwestii, na których szczególnie Ci zależy.",
 	"aumMojeKwe":"Moje Kwestie",
 	"aumParGlob":"Parametry",
 	"aumWyUzytk":"Użytkownicy",
@@ -783,7 +764,7 @@
 	"aumaitutaj":"tutaj"
   },
   "lobbujZaKwestia":{
-	"lobbLobbuj":"Lobbuj za kwestią"
+	"lobbLobbuj":"Lobbuj za Kwestią"
   },
   "accessDenied":{
 	"acdBraDost":"Nie posiadasz dostępu do tej części strony!",
@@ -811,9 +792,9 @@
       "editRodzaj":"Edytuj rodzaj",
       "listRaport":"Lista raportów",
       "addRaport":"Dodaj raport",
-      "listUsers":"Lista użytkowników",
-      "addUser":"Dodaj użytkownika",
-      "editUser":"Edytuj użytkownika",
+      "listUsers":"Lista Użytkowników",
+      "addUser":"Dodaj Użytkownika",
+      "editUser":"Edytuj Użytkownika",
       "listParametr":"Lista parametrów",
       "editParametry":"Edytuj parametry",
       "previewParametr":"Podgląd parametrów",
