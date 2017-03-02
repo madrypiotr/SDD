@@ -1,7 +1,8 @@
 /*
-Plik zaproponowany przez https://github.com/MichalW
+Plik zaproponowany przez Michała Wanat
+ https://github.com/MichalW
 dla startowania jezyka domyślnego.
-Dziekujemy!
+Dziękujemy!
 */
 Meteor.startup(function () {
       TAPi18n.setLanguage('pl');

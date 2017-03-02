@@ -61,15 +61,16 @@
 			"dymTXKaSpo":"Każda społeczność posiada swój specyficzny zasób tematyki. System więc nie narzuca wszystkim jakiegoś zestawu określeń, które i tak nie byłyby w większości wykorzystane. Budujemy pakiet tematyczny od początku stosownie do potrzeb. Zanim samodzielnie ustalisz jego nazwę, sprawdź, czy istnieje już Temat odpowiedni dla Twojej Kwestii? Przykładowy Temat to: organizacja, finanse, kultura, polityka, ekonomia, zdrowie, rozrywka, przemysł, transport, itp. dziedzina ... Najlepiej ujmij Temat jednym słowem.",
 
 	  "dymZeTworz":"Tworzenie Zespołów Realizacyjnych",
-			"dymTXzTwoA":"Powstanie Zespołu Realizacyjnego, to jeden z trzech warunków (poza wymaganym kworum i wielkością priorytetu), aby Kwestia mogła przejść do realizacji (stać się uchwałą).",
-			"dymTXzTwoB":"Aby stać się Członkiem ZR wystarczy kliknąć w \"Dołączam\". Pojawi się Twoje nazwisko. Możesz też zrezygnować z udziału w ZR klikając ponownie. Zespół jest skompletowany gdy już będzie troje jego Członków.",
+			"dymTXzTwoA":"Aby Kwestia mogła przejść do realizacji, powstanie Zespołu Realizacyjnego to jeden z trzech warunków (poza wymaganym kworum i wielkością priorytetu).",
+			"dymTXzTwoB":"Aby stać się Członkiem ZR wystarczy kliknąć w [Dołączam]. Pojawi się Twoje nazwisko. Możesz też zrezygnować z udziału w ZR klikając ponownie. Zespół jest skompletowany gdy już będzie troje jego Członków.",
 			"dymTXzTwoC":"Udział w Zespole Realizacyjnym jest funkcją społeczną organizacyjno-kontrolną. Członkowie ZR zobowiaząni są do koordynowania realizacji uchwały wygenerowanej przez tę Kwestię i przekazywania do Systemu relacji na temat rozwoju spraw, z nią związanych.",
-			"dymTXzTwoD":"Członek ZR składa Raporty Realizacyjne o postępach w realizacji, lub jakichkolwiek trudnościach w realizacji tej Kwestii. Częstotliwość Raportów Realizacyjnych ustala Ogół Członków w \"Parametrach globalnych\" Systemu.",
+			"dymTXzTwoD":"Członek ZR składa Raporty Realizacyjne o postępach w realizacji, lub jakichkolwiek trudnościach w realizacji tej Kwestii. Częstotliwość Raportów Realizacyjnych ustalana jest w [Parametrach globalnych] Systemu.",
+			"dymTXzTwoE":"UWAGA! Wchodzący do ZR, jako trzeci Członek ma rolę szczególną. Jego zadaniem jest zdefiniowanie (lub wybranie) nazwy dla Zespołu. System go o to poprosi.",
 			
 	  "dymZespRea":"Nie dubluj kompetencji Zespołów Realizacyjnych",
 			"dymTXzeReA":"Zanim zdecydujesz o utworzeniu ZR, zorientuj się, czy w tym temacie nie działa już odpowiedni Zespół Realizacyjny.",
 			"dymTXzeReB":"Czyli ...",
-			"dymTXzeReC":"... zanim, jako trzeci członek, klikniesz w \"Dołączam\", a więc - zatwierdzisz 3-osobowy skład ZR - zapoznaj się z wykazem dotychczas powołanych Zespołów, aby ewentualnie jednemu z nich przekazać realizację tej Kwestii.",
+			"dymTXzeReC":"... zanim, jako trzeci członek, klikniesz w [Dołączam], a więc - zatwierdzisz 3-osobowy skład ZR - zapoznaj się z wykazem dotychczas powołanych Zespołów, aby ewentualnie jednemu z nich przekazać realizację tej Kwestii.",
 			
 		"dymRoCzyUs":"Rodzaj, czyli uszczegółowienie w temacie",
 			"dymTXSyNiN":"System nie narzuca Ci konkretnych nazw, ale prosimy o dobór określeń adekwatny do treści, abyśmy potem mogli łatwo odnajdywać Kwestie w oczekiwanych dziedzinach. Zanim samodzielnie ustalisz jego nazwę, sprawdź, czy istnieje już Rodzaj odpowiedni dla Tematu Twojej Kwestii? Przykładowy Rodzaj w Temacie organizacja to: zebranie, konferencja, zlot, impreza, wykład ... W temacie finanse: składki, dotacje, terminy, jawność, ... itp... Najlepiej ujmij Rodzaj jednym słowem.",
@@ -83,7 +84,7 @@
 		"dymINkwest":"KWESTIE",
 		  "dymTXKwesA":"Kwestię może wnieść każdy Użytkownik. Od Ogółu będzie zależało, jak Twoja Kwestia będzie przyjęta i czy będzie ona zaczątkiem pożytecznej sprawy dla wszystkich? Kwestia, to problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników Systemu. ",
 		  "dymTXKwesB":"Kiedy Twoja Kwestia uzyska odpowiednie wsparcie, przejdzie do głosowania. Pozytywne głosowanie Kwestii kończy się wygenerowaniem uchwały i z tą chwilą zaczyna się realizacja Kwestii (tej uchwały).",
-		  "dymTXKwesC":"Życie Kwestii może być nieskończone lub też zakończone w \"zrealizowanych\", albo w \"koszu\". Trzecią formą życia Kwestii może być postać ciągłego aspirowania do awansu, czyli przebywanie w deliberacji/dyskusji. Brak awansu do głosowania może wynikać z: braku chętnych do składu Zespołu Realizacyjnego, braku wsparcia przez Użytkowników (zerowy, lub ujemny priorytet), albo braku kworum.",
+		  "dymTXKwesC":"Życie Kwestii może być nieskończone lub też zakończone w [Zrealizowanych], albo w [Koszu]. Trzecią formą życia Kwestii może być postać ciągłego aspirowania do awansu, czyli przebywanie w deliberacji/dyskusji. Brak awansu do głosowania może wynikać z: braku chętnych do składu Zespołu Realizacyjnego, braku wsparcia przez Użytkowników (zerowy, lub ujemny priorytet), albo braku kworum.",
 
 		"dymINgloso":"GŁOSOWANIE",
 		  "dymTXglosA":"Trzy najwyżej notowane Kwestie przechodzą do głosowania. Informację o tym fakcie otrzymasz e-mail'em. Nie musisz koniecznie sprawdzać skrzynki pocztowej, te same informacje i o wielu innych wydarzeniach zobaczysz tutaj (zakładka Powiadomienia)",
@@ -95,7 +96,7 @@
 		"dymINreali":"Realizacja",
 		  "dymTXrealA":"Tu zobaczysz Kwestie, które z powodzeniem przeszły proces deliberacji, a później głosowania.",
 		  "dymTXrealB":"W takim wypadku generowana jest uchwała, a tym samym rozpoczyna się jej realizacja pilotowana przez Zespół Realizacyjny.",
-		  "dymTXrealC":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ja za zrealizowaną, przesyłając ją do dzału Zrealizowane, do Archiwum. Jeśli będzie ona uznana za nietrafioną, lub w inny sposób nie do realizacji, może być też skierowana do Kosza.",
+		  "dymTXrealC":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do dzału Zrealizowane, do Archiwum. Jeśli będzie ona uznana za nietrafioną, lub w inny sposób nie do realizacji, może być też skierowana do Kosza.",
 
 		"dymINarchi":"ARCHIWUM",
 		  "dymTXarchA":"Archiwum służy składowaniu Kwestii skierowanych tu z różnych powodów, takich jak brak wymaganego poziomu priorytetu przez Kwestię, decyzję uczestników o rezygnacji z dyskusji nad Kwestią i innych.", 
@@ -112,8 +113,8 @@
 		
 		  "dymTXpowiA":"Tutaj znajdziesz informacje o wydarzeniach w Systemie wraz z linkami do miejsc, gdzie one były procedowane. Powiadomienia te zostały również wysłane na Twój adres e-mail.",
 		  "dymTXpowiB":"Czemu to służy? Znika problem dochowania tajności, ponieważ z założenia - WEWNĄTRZ ORGANIZACJI WSZYSTKO JEST JAWNE I NATYCHMIAST DOSTĘPNE! Nie ma potrzeby zwracania się z prosbą do kogokolwiek, jako że wszelkie dokumenty znajdują się systemie gotowe do pobrania.",
-		  "dymTXpowiC":"Dzieki takiemu podejściu, brak jest tendencji dla \"świata zewnetrznego\" do chęci odkrycia tajników procedowania. Również dla Członków Systemu wszystko jest dostępne i UDOKUMENTOWANE! To wlasnie druga (ważniejsza) - dokumentacyjna funkcja (oprócz informacyjnej). Ten rejestr wydarzeń służy Twojej pewności, że nie jest możliwa manipulacja post factum.",
-		  "dymTXpowiD":"Jest to związane z ogólną \"filozofią\" podejścia, która tu zakłada brak procedur tajnych. Dlatego też wszelkie zdarzenia i ich wyniki są natychmiast po ich zaistnieniu dostępne dla Ogółu Członków - Użytkowników Systemu.",
+		  "dymTXpowiC":"Dzieki takiemu podejściu, brak jest tendencji dla tzw. świata zewnętrznego do chęci odkrycia tajników procedowania. Również dla Członków Systemu wszystko jest dostępne i UDOKUMENTOWANE! To wlasnie druga (ważniejsza) - dokumentacyjna funkcja (oprócz informacyjnej). Ten rejestr wydarzeń służy Twojej pewności, że nie jest możliwa manipulacja post factum.",
+		  "dymTXpowiD":"Jest to związane z ogólną zasadą, która tu zakłada brak procedur tajnych. Dlatego też wszelkie zdarzenia i ich wyniki są natychmiast po ich zaistnieniu dostępne dla Ogółu Członków - Użytkowników Systemu.",
 		  
 		"dymPrioDys":"Priorytet w dyskusji, komentarzach i odniesieniach",
 	  "dymTenPrSo":"Ten priorytet sortuje wypowiedzi ...",
@@ -126,7 +127,6 @@
 		"dymRealizA":"Kwestie, które zostały pozytywnie zweryfikowane w głosowaniu przechodzą do realizacji. Zostaje to udokumentowane wygenerowaniem przez System uchwały.",
 		"dymRealizB":"Przykładem może być Kwestia osobowa (członkostwo użytkownika), która również znajduje się w realizacji tak długo, dopóki Użytkownik jest aktywny w Systemie.",
 		"dymRealizC":"Kwestia w realizacji również podlega priorytetowaniu, co daje orientację Użytkownikom o jej stanie, a w razie obniżenia jej priorytetu realizacyjnego, Kwestia wypada z realizacji do archiwum lub do kosza (zależnie od decyzji Ogółu Użytkowników). Nie jest celowe utrzymywanie Kwestii w realizacji, co do której Ogół nie ma przekonania, nie jest trafiona, lub po prostu brak możliwosci dla jej realizacji. Ogół również ma prawo się pomylić, natomiast wycowanie błędnej decyzji następuje szybko.",
-		"dymZrealiz":"Kwestie zrealizowane, to np. Kwestie dotyczące ustawień globalnych, Kwestii okolicznościowych, dotyczacych jednorazowych wydarzeń, lub prcedur zakończonych jednoznacznie sfinalizowanych, itp...",
 
 	"dymTXHiber":"HIBERNOWANE",
 		"dymTXHibeA":"Hibernowaniu podlegają wyłacznie te Kwestie-Opcje, które przegrały głosowanie i trwają w zamrożeniu, dopóki zwycieska Kwestia-Opcja jest w realizacji.",
@@ -444,11 +444,10 @@
   },
   "addKwestiaOpcjaForm":{
   "pinfoDoKwO":"DODAWANIE OPCJI",
-  "pinfoDoKwA":".",
-  "pinfoDoKwB":".",
-  "pinfoDoKwC":".",
+  "pinfoDoKwA":"Opcję Kwestii możesz dodać, kiedy chodzi o identyczną sprawę, a jedynie masz propozycję innego do niej podejścia. W szczegółach Kwestii masz do tego przycisk [Dodaj Opcję].",
+  "pinfoDoKwB":"Jakakolwiek dodana Opcja Kwestii jest przez System traktowana identycznie, jak każda inna Kwestia. Jedynie w danej sprawie Kwestie-Opcje związane są ze sobą w sensie logicznym.",
+  "pinfoDoKwC":"Efekt tego związania zauważalny jest wówczas, gdy jedna z nich zwycięży w głosowaniu. Pozostałe Kwestie-Opcje zostają przeniesione do [Archiwum] / [Hibernowane].",
     "aKwOpDoKwe":"Dodawanie Kwestii-Opcji",
-    "aKwOpcOpiA":"opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis.",
     "aKwOpNaKwe":"Nazwa Kwestii Opcji:",
     "aKwOpkroTr":"Krótka treść",
 	"aKwOpDaApl":"Dane aplikującego",
@@ -517,8 +516,8 @@
 	"zrDlaczWaz":"Dlaczego to ważne?"
   },
   "kwestiaTopButtons":{
-    "ktBuListRR":"Lista RR",
-	"ktBuRapRea":"Raport Realizacyjny",
+    "ktBuListRR":"Raporty Realizacyjne",
+	"ktBuRapRea":"Złożenie Raportu",
 	"ktBuDodajO":"Dodaj Opcję",
     "ktBuDoArch":"Do Archiwum",
 	"ktBuDoKosz":"Do Kosza"
@@ -529,13 +528,13 @@
   },
   "issueDetails":{
   "pinfoDetKw":"SZCZEGÓŁY KWESTII",
-  "pinfoDetKA":".",
-  "pinfoDetKB":".",
-  "pinfoDetKC":".",
+  "pinfoDetKA":"Tu zobaczysz historię rozwoju spraw objętych tą Kwestią. Jej aktualny priorytet, status (fazę rozwoju). Jest pełna treść opisu szczegółowego, jak również stan skompletowania osób Zespołu Realizacyjnego i składanych Raportów Realizacyjnych.",
+  "pinfoDetKB":"Stąd możesz (za pomocą odpowiednich przycisków) zaproponować skierowanie Kwestii do [Archiwum] lub do [Kosza].",
+  "pinfoDetKC":"Jest tu również cała dyskusja na temat tej Kwestii (o ile była prowadzona).",
   "pinfoKwKos":"KWESTIA W KOSZU",
-  "pinfoKwKoA":".",
-  "pinfoKwKoB":".",
-  "pinfoKwKoC":".",
+  "pinfoKwKoA":"Do kosza kierowane są Kwestie zgodnie z wolą Ogółu, po zaakceptowaniu wniosku dowolnego Użytkownika.",
+  "pinfoKwKoB":"Odsyła się tu Kwestie nieudane, błędne, bez szans na wdrożenie.",
+  "pinfoKwKoC":"Są one ostatecznie zarchiwizowane (bez możliwości wznowienia).",
     "iDeKwestia":"Kwestia",
 	"iDetailsOd":"od",
 	"iDetaUwaga":"Uwaga!",
@@ -567,12 +566,16 @@
 	"aniZesReDs":"Zespół Realizacyjny ds.",
 	"aniNazwaZR":"Nazwa Zespołu Realizacyjnego",
 	"aniObjasni":"Objaśnienie",
-	"aniTrObjas":"Pierwsza część nazwy ZR, czyli prefiks (Zespół Realizacyjny ds.) już jest, a więc wprowadź jedynie ciąg dalszy nazwy, np.: (Rozpisania Konkursu), albo (Projektu Ogrodzenia Osiedla), lub (Jawności Finansów), itp... Podaj tylko zakończenie zgodne z charakterem rozpatrywanej Kwestii."
+	"aniTrObjaA":"Pierwsza część nazwy ZR, czyli prefiks (Zespół Realizacyjny ds.) już jest, a więc wprowadź jedynie ciąg dalszy nazwy, np.:",
+	"aniTrObjaB":"Rozpisania Konkursu, albo",
+	"aniTrObjaC":"Projektu Ogrodzenia Osiedla, lub",
+	"aniTrObjaD":"Jawności Finansów, itp... ",
+	"aniTrObjaE":"Podaj tylko zakończenie zgodne z charakterem rozpatrywanej Kwestii."
   },
   "decyzjaModalInner":{
-	"deiIstZesR":"Istnieje już Zespół Realizacyjny o podanym składzie!",
-	"deiChcDodK":"Chcę dodać Kwestię do realizacji temu Zespołowi",
-	"deiChcPrzR":"Chcę przyjąć do realizacji w moim Zespole Realizacyjnym"
+	"deiIstZesR":"Tworzenie Zespołu Realizacyjnego",
+	"deiChcDodK":"Tworzę nowy Zespół Realizacyjny",
+	"deiChcPrzR":"Przyjmę Kwestię do mojego Zespołu"
   },
   "listZespolRealizacyjnyModalInner":{
 	"lizZesReal":"Zespoły Realizacyjne"
@@ -581,7 +584,7 @@
 	"zotPowolZR":"Powołaj ZR"
   },
   "listZespolRealizacyjnyDoubleModalInner":{
-	"lzdWyZeRea":"Wybierz Zespół Realizacyjny",
+	"lzdWyZeRea":"Wskaż odpowiedni ZR dla tej Kwestii. Kwestia zostanie przyjęta do realizacji pod warunkiem, że jesteś tego Zespołu Członkiem. Poszukaj więc Twojego Zespołu Realizacyjnego, lub wróć aby utworzyć nowy Zespół.",
 	"lzdRezygnu":"Rezygnuj"
   },
   "zespolDoubleTemplateOptions":{
@@ -641,16 +644,16 @@
   },
   "listRaport":{
 	"pinfoLiRap":"LISTA RAPORTÓW",
-	"pinfoLiRaA":".",
-	"pinfoLiRaB":".",
-	"pinfoLiRaC":".",
+	"pinfoLiRaA":"Wykaz Raportów Zespołu Realizacyjnego. Tu znajduje się historia realizacji Kwestii.",
+	"pinfoLiRaB":"Możesz się zorientować, czy (i jaki) jest los podjetej przez Ogół decyzji, czyli przyjetej uchwały.",
+	"pinfoLiRaC":"Jeśli masz jakieś uwagi, lub pytania wobec realizacji - wejdź do dyskusji Kwestii lub napisz do Członka Zespołu Realizacyjnego.",
 	"lraListRap":"Lista raportów"
   },
   "informacjeRaport":{
 	"pinfoRaRea":"RAPORT REALIZACYJNY",
-	"pinfoRaReA":".",
-	"pinfoRaReB":".",
-	"pinfoRaReC":".",
+	"pinfoRaReA":"Widzisz Raport Realizacyjny tej Kwestii.",
+	"pinfoRaReB":"Raporty składają Członkowie Zespołu Realizacyjnego.",
+	"pinfoRaReC":"Cykliczne Raporty Realizacyjne mają być dla Ogółu podstawowym zabezpieczeniem pewności, odnośnie prawidłowego rozwoju spraw, które Kwestia obejmuje.",
 	"inrRapReal":"Raport Realizacyjny",
 	"inrDataUtw":"Data utworzenia",
 	"inrapAutor":"Autor",
@@ -679,11 +682,8 @@
   },
   "realizacjaTab2":{
 	"pinfoZreal":"ZREALIZOWANE",
-	"pinfoZreaA":".",
-	"pinfoZreaB":".",
-	"pinfoZreaC":".",
-	"rttLiKwZre":"Lista Kwestii zrealizowanych",
-	"rttJeNieMa":"Jeszcze nie ma Kwestii zrealizowanych ..."
+	"pinfoZreaA":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do tego właśnie dzału - Zrealizowane.",
+	"pinfoZreaB":"Kwestie zrealizowane, to również Kwestie dotyczące ustawień globalnych, Kwestii okolicznościowych, dotyczacych jednorazowych wydarzeń, lub prcedur zakończonych, jednoznacznie sfinalizowanych, itp...."
   },
   "dashBoard":{
 	"dsbPanUzyt":"Panel Użytkownika",
@@ -697,9 +697,9 @@
   },
   "listParametr":{
 	"pinfoParGl":"PARAMETRY GLOBALNE",
-	"pinfoParGA":".",
-	"pinfoParGB":".",
-	"pinfoParGC":".",
+	"pinfoParGA":"Tutaj masz możliwość zaproponować zmianę parametrów funkcjonowania Systemu, które wyszczególniono poniżej.",
+	"pinfoParGB":"Wszelkie parametry indywidualne oraz globalne ustawienia, sposób i tryb działania Systemu ustalane są zawsze decyzją Ogółu, zarówno na starcie Systemu, jak i w dowolnej chwili podczas używania Systemu.",
+	"pinfoParGC":"Takie rozwiazanie jest konieczne, ponieważ nie ma tu administratora, którego aktywność byłaby wyłomem wobec głównej zasady Systemu - rozstrzygania wszystkiego wolą Ogółu.",
 	"lipZobKwes":"Zobacz",
 	"lipIstniej":"Jeden parametr jest w trakcie zmiany. Kolejną można dokonać po finalizacji obecnej.",
 	"lipDaneOrg":"Dane organizacji",
@@ -720,18 +720,15 @@
   },
   "profileList":{
 	"pinfoProfi":"WYKAZ UŻYTKOWNIKÓW",
-	"pinfoProfA":".",
-	"pinfoProfB":".",
-	"pinfoProfC":"."
+	"pinfoProfA":"Widzisz tutaj wykaz Użytkowników.",
+	"pinfoProfB":"Możesz skontaktować się z wybranym Użytkownikiem."
   },
   "userEmailContact":{
 	"prliNapisz":"Napisz"
   },
   "sendMessage":{
 	"pinfoNowWi":"WYSŁANIE WIADOMOŚCI",
-	"pinfoNowWA":".",
-	"pinfoNowWB":".",
-	"pinfoNowWC":".",
+	"pinfoNowWA":"Wyślesz wiadomość e-mail do wybranego Użytkownika.",
 	"semNowaWia":"Nowa wiadomość do ",
 	"semessagOd":"Od",
 	"semessagDo":"Do",
@@ -740,9 +737,7 @@
   },
   "addHonorowy":{
 	"pinfoZgHon":"PROPOZYCJE",
-	"pinfoZgHoA":"..",
-	"pinfoZgHoB":".",
-	"pinfoZgHoC":".",
+	"pinfoZgHoA":"Inne funkcje Systemu i złoszenia Członków.",
 	"adhZgHonor":"Zgłoszenie na Członka Honorowego",
 	"adhUzasadn":"Uzasadnienie",
 	"adhUzDlacz":"Uzasadnij dlaczego chcesz powołać na stanowisko Członka Honorowego właśnie tę osobę",
