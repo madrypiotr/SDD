@@ -23,7 +23,7 @@
 					<a href="{{pathFor 'listLanguages'}}">
 						<i class="fa fa-language"></i> 
 						<!--Języki-->
-						{{_ 'header.headJezyki'}}
+						{{_ 'header.heaLanguages'}}
 					</a>
 				</li>
 			</ul>
@@ -46,14 +46,14 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<p class="modal-title" align="left">
 
-					{{_ 'dym.dymINkwest'}}
+					{{_ 'dym.dymIssues'}}
 					</p>
 					</div>
 					<div class="modal-body" align="left">
 					<small>
-					<p>{{_ 'dym.dymTXKwesA'}}</p>
-					<p>{{_ 'dym.dymTXKwesB'}}</p>
-					<p>{{_ 'dym.dymTXKwesC'}}</p>
+					<p>{{_ 'dym.dymIssuesA'}}</p>
+					<p>{{_ 'dym.dymIssuesB'}}</p>
+					<p>{{_ 'dym.dymIssuesC'}}</p>
 					</small>
 					</div>
 					</div>
@@ -61,7 +61,7 @@
 					</div>
 					</section>
 							<!--Kwestie-->
-							{{_ 'header.heaKwestie'}}
+							{{_ 'header.heaIssues'}}
 					</a>
 				</li>
 				{{#if currentUser}}
@@ -80,16 +80,16 @@
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<p class="modal-title" align="left">
-					{{_ 'dym.dymINgloso'}}
+					{{_ 'dym.dymVoting'}}
 					</p>
 					</div>
 					<div class="modal-body" align="left">
 					<small>
-					<p>{{_ 'dym.dymTXglosA'}}</p>
-					<p><strong>{{_ 'dym.dymTXglosB'}}</strong></p>
-					<p>{{_ 'dym.dymTXglosC'}}</p>
-					<p>{{_ 'dym.dymTXglosD'}}</p>
-					<p>{{_ 'dym.dymTXglosE'}}</p>
+					<p>{{_ 'dym.dymVotingA'}}</p>
+					<p><strong>{{_ 'dym.dymVotingB'}}</strong></p>
+					<p>{{_ 'dym.dymVotingC'}}</p>
+					<p>{{_ 'dym.dymVotingD'}}</p>
+					<p>{{_ 'dym.dymVotingE'}}</p>
 					</small>
 					</div>
 					</div>
@@ -97,7 +97,7 @@
 					</div>
 					</section>
 							<!--Głosowanie-->
-							{{_ 'header.heaGlosowa'}}
+							{{_ 'header.heaVote'}}
 					</a>
 				</li>
 				{{/if}}
@@ -116,14 +116,14 @@
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<p class="modal-title" align="left">
-					{{_ 'dym.dymINreali'}}
+					{{_ 'dym.dymImplement'}}
 					</p>
 					</div>
 					<div class="modal-body" align="left">
 					<small>
-					<p>{{_ 'dym.dymTXrealA'}}</p>
-					<p>{{_ 'dym.dymTXrealB'}}</p>
-					<p>{{_ 'dym.dymTXrealC'}}</p>
+					<p>{{_ 'dym.dymImplementA'}}</p>
+					<p>{{_ 'dym.dymImplementB'}}</p>
+					<p>{{_ 'dym.dymImplementC'}}</p>
 					</small>
 					</div>
 					</div>
@@ -131,7 +131,7 @@
 					</div>
 					</section>
 							<!--Realizacja-->
-							{{_ 'header.heaRealiza'}}
+							{{_ 'header.heaImplement'}}
 					</a>
 				</li>
 				<li class="{{activeRouteClass 'archiwum'}}">
@@ -164,7 +164,7 @@
 					</div>
 					</section>
 							<!--Archiwum-->
-							{{_ 'header.heaArchiwu'}}
+							{{_ 'header.heaArchives'}}
 					</a>
 				</li>
 				{{#if currentUser}}
@@ -183,15 +183,15 @@
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<p class="modal-title" align="left">
-					{{_ 'dym.dymINustaw'}}
+					{{_ 'dym.dymSettings'}}
 					</p>
 					</div>
 					<div class="modal-body" align="left">
 					<small>
-					<p>{{_ 'dym.dymTXustaA'}}</p>
-					<p>{{_ 'dym.dymTXustaB'}}</p>
-					<p>{{_ 'dym.dymTXustaC'}}</p>
-					<p>{{_ 'dym.dymTXustaD'}}</p>
+					<p>{{_ 'dym.dymSettingsA'}}</p>
+					<p>{{_ 'dym.dymSettingsB'}}</p>
+					<p>{{_ 'dym.dymSettingsC'}}</p>
+					<p>{{_ 'dym.dymSettingsD'}}</p>
 					</small>
 					</div>
 					</div>
@@ -199,7 +199,7 @@
 					</div>
 					</section>
 							<!--Ustawienia-->
-							{{_ 'header.heaUstawie'}}
+							{{_ 'header.heaSettings'}}
 					</a>
 				</li>
 				{{/if}}
@@ -211,7 +211,7 @@
 					<a href="{{pathFor 'login_form'}}">
 						<i class="fa fa-sign-in"></i> 
 						<!--Zaloguj się-->
-						{{_ 'header.heaZaloSie'}}
+						{{_ 'header.heaLogin'}}
 					</a>
 				</li>
 				{{#if lessThanFiveUsers}}
@@ -219,7 +219,7 @@
 					<a href="{{pathFor 'register_form'}}">
 						<i class="fa fa-user-plus"></i> 
 						<!--Zarejestruj się-->
-						{{_ 'header.heaZareSie'}}
+						{{_ 'header.heaRegistration'}}
 					</a>
 				</li>
 				{{else}}
@@ -227,26 +227,26 @@
 					<a class="cursor-pointer" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 						<i class="fa fa-male"></i> 
 						<!--Dołącz-->
-						{{_ 'header.headDolacz'}}
+						{{_ 'header.heaJoinUs'}}
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 						<li>
 							<a href="{{pathFor 'czlonek_zwyczajny_form'}}">
 								<!--jako Członek zwyczajny-->
-								{{_ 'header.heaCzlZwyc'}} 
+								{{_ 'header.heaAsOrdMember'}} 
 							</a>
 						</li>
 						<li>
 							<a href="{{pathFor 'doradca_form'}}">
 								<!--jako Doradca-->
-								{{_ 'header.heaDoradca'}}
+								{{_ 'header.heaAsAdvisor'}}
 							</a>
 						</li>
 						<li>
 							<a href="#" id="newRootClick">
 								<!--Nowy węzeł sieci-->
-								{{_ 'header.heaNoWezSi'}}
+								{{_ 'header.heaNewNetNode'}}
 							</a>
 						</li>
 					</ul>
@@ -271,15 +271,15 @@
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<p class="modal-title" align="left">
-					{{_ 'dym.dymINpowia'}}
+					{{_ 'dym.dymNotifications'}}
 					</p>
 					</div>
 					<div class="modal-body" align="left">
 					<small>
-					<p>{{_ 'dym.dymTXpowiA'}}</p>
-					<p>{{_ 'dym.dymTXpowiB'}}</p>
-					<p>{{_ 'dym.dymTXpowiC'}}</p>
-					<p>{{_ 'dym.dymTXpowiD'}}</p>
+					<p>{{_ 'dym.dymNotificationsA'}}</p>
+					<p>{{_ 'dym.dymNotificationsB'}}</p>
+					<p>{{_ 'dym.dymNotificationsC'}}</p>
+					<p>{{_ 'dym.dymNotificationsD'}}</p>
 					</small>
 					</div>
 					</div>
@@ -324,18 +324,18 @@
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<p class="modal-title">{{_ "dym.dymSystemD"}}
+									<p class="modal-title">{{_ "dym.dymAboutSystem"}}
 									</p>
 								</div>
 								<div class="fontSize">
 									<div class="modal-body">
-										<p>{{_ "dym.dymTXsystA"}}</p>
-										<p>{{_ "dym.dymTXsystB"}}</p>
-										<p>{{_ "dym.dymTXsystC"}}</p>
-										<p>{{_ "dym.dymTXsystD"}}</p>
+										<p>{{_ "dym.dymAboutSystemA"}}</p>
+										<p>{{_ "dym.dymAboutSystemB"}}</p>
+										<p>{{_ "dym.dymAboutSystemC"}}</p>
+										<p>{{_ "dym.dymAboutSystemD"}}</p>
 										<center>
 											<!--moreAboutSDD (event jeszze nie opracowany)-->
-											<a href="http://www.syncodec.org" target="_blank"> <input type="button" class="btn btn-default btn-xs" id="moreAboutSDD" value="{{_ 'dym.dymTXsystE'}}">
+											<a href="http://www.syncodec.org" target="_blank"> <input type="button" class="btn btn-default btn-xs" id="moreAboutSDD" value="{{_ 'dym.dymAboutSystemE'}}">
 											</a>
 										</center>
 									</div>

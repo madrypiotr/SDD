@@ -37,8 +37,8 @@
 
 <template name="issueDetails">
 			{{#if kwestiaInKosz}}
-<div class="pinfo-kw-w-koszu">{{_ "glob.glThisPage"}}: <b>{{_ "issueDetails.pinfoKwKos"}}</b>  
-	<a data-toggle="modal" href="#kwwkoszu"><button>{{_ "glob.glAboutPag"}}
+<div class="pinfo-kw-w-koszu">{{_ "glob.globYouHere"}}: <b>{{_ "issueDetails.pinfoKwKos"}}</b>  
+	<a data-toggle="modal" href="#kwwkoszu"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="kwwkoszu" role="dialog">
                     <div class="modal-dialog">
@@ -59,8 +59,8 @@
                     </div>
                 </div>
                       {{else}} 
-<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "issueDetails.pinfoDetKw"}}</b>  
-	<a data-toggle="modal" href="#szczk"><button>{{_ "glob.glAboutPag"}}
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "issueDetails.pinfoDetKw"}}</b>  
+	<a data-toggle="modal" href="#szczk"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="szczk" role="dialog">
                     <div class="modal-dialog">
@@ -99,9 +99,9 @@
 <!--od-->
 {{_ "issueDetails.iDetailsOd"}} {{date}}, 
 <!--Temat-->
-{{_ "glob.globaTemat"}}: {{tematNazwa.nazwaTemat}}, 
+{{_ "glob.globTopic"}}: {{tematNazwa.nazwaTemat}}, 
 <!--Rodzaj-->
-{{_ "glob.globRodzaj"}} {{rodzajNazwa.nazwaRodzaj}}</small></legend>	
+{{_ "glob.globType"}} {{rodzajNazwa.nazwaRodzaj}}</small></legend>	
                 {{#if anyEmailProblem}}
                     <div class="col-md-6 bg-danger padding-10" style="text-align: center ">
                         <p>

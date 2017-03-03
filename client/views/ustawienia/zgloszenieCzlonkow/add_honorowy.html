@@ -1,6 +1,6 @@
 <template name="addHonorowy">
-<div class="pinfo-realiz">{{_ "glob.glThisPage"}}: <b>{{_ "addHonorowy.pinfoZgHon"}}</b>  
-	<a data-toggle="modal" href="#honor"><button>{{_ "glob.glAboutPag"}}
+<div class="pinfo-realiz">{{_ "glob.globYouHere"}}: <b>{{_ "addHonorowy.pinfoZgHon"}}</b>  
+	<a data-toggle="modal" href="#honor"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="honor" role="dialog">
                     <div class="modal-dialog">
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label class="control-label col-xs-3" for="email">
 <!--e-mail-->
-{{_ 'glob.globaEmail'}}:</label>
+{{_ 'glob.globEmail'}}:</label>
                     <div class="col-xs-9">
                         <input type="text"  name="email" id="email" required  class="form-control" />
                     </div>
@@ -48,7 +48,7 @@
 <!--Zgłoś-->
 <input type="submit" class="btn btn-primary" value="{{_ 'addHonorowy.adhonZglos'}}" id="submitHonorowy">
 <!--Anuluj-->
-<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
                     </div>
                 </div>
                 <br/>

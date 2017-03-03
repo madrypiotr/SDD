@@ -1,6 +1,6 @@
 <template name="sendMessage">
-<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "sendMessage.pinfoNowWi"}}</b>  
-	<a data-toggle="modal" href="#wywi"><button>{{_ "glob.glAboutPag"}}
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "sendMessage.pinfoNowWi"}}</b>  
+	<a data-toggle="modal" href="#wywi"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="wywi" role="dialog">
                     <div class="modal-dialog">
@@ -48,10 +48,10 @@
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="topic">
 							<!--Temat-->
-							{{_ 'glob.globaTemat'}}: 
+							{{_ 'glob.globTopic'}}: 
 						</label>
 						<div class="col-xs-9">
-							<input name="topic" type="text" class="form-control" id="topic" placeholder="{{_ 'glob.globaTemat'}}">
+							<input name="topic" type="text" class="form-control" id="topic" placeholder="{{_ 'glob.globTopic'}}">
 						</div>
 					</div>
 					<div class="form-group">
@@ -69,7 +69,7 @@
 							<!--Wyślij-->
 							<input type="submit" class="btn btn-primary" value="{{_ 'sendMessage.semeWyślij'}}">
 							<!--Anuluj-->
-							<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+							<input type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
 						</div>
 					</div>
 				</form>

@@ -1,6 +1,6 @@
 <template name="listKwestia">
-<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "dym.dymINkwest"}}</b>  
-	<a data-toggle="modal" href="#wykKwInfo"><button>{{_ "glob.glAboutPag"}}
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "dym.dymIssues"}}</b>  
+	<a data-toggle="modal" href="#wykKwInfo"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="wykKwInfo" role="dialog">
                     <div class="modal-dialog">
@@ -8,13 +8,13 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <p class="modal-title">
-                                    {{_ "dym.dymINkwest"}}
+                                    {{_ "dym.dymIssues"}}
                                 </p>
                             </div>
                             <div class="modal-body"><small>
-                                <p>{{_ "dym.dymTXKwesA"}}</p>
-								<p>{{_ "dym.dymTXKwesB"}}</p>
-								<p>{{_ "dym.dymTXKwesC"}}</p>
+                                <p>{{_ "dym.dymIssuesA"}}</p>
+								<p>{{_ "dym.dymIssuesB"}}</p>
+								<p>{{_ "dym.dymIssuesC"}}</p>
                                 </small>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
 						</small>
 						<ul align="left">
 							<a data-toggle="modal" href="#addZanimDod">
-									<small>{{_ 'dym.dymZaniDod'}}
+									<small>{{_ 'dym.dymBeforeYouAdd'}}
 									<sub class="fa fa-external-link"></sub>
 									</small>
 							</a>
@@ -47,14 +47,14 @@
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
 										<p class="modal-title" align="left">
-											{{_ 'dym.dymDodKwes'}}
+											{{_ 'dym.dymAddingIssues'}}
 										</p>
 									</div>
 									<div class="modal-body" align="left">
 										<small>
-										<p>{{_ 'dym.dymTXdoKwA'}}</p>
-										<p>{{_ 'dym.dymTXdoKwB'}}</p>
-										<p><strong>{{_ 'dym.dymTXdoKwC'}}</strong></p>
+										<p>{{_ 'dym.dymAddingIssueA'}}</p>
+										<p>{{_ 'dym.dymAddingIssueB'}}</p>
+										<p><strong>{{_ 'dym.dymAddingIssueC'}}</strong></p>
 										</small>
 									</div>
 								</div>

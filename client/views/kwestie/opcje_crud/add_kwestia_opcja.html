@@ -1,6 +1,6 @@
 <template name="addKwestiaOpcjaForm">
-<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "addKwestiaOpcjaForm.pinfoDoKwO"}}</b>  
-	<a data-toggle="modal" href="#dokwo"><button>{{_ "glob.glAboutPag"}}
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "addKwestiaOpcjaForm.pinfoDoKwO"}}</b>  
+	<a data-toggle="modal" href="#dokwo"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="dokwo" role="dialog">
                     <div class="modal-dialog">
@@ -44,7 +44,7 @@
                         <label class="control-label col-xs-3"
                                for="inputEmail">
 <!--Temat:-->
-{{_ "glob.globaTemat"}}:</label>
+{{_ "glob.globTopic"}}:</label>
 
                         <div class="col-xs-3">
                             <input type="text" readonly name="temat" id="temat" class="form-control"
@@ -54,7 +54,7 @@
                     <div class="form-group" id="rodzajeGroup">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Rodzaj-->
-{{_ "glob.globRodzaj"}}:</label>
+{{_ "glob.globType"}}:</label>
 
                         <div class="col-xs-3">
                             <input type="text" readonly name="rodzaj" id="rodzaj" class="form-control"
@@ -84,20 +84,20 @@
                                     </tr>
                                     {{#if protectorZR}}
                                         <tr>
-                                            <td><strong>{{_ "glob.globaEmail"}}: </strong></td><td>{{szczegolowaTresc.email}}</td>
+                                            <td><strong>{{_ "glob.globEmail"}}: </strong></td><td>{{szczegolowaTresc.email}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>{{_ "glob.globaPESEL"}}: </strong></td><td>{{szczegolowaTresc.pesel}}</td>
+                                            <td><strong>{{_ "glob.globPID"}}: </strong></td><td>{{szczegolowaTresc.pesel}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>{{_ "glob.globaAdres"}}: </strong></td><td>{{szczegolowaTresc.address}}</td>
+                                            <td><strong>{{_ "glob.globAdress"}}: </strong></td><td>{{szczegolowaTresc.address}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>{{_ "glob.gloKodPocz"}}: </strong></td><td>{{szczegolowaTresc.zip}}</td>
+                                            <td><strong>{{_ "glob.globPostalC"}}: </strong></td><td>{{szczegolowaTresc.zip}}</td>
                                         </tr>
                                     {{/if}}
                                         <tr>
-                                            <td><strong>{{_ "glob.globMiasto"}}: </strong></td><td>{{szczegolowaTresc.city}}</td>
+                                            <td><strong>{{_ "glob.globCity"}}: </strong></td><td>{{szczegolowaTresc.city}}</td>
                                         </tr>
                                 </table>
                             </div>
@@ -129,7 +129,7 @@
 <!--Dodaj Kwestię Opcję-->
 <input type="submit" class="btn btn-primary" value="{{_ 'addKwestiaOpcjaForm.aKwOpDoKwe'}}" id="submitAddKwestiaOpcja">
 <!--Anuluj-->
-<input id="anuluj" type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+<input id="anuluj" type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
                         </div>
                     </div>
                 </form>

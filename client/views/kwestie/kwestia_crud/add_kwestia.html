@@ -1,6 +1,6 @@
 <template name="addKwestiaForm">
-<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "addKwestiaForm.pinfoDodKw"}}</b>  
-	<a data-toggle="modal" href="#dodkw"><button>{{_ "glob.glAboutPag"}}
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "addKwestiaForm.pinfoDodKw"}}</b>  
+	<a data-toggle="modal" href="#dodkw"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="dodkw" role="dialog">
                     <div class="modal-dialog">
@@ -34,7 +34,7 @@
 						<ul>
 							<a data-toggle="modal" href="#addKwestia">
 								<small class="fontSizeSmall">
-									<!--Sprawdź istniejące...-->{{_ "dym.dymSprawdz"}}
+									<!--Sprawdź istniejące...-->{{_ "dym.dymCheckExisting"}}
 									<sub class="fa fa-external-link"></sub>
 								</small>
 							</a>
@@ -44,12 +44,12 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<p class="modal-title">{{_ "dym.dymSpraDod"}}
+										<p class="modal-title">{{_ "dym.dymCheckExistingIssues"}}
 										</p>
 									</div>
 									<div class="modal-body">
-										<p>{{_ "dym.dymTXZaDod"}}</p>
-										<p><strong>{{_ "dym.dymTXZaDoA"}}</strong></p>
+										<p>{{_ "dym.dymCheckExistingIssuesA"}}</p>
+										<p><strong>{{_ "dym.dymCheckExistingIssuesB"}}</strong></p>
 									</div>
 								</div>
 							</div>
@@ -63,7 +63,7 @@
 								<ul align="left">
 									<a data-toggle="modal" href="#addNameKw">
 										<small class="fontSizeSmall">
-											<!--Jak nazwać?-->{{_ "dym.dymJakNazw"}}
+											<!--Jak nazwać?-->{{_ "dym.dymHowToName"}}
 											<sub class="fa fa-external-link"></sub>
 										</small>
 									</a>
@@ -73,10 +73,10 @@
 										<div class="modal-content">
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<p class="modal-title" align="left">{{_ "dym.dymNazyKwe"}}</p>
+												<p class="modal-title" align="left">{{_ "dym.dymNamingIssues"}}</p>
 											</div>
 											<div class="modal-body" align="left">
-												<small>{{_ "dym.dymTXZnazK"}}</small>
+												<small>{{_ "dym.dymNamingIssuesA"}}</small>
 											</div>
 										</div>
 									</div>
@@ -92,7 +92,7 @@
 						<!--Temat-->
 						<label class="control-label col-xs-3" for="sugerowanyTemat">
 							<section class="dymek">
-								{{_ "glob.globaTemat"}}:
+								{{_ "glob.globTopic"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addTemat" class="fa fa-info-circle">
 									<!--info i zachęta w dymku-->
@@ -107,12 +107,12 @@
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
 												<p class="modal-title" align="left">
-													{{_ "dym.dymTeCzyDz"}}
+													{{_ "dym.dymDescTopic"}}
 												</p>
 											</div>
 											<div class="modal-body" align="left">
 												<small>
-													{{_ "dym.dymTXKaSpo"}}
+													{{_ "dym.dymDescTopicA"}}
 												</small>
 											</div>
 										</div>
@@ -137,7 +137,7 @@
 						<label class="control-label col-xs-3" for="sugerowanyRodzaj">
 							<section class="dymek">
 								<!--Rodzaj-->
-								{{_ "glob.globRodzaj"}}:
+								{{_ "glob.globType"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addRodzaj" class="fa fa-info-circle">
 									<!--info i zachęta w dymku-->
@@ -152,12 +152,12 @@
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
 												<p class="modal-title" align="left">
-													{{_ "dym.dymRoCzyUs"}}
+													{{_ "dym.dymDescrType"}}
 												</p>
 											</div>
 											<div class="modal-body" align="left">
 												<small>
-													{{_ "dym.dymTXSyNiN"}}
+													{{_ "dym.dymDescrTypeA"}}
 												</small>
 											</div>
 										</div>
@@ -185,7 +185,7 @@
 								{{_ "addKwestiaForm.addKrTrKwe"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addKrTr">
-									<small class="fontSizeSmall">{{_ "dym.dymPodpowi"}}
+									<small class="fontSizeSmall">{{_ "dym.dymPrompt"}}
 									<sub class="fa fa-external-link"></sub>
 									</small>
 									</a>
@@ -196,12 +196,12 @@
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
 												<p class="modal-title" align="left">
-													{{_ "dym.dymJakKrOp"}}
+													{{_ "dym.dymAsBrieflyDescr"}}
 												</p>
 											</div>
 											<div class="modal-body" align="left">
 												<small>
-													{{_ "dym.dymTXwJedn"}}
+													{{_ "dym.dymAsBrieflyDescrA"}}
 												</small>
 											</div>
 										</div>
@@ -221,7 +221,7 @@
 								{{_ "addKwestiaForm.adOpUzasad"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addUzasadn">
-									<small class="fontSizeSmall">{{_ "dym.dymKilkWsk"}}
+									<small class="fontSizeSmall">{{_ "dym.dymAfewTips"}}
 									<sub class="fa fa-external-link"></sub>
 									</small>
 									</a>
@@ -232,12 +232,12 @@
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
 												<p class="modal-title" align="left">
-													{{_ "dym.dymJakOpIu"}}
+													{{_ "dym.dymHowToDescr"}}
 												</p>
 											</div>
 											<div class="modal-body" align="left">
 												<small>
-													{{_ "dym.dymTXTuJes"}}
+													{{_ "dym.dymHowToDescrA"}}
 												</small>
 											</div>
 										</div>
@@ -255,7 +255,7 @@
 							<!--Dodaj tę Kwestię-->
 							<input type="submit" class="btn btn-primary" value="{{_ 'addKwestiaForm.adDodTeKwe'}}" id="submitAddKwestia">
 							<!--Anuluj-->
-							<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+							<input type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
 						</div>
 					</div>
 				</form>

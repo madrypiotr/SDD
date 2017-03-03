@@ -3,28 +3,28 @@
     <div class="main">
         <legend>
 <!--Dodaj język-->
-{{_ "addLanguage.alDodJezyk"}}</legend>
+{{_ "addLanguage.AddLangua"}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" id="languageForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="languageName">
 <!--Nazwa języka: -->
-{{_ "addLanguage.alNazwJezy"}}</label>
+{{_ "addLanguage.LanguageName"}}</label>
 
                         <div class="col-xs-9">
 <!--Nazwa (np. polski, angielski itp.)-->
-<input name="languageName" type="text" class="form-control" id="languageName" placeholder="{{_ 'addLanguage.alPoAngItp'}}" required>
+<input name="languageName" type="text" class="form-control" id="languageName" placeholder="{{_ 'addLanguage.NameForExampleEnglish'}}" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="languageShortName">
 <!--Skrót: -->
-{{_ "addLanguage.alangSkrot"}}</label>
+{{_ "addLanguage.Abbreviation"}}</label>
 
                         <div class="col-xs-9">
 <!--Skrót (np. pl, en, itp...)-->
-<input name="languageShortName" type="text" class="form-control" id="languageShortName" placeholder="{{_ 'addLanguage.alSkrPlEnI'}}" required>
+<input name="languageShortName" type="text" class="form-control" id="languageShortName" placeholder="{{_ 'addLanguage.ShortcutForExample_en'}}" required>
                         </div>
                     </div>
                     <br/>
@@ -32,9 +32,9 @@
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
 <!--Zapisz-->
-<input type="submit" class="btn btn-primary" value="{{_ 'glob.globZapisz'}}">
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.globSave'}}">
 <!--Anuluj-->
-<input type="reset" class="btn btn-default" value="{{_ 'glob.globAnuluj'}}">
+<input type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
                         </div>
                     </div>
                 </form>

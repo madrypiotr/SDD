@@ -9,7 +9,7 @@
 {{_ "kwestiaDetails.KwDetDaApl"}}
                 {{#if isHonorowyType typ}}
 <!--e-mail-->
-{{_ "glob.globaEmail"}}: 
+{{_ "glob.globEmail"}}: 
                         {{szczegolowaTresc.email}}
                 {{/if}}
                 {{#unless isHonorowyType typ}}
@@ -18,20 +18,20 @@
                     {{szczegolowaTresc.fullName}}
                 {{#if protectorZR}}
 <!--e-mail-->
-{{_ "glob.globaEmail"}}: 
+{{_ "glob.globEmail"}}: 
                         {{szczegolowaTresc.email}}
 <!--PESEL-->
-{{_ "glob.globaPESEL"}}:
+{{_ "glob.globPID"}}:
                         {{szczegolowaTresc.pesel}}
 <!--Adres-->
-{{_ "glob.globaAdres"}}: 
+{{_ "glob.globAdress"}}: 
                         {{szczegolowaTresc.address}}
 <!--Kod pocztowy-->
-{{_ "glob.gloKodPocz"}}: 
+{{_ "glob.globPostalC"}}: 
                         {{szczegolowaTresc.zip}}
                 {{/if}}
 <!--Miasto-->
-{{_ "glob.globMiasto"}}: 
+{{_ "glob.globCity"}}: 
                         {{szczegolowaTresc.city}}
                 {{/unless}}
 <!--Dodatkowe-->

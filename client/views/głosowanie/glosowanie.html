@@ -1,7 +1,7 @@
 <template name="glosowanie">
 <!--{{#if currentUser}}-->
-<div class="pinfo">{{_ "glob.glThisPage"}}: <b>{{_ "dym.dymINgloso"}}</b>  
-	<a data-toggle="modal" href="#glos"><button>{{_ "glob.glAboutPag"}}
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "dym.dymVoting"}}</b>  
+	<a data-toggle="modal" href="#glos"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="glos" role="dialog">
                     <div class="modal-dialog">
@@ -9,15 +9,15 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <p class="modal-title">
-                                    {{_ "dym.dymINgloso"}}
+                                    {{_ "dym.dymVoting"}}
                                 </p>
                             </div>
                             <div class="modal-body"><small>
-                                <p>{{_ "dym.dymTXglosA"}}</p>
-					<p><strong>{{_ 'dym.dymTXglosB'}}</strong></p>
-								<p>{{_ "dym.dymTXglosC"}}</p>
-								<p>{{_ "dym.dymTXglosD"}}</p>
-								<p>{{_ "dym.dymTXglosE"}}</p>
+                                <p>{{_ "dym.dymVotingA"}}</p>
+					<p><strong>{{_ 'dym.dymVotingB'}}</strong></p>
+								<p>{{_ "dym.dymVotingC"}}</p>
+								<p>{{_ "dym.dymVotingD"}}</p>
+								<p>{{_ "dym.dymVotingE"}}</p>
                                 </small>
                             </div>
                         </div>

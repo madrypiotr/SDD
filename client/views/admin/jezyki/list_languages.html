@@ -4,7 +4,7 @@
         <div class="main">
             <legend>
 <!--Lista języków-->
-{{_ "listLanguages.llaLisJezy"}}</legend>
+{{_ "listLanguages.listOfLanguages"}}</legend>
             <div class="row">
                 <div class="col col-md-6">
                     <div class="input-group">
@@ -36,17 +36,17 @@
         {{#if isLangEnabled _id}}
             
 <!--Wyłącz-->
-<button class="btn btn-default btn-xs" id="hideLang" data-toggle="tooltip" title="{{_ 'languageOptions.lOpWylaJez'}}"
+<button class="btn btn-default btn-xs" id="hideLang" data-toggle="tooltip" title="{{_ 'languageOptions.loOff'}}"
                     name="{{_id}}">
                  <i class="fa fa-toggle-on" name="{{_id}}"></i>
             </button>
         {{else}}
             
 <!--Włącz-->
-<button class="btn btn-default btn-xs" id="launchLang" data-toggle="tooltip" title="{{_ 'languageOptions.lOpWlaczJe'}}"
+<button class="btn btn-default btn-xs" id="launchLang" data-toggle="tooltip" title="{{_ 'languageOptions.loOn'}}"
                     name="{{_id}}">
  <!--Włącz-->
-{{_ "languageOptions.lOpWlaczJe"}} <i class="fa fa-toggle-off" name="{{_id}}"></i>
+{{_ "languageOptions.loOn"}} <i class="fa fa-toggle-off" name="{{_id}}"></i>
             </button>
         {{/if}}
         
@@ -54,12 +54,12 @@
 <a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'languageOptions.EdytujJezy'}}"
            href="{{ pathFor 'editLanguage' _id}}">
 <!--Edytuj-->
-{{_ "glob.globEdytuj"}} <i class="fa fa-edit"></i></a>
+{{_ "glob.globEdit"}} <i class="fa fa-edit"></i></a>
         
 <!--Info kontekstowe-->
-<a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'languageOptions.lOpInkonte'}}" href="{{pathFor 'setPagesInfo' _id}}">
+<a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'languageOptions.infoContext'}}" href="{{pathFor 'setPagesInfo' _id}}">
 <!--Info kontekstowe-->
-{{_ "languageOptions.lOpInkonte"}} <i class="fa fa-pencil"></i></a>
+{{_ "languageOptions.infoContext"}} <i class="fa fa-pencil"></i></a>
     </div>
 </template>
 
