@@ -131,7 +131,7 @@ Template.addHonorowy.events({
         }
     },
     'reset form':function(e){
-
+        Router.go('listKwestia');
     }
 });
 addUserDraftHonorowy=function(newUser){
