@@ -71,8 +71,8 @@ Template.addKwestiaForm.events({
         var typeValue = $(e.target).find('[id=sugerowanyRodzaj]').val();
         if(topicValue == null || topicValue == "" || typeValue == null || typeValue == ""){
             GlobalNotification.error({
-                title: TXV.UWAGA,
-                content: TXV.FILL_SUBJ_TYPE,
+                title: TXV.WARNING,
+                content: TXV.FILL_SUBJ_AND_TYPE,
                 duration: 4 // duration the notification should stay in seconds
             });
 

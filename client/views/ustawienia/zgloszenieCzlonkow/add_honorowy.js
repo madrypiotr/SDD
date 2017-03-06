@@ -126,7 +126,7 @@ Template.addHonorowy.events({
                 });
             }
             else{
-                bootbox.alert(TXV.ZZ_NOT_COMPLETE);
+                bootbox.alert(TXV.IMPL_TEAM_NOT_COMPLETE);
             }
         }
     },

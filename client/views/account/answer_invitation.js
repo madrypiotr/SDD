@@ -31,7 +31,7 @@ Template.answerInvitation.helpers({
     position:function(){
         var userDraft=getUserDraftMethod(Router.current().params);
         if(userDraft.profile.userType==USERTYPE.HONOROWY)
-        return TXV.CZL_HONOROWEGO;
+        return TXV.HONORARY_MEMBER;
     },
     organizationName:function(){
         return Parametr.findOne().nazwaOrganizacji ? Parametr.findOne().nazwaOrganizacji : null;
@@ -172,7 +172,7 @@ applyPositiveMethod=function(kwestia){
 
 fillDataNewHonorowyBootbox=function(kwestia,email){
     bootbox.dialog({
-            title: TXV.ABY_DOSTEP_UZUP,
+            title: TXV.TO_ACCESS_COMPLETE_THE_FIELDS,
             closeButton:false,
             message:
             '<div class="row">  ' +
@@ -213,7 +213,7 @@ fillDataNewHonorowyBootbox=function(kwestia,email){
                             fillDataNewHonorowyBootbox(kwestia,email);
                             $('.successSave').css("visibility", "visible");
                             GlobalNotification.error({
-                                title: TXV.UWAGA,
+                                title: TXV.WARNING,
                                 content: TXV.DO_NOT_EMPTY,
                                 duration: 4 // duration the notification should stay in seconds
                             });

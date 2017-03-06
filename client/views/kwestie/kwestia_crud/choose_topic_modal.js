@@ -16,7 +16,7 @@ Template.chooseTopicModalInner.helpers({
                 },
                 {
                     key: 'opis',
-                    label: TXV.OPIS
+                    label: TXV.DESCRIPTION
                 },
                 {
                     key: '_id',

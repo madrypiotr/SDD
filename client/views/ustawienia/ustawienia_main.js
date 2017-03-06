@@ -8,8 +8,8 @@ Template.administracjaUserMain.helpers({
             enableRegex: false,
             fields: [
                 { key: 'dataWprowadzenia', label: TXV.DATE_OF_INTRO, tmpl: Template.dataUtwKwestia },
-                { key: 'kwestiaNazwa', label: TXV.NAZ_KWESTI, tmpl: Template.nazwaKwestiLink },
-                { key: 'options', label: TXV.OPCJE, tmpl: Template.lobbujZaKwestia }
+                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
+                { key: 'options', label: TXV.OPTIONS, tmpl: Template.lobbujZaKwestia }
             ]
         };
     },

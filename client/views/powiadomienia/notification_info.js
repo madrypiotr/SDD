@@ -80,7 +80,7 @@ Template.notificationNewIssue.helpers({
     },
     temat:function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.SYSTEMOWA;
+            return TXV.BELONGS_TO_THE_SYSTEM;
         else
         var temat=Temat.findOne({_id:this.idTemat});
         return temat? temat.nazwaTemat : "";
@@ -112,7 +112,7 @@ Template.notificationLackOfRealizationReport.helpers({
     },
     temat:function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.SYSTEMOWA;
+            return TXV.BELONGS_TO_THE_SYSTEM;
         else
             var temat=Temat.findOne({_id:this.idTemat});
         return temat? temat.nazwaTemat : "";
@@ -161,7 +161,7 @@ Template.notificationApplicationAnswer.helpers({
         return this.powiadomienieTyp==NOTIFICATION_TYPE.APPLICATION_REJECTED? true : false;
     },
     userTypeData:function(){
-        return this.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ? TXV.ORD_MEMBER : TXV.CZL_HONOROWEGO;
+        return this.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ? TXV.ORD_MEMBER : TXV.HONORARY_MEMBER;
     }
 });
 
@@ -202,7 +202,7 @@ Template.notificationLobbingMessage.helpers({
     },
     temat:function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.SYSTEMOWA;
+            return TXV.BELONGS_TO_THE_SYSTEM;
         else
             var temat=Temat.findOne({_id:this.idTemat});
         return temat? temat.nazwaTemat : "";
@@ -256,7 +256,7 @@ Template.notificationVoteStarted.helpers({
     },
     temat:function(){
         if(this.kwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.SYSTEMOWA;
+            return TXV.BELONGS_TO_THE_SYSTEM;
         else
             var temat=Temat.findOne({_id:this.kwestia.idTemat});
         return temat? temat.nazwaTemat : "";

@@ -232,7 +232,7 @@ Template.registerForm.events({
     'click #statutBootbox':function(){
         bootbox.dialog({
             message: getRegulamin(),
-            title: TXV.REGUL_ORG +getNazwaOrganizacji(),
+            title: TXV.RULES_OF_THE_ORGANIZATION +getNazwaOrganizacji(),
             buttons: {
                 main: {
                     label: TXV.OK,

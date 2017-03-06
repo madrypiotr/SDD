@@ -98,7 +98,7 @@ Meteor.methods({
         var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
         var temat = Temat.findOne({_id:kwestiaItem.idTemat});
         if(!rodzaj)
-            rodzaj=TXV.SYSTEMOWA;
+            rodzaj=TXV.BELONGS_TO_THE_SYSTEM;
 
         else
             rodzaj=rodzaj.nazwaRodzaj;
@@ -166,7 +166,7 @@ Meteor.methods({
         var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
         var temat = Temat.findOne({_id:kwestiaItem.idTemat});
         if(!rodzaj)
-            rodzaj=TXV.SYSTEMOWA;
+            rodzaj=TXV.BELONGS_TO_THE_SYSTEM;
         else
             rodzaj=rodzaj.nazwaRodzaj;
         if(!temat)
@@ -191,7 +191,7 @@ Meteor.methods({
                 Email.send({
                     to: item.emails[0].address,
                     from: TXV.SYSTEM_NAME,
-                    subject: TXV.BRAK_RAP,
+                    subject: TXV.NO_CURRENT_REPORT,
                     html: html
                 });
             }
@@ -207,7 +207,7 @@ Meteor.methods({
         var url=Meteor.absoluteUrl()+"issue_info/"+kwestiaItem._id;
         if(kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
             rodzaj=TXV.TECHNICAL;
-            temat=TXV.SYSTEMOWA;
+            temat=TXV.BELONGS_TO_THE_SYSTEM;
         }
         else{
             rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj}).nazwaRodzaj;
@@ -250,7 +250,7 @@ Meteor.methods({
         var temat=null;
         var rodzaj=null;
         if(kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
-            temat=TXV.SYSTEMOWA;
+            temat=TXV.BELONGS_TO_THE_SYSTEM;
             rodzaj=TXV.TECHNICAL;
         }
         else {
@@ -384,7 +384,7 @@ applicationEmail=function(userData,emailTypeText,passw){
     switch (userData.profile.userType){
         case USERTYPE.CZLONEK: userTypeData=TXV.ORD_MEMBER;break;
         case USERTYPE.DORADCA: userTypeData=TXV.COUNSELOR;break;
-        case USERTYPE.HONOROWY: userTypeData=TXV.CZL_HONOROWEGO;break;
+        case USERTYPE.HONOROWY: userTypeData=TXV.HONORARY_MEMBER;break;
     }
     var url=null;
     var login=null;

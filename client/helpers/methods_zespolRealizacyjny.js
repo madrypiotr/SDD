@@ -1,8 +1,8 @@
 isUserInZespolRealizacyjnyNotification=function(id,zespolTab){
     if(_.contains(zespolTab,id)){
         GlobalNotification.error({
-            title: 'Błąd',
-            content: 'Jesteś już w tym ZR.',
+            title: TXV.ERROR,
+            content: TXV.YOU_ARE_ALREADY_IN_THE_IMP_TEAM,
             duration: 10 // duration the notification should stay in seconds
         });
         return true;
@@ -12,9 +12,9 @@ isUserInZespolRealizacyjnyNotification=function(id,zespolTab){
 };
 isUserCountInZespolRealizacyjnyNotification=function(id,zespolTab,numberOfCzlonkowie){
     if(zespolTab.length==3) {
-        var komunikat='Jest już '+numberOfCzlonkowie+' członków ZR';
+        var komunikat= TXV.ITS_ALREADY +numberOfCzlonkowie+ TXV.MEMBERS_OF_IMPL_TEAM;
         GlobalNotification.error({
-            title: 'Błąd',
+            title: TXV.ERROR,
             content: komunikat,
             duration: 10 // duration the notification should stay in seconds
         });
@@ -57,11 +57,11 @@ addCzlonekToZespolRealizacyjnyNotification=function(idUser,zespolToUpdate,number
         }
 
         else {//to znaczy,ze normalnie mnie dodają do bazy
-            komunikat = 'Zostałeś dodany do Zespołu Realizacyjnego. Mamy już komplet';
+            komunikat = TXV.ADDED_TO_THE_IT_WE_HAVE_ALREADY_SET;
             $("#addNazwa").modal("show");
 
             GlobalNotification.success({
-                title: 'Sukces',
+                title: TXV.SUCCESS,
                 content: komunikat,
                 duration: 10 // duration the notification should stay in seconds
             });
@@ -71,23 +71,23 @@ addCzlonekToZespolRealizacyjnyNotification=function(idUser,zespolToUpdate,number
     else{
         var text = null;
         if (numberOfCzlonkowie == 0)
-            text = ' członków';
+            text = TXV.MEMBER;
         else
-            text = ' członka';
-        var komunikat = 'Zostałeś/ dodany do Zespołu Realizacyjnego. Potrzeba jeszcze ' + numberOfCzlonkowie + text;
+            text = TXV.MEMBERS;
+        var komunikat = TXV.ADDED_TO_THE_IT_NEED_MORE + numberOfCzlonkowie + text;
 
         zespolToUpdate.push(idUser);
         Meteor.call('updateCzlonkowieZR', zespolId, zespolToUpdate, function (error) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error('Error: ' + error.reason);
+                    Log.error(TXV.ERROR + error.reason);
                 else {
                     throwError(error.reason);
                 }
             }
             else{
                 GlobalNotification.success({
-                    title: 'Sukces',
+                    title: TXV.SUCCESS,
                     content: komunikat,
                     duration: 10 // duration the notification should stay in seconds
                 });
@@ -101,8 +101,8 @@ addCzlonekToZespolRealizacyjnyNotification=function(idUser,zespolToUpdate,number
 };
 bladNotification=function(){
     GlobalNotification.error({
-        title: 'UWAGA',
-        content: 'Wystąpił błąd.',
+        title: TXV.WARNING,
+        content: TXV.ERROR,
         duration: 10 // duration the notification should stay in seconds
     });
 };
@@ -112,8 +112,8 @@ isUserInZRNotification=function(idZespolu){
     if(zespol) {
         if (!_.contains(zespol.zespol, Meteor.userId())) {
             GlobalNotification.error({
-                title: 'Uwaga',
-                content: 'Niestety, decyzję o realizowaniu tej Kwestii może podjąć jedynie członek zespołu. Poproś jednego z nich, aby przyjął realizację, wybierz inny Zespół, lub stwórz nowy. ',
+                title:  TXV.WARNING,
+                content: TXV.THIS_DECISION_MAY_BE_TAKEN_ONLY_MEMBER_OF_THE_TEAM,
                 duration: 10 // duration the notification should stay in seconds
             });
             return true;
@@ -167,23 +167,23 @@ addCzlonekToZespolRealizacyjnyNotificationNew=function(idUser,zespolToUpdate,num
     else{
         var text = null;
         if (numberOfCzlonkowie == 0 || numberOfCzlonkowie==2)
-            text = ' członków';
+            text = TXV.MEMBER;
         else
-            text = ' członka';
-        var komunikat = 'Zostałeś dodany do Zespołu Realizacyjnego. Potrzeba jeszcze ' + numberOfCzlonkowie + text;
+            text = TXV.MEMBERS;
+        var komunikat = TXV.ADDED_TO_THE_IT_NEED_MORE + numberOfCzlonkowie + text;
 
         zespolToUpdate.push(idUser);
         Meteor.call('updateCzlonkowieZRDraft', zespolId, zespolToUpdate, function (error) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error('Error: ' + error.reason);
+                    Log.error(TXV.ERROR + error.reason);
                 else {
                     throwError(error.reason);
                 }
             }
             else{
                 GlobalNotification.success({
-                    title: 'Sukces',
+                    title: TXV.SUCCESS,
                     content: komunikat,
                     duration: 10 // duration the notification should stay in seconds
                 });
@@ -229,11 +229,11 @@ checkIfInZR=function(idZR,idMember){
 },
 rezygnujZRAlert=function(idUserZR,idKwestia){
     bootbox.dialog({
-        title: "Jesteś członkiem tego Zespołu Roboczego dla koordynowania realizacji Kwestii.",
-        message:"Możesz zrezygnować lub w nim pozostać",
+        title: TXV.YOU_ARE_A_MEMBER_OF_THIS_WORKING_GROUP,
+        message: TXV.DO_YOU_WANT_TO_BE_OR_OUTPUT,
         buttons: {
             success: {
-                label: "Rezygnuję",
+                label: TXV.RESIGNS,
                 className: "btn-success successGiveUp",
                 callback: function() {
                     $('.successGiveUp').css("visibility", "hidden");
@@ -241,7 +241,7 @@ rezygnujZRAlert=function(idUserZR,idKwestia){
                 }
             },
             main: {
-                label: "Pozostaję",
+                label: TXV.REMAIN,
                 className: "btn-primary"
             }
         }
@@ -264,7 +264,7 @@ rezygnujZRFunction=function(idUserZR,idKwestia){
             Meteor.call('updateZespolRealizacyjnyDraft', zespol._id, ZRDraft, function (error) {
                 if (error) {
                     if (typeof Errors === "undefined")
-                        Log.error('Error: ' + error.reason);
+                        Log.error(TXV.ERROR + error.reason);
                     else {
                         throwError(error.reason);
                     }

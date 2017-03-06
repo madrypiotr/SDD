@@ -93,10 +93,10 @@ Template.listKwestia.helpers({
             filters:['customFilter'],
             fields: [
                 { key: 'dataWprowadzenia', label: TXV.DATA, tmpl: Template.dataUtwKwestia ,sortOrder:1,sortDirection:'descending'},
-                { key: 'kwestiaNazwa', label: TXV.NAZ_KWESTI, tmpl: Template.nazwaKwestiLink },
+                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
                 { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia },
-                { key: 'idTemat', label: TXV.TEMAT, tmpl: Template.tematKwestia },
-                { key: 'idRodzaj', label: TXV.RODZAJ, tmpl: Template.rodzajKwestia },
+                { key: 'idTemat', label: TXV.SUBJECT, tmpl: Template.tematKwestia },
+                { key: 'idRodzaj', label: TXV.TYPE, tmpl: Template.rodzajKwestia },
                 { key: 'Kworum', label: TXV.QUORUM, tmpl: Template.kworumNumber}
             ],
             rowClass: function (item) {
@@ -119,10 +119,10 @@ Template.listKwestia.helpers({
             filters: ['customFilter'],
             fields: [
                 { key: 'dataWprowadzenia', label: TXV.DATA, tmpl: Template.dataUtwKwestia ,sortOrder:1,sortDirection:'descending'},
-                { key: 'kwestiaNazwa', label: TXV.NAZ_KWESTI, tmpl: Template.nazwaKwestiLink },
+                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
                 { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia },
-                { key: 'idTemat', label: TXV.TEMAT, tmpl: Template.tematKwestia },
-                { key: 'idRodzaj', label: TXV.RODZAJ, tmpl: Template.rodzajKwestia },
+                { key: 'idTemat', label: TXV.SUBJECT, tmpl: Template.tematKwestia },
+                { key: 'idRodzaj', label: TXV.TYPE, tmpl: Template.rodzajKwestia },
                 { key: 'Kworum', label: TXV.QUORUM, tmpl: Template.kworumNumber}
             ],
             rowClass: function (item) {
@@ -262,7 +262,7 @@ Template.nazwaKwestiLink.helpers({
 Template.tematKwestia.helpers({
     'topicName': function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
-            return TXV.SYSTEMOWA;
+            return TXV.BELONGS_TO_THE_SYSTEM;
         }
         var topic = Temat.findOne({_id: this.idTemat}).nazwaTemat;
         if(topic.length>20){

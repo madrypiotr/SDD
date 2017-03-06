@@ -7,13 +7,13 @@ Template.realizacjaTab2.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'dataRealizacji', label: TXV.START_REAL, tmpl: Template.dataRealizKwestia },
-//                { key: 'numerUchwaly', label: TXV.UCHWALA_NR, tmpl: Template.numerUchwKwestia },
-                { key: 'kwestiaNazwa', label: TXV.NAZ_KWESTI, tmpl: Template.nazwaKwestiLink },
-                { key: 'idTemat', label: TXV.TEMAT, tmpl: Template.tematKwestia },
-//                { key: 'idRodzaj', label: TXV.RODZAJ, tmpl: Template.rodzajKwestia },
-                {key: 'raporty', label: TXV.RAPORT, tmpl:Template.raport},
-                { key: 'options', label: TXV.OPCJE, tmpl: Template.editColumnRealization }
+                { key: 'dataRealizacji', label: TXV.START_OF_THE_IMPLEMENTATION, tmpl: Template.dataRealizKwestia },
+//                { key: 'numerUchwaly', label: TXV.RESOLUTION_NO, tmpl: Template.numerUchwKwestia },
+                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
+                { key: 'idTemat', label: TXV.SUBJECT, tmpl: Template.tematKwestia },
+//                { key: 'idRodzaj', label: TXV.TYPE, tmpl: Template.rodzajKwestia },
+                {key: 'raporty', label: TXV.REPORT, tmpl:Template.raport},
+                { key: 'options', label: TXV.OPTIONS, tmpl: Template.editColumnRealization }
             ]
         };
     },
@@ -73,15 +73,15 @@ Template.realizacjaTab2.events({
                             globalParameters.terytorium + "\n" +
                             globalParameters.kontakty + "\n"
                             },
-                            { text: TXV.UCHWALA_NR + ": " + numerUchwaly + "\n\n\n\t\t" + TXV.DOTYCZY + ": " + issueName, style: 'uchwalaHeadline'},
+                            { text: TXV.RESOLUTION_NO + ": " + numerUchwaly + "\n\n\n\t\t" + TXV.BELONGS_TO_THE_ISSUES + ": " + issueName, style: 'uchwalaHeadline'},
                             { text: "\n\t\t\t\t\t\t" + issueContent, style: 'contentStyle'},
-                            { text: "\n\t\t" +TXV.OPIS+": "+ issueContent, style: 'contentStyle'},
-                            { text: "\n" +TXV.STAN_OSOB+" - " + glosujacyLength +
-                            "\n"+TXV.OBECNYCH+"  - " + glosujacyLength +
-                            "\n"+TXV.GLOS_ZA+" - " + voteFor +
-                            "\n"+TXV.GL_PRZEC+" - " + voteAgainst +
-                            "\n"+TXV.WSTRZ_SIE+" - " + abstained +
-                            "\n\n"+TXV.ZESP_REAL+":" +
+                            { text: "\n\t\t" +TXV.DESCRIPTION+": "+ issueContent, style: 'contentStyle'},
+                            { text: "\n" +TXV.NUMBER_OF_USERS+" - " + glosujacyLength +
+                            "\n"+TXV.NUMBER_OF_PRESENT+"  - " + glosujacyLength +
+                            "\n"+TXV.YES_NUMBER_OF_VOTERS+" - " + voteFor +
+                            "\n"+TXV.NO_NUMBER_OF_VOTERS+" - " + voteAgainst +
+                            "\n"+TXV.ABSTAINED_NUMBER_OF_VOTERS+" - " + abstained +
+                            "\n\n"+TXV.TEAM_IMPLEMENTATION+":" +
                             "\n1. - " + membersNames[0] +
                             "\n2. - " + membersNames[1] +
                             "\n3. - " + membersNames[2]
@@ -104,13 +104,13 @@ Template.realizacjaTab2.events({
                     globalParameters.terytorium + "\n" +
                     globalParameters.kontakty + "\n"
                     },
-                    { text: TXV.UCHWALA_NR+": " + this.numerUchwaly.toString() + "\n"+ TXV.DOTYCZY + ": " + this.kwestiaNazwa , style: 'uchwalaHeadline'},
-                    { text: "\n\t\t" +TXV.OPIS+": "+ issueContent, style: 'contentStyle'},
-                    { text: "\n" +TXV.STAN_OSOB+" - " + this.glosujacy.length +
-                    "\n"+TXV.OBECNYCH+"  - " + this.glosujacy.length +
-                     "\n"+TXV.GLOS_ZA+" - " + voteFor +
-                    "\n"+TXV.GL_PRZEC+" - " + voteAgainst +
-                    "\n"+TXV.WSTRZ_SIE+" - " + abstained
+                    { text: TXV.RESOLUTION_NO+": " + this.numerUchwaly.toString() + "\n"+ TXV.BELONGS_TO_THE_ISSUES + ": " + this.kwestiaNazwa , style: 'uchwalaHeadline'},
+                    { text: "\n\t\t" +TXV.DESCRIPTION+": "+ issueContent, style: 'contentStyle'},
+                    { text: "\n" +TXV.NUMBER_OF_USERS+" - " + this.glosujacy.length +
+                    "\n"+TXV.NUMBER_OF_PRESENT+"  - " + this.glosujacy.length +
+                     "\n"+TXV.YES_NUMBER_OF_VOTERS+" - " + voteFor +
+                    "\n"+TXV.NO_NUMBER_OF_VOTERS+" - " + voteAgainst +
+                    "\n"+TXV.ABSTAINED_NUMBER_OF_VOTERS+" - " + abstained
                     }
                 ],
                 styles: {

@@ -36,7 +36,7 @@ Template.addNazwaModal.events({
         var idKwestia=this._id;
         var nazwa = document.getElementById('nazwaZR').value;
         var zespoly = ZespolRealizacyjny.find({czyAktywny:true});
-        var z = TXV.REALIZ_TEAM_FOR;
+        var z = TXV.IMPLEMENTATION_TEAM_FOR;
         if (nazwa.toLowerCase().trim() =="") {
             $('#nazwaZR').css("visibility", "visible");
             GlobalNotification.error({
@@ -47,7 +47,7 @@ Template.addNazwaModal.events({
         }
         else {
             var found=false;
-            var text=TXV.REALIZ_TEAM_FOR+nazwa;
+            var text=TXV.IMPLEMENTATION_TEAM_FOR+nazwa;
             zespoly.forEach(function(zespol){
                 if (_.isEqual(zespol.nazwa.toLowerCase().trim(), text.toLowerCase().trim()))
                     found = true;
@@ -62,7 +62,7 @@ Template.addNazwaModal.events({
             }
             else {
                 $('#nazwaZR').css("visibility", "hidden");
-                var text=TXV.REALIZ_TEAM_FOR+nazwa;
+                var text=TXV.IMPLEMENTATION_TEAM_FOR+nazwa;
                 var kwestia=Kwestia.findOne({_id:idKwestia});
                 if(kwestia) {
                     var zespol=ZespolRealizacyjnyDraft.findOne({_id:kwestia.idZespolRealizacyjny});

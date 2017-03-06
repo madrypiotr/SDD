@@ -86,7 +86,7 @@ askToFillSubject=function(text,newEmail){
     var result=null;
     bootbox.dialog({
         message: TXV.IF_SEND_WITHOUT +text,
-        title: TXV.UWAGA,
+        title: TXV.WARNING,
         closeButton:false,
         buttons: {
             success: {

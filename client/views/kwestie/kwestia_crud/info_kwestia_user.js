@@ -265,7 +265,7 @@ Template.issueManageZR.helpers({
             filters: ['customFilter'],
             fields: [
                 { key: 'profile.fullName', label: TXV.F_NAME+" "+TXV.L_NAME },
-                { key: '_id', label: TXV.OPCJE, tmpl: Template.zrOptions }
+                { key: '_id', label: TXV.OPTIONS, tmpl: Template.zrOptions }
             ],
             rowClass: function (item) {
                 if(item._id==Meteor.userId())

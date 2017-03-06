@@ -700,7 +700,8 @@
   },
   "editParametrModalInner":{
 	"epmParameterEdition":"Edycja parametru",
-	"epmConfirmChanges":"Zmień"
+	"epmConfirmChanges":"Zmień",
+	"epmCancel":"Anuluj"
   },
   "listParametr":{
 	"pinfoGlobalParameters":"PARAMETRY GLOBALNE",

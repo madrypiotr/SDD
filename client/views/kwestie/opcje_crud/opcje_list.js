@@ -12,10 +12,10 @@ Template.opcjeList.helpers({
             enableRegex: false,
             fields: [
                 { key: 'dataWprowadzenia', label: TXV.DATE_OF_INTRO, tmpl: Template.dataUtwKwestia },
-                { key: 'kwestiaNazwa', label: TXV.NAZ_KWESTI, tmpl: Template.opcjeNazwaKwestiLink },
+                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.opcjeNazwaKwestiLink },
                 { key: 'wartoscPriorytetu', label: TXV.VAL_OF_PRIORITY, tmpl: Template.priorytetKwestia,sortOrder:1,sortDirection:'descending' },
-                { key: 'idTemat', label: TXV.TEMAT, tmpl: Template.tematKwestia },
-                { key: 'idRodzaj', label: TXV.RODZAJ, tmpl: Template.rodzajKwestia },
+                { key: 'idTemat', label: TXV.SUBJECT, tmpl: Template.tematKwestia },
+                { key: 'idRodzaj', label: TXV.TYPE, tmpl: Template.rodzajKwestia },
                 { key: 'status', label: TXV.STATUS, tmpl: Template.statusKwestia }
             ],
             rowClass: function (item) {

@@ -103,7 +103,7 @@ Template.discussionRating.events({
                 flag = false;
                 if (post.glosujacy[i].value === ratingValue) {
                     GlobalNotification.error({
-                        title: TXV.UWAGA,
+                        title: TXV.WARNING,
                         content: TXV.YOU_GAVE_PRIOR,
                         duration: 4 // duration the notification should stay in seconds
                     });

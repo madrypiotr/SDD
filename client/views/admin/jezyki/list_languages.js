@@ -9,7 +9,7 @@ Template.listLanguages.helpers({
             fields: [
                 {key: 'languageName', label: TXV.NAME, tmpl: Template.nameLanguage},
                 {key: 'shortName', label: TXV.SHORT_NAME, tmpl: Template.shortNameLanguage},
-                {key: '_id', label: TXV.OPCJE, tmpl: Template.languageOptions, headerClass: "col-md-3"}
+                {key: '_id', label: TXV.OPTIONS, tmpl: Template.languageOptions, headerClass: "col-md-3"}
             ]
         };
     },

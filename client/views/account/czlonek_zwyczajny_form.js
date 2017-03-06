@@ -144,7 +144,7 @@ Template.czlonekZwyczajnyForm.events({
         bootbox.dialog({
             message: getRegulamin(),
             //TAP.i18n("_ addKwestiaForm.legend"),
-            title: TXV.REGUL_ORG + getNazwaOrganizacji(),
+            title: TXV.RULES_OF_THE_ORGANIZATION + getNazwaOrganizacji(),
             buttons: {
                 main: {
                     label: TXV.OK,

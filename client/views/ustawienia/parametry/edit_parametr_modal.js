@@ -85,7 +85,7 @@ parametrPreview=function(paramName,title,oldValue,newValue){
         '<p>' + oldValue + '</p>' +
         '<p>' + TXV.ON + '</p>' +
         '<p>' + newValue + '</p>',
-        title: TXV.UWAGA,
+        title: TXV.WARNING,
         closeButton: false,
         buttons: {
             success: {

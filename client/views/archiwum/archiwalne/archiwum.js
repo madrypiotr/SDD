@@ -24,8 +24,8 @@ Template.archiwumList.helpers({
                 { key: 'dataWprowadzenia', label: TXV.DATE_OF_INTRO, tmpl: Template.dataUtwKwestia },
                 { key: 'kwestiaNazwa', label: TXV.NAME, tmpl: Template.nazwaKwestiiArchiwumLink },
                 { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'ascending'},
-                { key: '', label: TXV.TEMAT, tmpl: Template.tematKwestiiArchiwum },
-                { key: '', label: TXV.RODZAJ, tmpl: Template.rodzajKwestiiArchiwum },
+                { key: '', label: TXV.SUBJECT, tmpl: Template.tematKwestiiArchiwum },
+                { key: '', label: TXV.TYPE, tmpl: Template.rodzajKwestiiArchiwum },
                 { key: 'status', label: TXV.STATUS }
             ]
         };
@@ -48,7 +48,7 @@ Template.archiwum.rendered = function () {
 Template.tematKwestiiArchiwum.helpers({
     'getTemat': function (id) {
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.SYSTEMOWA;
+            return TXV.BELONGS_TO_THE_SYSTEM;
         var item = Temat.findOne({_id: id});
         return !!item && !!item.nazwaTemat ? item.nazwaTemat : id;
     }

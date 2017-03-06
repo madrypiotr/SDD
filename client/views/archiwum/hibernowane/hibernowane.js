@@ -24,8 +24,8 @@ Template.hibernowaneList.helpers({
                 { key: 'dataWprowadzenia', label: TXV.DATE_OF_INTRO, tmpl: Template.dataUtwKwestia },
                 { key: 'kwestiaNazwa', label: TXV.NAME, tmpl: Template.nazwaKwestiiHibernowaneLink },
                 { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia,sortOrder:1,sortDirection:'ascending' },
-                { key: '', label: TXV.TEMAT, tmpl: Template.tematKwestiiHibernowane },
-                { key: '', label: TXV.RODZAJ, tmpl: Template.rodzajKwestiiHibernowane },
+                { key: '', label: TXV.SUBJECT, tmpl: Template.tematKwestiiHibernowane },
+                { key: '', label: TXV.TYPE, tmpl: Template.rodzajKwestiiHibernowane },
                 { key: 'status', label: TXV.STATUS }
             ]
         };
@@ -71,7 +71,7 @@ Template.hibernowaneList.rendered = function () {
 Template.tematKwestiiHibernowane.helpers({
     'getTemat': function (id) {
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.SYSTEMOWA;
+            return TXV.BELONGS_TO_THE_SYSTEM;
         var item = Temat.findOne({_id: id});
         return !!item && !!item.nazwaTemat ? item.nazwaTemat : id;
     }
