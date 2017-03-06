@@ -15,30 +15,30 @@
     <div class="modal-header">
         <h4>
 <!--Uzasadnij propozycję-->
-{{_ 'uzasadnienieKoszModalInner.ukiUzasPro'}}</h4>
+{{_ 'uzasadnienieKoszModalInner.ukiExplainYourProposal'}}</h4>
     </div>
     <div class="modal-body">
         <div class="row">
             <div class="col-md-12">
                 <p>
 <!--Zamierzasz wnioskować o skierowanie tej-->
-{{_ 'uzasadnienieKoszModalInner.ukiZaWnios'}} <b>
+{{_ 'uzasadnienieKoszModalInner.ukiYouIntendToApply'}} <b>
 <!--Kwestii do Kosza, -->
-{{_ 'uzasadnienieKoszModalInner.ukiKwDoKos'}}</b>
+{{_ 'uzasadnienieKoszModalInner.ukiIssueToTheTrash'}}</b>
 <!--gdzie odsyłane są Kwestie nieudane, błędne, bez szans na wdrożenie. Zostaną one ostatecznie zarchiwizowane (bez możliwości wznowienia).-->
-{{_ 'uzasadnienieKoszModalInner.ukiGdziOds'}}
+{{_ 'uzasadnienieKoszModalInner.ukiWhereSentBackIissuesFailed'}}
                 </p>
 
                 <p>
 <!--Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej "-->
-{{_ 'uzasadnienieKoszModalInner.ukiPodPoni'}} <b>
+{{_ 'uzasadnienieKoszModalInner.ukiIfYourDecisionIsConsisten'}} <b>
 <!--uzasadnienie-->
-{{_ 'uzasadnienieKoszModalInner.ukiUzasadn'}}</b>.
+{{_ 'uzasadnienieKoszModalInner.ukiBroaderJustification'}}</b>.
                 </p>
 
                 <p>
 <!--W przeciwnym wypadku naciśnij-->
-{{_ 'uzasadnienieKoszModalInner.ukiWprzWyp'}} <b>
+{{_ 'uzasadnienieKoszModalInner.ukiOtherwisePress'}} <b>
 <!--Powrót-->
 {{_ 'glob.globReturn'}}</b>.
                 </p>
@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-md-12">
  <!--uzasadnienie-->
-<textarea class="form-control" rows="4" placeholder="{{_ 'uzasadnienieKoszModalInner.ukiUzasadn'}}" id="uzasadnienieKosz"
+<textarea class="form-control" rows="4" placeholder="{{_ 'uzasadnienieKoszModalInner.ukiBroaderJustification'}}" id="uzasadnienieKosz"
                           name="uzasadnienieKosz"></textarea>
             </div>
         </div>
@@ -60,7 +60,7 @@
  <!--Anuluj-->
 <input type="submit" data-dismiss="modal" class="btn btn-default" id="anulujButton" value="{{_ 'glob.globReturn'}}"/>
  <!--Zatwierdź-->
-<input type="submit" class="btn btn-danger" value="{{_ 'uzasadnienieKoszModalInner.ukiZatwier'}}" id="zatwierdzPrzeniesDoKosza"/>
+<input type="submit" class="btn btn-danger" value="{{_ 'uzasadnienieKoszModalInner.ukiSubmit'}}" id="zatwierdzPrzeniesDoKosza"/>
             </div>
         </div>
     </div>

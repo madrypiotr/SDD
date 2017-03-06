@@ -3,11 +3,11 @@
     <div class="main">
         <legend>
 <!--Aplikowanie na członka zwyczajnego w organizacji-->
-{{_ 'czlonekZwyczajnyForm.cZwAplCzwy'}} {{nazwaOrganizacji}}</legend>
+{{_ 'czlonekZwyczajnyForm.cZwApplyingAmemberOfTheOrdinary'}} {{nazwaOrganizacji}}</legend>
         {{#if currentUser}}
             <p class="col-md-12 bg-danger padding-15">
  <!--Uzupełnij brakujące pola we wniosku.-->
-{{_ 'czlonekZwyczajnyForm.cZwUzuBrPo'}}
+{{_ 'czlonekZwyczajnyForm.cZwFillInTheMissingFieldsInTheApplication'}}
             </p>
             <br/>
         {{/if}}
@@ -87,23 +87,23 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="uwagiStatus">
 <!--Dodatkowe-->
-{{_ 'czlonekZwyczajnyForm.cZwDodatko'}}: </label>
+{{_ 'czlonekZwyczajnyForm.cZwAdditional'}}: </label>
 
                         <div class="col-xs-9">
 <!--Napisz parę słów do nas, o sobie i powodach Twojego wniosku...-->
-<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'czlonekZwyczajnyForm.cZwNaParSl'}}"></textarea>
+<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'czlonekZwyczajnyForm.cZwWriteAfewWordsToUsAboutYourself'}}"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
 <!--Język użytkownika-->
-{{_ 'czlonekZwyczajnyForm.cZwJezUzyt'}}: </label>
+{{_ 'czlonekZwyczajnyForm.cZwLanguageUser'}}: </label>
 
                         <div class="col-xs-9">
                             <select name="language" id="language" class="form-control" required>
                                 <option value="0">
 <!--Wybierz język-->
-{{_ 'czlonekZwyczajnyForm.cZwWyJezyk'}}</option>
+{{_ 'czlonekZwyczajnyForm.cZwChooseLanguage'}}</option>
                                 {{#each getLanguages}}
                                     <option value="{{shortName}}">{{languageName}}</option>
                                 {{/each}}
@@ -116,16 +116,16 @@
                                 <input type="checkbox" name="statutConfirmation"  required/>
                                 <span id="statutConfirmationSpan">
 <!--Potwierdzam znajomość-->
-{{_ 'czlonekZwyczajnyForm.cZwPotwZna'}} <a id="statutBootbox">
+{{_ 'czlonekZwyczajnyForm.cZwIconfirmKnowledge'}} <a id="statutBootbox">
 <!--Regulaminu-->
-{{_ 'czlonekZwyczajnyForm.cZwRegulam'}}</a> </span>
+{{_ 'czlonekZwyczajnyForm.cZwOfTheRules'}}</a> </span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
 <!--Aplikuję o przyjęcie-->
-<input type="submit" class="btn btn-primary" value="{{_ 'czlonekZwyczajnyForm.cZwAplPrzy" id="submitZwyczajny'}}">
+<input type="submit" class="btn btn-primary" value="{{_ 'czlonekZwyczajnyForm.cZwIapplyForAdmission" id="submitZwyczajny'}}">
 <!--Anuluj-->
 <input type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
                         </div>

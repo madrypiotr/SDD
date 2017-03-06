@@ -25,7 +25,7 @@
         <legend>{{kwestiaNazwa}}</legend>
         <h4>
 <!--Raport Realizacyjny-->
-{{_ 'informacjeRaport.inrRapReal'}}</h4>
+{{_ 'informacjeRaport.inrTheImplementationReport'}}</h4>
         <br/>
         <div class="row">
             <div class="col col-md-10">
@@ -33,7 +33,7 @@
                     <div class="form-group" id="kwestiaNazwaGroup">
                         <label class=" col-xs-offset-1 col-xs-2">
 <!--Data utworzenia-->
-{{_ 'informacjeRaport.inrDataUtw'}}:</label>
+{{_ 'informacjeRaport.inrCreationDate'}}:</label>
 
                         <div class="col-xs-9">
                             {{dataUtworzenia}}
@@ -42,7 +42,7 @@
                     <div class="form-group" id="kwestiaNazwaGroup">
                         <label class=" col-xs-offset-1 col-xs-2">
 <!--Autor-->
-{{_ 'informacjeRaport.inrapAutor'}}:</label>
+{{_ 'informacjeRaport.inrapAuthor'}}:</label>
                         <div class="col-xs-9">
                             {{autorFullName}}
                         </div>
@@ -50,7 +50,7 @@
                     <div class="form-group" id="kwestiaNazwaGroup">
                         <label class=" col-xs-offset-1 col-xs-2">
 <!--Tytuł-->
-{{_ 'informacjeRaport.inrapTytul'}}:</label>
+{{_ 'informacjeRaport.inrapTitle'}}:</label>
                         <div class="col-xs-9">
                             {{tytul}}
                         </div>
@@ -58,7 +58,7 @@
                     <div class="form-group" id="kwestiaNazwaGroup">
                         <label class=" col-xs-offset-1 col-xs-2">
 <!--Szczegóły-->
-{{_ 'informacjeRaport.inraSzczeg'}}:</label>
+{{_ 'informacjeRaport.inrapDetails'}}:</label>
 
                         <div class="col-xs-9">
                             {{opis}}
@@ -69,7 +69,7 @@
                             <a href="{{pathFor "listRaport"}}" type="button"
                                class="btn btn-primary">
 <!--Zobacz wszystkie raporty dla tej Kwestii-->
-{{_ 'informacjeRaport.inrZobaRap'}}</a>
+{{_ 'informacjeRaport.inrapSeeAllTheReportsForTheIssue'}}</a>
                         {{/with}}
                     </div>
                 </form>

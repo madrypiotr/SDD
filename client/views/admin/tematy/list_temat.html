@@ -4,14 +4,14 @@
         <div class="main">
             <legend>
 <!--Kategoryzacja-->
-{{_ "listTemat.LiTeKatego"}}</legend>
+{{_ "listTemat.LiToCategorization"}}</legend>
             <div class="row">
                 <div class="col col-md-12">
                     <div class="input-group">
                         <a href="{{pathFor 'addTemat'}}" class="btn btn-primary">
                             <i class="fa fa-plus"></i> 
 <!--Dodaj Temat-->
-{{_ "listTemat.LiTeDodTem"}}
+{{_ "listTemat.LiToAddSubject"}}
                         </a>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                     <div class="pull-right">
                         <span>
 <!--Liczba rodzajów w temacie-->
-{{_ "listTemat.LiTeLiRoWT"}} <strong>{{getTemat}}</strong>: </span><span
+{{_ "listTemat.LiToTheNumbOfTypesInTheSubject"}} <strong>{{getTemat}}</strong>: </span><span
                             class="badge">{{rodzajCount}}</span>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                         <button id="reloadAll" class="btn btn-default">
                             <i class="fa fa-refresh"></i> 
 <!--Wszystkie rodzaje-->
-{{_ "listTemat.LiTeWszyRo"}}
+{{_ "listTemat.LiToAllTypes"}}
                         </button>
                     </div>
                 </div>
@@ -75,15 +75,15 @@
         </a>
         
 <!--Dodaj Rodzaj-->
-<a class="btn btn-xs btn-default" data-toggle="tooltip" title="{{_ 'optionsColumnTemat.oCoDodRodz'}}"
+<a class="btn btn-xs btn-default" data-toggle="tooltip" title="{{_ 'optionsColumnTemat.oCoAddType'}}"
            href="{{ pathFor 'addRodzaj' _id}}">
             <i class="fa fa-plus clickable"></i>
 <!--Dodaj Rodzaj-->
-{{_ "optionsColumnTemat.oCoDodRodz"}}
+{{_ "optionsColumnTemat.oCoAddType"}}
         </a>
         
 <!--Odśwież Rodzaje-->
-<a class="btn btn-xs btn-default" data-toggle="tooltip" title="{{_ 'optionsColumnTemat.oCoOdswRod'}}" href="#" id="reload" name="{{_id}}">
+<a class="btn btn-xs btn-default" data-toggle="tooltip" title="{{_ 'optionsColumnTemat.oCoRefreshTypes'}}" href="#" id="reload" name="{{_id}}">
             <i class="fa fa-filter clickable" name="{{_id}}"></i>
         </a>
     </div>
@@ -95,7 +95,7 @@
         <a class="btn btn-xs btn-default" data-toggle="tooltip" title="Edytuj" href="{{ pathFor 'editRodzaj' _id}}">
             <i class="fa fa-edit clickable"></i> 
 <!--Edytuj Rodzaj-->
-{{_ "optionsColumnRodzaj.oCrEdyRodz"}}
+{{_ "optionsColumnRodzaj.oCrEditType"}}
         </a>
     </div>
 </template>

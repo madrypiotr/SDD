@@ -3,28 +3,28 @@
     <div class="main">
         <legend>
 <!--Edytuj Temat-->
-{{_ "editTematForm.etfEdTemaT"}}</legend>
+{{_ "editTematForm.etfEditSubject"}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" id="tematForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Nazwa Tematu:-->
-{{_ "editTematForm.etfNaTemat"}}</label>
+{{_ "editTematForm.etfNameSubject"}}</label>
 
                         <div class="col-xs-9">
 <!--Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)-->
-<input name="nazwaTemat" type="text" value={{nazwaTemat}} class="form-control" id="inputNazwaTemat" placeholder="{{_ 'editTematForm.etfNaTeItp'}}" required>
+<input name="nazwaTemat" type="text" value={{nazwaTemat}} class="form-control" id="inputNazwaTemat" placeholder="{{_ 'editTematForm.etfNameSubjectForExample'}}" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Opis Tematu:-->
-{{_ "editTematForm.etfOpTemat"}}</label>
+{{_ "editTematForm.etfDescriptionSubject"}}</label>
 
                         <div class="col-xs-9">
 <!--Opis Tematu:-->
-<textarea class="form-control" value={{opis}} name="opis" id="opis" placeholder="{{_ 'editTematForm.etfOpTemat'}}" required></textarea>
+<textarea class="form-control" value={{opis}} name="opis" id="opis" placeholder="{{_ 'editTematForm.etfDescriptionSubject'}}" required></textarea>
                         </div>
                     </div>
                     <br/>

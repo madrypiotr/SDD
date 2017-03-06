@@ -15,20 +15,20 @@
     <div class="modal-header">
         <h4>
 <!--Rezygnacja z udziału w Zespole Realizacyjnym-->
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrRezygRR'}}</h4>
+{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrCancellationOfParticipationInTheImplemTeam'}}</h4>
     </div>
     <div class="modal-body">
         <p class="col-md-12 bg-danger padding-15">
             <b>
 <!--Przemyśl ten krok! Jego skutkiem może być nie zrealizowanie podjętej uchwały!-->
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrPrzemys'}}</b>
+{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrThinkThisStep'}}</b>
         </p>
         <br/>
         &nbsp;
         &nbsp;
         <h5><b>
 <!--Uchwały, których realizacją się opiekujesz-->
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrUchwaly'}}: </b></h5>
+{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrTheResolutionsWhoseImplementationIsCaring'}}: </b></h5>
         <div class="row">
             <div class="col-md-12">
                 {{> reactiveTable
@@ -45,13 +45,13 @@
         <p class="col-md-12 bg-danger padding-15" style="text-align: center">
             <b>
 <!--Mimo wszystko opuszczasz Zespół Realizacyjny?-->
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrMimoWsz'}}</b>
+{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYouDoNeverthelessTeaveTheRealizationTeam'}}</b>
         </p>
         &nbsp;
         <div class="row">
             <div class="col-md-12 centered">
  <!--Tak-->
-<input type="submit" class="btn btn-success" id="agreeButton" value="{{_ 'zrModalCurrentIssueMyResolutionsInner.zmreTakTak'}}"/>
+<input type="submit" class="btn btn-success" id="agreeButton" value="{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYes'}}"/>
  <!--Anuluj-->
 <input type="reset" data-dismiss="modal" class="btn btn-danger" id="anulujButton" value="{{_ 'glob.globCancel'}}"/>
             </div>

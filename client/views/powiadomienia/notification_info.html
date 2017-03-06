@@ -41,7 +41,7 @@
                 <button id="backToNotificationList" class="btn btn-primary">
                     <span class="fa fa-arrow-left"></span> 
 <!--Powrót do powiadomień-->
-{{_ 'notificationInfo.noiPowPowi'}}
+{{_ 'notificationInfo.noiBackToNotifications'}}
                 </button>
             </div>
         </div>
@@ -54,29 +54,29 @@
         <tr>
             <td><b>
 <!--Data wysłania-->
-{{_ 'notificationNewMessage.nnmDataWys'}}:</b></td>
+{{_ 'notificationNewMessage.nnmPostDate'}}:</b></td>
             <td>{{dataWprowadzenia}}</td>
         </tr>
         <tr>
             <td><b>
 <!--Nadawca-->
-{{_ 'notificationNewMessage.nnmNadawca'}}:</b></td>
+{{_ 'notificationNewMessage.nnmSender'}}:</b></td>
             <td>{{sender}}</td><br/>
         </tr>
         <tr>
             <td><b>
 <!--Tytuł-->
-{{_ 'notificationNewMessage.nnmesTytul'}}:</b></td>
+{{_ 'notificationNewMessage.nnmTitle'}}:</b></td>
             <td>{{tytul}}</td><br/>
         </tr>
         &nbsp;
         <tr><b>
 <!--Treść-->
-{{_ 'notificationNewMessage.nnmesTresc'}}:</b></tr>
+{{_ 'notificationNewMessage.nnmContents'}}:</b></tr>
         <tr>
             <td>
  <!--SDD-->
-{{_ 'notificationNewMessage.nnmessaSDD'}}<br />
+{{_ 'notificationNewMessage.nnmSystemName'}}<br />
                 {{organisationName}}<br />
 
                 {{welcomeGender}} {{userData}}!<br /><br />
@@ -84,7 +84,7 @@
                 {{tresc}}<br /><br/>
 
  <!--Pozdrawiam,-->
-{{_ 'notificationNewMessage.nnmPozdraw'}}<br/>
+{{_ 'notificationNewMessage.nnmRegards'}}<br/>
                 {{sender}}
             </td><br/>
         </tr>
@@ -97,28 +97,28 @@
         {{#with actualKwestia this.idKwestia}}
             <div>
 <!--SDD-->
-{{_ 'notificationNewIssue.nnissueSDD'}}</div>
+{{_ 'notificationNewIssue.nniSystemName'}}</div>
             <div>{{organisationName}}</div>
             {{welcomeGender}} {{userData}}! <br /><br />
             
 <!--Do systemu wprowadzono nową Kwestię-->
-{{_ 'notificationNewIssue.nniWprowad'}}: <b>{{kwestiaNazwa}}</b><br />
+{{_ 'notificationNewIssue.nniSystemIntroducedAnewIssue'}}: <b>{{kwestiaNazwa}}</b><br />
             <b>
 <!--Temat-->
-{{_ 'glob.globTopic'}}:</b> {{temat}}<br/>
+{{_ 'glob.globSubject'}}:</b> {{temat}}<br/>
             <b>
 <!--Rodzaj-->
 {{_ 'glob.globType'}}:</b> {{rodzaj}}<br />
             
 <!--dotyczącą-->
-{{_ 'notificationNewIssue.nnisdotycz'}}: <b>{{krotkaTresc}}</b> <br /><br />
+{{_ 'notificationNewIssue.nniOn'}}: <b>{{krotkaTresc}}</b> <br /><br />
 
             
 <!--Zapraszamy do deliberacji tej Kwestii, dyskusji i nadania priorytetu.-->
-{{_ 'notificationNewIssue.nniZaprasz'}} <br />
+{{_ 'notificationNewIssue.nniWelcomeToTheDeliberationOfTheIssue'}} <br />
             <a href="{{pathFor 'informacjeKwestia'}}">
 <!--Link do Kwestii-->
-{{_ 'notificationNewIssue.nniLinkKwe'}}</a>
+{{_ 'notificationNewIssue.nniLinkToThisIssue'}}</a>
         {{/with}}
     {{/with}}
 </template>
@@ -129,38 +129,38 @@
         {{#with actualKwestia this.idKwestia}}
             <div>
 <!--SDD-->
-{{_ 'notificationLackOfRealizationReport.nlreporSDD'}}</div>
+{{_ 'notificationLackOfRealizationReport.nlrSystemName'}}</div>
             <div>{{organisationName}}</div>
             {{welcomeGender}} {{userData}}! <br /><br />
 
             
 <!--Brak w systemie Raportu Realizacyjnego Kwestii-->
-{{_ 'notificationLackOfRealizationReport.nlrBrakRRe'}}: <b>{{kwestiaNazwa}}</b><br />
+{{_ 'notificationLackOfRealizationReport.nlrNoSystemReportTheImplemIssue'}}: <b>{{kwestiaNazwa}}</b><br />
             <b>
 <!--Temat-->
-{{_ 'glob.globTopic'}}:</b> {{temat}},<br/>
+{{_ 'glob.globSubject'}}:</b> {{temat}},<br/>
             <b>
 <!--Rodzaj-->
 {{_ 'glob.globType'}}:</b> {{rodzaj}}<br />
             
 <!--dotyczącej-->
-{{_ 'notificationLackOfRealizationReport.nlreDotycz'}}: <b>{{krotkaTresc}}</b> <br/><br/>
+{{_ 'notificationLackOfRealizationReport.nlrOn'}}: <b>{{krotkaTresc}}</b> <br/><br/>
         {{/with}}
             <b>
 <!--Zespół Realizacyjny-->
-{{_ 'notificationLackOfRealizationReport.nlrZesReal'}}:</b><br/>
+{{_ 'notificationLackOfRealizationReport.nlrTheImplementationTeam'}}:</b><br/>
             {{#each czlonekZR zespol}}
                 {{fullName}} - <a href="{{url}}">
 <!--Napisz-->
-{{_ 'notificationLackOfRealizationReport.nlreNapisz'}}</a><br/>
+{{_ 'notificationLackOfRealizationReport.nlrPost'}}</a><br/>
             {{/each}}
             <br/><br/>
         {{#with actualKwestia this.idKwestia}}
             
 <!--Idź do dyskusji realizacyjnej-->
-{{_ 'notificationLackOfRealizationReport.nlrIdzReal'}}: <a href="{{pathFor 'informacjeKwestia'}}">
+{{_ 'notificationLackOfRealizationReport.nlrGoToTheDiscussionOfRealization'}}: <a href="{{pathFor 'informacjeKwestia'}}">
 <!--Link do Kwestii-->
-{{_ 'notificationLackOfRealizationReport.nlrLinkKwe'}}</a><br/><br/>
+{{_ 'notificationLackOfRealizationReport.nlrLinkToIssue'}}</a><br/><br/>
         {{/with}}
     {{/with}}
 </template>

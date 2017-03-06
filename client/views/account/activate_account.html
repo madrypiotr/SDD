@@ -4,11 +4,11 @@
     <div class="col-md-12 bg-warning padding-15" style="text-align: center ">
         <p>
             <!--Trwa aktywowanie konta-->
-            {{_ "activateAccount.acTrwaAkty"}}
+            {{_ "activateAccount.acItTakesActivateAccount"}}
         </p>
         <p>
             <!--Jeżeli zbyt długo czekasz na reakcję systemu, spróbuj odświeżyć przeglądarkę lub spróbuj aktywować konto później-->
-            {{_ "activateAccount.acSprPozni"}}
+            {{_ "activateAccount.acIfYouWaitTooLong"}}
         </p>
     </div>
     {{else}}
@@ -20,7 +20,7 @@
 			</p>
 			<p>
 				<!--Wystąpił błąd. Spróbuj ponownie-->
-				{{_ "activateAccount.acWyBlSpPo"}}
+				{{_ "activateAccount.acAnErrorOccuredTryAgain"}}
 			</p>
 		</div>
 		{{else}}
@@ -28,28 +28,28 @@
 			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 				<p>
 					<!--Dziękujemy za aktywację konta!-->
-					{{_ "activateAccount.acDziZaAkt"}}
+					{{_ "activateAccount.acThankYouForActivatingYourAccount"}}
 				</p>
 				<p>
 					<!--Na podany przez Ciebie email w Aplikacji zostanie wysłany login i hasło.-->
-					{{_ "activateAccount.acWysLoHas"}}
+					{{_ "activateAccount.acYouWillBeSentLoginAndPass"}}
 				</p>
 			</div>
 			{{else}}
 			<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 				<p>
 					<!--Informacja.-->
-					{{_ "activateAccount.activInfor"}}
+					{{_ "activateAccount.acInformation"}}
 				</p>
 				<p>
 					<!--Twoje konto zostało już aktywowane. Przejdź -->
-					{{_ "activateAccount.acKoAktPrz"}} 
+					{{_ "activateAccount.acYourAccHasAlreadyBeenAct"}} 
 					<a href="{{link}}">
 						<!--tutaj-->
-						{{_ "activateAccount.activtutaj"}}
+						{{_ "activateAccount.acHere"}}
 					</a>
 					<!-- aby, się zalogować.-->
-					{{_ "activateAccount.acAbySieZa"}}
+					{{_ "activateAccount.acToLogin"}}
 				</p>
 			</div>
 			{{/if}}

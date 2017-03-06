@@ -2,7 +2,7 @@
     <div class="main">
         <legend>
 <!--Aplikowanie na doradcę w organizacji-->
-{{_ 'doradcaForm.dorAplDora'}} {{nazwaOrganizacji}}</legend>
+{{_ 'doradcaForm.dorApplyingAdvisorInTheOrganization'}} {{nazwaOrganizacji}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" id="doradcaFormApp">
@@ -53,11 +53,11 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="uwagiStatus">
 <!--Dodatkowe-->
-{{_ 'doradcaForm.dorDodatko'}}: </label>
+{{_ 'doradcaForm.dorAdditional'}}: </label>
 
                         <div class="col-xs-9">
 <!--Napisz parę słów do nas, o sobie i powodach Twojego wniosku...-->
-<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'doradcaForm.dorNaParSl'}}"></textarea>
+<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'doradcaForm.dorWriteAfewWordsAboutYourself'}}"></textarea>
                         </div>
                     </div>
                     <br/>
@@ -65,7 +65,7 @@
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
 <!--Aplikuję do doradztwa-->
-<input type="submit" class="btn btn-primary" value="{{_ 'doradcaForm.dorApNaDor'}}" id="submitButton">
+<input type="submit" class="btn btn-primary" value="{{_ 'doradcaForm.dorIapplyCounseling'}}" id="submitButton">
 <!--Anuluj-->
 <input type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
                         </div>

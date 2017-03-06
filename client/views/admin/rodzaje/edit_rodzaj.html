@@ -3,14 +3,14 @@
     <div class="main">
         <legend>
 <!--Edytuj Rodzaj-->
-{{_ "editRodzajForm.erfEdyRodz"}}</legend>
+{{_ "editRodzajForm.erfEditType"}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" id="rodzajForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
 <!--Temat:-->
-{{_ "glob.globTopic"}}:</label>
+{{_ "glob.globSubject"}}:</label>
 
                         <div class="col-xs-9">
                             <select name="tematy" id="tematy" class="form-control required">
@@ -31,37 +31,37 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputNazwaRodzaj">
 <!--Nazwa Rodzaju:-->
-{{_ "editRodzajForm.erfNazRodz"}}</label>
+{{_ "editRodzajForm.erfNameOfType"}}</label>
 
                         <div class="col-xs-9">
 <!--Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)-->
-<input name="nazwaRodzaj" type="text" class="form-control required" id="inputNazwaRodzaj" placeholder="{{_ 'editRodzajForm.erfNaRodIt'}}" value={{nazwaRodzaj}}>
+<input name="nazwaRodzaj" type="text" class="form-control required" id="inputNazwaRodzaj" placeholder="{{_ 'editRodzajForm.erfNameOfTypeForExamp'}}" value={{nazwaRodzaj}}>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputCzasDyskusji">
 <!--Czas dyskusji:-->
-{{_ "editRodzajForm.erfCzasDys"}}</label>
+{{_ "editRodzajForm.erfTimeDebate"}}</label>
 
                         <div class="col-xs-9">
 <!--Czas dyskusji (dni). Domyślnie 7 dni-->
-<input name="czasDyskusji" type="number" value={{czasDyskusji}} class="form-control" id="czasDyskusji" placeholder="{{_ 'editRodzajForm.erfCzDysDn'}}">
+<input name="czasDyskusji" type="number" value={{czasDyskusji}} class="form-control" id="czasDyskusji" placeholder="{{_ 'editRodzajForm.erfTimeDebateDays'}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputCzasGlosowania">
 <!--Czas głosowania:-->
-{{_ "editRodzajForm.erfCzGloso"}}</label>
+{{_ "editRodzajForm.erfTimeToVote"}}</label>
 
                         <div class="col-xs-9">
 <!--Czas głosowania (h). Domyślnie 24 h.-->
-<input name="czasGlosowania" type="text" value={{czasGlosowania}} class="form-control" id="czasGlosowania" placeholder="{{_ 'editRodzajForm.erfCzGlGod'}}">
+<input name="czasGlosowania" type="text" value={{czasGlosowania}} class="form-control" id="czasGlosowania" placeholder="{{_ 'editRodzajForm.erfVotingTimeDefault'}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputWymaganeKworum">
 <!--Wymagane kworum:-->
-{{_ "editRodzajForm.erfWymKwor"}}</label>
+{{_ "editRodzajForm.erfTheRequiredQuorum"}}</label>
 
                         <div class="col-xs-9">
                             <select id="kworumSelect" name="kworumSelect" class="form-control required">

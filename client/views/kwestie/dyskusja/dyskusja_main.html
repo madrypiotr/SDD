@@ -38,14 +38,14 @@
             {{#if HasUserRights status czyAktywny}}
             <div class="col-xs-9">
                 <!--wpisz komentarz ...-->
-                <textarea id="message" name="message" type="text" class="form-control" required placeholder="{{_ 'discussionPostForm.diWpiszKom'}}"></textarea>
+                <textarea id="message" name="message" type="text" class="form-control" required placeholder="{{_ 'discussionPostForm.diEnterAcomment'}}"></textarea>
             </div>
             <input id="idKwestia" name="idKwestia" type="hidden" value="{{idKwestia}}">
             <!--Dodaj komentarz-->
-            <input type="submit" for="dyskusjaForm" class="btn btn-primary" value="{{_ 'discussionPostForm.diDodajKom'}}">  <br> 
+            <input type="submit" for="dyskusjaForm" class="btn btn-primary" value="{{_ 'discussionPostForm.diAddAcomment'}}">  <br> 
             <small>
                 <!--Uwaga: komentarza nie można usuwać ani zmieniać-->
-                {{_ "discussionPostForm.diUwagaKom"}}
+                {{_ "discussionPostForm.diCommentCanNotBeDeletedOrChanged"}}
             </small>
             {{/if}}
         </div>
@@ -57,7 +57,7 @@
         <form>
             <section class="dymek">
                 <small>
-                    <!--Priorytet tej wypowiedzi-->{{_ "discussionRating.drAktPrior"}}:
+                    <!--Priorytet tej wypowiedzi-->{{_ "discussionRating.drThePriorityOfThisStatement"}}:
                 </small>
                 <ul>
                     <a data-toggle="modal" href="#discusMain">
@@ -89,12 +89,12 @@
             <small>
                 <section class="dymek">
                     <!--Nadaj priorytet tej treści-->
-                    {{_ "discussionRating.drNadPriTr"}}
+                    {{_ "discussionRating.drGivePriorityToThisContent"}}
                     <ul>
                         <a href="#">
                             <li class="fa fa-info-circle">
                                 <!--Udziel wsparcia lub nie-->
-                                {{_ "discussionRating.drPopLuNie"}}
+                                {{_ "discussionRating.drGrantSupportOrNot"}}
                             </li>
                         </a>
                     </ul>
@@ -139,7 +139,7 @@
                 <ul>
                     <li>
                         <!--Autor Treści-->
-                        {{_ "discussionRating.drAutTresc"}}
+                        {{_ "discussionRating.drAuthorContent"}}
                     </li>
                 </ul>
             </section>

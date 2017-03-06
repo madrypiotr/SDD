@@ -6,7 +6,7 @@
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active" id="issueInfoDetails"><a href="#issueInfoo" aria-controls="issueInfoo" role="tab" data-toggle="tab">
 <!--Szczegóły Kwestii-->
-{{_ "informacjeKwestia.ikSzczegKw"}}</a></li>
+{{_ "informacjeKwestia.ikDetailsIssue"}}</a></li>
                     <li role="presentation"><a href="#manageZRIssue" aria-controls="manageZRIssue" role="tab" data-toggle="tab">
 <!--Zespół Realizacyjny-->
 {{_ "informacjeKwestia.ikZespReal"}}</a></li>
@@ -37,7 +37,7 @@
 
 <template name="issueDetails">
 			{{#if kwestiaInKosz}}
-<div class="pinfo-kw-w-koszu">{{_ "glob.globYouHere"}}: <b>{{_ "issueDetails.pinfoKwKos"}}</b>  
+<div class="pinfo-kw-w-koszu">{{_ "glob.globYouHere"}}: <b>{{_ "issueDetails.pinfoTheIssueInTheTrashCan"}}</b>  
 	<a data-toggle="modal" href="#kwwkoszu"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="kwwkoszu" role="dialog">
@@ -46,13 +46,13 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <p class="modal-title">
-                                    {{_ "issueDetails.pinfoKwKos"}}
+                                    {{_ "issueDetails.pinfoTheIssueInTheTrashCan"}}
                                 </p>
                             </div>
                             <div class="modal-body"><small>
-                                <p>{{_ "issueDetails.pinfoKwKoA"}}</p>
-								<p>{{_ "issueDetails.pinfoKwKoB"}}</p>
-								<p>{{_ "issueDetails.pinfoKwKoC"}}</p>
+                                <p>{{_ "issueDetails.pinfoTheIssueInTheTrashCanA"}}</p>
+								<p>{{_ "issueDetails.pinfoTheIssueInTheTrashCanB"}}</p>
+								<p>{{_ "issueDetails.pinfoTheIssueInTheTrashCanC"}}</p>
                                 </small>
                             </div>
                         </div>
@@ -72,9 +72,9 @@
                                 </p>
                             </div>
                             <div class="modal-body"><small>
-                                <p>{{_ "issueDetails.pinfoDetKA"}}</p>
-								<p>{{_ "issueDetails.pinfoDetKB"}}</p>
-								<p>{{_ "issueDetails.pinfoDetKC"}}</p>
+                                <p>{{_ "issueDetails.pinfoHereYouSeeHistoryA"}}</p>
+								<p>{{_ "issueDetails.pinfoHereYouSeeHistoryB"}}</p>
+								<p>{{_ "issueDetails.pinfoHereYouSeeHistoryC"}}</p>
                                 </small>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
  <!--Kwestia w Koszu-->
                        {{#if kwestiaInKosz}}
                             <h2>
-{{_ "issueDetails.iDeInfKosz"}}</h2>
+{{_ "issueDetails.iDeTheIssueOfInactiveItIsLocatedInAtrashCan"}}</h2>
                         {{/if}}
 
 	
@@ -95,18 +95,18 @@
             <div class="col-md-12">
                 <legend><small>
 <!--Kwestia-->
-{{_ "issueDetails.iDeKwestia"}}:</small> <strong>{{kwestiaNazwa}}</strong>,<small> {{status}} 
+{{_ "issueDetails.iDeIssue"}}:</small> <strong>{{kwestiaNazwa}}</strong>,<small> {{status}} 
 <!--od-->
-{{_ "issueDetails.iDetailsOd"}} {{date}}, 
+{{_ "issueDetails.iDeFrom"}} {{date}}, 
 <!--Temat-->
-{{_ "glob.globTopic"}}: {{tematNazwa.nazwaTemat}}, 
+{{_ "glob.globSubject"}}: {{tematNazwa.nazwaTemat}}, 
 <!--Rodzaj-->
 {{_ "glob.globType"}} {{rodzajNazwa.nazwaRodzaj}}</small></legend>	
                 {{#if anyEmailProblem}}
                     <div class="col-md-6 bg-danger padding-10" style="text-align: center ">
                         <p>
 <!--Uwaga!-->
-{{_ "issueDetails.iDetaUwaga"}}</p>
+{{_ "issueDetails.iDeWarning"}}</p>
                         <p>{{emailProblemNotification}}</p>
                     </div>
                 {{/if}}
@@ -114,54 +114,54 @@
                     <p class="col-md-6 bg-info padding-10">
                         <b>
 <!--Obecnych-->
-{{_ "issueDetails.iDeObecnyc"}}:</b> {{glosujacyCount}}, 
+{{_ "issueDetails.iDePresent"}}:</b> {{glosujacyCount}}, 
 <!--a więc-->
-{{_ "issueDetails.iDetaAwiec"}}  
+{{_ "issueDetails.iDePAndSo"}}  
                         {{#if kworumComplete}}
                             <b>
 <!--kworum-->
-{{_ "issueDetails.iDetKworum"}}:</b> 
+{{_ "issueDetails.iDeQuorum"}}:</b> 
 <!--spełnione-->
-{{_ "issueDetails.iDeSpelnio"}}.<br/>
+{{_ "issueDetails.iDeFulfilled"}}.<br/>
                         {{else}}
                             <b> 
 <!--brak-->
-{{_ "issueDetails.iDetaiBrak"}} {{textKworum}} 
+{{_ "issueDetails.iDeLack"}} {{textKworum}} 
 <!--dla uzyskania kworum-->
-{{_ "issueDetails.iDetDlUzKw"}}.</b><br/>
+{{_ "issueDetails.iDetoObtainAquorum"}}.</b><br/>
                         {{/if}}
                         {{#unless isGlobalParamChange}}
                             {{#if ZRComplete}}
 <!--Zespół Realizacyjny skompletowany-->
-{{_ "issueDetails.iDeZRskomp"}}.
+{{_ "issueDetails.iDeTheImplementationTeamCompleted"}}.
                             {{else}}
                                 <b> 
 <!--Brak jeszcze-->
-{{_ "issueDetails.iDetBrJesz"}} {{ZRText}} 
+{{_ "issueDetails.iDeStillMissing"}} {{ZRText}} 
 <!--Zespołu Realizacyjnego-->
-{{_ "issueDetails.iDeZespolu"}}.</b>
+{{_ "issueDetails.iDeTheImplementationTeam"}}.</b>
                             {{/if}}
                         {{/unless}}
                         <br/>
                         {{#if kwestiaInKosz}}
                             <b>
 <!--Powód odrzucenia kwestii-->
-{{_ "issueDetails.iDePowOdrz"}}:</b> {{reason}} <br/>
+{{_ "issueDetails.iDeTheReasonForTheRejectionIssue"}}:</b> {{reason}} <br/>
                         {{/if}}
                         {{#if isNotAdminOrDoradca}}
                             {{#if mojPriorytetZero}}
                                 <br/>
 <!--Wstrzymałeś się od głosu nadając tej Kwestii priorytet-->
-{{_ "issueDetails.iDeWstPrio"}} <b>0</b>
+{{_ "issueDetails.iDeYouHavePausedFromGivingPriorityTo"}} <b>0</b>
                             {{else}}
                                 {{#if mojPiorytet}}
                                     <br/>
 <!--Nadałeś tej Kwestii priorytet-->
-{{_ "issueDetails.iDeNadKwPr"}}: <b>{{mojPiorytet}}</b>
+{{_ "issueDetails.iDeYouGaveTheIssueApriority"}}: <b>{{mojPiorytet}}</b>
                                 {{else}}
                                     <br/>
 <!--Nie nadałeś jeszcze tej Kwestii priorytetu-->
-{{_ "issueDetails.iDeNieNadP"}}
+{{_ "issueDetails.iDeNotYetYouGaveThisIssueApriority"}}
                                 {{/if}}
                             {{/if}}
                         {{/if}}
@@ -184,7 +184,7 @@
             {{#if isRealizowana}}
                 <td> 
 <!--Priorytet w głosowaniu-->
-{{_ "issueDetails.iDePriDeGl"}}: &nbsp;{{wartoscPriorytetuG}}</td>
+{{_ "issueDetails.iDePriorityVote"}}: &nbsp;{{wartoscPriorytetuG}}</td>
             {{/if}}
             <tr>
                 {{>managePriorities
@@ -229,7 +229,7 @@
         {{#if currentUser}}
             <legend id="dyskusja">
 <!--Dyskusja Kwestii-->
-{{_ "issueDetails.iDetDyskKw"}}</legend>
+{{_ "issueDetails.iDeTalkIssue"}}</legend>
             <div class="row">
                 <div class="col-md-12">
                     {{> discussionMain
@@ -278,17 +278,17 @@
         {{#if currentUser _id}}
             
 <!--Rezygnacja z udziału w Zespole Realizacyjnym-->
-<a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'zrOptions.zrRezUdzZR'}}" id="giveUpMembership">
+<a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'zrOptions.zrCancellOfParticipationInTheTeamImplem'}}" id="giveUpMembership">
  <!--Rezygnuj-->
-{{_ "zrOptions.zrRezygnuj"}} <i class="fa fa-outdent"></i>
+{{_ "zrOptions.zrResign"}} <i class="fa fa-outdent"></i>
             </a>
         {{else}}
             
 <!--Napisz wiadomość do członka ZR-->
-<a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'zrOptions.zrPiszDoCz'}}"
+<a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'zrOptions.zrWriteAmessageToMemberIT'}}"
                href="{{pathFor 'sendMessage' _id}}">
  <!--Napisz wiadomość-->
-{{_ "zrOptions.zrNapWiado"}} <i class="fa fa-pencil"></i>
+{{_ "zrOptions.zrWriteAmessage"}} <i class="fa fa-pencil"></i>
             </a>
         {{/if}}
     </div>

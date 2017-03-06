@@ -5,23 +5,23 @@
             <div class="col-md-12">
                 <legend>
 <!--Informacje o Kwestii archiwalnej-->
-{{_ "informacjeKwestiaArchiwum.infoKwArch"}}</legend>
+{{_ "informacjeKwestiaArchiwum.ikaAboutIssuesArchive"}}</legend>
                 <p class="bg-info padding-15">
                     Obecni: <b>{{glosujacyCount}}</b>
                     {{#unless isAdmin}}
                         {{#if mojPriorytetZero}}
                             <br/>
 <!--Wstrzymałeś się od głosu nadając tej Kwestii priorytet-->
-{{_ "informacjeKwestiaArchiwum.wstrGlosPr"}} <b>0</b>
+{{_ "informacjeKwestiaArchiwum.ikaYouHavePausedFromVoting"}} <b>0</b>
                         {{else}}
                             {{#if mojPiorytet}}
                                 <br/>
 <!--Nadałeś tej Kwestii priorytet-->
-{{_ "informacjeKwestiaArchiwum.nadKwPrior"}} <b>{{mojPiorytet}}</b>
+{{_ "informacjeKwestiaArchiwum.ikaYouGaveTheIssuEaPriority"}} <b>{{mojPiorytet}}</b>
                             {{else}}
                                 <br/>
 <!--Nie nadałeś jeszcze tej Kwestii priorytetu-->
-{{_ "informacjeKwestiaArchiwum.nieNadPrio"}}
+{{_ "informacjeKwestiaArchiwum.ikaNotYetYouGaveThisIssuEaPriority"}}
                             {{/if}}
                         {{/if}}
                     {{/unless}}
@@ -42,25 +42,25 @@
                         <div class="btn-group" role="group" aria-label="...">
                             <label class="btn btn-danger">
 <!--Przeniesienie Kwestii-->
-{{_ "informacjeKwestiaArchiwum.przenKwest"}}</label>
+{{_ "informacjeKwestiaArchiwum.ikaTransferIssue"}}</label>
                             {{> uzasadnienieKoszModal}}
                             <button id="doKosza" class="btn btn-danger">
                                 <span class="fa fa-trash"></span> 
 <!--Do Kosza-->
-{{_ "informacjeKwestiaArchiwum.archDoKosz"}}
+{{_ "informacjeKwestiaArchiwum.ikaToTheTrash"}}
                             </button>
                             {{#unless ifIsHibernowana}}
                                 {{> uzasadnienieDeliberacjaModal}}
                                 <button id="doWK" class="btn btn-success">
                                     <i class="fa fa-file-o"></i> 
 <!--Do Deliberacji-->
-{{_ "informacjeKwestiaArchiwum.archDoDeli"}}
+{{_ "informacjeKwestiaArchiwum.ikaForDeliberation"}}
                                 </button>
                             {{else}}
                                 <button id="" class="btn btn-success">
                                     <i class="fa fa-file-o"></i> 
 <!--Zobacz Realizację-->
-{{_ "informacjeKwestiaArchiwum.archRealiz"}}
+{{_ "informacjeKwestiaArchiwum.ikaSeeImplementation"}}
                                 </button>
                             {{/unless}}
                         </div>
@@ -75,31 +75,31 @@
             <tr>
                 <td><strong> 
 <!--Data wprowadzenia Kwestii-->
-{{_ "informacjeKwestiaArchiwum.datWprKwes"}}</strong></td>
+{{_ "informacjeKwestiaArchiwum.ikaLaunchDateOfTheIssues"}}</strong></td>
                 <td>{{date}}</td>
             </tr>
             <tr>
                 <td><strong> 
 <!--Data głosowania-->
-{{_ "informacjeKwestiaArchiwum.archdataGl"}}</strong></td>
+{{_ "informacjeKwestiaArchiwum.ikaDateOfVote"}}</strong></td>
                 <td>{{dateStartVote}}</td>
             </tr>
             <tr>
                 <td><strong> 
 <!--Finał deliberacji i głosowania-->
-{{_ "informacjeKwestiaArchiwum.finDelibGl"}}</strong></td>
+{{_ "informacjeKwestiaArchiwum.ikaFinalDeliberationAndVoting"}}</strong></td>
                 <td>{{dateFinishVote}}</td>
             </tr>
             <tr>
                 <td><strong> 
 <!--Nazwa Kwestii-->
-{{_ "informacjeKwestiaArchiwum.archiNazKw"}}</strong></td>
+{{_ "informacjeKwestiaArchiwum.ikaNameIssue"}}</strong></td>
                 <td>{{kwestiaNazwa}}</td>
             </tr>
             <tr>
                 <td><strong> 
 <!--Priorytet-->
-{{_ "informacjeKwestiaArchiwum.archPriory"}}</strong></td>
+{{_ "informacjeKwestiaArchiwum.ikaPriority"}}</strong></td>
                 <td>
                     <div class="row">
                         <div class="col-md-1">
@@ -156,7 +156,7 @@
             <tr>
                 <td><strong> 
 <!--Temat-->
-{{_ "glob.globTopic"}}</strong></td>
+{{_ "glob.globSubject"}}</strong></td>
                 <td>{{tematNazwa.nazwaTemat}}</td>
             </tr>
             <tr>
@@ -169,20 +169,20 @@
 
         <legend>
 <!--Treść Kwestii-->
-{{_ "informacjeKwestiaArchiwum.archTreKwe"}}</legend>
+{{_ "informacjeKwestiaArchiwum.ikaContentIssue"}}</legend>
 
         <div class="clearfix"></div>
         <table class="table table-bordered manageTable">
             <tr>
                 <td><strong> 
 <!--Krótka treść-->
-{{_ "informacjeKwestiaArchiwum.archKrTrKw"}}</strong></td>
+{{_ "informacjeKwestiaArchiwum.ikaShortContent"}}</strong></td>
                 <td>{{krotkaTresc}}</td>
             </tr>
             <tr>
                 <td><strong> 
 <!--Opis z uzasadnieniem-->
-{{_ "informacjeKwestiaArchiwum.archOpUzas"}}</strong></td>
+{{_ "informacjeKwestiaArchiwum.ikaDescriptionWithTheReasons"}}</strong></td>
                 <td>{{szczegolowaTresc}}</td>
             </tr>
         </table>
@@ -196,7 +196,7 @@
         {{#unless isAdmin}}
             <legend id="dyskusja">
 <!--Dyskusja Kwestii-->
-{{_ "informacjeKwestiaArchiwum.archDysKwe"}}</legend>
+{{_ "informacjeKwestiaArchiwum.ikaDiscussionOnTheIssue"}}</legend>
             <div class="row">
                 <div class="col-md-12">
                     {{> discussionMain

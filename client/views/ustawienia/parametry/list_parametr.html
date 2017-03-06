@@ -1,5 +1,5 @@
 <template name="listParametr">
-<div class="pinfo-realiz">{{_ "glob.globYouHere"}}: <b>{{_ "listParametr.pinfoParGl"}}</b>  
+<div class="pinfo-realiz">{{_ "glob.globYouHere"}}: <b>{{_ "listParametr.pinfoGlobalParameters"}}</b>  
 	<a data-toggle="modal" href="#liparam"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="liparam" role="dialog">
@@ -8,13 +8,13 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <p class="modal-title">
-                                    {{_ "listParametr.pinfoParGl"}}
+                                    {{_ "listParametr.pinfoGlobalParameters"}}
                                 </p>
                             </div>
                             <div class="modal-body"><small>
-                                <p>{{_ "listParametr.pinfoParGA"}}</p>
-								<p>{{_ "listParametr.pinfoParGB"}}</p>
-								<p>{{_ "listParametr.pinfoParGC"}}</p>
+                                <p>{{_ "listParametr.pinfoGlobalParametersA"}}</p>
+								<p>{{_ "listParametr.pinfoGlobalParametersB"}}</p>
+								<p>{{_ "listParametr.pinfoGlobalParametersC"}}</p>
                                 </small>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
             {{#unless noKwestiaParameters}}
                 <p class="col-md-12 bg-warning padding-15 color-red">
 <!--Istnieje kwestia administrowana dotycząca zmiany parametrów globalnych.-->
-{{_ 'listParametr.lipIstniej'}}
+{{_ 'listParametr.lipOneParameterIsTheProcessOfChanging'}}
                 </p>
             {{/unless}}
             <div class="col col-md-6">
@@ -39,7 +39,7 @@
                                 <a  id="parametersClick" class="kwestiaId btn btn-primary">
                                     <i class="fa fa-edit"></i>
 <!--Zobacz kwestię-->
-{{_ 'listParametr.lipZobKwes'}}
+{{_ 'listParametr.lipView'}}
                                 </a>
                             {{/if}}
                         {{/if}}
@@ -54,11 +54,11 @@
                 <form class="form-horizontal" id="parametrForm">
                     <legend>
 <!--Dane organizacji-->
-{{_ 'listParametr.lipDaneOrg'}}</legend>
+{{_ 'listParametr.lipOrganizationData'}}</legend>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Nazwa organizacji-->
-{{_ 'listParametr.lipNazwOrg'}}:</label>
+{{_ 'listParametr.lipNameOfOrganization'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="nazwaOrganizacji" type="text" class="form-control" id="nazwaOrganizacji"
@@ -80,7 +80,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Terytorium-->
-{{_ 'listParametr.lipTerytor'}}:</label>
+{{_ 'listParametr.lipTerritory'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="terytorium" type="text" class="form-control" id="terytorium" readonly
@@ -103,7 +103,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Kontakty-->
-{{_ 'listParametr.lipKontakt'}}:</label>
+{{_ 'listParametr.lipContactDetails'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="kontakty" type="text" class="form-control" id="kontakty" readonly
@@ -149,12 +149,12 @@
                     <br/>
                     <legend>
 <!--Głosowanie-->
-{{_ 'listParametr.lipGlosowa'}}</legend>
+{{_ 'listParametr.lipVote'}}</legend>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Czas głosowania(w godzinach)-->
-{{_ 'listParametr.lipCzGłoso'}}:</label>
+{{_ 'listParametr.lipVotingTimeInHours'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="CzasGlosowania" class="form-control" id="CzasGlosowania" readonly
@@ -177,7 +177,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="CzasWyczekiwaniaKwestiiSpec">
 <!--Czas wyczekiwania kwestii i komentarzy specjalnych (w dniach)-->
-{{_ 'listParametr.lipWyczekK'}}:</label>
+{{_ 'listParametr.lipIssuesAndSpecialCommOfWaitingTimeInDays'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="CzasWyczekiwaniaKwestiiSpec" class="form-control" id="CzasWyczekiwaniaKwestiiSpec" readonly
@@ -198,7 +198,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Ilość kwesti przechodzących do głosowania-->
-{{_ 'listParametr.lipIlKwGlo'}}:</label>
+{{_ 'listParametr.lipHowMuchIssuePassingToVote'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="IloscKwestiiDoGlosowania" class="form-control" id="IloscKwestiiDoGlosowania" readonly
@@ -220,11 +220,11 @@
                     <br/>
                     <legend>
 <!--Ilość minut koniecznej pauzy do ponownej akcjii tego samego typu-->
-{{_ 'listParametr.lipMinPauz'}}</legend>
+{{_ 'listParametr.lipNumberOfMinToPauseReEntry'}}</legend>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="addIssuePause">
 <!--Dodanie kwestii-->
-{{_ 'listParametr.lipDodKwes'}}:</label>
+{{_ 'listParametr.lipAddIssue'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="addIssuePause" class="form-control" id="addIssuePause" readonly
@@ -246,7 +246,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="add">
 <!--Dodanie komentarza w ramach danej kwestii-->
-{{_ 'listParametr.lipDodKome'}}:</label>
+{{_ 'listParametr.lipAddingCommentWithinAissue'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="addCommentPause" class="form-control" id="addCommentPause" readonly
@@ -268,7 +268,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="addReferencePause">
 <!--Dodanie odniesienia w ramach danego komentarza-->
-{{_ 'listParametr.lipDodOdni'}}:</label>
+{{_ 'listParametr.lipTheAdditionOfAreferWithinTheComm'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="addReferencePause" class="form-control" id="addReferencePause" readonly
@@ -291,12 +291,12 @@
 
                     <legend>
 <!--Raporty Realizacyjne-->
-{{_ 'listParametr.lipRapReal'}}</legend>
+{{_ 'listParametr.lipReportsOfImplementation'}}</legend>
 
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Okres składania Raportów Realizacyjnych (w dniach)-->
-{{_ 'listParametr.lipOkSklRR'}}:</label>
+{{_ 'listParametr.lipDeadlineForFilingTheReportsInDays'}}:</label>
 
                         <div class="col-xs-8">
                             <input name="okresSkladaniaRR" class="form-control" id="okresSkladaniaRR" readonly

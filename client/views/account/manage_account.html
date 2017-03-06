@@ -2,13 +2,13 @@
     <div class="main">
         <legend>
 <!--Twój profil-->
-{{_ 'manageAccount.mAcTwoProf'}}</legend>
+{{_ 'manageAccount.mAcYourProfile'}}</legend>
 
         <div class="pull-right">
             <a href="{{pathFor 'profile_edit'}}" class="btn btn-primary">
                 <span class="glyphicon glyphicon-pencil"></span> 
 <!--Edytuj profil-->
-{{_ 'manageAccount.mAcEdyProf'}}</a>
+{{_ 'manageAccount.mAcEditProfile'}}</a>
         </div>
 
         <div class="clearfix"></div>
@@ -17,7 +17,7 @@
             <tr>
                 <td><span class="glyphicon glyphicon-user"></span><strong> 
 <!--Login-->
-{{_ 'manageAccount.mAccoLogin'}}</strong></td>
+{{_ 'manageAccount.mAcLogin'}}</strong></td>
                 <td>{{username}}</td>
             </tr>
             <tr>
@@ -29,7 +29,7 @@
             <tr>
                 <td><span class="glyphicon glyphicon-info-sign"></span><strong> 
 <!--Imię i Nazwisko-->
-{{_ 'manageAccount.mAcImiNazw'}}</strong></td>
+{{_ 'manageAccount.mAcFnameAndLName'}}</strong></td>
                 <td>{{profile.fullName}}</td>
             </tr>
             {{#if profile.pesel}}
@@ -43,7 +43,7 @@
             <tr>
                 <td><span class="glyphicon glyphicon-book"></span><strong> 
 <!--Rola w systemie-->
-{{_ 'manageAccount.mAcRolaSys'}}</strong></td>
+{{_ 'manageAccount.mAcTheRoleOfTheSystem'}}</strong></td>
                 <td>{{profile.userType}}
                 </td>
             </tr>

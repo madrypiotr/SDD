@@ -3,10 +3,10 @@
     <div class="clearfix"></div>
         {{#if isOsobowa typ}}
 <!--Tytuł-->
-{{_ "kwestiaDetails.KwDetTytul"}}
+{{_ "kwestiaDetails.KwdTitle"}}
                {{krotkaTresc}}
 <!--Dane aplikująego-->
-{{_ "kwestiaDetails.KwDetDaApl"}}
+{{_ "kwestiaDetails.KwdDataAplicator"}}
                 {{#if isHonorowyType typ}}
 <!--e-mail-->
 {{_ "glob.globEmail"}}: 
@@ -14,7 +14,7 @@
                 {{/if}}
                 {{#unless isHonorowyType typ}}
 <!--Imię i Nazwisko-->
-{{_ "kwestiaDetails.KwDetimNaz"}}:
+{{_ "kwestiaDetails.KwdFnameLname"}}:
                     {{szczegolowaTresc.fullName}}
                 {{#if protectorZR}}
 <!--e-mail-->
@@ -35,18 +35,18 @@
                         {{szczegolowaTresc.city}}
                 {{/unless}}
 <!--Dodatkowe-->
-{{_ "kwestiaDetails.KwDetDodat"}}
+{{_ "kwestiaDetails.KwdAdditional"}}
                 {{szczegolowaTresc.uwagi}}
         {{else}}
             {{#if isGlobalParamsChange typ}}
 <!--Parametr-->
-{{_ "kwestiaDetails.KwDetParam"}}: 
+{{_ "kwestiaDetails.KwdParameter"}}: 
                     {{szczegolowaTresc.title}}
 <!--Wartość początkowa-->
-{{_ "kwestiaDetails.KwDetWartP"}}:
+{{_ "kwestiaDetails.KwdInitialValue"}}:
                     {{szczegolowaTresc.oldValue}}
 <!--Proponowana wartość-->
-{{_ "kwestiaDetails.KwDetPrWar"}}: 
+{{_ "kwestiaDetails.KwdTheProposedValue"}}: 
                    {{szczegolowaTresc.newValue}}
             {{else}}
 <!--Krótka treść Kwestii-->

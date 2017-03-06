@@ -3,7 +3,7 @@
     <div class="main">
         <legend>
 <!--Utwórz konto-->
-{{_ 'registerForm.rFoUtwKont'}}</legend>
+{{_ 'registerForm.rFoCreateAnAccount'}}</legend>
         {{#if  lessThanFiveUsers}}
             <div class="row">
                 <div class="col col-md-10">
@@ -41,22 +41,22 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputPassword">
 <!--Hasło-->
-{{_ 'registerForm.rFormHaslo'}}: </label>
+{{_ 'registerForm.rFoPassword'}}: </label>
 
                             <div class="col-xs-9">
 <!--Hasło-->
 <input name="password" type="password" class="form-control" id="inputPassword"
-                                       placeholder="{{_ 'registerForm.rFormHaslo'}}" required>
+                                       placeholder="{{_ 'registerForm.rFoPassword'}}" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="confirmPassword">
 <!--Potwierdź hasło-->
-{{_ 'registerForm.rFoPotwHas'}}: </label>
+{{_ 'registerForm.rFoConfirmPassword'}}: </label>
 
                             <div class="col-xs-9">
 <!--Potwierdź hasło-->
-<input name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="{{_ 'registerForm.rFoPotwHas'}}">
+<input name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="{{_ 'registerForm.rFoConfirmPassword'}}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -99,23 +99,23 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="uwagiStatus">
 <!--Dodatkowe-->
-{{_ 'registerForm.rFoDodatko'}}: </label>
+{{_ 'registerForm.rFoAdditional'}}: </label>
 
                             <div class="col-xs-9">
 <!--Uwagi...-->
-<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'registerForm.rFormUwagi'}}"></textarea>
+<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'registerForm.rFoComments'}}"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3">
 <!--Język użytkownika-->
-{{_ 'registerForm.rFoJezUzyt'}}: </label>
+{{_ 'registerForm.rFoLanguageUser'}}: </label>
 
                             <div class="col-xs-9">
                                 <select name="language" id="language" class="form-control" required>
                                     <option value="0">
 <!--Wybierz język-->
-{{_ 'registerForm.rFoWybJezy'}}</option>
+{{_ 'registerForm.rFoChooseLanguage'}}</option>
                                     {{#each getLanguages}}
                                         <option value="{{shortName}}">{{languageName}}</option>
                                     {{/each}}
@@ -128,9 +128,9 @@
                                     <input type="checkbox" name="statutConfirmation"  {{isSelected 'kobieta'}} required/>
                                     <span id="statutConfirmationSpan">
 <!--Potwierdzam znajomość-->
-{{_ 'registerForm.rFoPotZnaj'}} <a id="statutBootbox">
+{{_ 'registerForm.rFoIconfirmKnowledge'}} <a id="statutBootbox">
 <!--Regulaminu-->
-{{_ 'registerForm.rFoRegulam'}}</a> </span>
+{{_ 'registerForm.rFoRegulations'}}</a> </span>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
         {{else}}
             
 <!--Rejestracja nie możliwa z powodu osiągnięcia limitu osób, które mogą się zarejestrować samodzielnie. Aby aplikować kliknij dołącz.-->
-{{_ 'registerForm.rFoRnieMoz'}}
+{{_ 'registerForm.rFoRegistrationIsNotPossible'}}
         {{/if}}
     </div>
 </template>

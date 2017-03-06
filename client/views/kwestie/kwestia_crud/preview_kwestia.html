@@ -3,9 +3,9 @@
     <div class="main">
         <legend>
 <!--Kwestia-->
-{{_ "previewKwestia.pKwKwestia"}} <strong>{{kwestiaNazwa}}</strong>, <small>
+{{_ "previewKwestia.pKwIssue"}} <strong>{{kwestiaNazwa}}</strong>, <small>
 <!--Temat-->
-{{_ "glob.globTopic"}}: {{temat}}, 
+{{_ "glob.globSubject"}}: {{temat}}, 
 <!--Rodzaj-->
 {{_ "glob.globType"}}: {{rodzaj}}</small></legend>
         <div class="row">
@@ -14,7 +14,7 @@
                     <div class="form-group" id="krotkaTrescGroup">
                         <label class="col-xs-offset-1 col-xs-2">
 <!--Krótka treść-->
-{{_ "previewKwestia.pKwKrotTre"}}:</label>
+{{_ "previewKwestia.pKwShortContent"}}:</label>
                         <div class="col-xs-9">
                             {{krotkaTresc}}
                         </div>
@@ -22,7 +22,7 @@
                     <div class="form-group" id="szczegolowaTrescGroup">
                         <label class="col-xs-offset-1 col-xs-2">
 <!--Opis z uzasadnieniem-->
-{{_ "previewKwestia.pKwOpisUza"}}:</label>
+{{_ "previewKwestia.pKwDescriptionOfTheReasons"}}:</label>
                         <div class="col-xs-9">
                             {{szczegolowaTresc}}
                         </div>
@@ -30,17 +30,17 @@
 <p class="col-md-12 bg-warning padding-15">
 
 <!--UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do systemu-->
-{{_ "previewKwestia.pKwNieWyco"}}
+{{_ "previewKwestia.pKwSubmittedMpplicationMayNotBeWithdrawn"}}
 </p>
                     <div class="form-group" id="formGroup" >
                         <div class="col-xs-offset-3 col-xs-9">
                             <a href="{{pathFor "addKwestia"}}" id="edit" type="button"
                                class="btn btn-primary">
 <!--Popraw-->
-{{_ "previewKwestia.pKwePopraw"}}</a>
+{{_ "previewKwestia.pKwCorrect"}}</a>
                             <button id="save" type="button" class="btn btn-primary">
 <!--Dodaj-->
-{{_ "glob.globaDodaj"}}</button>
+{{_ "glob.globAdd"}}</button>
                             <button id="cancel" type="reset" class="btn btn-default">
 <!--Anuluj-->
 {{_ "glob.globCancel"}}</button>

@@ -1,6 +1,6 @@
 <template name="profileList">
     <!--{{#if currentUser}}-->
-<div class="pinfo-realiz">{{_ "glob.globYouHere"}}: <b>{{_ "profileList.pinfoProfi"}}</b>  
+<div class="pinfo-realiz">{{_ "glob.globYouHere"}}: <b>{{_ "profileList.pinfoPrListOfUsers"}}</b>  
 	<a data-toggle="modal" href="#profi"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="profi" role="dialog">
@@ -9,12 +9,12 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <p class="modal-title">
-                                    {{_ "profileList.pinfoProfi"}}
+                                    {{_ "profileList.pinfoPrListOfUsers"}}
                                 </p>
                             </div>
                             <div class="modal-body"><small>
-                                <p>{{_ "profileList.pinfoProfA"}}</p>
-								<p>{{_ "profileList.pinfoProfB"}}</p>
+                                <p>{{_ "profileList.pinfoPrListOfUsersA"}}</p>
+								<p>{{_ "profileList.pinfoPrListOfUsersB"}}</p>
                                 </small>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
     {{else}}
         <a href="{{ pathFor 'sendMessage' this._id}}" id="sendMessage">
 <!--Napisz-->
-{{_ 'userEmailContact.prliNapisz'}}</a>
+{{_ 'userEmailContact.uecPost'}}</a>
     {{/if}}
 </template>
 

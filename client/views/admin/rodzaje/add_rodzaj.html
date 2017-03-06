@@ -3,44 +3,44 @@
     <div class="main">
         <legend>
 <!--Dodaj Rodzaj-->
-{{_ "addRodzajForm.adfDodRodz"}}</legend>
+{{_ "addRodzajForm.adfAddType"}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" data-toggle="validator" role="form" id="rodzajForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputNazwaRodzaj">
 <!--Nazwa Rodzaju-->
-{{_ "addRodzajForm.adfNazRodz"}}:</label>
+{{_ "addRodzajForm.adfNameOfType"}}:</label>
 
                         <div class="col-xs-9">
 <!--Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)-->
-<input name="nazwaRodzaj" type="text" class="form-control required" id="inputNazwaRodzaj" placeholder="{{_ 'addRodzajForm.adfNazRoIt'}}">
+<input name="nazwaRodzaj" type="text" class="form-control required" id="inputNazwaRodzaj" placeholder="{{_ 'addRodzajForm.adfNameOfTypeForExamp'}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Czas dyskusji:-->
-{{_ "addRodzajForm.adfCzasDys"}}</label>
+{{_ "addRodzajForm.adfTimeDebate"}}</label>
 
                         <div class="col-xs-9">
 <!--Czas dyskusji (dni). Domyślnie 7 dni-->
-<input name="czasDyskusji" type="number" class="form-control" id="czasDyskusji" placeholder="{{_ 'addRodzajForm.adfCzDysDn'}}">
+<input name="czasDyskusji" type="number" class="form-control" id="czasDyskusji" placeholder="{{_ 'addRodzajForm.adfTimeDebateDays'}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputCzasGlosowania">
 <!--Czas głosowania:-->
-{{_ "addRodzajForm.adfCzGloso"}}</label>
+{{_ "addRodzajForm.adfTimeToVote"}}</label>
 
                         <div class="col-xs-9">
 <!--Czas głosowania (h). Domyślnie 24 h.-->
-<input name="czasGlosowania" type="text" class="form-control" id="czasGlosowania" placeholder="{{_ 'addRodzajForm.adfCzGlGod'}}">
+<input name="czasGlosowania" type="text" class="form-control" id="czasGlosowania" placeholder="{{_ 'addRodzajForm.adfVotingTimeDefault'}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputWymaganeKworum">
 <!--Wymagane kworum:-->
-{{_ "addRodzajForm.adfWymagKw"}}</label>
+{{_ "addRodzajForm.adfTheRequiredQuorum"}}</label>
 
                         <div class="col-xs-9">
                             <select id="kworumSelect" name="kworumSelect" class="form-control required">
@@ -49,10 +49,10 @@
 {{_ "glob.gloWybierz"}}</option>
                                     <option value="zwykla">
 <!--Kwestia zwykła-->
-{{_ "addRodzajForm.adfKwesZwy"}}</option>
+{{_ "addRodzajForm.adfTheIssueOfOrdinary"}}</option>
                                     <option value="statutowa">
 <!--Kwestia statutowa-->
-{{_ "addRodzajForm.adfKwStatu"}}</option>
+{{_ "addRodzajForm.adfTheIssueOfStatutory"}}</option>
                             </select>
                         </div>
                     </div>

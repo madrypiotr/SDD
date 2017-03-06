@@ -4,15 +4,15 @@
 		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 			<p>
 				<!--Przepraszamy,-->
-				{{_ 'answerInvitation.ansPrzepra'}},
+				{{_ 'answerInvitation.ansSorry'}},
 			</p>
 			<p >
 				<!--Czas przyjęcia zaproszenia jako -->
-				{{_ 'answerInvitation.ansCzasPrz'}} {{position}} 
+				{{_ 'answerInvitation.ansTimeAcceptanceOfTheIinvitationAs'}} {{position}} 
 				<!-- w naszej organizacji -->
-				{{_ 'answerInvitation.ansWnasOrg'}} {{organizationName}} 
+				{{_ 'answerInvitation.ansIinOurOrganization'}} {{organizationName}} 
 				<!-- minął.-->
-				{{_ 'answerInvitation.answeMinal'}}
+				{{_ 'answerInvitation.ansPassed'}}
 			</p>
 		</div>
 		{{else}}
@@ -20,28 +20,28 @@
 			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 				<p>
 					<!--Witaj-->
-					{{_ 'answerInvitation.answeWitaj'}} {{fullName}}!
+					{{_ 'answerInvitation.ansHello'}} {{fullName}}!
 				</p>
 				<br>
 				<p>
 					<!--Zostałeś zaproszony do aplikowania jako -->
-					{{_ 'answerInvitation.ansZostZap'}} {{position}} 
+					{{_ 'answerInvitation.ansYouAreInvitedToApplyAs'}} {{position}} 
 					<!-- w naszej organizacji -->
-					{{_ 'answerInvitation.ansWnasOrg'}} {{organizationName}}.
+					{{_ 'answerInvitation.ansIinOurOrganization'}} {{organizationName}}.
 				</p>
 				<br>
 				<p>
 					<!--Czy chcesz aplikować?-->
-					{{_ 'answerInvitation.ansCzyChAp'}}
+					{{_ 'answerInvitation.ansDoYouWantToApply'}}
 				</p>
 			</div>
 			<br>
 			&nbsp;
 			<div style="text-align: center ">
 				<!--Chcę aplikować-->
-				<input type="submit" class="btn btn-primary" value="{{_ 'answerInvitation.ansChceApl'}}" id="apply">
+				<input type="submit" class="btn btn-primary" value="{{_ 'answerInvitation.ansIWantToApply'}}" id="apply">
 				<!--Nie, dziękuję-->
-				<input type="reset" class="btn btn-default" value="{{_ 'answerInvitation.ansNieDzie'}}" id="refuse">
+				<input type="reset" class="btn btn-default" value="{{_ 'answerInvitation.ansNoThanks'}}" id="refuse">
 			</div>
 		</div>
 		{{/if}}
@@ -50,15 +50,15 @@
 		<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 			<p>
 				<!--Już potwierdziłeś chęć aplikowania do naszej organizacji-->
-				{{_ 'answerInvitation.ansJuzPotw'}} {{organizationName}}.
+				{{_ 'answerInvitation.ansAlreadyYouHaveConfirmed'}} {{organizationName}}.
 			</p>
 			{{#with actualKwestia}}
 			<p>
 				<!--Aby zobaczyć szczegóły kwestii kliknij -->
-				{{_ 'answerInvitation.ansAbZobSz'}} 
+				{{_ 'answerInvitation.ansToSeeMoreDetailsClick'}} 
 				<a href="{{pathFor 'informacjeKwestia'}}">
 					<!-- tutaj-->
-					{{_ 'answerInvitation.answeTutaj'}}
+					{{_ 'answerInvitation.ansHere'}}
 				</a>
 			</p>
 			{{/with}}
@@ -68,13 +68,13 @@
 		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
 			<p>
 				<!--Przepraszamy,-->
-				{{_ 'answerInvitation.ansPrzepra'}}
+				{{_ 'answerInvitation.ansSorry'}}
 			</p>
 			<p>
 				<!--Odrzuciłeś zaproszenie do aplikowania jako -->
-				{{_ 'answerInvitation.ansOdrzZap'}} {{position}} 
+				{{_ 'answerInvitation.ansYouRejectedAnInvitationToApplyAs'}} {{position}} 
 				<!-- w naszej organizacji -->
-				{{_ 'answerInvitation.ansWnasOrg'}} {{organizationName}}.
+				{{_ 'answerInvitation.ansIinOurOrganization'}} {{organizationName}}.
 			</p>
 		</div>
 		{{/if}}
@@ -88,21 +88,21 @@
 			{{#if isGuest}}
 			<p>
 				<!--W następnej wiadomości otrzymasz dane do logowania.-->
-				{{_ 'answerInvitation.ansWnasWia'}}
+				{{_ 'answerInvitation.ansTheNextMessYouWillReceiveYourLoginDetails'}}
 			</p>
 			{{else}}
 			<p>
 				<!--Otrzymałeś właśnie status Członka Honorowego-->
-				{{_ 'answerInvitation.ansOtrzHon'}}
+				{{_ 'answerInvitation.ansYouHaveJustReceivedAstatusOfHonorMem'}}
 			</p>
 			{{/if}}
 			{{#with actualKwestia}}
 			<p>
 				<!--Możesz śledzić na bieżąco kwestię-->
-				{{_ 'answerInvitation.ansMozSled'}} 
+				{{_ 'answerInvitation.ansYouCanKeepAbreastOfIssue'}} 
 				<a href="{{pathFor 'informacjeKwestia'}}">
 					<!-- tutaj-->
-					{{_ 'answerInvitation.answeTutaj'}}
+					{{_ 'answerInvitation.ansHere'}}
 				</a>
 			</p>
 			{{/with}}
@@ -111,11 +111,11 @@
 		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
 			<p>
 				<!--Dziękujemy za udzielenie odpowiedzi.-->
-				{{_ 'answerInvitation.ansDziOdpo'}}
+				{{_ 'answerInvitation.ansThankYouForAnswering'}}
 			</p>
 			<p>
 				<!--System-->
-				{{_ 'answerInvitation.answSystem'}} {{organizationName}}
+				{{_ 'answerInvitation.ansSystem'}} {{organizationName}}
 			</p>
 		</div>
 		{{/if}}

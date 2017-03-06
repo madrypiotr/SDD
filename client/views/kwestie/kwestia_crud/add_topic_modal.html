@@ -12,20 +12,20 @@
     <div class="modal-header">
         <h4>
 <!--Dodaj temat-->
-{{_ "addTopicModalInner.aToMdoTema"}}</h4>
+{{_ "addTopicModalInner.drAddSubject"}}</h4>
     </div>
     <div class="modal-body" id="modalBody">
         <div class="row">
             <div class="col-md-12">
  <!--Temat-->
-<input class="form-control" name="topicName" maxlength="85" id="topicName" placeholder="{{_ 'glob.globTopic'}}" required>
+<input class="form-control" name="topicName" maxlength="85" id="topicName" placeholder="{{_ 'glob.globSubject'}}" required>
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-md-12">
  <!--Opis-->
-<textarea class="form-control" rows="3" name="topicDescription" maxlength="410" id="topicDescription" placeholder="{{_ 'addTopicModalInner.aToModOpis'}}" required></textarea>
+<textarea class="form-control" rows="3" name="topicDescription" maxlength="410" id="topicDescription" placeholder="{{_ 'addTopicModalInner.drDescription'}}" required></textarea>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
             <div class="col-md-12">
                 <div class="pull-right">
 <!--Dodaj-->
-<input type="button" class="btn btn-success" id="addTopicModalBtn" value="{{_ 'glob.globaDodaj'}}"/>
+<input type="button" class="btn btn-success" id="addTopicModalBtn" value="{{_ 'glob.globAdd'}}"/>
 <!--Powrót-->
 <input type="button" data-dismiss="modal" class="btn btn-default" value="{{_ 'glob.globReturn'}}"/>
                 </div>

@@ -7,11 +7,11 @@
     {{#if isRealizowana status}}
         <strong> 
 <!--Priorytet w realizacji-->
-{{_ "managePriorities.mpPriorRea"}}: </strong>
+{{_ "managePriorities.mpPriorityInTheImplem"}}: </strong>
     {{else}}
 <section class="dymek"> 
 	<!--Priorytet-->
-	{{_ "managePriorities.mpPrioryte"}}<ul>
+	{{_ "managePriorities.mpPriority"}}<ul>
 	<a data-toggle="modal"  href="#PriorMain">
 	<li class="fa fa-info-circle"> 
 	{{_ "managePriorities.mpPrioInfo"}} </li></a></ul>
@@ -60,7 +60,7 @@
 <button id="priorytetButton" name="{{idKwestia}}" type="button"
                                     class="btn btn-xs btn-default" value="0"
                                     data-toggle="tooltip" data-placement="top"
-                                    title="{{_ 'managePriorities.mpOzWsSiGl'}}" {{isUserOrDoradcaLogged}}>
+                                    title="{{_ 'managePriorities.mpThisMeansAbstention'}}" {{isUserOrDoradcaLogged}}>
                                 &nbsp;0
                             </button>
                             <button id="priorytetButton" name="{{idKwestia}}" type="button"

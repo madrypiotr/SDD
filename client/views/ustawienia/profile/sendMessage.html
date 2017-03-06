@@ -1,5 +1,5 @@
 <template name="sendMessage">
-<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "sendMessage.pinfoNowWi"}}</b>  
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "sendMessage.smSendingMessages"}}</b>  
 	<a data-toggle="modal" href="#wywi"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="wywi" role="dialog">
@@ -8,11 +8,11 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <p class="modal-title">
-                                    {{_ "sendMessage.pinfoNowWi"}}
+                                    {{_ "sendMessage.smSendingMessages"}}
                                 </p>
                             </div>
                             <div class="modal-body"><small>
-                                <p>{{_ "sendMessage.pinfoNowWA"}}</p>
+                                <p>{{_ "sendMessage.smSendAnEmailToTheUser"}}</p>
                                 </small>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
 	<div class="main">
 		<legend>
 			<!--Nowa wiadomość-->
-			{{_ 'sendMessage.semNowaWia'}} <strong>{{receiverData}}</strong>
+			{{_ 'sendMessage.smNewMessageTo'}} <strong>{{receiverData}}</strong>
 		</legend>
 		<div class="row">
 			<div class="col col-md-10">
@@ -30,7 +30,7 @@
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputMyName">
 							<!--Od-->
-							{{_ 'sendMessage.semessagOd'}}: 
+							{{_ 'sendMessage.smFrom'}}: 
 						</label>
 						<div class="col-xs-9">
 							<input name="inputMyName" type="text" class="form-control" id="inputMyName" value="{{myData}}" disabled>
@@ -39,7 +39,7 @@
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputName">
 							<!--Do-->
-							{{_ 'sendMessage.semessagDo'}}: 
+							{{_ 'sendMessage.smTo'}}: 
 						</label>
 						<div class="col-xs-9">
 							<input name="inputName" type="text" class="form-control" id="inputName" value="{{receiverData}}" disabled>
@@ -48,16 +48,16 @@
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="topic">
 							<!--Temat-->
-							{{_ 'glob.globTopic'}}: 
+							{{_ 'glob.globSubject'}}: 
 						</label>
 						<div class="col-xs-9">
-							<input name="topic" type="text" class="form-control" id="topic" placeholder="{{_ 'glob.globTopic'}}">
+							<input name="topic" type="text" class="form-control" id="topic" placeholder="{{_ 'glob.globSubject'}}">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="content">
 							<!--Treść-->
-							{{_ 'sendMessage.semesTresc'}}: 
+							{{_ 'sendMessage.smContents'}}: 
 						</label>
 						<div class="col-xs-9">
 							<textarea name="content" type="text" class="form-control" rows="5" id="content"></textarea>
@@ -67,7 +67,7 @@
 					<div class="form-group">
 						<div class="col-xs-offset-3 col-xs-9">
 							<!--Wyślij-->
-							<input type="submit" class="btn btn-primary" value="{{_ 'sendMessage.semeWyślij'}}">
+							<input type="submit" class="btn btn-primary" value="{{_ 'sendMessage.smSend'}}">
 							<!--Anuluj-->
 							<input type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
 						</div>

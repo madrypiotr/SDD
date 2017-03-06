@@ -3,14 +3,14 @@
     <div class="main">
         <legend>
 <!--Kwestia-->
-{{_ "previewKwestiaOpcja.pkoKwestia"}}</legend>
+{{_ "previewKwestiaOpcja.pkoIssue"}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal">
                     <div class="form-group" id="kwestiaNazwaGroup">
                         <label class=" col-xs-offset-1 col-xs-2">
 <!--Nazwa Kwestii-->
-{{_ "previewKwestiaOpcja.pkoNazKwes"}}:</label>
+{{_ "previewKwestiaOpcja.pkoNameIssue"}}:</label>
                         <div class="col-xs-9">
                             {{kwestiaNazwa}}
                         </div>
@@ -18,7 +18,7 @@
                     <div class="form-group" id="krotkaTrescGroup">
                         <label class="col-xs-offset-1 col-xs-2">
 <!--Krótka treść Kwestii-->
-{{_ "previewKwestiaOpcja.pkoKrTrKwe"}}</label>
+{{_ "previewKwestiaOpcja.pkoShortContentIssue"}}</label>
                         <div class="col-xs-9">
                             {{krotkaTresc}}
                         </div>
@@ -27,14 +27,14 @@
                         <div class="form-group" id="daneAplikanta">
                             <label class="col-xs-offset-1 col-xs-2" for="daneAplikantaGroup">
 <!--Dane aplikującego-->
-{{_ "previewKwestiaOpcja.pkoDaneApl"}}</label>
+{{_ "previewKwestiaOpcja.pkoDataApplicator"}}</label>
 
                             <div class="col-xs-9">
                                 <table class="table table-bordered">
                                     <tr>
                                         <td><strong>
 <!--Imię i Nazwisko-->
-{{_ "previewKwestiaOpcja.pkoImNazwi"}}: </strong></td><td>{{szczegolowaTresc.fullName}}</td>
+{{_ "previewKwestiaOpcja.pkoFnameAndLname"}}: </strong></td><td>{{szczegolowaTresc.fullName}}</td>
                                     </tr>
                                     {{#if protectorZR}}
                                         <tr>
@@ -69,7 +69,7 @@
                         <div class="form-group" id="szczegolowaTrescGroup">
                             <label class="control-label col-xs-3" for="inputEmail">
 <!--Opis z uzasadnieniem-->
-{{_ "previewKwestiaOpcja.pkoOpisUza"}}</label>
+{{_ "previewKwestiaOpcja.pkoDescriptionOfTheReasons"}}</label>
 
                             <div class="col-xs-9">
                                {{szczegolowaTresc.uwagi}}
@@ -79,7 +79,7 @@
                         <div class="form-group" id="szczegolowaTrescGroup">
                             <label class="col-xs-offset-1 col-xs-2">
 <!--Opis z uzasadnieniem-->
-{{_ "previewKwestiaOpcja.pkoOpisUza"}}</label>
+{{_ "previewKwestiaOpcja.pkoDescriptionOfTheReasons"}}</label>
                             <div class="col-xs-9">
                                 {{szczegolowaTresc}}
                             </div>
@@ -89,10 +89,10 @@
                         <div class="col-xs-offset-3 col-xs-9">
                             <a href="{{pathFor "addKwestiaOpcja"}}" id="edit" type="button" class="btn btn-primary">
 <!--Popraw-->
-{{_ "previewKwestiaOpcja.pKwoPopraw"}}</a>
+{{_ "previewKwestiaOpcja.pkoCorrect"}}</a>
                             <a id="save" type="button" class="btn btn-primary">
 <!--Dodaj-->
-{{_ "glob.globaDodaj"}}</a>
+{{_ "glob.globAdd"}}</a>
                             <a id="cancel" type="reset" class="btn btn-default">
 <!--Anuluj-->
 {{_ "glob.globCancel"}}</a>
@@ -104,7 +104,7 @@
         <p class="col-md-12 bg-warning padding-15">
             
 <!--UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do systemu.-->
-{{_ "previewKwestiaOpcja.pkoUwZlWnN"}}
+{{_ "previewKwestiaOpcja.pkoSubmittedApplicationMayNotBeWithdrawn"}}
         </p>
     </div>
 </template>

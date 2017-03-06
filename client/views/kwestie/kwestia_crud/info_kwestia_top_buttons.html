@@ -20,7 +20,7 @@
                         <a href="{{pathFor 'listRaport'}}" type="button" class="btn pull-left" style="background-color: darkgrey" >
                             <span class="fa fa-list-alt"></span> 
 <!--Lista RR-->
-{{_ "kwestiaTopButtons.ktBuListRR"}}
+{{_ "kwestiaTopButtons.ktReportsOfImplementation"}}
                         </a>
                     {{/with}}
                 {{/unless}}
@@ -39,7 +39,7 @@
                                 <button id="addRealizationReportClick" name="{{idKwestia}}" class="btn btn-success" {{hasUserRights idKwestia}}>
                                     <span class="fa fa-check-circle-o"></span>
 <!--Raport Realizacyjny-->
-{{_ "kwestiaTopButtons.ktBuRapRea"}}
+{{_ "kwestiaTopButtons.ktSubmissionOfTheReport"}}
                                 </button>
                             {{/if}}
                         {{/unless}}
@@ -49,7 +49,7 @@
                             <button id="addOptionButton" class="btn btn-primary" {{hasUserRights idKwestia}}>
                                 <span class="fa fa-plus"></span> 
 <!--Dodaj Opcję-->
-{{_ "kwestiaTopButtons.ktBuDodajO"}}
+{{_ "kwestiaTopButtons.ktAddOption"}}
                             </button>
                         {{/unless}}
                     {{/unless}}
@@ -63,14 +63,14 @@
                         <button id="doArchiwum" name="{{idKwestia}}" class="btn btn-warning" {{hasUserRights idKwestia}}>
                             <span class="fa fa-lock"></span> 
 <!--Do Archiwum-->
-{{_ "kwestiaTopButtons.ktBuDoArch"}}
+{{_ "kwestiaTopButtons.ktMoveItToTheArchive"}}
                         </button>
                     {{/unless}}
                     {{#unless isKwestiaAccessOrChangeParamsRealizacja typ status czyAktywny}}
                         <button id="doKosza" name="{{idKwestia}}" class="btn btn-danger" {{hasUserRights idKwestia}}>
                             <span class="fa fa-trash"></span> 
 <!--Do Kosza-->
-{{_ "kwestiaTopButtons.ktBuDoKosz"}}
+{{_ "kwestiaTopButtons.ktMoveItToTheTrash"}}
                         </button>
                     {{/unless}}
                 </div>

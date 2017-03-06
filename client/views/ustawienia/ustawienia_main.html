@@ -18,21 +18,21 @@
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<p class="modal-title" align="left">
-					{{_ 'administracjaUserMain.aumMojeKwe'}}
+					{{_ 'administracjaUserMain.aumMyIssues'}}
 					</p>
 					</div>
 					<div class="modal-body" align="left">
 					<small>
-					<p>{{_ 'administracjaUserMain.pinfoMojeA'}}</p>
-					<p>{{_ 'administracjaUserMain.pinfoMojeB'}}</p>
-					<p>{{_ 'administracjaUserMain.pinfoMojeC'}}</p>
+					<p>{{_ 'administracjaUserMain.pinfoMyIssuesA'}}</p>
+					<p>{{_ 'administracjaUserMain.pinfoMyIssuesB'}}</p>
+					<p>{{_ 'administracjaUserMain.pinfoMyIssuesC'}}</p>
 					</small>
 					</div>
 					</div>
 					</div>
 					</div>
 					</section>
-{{_ 'administracjaUserMain.aumMojeKwe'}}</a></li>
+{{_ 'administracjaUserMain.aumMyIssues'}}</a></li>
 
                     <li role="presentation"><a href="#parametry" aria-controls="parametry" role="tab" data-toggle="tab">
 						<section class="dymek">
@@ -48,7 +48,7 @@
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<p class="modal-title" align="left">
-					{{_ 'administracjaUserMain.aumParGlob'}}
+					{{_ 'administracjaUserMain.aumParameters'}}
 					</p>
 					</div>
 					<div class="modal-body" align="left">
@@ -63,7 +63,7 @@
 					</div>
 					</section>
 <!--Parametry globalne-->
-{{_ 'administracjaUserMain.aumParGlob'}}</a></li>
+{{_ 'administracjaUserMain.aumParameters'}}</a></li>
 
                      <li role="presentation"><a href="#uzytkownicy" aria-controls="uzytkownicy" role="tab" data-toggle="tab">
 						<section class="dymek">
@@ -79,12 +79,12 @@
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<p class="modal-title" align="left">
-					{{_ 'administracjaUserMain.aumWyUzytk'}}
+					{{_ 'administracjaUserMain.aumUsers'}}
 					</p>
 					</div>
 					<div class="modal-body" align="left">
 					<small>
-					<p>{{_ 'dym.dymMembersList'}}</p>
+					<p>{{_ 'dym.dymUsersList'}}</p>
 					</small>
 					</div>
 					</div>
@@ -93,7 +93,7 @@
 					</section>
 					
 <!--Wykaz Użytkowników-->
-{{_ 'administracjaUserMain.aumWyUzytk'}}</a></li>
+{{_ 'administracjaUserMain.aumUsers'}}</a></li>
 
                     {{#if isCzlonek}}
                     <li role="presentation"><a href="#zglosHonorowy" aria-controls="zglosHonorowy" role="tab" data-toggle="tab">
@@ -110,13 +110,13 @@
 					<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<p class="modal-title" align="left">
-					{{_ 'administracjaUserMain.aumZgCzHon'}}
+					{{_ 'administracjaUserMain.aumSuggestions'}}
 					</p>
 					</div>
 					<div class="modal-body" align="left">
 					<small>
-					<p>{{_ 'dym.dymMembersListA'}}</p>
-					<p>{{_ 'dym.dymMembersListB'}}</p>
+					<p>{{_ 'dym.dymUsersListA'}}</p>
+					<p>{{_ 'dym.dymUsersListB'}}</p>
 					</small>
 					</div>
 					</div>
@@ -124,19 +124,19 @@
 					</div>
 					</section>
 <!--Zgłoszenie członka honorowego-->
-{{_ 'administracjaUserMain.aumZgCzHon'}}</a></li>
+{{_ 'administracjaUserMain.aumSuggestions'}}</a></li>
                     {{/if}}
                     {{#if isDoradca}}
                         <li role="presentation"><a href="#aplikujNaZwyczajnego" aria-controls="aplikujNaZwyczajnego" role="tab" data-toggle="tab">
 <!--Aplikuj na członka zwyczajnego-->
-{{_ 'administracjaUserMain.aumAplCzZw'}}</a></li>
+{{_ 'administracjaUserMain.aumApplyForTheOrdinaryMember'}}</a></li>
                     {{/if}}
             </ul>
 
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="twojeKwestie">
 
-<div class="pinfo-arch">{{_ "glob.globYouHere"}}: <b>{{_ "administracjaUserMain.pinfoMojeK"}}</b>  
+<div class="pinfo-arch">{{_ "glob.globYouHere"}}: <b>{{_ "administracjaUserMain.pinfoMyIssues"}}</b>  
 	<a data-toggle="modal" href="#mojek"><button>{{_ "glob.globInfo"}}
 	</button></a></div>
                 <div class="modal fade" id="mojek" role="dialog">
@@ -145,13 +145,13 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <p class="modal-title">
-                                    {{_ "administracjaUserMain.pinfoMojeK"}}
+                                    {{_ "administracjaUserMain.pinfoMyIssues"}}
                                 </p>
                             </div>
                             <div class="modal-body"><small>
-                                <p>{{_ "administracjaUserMain.pinfoMojeA"}}</p>
-                                <p>{{_ "administracjaUserMain.pinfoMojeB"}}</p>
-								<p>{{_ "administracjaUserMain.pinfoMojeC"}}</p>
+                                <p>{{_ "administracjaUserMain.pinfoMyIssuesA"}}</p>
+                                <p>{{_ "administracjaUserMain.pinfoMyIssuesB"}}</p>
+								<p>{{_ "administracjaUserMain.pinfoMyIssuesC"}}</p>
                                 </small>
                             </div>
                         </div>
@@ -174,7 +174,7 @@
                                 <div class="col-md-12">
                                     <label>
 <!--Nie utworzyłeś jeszcze żadnej Kwestii.-->
-{{_ 'administracjaUserMain.aumNieUtwo'}}</label>
+{{_ 'administracjaUserMain.aumYouHaveNotCreatedAnyIssue'}}</label>
                                 </div>
                             </div>
                         {{/if}}
@@ -198,13 +198,13 @@
                                 <div class="col-md-12 bg-warning padding-15" style="text-align: center ">
                                     <p>
 <!--Przepraszamy!-->
-{{_ 'administracjaUserMain.aumPrzepra'}}</p>
+{{_ 'administracjaUserMain.aumSorry'}}</p>
                                     <p>
 <!--Istnieje już Kwestia Aplikacyjna! Aby ją zobaczyć kliknij-->
-{{_ 'administracjaUserMain.aumIstnKwA'}}Istnieje już Kwestia Aplikacyjna! Aby ją zobaczyć kliknij
+{{_ 'administracjaUserMain.aumThereIsAlreadyAissueApplique'}}Istnieje już Kwestia Aplikacyjna! Aby ją zobaczyć kliknij
                                         <a href="{{pathFor 'informacjeKwestia'}}">
 <!--tutaj-->
-{{_ 'administracjaUserMain.aumaitutaj'}}</a>
+{{_ 'administracjaUserMain.aumHere'}}</a>
                                     </p>
                                 </div>
                             {{/with}}
@@ -226,7 +226,7 @@
     {{#if IAmOwnerKwestiaGlosowanaOrDEliberowana}}
         <a href="#" id="lobbujZaKwestia">
 <!--Lobbuj za kwestią-->
-{{_ 'lobbujZaKwestia.lobbLobbuj'}}</a>
+{{_ 'lobbujZaKwestia.aumYouLobbyingIssue'}}</a>
     {{/if}}
 </template>
 

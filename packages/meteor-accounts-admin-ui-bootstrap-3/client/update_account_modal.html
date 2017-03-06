@@ -20,14 +20,14 @@
 		<div class="modal-header">
 			<h4>
 <!--Edycja-->
-{{_ 'updateAccountModalInner.upinEdycja'}} {{email}}</h4>
+{{_ 'updateAccountModalInner.upiEdit'}} {{email}}</h4>
 		</div>
 		<div class="modal-body">
 			<div class="form-group">
 				<div class="input-group">
 					<span class="input-group-addon">
 <!--Nazwa użytkownika-->
-{{_ 'updateAccountModalInner.upiNazUzyt'}}</span>
+{{_ 'updateAccountModalInner.upiUserName'}}</span>
 					<input data-user-id="{{_id}}" class="form-control admin-user-info" name="profile.name" value="{{profile.name}}" placeholder="{{email}}">
 				</div>
 			</div>
@@ -37,21 +37,21 @@
 						<li class="list-group-item">
 							<button data-user-id="{{../_id}}" class="btn btn-danger btn-xs remove-role" type="button">
 <!--Usuń-->
-{{_ 'updateAccountModalInner.upinneUsun'}}</button>
+{{_ 'updateAccountModalInner.upiDelete'}}</button>
 							<span class="pull-right">{{this}}</span>
 						</li>
 					{{/each}}
 				</ul>
 			{{else}}
 <!--To konto nie ma przypisanego statusu.-->
-				{{_ 'updateAccountModalInner.upiNiMaSta'}}
+				{{_ 'updateAccountModalInner.upiAccountIsNotAssignedTheStatusOf'}}
 			{{/if}}
 			{{#if unsetRoles}}
 			<div class="btn-group clearfix full-width">
 				<button type="button" class="btn btn-success dropdown-toggle pull-right" data-toggle="dropdown">
 					<span class="glyphicon glyphicon-plus"></span>
 <!--Dodaj status-->
-{{_ 'updateAccountModalInner.upiDodStat'}}
+{{_ 'updateAccountModalInner.upiAddStatus'}}
 				</button>
 				<ul class="dropdown-menu pull-right" role="menu">
 					{{#each unsetRoles}}
@@ -62,13 +62,13 @@
 			{{else}}
 			<em>
 <!--Statusy są już ustawione.-->
-{{_ 'updateAccountModalInner.upiJuzUsta'}} ustawione.</em>
+{{_ 'updateAccountModalInner.upiStatusesAreAlreadySet'}} ustawione.</em>
 			{{/if}}
 		</div>
 		<div class="modal-footer">
 			<button type="button" data-dismiss="modal" class="btn btn-primary">
 <!--Gotowe-->
-{{_ 'updateAccountModalInner.upinGotowe'}}</button>
+{{_ 'updateAccountModalInner.upiFinished'}}</button>
 		</div>
 	{{/with}}
 </template>
