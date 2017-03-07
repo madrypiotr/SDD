@@ -699,7 +699,6 @@
 	"nlrLinkToIssue":"Link do Kwestii"
   },
   "adminTemplate":{
-	"admPanUreg":"Panel ustawień regionalnych.",
 	"admStatSys":"Statystyki Systemu",
 	"admInfDany":"Informacje o ilości danych w Systemie.",
 	"admUzytkow":"Użytkownicy",
