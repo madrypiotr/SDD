@@ -63,7 +63,7 @@ renderTmpForBootbox = function (template, data) {
 };
 
 getNazwaOrganizacji=function(){
-    return Parametr.findOne() ? Parametr.findOne().nazwaOrganizacji :"SDD";
+    return Parametr.findOne() ? Parametr.findOne().nazwaOrganizacji : TXV.ORG_NAME;
 };
 
 getLocalDate=function(date) {
@@ -75,8 +75,8 @@ getLocalDate=function(date) {
 
 notificationPauseWarning=function(text,timeLeft){
     GlobalNotification.warning({
-        title: 'Przepraszamy',
-        content: "Istnieje ograniczenie częstotliwości dodawania "+ text +" . Następna tego typu akcja możliwa za "+timeLeft,
+        title: TXV.SORRY,
+        content: TXV.THERE_IS_A_LIMIT_FREQUENCY_OF_ADDING + text + TXV.NEXT_OF_THIS_TYPE_OF_ACTION_POSSIBLE_FOR +timeLeft,
         duration: 5 // duration the notification should stay in seconds
     });
 };
@@ -87,14 +87,14 @@ recognizeSexMethod=function(userData){
         if(userData.profile.pesel!="") {
             var pesel = userData.profile.pesel.substring(9, 10);
             if (_.contains(['1', '3', '5', '7', '9'], pesel))
-                welcomeGender = "Szanowny ";
-            else welcomeGender = "Szanowna "
+                welcomeGender = TXV.HONORABLE;
+            else welcomeGender = TXV.DEAR
         }
         else
-            welcomeGender="Szanowny/a ";
+            welcomeGender=TXV.MR_MRS;
     }
     else
-        welcomeGender="Szanowny/a ";
+        welcomeGender=TXV.MR_MRS;
 
     return welcomeGender;
 };

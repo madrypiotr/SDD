@@ -1,30 +1,30 @@
 //validation Messages
 fieldEmptyMessage = function () {
-    return 'Pole jest wymagane';
+    return TXV.THIS_FIELD_IS_REQUIRED;
 };
 positiveNumberMessage = function () {
-    return 'Podaj wartość większą od zera';
+    return TXV.ENTER_A_VALUE_GREATER_THAN_ZERO;
 };
 negativeNumberMessage = function () {
-    return 'Nie można wprowadzać ujemnych wartości';
+    return TXV.YOU_CAN_NOT_ENTER_NEGATIVE_VALUES;
 };
 decimalNumberMessage = function () {
-    return 'Podana wartość nie jest liczbą';
+    return TXV.THE__SPECIFIED_VALUE_IS_NOT_A_NUMBER;
 };
 minLengthMessage = function (length) {
-    return 'Pole musi mieć minimum ' + length + ' znaków';
+    return TXV.THE_FIELD_MUST_HAVE_A_MINIMUM + length + TXV.CHARACTERS;
 };
 maxLengthMessage = function (length) {
-    return 'Pole musi mieć maksimum ' + length + ' znaków';
+    return TXV.THE_FIELD_MUST_HAVE_A_MAX + length + TXV.CHARACTERS;
 };
 properLengthMessage = function (length) {
-    return 'Pole musi mieć ' + length + ' znaków';
+    return TXV.THE_FIELD_MUST_HAVE_A + length + TXV.CHARACTERS;
 };
 validEmailMessage = function () {
-    return 'Wprowadż poprawny adres email';
+    return TXV.ENTER_THE_CORRECT_EMAIL_ADDRESS;
 };
 equalToMessage = function () {
-    return 'Wprowadź tę samą wartość ponownie';
+    return TXV.ENTER_THE_SAME_VALUE_AGAIN;
 };
 //validation- highlight field
 highlightFunction = function (element) {
@@ -56,7 +56,7 @@ jQuery.validator.addMethod("checkExistsNazwaKwestii", function (value, element) 
         }
     });
     return this.optional(element) || found == null;
-}, 'Ta Kwestia już istnieje!');
+}, TXV.THIS_ISSUE_ALREADY_EXISTS);
 
 jQuery.validator.addMethod("checkExistsNazwaZespoluRealizacyjnego", function (value, element) {
     var zespoly = ZespolRealizacyjny.find({});
@@ -67,13 +67,13 @@ jQuery.validator.addMethod("checkExistsNazwaZespoluRealizacyjnego", function (va
         }
     });
     return this.optional(element) || found == null;
-}, 'Zespół Realizacyjny o tej nazwie już istnieje!');
+}, TXV.THE_IMPL_TEAM_OF_THE_SAME_NAME_ALREADY_EXISTS);
 
 jQuery.validator.addMethod("checkExistsAnyEmail", function (value, element) {
     var found = null;
         found=checkExistsUser(value,null,null);
     return this.optional(element) || found == null;
-}, 'Istnieje już w systemie użytkownik o podanym adresie email!');
+}, TXV.THERE_ARE_ALREADY_IN_THE_SYSTEM_YOU_ADDRESS_AN_EMAIL);
 
 jQuery.validator.addMethod("checkExistsEmailZwyczajny", function (value, element) {
     var found=null;
@@ -83,7 +83,7 @@ jQuery.validator.addMethod("checkExistsEmailZwyczajny", function (value, element
         found=true;
     });
     return this.optional(element) || found== null;
-}, 'Istnieje już w systemie użytkownik o podanym adresie email!');
+}, TXV.THERE_IS_ALREADY_A_SYSTEM_USER_WITH_THE_GIVEN_EMAIL_ADDRESS);
 
 jQuery.validator.addMethod("checkExistsEmail", function (value, element,param) {
     var found = null;
@@ -91,7 +91,7 @@ jQuery.validator.addMethod("checkExistsEmail", function (value, element,param) {
         found=checkExistsUser(value,param,null);
     }
     return this.optional(element) || found == null;
-}, 'Istnieje już w systemie podany użytkownik z pozycją, na którą aplikujesz!');
+}, TXV.THERE_ARE_ALREADY_IN_THE_SYSTEM_PROVIDED_THE_USER_FOR_WHICH_YOURE_TRYING);
 
 jQuery.validator.addMethod("checkExistsEmail2", function (value, element,param) {
     var found = null;
@@ -99,7 +99,7 @@ jQuery.validator.addMethod("checkExistsEmail2", function (value, element,param) 
         found=checkExistsUser(value,param,USERTYPE.HONOROWY);
     }
     return this.optional(element) || found == null;
-}, 'Istnieje już w systemie podany użytkownik. Any wykonać operację zmiany stanowiska, musisz być zalogowany!');
+}, TXV.LONGER_EXISTS_ON_THE_SPECIFIED_USER);
 
 
 jQuery.validator.addMethod("checkExistsEmailDraft", function (value, element) {
@@ -113,16 +113,16 @@ jQuery.validator.addMethod("checkExistsEmailDraft", function (value, element) {
         found = true;
     }
     return this.optional(element) || found == null;
-}, 'Został już złożony wniosek na podany adres email!');
+}, TXV.IT_HAS_ALREADY_SUBMITTED_A_REQUEST_TO_THE_SPECIFIED_EMAIL);
 
 jQuery.validator.addMethod("exactlength", function(value, element,param) {
     return this.optional(element) || value.length == param;
-}, "Wprowadź dokładnie {0} znaków.");
+}, TXV.ENTER_EXACTLY + TXV.CHARACTERS);
 
 jQuery.validator.addMethod("peselValidation", function(value, element) {
     var filter =/^[0-9]{11}$/;
     return this.optional(element) || filter.test(value);
-}, "Niepoprawny format Numeru PESEL.");
+}, TXV.WRONG_FORMAT_PID);
 
 jQuery.validator.addMethod("peselValidation2", function(value, element) {
     var found=null;
@@ -138,16 +138,16 @@ jQuery.validator.addMethod("peselValidation2", function(value, element) {
         found=false;
     else found ==null;
     return this.optional(element) || found == false;
-}, "Nieprawidłowy Numer PESEL");
+}, TXV.WRONG_NUMBER_PID);
 
 jQuery.validator.addMethod("kodPocztowyValidation", function(value, element) {
     var filter =/^[0-9]{2}-[0-9]{3}$/;
     return this.optional(element) || filter.test(value);
-}, "Niepoprawny format.");
+}, TXV.WRONG_FORMAT);
 
 jQuery.validator.addMethod("isNotEmptyValue", function(value, element) {
     return value==0 || value=="" ? false : true;
-}, "Pole jest wymagane");
+}, TXV.THE_FIELD_IS_REQUIRED);
 
 //NOT USED!
 trimInput = function (value) {
@@ -170,7 +170,7 @@ isNotEmpty = function (value, statement, fieldName) {
     if (fieldName != null) {
         document.getElementById(fieldName).classList.add('has-error');
     }
-    throwError('Uzupełnij pole ' + statement);
+    throwError(TXV.FILL_IN_THE_FIELD + statement);
     return false;
 };
 
@@ -180,13 +180,13 @@ isEmail = function (value) {
     if (filter.test(value)) {
         return true;
     }
-    throwError('Proszę wpisać prawidłowy adres e-mail.');
+    throwError(TXV.PLEASE_ENTER_A_VALID_EMAIL_ADDRESS);
     return false;
 };
 
 isValidPassword = function (password) {
     if (password.length < 6) {
-        throwError('Hasło powinno składać się przynajmniej z 6 znaków.');
+        throwError(TXV.PASSWORD_SHOULD_BE_AT_LEAST_6_CHAR);
         return false;
     }
     return true;
@@ -197,7 +197,7 @@ areValidPasswords = function (password, confirm) {
         return false;
     }
     if (password !== confirm) {
-        throwError('Hasła do siebie nie pasują.');
+        throwError(TXV.PASSWORD_DO_NOT_MATCH);
         return false;
     }
     return true;
@@ -207,7 +207,7 @@ isPositiveNumber = function (value, statement) {
     if (value > 0) {
         return true;
     }
-    throwError('Nie można podawać ujemnych wartości w polu ' + statement);
+    throwError(TXV.YOU_CAN_NOT_GIVE_NEGATIVE_VALUES_IN_A_FIELD + statement);
     return false;
 };
 
@@ -216,6 +216,6 @@ isNumeric = function (value, statement) {
     if (filter.test(value)) {
         return true;
     }
-    throwError('Proszę wpisać prawidłowy format liczby w polu ' + statement);
+    throwError(TXV.PLEASE_ENTER_THE_CORRECT_NUMBER_FORMAT_IN_FIELD + statement);
     return false;
 };

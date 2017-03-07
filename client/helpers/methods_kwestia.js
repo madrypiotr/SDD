@@ -160,7 +160,7 @@ updateListKwestieMethod=function(ZR,kwestiaId){
         Meteor.call('updateListKwesti', ZR._id, listKwestii, function (error) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error('Error: ' + error.reason);
+                    Log.error(ERROR + error.reason);
                 else
                     throwError(error.reason);
 
@@ -183,7 +183,7 @@ createNewZRMethod=function(zrDraft,kwestia){
     Meteor.call('addZespolRealizacyjny', newZR, function (error, ret) {
         if (error) {
             if (typeof Errors === "undefined")
-                Log.error('Error: ' + error.reason);
+                Log.error(ERROR + error.reason);
             else
                 throwError(error.reason);
 
