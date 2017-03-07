@@ -1,26 +1,26 @@
-SDD<br/>
+{{_ glob.globShortSystemName}}<br/>
 {{organizacja}}<br/><br/>
 
 {{welcomeGender}} {{username}}!<br/><br/>
 
-Informujemy o trwającej procedurze głosowania Kwestii: {{nazwaKwestii}}<br/>
-<b>Temat:</b> {{temat}},<br/>
-<b>Rodzaj:</b> {{rodzaj}}<br/>
-dotyczącej:<b>{{szczegolyKwestii}}</b> <br/><br/>
+{{_ glob.globWeInformYouAboutTheOngoingVotingProcedureIssues}} {{nazwaKwestii}}<br/>
+<b>{{_ glob.globSubject}}</b> {{temat}},<br/>
+<b>{{_ glob.globType}}</b> {{rodzaj}}<br/>
+{{_ glob.globOn}}<b>{{szczegolyKwestii}}</b> <br/><br/>
 
-<b>Zakończenie głosowania:</b> {{dataGlosowania}}<br/><br/>
+<b>{{_ glob.globEndOfVoting}}</b> {{dataGlosowania}}<br/><br/>
 
 {{#if nadanoPriorytet idKwestii idUser}}
-    Dziękujemy za głosowanie!<br/>
-    <b>Nadany priorytet:</b> {{mojPriorytet idKwestii idUser}}<br/>
-    Możesz jeszcze zmienić jego wielkość zanim zakończy się głosowanie.<br/><br/>
+    {{_ glob.globThanksForVoting}}<br/>
+    <b>{{_ glob.globGivenPriority}}</b> {{mojPriorytet idKwestii idUser}}<br/>
+    {{_ glob.globYouCanEvenChangeThePriorityBeforeItHasFinishedVoting}}<br/><br/>
 {{else}}
-    <b>Nie zagłosowałaś/eś jeszcze w tej Kwestii, zapraszamy: <a href={{url}}>Link do Kwestii</a></b><br/>
+    <b>{{_ glob.globDoNotYouVotedYetOnThisIssueWelcome}} <a href={{url}}>{{_ glob.globLinkToThisIssue}}</a></b><br/>
 {{/if}}
 
-<b>Aktualna siła priorytetu:</b> {{wartoscPriorytetu}}<br/>
-<b>Wymagane kworum:</b> {{kworum}} osób / aktualna obecność: {{glosujacy}}<br/><br/>
+<b>{{_ glob.globTheCurrentStrengthOfPriority}}</b> {{wartoscPriorytetu}}<br/>
+<b>{{_ glob.globRequiredQuorum}}</b> {{kworum}} / {{_ glob.globCurrentPresence}} {{glosujacy}}<br/><br/>
 
-Jest to automatyczna informacja z systemu SDD {{organizacja}}<br/>
-Nie odpowiadaj na nią.<br/>
-Logowanie do systemu: <a href="{{urlLogin}}">Zaloguj</a><br/>
+{{_ glob.globThisIsAnAutomaticInformationSystem}} {{_ glob.globShortSystemName}} {{organizacja}}<br />
+{{_ glob.globDoNotAnswerThat}} <br />
+{{_ glob.globLoginToTheSystem}} <a href="{{urlLogin}}">{{_ glob.globLogIn}}</a>
