@@ -255,7 +255,8 @@
 			</ul>
 			{{/unless}}
 			<ul class="nav navbar-nav navbar-right">
-				{{#if currentUser}}
+		{{#if currentUser}}
+			{{#unless isAdmin}}
 				<li class="{{activeRouteClass 'notification_list'}} ">
 					<a href="{{pathFor 'notification_list'}}">
 						<section class="dymek">
@@ -292,11 +293,11 @@
 							{{/if}}
 					</a>
 				</li>
+			{{/unless}}
 				{{> loginButtons}}
 				{{/if}}
 			</ul>
-        </div>
-		
+		</div>
 <!--   KONIEC MENU GŁÓWNEGO     --> 	
 
 

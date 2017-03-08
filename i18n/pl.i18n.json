@@ -698,16 +698,6 @@
 	"nlrGoToTheDiscussionOfRealization":"Idź do dyskusji realizacyjnej",
 	"nlrLinkToIssue":"Link do Kwestii"
   },
-  "adminTemplate":{
-	"admStatSys":"Statystyki Systemu",
-	"admInfDany":"Informacje o ilości danych w Systemie.",
-	"admUzytkow":"Użytkownicy",
-	"admiTematy":"Tematy",
-	"admRodzaje":"Rodzaje",
-	"admParamet":"Parametry",
-	"admRaporty":"Raporty",
-	"admKwestie":"Kwestie"
-  },
   "listRaport":{
 	"pinfoListOfReports":"LISTA RAPORTÓW",
 	"pinfoListOfReportsA":"Wykaz Raportów Zespołu Realizacyjnego. Tu znajduje się historia realizacji Kwestii.",
