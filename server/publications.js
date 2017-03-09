@@ -231,16 +231,6 @@ Meteor.publish('language', function (id) {
     return Languages.find({_id: id, czyAktywny: true});
 });
 
-//PAGES INFO
-
-Meteor.publish('pagesInfo', function () {
-    return PagesInfo.find({czyAktywny: true});
-});
-
-Meteor.publish('pagesInfoByLang', function (routeName) {
-    return PagesInfo.find({routeName: routeName, czyAktywny: true});
-});
-
 //ZESPOL REALIZACYJNY
 
 Meteor.publish('zespolyRealizacyjne', function(){

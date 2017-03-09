@@ -76,8 +76,6 @@
 	"globRequiredQuorum":"Wymagane kworum: ",
 	"globCurrentPresence":"aktualna obecność: ",
 	"glob":"",
-	"glob":"",
-	"glob":"",
 	"glob":""
   },
   "header":{
@@ -235,13 +233,7 @@
   },
   "languageOptions":{
 	"loOff":"Wyłącz",
-	"loOn":"Włącz",
-	"infoContext":"Info kontekstowe"
-  },
-  "setPagesInfo":{
-	"sPinUstJez":"Ustaw informacje dla stron w języku: ",
-	"sPixfoWDol":"W dół",
-	"sPinfwGore":"W górę"
+	"loOn":"Włącz"
   },
   "addRodzajForm":{
 	"adfAddType":"Dodaj Rodzaj",
@@ -741,12 +733,6 @@
 	"pinfoCompletedImplemA":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do tego właśnie dzału - Zrealizowane.",
 	"pinfoCompletedImplemB":"Kwestie zrealizowane, to również Kwestie dotyczące ustawień globalnych, Kwestii okolicznościowych, dotyczacych jednorazowych wydarzeń, lub prcedur zakończonych, jednoznacznie sfinalizowanych, itp...."
   },
-  "dashBoard":{
-	"dsbUserPanel":"Panel Użytkownika",
-	"dsbForInformationOnTheUsersPanel":"Informacje na temat Panelu Użytkownika.",
-	"dsbStatisticsOnThePanel":"Statystyki panelu",
-	"dsbInformationAboutTheAmountOfDataInTheSystem":"Informacje o ilości danych w Systemie."
-  },
   "editParametrModalInner":{
 	"epmParameterEdition":"Edycja parametru",
 	"epmConfirmChanges":"Zmień",
@@ -830,61 +816,5 @@
   },
   "subMenu":{
 	"smenlanguages":"Języki"
-  },
-  "pageInfo":{
-    "pl":{
-      "home":"Strona główna",
-      "admin":"Strona administratora",
-      "login_form":"Formularz logowania",
-      "profile_edit":"Edycja profilu",
-      "manage_account":"Zarządzanie kontem",
-      "setPagesInfo":"Informacje o stronach",
-      "listRodzaj":"Lista rodzajów",
-      "addRodzaj":"Dodaj rodzaj",
-      "editRodzaj":"Edytuj rodzaj",
-      "listRaport":"Lista raportów",
-      "addRaport":"Dodaj raport",
-      "listUsers":"Lista Użytkowników",
-      "addUser":"Dodaj Użytkownika",
-      "editUser":"Edytuj Użytkownika",
-      "listParametr":"Lista parametrów",
-      "editParametry":"Edytuj parametry",
-      "previewParametr":"Podgląd parametrów",
-      "listTemat":"Lista tematów",
-      "addTemat":"Dodaj temat",
-      "editTemat":"Edytuj temat",
-      "listKwestiaAdmin":"Lista Kwestii administracja",
-      "listaKwestiiOczekujacych":"Lista Kwestii oczekujących",
-      "kwestiaOczekujaca":"Kwestia oczekująca",
-      "listLanguages":"Lista języków",
-      "addLanguage":"Dodaj język",
-      "editLanguage":"Edytuj język",
-      "listKwestia":"Lista Kwestii",
-      "addKwestia":"Dodaj Kwestię",
-      "addKwestiaOpcja":"Dodaj opcję Kwestii",
-      "editKwestia":"Edytuj Kwestię",
-      "previewKwestiaOpcja":"Podgląd opcji Kwestii",
-      "previewKwestia":"Podgląd Kwestii",
-      "informacjeKwestia":"Kwestia",
-      "dyskusjaKwestia":"Dyskusja Kwestii",
-      "archiwum":"Archiwum",
-      "informacjeKwestiaArchiwum":"Kwestia archiwum",
-      "realizacja":"Realizacja",
-      "glosowanie":"Głosowanie",
-      "profile_list":"Lista profili",
-      "profileInfo":"Informacje o profilu",
-      "administracjaUserMain":"Widok administracji",
-	  "activate_account":"Aktywacja konta",
-	  "answer_invitation":"Odpowiedź na zaproszenie",
-	  "forgotten_password":"Zapomniane hasło",
-	  "reset_password":"Reset hasła",
-	  "register_form":"Formularz rejestracyjny",
-	  "doradca_form":"Formularz zgłoszenia Doradcy",
-	  "czlonek_zwyczajny_form":"Formularz zgłoszenia Członka",
-	  "informacjeRaport":"Raport informacje",
-	  "sendMessage":"Wysłanie Wiadomości",
-	  "notification_list":"Lista powiadomień",
-	  "notificationInfo":"Powiadomienia"
-	  }
   }
 }
