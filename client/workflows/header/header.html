@@ -299,58 +299,23 @@
 			</ul>
 		</div>
 <!--   KONIEC MENU GŁÓWNEGO     --> 	
-
-
     </div><!-- /.navbar-collapse -->
-
 </nav>
 </template>
 
 <template name="language">
 	<div class="row">
 		<div class="col-md-12">
-		
-<div class="podnies-firme">		
-		
+		<!-- go home, org & numbr users-->
 			<div class="pull-left">
-				<span class="navbar-brand clickable" id="organizationName">
-					<i class="info-circle fa fa-server"></i>
-					<!--SDD-->
-					{{_ "language.lanSystSDD"}}
-					<a data-toggle="modal" href="#infoSyst">
-					<small class="fontSize"><sup class="info-circle fa fa-question-circle"></sup></small>							
-					</a>
-					<div class="modal fade" id="infoSyst" role="dialog">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<p class="modal-title">{{_ "dym.dymAboutSystem"}}
-									</p>
-								</div>
-								<div class="fontSize">
-									<div class="modal-body">
-										<p>{{_ "dym.dymAboutSystemA"}}</p>
-										<p>{{_ "dym.dymAboutSystemB"}}</p>
-										<p>{{_ "dym.dymAboutSystemC"}}</p>
-										<p>{{_ "dym.dymAboutSystemD"}}</p>
-										<center>
-											<!--moreAboutSDD (event jeszze nie opracowany)-->
-											<a href="http://www.syncodec.org" target="_blank"> <input type="button" class="btn btn-default btn-xs" id="moreAboutSDD" value="{{_ 'dym.dymAboutSystemE'}}">
-											</a>
-										</center>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					- <strong>{{nazwaOrg}}</strong>
+				<span class="clickable" id="organizationName">
+					<span class="fontSizeMore">
+					<i class="fa fa-home"></i>
+					</span>
 				</span>
-			</div>
-			
-</div>			
-			
-			
+	{{_ "language.lanSystSDD"}} - <strong>{{nazwaOrg}}</strong>
+			</div>		
+		<!-- info & log in -->
 			<div class="pull-right">
 				<div class="btn-group">
 					<button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown"

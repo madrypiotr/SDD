@@ -21,6 +21,9 @@ body {
 .fontSize{
     font-size: 11px;
 }
+.fontSizeMore{
+    font-size: 18px;
+}
 .fontSizeSmall{
     font-size: 9px;
 }
@@ -52,11 +55,6 @@ body {
     float:right;
 }
 
-.podnies-firme {
-	margin-top: -10px;
-	
-}
-	
 #mainmenu {
 	margin-left: 10px;
 	margin-top: 4px;

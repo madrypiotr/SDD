@@ -1,0 +1,39 @@
+<template name="mainpage">
+    <div class="main">
+        <div class="row">
+            <div class="col-md-12">
+					<a data-toggle="modal" href="#infoSyst">
+					<small class="fontSize"><sup class="info-circle fa fa-question-circle"></sup></small>
+					</a>
+
+			TU BĘDZIE STRONA GŁÓWNA
+            </div>
+        </div>
+    </div>
+		<!--dymek-->
+					<div class="modal fade" id="infoSyst" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<p class="modal-title">{{_ "dym.dymAboutSystem"}}
+									</p>
+								</div>
+								<div class="fontSize">
+									<div class="modal-body">
+										<p>{{_ "dym.dymAboutSystemA"}}</p>
+										<p>{{_ "dym.dymAboutSystemB"}}</p>
+										<p>{{_ "dym.dymAboutSystemC"}}</p>
+										<p>{{_ "dym.dymAboutSystemD"}}</p>
+										<center>
+											<!--moreAboutSDD (event jeszze nie opracowany)-->
+											<a href="http://www.syncodec.org" target="_blank"> <input type="button" class="btn btn-default btn-xs" id="moreAboutSDD" value="{{_ 'dym.dymAboutSystemE'}}">
+											</a>
+										</center>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+</template>
