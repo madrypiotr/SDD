@@ -11,7 +11,10 @@
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 	}
-
+@import url(http://fonts.googleapis.com/css?family=Coda);
+html {
+  font-family: 'Coda'; /*pm*/
+	}
 body {
   background: lightgray;
   color: #666666;
@@ -55,103 +58,22 @@ body {
     float:right;
 }
 
+.mainmain {
+	padding-top: 16%;
+	padding-bottom: 16%;
+	position: relative;
+	height:100%;
+	text-align: center;
+}
+.footer {
+	text-align: center;
+	background: lightgray;
+}
+
 #mainmenu {
 	margin-left: 10px;
 	margin-top: 4px;
 }	
-
-.pinfo {
-	position: absolute;
-	right: 15%;
-	margin-top: -78px;
-	color: white;
-	font-size: 10px;
-	background-color: #337ab7;
-  padding-top: 1px;
-  padding-left: 4px;
-  padding-right: 2px;
-  border-top: 1px solid white;
-  border-left: 1px solid white;
-  border-right: 1px ridge #153d5e;
-  border-bottom: 1px ridge #153d5e;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-}
-.pinfo-realiz {
-	position: absolute;
-	right: 15%;
-	margin-top: -141px;
-	color: white;
-	font-size: 10px;
-	background-color: #337ab7;
-  padding-top: 1px;
-  padding-left: 4px;
-  padding-right: 2px;
-  border-top: 1px solid white;
-  border-left: 1px solid white;
-  border-right: 1px ridge #153d5e;
-  border-bottom: 1px ridge #153d5e;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-}
-.pinfo-arch {
-	position: absolute;
-	right: 15%;
-	margin-top: -121px;
-	color: white;
-	font-size: 10px;
-	background-color: #337ab7;
-  padding-top: 1px;
-  padding-left: 4px;
-  padding-right: 2px;
-  border-top: 1px solid white;
-  border-left: 1px solid white;
-  border-right: 1px ridge #153d5e;
-  border-bottom: 1px ridge #153d5e;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-}
-.pinfo-kw-w-koszu {
-	position: absolute;
-	right: 15%;
-	margin-top: -78px;
-	color: white;
-	font-size: 10px;
-	background-color: red;
-  padding-top: 1px;
-  padding-left: 4px;
-  padding-right: 2px;
-  border-top: 1px solid white;
-  border-left: 1px solid white;
-  border-right: 1px ridge #153d5e;
-  border-bottom: 1px ridge #153d5e;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
-}
 
 a {
 color: #2a3661;
