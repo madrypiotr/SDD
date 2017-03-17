@@ -1,4 +1,25 @@
 <template name="archiwumList">
+<div class="pinfo-arch">{{_ "glob.globYouHere"}}: <b>{{_ "dym.dymINarchi"}}</b>  
+	<a data-toggle="modal" href="#archiw"><button>{{_ "glob.globInfo"}}
+	</button></a></div>
+                <div class="modal fade" id="archiw" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "dym.dymINarchi"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "dym.dymTXarchA"}}</p>
+								<p>{{_ "dym.dymTXarchB"}}</p>
+								<p>{{_ "dym.dymTXarchC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     <div class="main">
         <div class="row">
             <div class="col-md-12">
@@ -17,13 +38,16 @@
     </div>
 </template>
 
+
 <template name="nazwaKwestiiArchiwumLink">
     <a href="{{ pathFor 'informacjeKwestia'}}">{{this.kwestiaNazwa}}</a>
 </template>
 
+
 <template name="tematKwestiiArchiwum">
     {{getTemat idTemat}}
 </template>
+
 
 <template name="rodzajKwestiiArchiwum">
     {{getRodzaj idRodzaj}}

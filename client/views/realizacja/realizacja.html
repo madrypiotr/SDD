@@ -1,5 +1,29 @@
 <template name="realizacjaTab1">
         <div class="main">
+<div class="pinfo-realiz">{{_ "glob.globYouHere"}}: <b>{{_ "realizacjaTab1.pinfoDuringImplementation"}}</b>  
+	<a data-toggle="modal" href="#realiza"><button>{{_ "glob.globInfo"}}
+	</button></a></div>
+                <div class="modal fade" id="realiza" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "realizacjaTab1.pinfoDuringImplementation"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "realizacjaTab1.pinfoDuringImplemA"}}</p>
+								<p><strong> &nbsp;&nbsp;&nbsp;&nbsp; {{_ "realizacjaTab1.pinfoDuringImplemB"}}</strong></p>
+								<p>{{_ "realizacjaTab1.pinfoDuringImplemC"}}</p>
+								<p>{{_ "realizacjaTab1.pinfoDuringImplemD"}}</p>
+								<p>{{_ "realizacjaTab1.pinfoDuringImplemE"}}</p>
+								<p>{{_ "realizacjaTab1.pinfoDuringImplemF"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <div class="row">
                 <div class="col-md-12">
 
@@ -13,9 +37,7 @@
                 </div>
             </div>
         </div>
-    {{>GlobalNotifications}}
-
-</template>
+    {{>GlobalNotifications}}</template>
 
 
 <template name="editColumnRealization">

@@ -34,13 +34,63 @@
     {{/if}}
 </template>
 
+
 <template name="issueDetails">
+			{{#if kwestiaInKosz}}
+<div class="pinfo-kw-w-koszu">{{_ "glob.globYouHere"}}: <b>{{_ "issueDetails.pinfoTheIssueInTheTrashCan"}}</b>  
+	<a data-toggle="modal" href="#kwwkoszu"><button>{{_ "glob.globInfo"}}
+	</button></a></div>
+                <div class="modal fade" id="kwwkoszu" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "issueDetails.pinfoTheIssueInTheTrashCan"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "issueDetails.pinfoTheIssueInTheTrashCanA"}}</p>
+								<p>{{_ "issueDetails.pinfoTheIssueInTheTrashCanB"}}</p>
+								<p>{{_ "issueDetails.pinfoTheIssueInTheTrashCanC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                      {{else}} 
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "issueDetails.pinfoDetKw"}}</b>  
+	<a data-toggle="modal" href="#szczk"><button>{{_ "glob.globInfo"}}
+	</button></a></div>
+                <div class="modal fade" id="szczk" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "issueDetails.pinfoDetKw"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "issueDetails.pinfoHereYouSeeHistoryA"}}</p>
+								<p>{{_ "issueDetails.pinfoHereYouSeeHistoryB"}}</p>
+								<p>{{_ "issueDetails.pinfoHereYouSeeHistoryC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                       {{/if}}
+
     <div class="main">
+	
  <!--Kwestia w Koszu-->
-       {{#if kwestiaInKosz}}
+                       {{#if kwestiaInKosz}}
                             <h2>
 {{_ "issueDetails.iDeTheIssueOfInactiveItIsLocatedInAtrashCan"}}</h2>
                         {{/if}}
+
+	
         <div class="row">
             <div class="col-md-12">
                 <legend><small>

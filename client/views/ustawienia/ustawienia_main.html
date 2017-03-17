@@ -132,8 +132,32 @@
 {{_ 'administracjaUserMain.aumApplyForTheOrdinaryMember'}}</a></li>
                     {{/if}}
             </ul>
+
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="twojeKwestie">
+
+<div class="pinfo-arch">{{_ "glob.globYouHere"}}: <b>{{_ "administracjaUserMain.pinfoMyIssues"}}</b>  
+	<a data-toggle="modal" href="#mojek"><button>{{_ "glob.globInfo"}}
+	</button></a></div>
+                <div class="modal fade" id="mojek" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "administracjaUserMain.pinfoMyIssues"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "administracjaUserMain.pinfoMyIssuesA"}}</p>
+                                <p>{{_ "administracjaUserMain.pinfoMyIssuesB"}}</p>
+								<p>{{_ "administracjaUserMain.pinfoMyIssuesC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                         {{#if listOfIssuesCount}}
                             <div class="row">
                                 <div class="col-md-12">
@@ -195,7 +219,6 @@
         </div>
     {{/if}}
     {{>GlobalNotifications}}
-
 </template>
 
 

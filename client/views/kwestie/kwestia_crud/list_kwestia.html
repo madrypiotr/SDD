@@ -1,7 +1,29 @@
 <template name="listKwestia">
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "dym.dymIssues"}}</b>  
+	<a data-toggle="modal" href="#wykKwInfo"><button>{{_ "glob.globInfo"}}
+	</button></a></div>
+                <div class="modal fade" id="wykKwInfo" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "dym.dymIssues"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "dym.dymIssuesA"}}</p>
+								<p>{{_ "dym.dymIssuesB"}}</p>
+								<p>{{_ "dym.dymIssuesC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 	<div class="main" >
 		<div class="row">
 			<div class="col-lg-6 ">
+			
 				{{#if currentUser}}
 				{{#if isZwyczajnyLogged}}
 				<div class="btn-group">
@@ -40,8 +62,11 @@
 						</div>
 					</section>
 				</div>
+				
 				{{/if}}
  		{{/if}}
+		
+					
 	<!--Szukanie Kwestii-->
 			<div class="pull-right col-lg-6 col-md-4 col-sm-6 col-xs-6">
 				<section class="dymek">
@@ -81,7 +106,6 @@
 		</div>
 	</div>
 	{{> GlobalNotifications}}
-
 </template>
 <!-- SDD - Szablon | Panel -->
 <template name="tematKwestia">

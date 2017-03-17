@@ -1,4 +1,25 @@
 <template name="listParametr">
+<div class="pinfo-realiz">{{_ "glob.globYouHere"}}: <b>{{_ "listParametr.pinfoGlobalParameters"}}</b>  
+	<a data-toggle="modal" href="#liparam"><button>{{_ "glob.globInfo"}}
+	</button></a></div>
+                <div class="modal fade" id="liparam" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "listParametr.pinfoGlobalParameters"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "listParametr.pinfoGlobalParametersA"}}</p>
+								<p>{{_ "listParametr.pinfoGlobalParametersB"}}</p>
+								<p>{{_ "listParametr.pinfoGlobalParametersC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         <div class="row">
             {{#unless noKwestiaParameters}}
                 <p class="col-md-12 bg-warning padding-15 color-red">
@@ -299,6 +320,4 @@
             </div>
         </div>
     {{>editParametrModal}}
-
-
 </template>

@@ -1,4 +1,26 @@
 <template name="informacjeRaport">
+<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "informacjeRaport.pinfoRaRea"}}</b>  
+	<a data-toggle="modal" href="#rare"><button>{{_ "glob.globInfo"}}
+	</button></a></div>
+                <div class="modal fade" id="rare" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "informacjeRaport.pinfoRaRea"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "informacjeRaport.pinfoRaReA"}}</p>
+								<p>{{_ "informacjeRaport.pinfoRaReB"}}</p>
+								<p>{{_ "informacjeRaport.pinfoRaReC"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
     <div class="main">
         <legend>{{kwestiaNazwa}}</legend>
         <h4>
@@ -54,5 +76,4 @@
             </div>
         </div>
     </div>
-
 </template>

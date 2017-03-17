@@ -1,5 +1,25 @@
 <template name="addHonorowy">
-	<div class="row">
+<div class="pinfo-realiz">{{_ "glob.globYouHere"}}: <b>{{_ "addHonorowy.pinfoSuggestions"}}</b>  
+	<a data-toggle="modal" href="#honor"><button>{{_ "glob.globInfo"}}
+	</button></a></div>
+                <div class="modal fade" id="honor" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <p class="modal-title">
+                                    {{_ "addHonorowy.pinfoSuggestions"}}
+                                </p>
+                            </div>
+                            <div class="modal-body"><small>
+                                <p>{{_ "addHonorowy.pinfoSuggestionsA"}}</p>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="row">
         <div class="col col-md-10">
             <form class="form-horizontal" id="honorowyForm">
                 <legend>
