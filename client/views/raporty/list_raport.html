@@ -1,26 +1,4 @@
 <template name="listRaport">
-<div class="pinfo">{{_ "glob.globYouHere"}}: <b>{{_ "listRaport.pinfoListOfReports"}}</b>  
-	<a data-toggle="modal" href="#lira"><button>{{_ "glob.globInfo"}}
-	</button></a></div>
-                <div class="modal fade" id="lira" role="dialog">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <p class="modal-title">
-                                    {{_ "listRaport.pinfoListOfReports"}}
-                                </p>
-                            </div>
-                            <div class="modal-body"><small>
-                                <p>{{_ "listRaport.pinfoListOfReportsA"}}</p>
-								<p>{{_ "listRaport.pinfoListOfReportsB"}}</p>
-								<p>{{_ "listRaport.pinfoListOfReportsC"}}</p>
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
     {{#if currentUser}}
         <div class="main">
             <legend>{{kwestiaNazwa}}</legend>
