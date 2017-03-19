@@ -815,5 +815,10 @@
   },
   "subMenu":{
 	"smenlanguages":"Języki"
+  },
+  "more":{
+	"onMainPage":"GŁÓWNEJ",
+	"fullNameSystem":"System Deliberacyjno Decyzyjny",
+	"descriptionOfTheSystem":"- zarządzanie heterarchiczne -"
   }
 }

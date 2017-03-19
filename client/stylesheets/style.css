@@ -1,3 +1,5 @@
+
+
 .grid-block, .main, .post, .comments li, .comment-form {
     background: #eee;
     -webkit-border-radius: 3px;
@@ -11,10 +13,6 @@
     -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 	}
-@import url(http://fonts.googleapis.com/css?family=Coda);
-html {
-  font-family: 'Coda'; /*pm*/
-	}
 body {
   background: lightgray;
   color: #666666;
@@ -24,11 +22,18 @@ body {
 .fontSize{
     font-size: 11px;
 }
-.fontSizeMore{
-    font-size: 18px;
-}
 .fontSizeSmall{
     font-size: 9px;
+}
+.fontSizeBig{
+    font-size: 46px;
+	font-weight: bold; 
+}
+.fontSizeMore{
+    font-size: 32px;
+}
+.fontSizeMoreSmall{
+    font-size: 22px;
 }
 
 .color-red{
@@ -59,13 +64,13 @@ body {
 }
 
 .mainmain {
-	padding-top: 16%;
-	padding-bottom: 16%;
+	padding-top: 8%;
+	padding-bottom: 13%;
 	position: relative;
 	height:100%;
 	text-align: center;
 }
-.footer {
+.footerZAB {
 	text-align: center;
 	background: lightgray;
 }
@@ -467,4 +472,87 @@ body #addRRModal .modal-dialog{
     -moz-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+}
+
+.footer {
+	bottom:0;
+	left:0px;
+	position:fixed;
+    width: 450px;
+    height: 1.8em;
+    overflow:hidden;
+    margin: 0 auto;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	z-index:999;
+}
+.footer:hover {
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    width: 450px;
+	height: 20em;
+}
+.footer #container{
+  position:relative;
+  margin-top: -3px;
+    border-top: 2px ridge white;
+    border-right: 2px ridge black;
+	width:100%;
+	height:100%;
+  top:0;
+  left:0;
+	background: #d7d2ca;
+	z-index:998;
+}
+.footer_center{
+	color: black;
+	width:100%;
+  margin-top: 5px;
+	float:left;
+}
+
+.footer #button{
+	color: black;
+	width:350px;
+	height:27px;
+	background: #d7d2ca;
+    border-top: 2px ridge white;
+    border-right: 2px ridge black;
+	text-align: center;
+	padding-top: 2px;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	position:relative;
+	z-index:1001;
+}
+.footer #button:hover{
+	color: black;
+	width:350px;
+	height:27px;
+	background: #d7d2ca;
+    border-top: 2px ridge white;
+    border-right: 2px ridge black;
+	text-align: center;
+	padding-top: 2px;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+	position:relative;
+	z-index:1000;
+}
+
+.footer p{
+	font-size: 12px;
+	margin: 10px;
 }
