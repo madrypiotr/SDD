@@ -93,14 +93,14 @@
   },
   "dym":{
 	  "dymAboutSystem":"O Systemie Deliberacyjno Decyzyjnym...",
-			"dymAboutSystemA":"SDD umożliwi Ci wpływ na wszystko, cokolwiek będzie procedowane w społeczności objętej tym Systemem. Zasadą nadrzędną jest równy dostęp uczestników do wnioskowania, uzgadniania i głosowania Kwestii, czyli pomysłów, wniosków, projektów. Jego celem jest umożliwienie ludziom zarządzania swoją aktywnością zgodnie z wolą Ogółu, bez koniecznosci posługiwania się wybieralnymi funkcjami zarządczymi.",
-			"dymAboutSystemB":"Nie potrzeba tu wybierać jednoosobowego decydenta, ani gremium w rodzaju zarządu. Te funkcje zastępuje niniejszy system informatyczny. Wszelkie decyzje wynikają z woli Ogółu tu zgromadzonych Członków. Jego działanie najlepiej zrozumiesz, widząc go jako Zebranie Ogólne Członków, które trwa nieprzerwanie. To w tzw. realnym życiu nie jest możliwe. Dzięki temu Systemowi stało się wykonalne. Specjalne ciała decyzyjne w postaci zarządów stały się zbędne.",
-			"dymAboutSystemC":"Konsekwentnie - nie ma w tym Systemie administratora, który mógłby arbitralnie cokolwiek zmieniać, korygować parametry, dopisywać Użytkowników, ograniczać im prawa, usuwać... Wiemy ile to rodzi nieporozumień i często słusznych protestów i oskarżeń o despotyzm. Wszelkie parametry indywidualne oraz globalne ustawienia, sposób i tryb działania Systemu ustalane są tylko decyzją Ogółu na starcie Systemu, a także zmieniane w dowolnej chwili.",
+			"dymAboutSystemA":"SDD umożliwi Ci wpływ na wszystko, cokolwiek będzie procedowane w społeczności nim objętej. Tu masz równy dostęp do wnioskowania, uzgadniania i decydowania.",
+			"dymAboutSystemB":"Ponieważ SDD działa jako Zebranie Ogólne Członków, które trwa nieprzerwanie, czyni zbędnymi funkcje jednoosobowego decydenta i zarządu. Wszelkie decyzje wynikają z woli Ogółu zgromadzonych tu Członków.",
+			"dymAboutSystemC":"Nie ma tu administratora, który mógłby arbitralnie cokolwiek zmieniać. Wszelkie parametry indywidualne oraz globalne ustawienia dokonywane są tylko decyzją Ogółu.",
 			"dymAboutSystemD":"Twórcy Systemu życzą wielu sukcesów i zadowolenia z jego używania!",
 			"dymAboutSystemE":"Obszerniejszy opis Systemu",
 	"dymBeforeYouAdd":"O dodawaniu Kwestii",
 	  "dymAddingIssues":"Dodawanie Kwestii",
-			"dymAddingIssueA":"Każdy może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
+			"dymAddingIssueA":"Każdy zalogowany Członek Zwykły może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
 			"dymAddingIssueB":"Priorytety poszczególnych Użytkowników sumują się i najlepsze Kwestie przechodzą do głosowania. Pozytywne głosowanie powoduje, że Kwestia staje się uchwałą obowiązującą wszyskich, zgromadzonych tu, Użytkowników.",
 			"dymAddingIssueC":"Prosimy o rozważne dodawanie. Dodanej Kwestii nie można usuwać ani edytować.",
 
@@ -154,7 +154,7 @@
 		  "dymVotingA":"Trzy najwyżej notowane Kwestie przechodzą do głosowania. Informację o tym fakcie otrzymasz e-mail'em. Nie musisz koniecznie sprawdzać skrzynki pocztowej, te same informacje i o wielu innych wydarzeniach zobaczysz tutaj (zakładka Powiadomienia)",
 		  "dymVotingB":"Aby Kwestia przeszła do głosowania muszą być spełnione 3 warunki:",
 		  "dymVotingC":"1. odpowiednie wsparcie Kwestii przez Użytkowników (wysoki dodatni priorytet). W danym momencie tylko 3 najwyżej oceniane Kwestie przechodzą do głosowania,",
-		  "dymVotingD":"2. istnienie wymaganego kworym obecnych w głosowaniu,",
+		  "dymVotingD":"2. istnienie wymaganego kworum obecnych w głosowaniu,",
 		  "dymVotingE":"3. akces troje chętnych do składu Zespołu Realizacyjnego.",
 
 		"dymImplement":"Realizacja",
@@ -541,7 +541,7 @@
 	"drDescription":"Opis"
   },
   "addTypeModalInner":{
-	"AddTypeToTheSubject":"Dodaj typ dla tematu"
+	"AddTypeToTheSubject":"Dodaj Rodzaj dla Tematu"
   },
   "chooseTopicModalInner":{
 	"ctmChooseSubject":"Wybierz temat"
@@ -819,6 +819,19 @@
   "more":{
 	"onMainPage":"GŁÓWNEJ",
 	"fullNameSystem":"System Deliberacyjno Decyzyjny",
-	"descriptionOfTheSystem":"- zarządzanie heterarchiczne -"
+	"descriptionOfTheSystem":"- zarządzanie heterarchiczne -",
+	"listOfIssues":"WYKAZ KWESTII",
+	"listOfIssuesA":"Tutaj zobaczysz wykaz wszystkich Kwestii, które znajdują się aktualnie na etapie dyskusji i priorytetowania. Im większy priorytet posiada Kwestia, tym wyżej jest domyślnie ulokowana. Najwyżej ulokowana Kwestia przechodzi do głosowania. Możesz zmieniać sortowanie kliknięciem na nagłówek kolumny [Priorytet], aby zobaczyć odwrócony układ.",
+	"listOfIssuesB":"Aby zobaczyć szczegóły Kwestii - kliknij w jej nazwę. Wejście w szczegóły Kwestii jest równoznaczne z Twoją obecnością w dyskusji i głosowaniu, albowiem tam znajdują się: głosy w dyskusji nad nią, szczegółowy opis i możliwość nadania priorytetu, czyli głosowanie.",
+	"listOfIssuesC":"Widocznym przyciskiem, możesz dodać nową Kwestię. Aby znaleźć Kwestie najnowsze lub najstarsze - kliknij w nagłówek [Data]. Podobnie możesz sortować każdą interesującą Cię kolumnę. Masz do dyspozycji pole [Szukanie Kwestii], aby filtrować listę wg. nazw Kwestii. Na dole możesz dostosować listę względem ilości pozycji na stronie.",
+	"moreVotingA":"Do głosowania wchodzi tyle Kwestii, ile zostanie określone w ustawieniach globalnych, gdzie ustawia się również czas głosowania.",
+	"moreVotingB":"W czasie przeznaczonym na głosowanie nie mozna już prowadzić dyskusji, a jedynie nadawać (lub zmieniać) swój priorytet dla tej Kwestii.",
+	"moreVotingC":"System poinformuje Cię o fakcie głosowania oraz o terminie jego zakończenia. Dodatkową formą informacji jest powiadomienie Cię tutaj w Systemie (patrz w menu), gdzie ilość nie odczytanych wiadomości wykazana jest na czerwonym tle.",
+	"moreVotingD":"Powiadomienia spełniają też ważną rolę dokumentacyjną, aby nie było w przyszłości wątpliwości, co do faktów i ich chronologii.",
+	"moreVotingE":"Z chwilą zakończenia głosowania Kwestii, przechodzi ona do realizacji, lub do kosza, jeśli głosowanie jest dla niej niepomyślne.",
+	"moreDuringImpA":"To wykaz aktualnie obowiązujących dokumentów dla zarejestrowanych tu Użytkowników. Powstały one po pozytywnym przejsciu przez głosowanie Kwestii.",
+	"moreDuringImpB":".",
+	"moreDuringImpC":".",
+	"moreDuringImpD":"."
   }
 }

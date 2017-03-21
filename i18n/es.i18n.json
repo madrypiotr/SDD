@@ -100,7 +100,7 @@
 			"dymAboutSystemE":"esObszerniejszy opis Systemu",
 	"dymBeforeYouAdd":"esO dodawaniu Kwestii",
 	  "dymAddingIssues":"esDodawanie Kwestii",
-			"dymAddingIssueA":"esKażdy może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
+			"dymAddingIssueA":"esKażdy zalogowany Członek Zwykły może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
 			"dymAddingIssueB":"esPriorytety poszczególnych Użytkowników sumują się i najlepsze Kwestie przechodzą do głosowania. Pozytywne głosowanie powoduje, że Kwestia staje się uchwałą obowiązującą wszyskich, zgromadzonych tu, Użytkowników.",
 			"dymAddingIssueC":"esProsimy o rozważne dodawanie. Dodanej Kwestii nie można usuwać ani edytować.",
 

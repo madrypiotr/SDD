@@ -95,37 +95,6 @@
 <!--Wykaz Użytkowników-->
 {{_ 'administracjaUserMain.aumUsers'}}</a></li>
 
-                    {{#if isCzlonek}}
-                    <li role="presentation"><a href="#zglosHonorowy" aria-controls="zglosHonorowy" role="tab" data-toggle="tab">
-						<section class="dymek">
-							<span class="fa fa-user-secret">&nbsp;&nbsp;&nbsp;</span> 
-							<ul align="left">
-					<a data-toggle="modal" href="#ZglCzlHon" class="fa fa-info-circle">
-					<!--info i zachęta w dymku-->
-					</a>
-					</ul>
-					<div class="modal fade" id="ZglCzlHon" role="dialog">
-					<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<p class="modal-title" align="left">
-					{{_ 'administracjaUserMain.aumSuggestions'}}
-					</p>
-					</div>
-					<div class="modal-body" align="left">
-					<small>
-					<p>{{_ 'dym.dymUsersListA'}}</p>
-					<p>{{_ 'dym.dymUsersListB'}}</p>
-					</small>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>
-<!--Zgłoszenie członka honorowego-->
-{{_ 'administracjaUserMain.aumSuggestions'}}</a></li>
-                    {{/if}}
                     {{#if isDoradca}}
                         <li role="presentation"><a href="#aplikujNaZwyczajnego" aria-controls="aplikujNaZwyczajnego" role="tab" data-toggle="tab">
 <!--Aplikuj na członka zwyczajnego-->
@@ -154,18 +123,47 @@
                                 </div>
                             </div>
                         {{/if}}
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} MOJE KWESTIE </div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+		</div>
+	</div>
+</div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="parametry">
                         <br />
                         {{> listParametr}}
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="zglosHonorowy">
-                        <br />
-                        {{> addHonorowy}}
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} PARAMETRY </div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+		</div>
+	</div>
+</div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="uzytkownicy">
                         <br />
                         {{> profileList}}
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} UŻYTKOWNICY </div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+		</div>
+	</div>
+</div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="aplikujNaZwyczajnego">
                         <br />
@@ -189,23 +187,24 @@
                                 {{> czlonekZwyczajnyForm}}
                             {{/with}}
                         {{/if}}
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} APLIKACJA NA CZŁONKA </div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+		</div>
+	</div>
+</div>
                     </div>
                 </div>
             </div>
         </div>
     {{/if}}
     {{>GlobalNotifications}}
-
-<div class="footer">
-  <div id="button">Jesteś na stronie</div>
-	<div id="container">
-		<div id="cont">
-			<div class="footer_center">
-				   <p>Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... </p>
-			</div>
-		</div>
-	</div>
-</div></template>
+</template>
 
 
 <template name="lobbujZaKwestia">

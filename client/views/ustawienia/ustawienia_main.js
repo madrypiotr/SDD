@@ -28,8 +28,7 @@ Template.administracjaUserMain.helpers({
 
                     (((this.czyAktywny == true) && ((this.status==KWESTIA_STATUS.ADMINISTROWANA) || (this.idUser==Meteor.userId()))
                     || ((this.typ==KWESTIA_TYPE.ACCESS_DORADCA
-                    || this.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY
-                    || this.typ==KWESTIA_TYPE.ACCESS_HONOROWY) )
+                    || this.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY) )
                     || this.status==KWESTIA_STATUS.OCZEKUJACA
                     || this.idZglaszajacego==Meteor.userId())
                     && (this.status!= KWESTIA_STATUS.ZREALIZOWANA && this.status!=KWESTIA_STATUS.REALIZOWANA));
@@ -48,7 +47,7 @@ Template.administracjaUserMain.helpers({
     myKwestia:function(){
         var userDraft = UsersDraft.findOne({'profile.idUser': Meteor.userId(),czyAktywny:true});
         var kwestia=Kwestia.findOne({czyAktywny:true,
-            typ:{$in:[KWESTIA_TYPE.ACCESS_HONOROWY,KWESTIA_TYPE.ACCESS_ZWYCZAJNY]},idUser:userDraft._id});
+            typ:{$in:[KWESTIA_TYPE.ACCESS_ZWYCZAJNY]},idUser:userDraft._id});
         return kwestia? kwestia :null;
     },
     isDoradca:function() {

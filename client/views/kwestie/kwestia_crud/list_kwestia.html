@@ -81,42 +81,51 @@
 		</div>
 	</div>
 	{{> GlobalNotifications}}
-
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} {{_ "more.listOfIssues"}} </div>
+	<div id="container">
+		<div class="footer_center">
+					<p>{{_ 'more.listOfIssuesA'}}</p>
+					<p>{{_ 'more.listOfIssuesB'}}</p>
+					<p>{{_ 'more.listOfIssuesC'}}</p>
+		</div>
+	</div>
+</div>
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="tematKwestia">
 	{{topicName}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="rodzajKwestia">
 	{{typeName}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="dataGlKwestia">
 	{{date}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="kworumNumber">
 	<b>{{getUsersCount}}</b>
 	<small>{{getKworum}}</small>
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="dataUtwKwestia">
 	{{date}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="id">
 	{{id}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="nazwaKwestiLink">
 	<a href="{{ pathFor 'informacjeKwestia'}}" id="kwestiaIdClick" class="kwestiaId">{{issueName}}</a>
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="nazwaKwestii">
 	{{this.kwestiaNazwa}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="priorytetKwestia">
 	<b>{{priorytet}}</b>
 	{{#if nadanyPriorytet}}
@@ -127,7 +136,7 @@
 	</small>
 	{{/if}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="editColumnKwestia">
 	<a title="Edytuj" id="editKwestia" href="{{ pathFor 'editKwestia'}}">
 	<i
@@ -135,23 +144,23 @@
 	</i>
 	</a>
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="listKwestiaColumnLabel">
 	<span data-toggle="tooltip" title="{{title}}">{{text}}</span>
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="sugerowanyTemat">
 	{{sugerowanyTemat}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="sugerowanyRodzaj">
 	{{sugerowanyRodzaj}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="statusKwestii">
 	{{status}}
 </template>
-<!-- SDD - Szablon | Panel -->
+
 <template name="noData">
 	<div class="">
 		<!--Brak danych do wyświetlania...-->

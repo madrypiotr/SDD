@@ -1,5 +1,3 @@
-
-
 .grid-block, .main, .post, .comments li, .comment-form {
     background: #eee;
     -webkit-border-radius: 3px;
@@ -64,8 +62,8 @@ body {
 }
 
 .mainmain {
-	padding-top: 8%;
-	padding-bottom: 13%;
+	padding-top: 6%;
+	padding-bottom: 11%;
 	position: relative;
 	height:100%;
 	text-align: center;
@@ -175,7 +173,6 @@ float: left;
   width: 0;
   height: 0;
   padding: 0 0;
-/*  border: 8px outset transparent; */
 }
 .dymek ul:before {
   bottom: -10px;
@@ -502,57 +499,50 @@ body #addRRModal .modal-dialog{
   position:relative;
   margin-top: -3px;
     border-top: 2px ridge white;
-    border-right: 2px ridge black;
+    border-right: 1px solid gray;
 	width:100%;
 	height:100%;
-  top:0;
-  left:0;
-	background: #d7d2ca;
+	top:0;
+	left:0;
+	background: #e3edf9;
+	filter:alpha(opacity=90);
+	opacity: 0.9;
+	-moz-opacity:0.9;
 	z-index:998;
 }
 .footer_center{
 	color: black;
 	width:100%;
-  margin-top: 5px;
+  margin-top: 2px;
 	float:left;
 }
 
 .footer #button{
+	position:relative;
 	color: black;
-	width:350px;
+	width:400px;
 	height:27px;
-	background: #d7d2ca;
+	background: #e3edf9;
     border-top: 2px ridge white;
-    border-right: 2px ridge black;
+    border-right: 1px solid gray;
 	text-align: center;
 	padding-top: 2px;
-	-webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-	position:relative;
 	z-index:1001;
 }
 .footer #button:hover{
+	position:relative;
 	color: black;
-	width:350px;
+	width:400px;
 	height:27px;
-	background: #d7d2ca;
     border-top: 2px ridge white;
-    border-right: 2px ridge black;
+    border-right: 1px solid gray;
 	text-align: center;
 	padding-top: 2px;
-	-webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    -ms-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-	position:relative;
 	z-index:1000;
-}
+	}
 
 .footer p{
-	font-size: 12px;
+	font-size: 11px;
 	margin: 10px;
 }
+

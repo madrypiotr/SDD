@@ -1,48 +1,69 @@
 <template name="mainpage">
-    <div class="main">
-        <div class="row">
-            <div class="col-md-12">
-				<div class="mainmain">
+<div class="main">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="mainmain">
 	<p class="fontSizeBig">{{_ "glob.globShortSystemName"}}</p>
 	<p class="fontSizeMore">{{_ "more.fullNameSystem"}}</p>
 	<p class="fontSizeMoreSmall">{{_ "more.descriptionOfTheSystem"}}</p>
-			<a data-toggle="modal" href="#infoSyst">
-					<small class="fontSize"><p class="info-circle fa fa-question-circle"></p></small>
-					</a>
-            </div>
-        </div>
-    </div>
-		<!--dymek-->
-					<div class="modal fade" id="infoSyst" role="dialog">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<p class="modal-title">{{_ "dym.dymAboutSystem"}}
-									</p>
-								</div>
-								<div>
-									<div class="modal-body">
-										<p>{{_ "dym.dymAboutSystemA"}}</p>
-										<p>{{_ "dym.dymAboutSystemB"}}</p>
-										<p>{{_ "dym.dymAboutSystemC"}}</p>
-										<p>{{_ "dym.dymAboutSystemD"}}</p>
-										<center>
-											<!--moreAboutSDD (event jeszze nie opracowany)-->
-											<a href="http://www.syncodec.org" target="_blank"> <input type="button" class="btn btn-default btn-xs" id="moreAboutSDD" value="{{_ 'dym.dymAboutSystemE'}}">
-											</a>
-										</center>
+			
+			<br />
+			
+				{{#if currentUser}}
+				{{#if isZwyczajnyLogged}}
+					<section class="dymek">
+						<small>
+							<a id="addKwestiaButton" class="btn btn-primary">
+								<i class="fa fa-plus"></i>
+								<!--Dodaj nową Kwestię-->{{_ 'listKwestia.liAddANewIssue'}}
+							</a>
+						</small>
+						<ul align="left">
+							<a data-toggle="modal" href="#mainZanimDod">
+									<small>{{_ 'dym.dymBeforeYouAdd'}}
+									<sub class="fa fa-external-link"></sub>
+									</small>
+							</a>
+						</ul>
+						<div class="modal fade" id="mainZanimDod" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<p class="modal-title" align="left">
+											{{_ 'dym.dymAddingIssues'}}
+										</p>
+									</div>
+									<div class="modal-body" align="left">
+										<small>
+										<p>{{_ 'dym.dymAddingIssueA'}}</p>
+										<p>{{_ 'dym.dymAddingIssueB'}}</p>
+										<p><strong>{{_ 'dym.dymAddingIssueC'}}</strong></p>
+										</small>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</section>
+				{{/if}}
+				{{/if}}
+			
+			
+			
+			
+			
+			</div>
+		</div>
 	</div>
+</div>
 <div class="footer">
   <div id="button">{{_ "glob.globYouHere"}} {{_ "more.onMainPage"}} </div>
 	<div id="container">
 			<div class="footer_center">
-				   <p>Opis Strony Głównej Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis ... Opis</p>
+				<p>{{_ "dym.dymAboutSystemA"}}</p>
+				<p>{{_ "dym.dymAboutSystemB"}}</p>
+				<p>{{_ "dym.dymAboutSystemC"}}</p>
+				<p>{{_ "dym.dymAboutSystemD"}}</p>
 			</div>
 	</div>
 </div>

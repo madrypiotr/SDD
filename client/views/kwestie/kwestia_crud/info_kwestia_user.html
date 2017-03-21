@@ -16,10 +16,32 @@
                     <div role="tabpanel" class="tab-pane active" id="issueInfoo">
                         <br />
                         {{> issueDetails}}
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} informacjeKwestia </div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+		</div>
+	</div>
+</div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="manageZRIssue">
                         <br />
                         {{> issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} Zespół Realizacyjny </div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+		</div>
+	</div>
+</div>
                     </div>
                 </div>
             </div>
@@ -200,7 +222,6 @@
         {{>decyzjaModal}}
         {{>listZespolRealizacyjnyDoubleModal}}
     {{/unless}}
-
 </template>
 
 
