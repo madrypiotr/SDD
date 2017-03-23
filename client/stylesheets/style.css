@@ -17,6 +17,16 @@ body {
   font-family: 'Coda', sans-serif; /*pm*/
 	}
 	
+.warnCommNotChange{
+	float: right;
+	width: 150px;
+	margin-right: 20px;
+	padding: 3px;
+	color: red;
+    font-size: 10px;
+	text-align: center;
+}
+
 .fontSize{
     font-size: 11px;
 }

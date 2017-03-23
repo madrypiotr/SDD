@@ -94,16 +94,3 @@ przyjecieWnioskuConfirmation=function(time,email,userTypeText){
         }
     });
 };
-przyjecieWnioskuHonorowyConfirmation=function(time,email,userTypeText){
-    bootbox.dialog({
-        message: TXV.YOUR_APPLICATION_FORM_WIL_BE_WAITING + time + TXV.DAYS_FOR_APPROVAL_OF_THE_TOTAL_MEMBERS + getNazwaOrganizacji() +
-        TXV.AFTER_ACCEPTING_THE_PERSON_THAT_YOU_INDICATED_WILL_RECEIVE_EMAIL_AT + email+TXV.WHICH_WILL_RECEIVE_A_LINK_ON_BELONGING_TO_THEORGANIZATION_AS_A + userTypeText + ".",
-        title: TXV.WARNING,
-        buttons: {
-            main: {
-                label: TXV.OK,
-                className: "btn-primary"
-            }
-        }
-    });
-};

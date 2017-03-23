@@ -28,11 +28,6 @@ Template.answerInvitation.helpers({
         var userDraft=getUserDraftMethod(Router.current().params);
         return userDraft.profile.firstName+" "+userDraft.profile.lastName;
     },
-    position:function(){
-        var userDraft=getUserDraftMethod(Router.current().params);
-        if(userDraft.profile.userType==USERTYPE.HONOROWY)
-        return TXV.HONORARY_MEMBER;
-    },
     organizationName:function(){
         return Parametr.findOne().nazwaOrganizacji ? Parametr.findOne().nazwaOrganizacji : null;
     },
@@ -71,40 +66,13 @@ Template.answerInvitation.events({
    'click #apply':function(e){
        e.preventDefault();//kwestia idzie do realizacji
        var kwestia=getKwestia(Router.current().params);
-
-       if(kwestia.typ=KWESTIA_TYPE.ACCESS_HONOROWY){
-
-           var userDraft=getUserDraftMethod(Router.current().params);
-           //jezeli to jest istniejący doradca- email o wynku i update jego statusu
-           if(userDraft.profile.idUser!=null){
-               applyPositiveMethod(kwestia);
-               Meteor.call("updateUserType",userDraft.profile.idUser,userDraft.profile.userType,function(error){
-                   Meteor.call("sendApplicationAccepted", userDraft._id, "acceptExisting", function (error) {
-                       if(!error)
-                           Meteor.call("removeUserDraft", userDraft._id);
-                       else{
-                           var emailError = {
-                               idIssue: kwestia._id,
-                               idUserDraft: userDraft._id,
-                               type: NOTIFICATION_TYPE.APPLICATION_ACCEPTED
-                           };
-                           Meteor.call("addEmailError", emailError);
-                       }
-                   });
-               });
-           }
-           else{
-                fillDataNewHonorowyBootbox(kwestia,userDraft.email);
-           }
-       }
-
    },
     'click #refuse':function(e){
         e.preventDefault();
         var kwestia=getKwestia(Router.current().params);
         var userDraft=getUserDraftMethod(Router.current().params);
 
-        Meteor.call('removeKwestiaSetReasonAnswer', kwestia._id,KWESTIA_ACTION.INVITATION_HONOROWY_REJECTED,false,function(error) {
+        Meteor.call('removeKwestiaSetReasonAnswer', kwestia._id,false,function(error) {
             if(!error) {
                 if (kwestia.idZespolRealizacyjny) {
                     var zrDraft=ZespolRealizacyjnyDraft.findOne({_id:kwestia.idZespolRealizacyjny});
@@ -170,64 +138,6 @@ applyPositiveMethod=function(kwestia){
     });
 };
 
-fillDataNewHonorowyBootbox=function(kwestia,email){
-    bootbox.dialog({
-            title: TXV.TO_ACCESS_COMPLETE_THE_FIELDS,
-            closeButton:false,
-            message:
-            '<div class="row">  ' +
-            '<div class="col-md-12"> ' +
-            '<form class="form-horizontal"> ' +
-            '<div class="form-group"> ' +
-                '<label class="col-md-4 control-label" for="name">TXV.F_NAME</label> ' +
-                '<div class="col-md-4"> ' +
-                    '<input id="firstName" name="firstName" type="text"  class="form-control input-md"> ' +
-                '</div> ' +
-            '</div>'+
-            '<div class="form-group"> ' +
-            '<label class="col-md-4 control-label" for="name">TXV.L_NAME</label> ' +
-            '<div class="col-md-4"> ' +
-            '<input id="lastName" name="lastName" type="text"  class="form-control input-md"> ' +
-            '</div> ' +'</div>'+
-            '<div class="form-group"> ' +
-            '<label class="col-md-4 control-label" for="name">TXV.CITY</label> ' +
-            '<div class="col-md-4"> ' +
-            '<input id="city" name="city" type="text"  class="form-control input-md"> ' +
-            '</div> ' +'</div>'+
-            '</form> ' +
-            '</div>  ' +
-            '</div>',
-            buttons: {
-                success: {
-                    label: TXV.DO_STORE,
-                    className: "btn-success successSave",
-                    callback: function () {
-                        var firstName = $('#firstName').val();
-                        var lastName=$('#lastName').val();
-                        var city=$('#city').val();
-                        if(firstName.trim()!='' && lastName.trim()!='' && city.trim()!=''){
-                            $('.successSave').css("visibility", "hidden");
-                            addNewUser(firstName,lastName,city,email,kwestia);
-                        }
-                        else{
-                            fillDataNewHonorowyBootbox(kwestia,email);
-                            $('.successSave').css("visibility", "visible");
-                            GlobalNotification.error({
-                                title: TXV.WARNING,
-                                content: TXV.DO_NOT_EMPTY,
-                                duration: 4 // duration the notification should stay in seconds
-                            });
-                        }
-                    }
-                },
-                main: {
-                    label: TXV.GO_BACK,
-                    className: "btn-primary"
-                }
-            }
-        }
-    );
-};
 addNewUser=function(firstName,lastName,city,email,kwestia){
     applyPositiveMethod(kwestia);
 

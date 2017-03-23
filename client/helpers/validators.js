@@ -77,7 +77,7 @@ jQuery.validator.addMethod("checkExistsAnyEmail", function (value, element) {
 
 jQuery.validator.addMethod("checkExistsEmailZwyczajny", function (value, element) {
     var found=null;
-    var users=Users.find({'profile.userType':{$in:[USERTYPE.CZLONEK,USERTYPE.HONOROWY]}});
+    var users=Users.find({'profile.userType':{$in:[USERTYPE.CZLONEK]}});
     users.forEach(function(user){
        if(user.emails[0].address==value)
         found=true;
@@ -95,12 +95,8 @@ jQuery.validator.addMethod("checkExistsEmail", function (value, element,param) {
 
 jQuery.validator.addMethod("checkExistsEmail2", function (value, element,param) {
     var found = null;
-    if (!Meteor.userId()) {
-        found=checkExistsUser(value,param,USERTYPE.HONOROWY);
-    }
     return this.optional(element) || found == null;
 }, TXV.LONGER_EXISTS_ON_THE_SPECIFIED_USER);
-
 
 jQuery.validator.addMethod("checkExistsEmailDraft", function (value, element) {
     var usersDraft = UsersDraft.find({

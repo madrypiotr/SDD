@@ -17,9 +17,6 @@ Template.notificationInfo.helpers({
     notificationTypeLobbingMessage:function(){
         return this.powiadomienieTyp==NOTIFICATION_TYPE.LOOBBING_MESSAGE ? true : false;
     },
-    notificationTypeHonorowyInvitation:function(){
-        return this.powiadomienieTyp==NOTIFICATION_TYPE.HONOROWY_INVITATION ? true : false;
-    },
     notificationTypeVoteStarted:function(){
         return this.powiadomienieTyp==NOTIFICATION_TYPE.VOTE_BEGINNING ? true : false;
     },
@@ -162,21 +159,6 @@ Template.notificationApplicationAnswer.helpers({
     },
     userTypeData:function(){
         return this.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ? TXV.ORD_MEMBER : TXV.HONORARY_MEMBER;
-    }
-});
-
-Template.notificationHonorowyInvitation.helpers({
-    powiadomienie:function(idPowiadomienie){
-        return getNotification(idPowiadomienie);
-    },
-    actualUserDraft:function(idUserDraft){
-        return getUserDraft(idUserDraft);
-    },
-    userData:function(){
-        return Meteor.user().profile.fullName;
-    },
-    organisationName:function(){
-        return Parametr.findOne().nazwaOrganizacji;
     }
 });
 

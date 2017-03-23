@@ -4,7 +4,6 @@ SSR.compileTemplate('email_added_issue',Assets.getText('email_added_issue.html')
 SSR.compileTemplate('email_new_message',Assets.getText('email_new_message.html'));
 SSR.compileTemplate('email_lobbing_issue',Assets.getText('email_lobbing_issue.html'));
 SSR.compileTemplate('email_started_voting',Assets.getText('email_started_voting.html'));
-SSR.compileTemplate('email_honorowy_invitation',Assets.getText('email_honorowy_invitation.html'));
 SSR.compileTemplate('email_application_confirmation',Assets.getText('email_application_confirmation.html'));
 SSR.compileTemplate('email_application_rejected',Assets.getText('email_application_rejected.html'));
 SSR.compileTemplate('email_application_accepted',Assets.getText('email_application_accepted.html'));
@@ -292,15 +291,6 @@ Meteor.methods({
             }
         });
     },
-    sendEmailHonorowyInvitation:function(userData,text){
-        var data=applicationEmail(userData,text,null);
-        Email.send({
-            to: data.to,
-            from: data.to,
-            subject: TXV.INVITATION_TO_APPLY +Parametr.findOne().nazwaOrganizacji,
-            html: data.html
-        });
-    },
     sendApplicationConfirmation:function(idUser){
         var userData = UsersDraft.findOne({_id: idUser});
         var data=applicationEmail(userData,"confirm",null);
@@ -384,7 +374,6 @@ applicationEmail=function(userData,emailTypeText,passw){
     switch (userData.profile.userType){
         case USERTYPE.CZLONEK: userTypeData=TXV.ORD_MEMBER;break;
         case USERTYPE.DORADCA: userTypeData=TXV.COUNSELOR;break;
-        case USERTYPE.HONOROWY: userTypeData=TXV.HONORARY_MEMBER;break;
     }
     var url=null;
     var login=null;
@@ -408,11 +397,6 @@ applicationEmail=function(userData,emailTypeText,passw){
     }
     else if(emailTypeText=="acceptExisting"){
         emailTypeText = 'email_application_accepted_existing_user';
-    }
-    else if(emailTypeText=="honorowyInvitation"){
-        emailTypeText = 'email_honorowy_invitation';
-        if(userData.linkAktywacyjny)
-            url=Meteor.absoluteUrl()+"account/answer_invitation/"+userData.linkAktywacyjny;
     }
     else if(emailTypeText=="loginData"){
         emailTypeText = 'email_login_data';

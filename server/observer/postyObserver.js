@@ -16,7 +16,6 @@ Meteor.startup(function(){
             $in: [
                 KWESTIA_STATUS.DELIBEROWANA,
                 KWESTIA_STATUS.GLOSOWANA,
-                KWESTIA_STATUS.STATUSOWA,
                 KWESTIA_STATUS.REALIZOWANA,
                 KWESTIA_STATUS.ADMINISTROWANA,
                 KWESTIA_STATUS.ZREALIZOWANA,

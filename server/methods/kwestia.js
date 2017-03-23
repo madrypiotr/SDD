@@ -72,41 +72,6 @@ Meteor.methods({
         Kwestia.update({_id: id}, {$set: {idParent: id}}, {upsert: true});
         return id;
     },
-    addKwestiaStatusowa: function (newKwestia) {
-        var issueNumber = "";
-        Meteor.call('generateNextIssueNumber', function (error, ret) {
-            if (error) {
-                throwError(error.reason);
-            } else {
-                issueNumber = ret;
-            }
-        });
-        var id = Kwestia.insert({
-            idUser: newKwestia[0].idUser,
-            dataWprowadzenia: newKwestia[0].dataWprowadzenia,
-            kwestiaNazwa: newKwestia[0].kwestiaNazwa,
-            wartoscPriorytetu: parseInt(newKwestia[0].wartoscPriorytetu),
-            wartoscPriorytetuWRealizacji: parseInt(newKwestia[0].wartoscPriorytetuWRealizacji),
-            idTemat: newKwestia[0].idTemat,
-            idRodzaj: newKwestia[0].idRodzaj,
-            dataGlosowania: newKwestia[0].dataGlosowania,
-            czyAktywny: newKwestia[0].czyAktywny = true,
-            status: newKwestia[0].status,
-            krotkaTresc: newKwestia[0].krotkaTresc,
-            szczegolowaTresc: newKwestia[0].szczegolowaTresc,
-            glosujacy: [],
-            glosujacyWRealizacji:[],
-            isOption: false,
-            idZglaszajacego: newKwestia[0].idZglaszajacego,
-            isAnswerPositive:newKwestia[0].isAnswerPositive,
-            dataRozpoczeciaOczekiwania:newKwestia[0].dataRozpoczeciaOczekiwania,
-            typ:newKwestia[0].typ,
-            idZespolRealizacyjny: newKwestia[0].idZespolRealizacyjny,
-            issueNumber: issueNumber
-        });
-        Kwestia.update({_id: id}, {$set: {idParent: id}}, {upsert: true});
-        return id;
-    },
  addKwestiaADMINISTROWANA: function (newKwestia) {
      var issueNumber = "";
      Meteor.call('generateNextIssueNumber', function (error, ret) {

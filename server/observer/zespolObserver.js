@@ -14,7 +14,6 @@ Meteor.startup(function(){
             $in: [
                 KWESTIA_STATUS.DELIBEROWANA,
                 KWESTIA_STATUS.GLOSOWANA,
-                KWESTIA_STATUS.STATUSOWA,
                 KWESTIA_STATUS.REALIZOWANA,
                 KWESTIA_STATUS.ADMINISTROWANA,
                 KWESTIA_STATUS.ZREALIZOWANA,
@@ -32,23 +31,6 @@ Meteor.startup(function(){
                 if(kwestia.wartoscPriorytetu > 0 && kwestia.glosujacy.length >= kworum && newZespol.zespol.length >= 3 && kwestia.status != KWESTIA_STATUS.REALIZOWANA){
                     if(kwestia.status == KWESTIA_STATUS.DELIBEROWANA){
                         moveKwestiaToGlosowana(kwestia);
-                    }
-                    else if (kwestia.status == KWESTIA_STATUS.STATUSOWA){
-
-                        Meteor.call('updateStatusDataOczekwianiaKwestii', kwestia._id, KWESTIA_STATUS.OCZEKUJACA,new Date());
-
-                        Meteor.call("sendEmailHonorowyInvitation", kwestia.idUser,function(error,ret){
-                            if(error){
-                                Meteor.call("setIssueProblemSendingEmail",kwestia._id,
-                                    SENDING_EMAIL_PROBLEMS.NO_INVITATION_HONOROWY);
-                                var emailError = {
-                                    idIssue: kwestia._id,
-                                    idUserDraft: kwestia.idUser,
-                                    type: NOTIFICATION_TYPE.HONOROWY_INVITATION
-                                };
-                                Meteor.call("addEmailError", emailError);
-                            }
-                        });
                     }
                 }
             }

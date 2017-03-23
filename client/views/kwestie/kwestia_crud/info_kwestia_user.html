@@ -12,41 +12,38 @@
 {{_ "informacjeKwestia.ikZespReal"}}</a></li>
                 </ul>
 
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="issueInfoo">
-                        <br />
-                        {{> issueDetails}}
-<div class="footer">
-  <div id="button">{{_ "glob.globYouHere"}} informacjeKwestia </div>
-	<div id="container">
-		<div class="footer_center">
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
+<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="issueInfoo"><br />
+	{{> issueDetails}}
+		<div class="footer">
+		  <div id="button">{{_ "glob.globYouHere"}} informacjeKwestiaRealizowana </div>
+			<div id="container">
+				<div class="footer_center">
+					<p>{{_ "."}}</p>
+					<p>{{_ "."}}</p>
+					<p>{{_ "."}}</p>
+					<p>{{_ "."}}</p>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="manageZRIssue"><br />
+	{{> issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
+		<div class="footer">
+		  <div id="button">{{_ "glob.globYouHere"}} Zespół Realizacyjny </div>
+			<div id="container">
+				<div class="footer_center">
+					<p>{{_ "."}}</p>
+					<p>{{_ "."}}</p>
+					<p>{{_ "."}}</p>
+					<p>{{_ "."}}</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="manageZRIssue">
-                        <br />
-                        {{> issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
-<div class="footer">
-  <div id="button">{{_ "glob.globYouHere"}} Zespół Realizacyjny </div>
-	<div id="container">
-		<div class="footer_center">
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-		</div>
-	</div>
 </div>
-                    </div>
-                </div>
-            </div>
-         </div>
-
+</div>
         {{else}}
             {{>issueDetails}}
         {{/if}}
@@ -58,11 +55,9 @@
 
 <template name="issueDetails">
     <div class="main">
- <!--Kwestia w Koszu-->
        {{#if kwestiaInKosz}}
-                            <h2>
-{{_ "issueDetails.iDeTheIssueOfInactiveItIsLocatedInAtrashCan"}}</h2>
-                        {{/if}}
+        <h4 class="color-red">{{_ "issueDetails.iDeTheIssueOfInactiveItIsLocatedInAtrashCan"}}</h4>
+       {{/if}}
         <div class="row">
             <div class="col-md-12">
                 <legend><small>
@@ -222,8 +217,61 @@
         {{>decyzjaModal}}
         {{>listZespolRealizacyjnyDoubleModal}}
     {{/unless}}
-</template>
+ <!-- pageInfo -->
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} Szczegóły Kwestii deliberowanej</div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+		</div>
+	</div>
+</div>
 
+{{#if kwestiaInKosz}}
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} Szczegóły Kwestii w Koszu</div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+		</div>
+	</div>
+</div>
+{{/if}}
+
+{{#if isIssueArchiwalna}}
+<div class="footer">
+  <div id="button">{{_ "glob.globYouHere"}} Szczegóły Kwestii archiwalnej</div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+			<p>{{_ "."}}</p>
+		</div>
+	</div>
+</div>
+{{/if}}
+
+{{#if isIssueGlosowana}} <!--nie działa-->
+	<div class="footer">
+	  <div id="button">{{_ "glob.globYouHere"}} Szczegóły Kwestii głosowanej</div>
+		<div id="container">
+			<div class="footer_center">
+				<p>{{_ "."}}</p>
+				<p>{{_ "."}}</p>
+				<p>{{_ "."}}</p>
+				<p>{{_ "."}}</p>
+			</div>
+		</div>
+	</div>
+{{/if}}
+</template>
 
 <template name="issueManageZR">
     <input type="hidden" id="idZR" value="{{idZespolRealizacyjny}}"/>

@@ -134,7 +134,7 @@ checkingEndOfVote = function() {
                         }
 
 
-                        if(_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY,KWESTIA_TYPE.ACCESS_HONOROWY],issueUpdated.typ)) {
+                        if(_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issueUpdated.typ)) {
                             var userDraft = UsersDraft.findOne({_id: issueUpdated.idUser});
 
                             if(userDraft.profile.idUser!=null){
@@ -153,10 +153,7 @@ checkingEndOfVote = function() {
                                         };
                                         text="rewriteFromDraftToUser";
                                     }
-                                    else if(issueUpdated.typ==KWESTIA_TYPE.ACCESS_HONOROWY){
-                                        newUserFields=userDraft.profile.userType;
-                                        text="updateUserType";
-                                    }
+
                                     Meteor.call(text,user._id,newUserFields,function(error){
                                         if(!error){
                                             Meteor.call("removeUserDraft",userDraft._id,function(error){
@@ -262,7 +259,6 @@ checkingDeliberationExpiration=function(){
     {$in: [
         KWESTIA_STATUS.DELIBEROWANA,
         KWESTIA_STATUS.ADMINISTROWANA,
-        KWESTIA_STATUS.STATUSOWA,
         KWESTIA_STATUS.OSOBOWA
     ]}});
     kwestie.forEach(function(kwestia){

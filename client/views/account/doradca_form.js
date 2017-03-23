@@ -54,7 +54,7 @@ Template.doradcaForm.events({
             }
             else {
                 if(ret == false) {
-                    Meteor.call('serverCheckExistsUser', email, USERTYPE.CZLONEK,USERTYPE.HONOROWY, null, function (error, ret) {
+                    Meteor.call('serverCheckExistsUser', email, USERTYPE.CZLONEK, null, function (error, ret) {
                         if (error) {
                             throwError(error.reason);
                         }

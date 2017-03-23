@@ -1,11 +1,9 @@
 <template name="czlonekZwyczajnyForm">
     <div class="main">
         <legend>
-<!--Aplikowanie na członka zwyczajnego w organizacji-->
 {{_ 'czlonekZwyczajnyForm.cZwApplyingAmemberOfTheOrdinary'}} {{nazwaOrganizacji}}</legend>
         {{#if currentUser}}
             <p class="col-md-12 bg-danger padding-15">
- <!--Uzupełnij brakujące pola we wniosku.-->
 {{_ 'czlonekZwyczajnyForm.cZwFillInTheMissingFieldsInTheApplication'}}
             </p>
             <br/>
@@ -15,93 +13,75 @@
                 <form class="form-horizontal" id="userForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
-<!--e-mail-->
 {{_ 'glob.globEmail'}}: </label>
 
                         <div class="col-xs-9">
-<!--e-mail-->
 <input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.globEmail'}}"
                                    value={{email}}
                                            required {{isNotEmpty}}>
                         </div>
                     </div>
                     <div class="form-group">
-<!--Imię-->
 <label class="control-label col-xs-3" for="firstName">{{_ 'glob.globFname'}}: </label>
 
                         <div class="col-xs-9">
-<!--Imię-->
 <input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.globFname'}}"
                                    value={{profile.firstName}}
                                            required {{isNotEmpty}}>
                         </div>
                     </div>
                     <div class="form-group">
-<!--Nazwisko-->
 <label class="control-label col-xs-3" for="lastName">{{_ 'glob.globLname'}}: </label>
 
                         <div class="col-xs-9">
-<!--Nazwisko-->
 <input name="lastName" type="text" class="form-control" id="lastName" placeholder="{{_ 'glob.globLname'}}" value={{profile.lastName}} required {{isNotEmpty}}>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="phoneNumber">
-<!--PESEL-->
 {{_ 'glob.globPID'}}: </label>
 
                         <div class="col-xs-9">
-<!--PESEL-->
 <input name="pesel" type="text" class="form-control" id="pesel" placeholder="{{_ 'glob.globPID'}}" value={{profile.pesel}} required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="postalAddress">
-<!--Adres-->
 {{_ 'glob.globAdress'}}: </label>
 
                         <div class="col-xs-9">
-   <!--Adres-->
 <textarea name="address" rows="3" class="form-control" id="postalAddress" placeholder="{{_ 'glob.globAdress'}}" value={{profile.address}} required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
-<!--Kod pocztowy-->
 {{_ 'glob.globPostalC'}}: </label>
                         <div class="col-xs-9">
-<!--Kod pocztowy-->
 <input class="form-control" type="text" name="ZipCode" id="ZipCode" placeholder="{{_ 'glob.globPostalC'}}" required/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
-<!--Miasto-->
 {{_ 'glob.globCity'}}: </label>
                         <div class="col-xs-9">
-<!--Miasto-->
 <input name="city" type="text" class="form-control" id="city" placeholder="{{_ 'glob.globCity'}}" value={{profile.city}} required {{isNotEmpty}}>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="uwagiStatus">
-<!--Dodatkowe-->
 {{_ 'czlonekZwyczajnyForm.cZwAdditional'}}: </label>
 
                         <div class="col-xs-9">
-<!--Napisz parę słów do nas, o sobie i powodach Twojego wniosku...-->
 <textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'czlonekZwyczajnyForm.cZwWriteAfewWordsToUsAboutYourself'}}"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
-<!--Język użytkownika-->
 {{_ 'czlonekZwyczajnyForm.cZwLanguageUser'}}: </label>
 
                         <div class="col-xs-9">
                             <select name="language" id="language" class="form-control" required>
                                 <option value="0">
-<!--Wybierz język-->
 {{_ 'czlonekZwyczajnyForm.cZwChooseLanguage'}}</option>
                                 {{#each getLanguages}}
                                     <option value="{{shortName}}">{{languageName}}</option>
@@ -114,20 +94,14 @@
                             <div class="input-group">
                                 <input type="checkbox" name="statutConfirmation"  required/>
                                 <span id="statutConfirmationSpan">
-<!--Potwierdzam znajomość-->
 {{_ 'czlonekZwyczajnyForm.cZwIconfirmKnowledge'}} <a id="statutBootbox">
-<!--Regulaminu-->
 {{_ 'czlonekZwyczajnyForm.cZwOfTheRules'}}</a> </span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
-
-						<!--Aplikuję o przyjęcie-->
 <input type="submit" class="btn btn-primary" value="{{_ 'czlonekZwyczajnyForm.cZwIapplyForAdmission'}}" id="submitZwyczajny">
-
-<!--Anuluj-->
 <input type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
                         </div>
                     </div>

@@ -40,7 +40,6 @@
 	"globDidNotAcceptYourApplication":"nie zaakceptowała Twojego wniosku.",
 	"globQuestionsAndCommentsCanFollow":"Pytania i uwagi możesz kierować ",
 	"globItIsTheDecisionOfTheMajorityOfVotingMembers":"Jest to decyzja większości głosujących Członków.",
-	"globItIsAnInvitationToApplyForHonoraryMemberInTheSystem":"To jest zaproszenie do aplikowania na Członka Honorowego w systemie ",
 	"globToGiveUsYourDecisionPleaseClick":"Aby przekazać nam swoją decyzję, prosimy kliknij ",
 	"globHeAdoptedAresolutionOnTheImplemOfIssue":" podjęła uchwałę (w zał.) w sprawie realizacji Kwestii: ",
 	"globOn":" dotyczącą: ",
@@ -206,9 +205,7 @@
 		"dymGlobalParamB":"Zmienić można parametry, począwszy od nazwy i kontaktów organizacji, po szczegółowe zachowania w funkcjach czasu. Każdy Członek może podać nową wartość dowolnego parametru, tworząc automatycznie Kwestię techniczną do przyjęcia przez Ogół. Przejście takiej Kwestii do realizacji oznacza automatyczną zmianę parametru na nową wartość.",
 		 "dymGlobalParamC":"Ustalone już parametry można również później zmieniać. W danym czasie można procedować zmianę jednego parametru. Po jego ustaleniu można zmieniać kolejny.",
 		 
-		"dymUsersList":"Znajdziesz tutaj wykaz Użytkowników Systemu oraz bedziesz mógł się z nimi kontaktować.",
-		  "dymUsersListA":"Każdy Użytkownik może zaproponować osobę do współpracy w harakterze Członka Honorowego. Wystarczy uzyskać zgodę tej osoby a następnie podać jej e-mail i uzasadnić.",
-		  "dymUsersListB":"Kandydat otrzyma powiadomienie z Systemu a Użytkownicy rozpatrzą jego akces."
+		"dymUsersList":"Znajdziesz tutaj wykaz Użytkowników Systemu oraz bedziesz mógł się z nimi kontaktować."
   },
   "language":{
 	"lanSystSDD":"SDD"
@@ -404,7 +401,6 @@
 	"ansYouRejectedAnInvitationToApplyAs":"Odrzuciłeś zaproszenie do aplikowania jako ",
 	"ansDziekuj":"Dziękujemy za potwierdzenie chęci przynależenia do naszej organizacji",
 	"ansTheNextMessYouWillReceiveYourLoginDetails":"W następnej wiadomości otrzymasz dane do logowania.",
-	"ansYouHaveJustReceivedAstatusOfHonorMem":"Otrzymałeś właśnie status Członka Honorowego",
 	"ansYouCanKeepAbreastOfIssue":"Możesz śledzić na bieżąco Kwestię",
 	"ansThankYouForAnswering":"Dziękujemy za udzielenie odpowiedzi.",
 	"ansSystem":"System"
@@ -428,10 +424,6 @@
   },
   "profileEdit":{
 	"prfToAccessCompleteTheRequiredFields":"Edytuj profil"
-  },
-  "fillDataHonorowyModalInner":{
-	"fdhToAccessCompleteTheRequiredFields":"Aby uzyskać dostęp, należy uzupełnić wymagane pola.",
-	"fdhSubmit":"Zatwierdź"
   },
   "forgottenPassword":{
 	"fpaResetPassword":"Resetuj hasło"
@@ -777,14 +769,6 @@
 	"smContents":"Treść",
 	"smSend":"Wyślij"
   },
-  "addHonorowy":{
-	"pinfoSuggestions":"PROPOZYCJE",
-	"pinfoSuggestionsA":"Inne funkcje Systemu i złoszenia Członków.",
-	"adhApplicationForHonoraryMember":"Zgłoszenie na Członka Honorowego",
-	"adhSubstantiation":"Uzasadnienie",
-	"adhExplainWhyZouWantToInvoke":"Uzasadnij dlaczego chcesz powołać na  Członka Honorowego właśnie tę osobę",
-	"adhIsubmit":"Zgłoś"
-  },
   "administracjaUserMain":{
 	"pinfoMyIssues":"MOJE KWESTIE",
 	"pinfoMyIssuesA":"Tutaj znajdziesz wszystkie Kwestie, przez Ciebie dodane.",
@@ -832,6 +816,25 @@
 	"moreDuringImpA":"To wykaz aktualnie obowiązujących dokumentów dla zarejestrowanych tu Użytkowników. Powstały one po pozytywnym przejsciu przez głosowanie Kwestii.",
 	"moreDuringImpB":".",
 	"moreDuringImpC":".",
-	"moreDuringImpD":"."
+	"moreDuringImpD":".",
+	"moreMyIssuesA":"To właściwe miejsce dla przejrzenia swoich Kwestii i zadbania o ich rozwój. Podobnie, jak na każdym wykazie, tak i tutaj możesz po kliknięciu w nagłówek kolumny:",
+	"moreMyIssuesB":"- sortować swoje Kwestie wg. daty dodania, nazwy Kwestii lub wielkości priorytetu.",
+	"moreMyIssuesC":"- filtrować, aby szybko znaleźć Kwestie wg wpisanej frazy w oknie [Szukaj]. Już po wpisaniu jednej litery, z wykazu znikną te Kwestie, które jej w nazwie nie mają ...",
+	"moreMyIssuesD":"- zachęcić innych do wsparcia Kwestii w dyskusji. Argumentuj tę potrzebę po kliknięciu w [Lobbuj za Kwestią].",
+	"moreMyIssuesE":"Aby wesprzeć Kwestię ustaw jej priorytet i weź udział w dyskusji, przechodząc do szczegółów Kwestii kliknięciem w jej nazwę.",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":"."
   }
 }

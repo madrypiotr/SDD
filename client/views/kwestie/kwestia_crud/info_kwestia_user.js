@@ -192,7 +192,7 @@ Template.issueDetails.helpers({
                 if (Meteor.user().roles == "admin")
                     return false;
                 else {
-                    return Meteor.user().profile.userType !=USERTYPE.DORADCA && Meteor.user().profile.userType !=USERTYPE.HONOROWY ? false : true;
+                    return Meteor.user().profile.userType !=USERTYPE.DORADCA ? false : true;
                 }
             }
         }

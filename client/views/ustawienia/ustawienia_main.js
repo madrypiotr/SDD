@@ -9,6 +9,7 @@ Template.administracjaUserMain.helpers({
             fields: [
                 { key: 'dataWprowadzenia', label: TXV.DATE_OF_INTRO, tmpl: Template.dataUtwKwestia },
                 { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
+                { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'ascending'},
                 { key: 'options', label: TXV.OPTIONS, tmpl: Template.lobbujZaKwestia }
             ]
         };
@@ -79,8 +80,7 @@ Template.lobbujZaKwestia.helpers({
         (this.status==KWESTIA_STATUS.GLOSOWANA ||
         this.status==KWESTIA_STATUS.DELIBEROWANA ||
         this.status==KWESTIA_STATUS.OSOBOWA ||
-        this.status==KWESTIA_STATUS.ADMINISTROWANA ||
-        this.status==KWESTIA_STATUS.STATUSOWA) ? true: false;
+        this.status==KWESTIA_STATUS.ADMINISTROWANA) ? true: false;
     }
 });
 

@@ -42,10 +42,10 @@ Template.czlonekZwyczajnyForm.rendered = function () {
                 required: fieldEmptyMessage()
             },
             pesel:{
-                required:fieldEmptyMessage()
+                required: fieldEmptyMessage()
             },
             city:{
-                required:fieldEmptyMessage()
+                required: fieldEmptyMessage()
             },
             statutConfirmation:{
                 required:fieldEmptyMessage()
@@ -111,7 +111,7 @@ Template.czlonekZwyczajnyForm.events({
                             addIssueOsobowa(newUser);
                         }
                         else {
-                            Meteor.call('serverCheckExistsUser', email, USERTYPE.DORADCA, USERTYPE.HONOROWY, function (error, ret) {
+                            Meteor.call('serverCheckExistsUser', email, USERTYPE.DORADCA, function (error, ret) {
                                 if (error) {
                                     throwError(error.reason);
                                 }

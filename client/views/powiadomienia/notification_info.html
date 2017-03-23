@@ -20,10 +20,6 @@
                             idPowiadomienie=this._id
                         }}
                     {{/if}}
-                    {{#if notificationTypeHonorowyInvitation}}
-                        {{>notificationHonorowyInvitation
-                        idPowiadomienie=this._id}}
-                    {{/if}}
                     {{#if notificationTypeVoteStarted}}
                         {{>notificationVoteStarted
                         idPowiadomienie=this._id}}
@@ -175,7 +171,6 @@
     {{/with}}
 </template>
 
-
 <template name="notificationApplicationAnswer">
     {{#with powiadomienie idPowiadomienie}}
             <div>SDD</div>
@@ -201,23 +196,6 @@
             <br /><br />
     {{/with}}
 </template>
-
-
-<template name="notificationHonorowyInvitation">
-    {{#with powiadomienie idPowiadomienie}}
-        <div>SDD</div>
-        <div>{{organisationName}}</div>
-        Szanowny/a {{userData}}! <br /><br />
-
-        Zostałeś zaproszony do aplikowania na stanowisko Członka Honorowego w systemie SDD {{organisationName}}.<br />
-        Aby potwierdzić / odrzucić chęć aplikowania na powyższe stanowisko kliknij
-        {{#with actualUserDraft this.idUserDraft}}
-            <a href={{pathFor 'answer_invitation'}}>tutaj</a>.<br/>
-        {{/with}}
-        <br /><br />
-    {{/with}}
-</template>
-
 
 <template name="notificationLobbingMessage">
     {{#with powiadomienie idPowiadomienie}}

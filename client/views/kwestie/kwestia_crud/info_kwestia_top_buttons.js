@@ -33,7 +33,6 @@ Template.kwestiaTopButtons.helpers({
     isKwestiaAccessOrChangeParams:function(typ,status,czyAktywny){
         return typ==KWESTIA_TYPE.ACCESS_DORADCA ||
             typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ||
-            typ==KWESTIA_TYPE.ACCESS_HONOROWY ||
             typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ||
             status==KWESTIA_STATUS.GLOSOWANA ||
             status==KWESTIA_STATUS.ZREALIZOWANA ||
@@ -43,7 +42,6 @@ Template.kwestiaTopButtons.helpers({
     isKwestiaAccessOrChangeParamsRealizacja:function(typ,status,czyAktywny){
         return ((typ==KWESTIA_TYPE.ACCESS_DORADCA ||
         typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ||
-        typ==KWESTIA_TYPE.ACCESS_HONOROWY ||
         typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) && (status==KWESTIA_STATUS.REALIZOWANA || status==KWESTIA_STATUS.ZREALIZOWANA) && czyAktywny==false) ||
         status==KWESTIA_STATUS.GLOSOWANA ||
         status==KWESTIA_STATUS.OCZEKUJACA ||
@@ -137,7 +135,7 @@ getReportsForIssueAtSpecificDuration=function(idKwestia){
 
 isIssueAllowedToArchiveBin=function(issue){
     if((issue.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE && issue.status==KWESTIA_STATUS.ZREALIZOWANA) ||
-        (_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_HONOROWY,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issue.typ) && issue.status==KWESTIA_STATUS.REALIZOWANA))
+        (_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issue.typ) && issue.status==KWESTIA_STATUS.REALIZOWANA))
     {
         var text=null;
         if(issue.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)

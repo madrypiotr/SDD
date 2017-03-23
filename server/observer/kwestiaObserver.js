@@ -5,8 +5,6 @@ Badanie zmian w postach, zespołach i kwestii w celu sprawdzenia czy kwestia pow
  deliberowana na glosowana
  glosowana na realizowana
  glosowana na archiwalna
- statusowa na oczekująca
- oczekująca na realizowana
  archiwalna na deliberowana
  */
 
@@ -29,7 +27,6 @@ Meteor.startup(function(){
             $in: [
                 KWESTIA_STATUS.DELIBEROWANA,
                 KWESTIA_STATUS.GLOSOWANA,
-                KWESTIA_STATUS.STATUSOWA,
                 KWESTIA_STATUS.REALIZOWANA,
                 KWESTIA_STATUS.ADMINISTROWANA,
                 KWESTIA_STATUS.ZREALIZOWANA,
@@ -69,38 +66,9 @@ Meteor.startup(function(){
                 else if(newKwestia.status==KWESTIA_STATUS.OSOBOWA && (newKwestia.typ==KWESTIA_TYPE.ACCESS_DORADCA || newKwestia.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY)){
                     moveKwestiaToGlosowana(newKwestia);
                 }
-                else if (newKwestia.status == KWESTIA_STATUS.STATUSOWA && newKwestia.typ==KWESTIA_TYPE.ACCESS_HONOROWY){
-                    var userDraft=UsersDraft.findOne({_id:newKwestia.idUser});
-                    var acceptInvitationLink = CryptoJS.MD5(userDraft._id).toString();
-                    Meteor.call("setActivationHashUserDraft",userDraft._id,acceptInvitationLink,function(error){
-                        if(!error){
-                            Meteor.call('updateStatusDataOczekwianiaKwestii', newKwestia._id, KWESTIA_STATUS.OCZEKUJACA,new Date(),function(error){
-                                if(error)
-                                    console.log(error.reason);
-                                else {
-                                    addPowiadomienieAplikacjaObsRespondMethod(newKwestia._id,new Date(),NOTIFICATION_TYPE.HONOROWY_INVITATION,userDraft.profile.idUser,newKwestia.idUser);
-                                    Meteor.call("sendEmailHonorowyInvitation", UsersDraft.findOne({_id: newKwestia.idUser}), "honorowyInvitation",function(error){
-                                        if(error){
-                                            Meteor.call("setIssueProblemSendingEmail",newKwestia._id,
-                                                SENDING_EMAIL_PROBLEMS.NO_INVITATION_HONOROWY);
-                                            var emailError = {
-                                                idIssue: newKwestia._id,
-                                                idUserDraft: newKwestia.idUser,
-                                                type: NOTIFICATION_TYPE.HONOROWY_INVITATION
-                                            };
-                                            Meteor.call("addEmailError", emailError);
-                                        }
-                                    });
-                                }
-                            });
-                        }
-                    });
-                }
-                else if (newKwestia.status == KWESTIA_STATUS.OCZEKUJACA && newKwestia.typ==KWESTIA_TYPE.ACCESS_HONOROWY){
+                else if (newKwestia.status == KWESTIA_STATUS.OCZEKUJACA){
                    if(newKwestia.isAnswerPositive==true){
                         }
-                    else{
-                   }
                 }
             }
 
@@ -110,21 +78,6 @@ Meteor.startup(function(){
                         if (newKwestia.idZespolRealizacyjny) {
                             manageZR(newKwestia);
                         }
-                        
-                        //if(_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY,KWESTIA_TYPE.ACCESS_HONOROWY],newKwestia.typ)) {
-                        //    var userDraft = UsersDraft.findOne({_id: newKwestia.idUser});
-                        //    if (userDraft) {
-                        //        Meteor.call("sendApplicationRejected", userDraft, function (error, ret) {
-                        //            (!error)
-                        //                Meteor.call('removeUserDraftNotZrealizowany',userDraft._id);
-                        //        });
-                        //    }
-                        //    if(userDraft.profile.idUser!=null) {
-                        //        var user = Users.findOne({_id:userDraft.profile.idUser});
-                        //        addPowiadomienieAplikacjaObsRespondMethod(newKwestia._id,new Date(),NOTIFICATION_TYPE.APPLICATION_REJECTED,user._id,null);
-                        //    }
-                        //}
-
                     }
                     else
                         throwError(error.reason);

@@ -84,7 +84,7 @@ withdrawalIssueChanges=function(issue){
     if(issue.typ=KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
         restoratePreviousParameters(issue);
     }
-    if(_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_HONOROWY,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issue.typ)){
+    if(_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issue.typ)){
         var userDraft=UsersDraft.findOne({_id:issue.idUser});
         if(userDraft.idUser){
 

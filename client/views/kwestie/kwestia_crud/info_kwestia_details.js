@@ -8,12 +8,9 @@ Template.kwestiaDetails.helpers({
         }
     },
     isOsobowa: function (typ) {
-        return  (_.contains([KWESTIA_TYPE.ACCESS_ZWYCZAJNY,KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_HONOROWY],typ)) ? true : false;
+        return  (_.contains([KWESTIA_TYPE.ACCESS_ZWYCZAJNY,KWESTIA_TYPE.ACCESS_DORADCA],typ)) ? true : false;
     },
     isGlobalParamsChange: function (typ) {
         return typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ? true : false;
-    },
-    isHonorowyType:function(typ){
-        return typ==KWESTIA_TYPE.ACCESS_HONOROWY ? true: false;
     }
 });

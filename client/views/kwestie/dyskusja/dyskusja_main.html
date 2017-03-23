@@ -31,15 +31,15 @@
             {{#if HasUserRights status czyAktywny}}
             <div class="col-xs-9">
                 <!--wpisz komentarz ...-->
-                <textarea id="message" name="message" type="text" class="form-control" required placeholder="{{_ 'discussionPostForm.diEnterAcomment'}}"></textarea>
+                <textarea id="message" name="message" type="text" class="form-control"  required placeholder="{{_ 'discussionPostForm.diEnterAcomment'}}"  ></textarea>
             </div>
             <input id="idKwestia" name="idKwestia" type="hidden" value="{{idKwestia}}">
             <!--Dodaj komentarz-->
+			<div class="warnCommNotChange">
             <input type="submit" for="dyskusjaForm" class="btn btn-primary" value="{{_ 'discussionPostForm.diAddAcomment'}}">  <br> 
-            <small>
                 <!--Uwaga: komentarza nie można usuwać ani zmieniać-->
                 {{_ "discussionPostForm.diCommentCanNotBeDeletedOrChanged"}}
-            </small>
+			</div>
             {{/if}}
         </div>
     </form>
