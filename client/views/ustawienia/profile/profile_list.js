@@ -44,8 +44,9 @@ Template.profileList.helpers({
             fields: [
                 { key: 'profile.firstName', label: TXV.F_NAME },
                 { key: 'profile.lastName', label: TXV.L_NAME },
-                { key: 'Kontakt', label: TXV.CONTACT, tmpl: Template.userEmailContact },
-                { key: 'profile.city', label: TXV.CITY }
+                { key: 'profile.rADking', label: TXV.RANKING },
+                { key: 'profile.city', label: TXV.CITY },
+                { key: 'Kontakt', label: TXV.CONTACT, tmpl: Template.userEmailContact }
             ],
             rowClass: function (item) {
                 var tab = self.usersRV.get();
@@ -59,8 +60,5 @@ Template.profileList.helpers({
 Template.userEmailContact.helpers({
     myProfile:function(id){
         return id==Meteor.userId() ? true :false;
-    },
-    email:function(){
-        return this.emails[0].address;
     }
 });

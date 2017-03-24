@@ -8,30 +8,6 @@ Template.previewKwestia.helpers({
     getRodzajName: function (id) {
         return Rodzaj.findOne({_id: id}).nazwaRodzaj;
     },
-    szczegolowaTresc: function(){
-        var sess=Session.get("kwestiaPreview");
-        var t=null;
-        if(sess){
-            t=sess.szczegolowaTresc;
-            if(t)
-            {
-                return t.length > 30 ? t.substring(0, 30) + "..." : t;
-            }
-            else return null;
-        }
-    },
-    krotkaTresc: function(){
-        var sess=Session.get("kwestiaPreview");
-        var t=null;
-        if(sess){
-            t=sess.krotkaTresc;
-            if(t)
-            {
-                return t.length > 30 ? t.substring(0, 30) + "..." : t;
-            }
-            else return null;
-        }
-    },
     temat:function(){
         var sess=Session.get("kwestiaPreview");
         var t=null;
