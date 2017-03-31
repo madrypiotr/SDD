@@ -2,27 +2,21 @@
     <div class="main">
         <div class="row">
             <div class="col-md-12">
-                <!--{{#if ArchiwumListCount}}-->
                     {{> reactiveTable
                     class = "table table-bordered table-hover"
                     fields = settings.fields
                     settings = settings
                     collection = "ArchiwumList"
                     }}
-                <!--{{else}}-->
-                    <!--<label>Brak Kwestii</label>-->
-                <!--{{/if}}-->
             </div>
         </div>
     </div>
 <div class="footer">
-  <div id="button">{{_ "glob.globYouHere"}} archiwumList </div>
+  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreArchiIssues"}} </div>
 	<div id="container">
 		<div class="footer_center">
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
+						<br /><br />
+		<p>{{_ "more.moreArchiIssuesA"}}</p>
 		</div>
 	</div>
 </div>

@@ -1,24 +1,18 @@
 <template name="kosz">
-<!--{{#if currentUser}}-->
     <div class="main">
         <div class="row">
             <div class="col-md-12">
-                <!--{{#if KoszListCount}}-->
                     {{> reactiveTable
                     class = "table table-bordered table-hover"
                     fields = settings.fields
                     settings = settings
                     collection = "KoszList"
                     }}
-                <!--{{else}}-->
-                    <!--<label>Brak Kwestii</label>-->
-                <!--{{/if}}-->
             </div>
         </div>
     </div>
-        <!--{{/if}}-->
 <div class="footer">
-  <div id="button">{{_ "glob.globYouHere"}} kosz </div>
+  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  kosz </div>
 	<div id="container">
 		<div class="footer_center">
 			<p>{{_ "."}}</p>

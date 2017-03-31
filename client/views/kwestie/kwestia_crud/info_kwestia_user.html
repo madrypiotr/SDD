@@ -16,7 +16,7 @@
 	<div role="tabpanel" class="tab-pane active" id="issueInfoo"><br />
 	{{> issueDetails}}
 		<div class="footer">
-		  <div id="button">{{_ "glob.globYouHere"}} informacjeKwestiaRealizowana </div>
+		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp; informacjeKwestiaRealizowana </div>
 			<div id="container">
 				<div class="footer_center">
 					<p>{{_ "."}}</p>
@@ -30,7 +30,7 @@
     <div role="tabpanel" class="tab-pane" id="manageZRIssue"><br />
 	{{> issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
 		<div class="footer">
-		  <div id="button">{{_ "glob.globYouHere"}} Zespół Realizacyjny </div>
+		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  Zespół Realizacyjny </div>
 			<div id="container">
 				<div class="footer_center">
 					<p>{{_ "."}}</p>
@@ -218,21 +218,9 @@
         {{>listZespolRealizacyjnyDoubleModal}}
     {{/unless}}
  <!-- pageInfo -->
-<div class="footer">
-  <div id="button">{{_ "glob.globYouHere"}} Szczegóły Kwestii deliberowanej</div>
-	<div id="container">
-		<div class="footer_center">
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-		</div>
-	</div>
-</div>
-
 {{#if kwestiaInKosz}}
 <div class="footer">
-  <div id="button">{{_ "glob.globYouHere"}} Szczegóły Kwestii w Koszu</div>
+  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  Szczegóły Kwestii w Koszu</div>
 	<div id="container">
 		<div class="footer_center">
 			<p>{{_ "."}}</p>
@@ -246,13 +234,22 @@
 
 {{#if isIssueArchiwalna}}
 <div class="footer">
-  <div id="button">{{_ "glob.globYouHere"}} Szczegóły Kwestii archiwalnej</div>
+  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreArchiIssueDetails"}}</div>
 	<div id="container">
 		<div class="footer_center">
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
+			<br /><br />
+		<p>{{_ "more.moreArchiIssueDetailsA"}}</p>
+		</div>
+	</div>
+</div>
+			{{else}}
+<div class="footer">
+  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreDeliberIssueDetails"}}</div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "more.moreDeliberIssueDetailsA"}}</p>
+			<p>{{_ "more.moreDeliberIssueDetailsB"}}</p>
+			<p>{{_ "more.moreDeliberIssueDetailsC"}}</p>
 		</div>
 	</div>
 </div>
@@ -260,7 +257,7 @@
 
 {{#if isIssueGlosowana}} <!--nie działa-->
 	<div class="footer">
-	  <div id="button">{{_ "glob.globYouHere"}} Szczegóły Kwestii głosowanej</div>
+	  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  Szczegóły Kwestii głosowanej</div>
 		<div id="container">
 			<div class="footer_center">
 				<p>{{_ "."}}</p>
