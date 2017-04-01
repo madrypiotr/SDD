@@ -59,11 +59,10 @@
                 {{> uzasadnienieKoszModal idKwestia=idKwestia}}
                 <div class="btn-group" role="group" aria-label="...">
                     {{#unless isKwestiaAccessOrChangeParamsRealizacja typ status czyAktywny}}
-                        <button id="doArchiwum" name="{{idKwestia}}" class="btn btn-warning" {{hasUserRights idKwestia}}>
+<!--button id="doArchiwum" name="{{idKwestia}}" class="btn btn-warning" {{hasUserRights idKwestia}}>
                             <span class="fa fa-lock"></span> 
-<!--Do Archiwum-->
 {{_ "kwestiaTopButtons.ktMoveItToTheArchive"}}
-                        </button>
+                        </button-->
                     {{/unless}}
                     {{#unless isKwestiaAccessOrChangeParamsRealizacja typ status czyAktywny}}
                         <button id="doKosza" name="{{idKwestia}}" class="btn btn-danger" {{hasUserRights idKwestia}}>

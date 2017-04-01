@@ -359,10 +359,6 @@
 	"ukiSubmit":"Zatwierdź"
   },
   "addKwestiaForm":{
-  "pinfoAddingIssue":"DODAWANIE KWESTII",
-  "pinfoAddingIssueA":"Jeśli masz jakiś problem do rozwiązania, pomysł, wniosek, najpierw sprawdź, czy może już taka Kwestia jest dyskutowana?",
-  "pinfoAddingIssueB":"Jeżeli tak - dołącz do deliberacji istniejącej Kwestii..",
-  "pinfoAddingIssueC":"Masz inne rozwiązanie? Możesz dodać tutaj własną wersję lub dodać Kwestię-Opcję (z poziomu szczegółów tej pierwotnej). Kwestia-Opcja będzie przywiązana do tej istniejącej, ale równoprawna w deliberacji. Prosimy o rozważne nazywanie. Dodanej nazwy Kwestii nie można usuwać ani edytować.",
     "akfAddIssue":"Dodaj Kwestię",
 	"akfNameIssue":"Nazwa Kwestii",
 	"akfChooseExisting":"Wybierz istniejący",
@@ -493,10 +489,6 @@
 	"noNoDataToDisplay":"Brak danych do wyświetlania..."
   },
   "addKwestiaOpcjaForm":{
-  "pinfoAddingOptions":"DODAWANIE OPCJI",
-  "pinfoAddingOptionsA":"Opcję Kwestii możesz dodać, kiedy chodzi o identyczną sprawę, a jedynie masz propozycję innego do niej podejścia. W szczegółach Kwestii masz do tego przycisk [Dodaj Opcję].",
-  "pinfoAddingOptionsB":"Jakakolwiek dodana Opcja Kwestii jest przez System traktowana identycznie, jak każda inna Kwestia. Jedynie w danej sprawie Kwestie-Opcje związane są ze sobą w sensie logicznym.",
-  "pinfoAddingOptionsC":"Efekt tego związania zauważalny jest wówczas, gdy jedna z nich zwycięży w głosowaniu. Pozostałe Kwestie-Opcje zostają przeniesione do [Archiwum] / [Hibernowane].",
     "aKwAddingIssueOption":"Dodawanie Kwestii-Opcji",
     "aKwNameIssueOption":"Nazwa Kwestii Opcji:",
     "aKwShortContent":"Krótka treść",
@@ -577,14 +569,6 @@
 	"ikZespReal":"Zespół Realizacyjny"
   },
   "issueDetails":{
-  "pinfoDetKw":"SZCZEGÓŁY KWESTII",
-  "pinfoHereYouSeeHistoryA":"Tu zobaczysz historię rozwoju spraw objętych tą Kwestią. Jej aktualny priorytet, status (fazę rozwoju). Jest pełna treść opisu szczegółowego, jak również stan skompletowania osób Zespołu Realizacyjnego i składanych Raportów Realizacyjnych.",
-  "pinfoHereYouSeeHistoryB":"Stąd możesz (za pomocą odpowiednich przycisków) zaproponować skierowanie Kwestii do [Archiwum] lub do [Kosza].",
-  "pinfoHereYouSeeHistoryC":"Jest tu również cała dyskusja na temat tej Kwestii (o ile była prowadzona).",
-  "pinfoTheIssueInTheTrashCan":"KWESTIA W KOSZU",
-  "pinfoTheIssueInTheTrashCanA":"Do kosza kierowane są Kwestie zgodnie z wolą Ogółu, po zaakceptowaniu wniosku dowolnego Użytkownika.",
-  "pinfoTheIssueInTheTrashCanB":"Odsyła się tu Kwestie nieudane, błędne, bez szans na wdrożenie.",
-  "pinfoTheIssueInTheTrashCanC":"Są one ostatecznie zarchiwizowane (bez możliwości wznowienia).",
     "iDeIssue":"Kwestia",
 	"iDeFrom":"od",
 	"iDeWarning":"Uwaga!",
@@ -682,17 +666,9 @@
 	"nlrLinkToIssue":"Link do Kwestii"
   },
   "listRaport":{
-	"pinfoListOfReports":"LISTA RAPORTÓW",
-	"pinfoListOfReportsA":"Wykaz Raportów Zespołu Realizacyjnego. Tu znajduje się historia realizacji Kwestii.",
-	"pinfoListOfReportsB":"Możesz się zorientować, czy (i jaki) jest los podjetej przez Ogół decyzji, czyli przyjetej uchwały.",
-	"pinfoListOfReportsC":"Jeśli masz jakieś uwagi, lub pytania wobec realizacji - wejdź do dyskusji Kwestii lub napisz do Członka Zespołu Realizacyjnego.",
 	"lraListOfReports":"Lista raportów"
   },
   "informacjeRaport":{
-	"pinfoRaRea":"RAPORT REALIZACYJNY",
-	"pinfoRaReA":"Widzisz Raport Realizacyjny tej Kwestii.",
-	"pinfoRaReB":"Raporty składają Członkowie Zespołu Realizacyjnego.",
-	"pinfoRaReC":"Cykliczne Raporty Realizacyjne mają być dla Ogółu podstawowym zabezpieczeniem pewności, odnośnie prawidłowego rozwoju spraw, które Kwestia obejmuje.",
 	"inrTheImplementationReport":"Raport Realizacyjny",
 	"inrCreationDate":"Data utworzenia",
 	"inrapAuthor":"Autor",
@@ -711,13 +687,7 @@
 	"rzcCompletedImplementation":"Zrealizowane"
   },
   "realizacjaTab1":{
-	"pinfoDuringImplementation":"REALIZOWANE",
-	"pinfoDuringImplemA":"Tu znajdują się Kwestie, które pozytywnie przeszły deliberację i głosowanie. Reprezentują one obowiązujace uchwały podjęte przez Ogół. Sposób ich realizacji można śledzić w Raportach Realizacyjnych. Realizacja (a tym samym ważność uchwały) obowiązuje do czasu zmiany atrybutu tej Kwestii.",
-	"pinfoDuringImplemB":"Zdjęcie z realizacji może nastąpić z następujacych przyczyn:",
-	"pinfoDuringImplemC":"- spadku priorytetu Kwestii do zera, lub wartości ujemnej,",
-	"pinfoDuringImplemD":"- wycofania Kwestii z realizacji (Archiwum, Kosz) decyzją Ogółu,",
-	"pinfoDuringImplemE":"- przeniesienia Kwestii do zrealizowanych decyzją Ogółu,",
-	"pinfoDuringImplemF":"- rezygnacji wszystkich Członków Zespołu Realizacyjnego z opieki nad Kwestią,"
+	"pinfoDuringImplementation":"REALIZOWANE"
   },
   "realizacjaTab2":{
 	"pinfoCompletedImplementation":"ZREALIZOWANE",
@@ -751,11 +721,6 @@
 	"lipTheAdditionOfAreferWithinTheComm":"Dodanie odniesienia w ramach danego komentarza",
 	"lipReportsOfImplementation":"Raporty Realizacyjne",
 	"lipDeadlineForFilingTheReportsInDays":"Okres składania Raportów Realizacyjnych (w dniach)"
-  },
-  "profileList":{
-	"pinfoPrListOfUsers":"WYKAZ UŻYTKOWNIKÓW",
-	"pinfoPrListOfUsersA":"Widzisz tutaj wykaz Użytkowników.",
-	"pinfoPrListOfUsersB":"Możesz skontaktować się z wybranym Użytkownikiem."
   },
   "userEmailContact":{
 	"uecPost":"Napisz"
@@ -809,9 +774,10 @@
 	"listOfIssuesA":"Tutaj zobaczysz wykaz wszystkich Kwestii, które znajdują się aktualnie na etapie dyskusji i priorytetowania. Im większy priorytet posiada Kwestia, tym wyżej jest domyślnie ulokowana. Najwyżej ulokowana Kwestia przechodzi do głosowania. Możesz zmieniać sortowanie kliknięciem na nagłówek kolumny [Priorytet], aby zobaczyć odwrócony układ.",
 	"listOfIssuesB":"Aby zobaczyć szczegóły Kwestii - kliknij w jej nazwę. Wejście w szczegóły Kwestii jest równoznaczne z Twoją obecnością w dyskusji i głosowaniu, albowiem tam znajdują się: głosy w dyskusji nad nią, szczegółowy opis i możliwość nadania priorytetu, czyli głosowanie.",
 	"listOfIssuesC":"Widocznym przyciskiem, możesz dodać nową Kwestię. Aby znaleźć Kwestie najnowsze lub najstarsze - kliknij w nagłówek [Data]. Podobnie możesz sortować każdą interesującą Cię kolumnę. Masz do dyspozycji pole [Szukanie Kwestii], aby filtrować listę wg. nazw Kwestii. Na dole możesz dostosować listę względem ilości pozycji na stronie.",
+	"moreVotingDetails":"SZCZEGÓŁY KWESTII GŁOSOWANEJ",
 	"moreVotingA":"Do głosowania wchodzi tyle Kwestii, ile zostanie określone w ustawieniach globalnych, gdzie ustawia się również czas głosowania.",
-	"moreVotingB":"W czasie przeznaczonym na głosowanie nie mozna już prowadzić dyskusji, a jedynie nadawać (lub zmieniać) swój priorytet dla tej Kwestii.",
-	"moreVotingC":"System poinformuje Cię o fakcie głosowania oraz o terminie jego zakończenia. Dodatkową formą informacji jest powiadomienie Cię tutaj w Systemie (patrz w menu), gdzie ilość nie odczytanych wiadomości wykazana jest na czerwonym tle.",
+	"moreVotingB":"W czasie przeznaczonym na głosowanie nie mozna już prowadzić dyskusji, a tylko głosować, czyli nadawać (lub zmieniać) swój priorytet dla tej Kwestii.",
+	"moreVotingC":"System poinformował Cię o fakcie głosowania oraz o terminie jego zakończenia. Dodatkową formą informacji jest powiadomienie tutaj w Systemie (patrz w menu), gdzie ilość nie odczytanych wiadomości wykazana jest na czerwonym tle.",
 	"moreVotingD":"Powiadomienia spełniają też ważną rolę dokumentacyjną, aby nie było w przyszłości wątpliwości, co do faktów i ich chronologii.",
 	"moreVotingE":"Z chwilą zakończenia głosowania Kwestii, przechodzi ona do realizacji, lub do kosza, jeśli głosowanie jest dla niej niepomyślne.",
 	"moreDuringImpA":"To wykaz aktualnych dokumentów obowiązujących zarejestrowanych tu Użytkowników, wraz z historią ich powstawania i przyjęcia w procesie deliberacji.",
@@ -839,7 +805,7 @@
 	"moreAplyMembC":"To aplikacja, która gwarantuje równość wnioskowania, dyskutowania i rozstrzygania o wszystkich Kwestiach pojawiających się w Systenie, ponieważ nie ma tu administratora, który mógłby ingerować w ten proces.",
 	"moreAplyMembD":"Jeśli do nas przystąpisz, to od pierwszego dnia masz tyle samo do powiedzenia, co ktokolwiek inny bedący w Systemie jakkolwiek już długo.",
 	"moreComplImplA":"Te Kwestie są historią już zamkniętą.",
-	"moreComplImplA":"Pokazują, jakie sprawy były podejmowane i zostały zrealizowane.",
+	"moreComplImplB":"Pokazują, jakie sprawy były podejmowane i zostały zrealizowane.",
 	"moreListReport":"WYKAZ RAPORTÓW REALIZACYJNYCH",
 	"moreListReportA":"Każda Kwestia znajdująca się w Realizacji ma przyporządkowany Zespół Realizacyjny.",
 	"moreListReportB":"Tu zobaczysz jak ten Zespół pracuje, czyli jakie są postępy realizacji tej Kwestii.",
@@ -872,9 +838,30 @@
 	"moreArchiIssueDetails":"SZCZEGÓŁY KWESTII ARCHIWALNEJ",
 	"moreArchiIssueDetailsA":"Można się tu zorietntować jaki był brzebieg procedowania Kwestii, zanim odesłano ją do archiwum.",
 	"moreDeliberIssueDetails":"SZCZEGÓŁY KWESTII DELIBEROWANEJ",
-	"moreDeliberIssueDetailsA":".",
-	"moreDeliberIssueDetailsB":".",
-	"moreDeliberIssueDetailsC":".",
+	"moreDeliberIssueDetailsA":"Tutaj masz wszystkie szczegóły dotyczące tej Kwestii. Nazwa, opis, status, priorytet, stan wsparcia w postaci kworum, składu Zespołu Realizacyjnego i w końcu - przebieg dyskusji.",
+	"moreDeliberIssueDetailsB":"Wiekszość funkcji zrealizujesz jednym kliknięciem, dodając jedynie (co oczywiste) uzasadnienie propozycji. Przykłady: nadanie priorytetu, wniosek skierowania Kwestii do Archiwum lub do Kosza.",
+	"moreDeliberIssueDetailsC":"Jeśli w tej Kwestii nie odpowiada Ci jakiś element, rozwiązanie - nie musisz koniecznie tworzyć podobnej Kwestii od zera. Możesz kliknąć w [+Dodaj Opcję] i po niewielkiej zmianie nazwy Kwestii, skorygować odpowiednio istotne dla Ciebie fragmenty opisu. Twoja Kwestia-Opcja nie będzie w żaden sposób upośledzona, ani podległa wobec tej pierwotnej. Oczywiście zawsze warto nieco polobbować za swoją Opcją (Tak to jest w życiu).",
+	"moreImplemTeam":"ZESPÓŁ REALIZACYJNY",
+	"moreImplemTeamA":"Udział w Zespole Realizacyjnym, to nie praca na etacie, a jedynie zobowiązanie się do dopilnowania, czy realizacja Kwestii przebiega prawidłowo. Każdy Użytkownik systemu może pomóc Zespołowi w jego zadaniu.",
+	"moreImplemTeamB":"Oto informacja o składzie Zespołu Realizacyjnego przeglądanej Kwestii.",
+	"moreImplemTeamC":"Stąd możesz skontaktować się z Członkiem Zespołu, coś zasugerować, albo zapytać o szczegóły realizacji Kwestii.",
+	"moreImplemTeamD":"Jeśli Ty jesteś Członkiem tego Zespołu, masz też możliwość zrezygnowania z udziału w nim.",
+	"moreImplemTeamE":"Wejście do Zespołu, to była Twoja decyzja. Rezygnacja z opieki nad Kwestią, to jednak bardzo odpowiedzialna decyzja ...",
+	"moreImplemIssueDetails":"SZCZEGÓŁY KWESTII REALIZOWANEJ",
+	"moreImplemIssueDetailsA":"Ta Kwestia znajduje się aktualnie w realizacji. Priorytetowanie jej odbywa się tu odrębnie, aby widoczny był stosunek do wsparcia podczas dyskusji i głosowania. Priorytet realizacyjny pokaże, czy Kwestia zyskuje na znaczeniu, czy może traci wagę.",
+	"moreImplemIssueDetailsB":"Przebieg dyskusji realizacyjnej, raporty Zespołu Realizacyjnego, dyskusja - to wszystko pomoże Ci w podejmowaniu decyzji w kwestii Twojego wsparcia.",
+	"moreImplemIssueDetailsC":"Jeśli przebieg realizacji Ci nie odpowiada, a Twoja pomoc w dyskusji lub kontaktach z Zespołem Realizacyjnym nie dają oczekiwanego rezultatu, możesz proponować zdjęcie Kwestii z realizacji (np. skierowanie jej do Kosza). Kwestia wypadnie też z realizacji z powodu spadku priorytetu, czyli dezaprobaty Użytkowników Systemu. ",
+	"moreImplemIssueDetailsD":"Nie jest celowe utrzymywanie w sferze obowiazujących dokumentów czegoś, co wcześniej wydawało się obiecujace, a w praktyce nie jest do przyjęcia, nie możliwe do zrealizowania, albo wręcz szkodliwe, lub sprzeczne z obowiązującym już uregulowaniem wyższego rzędu.",
+  "moreTheIssueInTheTrashCan":"SZCZEGÓŁY KWESTII W KOSZU",
+  "moreTheIssueInTheTrashCanA":"Do kosza kierowane są Kwestie zgodnie z wolą Ogółu, po zaakceptowaniu wniosku dowolnego Użytkownika.",
+  "moreTheIssueInTheTrashCanB":"Odsyła się tu Kwestie nieudane, błędne, bez szans na wdrożenie.",
+  "moreTheIssueInTheTrashCanC":"Są one ostatecznie zarchiwizowane dla celów dokumentacyjnych (bez możliwości wznowienia procedowania).",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
+	"more":".",
 	"more":".",
 	"more":".",
 	"more":".",

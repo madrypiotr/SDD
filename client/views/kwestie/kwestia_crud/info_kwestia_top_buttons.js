@@ -76,7 +76,7 @@ Template.kwestiaTopButtons.events({
         else
             notificationPauseWarning("kwestii",kwestiaCanBeInserted);
     },
-    'click #doArchiwum': function (e) {
+/*    'click #doArchiwum': function (e) {
         e.preventDefault();
         var idKw = e.target.name;
         var issue=Kwestia.findOne({_id:idKw});
@@ -92,6 +92,7 @@ Template.kwestiaTopButtons.events({
             }
         }
     },
+*/	
     'click #doKosza': function (e) {
         e.preventDefault();
         var idKw = e.target.name;

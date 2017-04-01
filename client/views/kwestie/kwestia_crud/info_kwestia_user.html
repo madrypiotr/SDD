@@ -15,28 +15,18 @@
 <div class="tab-content">
 	<div role="tabpanel" class="tab-pane active" id="issueInfoo"><br />
 	{{> issueDetails}}
-		<div class="footer">
-		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp; informacjeKwestiaRealizowana </div>
-			<div id="container">
-				<div class="footer_center">
-					<p>{{_ "."}}</p>
-					<p>{{_ "."}}</p>
-					<p>{{_ "."}}</p>
-					<p>{{_ "."}}</p>
-				</div>
-			</div>
-		</div>
     </div>
     <div role="tabpanel" class="tab-pane" id="manageZRIssue"><br />
 	{{> issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
 		<div class="footer">
-		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  Zespół Realizacyjny </div>
+		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreImplemTeam"}} </div>
 			<div id="container">
 				<div class="footer_center">
-					<p>{{_ "."}}</p>
-					<p>{{_ "."}}</p>
-					<p>{{_ "."}}</p>
-					<p>{{_ "."}}</p>
+					<p>{{_ "more.moreImplemTeamA"}}</p>
+					<p>{{_ "more.moreImplemTeamB"}}</p>
+					<p>{{_ "more.moreImplemTeamC"}}</p>
+					<p>{{_ "more.moreImplemTeamD"}}</p>
+			<p><b>{{_ "more.moreImplemTeamE"}}</b></p>
 				</div>
 			</div>
 		</div>
@@ -57,7 +47,7 @@
     <div class="main">
        {{#if kwestiaInKosz}}
         <h4 class="color-red">{{_ "issueDetails.iDeTheIssueOfInactiveItIsLocatedInAtrashCan"}}</h4>
-       {{/if}}
+{{/if}}
         <div class="row">
             <div class="col-md-12">
                 <legend><small>
@@ -217,20 +207,69 @@
         {{>decyzjaModal}}
         {{>listZespolRealizacyjnyDoubleModal}}
     {{/unless}}
- <!-- pageInfo -->
-{{#if kwestiaInKosz}}
-<div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  Szczegóły Kwestii w Koszu</div>
-	<div id="container">
-		<div class="footer_center">
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
+
+<!-- pageInfo -->
+
+
+{{#if  isRealizowana}}
+
+	<div class="footer">
+		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp; {{_ "more.moreImplemIssueDetails"}} </div>
+			<div id="container">
+				<div class="footer_center">
+					<p>{{_ "more.moreImplemIssueDetailsA"}}</p>
+					<p>{{_ "more.moreImplemIssueDetailsB"}}</p>
+					<p>{{_ "more.moreImplemIssueDetailsC"}}</p>
+			<p><b>{{_ "more.moreImplemIssueDetailsD"}}</b></p>
+				</div>
+			</div>
+	</div>
+{{/if}} 
+
+
+<!--	
+{{#if ?zrealizowana?}}
+ 
+				<div class="footer">
+				  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp; SZCZEGÓŁY KWESTII ZREALIZOWANEJ </div>
+					<div id="container">
+						<div class="footer_center">
+							<p>{{_ "more.moreA"}}</p>
+							<p>{{_ "more.moreB"}}</p>
+							<p>{{_ "more.moreC"}}</p>
+						</div>
+					</div>
+				</div>
+{{/if}} 
+-->
+
+<!--	
+{{#if ?deliberowana?}}
+	<div class="footer">
+	  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreDeliberIssueDetails"}}</div>
+		<div id="container">
+			<div class="footer_center">
+				<p>{{_ "more.moreDeliberIssueDetailsA"}}</p>
+				<p>{{_ "more.moreDeliberIssueDetailsB"}}</p>
+				<p>{{_ "more.moreDeliberIssueDetailsC"}}</p>
+			</div>
 		</div>
 	</div>
-</div>
-{{/if}}
+{{/if}} 
+-->
+
+	{{#if isGlosowana}}
+		<div class="footer">
+		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp; {{_ "more.moreVotingDetails"}}</div>
+			<div id="container">
+				<div class="footer_center">
+					<p>{{_ "more.moreVotingB"}}</p>
+					<p>{{_ "more.moreVotingC"}}</p>
+					<p>{{_ "more.moreVotingE"}}</p>
+				</div>
+			</div>
+		</div>
+	{{/if}}
 
 {{#if isIssueArchiwalna}}
 <div class="footer">
@@ -242,28 +281,16 @@
 		</div>
 	</div>
 </div>
-			{{else}}
-<div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreDeliberIssueDetails"}}</div>
-	<div id="container">
-		<div class="footer_center">
-			<p>{{_ "more.moreDeliberIssueDetailsA"}}</p>
-			<p>{{_ "more.moreDeliberIssueDetailsB"}}</p>
-			<p>{{_ "more.moreDeliberIssueDetailsC"}}</p>
-		</div>
-	</div>
-</div>
-{{/if}}
+	{{/if}}
 
-{{#if isIssueGlosowana}} <!--nie działa-->
+{{#if kwestiaInKosz}}
 	<div class="footer">
-	  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  Szczegóły Kwestii głosowanej</div>
+	  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreTheIssueInTheTrashCan"}}</div>
 		<div id="container">
 			<div class="footer_center">
-				<p>{{_ "."}}</p>
-				<p>{{_ "."}}</p>
-				<p>{{_ "."}}</p>
-				<p>{{_ "."}}</p>
+				<p>{{_ "more.moreTheIssueInTheTrashCanA"}}</p>
+				<p>{{_ "more.moreTheIssueInTheTrashCanB"}}</p>
+				<p>{{_ "more.moreTheIssueInTheTrashCanC"}}</p>
 			</div>
 		</div>
 	</div>
