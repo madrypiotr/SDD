@@ -91,11 +91,20 @@ Template.issueDetails.helpers({
     isIssueArchiwalna:function(){
         return this.status==KWESTIA_STATUS.ARCHIWALNA || this.status==KWESTIA_STATUS.HIBERNOWANA ? true : false;
     },
+    isIssueHibernowana:function(){
+        return this.status==KWESTIA_STATUS.HIBERNOWANA ? true : false;
+    },
+    isDeliberowana:function(){
+        return this.status==KWESTIA_STATUS.DELIBEROWANA ? true :false;
+    },
     isGlosowana:function(){
         return this.status==KWESTIA_STATUS.GLOSOWANA ? true :false;
     },
     isRealizowana:function(){
         return this.status==KWESTIA_STATUS.REALIZOWANA ? true :false;
+    },
+    isZrealizowana:function(){
+        return this.status==KWESTIA_STATUS.ZREALIZOWANA ? true :false;
     },
     kwestiaInKosz:function(){
         return this.czyAktywny==false ? true : false;
