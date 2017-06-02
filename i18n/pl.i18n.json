@@ -72,9 +72,7 @@
 	"globDoNotYouVotedYetOnThisIssueWelcome":"Nie zagłosowałaś/eś jeszcze w tej Kwestii, zapraszamy: ",
 	"globTheCurrentStrengthOfPriority":"Aktualna siła priorytetu: ",
 	"globRequiredQuorum":"Wymagane kworum: ",
-	"globCurrentPresence":"aktualna obecność: ",
-	"gloSelect":"Wybierz",
-	"glob":""
+	"globCurrentPresence":"aktualna obecność: "
   },
   "header":{
 	"heaLanguages":"Języki",
