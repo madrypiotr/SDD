@@ -243,127 +243,127 @@
 	"adfTheIssueOfStatutory":"Statutory Issue"
   },
   "editRodzajForm":{
-	"erfEditType":"Edytuj Rodzaj",
-	"erfNameOfType":"Nazwa Rodzaju:",
-	"erfNameOfTypeForExamp":"Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)",
-	"erfTimeDebate":"Czas dyskusji:",
-	"erfTimeDebateDays":"Czas dyskusji (dni). Domyślnie 7 dni",
-	"erfTimeToVote":"Czas głosowania:",
-	"erfVotingTimeDefault":"Czas głosowania (h). Domyślnie 24 h.",
-	"erfTheRequiredQuorum":"Wymagane kworum:"
+	"erfEditType":"Edit Type",
+	"erfNameOfType":"Name of Type:",
+	"erfNameOfTypeForExamp":"Name of Type (eg. application, resolution, proposal, inquiry, itp.)",
+	"erfTimeDebate":"Discussion Time:",
+	"erfTimeDebateDays":"Discussion time (days).",
+	"erfTimeToVote":"Voting time:",
+	"erfVotingTimeDefault":"Voting time (h).",
+	"erfTheRequiredQuorum":"Quorum reqiuired: "
   },
   "listRodzaj":{
-	"liListOfTypes":"Lista rodzajów"
+	"liListOfTypes":"List of Types"
   },
   "addTematForm":{
-	"aTfAddSubject":"Dodaj Temat",
-    "aTfNameSubject":"Nazwa Tematu:",
-    "aTfNameSubjectForExample":"Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)",
-    "aTfDescription":"Opis:"
+	"aTfAddSubject":"Add Topic",
+    "aTfNameSubject":"Topic name:",
+    "aTfNameSubjectForExample":"Topic name (eg. law, politics, justice, trade, culture, itp.)",
+    "aTfDescription":"Description: "
   },
   "editTematForm":{
-	"etfEditSubject":"Edytuj Temat",
-    "etfNameSubject":"Nazwa Tematu:",
-    "etfNameSubjectForExample":"Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)",
-    "etfDescriptionSubject":"Opis Tematu:"
+	"etfEditSubject":"Edit Topic",
+    "etfNameSubject":"Topic name:",
+    "etfNameSubjectForExample":"Topic name (eg. law, politics, justice, trade, culture, etc.)",
+    "etfDescriptionSubject":"Topic description:"
   },
   "listTemat":{
-	"LiToCategorization":"Kategoryzacja",
-	"LiToAddSubject":"Dodaj Temat",
-	"LiToTheNumbOfTypesInTheSubject":"Liczba rodzajów w temacie",
-	"LiToAllTypes":"Wszystkie rodzaje"
+	"LiToCategorization":"Categorization",
+	"LiToAddSubject":"Add Topic",
+	"LiToTheNumbOfTypesInTheSubject":"Number of Types in Topic",
+	"LiToAllTypes":"All Types"
   },
   "optionsColumnTemat":{
-	"oCoAddType":"Dodaj Rodzaj",
-	"oCoRefreshTypes":"Odśwież Rodzaje"
+	"oCoAddType":"Add Type",
+	"oCoRefreshTypes":"Refresh Types"
   },
   "optionsColumnRodzaj":{
-	"oCrEditType":"Edytuj Rodzaj"
+	"oCrEditType":"Edit Type"
   },
   "archiwum":{
-	"archives":"Archiwum",
-	"arcHibernating":"Hibernowane",
-	"archTrashCan":"Kosz"
+	"archives":"Archival",
+	"arcHibernating":"Hibernating",
+	"archTrashCan":"Thrash bin"
   },
   "informacjeKwestiaArchiwum":{
-	"ikaAboutIssuesArchive":"Informacje o Kwestii archiwalnej",
-	"ikaYouHavePausedFromVoting":"Wstrzymałeś się od głosu nadając tej Kwestii priorytet",
-	"ikaYouGaveTheIssuEaPriority":"Nadałeś tej Kwestii priorytet",
-	"ikaNotYetYouGaveThisIssuEaPriority":"Nie nadałeś jeszcze tej Kwestii priorytetu",
-	"ikaTransferIssue":"Przeniesienie Kwestii",
-	"ikaToTheTrash":"Do Kosza",
-	"ikaForDeliberation":"Do Deliberacji",
-	"ikaSeeImplementation":"Zobacz Realizację",
-	"ikaLaunchDateOfTheIssues":"Data wprowadzenia Kwestii",
-	"ikaDateOfVote":"Data głosowania",
-	"ikaFinalDeliberationAndVoting":"Finał deliberacji i głosowania",
-	"ikaNameIssue":"Nazwa Kwestii",
-	"ikaPriority":"Priorytet",
-	"archRodzaj":"Rodzaj",
-	"ikaContentIssue":"Treść Kwestii",
-	"ikaShortContent":"Krótka treść",
-	"ikaDescriptionWithTheReasons":"Opis z uzasadnieniem",
-	"ikaDiscussionOnTheIssue":"Dyskusja Kwestii"
+	"ikaAboutIssuesArchive":"Information on archival Issue",
+	"ikaYouHavePausedFromVoting":"You have restrained from vote giving the Issue a priority",
+	"ikaYouGaveTheIssuEaPriority":"You have given the Issue a priority",
+	"ikaNotYetYouGaveThisIssuEaPriority":"You have not given the Issue a priority yet",
+	"ikaTransferIssue":"Transfer on an Issue",
+	"ikaToTheTrash":"To the Thrash bin",
+	"ikaForDeliberation":"For Discussion",
+	"ikaSeeImplementation":"See the execution",
+	"ikaLaunchDateOfTheIssues":"Date of introducing the Issue",
+	"ikaDateOfVote":"Date of the Voting",
+	"ikaFinalDeliberationAndVoting":"The end of discussion and voting",
+	"ikaNameIssue":"Name of the Issue",
+	"ikaPriority":"Priority",
+	"archRodzaj":"The Type",
+	"ikaContentIssue":"The Issue text",
+	"ikaShortContent":"Short text",
+	"ikaDescriptionWithTheReasons":"Description with justification",
+	"ikaDiscussionOnTheIssue":"Discussing the Issue"
   },
   "addRealizationReportModalInner":{
-    "addNewReportTheImplem":"Nowy Raport Realizacyjny",
-    "addRealTitle":"Tytuł:",
-    "addDescription":"Opis"
+    "addNewReportTheImplem":"New Execution Report",
+    "addRealTitle":"Title:",
+    "addDescription":"Description"
   },
   "discussionPostItem":{
-	"dPiReferences":"odniesień",
-	"dPiLess":"mniej",
-	"dPiMore":"więcej",
-	"dPiExplainThis":"Uzasadnienie",
-	"dPiTheImplemReport":"Raport Realizacyjny",
-	"dPiDescription":"Opis"
+	"dPiReferences":"references",
+	"dPiLess":"less",
+	"dPiMore":"more or",
+	"dPiExplainThis":"Justification",
+	"dPiTheImplemReport":"Execution Report",
+	"dPiDescription":"Description"
   },
   "discussionAnswerForm":{
-	"dAfaReferenceToAComment":"odniesienie do komentarza ...",
-	"dAfAddReference":"Dodaj odniesienie",
-	"dAfTheReferenceCanNotBeDelOrChanged":"Uwaga: odniesienia nie można usuwać ani zmieniać"
+	"dAfaReferenceToAComment":"reference to the commentary ...",
+	"dAfAddReference":"Add reference",
+	"dAfTheReferenceCanNotBeDelOrChanged":"Attention: the reference can not be removed nor changed"
   },
   "discussionAnswerItem":{
-	"dAiLess":"mniej",
-	"dAiMore":"więcej"
+	"dAiLess":"less",
+	"dAiMore":"more or"
   },
   "uzasadnienieArchiwumModalInner":{
-	"umiExplainYourProposal":"Uzasadnij propozycję",
-	"umiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej",
-	"umiTheIssueToTheArchive":"Kwestii do Archiwum",
-	"umiWhereHeReturnedIissues":", gdzie odsyłane są Kwestie niekoniecznie aktualne i pilne oraz oczekujące na lepsze warunki dla ich ponownego rozpatrzenia.",
-	"umiIfYourDecisionIsConsistent":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
-	"umiBroaderJustification":"uzasadnienie",
-	"umiOtherwisePress":"W przeciwnym wypadku naciśnij",
-	"umiSubmit":"Zatwierdź"
+	"umiExplainYourProposal":"Justify the proposal",
+	"umiYouIntendToApply":"You are about to apply to direct this ",
+	"umiTheIssueToTheArchive":"Issue to Archive",
+	"umiWhereHeReturnedIissues":", whereto are send Issues not necessarily present and urgent and awaiting for better conditions for their anew consideration.",
+	"umiIfYourDecisionIsConsistent":"If your decision is in accordance with such intention - give bellow its, ",
+	"umiBroaderJustification":"justification",
+	"umiOtherwisePress":"Otherwise click ",
+	"umiSubmit":"Approve"
   },
   "uzasadnienieDeliberacjaModalInner":{
-	"udiExplainYourProposal":"Uzasadnij propozycję",
-	"udiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej ",
-	"udiIssueForDeliberation":"Kwestii do Deliberacji",
-	"udiWhereIssuesAreDiscussed":", gdzie są Kwestie dyskutowane.",
-	"udiIfYourDecisionIsConsistent":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
-	"udiBroaderJustification":"uzasadnienie",
-	"udiOtherwisePress":"W przeciwnym wypadku naciśnij ",
-	"udiSubmit":"Zatwierdź"
+	"udiExplainYourProposal":"Justify the proposal",
+	"udiYouIntendToApply":"You are going to apply to move this ",
+	"udiIssueForDeliberation":"Issue for Discussion",
+	"udiWhereIssuesAreDiscussed":", where the Issues are discussed.",
+	"udiIfYourDecisionIsConsistent":"JIf your decision is in accordance with such intention - give bellow its ",
+	"udiBroaderJustification":"justification",
+	"udiOtherwisePress":"Otherwise press ",
+	"udiSubmit":"Approve"
   },
   "uzasadnienieKoszModalInner":{
-	"ukiExplainYourProposal":"Uzasadnij propozycję",
-	"ukiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej ",
-	"ukiIssueToTheTrash":"Kwestii do Kosza, ",
-	"ukiWhereSentBackIissuesFailed":"gdzie odsyłane są Kwestie nieudane, błędne, bez szans na wdrożenie. Zostaną one ostatecznie zarchiwizowane (bez możliwości wznowienia).",
-	"ukiIfYourDecisionIsConsisten":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
-	"ukiBroaderJustification":"uzasadnienie",
-	"ukiOtherwisePress":"W przeciwnym wypadku naciśnij ",
-	"ukiSubmit":"Zatwierdź"
+	"ukiExplainYourProposal":"Justify the proposal",
+	"ukiYouIntendToApply":"You are going to direct this ",
+	"ukiIssueToTheTrash":"Issue to the Thrash Bin, ",
+	"ukiWhereSentBackIissuesFailed":"where Issues that are failed, faulty, with no chances for execution. They will finally be archived (without possibility for revival).",
+	"ukiIfYourDecisionIsConsisten":"f your decision is in accordance with such intention - bellow give its ",
+	"ukiBroaderJustification":"justification",
+	"ukiOtherwisePress":"Otherwise press ",
+	"ukiSubmit":"Approve"
   },
   "addKwestiaForm":{
-    "akfAddIssue":"Dodaj Kwestię",
-	"akfNameIssue":"Nazwa Kwestii",
-	"akfChooseExisting":"Wybierz istniejący",
-	"akfEnterTheNew":"Wprowadź nowy",
-	"akfSelectOrEnterTheSubject":"Wybierz lub wprowadź Temat",
-	"akfSelectOrEnterTheType":"Wybierz lub wprowadź Rodzaj",
+    "akfAddIssue":"Add Issue",
+	"akfNameIssue":"Name of the Issue",
+	"akfChooseExisting":"Choose existing ",
+	"akfEnterTheNew":"Introduce new",
+	"akfSelectOrEnterTheSubject":"Choose or introduce Topic ",
+	"akfSelectOrEnterTheType":"Choose or enter ",
 	"akfShortContentIssue":"Krótka treść Kwestii",
 	"akfShortContent":"Krótka treść",
 	"akfDescriptionWithTheReasons":"Opis z uzasadnieniem",
