@@ -363,137 +363,137 @@
 	"akfChooseExisting":"Choose existing ",
 	"akfEnterTheNew":"Introduce new",
 	"akfSelectOrEnterTheSubject":"Choose or introduce Topic ",
-	"akfSelectOrEnterTheType":"Choose or enter ",
-	"akfShortContentIssue":"Krótka treść Kwestii",
-	"akfShortContent":"Krótka treść",
-	"akfDescriptionWithTheReasons":"Opis z uzasadnieniem",
-	"akfAddThisIssue":"Dodaj tę Kwestię"
+	"akfSelectOrEnterTheType":"Choose or enter Type",
+	"akfShortContentIssue":"The Issue in short text ",
+	"akfShortContent":"Short text",
+	"akfDescriptionWithTheReasons":"Description with justification",
+	"akfAddThisIssue":"Add this Issue"
   },
   "activateAccount":{
-	"acItTakesActivateAccount":"Trwa aktywowanie konta",
-	"acIfYouWaitTooLong":"Jeżeli zbyt długo czekasz na reakcję Systemu, spróbuj odświeżyć przeglądarkę lub spróbuj aktywować konto później",
-	"acInformation":"Informacja.",
-	"acAnErrorOccuredTryAgain":"Wystąpił błąd. Spróbuj ponownie",
-	"acThankYouForActivatingYourAccount":"Dziękujemy za aktywację konta!",
-	"acYouWillBeSentLoginAndPass":"Na podany przez Ciebie email w Aplikacji zostanie wysłany login i hasło.",
-	"acYourAccHasAlreadyBeenAct":"Twoje konto zostało już aktywowane. Przejdź ",
-	"acHere":"tutaj",
-	"acToLogin":" aby się zalogować."
+	"acItTakesActivateAccount":"The account is being activated ",
+	"acIfYouWaitTooLong":"If you wait too long for the System response try to refresh the browser or try to activate the account later",
+	"acInformation":"Information.",
+	"acAnErrorOccuredTryAgain":"Error. Try again",
+	"acThankYouForActivatingYourAccount":"Thank you for activating the account!",
+	"acYouWillBeSentLoginAndPass":"The login and password will be sent to e-mail address you have given in Application.",
+	"acYourAccHasAlreadyBeenAct":"Your account has been already activated. Go ",
+	"acHere":"here",
+	"acToLogin":" to log in."
   },
   "answerInvitation":{
-	"ansSorry":"Przepraszamy,",
-	"ansIinOurOrganization":" w naszej organizacji ",
-	"ansTimeAcceptanceOfTheIinvitationAs":"Czas przyjęcia zaproszenia jako ",
-	"ansPassed":" minął.",
-	"ansHello":"Witaj",
-	"ansYouAreInvitedToApplyAs":"Zostałeś zaproszony do aplikowania jako ",
-	"ansDoYouWantToApply":"Czy chcesz aplikować?",
-	"ansIWantToApply":"Chcę aplikować",
-	"ansNoThanks":"Nie, dziękuję",
-	"ansAlreadyYouHaveConfirmed":"Już potwierdziłeś chęć aplikowania do naszej organizacji",
-	"ansToSeeMoreDetailsClick":"Aby zobaczyć szczegóły Kwestii kliknij ",
-	"ansHere":" tutaj",
-	"ansYouRejectedAnInvitationToApplyAs":"Odrzuciłeś zaproszenie do aplikowania jako ",
-	"ansDziekuj":"Dziękujemy za potwierdzenie chęci przynależenia do naszej organizacji",
-	"ansTheNextMessYouWillReceiveYourLoginDetails":"W następnej wiadomości otrzymasz dane do logowania.",
-	"ansYouCanKeepAbreastOfIssue":"Możesz śledzić na bieżąco Kwestię",
-	"ansThankYouForAnswering":"Dziękujemy za udzielenie odpowiedzi.",
-	"ansSystem":"System"
+	"ansSorry":"Sorry,",
+	"ansIinOurOrganization":" in our organization ",
+	"ansTimeAcceptanceOfTheIinvitationAs":"The time to accept invitation as ",
+	"ansPassed":" has ended.",
+	"ansHello":"Welcome",
+	"ansYouAreInvitedToApplyAs":"You have been invited to apply as ",
+	"ansDoYouWantToApply":"Do you want to apply?",
+	"ansIWantToApply":"I want to apply",
+	"ansNoThanks":"No, thanks",
+	"ansAlreadyYouHaveConfirmed":"You have confirmed allready the intention to apply to our organization",
+	"ansToSeeMoreDetailsClick":"To see detailes of the Issue click ",
+	"ansHere":" here",
+	"ansYouRejectedAnInvitationToApplyAs":"You have rejected invitation to apply as ",
+	"ansDziekuj":"Thank you for confirming the will to join our organization",
+	"ansTheNextMessYouWillReceiveYourLoginDetails":"In next message you will receive data to log in.",
+	"ansYouCanKeepAbreastOfIssue":"You may follow the Issue",
+	"ansThankYouForAnswering":"Thank you for your answers.",
+	"ansSystem":"The System"
   },
   "czlonekZwyczajnyForm":{
-	"cZwApplyingAmemberOfTheOrdinary":"Aplikowanie na Członka Zwyczajnego w organizacji",
-	"cZwFillInTheMissingFieldsInTheApplication":"Uzupełnij brakujące pola we wniosku.",
-	"cZwAdditional":"Dodatkowe",
-	"cZwWriteAfewWordsToUsAboutYourself":"Napisz parę słów do nas, o sobie i powodach Twojego wniosku...",
-	"cZwLanguageUser":"Język Użytkownika",
-	"cZwChooseLanguage":"Wybierz język",
-	"cZwIconfirmKnowledge":"Potwierdzam znajomość",
-	"cZwOfTheRules":"Regulaminu",
-	"cZwIapplyForAdmission":"Aplikuję o przyjęcie"
+	"cZwApplyingAmemberOfTheOrdinary":"Applying for Ordinary Member in organization",
+	"cZwFillInTheMissingFieldsInTheApplication":"Fill in missing fields in application.",
+	"cZwAdditional":"Additional",
+	"cZwWriteAfewWordsToUsAboutYourself":"Write some words about yourself and motivation of your application...",
+	"cZwLanguageUser":"Language of the User ",
+	"cZwChooseLanguage":"Choose the language ",
+	"cZwIconfirmKnowledge":"I confirm knowledge of ",
+	"cZwOfTheRules":"the Regulations",
+	"cZwIapplyForAdmission":"I apply to become a Member "
   },
   "doradcaForm":{
-	"dorApplyingAdvisorInTheOrganization":"Aplikowanie na doradcę w organizacji",
-	"dorAdditional":"Dodatkowe",
-	"dorWriteAfewWordsAboutYourself":"Napisz parę słów do nas, o sobie i powodach Twojego wniosku...",
-	"dorIapplyCounseling":"Aplikuję do doradztwa"
+	"dorApplyingAdvisorInTheOrganization":"Applying for advisor in organization ",
+	"dorAdditional":"Additional",
+	"dorWriteAfewWordsAboutYourself":"Write some words about you and motivation of your application...",
+	"dorIapplyCounseling":"I apply for advise"
   },
   "profileEdit":{
-	"prfToAccessCompleteTheRequiredFields":"Edytuj profil"
+	"prfToAccessCompleteTheRequiredFields":"Edit profile "
   },
   "forgottenPassword":{
-	"fpaResetPassword":"Resetuj hasło"
+	"fpaResetPassword":"Reset the password"
   },
     "loginForm":{
-	"lfoLog":"Logowanie",
+	"lfoLog":"Login in",
 	"lfoLogin":"Login",
-	"lfoPassword":"Hasło",
-	"lfoSignIn":"Zaloguj się",
-	"lfoIforgotMyPassword":"Nie pamiętam hasła"
+	"lfoPassword":"Pasword",
+	"lfoSignIn":"Log in",
+	"lfoIforgotMyPassword":"I forgot my password"
   },
     "loginFormTop":{
 	"lftLogin":"Login",
-	"lftPassword":"Hasło",
-	"lftRememberMe":"Zapamiętaj mnie",
-	"lftSignIn":"Zaloguj się"
+	"lftPassword":"Password",
+	"lftRememberMe":"Remember me",
+	"lftSignIn":"Log in"
   },
   "manageAccount":{
-	"mAcYourProfile":"Twój profil",
-	"mAcEditProfile":"Edytuj profil",
+	"mAcYourProfile":"Your profile",
+	"mAcEditProfile":"Edit profile",
 	"mAcLogin":"Login",
-	"mAcFnameAndLName":"Imię i Nazwisko",
-	"mAcTheRoleOfTheSystem":"Rola w Systemie",
+	"mAcFnameAndLName":"Name and Surname",
+	"mAcTheRoleOfTheSystem":"Position in the System",
 	"mAcRanking":"Ranking"
   },
   "_loginButtonsAdditionalLoggedInDropdownActions":{
-	"lBaMyProfile":"Mój profil"
+	"lBaMyProfile":"My profile"
   },
   "registerForm":{
-	"rFoCreateAnAccount":"Utwórz konto",
-	"rFoPassword":"Hasło",
-	"rFoConfirmPassword":"Potwierdź hasło",
-	"rFoAdditional":"Dodatkowe",
-	"rFoComments":" uwagi...",
-	"rFoLanguageUser":"Język Użytkownika",
-	"rFoChooseLanguage":"Wybierz język",
-	"rFoIconfirmKnowledge":"Potwierdzam znajomość",
-	"rFoRegulations":" regulaminu",
-	"rFoRegistrationIsNotPossible":"Rejestracja nie możliwa z powodu osiągnięcia limitu osób, które mogą się zarejestrować samodzielnie. Aby aplikować kliknij dołącz."
+	"rFoCreateAnAccount":"Create account",
+	"rFoPassword":"Password",
+	"rFoConfirmPassword":"Confirm password",
+	"rFoAdditional":"Additional",
+	"rFoComments":" remarks...",
+	"rFoLanguageUser":"Language of the User",
+	"rFoChooseLanguage":"Choose language",
+	"rFoIconfirmKnowledge":"I confirm knowledge of ",
+	"rFoRegulations":" the Regulations",
+	"rFoRegistrationIsNotPossible":"Registration not possible due to reaching limit of persons that may register individually. To apply click join."
   },
   "resetPassword":{
-	"resResetPassword":"Resetuj hasło",
-	"resAnewPassword":"Nowe hasło",
-	"resConfirmPassword":"Potwierdź hasło"
+	"resResetPassword":"Reset password",
+	"resAnewPassword":"New password",
+	"resConfirmPassword":"New password"
   },
   "infoAccountModalInner":{
-	"imiDetailsProfile":"Szczegóły profilu",
-	"imiUserName":"Nazwa Użytkownika",
+	"imiDetailsProfile":"Detailles of the profile",
+	"imiUserName":"User name ",
 	"imiID":"ID",
 	"imiStatus":"Status",
 	"imiOK":"OK"
   },
   "updateAccountModalInner":{
-	"upiEdit":"Edycja",
-	"upiUserName":"Nazwa Użytkownika",
-	"upiDelete":"Usuń",
-	"upiAccountIsNotAssignedTheStatusOf":"To konto nie ma przypisanego statusu.",
-	"upiAddStatus":"Dodaj status",
-	"upiStatusesAreAlreadySet":"Statusy są już ustawione.",
-	"upiFinished":"Gotowe"
+	"upiEdit":"Editing",
+	"upiUserName":"User name",
+	"upiDelete":"Remove",
+	"upiAccountIsNotAssignedTheStatusOf":"This account has no assigned status.",
+	"upiAddStatus":"Add status",
+	"upiStatusesAreAlreadySet":"The Statuses are set already.",
+	"upiFinished":"Ready"
   },
 "listKwestia":{
-    "liAddANewIssue":"Dodaj nową Kwestię",
-	"liEnterThePhraseNameIssue":"Wpisz frazę nazwy Kwestii..."
+    "liAddANewIssue":"Add new Issue",
+	"liEnterThePhraseNameIssue":"Enter phrase of the Issue name..."
   },
   "noData":{
-	"noNoDataToDisplay":"Brak danych do wyświetlania..."
+	"noNoDataToDisplay":"No data to display..."
   },
   "addKwestiaOpcjaForm":{
-    "aKwAddingIssueOption":"Dodawanie Kwestii-Opcji",
-    "aKwNameIssueOption":"Nazwa Kwestii Opcji:",
-    "aKwShortContent":"Krótka treść",
-	"aKwDataApplicator":"Dane aplikującego",
-    "aKwDescriptionOfTheReasons":"Opis z uzasadnieniem",
-	"aKwFnameAndLname":"Imię i Nazwisko"
+    "aKwAddingIssueOption":"Adding Issue Option",
+    "aKwNameIssueOption":"Issue Option name: ",
+    "aKwShortContent":"Short text",
+	"aKwDataApplicator":"Aplicants data",
+    "aKwDescriptionOfTheReasons":"Description with justification",
+	"aKwFnameAndLname":"Name and surname"
   },
   "opcjeList":{
 	"aKwOptionsIssue":"Opcje Kwestii"
