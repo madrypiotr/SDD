@@ -15,8 +15,8 @@
 	"globThankYou":"Thank you!",
 	"globSelect":"Chose",
 	"globReturn":"Return",
-	"globSubject":"Subject  ",
-	"globType":"Sort  ",
+	"globSubject":"Topic  ",
+	"globType":"Type  ",
 	"globEmail":"e-mail ",
 	"globFname":"First name",
 	"globLname":"Family name",
@@ -738,31 +738,31 @@
 	"pinfoMyIssuesA":"Here you will find all Issues added by yourself.",
 	"pinfoMyIssuesB":"From this point you may view them in detail.",
 	"pinfoMyIssuesC":"You may lobby from here, via sending requests for supporting Issues you deem important.",
-	"aumMyIssues":"Moje Kwestie",
-	"aumParameters":"Parametry",
-	"aumUsers":"Użytkownicy",
-	"aumSuggestions":"Propozycje",
-	"aumApplyForTheOrdinaryMember":"Aplikuj na Członka Zwyczajnego",
-	"aumYouHaveNotCreatedAnyIssue":"Nie utworzyłeś jeszcze żadnej Kwestii.",
-	"aumSorry":"Przepraszamy!",
-	"aumThereIsAlreadyAissueApplique":"Istnieje już Kwestia Aplikacyjna! Aby ją zobaczyć kliknij",
-	"aumHere":"tutaj"
+	"aumMyIssues":"My Issues",
+	"aumParameters":"Parameters",
+	"aumUsers":"Users",
+	"aumSuggestions":"Proposals",
+	"aumApplyForTheOrdinaryMember":"Apply for Ordinary User",
+	"aumYouHaveNotCreatedAnyIssue":"You have not created any Issue yet.",
+	"aumSorry":"Excuse us!",
+	"aumThereIsAlreadyAissueApplique":"The Application Issue already exists! To view it click ",
+	"aumHere":"here"
   },
   "lobbujZaKwestia":{
-	"aumYouLobbyingIssue":"Lobbuj za Kwestią"
+	"aumYouLobbyingIssue":"Lobby for Issue"
   },
   "accessDenied":{
-	"acdYouDoNotHavePermissionToViewThisPage":"Nie posiadasz dostępu do tej części strony!",
-	"acdZaloguj":"Zaloguj się"
+	"acdYouDoNotHavePermissionToViewThisPage":"You have no access to this part of the webpage!",
+	"acdZaloguj":"Log in"
   },
   "accessDeniedUser":{
-	"acuYouDoNotHaveAccessToTheSystem":"Nie posiadasz dostępu do Systemu!"
+	"acuYouDoNotHaveAccessToTheSystem":"You have no access to the System!"
   },
   "notFound":{
-	"nfoSorryThePageYouRequestedDoesNotExist":"Przepraszamy, strona o podanym adresie nie istnieje."
+	"nfoSorryThePageYouRequestedDoesNotExist":"Sorry! No webpage of given address."
   },
   "subMenu":{
-	"smenlanguages":"Języki"
+	"smenlanguages":"Languages"
   },
   "more":{
 	"onMainPage":"STRONA GŁÓWNA",
