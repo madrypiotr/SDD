@@ -628,116 +628,116 @@
 	"zmrThinkThisStep":"Think over this step! - The taken Resolution may not be executed!",
 	"zmrTheResolutionsWhoseImplementationIsCaring":"Resolutions that you take care of its' execution",
 	"zmrYouDoNeverthelessTeaveTheRealizationTeam":"Are you still decided to leave the Execution Team?",
-	"zmrYes":"Tak"
+	"zmrYes":"Yes"
   },
   "previewKwestia":{
-	"pKwIssue":"Kwestia",
-	"pKwShortContent":"Krótka treść",
-    "pKwDescriptionOfTheReasons":"Opis z uzasadnieniem",
-	"pKwSubmittedMpplicationMayNotBeWithdrawn":"UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do Systemu",
-	"pKwCorrect":"Popraw"
+	"pKwIssue":"Issue",
+	"pKwShortContent":"Short text",
+    "pKwDescriptionOfTheReasons":"Description with justification",
+	"pKwSubmittedMpplicationMayNotBeWithdrawn":"ATTENTION! Once entered application can not be withdrawn. Apply responsibly and check before introducing to the System",
+	"pKwCorrect":"Make correction"
   },
   "notificationInfo":{
-	"noiBackToNotifications":"Powrót do powiadomień"
+	"noiBackToNotifications":"Back to notifications"
   },
   "notificationNewMessage":{
-	"nnmPostDate":"Data wysłania",
-	"nnmSender":"Nadawca",
-	"nnmTitle":"Tytuł",
-	"nnmContents":"Treść",
-	"nnmSystemName":"SDD",
-	"nnmRegards":"Pozdrawiam,"
+	"nnmPostDate":"Date of sending ",
+	"nnmSender":"Sender ",
+	"nnmTitle":"Title ",
+	"nnmContents":"The text ",
+	"nnmSystemName":"DRS",
+	"nnmRegards":"Greetings, "
   },
   "notificationNewIssue":{
-	"nniSystemName":"SDD",
-	"nniSystemIntroducedAnewIssue":"Do Systemu wprowadzono nową Kwestię",
-	"nniOn":"dotyczącą",
-	"nniWelcomeToTheDeliberationOfTheIssue":"Zapraszamy do deliberacji tej Kwestii, dyskusji i nadania priorytetu.",
-	"nniLinkToThisIssue":"Link do Kwestii"
+	"nniSystemName":"DRS",
+	"nniSystemIntroducedAnewIssue":"The new Issue has been introduced to the System ",
+	"nniOn":"concerning ",
+	"nniWelcomeToTheDeliberationOfTheIssue":"You are welcome to deliberate this Issue, discuss it and give priority.",
+	"nniLinkToThisIssue":"Link to the Issue"
   },
   "notificationLackOfRealizationReport":{
-	"nlrSystemName":"SDD",
-	"nlrNoSystemReportTheImplemIssue":"Brak w Systemie Raportu Realizacyjnego Kwestii",
-	"nlrOn":"dotyczącej",
-	"nlrTheImplementationTeam":"Zespół Realizacyjny",
-	"nlrPost":"Napisz",
-	"nlrGoToTheDiscussionOfRealization":"Idź do dyskusji realizacyjnej",
-	"nlrLinkToIssue":"Link do Kwestii"
+	"nlrSystemName":"DRS",
+	"nlrNoSystemReportTheImplemIssue":"Ther eis no Execution Report for this Issue in the System ",
+	"nlrOn":"concerning ",
+	"nlrTheImplementationTeam":"Execution Team",
+	"nlrPost":"Write",
+	"nlrGoToTheDiscussionOfRealization":"Go to the execution discussion",
+	"nlrLinkToIssue":"Link to Issue"
   },
   "listRaport":{
-	"lraListOfReports":"Lista raportów"
+	"lraListOfReports":"Reports list."
   },
   "informacjeRaport":{
-	"inrTheImplementationReport":"Raport Realizacyjny",
-	"inrCreationDate":"Data utworzenia",
-	"inrapAuthor":"Autor",
-	"inrapTitle":"Tytuł",
-	"inrapDetails":"Szczegóły",
-	"inrapSeeAllTheReportsForTheIssue":"Zobacz wszystkie raporty dla tej Kwestii"
+	"inrTheImplementationReport":"Execution Report",
+	"inrCreationDate":"Creation Date",
+	"inrapAuthor":"Author",
+	"inrapTitle":"Title",
+	"inrapDetails":"Detailles",
+	"inrapSeeAllTheReportsForTheIssue":"See all reports on this Isue"
   },
   "editColumnRealization":{
-	"retResolutionPrintToPDF":"Drukuj Uchwałę do pliku PDF"
+	"retResolutionPrintToPDF":"Print the Resolution into PDF file"
   },
   "raport":{
-	"raporShow":"Pokaż"
+	"raporShow":"Show"
   },
   "realizacja":{
-	"rzcDuringImplementation":"Realizowane",
-	"rzcCompletedImplementation":"Zrealizowane"
+	"rzcDuringImplementation":"Realized",
+	"rzcCompletedImplementation":"Executed"
   },
   "realizacjaTab1":{
-	"pinfoDuringImplementation":"REALIZOWANE"
+	"pinfoDuringImplementation":"REALIZED"
   },
   "realizacjaTab2":{
-	"pinfoCompletedImplementation":"ZREALIZOWANE",
-	"pinfoCompletedImplemA":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do tego właśnie dzału - Zrealizowane.",
-	"pinfoCompletedImplemB":"Kwestie zrealizowane, to również Kwestie dotyczące ustawień globalnych, Kwestii okolicznościowych, dotyczacych jednorazowych wydarzeń, lub prcedur zakończonych, jednoznacznie sfinalizowanych, itp...."
+	"pinfoCompletedImplementation":"EXECUTED",
+	"pinfoCompletedImplemA":"Execution of the Issue lasts until Community deems it as executed sending it to this very section - Executed.",
+	"pinfoCompletedImplemB":"Executed Issues are also ones concerning global settings, occasional Issues, ones concerning one time events or completed procedures, clearly finalized, etc..."
   },
   "editParametrModalInner":{
-	"epmParameterEdition":"Edycja parametru",
-	"epmConfirmChanges":"Zmień",
-	"epmCancel":"Anuluj"
+	"epmParameterEdition":"Editing parameter",
+	"epmConfirmChanges":"Change",
+	"epmCancel":"Cancel"
   },
   "listParametr":{
-	"pinfoGlobalParameters":"PARAMETRY GLOBALNE",
-	"pinfoGlobalParametersA":"Tutaj masz możliwość zaproponować zmianę parametrów funkcjonowania Systemu, które wyszczególniono poniżej.",
-	"pinfoGlobalParametersB":"Wszelkie parametry indywidualne oraz globalne ustawienia, sposób i tryb działania Systemu ustalane są zawsze decyzją Ogółu, zarówno na starcie Systemu, jak i w dowolnej chwili podczas używania Systemu.",
-	"pinfoGlobalParametersC":"Takie rozwiazanie jest konieczne, ponieważ nie ma tu administratora, którego aktywność byłaby wyłomem wobec głównej zasady Systemu - rozstrzygania wszystkiego wolą Ogółu.",
-	"lipView":"Zobacz",
-	"lipOneParameterIsTheProcessOfChanging":"Jeden parametr jest w trakcie zmiany. Kolejną można dokonać po finalizacji obecnej.",
-	"lipOrganizationData":"Dane organizacji",
-	"lipNameOfOrganization":"Nazwa organizacji",
-	"lipTerritory":"Terytorium",
-	"lipContactDetails":"Kontakty",
-	"lipRegulations":"Regulamin",
-	"lipVote":"Głosowanie",
-	"lipVotingTimeInHours":"Czas głosowania(w godzinach)",
-	"lipIssuesAndSpecialCommOfWaitingTimeInDays":"Czas wyczekiwania Kwestii i komentarzy specjalnych (w dniach)",
-	"lipHowMuchIssuePassingToVote":"Ilość Kwesti przechodzących do głosowania",
-	"lipNumberOfMinToPauseReEntry":"Ilość minut koniecznej pauzy do ponownej akcjii tego samego typu",
-	"lipAddIssue":"Dodanie Kwestii",
-	"lipAddingCommentWithinAissue":"Dodanie komentarza w ramach danej Kwestii",
-	"lipTheAdditionOfAreferWithinTheComm":"Dodanie odniesienia w ramach danego komentarza",
-	"lipReportsOfImplementation":"Raporty Realizacyjne",
-	"lipDeadlineForFilingTheReportsInDays":"Okres składania Raportów Realizacyjnych (w dniach)"
+	"pinfoGlobalParameters":"GLOBAL PARAMETERS",
+	"pinfoGlobalParametersA":"Here you have possibility to propose change of the System functioning parameters as are listed bellow.",
+	"pinfoGlobalParametersB":"All individual parameters and global settings, manner and mode of System functioning are always decided by Community, both at the beginning of the System at any moment of the System operation.",
+	"pinfoGlobalParametersC":"Such solution is necessary since there is no system administrator here who's activity might be a breach against main rule of the System, that is deciding on everything by the decision of the Community.",
+	"lipView":"See",
+	"lipOneParameterIsTheProcessOfChanging":"One parameter is under change. The next one can be done after completing this one.",
+	"lipOrganizationData":"Organization data",
+	"lipNameOfOrganization":"Name of the organization",
+	"lipTerritory":"Territory",
+	"lipContactDetails":"Contacts",
+	"lipRegulations":"Regulations",
+	"lipVote":"Voting",
+	"lipVotingTimeInHours":"Time for voting (in hours)",
+	"lipIssuesAndSpecialCommOfWaitingTimeInDays":"Waiting time for Issues and special comments (in hours)",
+	"lipHowMuchIssuePassingToVote":"Number of Issues passing for voting ",
+	"lipNumberOfMinToPauseReEntry":"Number of minutes of necessary pause until renewed action starts ",
+	"lipAddIssue":"Adding Issue",
+	"lipAddingCommentWithinAissue":"Adding comment withing given Issue",
+	"lipTheAdditionOfAreferWithinTheComm":"Adding refference within given comment",
+	"lipReportsOfImplementation":"Execution Reports",
+	"lipDeadlineForFilingTheReportsInDays":"Period for forwarding Execution Reports (in days)"
   },
   "userEmailContact":{
-	"uecPost":"Napisz"
+	"uecPost":"Write"
   },
   "sendMessage":{
-	"smSendingMessages":"WYSŁANIE WIADOMOŚCI",
-	"smSendAnEmailToTheUser":"Wyślesz wiadomość e-mail do wybranego Użytkownika.",
-	"smNewMessageTo":"Nowa wiadomość do ",
-	"smFrom":"Od",
-	"smTo":"Do",
-	"smContents":"Treść",
-	"smSend":"Wyślij"
+	"smSendingMessages":"SENDING MESSAGE",
+	"smSendAnEmailToTheUser":"You are about to send message to selected User.",
+	"smNewMessageTo":"New message to ",
+	"smFrom":"From",
+	"smTo":"To",
+	"smContents":"Message text",
+	"smSend":"Send"
   },
   "administracjaUserMain":{
-	"pinfoMyIssues":"MOJE KWESTIE",
-	"pinfoMyIssuesA":"Tutaj znajdziesz wszystkie Kwestie, przez Ciebie dodane.",
-	"pinfoMyIssuesB":"Możesz z tego miejsca przeglądać ich szczegóły.",
-	"pinfoMyIssuesC":"Możesz stąd lobbować, czyli wysyłać Użytkownikom prośby wsparcia Kwestii, na których szczególnie Ci zależy.",
+	"pinfoMyIssues":"MY ISSUES",
+	"pinfoMyIssuesA":"Here you will find all Issues added by yourself.",
+	"pinfoMyIssuesB":"From this point you may view them in detail.",
+	"pinfoMyIssuesC":"You may lobby from here, via sending requests for supporting Issues you deem important.",
 	"aumMyIssues":"Moje Kwestie",
 	"aumParameters":"Parametry",
 	"aumUsers":"Użytkownicy",
