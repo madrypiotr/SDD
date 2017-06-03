@@ -1,6 +1,6 @@
 {
   "glob":{
-	"globShortSystemName":"DRS",
+	"globShortSystemName":"SDD",
 	"globHonorableDear":"Dear ",
 	"globYouHere":"You are on page",
 	"globInfo":"info",
@@ -90,8 +90,8 @@
 	"heaNewNetNode":"New network node"
   },
   "dym":{
-	  "dymAboutSystem":"About The Debate Resolution System)...",
-			"dymAboutSystemA":"The DRS will enable you to have a say in everything whatever will be proceeded in the community within the System. The overriding principle is equal access to giving suggestions, commenting and voting issues that is ideas, proposals, projects. Its' goal is also enabling people managing their joint activity according to the decision of the Community without necessity to use elective managing positions.",
+	  "dymAboutSystem":"About The System of Deliberation and Deciding)...",
+			"dymAboutSystemA":"The SDD will enable you to have a say in everything whatever will be proceeded in the community within the System. The overriding principle is equal access to giving suggestions, commenting and voting issues that is ideas, proposals, projects. Its' goal is also enabling people managing their joint activity according to the decision of the Community without necessity to use elective managing positions.",
 			"dymAboutSystemB":"There is no need to chose one person Decision maker nor any bodies alike. These functions provides this System. Any decisions result from the will of its Members. You will best understand its' functioning imagining is as General Meting of Members which never stops. That is not possible in so called real everyday life. But thanks the System it became possible. Special decisive bodies in form of boards became superfluous.",
 			"dymAboutSystemC":"Consistently - there is no Administrator in this System, who might arbitrarily change anything, correct parameters, add new users, limit their rights, remove them...We know how much misunderstandings this causes and often justified protests and accusations of despotism. Any individual parameters and global setting, the way and mode of the System operation are set only by the decision of the Community at the System start, and to be changed at any time.",
 			"dymAboutSystemD":"Authors of the System wish you lots of success and satisfaction when using it!",
@@ -207,7 +207,7 @@
 		"dymUsersList":"You will find here list of System Users so that you will be able to contact them."
   },
   "language":{
-	"lanSystSDD":"DRS"
+	"lanSystSDD":"SDD"
   },
   "addLanguage":{
 	"AddLangua":"Add language",
@@ -645,18 +645,18 @@
 	"nnmSender":"Sender ",
 	"nnmTitle":"Title ",
 	"nnmContents":"The text ",
-	"nnmSystemName":"DRS",
+	"nnmSystemName":"SDD",
 	"nnmRegards":"Greetings, "
   },
   "notificationNewIssue":{
-	"nniSystemName":"DRS",
+	"nniSystemName":"SDD",
 	"nniSystemIntroducedAnewIssue":"The new Issue has been introduced to the System ",
 	"nniOn":"concerning ",
 	"nniWelcomeToTheDeliberationOfTheIssue":"You are welcome to deliberate this Issue, discuss it and give priority.",
 	"nniLinkToThisIssue":"Link to the Issue"
   },
   "notificationLackOfRealizationReport":{
-	"nlrSystemName":"DRS",
+	"nlrSystemName":"SDD",
 	"nlrNoSystemReportTheImplemIssue":"Ther eis no Execution Report for this Issue in the System ",
 	"nlrOn":"concerning ",
 	"nlrTheImplementationTeam":"Execution Team",
