@@ -496,138 +496,138 @@
 	"aKwFnameAndLname":"Name and surname"
   },
   "opcjeList":{
-	"aKwOptionsIssue":"Opcje Kwestii"
+	"aKwOptionsIssue":"Issue Options"
   },
   "previewKwestiaOpcja":{
-	"pkoIssue":"Kwestia",
-	"pkoNameIssue":"Nazwa Kwestii",
-	"pkoShortContentIssue":"Krótka treść Kwestii",
-	"pkoDataApplicator":"Dane aplikującego",
-	"pkoFnameAndLname":"Imię i Nazwisko",
-	"pkoDescriptionOfTheReasons":"Opis z uzasadnieniem",
-	"pkoCorrect":"Popraw",
-	"pkoSubmittedApplicationMayNotBeWithdrawn":"UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do Systemu."
+	"pkoIssue":"Issue",
+	"pkoNameIssue":"Issue name",
+	"pkoShortContentIssue":"Issue short text",
+	"pkoDataApplicator":"Applicant data",
+	"pkoFnameAndLname":"Name and surname",
+	"pkoDescriptionOfTheReasons":"Description with justification",
+	"pkoCorrect":"Corrify",
+	"pkoSubmittedApplicationMayNotBeWithdrawn":"ATTENTION! Application can not be withdrawn. Apply responsibly and check before entering it to the System."
   },
   "discussionPostForm":{
-    "diEnterAcomment":"wpisz komentarz ...",
-	"diAddAcomment":"Dodaj komentarz",
-	"diCommentCanNotBeDeletedOrChanged":"Uwaga: komentarza nie można usuwać ani zmieniać"
+    "diEnterAcomment":"enter comment ...",
+	"diAddAcomment":"Add comment",
+	"diCommentCanNotBeDeletedOrChanged":"Attention: the comment may not be removed nor changed."
   },
   "discussionRating":{
-	"drThePriorityOfThisStatement":"Priorytet tej wypowiedzi",
-	"drGivePriorityToThisContent":"Nadaj priorytet tej treści",
-	"drGrantSupportOrNot":"Udziel wsparcia lub nie",
-	"drAuthorContent":"Autor Treści"
+	"drThePriorityOfThisStatement":"Priority of the expression",
+	"drGivePriorityToThisContent":"Give priority to this content",
+	"drGrantSupportOrNot":"Give your support or not",
+	"drAuthorContent":"Content author"
   },
   "addTopicModalInner":{
-	"drAddSubject":"Dodaj temat",
-	"drDescription":"Opis"
+	"drAddSubject":"Add Topic",
+	"drDescription":"Description"
   },
   "addTypeModalInner":{
-	"AddTypeToTheSubject":"Dodaj Rodzaj dla Tematu"
+	"AddTypeToTheSubject":"Add Type for Topic"
   },
   "chooseTopicModalInner":{
-	"ctmChooseSubject":"Wybierz temat"
+	"ctmChooseSubject":"Choose Topic"
   },
   "kwestiaDetails":{
-	"KwdTitle":"Tytuł",
-    "KwdDataAplicator":"Dane aplikująego",
-	"KwdFnameLname":"Imię i Nazwisko",
-	"KwdAdditional":"Dodatkowe",
+	"KwdTitle":"Title",
+    "KwdDataAplicator":"Applicant data",
+	"KwdFnameLname":"Name and surname",
+	"KwdAdditional":"Additional",
 	"KwdParameter":"Parametr",
-    "KwdInitialValue":"Wartość początkowa",
-	"KwdTheProposedValue":"Proponowana wartość",
-    "KwdShortContentIssue":"Krótka treść Kwestii",
-	"KwdDescriptionOfTheReasons":"Opis z uzasadnieniem"
+    "KwdInitialValue":"Initial value",
+	"KwdTheProposedValue":"Proposed value",
+    "KwdShortContentIssue":"Short description of the Issue",
+	"KwdDescriptionOfTheReasons":"Description with justification"
   },
   "managePriorities":{
-	"mpPriorityInTheImplem":"Priorytet w realizacji",
+	"mpPriorityInTheImplem":"Priority in execution",
     "mpPriority":"Priorytet",
     "mpPrioInfo":"Info",
-	"mpThisMeansAbstention":"Oznacza wstrzymanie się od głosu"
+	"mpThisMeansAbstention":" means abstention from voting"
   },
   "ZRTemplate":{
-	"zrTheImplementationTeam":"Zespół Realizacyjny",
-	"zrOnTheCreationOfImplTeam":"O tworzeniu ZR",
-    "zrNameImplTeam":"Nazwa Zespołu",
-	"zrLack":"Brak",
-	"zrMemberNo":"Członek nr",
-    "zrIjoin":"Dołączam",
-	"zrCheckExistingImplTeam":"Sprawdź istniejące ZR",
-	"zrWhyIsThisImportant":"Dlaczego to ważne?"
+	"zrTheImplementationTeam":"Execution Team",
+	"zrOnTheCreationOfImplTeam":"On creation of Execution Team",
+    "zrNameImplTeam":"Name of the Team",
+	"zrLack":"None",
+	"zrMemberNo":"Member ",
+    "zrIjoin":"I join",
+	"zrCheckExistingImplTeam":"Check existing ET",
+	"zrWhyIsThisImportant":"Why this is important?"
   },
   "kwestiaTopButtons":{
-    "ktReportsOfImplementation":"Raporty Realizacyjne",
-	"ktSubmissionOfTheReport":"Złożenie Raportu",
-	"ktAddOption":"Dodaj Opcję",
-    "ktMoveItToTheArchive":"Do Archiwum",
-	"ktMoveItToTheTrash":"Do Kosza"
+    "ktReportsOfImplementation":"Execution Reports",
+	"ktSubmissionOfTheReport":"Adding Report",
+	"ktAddOption":"Add Option",
+    "ktMoveItToTheArchive":"To the Archive",
+	"ktMoveItToTheTrash":"To the Thrash Bin"
   },
   "informacjeKwestia":{
-    "ikDetailsIssue":"Szczegóły Kwestii",
-	"ikZespReal":"Zespół Realizacyjny"
+    "ikDetailsIssue":"Details of the Issue",
+	"ikZespReal":"Execution Team"
   },
   "issueDetails":{
-    "iDeIssue":"Kwestia",
-	"iDeFrom":"od",
-	"iDeWarning":"Uwaga!",
-    "iDePresent":"Obecnych",
-	"iDePAndSo":"a więc",
-	"iDeQuorum":"kworum",
-    "iDeFulfilled":"spełnione",
-	"iDeLack":"brak",
-	"iDetoObtainAquorum":"dla uzyskania kworum",
-    "iDeTheImplementationTeamCompleted":"Zespół Realizacyjny skompletowany",
-	"iDeStillMissing":"Brak jeszcze",
-    "iDeTheImplementationTeam":"Zespołu Realizacyjnego",
-	"iDeTheIssueOfInactiveItIsLocatedInAtrashCan":"UWAGA! Kwestia nieaktywna (znajduje się w koszu!)",
-    "iDeTheReasonForTheRejectionIssue":"Powód odrzucenia Kwestii",
-    "iDeYouHavePausedFromGivingPriorityTo":"Wstrzymałeś się od głosu nadając tej Kwestii priorytet",
-    "iDeYouGaveTheIssueApriority":"Nadałeś tej Kwestii priorytet",
-    "iDeNotYetYouGaveThisIssueApriority":"Nie nadałeś jeszcze tej Kwestii priorytetu",
-    "iDePriorityVote":"Priorytet w głosowaniu",
-    "iDeTalkIssue":"Dyskusja Kwestii"
+    "iDeIssue":"Issue",
+	"iDeFrom":"from",
+	"iDeWarning":"Attention!",
+    "iDePresent":"Present",
+	"iDePAndSo":"that is ",
+	"iDeQuorum":"quorum ",
+    "iDeFulfilled":"secured ",
+	"iDeLack":"lack ",
+	"iDetoObtainAquorum":"to secure quorum ",
+    "iDeTheImplementationTeamCompleted":"Execution Team completed",
+	"iDeStillMissing":"Yet missing ",
+    "iDeTheImplementationTeam":"Execution Team",
+	"iDeTheIssueOfInactiveItIsLocatedInAtrashCan":"ATTENTION! The Issue not active (it is in the Trash Bin!)",
+    "iDeTheReasonForTheRejectionIssue":"Reason of rejecting the Issue ",
+    "iDeYouHavePausedFromGivingPriorityTo":"You have abbstined from voting giving priority to the Issue",
+    "iDeYouGaveTheIssueApriority":"You have given priority to this Issue ",
+    "iDeNotYetYouGaveThisIssueApriority":"You have not given this Issue a priority.",
+    "iDePriorityVote":"Priority in voting ",
+    "iDeTalkIssue":"Discussion on Issue "
   },
   "zrOptions":{
-	"zrCancellOfParticipationInTheTeamImplem":"Rezygnacja z udziału w Zespole Realizacyjnym",
-    "zrResign":"Rezygnuj",
-	"zrWriteAmessageToMemberIT":"Napisz wiadomość do Członka ZR",
-	"zrWriteAmessage":"Napisz wiadomość"
+	"zrCancellOfParticipationInTheTeamImplem":"Resignation of the participation in Execution Team. ",
+    "zrResign":"Resign ",
+	"zrWriteAmessageToMemberIT":"Compose message for Member of the ET",
+	"zrWriteAmessage":"Write message"
   },
   "addNazwaModalInner":{
-	"aniPleaseNameTheImplementationTeam":"Nadaj nazwę temu Zespołowi Realizacyjnemu",
-	"aniTheImplementationTeamForThe":"Zespół Realizacyjny ds.",
-	"aniNameTheImplementationTeam":"Nazwa Zespołu Realizacyjnego",
-	"aniExplanation":"Objaśnienie",
-	"aniEnterOnlyTheContinuationOfTheName":"Pierwsza część nazwy ZR, czyli prefiks (Zespół Realizacyjny ds.) już jest, a więc wprowadź jedynie ciąg dalszy nazwy, np.:",
-	"aniEnterOnlyTheContinuationOfTheNameA":"Rozpisania Konkursu, albo",
-	"aniEnterOnlyTheContinuationOfTheNameB":"Projektu Ogrodzenia Osiedla, lub",
-	"aniEnterOnlyTheContinuationOfTheNameC":"Jawności Finansów, itp... ",
-	"aniEnterOnlyTheContinuationOfTheNameD":"Podaj tylko zakończenie zgodne z charakterem rozpatrywanej Kwestii."
+	"aniPleaseNameTheImplementationTeam":"Give name to this Execution Team",
+	"aniTheImplementationTeamForThe":"Execution Team for ",
+	"aniNameTheImplementationTeam":"Name of the Execution Team ",
+	"aniExplanation":"Explanation ",
+	"aniEnterOnlyTheContinuationOfTheName":"First part of the ET name, that is prefix (Execution Team for ) already exists, so add the further description of the name, e.g:",
+	"aniEnterOnlyTheContinuationOfTheNameA":"Organizing the Competition, or ",
+	"aniEnterOnlyTheContinuationOfTheNameB":"Residential Area Fancing, or ",
+	"aniEnterOnlyTheContinuationOfTheNameC":"Finances Transparency, and so on... ",
+	"aniEnterOnlyTheContinuationOfTheNameD":"Give only final phrase according to Issue type."
   },
   "decyzjaModalInner":{
-	"deCreatingTheImplementationTeam":"Tworzenie Zespołu Realizacyjnego",
-	"deImCreatingAnewTeamImplementation":"Tworzę nowy Zespół Realizacyjny",
-	"deIacceptAnIssueForMyTeam":"Przyjmę Kwestię do mojego Zespołu"
+	"deCreatingTheImplementationTeam":"Creation of the Execution Team",
+	"deImCreatingAnewTeamImplementation":"I create new Execution Team",
+	"deIacceptAnIssueForMyTeam":"I accept the Issue to my Team"
   },
   "listZespolRealizacyjnyModalInner":{
-	"lzrImplementation teams":"Zespoły Realizacyjne"
+	"lzrImplementation teams":"Execution Teams"
   },
   "zespolOptionsTemplate":{
-	"zotPleaseMentionImplTeam":"Powołaj ZR"
+	"zotPleaseMentionImplTeam":"Create ET"
   },
   "listZespolRealizacyjnyDoubleModalInner":{
-	"izdSelectTheAppropriateImplTeamForTheIssue":"Wskaż odpowiedni ZR dla tej Kwestii. Kwestia zostanie przyjęta do realizacji pod warunkiem, że jesteś tego Zespołu Członkiem. Poszukaj więc Twojego Zespołu Realizacyjnego, lub wróć aby utworzyć nowy Zespół.",
-	"izdResign":"Rezygnuj"
+	"izdSelectTheAppropriateImplTeamForTheIssue":"Point proper ET for this Issue. The Issue shall be accepted for execution provided that you are Member of the Team. So, look for Your Execution Team or go back to create new Team.",
+	"izdResign":"Resign "
   },
   "zespolDoubleTemplateOptions":{
-	"izdMentionImplemTeam":"Powołaj ZR"
+	"izdMentionImplemTeam":"Create ET"
   },
   "zrModalCurrentIssueMyResolutionsInner":{
-	"zmrCancellationOfParticipationInTheImplemTeam":"Rezygnacja z udziału w Zespole Realizacyjnym",
-	"zmrThinkThisStep":"Przemyśl ten krok! Jego skutkiem może być nie zrealizowanie podjętej uchwały!",
-	"zmrTheResolutionsWhoseImplementationIsCaring":"Uchwały, których realizacją się opiekujesz",
-	"zmrYouDoNeverthelessTeaveTheRealizationTeam":"Mimo wszystko opuszczasz Zespół Realizacyjny?",
+	"zmrCancellationOfParticipationInTheImplemTeam":"Resignation from participation in Execution Team ",
+	"zmrThinkThisStep":"Think over this step! - The taken Resolution may not be executed!",
+	"zmrTheResolutionsWhoseImplementationIsCaring":"Resolutions that you take care of its' execution",
+	"zmrYouDoNeverthelessTeaveTheRealizationTeam":"Are you still decided to leave the Execution Team?",
 	"zmrYes":"Tak"
   },
   "previewKwestia":{
