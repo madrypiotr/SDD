@@ -234,136 +234,136 @@
 	"adfTimeDebate":"Durée de discussion: ",
 	"adfTimeDebateDays":"Durée de discussion (jours).",
 	"adfTimeToVote":"Durée du vote: ",
-	"adfVotingTimeDefault":"Czas głosowania (h). Domyślnie 24 h.",
-	"adfTheRequiredQuorum":"Wymagane kworum:",
-	"adfTheIssueOfOrdinary":"Kwestia zwykła",
+	"adfVotingTimeDefault":"Durée du vote (h).",
+	"adfTheRequiredQuorum":"Quorum exigé: ",
+	"adfTheIssueOfOrdinary":"Question ordinaire",
 	"adfTheIssueOfStatutory":"Kwestia statutowa"
   },
   "editRodzajForm":{
-	"erfEditType":"Edytuj Rodzaj",
-	"erfNameOfType":"Nazwa Rodzaju:",
-	"erfNameOfTypeForExamp":"Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)",
+	"erfEditType":"Éditez Genre",
+	"erfNameOfType":"Nom du Genre: ",
+	"erfNameOfTypeForExamp":"Nom du Genre (ex. postulat, arrêté, proposition, question etc.).",
 	"erfTimeDebate":"Czas dyskusji:",
-	"erfTimeDebateDays":"Czas dyskusji (dni). Domyślnie 7 dni",
+	"erfTimeDebateDays":"Czas dyskusji (dni).",
 	"erfTimeToVote":"Czas głosowania:",
 	"erfVotingTimeDefault":"Czas głosowania (h). Domyślnie 24 h.",
 	"erfTheRequiredQuorum":"Wymagane kworum:"
   },
   "listRodzaj":{
-	"liListOfTypes":"Lista rodzajów"
+	"liListOfTypes":"Liste de Genres"
   },
   "addTematForm":{
-	"aTfAddSubject":"Dodaj Temat",
-    "aTfNameSubject":"Nazwa Tematu:",
-    "aTfNameSubjectForExample":"Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)",
-    "aTfDescription":"Opis:"
+	"aTfAddSubject":"Ajoutez un Thème",
+    "aTfNameSubject":"Nom du Thème: ",
+    "aTfNameSubjectForExample":"Nom du Thème (ex. loi, politique, justice, commerce, culture etc.)",
+    "aTfDescription":"Description:"
   },
   "editTematForm":{
-	"etfEditSubject":"Edytuj Temat",
-    "etfNameSubject":"Nazwa Tematu:",
-    "etfNameSubjectForExample":"Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)",
-    "etfDescriptionSubject":"Opis Tematu:"
+	"etfEditSubject":"Éditez Thème:",
+    "etfNameSubject":"Nom du Thème: ",
+    "etfNameSubjectForExample":"Nom du Thème (ex. loi, politique, justice, commerce, culture etc.)",
+    "etfDescriptionSubject":"Description du Thème: "
   },
   "listTemat":{
-	"LiToCategorization":"Kategoryzacja",
-	"LiToAddSubject":"Dodaj Temat",
-	"LiToTheNumbOfTypesInTheSubject":"Liczba rodzajów w temacie",
-	"LiToAllTypes":"Wszystkie rodzaje"
+	"LiToCategorization":"Catégorisation",
+	"LiToAddSubject":"Ajoutez un Thème",
+	"LiToTheNumbOfTypesInTheSubject":"Nombre de Genres dans un Thème",
+	"LiToAllTypes":"Tous les Genres"
   },
   "optionsColumnTemat":{
-	"oCoAddType":"Dodaj Rodzaj",
-	"oCoRefreshTypes":"Odśwież Rodzaje"
+	"oCoAddType":"Donnez Genre",
+	"oCoRefreshTypes":"Rafraichissez Genres"
   },
   "optionsColumnRodzaj":{
-	"oCrEditType":"Edytuj Rodzaj"
+	"oCrEditType":"Éditez Genre"
   },
   "archiwum":{
-	"archives":"Archiwum",
-	"arcHibernating":"Hibernowane",
-	"archTrashCan":"Kosz"
+	"archives":"Archive",
+	"arcHibernating":"Hiberné",
+	"archTrashCan":"Poubelle"
   },
   "informacjeKwestiaArchiwum":{
-	"ikaAboutIssuesArchive":"Informacje o Kwestii archiwalnej",
-	"ikaYouHavePausedFromVoting":"Wstrzymałeś się od głosu nadając tej Kwestii priorytet",
-	"ikaYouGaveTheIssuEaPriority":"Nadałeś tej Kwestii priorytet",
+	"ikaAboutIssuesArchive":"Informations sur la Question archivée",
+	"ikaYouHavePausedFromVoting":"Vous vous êtes abstenu du vote en attribuant à cette Question la priorité",
+	"ikaYouGaveTheIssuEaPriority":"Vous avez attribuée à cette Question la priorité",
 	"ikaNotYetYouGaveThisIssuEaPriority":"Nie nadałeś jeszcze tej Kwestii priorytetu",
-	"ikaTransferIssue":"Przeniesienie Kwestii",
-	"ikaToTheTrash":"Do Kosza",
-	"ikaForDeliberation":"Do Deliberacji",
-	"ikaSeeImplementation":"Zobacz Realizację",
-	"ikaLaunchDateOfTheIssues":"Data wprowadzenia Kwestii",
-	"ikaDateOfVote":"Data głosowania",
-	"ikaFinalDeliberationAndVoting":"Finał deliberacji i głosowania",
-	"ikaNameIssue":"Nazwa Kwestii",
-	"ikaPriority":"Priorytet",
-	"archRodzaj":"Rodzaj",
-	"ikaContentIssue":"Treść Kwestii",
-	"ikaShortContent":"Krótka treść",
-	"ikaDescriptionWithTheReasons":"Opis z uzasadnieniem",
-	"ikaDiscussionOnTheIssue":"Dyskusja Kwestii"
+	"ikaTransferIssue":"Transfère de la Question",
+	"ikaToTheTrash":"A la poubelle",
+	"ikaForDeliberation":"A la Délibération",
+	"ikaSeeImplementation":"Voir la Réalisation",
+	"ikaLaunchDateOfTheIssues":"Date de l'introduction de la Question",
+	"ikaDateOfVote":"Date du vote",
+	"ikaFinalDeliberationAndVoting":"Fin de la délibération et du vote",
+	"ikaNameIssue":"Nom de Question",
+	"ikaPriority":"Priorité",
+	"archRodzaj":"Genre",
+	"ikaContentIssue":"Texte de la Question",
+	"ikaShortContent":"Texte court",
+	"ikaDescriptionWithTheReasons":"Description avec motivation",
+	"ikaDiscussionOnTheIssue":"Discussion de la Question"
   },
   "addRealizationReportModalInner":{
-    "addNewReportTheImplem":"Nowy Raport Realizacyjny",
-    "addRealTitle":"Tytuł:",
-    "addDescription":"Opis"
+    "addNewReportTheImplem":"Nouveau Rapport de Réalisation",
+    "addRealTitle":"Titre:",
+    "addDescription":"Description"
   },
   "discussionPostItem":{
-	"dPiReferences":"odniesień",
-	"dPiLess":"mniej",
-	"dPiMore":"więcej",
-	"dPiExplainThis":"Uzasadnienie",
-	"dPiTheImplemReport":"Raport Realizacyjny",
-	"dPiDescription":"Opis"
+	"dPiReferences":" références",
+	"dPiLess":"moins",
+	"dPiMore":"plus",
+	"dPiExplainThis":"Motivation",
+	"dPiTheImplemReport":"Rapport de Réalisation ",
+	"dPiDescription":"Description"
   },
   "discussionAnswerForm":{
-	"dAfaReferenceToAComment":"odniesienie do komentarza ...",
-	"dAfAddReference":"Dodaj odniesienie",
-	"dAfTheReferenceCanNotBeDelOrChanged":"Uwaga: odniesienia nie można usuwać ani zmieniać"
+	"dAfaReferenceToAComment":"référence au commentaire ...",
+	"dAfAddReference":"Ajoutez une référence",
+	"dAfTheReferenceCanNotBeDelOrChanged":"Attention: référence ne peut pas être supprimée ni changée"
   },
   "discussionAnswerItem":{
-	"dAiLess":"mniej",
-	"dAiMore":"więcej"
+	"dAiLess":"moins",
+	"dAiMore":"plus"
   },
   "uzasadnienieArchiwumModalInner":{
-	"umiExplainYourProposal":"Uzasadnij propozycję",
-	"umiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej",
-	"umiTheIssueToTheArchive":"Kwestii do Archiwum",
-	"umiWhereHeReturnedIissues":", gdzie odsyłane są Kwestie niekoniecznie aktualne i pilne oraz oczekujące na lepsze warunki dla ich ponownego rozpatrzenia.",
-	"umiIfYourDecisionIsConsistent":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
-	"umiBroaderJustification":"uzasadnienie",
-	"umiOtherwisePress":"W przeciwnym wypadku naciśnij",
-	"umiSubmit":"Zatwierdź"
+	"umiExplainYourProposal":"Justifiez la proposition",
+	"umiYouIntendToApply":"Avez-vous l'intention demander l'envoi de cette ",
+	"umiTheIssueToTheArchive":"Question aux Archives",
+	"umiWhereHeReturnedIissues":", ou sont envoyées les Questions pas nécessairement actuelles ni urgentes ainsi que celles qui attendent les meilleures conditions pour la délibération.",
+	"umiIfYourDecisionIsConsistent":"Si votre décision corresponde à une tel intention - donnez ci-dessous sa ",
+	"umiBroaderJustification":"motivation",
+	"umiOtherwisePress":"Dans le cas contraire pressez",
+	"umiSubmit":"Acceptez"
   },
   "uzasadnienieDeliberacjaModalInner":{
-	"udiExplainYourProposal":"Uzasadnij propozycję",
-	"udiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej ",
-	"udiIssueForDeliberation":"Kwestii do Deliberacji",
-	"udiWhereIssuesAreDiscussed":", gdzie są Kwestie dyskutowane.",
-	"udiIfYourDecisionIsConsistent":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
-	"udiBroaderJustification":"uzasadnienie",
-	"udiOtherwisePress":"W przeciwnym wypadku naciśnij ",
-	"udiSubmit":"Zatwierdź"
+	"udiExplainYourProposal":"Justifiez la proposition",
+	"udiYouIntendToApply":"Avez-vous l'intention demander son envoi ",
+	"udiIssueForDeliberation":"Question à la Délibération",
+	"udiWhereIssuesAreDiscussed":", ou les Questions sont discutées.",
+	"udiIfYourDecisionIsConsistent":"Si Votre décision corresponde à une tel intention - donnez ci-dessous sa ",
+	"udiBroaderJustification":"motivation",
+	"udiOtherwisePress":"Dans le cas contraire pressez ",
+	"udiSubmit":"Acceptez"
   },
   "uzasadnienieKoszModalInner":{
-	"ukiExplainYourProposal":"Uzasadnij propozycję",
-	"ukiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej ",
-	"ukiIssueToTheTrash":"Kwestii do Kosza, ",
-	"ukiWhereSentBackIissuesFailed":"gdzie odsyłane są Kwestie nieudane, błędne, bez szans na wdrożenie. Zostaną one ostatecznie zarchiwizowane (bez możliwości wznowienia).",
-	"ukiIfYourDecisionIsConsisten":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
-	"ukiBroaderJustification":"uzasadnienie",
-	"ukiOtherwisePress":"W przeciwnym wypadku naciśnij ",
-	"ukiSubmit":"Zatwierdź"
+	"ukiExplainYourProposal":"Justifiez la proposition",
+	"ukiYouIntendToApply":"Avez-vous l'intention demander l'envoi de cette ",
+	"ukiIssueToTheTrash":"Question à la poubele, ",
+	"ukiWhereSentBackIissuesFailed":"ou sont envoyées les Questions ratées, erronées, sans chance d'être réalisées. Elles seront définitivement archivées (sans la possibilité de réactivation)",
+	"ukiIfYourDecisionIsConsisten":"Si Votre décision corresponde à une tel intention - donnez ci-dessous sa ",
+	"ukiBroaderJustification":"justification",
+	"ukiOtherwisePress":"Dans le cas contraire pressez ",
+	"ukiSubmit":"Acceptez"
   },
   "addKwestiaForm":{
-    "akfAddIssue":"Dodaj Kwestię",
-	"akfNameIssue":"Nazwa Kwestii",
-	"akfChooseExisting":"Wybierz istniejący",
-	"akfEnterTheNew":"Wprowadź nowy",
-	"akfSelectOrEnterTheSubject":"Wybierz lub wprowadź Temat",
-	"akfSelectOrEnterTheType":"Wybierz lub wprowadź Rodzaj",
-	"akfShortContentIssue":"Krótka treść Kwestii",
-	"akfShortContent":"Krótka treść",
-	"akfDescriptionWithTheReasons":"Opis z uzasadnieniem",
+    "akfAddIssue":"Ajoutez une Question",
+	"akfNameIssue":"Nom de la Question",
+	"akfChooseExisting":"Choisissez existant",
+	"akfEnterTheNew":"Entrez un nouveau",
+	"akfSelectOrEnterTheSubject":"Choisissez ou entrez un Thème",
+	"akfSelectOrEnterTheType":"Choisissez ou entrez un Genre",
+	"akfShortContentIssue":"Texte bref de la Question",
+	"akfShortContent":"Texte bref",
+	"akfDescriptionWithTheReasons":"Descriptif avec motivation",
 	"akfAddThisIssue":"Dodaj tę Kwestię"
   },
   "activateAccount":{
