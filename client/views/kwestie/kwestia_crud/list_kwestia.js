@@ -119,7 +119,7 @@ Template.listKwestia.helpers({
             filters: ['customFilter'],
             fields: [
                 { key: 'dataWprowadzenia', label: TXV.DATA, tmpl: Template.dataUtwKwestia ,sortOrder:1,sortDirection:'descending'},
-                { key: 'kwestiaNazwa', label: more.moreNAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
+                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
                 { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia },
                 { key: 'idTemat', label: TXV.SUBJECT, tmpl: Template.tematKwestia },
                 { key: 'idRodzaj', label: TXV.TYPE, tmpl: Template.rodzajKwestia },
