@@ -225,7 +225,13 @@
 	"edShortcutForExample_en":"Skrót (np. pl, en, itp...)"
   },
   "listLanguages":{
-	"listOfLanguages":"Lista języków"
+	"listOfLanguages": "Lista języków",
+	"polski": "polski",
+	"angielski": "angielski",
+	"niemiecki": "niemiecki",
+	"szwedzki": "szwedzki",
+	"francuski": "francuski",
+	"czeski": "czeski"
   },
   "languageOptions":{
 	"loOff":"Wyłącz",
