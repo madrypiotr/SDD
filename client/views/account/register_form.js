@@ -250,6 +250,11 @@ Template.registerForm.helpers({
         return !!users && users.count() < 5 ? true : false;
     },
     'getLanguages':function(){
-        return Languages.find({});
+        return Languages.find({}).map(function (lang) {
+            return {
+                shortName: lang.shortName,
+                languageName: TAPi18n.__('listLanguages.' + lang.languageName)
+            };
+        });
     }
-})
+});
