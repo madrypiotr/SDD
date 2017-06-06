@@ -625,138 +625,138 @@
 	"zmrThinkThisStep":"Réfléchissez! Ceci peut conduire à la non réalisation d'une décision!",
 	"zmrTheResolutionsWhoseImplementationIsCaring":"Décisions, dont vous avez la responsabilité ",
 	"zmrYouDoNeverthelessTeaveTheRealizationTeam":"Vous quittez l'Equipe de Réalisation quand même?",
-	"zmrYes":"Tak"
+	"zmrYes":"Oui"
   },
   "previewKwestia":{
-	"pKwIssue":"Kwestia",
-	"pKwShortContent":"Krótka treść",
-    "pKwDescriptionOfTheReasons":"Opis z uzasadnieniem",
-	"pKwSubmittedMpplicationMayNotBeWithdrawn":"UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do Systemu",
-	"pKwCorrect":"Popraw"
+	"pKwIssue":"Question",
+	"pKwShortContent":"Texte bref",
+    "pKwDescriptionOfTheReasons":"Descriptif avec la motivation",
+	"pKwSubmittedMpplicationMayNotBeWithdrawn":"ATTENTION! Proposition déposée ne peut être annulée. Proposez responsable et vérifiez avant l'introduction dans le Système",
+	"pKwCorrect":"Correction"
   },
   "notificationInfo":{
-	"noiBackToNotifications":"Powrót do powiadomień"
+	"noiBackToNotifications":"Retour aux nouvelles"
   },
   "notificationNewMessage":{
-	"nnmPostDate":"Data wysłania",
-	"nnmSender":"Nadawca",
-	"nnmTitle":"Tytuł",
-	"nnmContents":"Treść",
+	"nnmPostDate":"Date d'envoie",
+	"nnmSender":"Expéditeur",
+	"nnmTitle":"Titre",
+	"nnmContents":"Contenu",
 	"nnmSystemName":"SDD",
-	"nnmRegards":"Pozdrawiam,"
+	"nnmRegards":"Je vous salue,,"
   },
   "notificationNewIssue":{
 	"nniSystemName":"SDD",
-	"nniSystemIntroducedAnewIssue":"Do Systemu wprowadzono nową Kwestię",
-	"nniOn":"dotyczącą",
-	"nniWelcomeToTheDeliberationOfTheIssue":"Zapraszamy do deliberacji tej Kwestii, dyskusji i nadania priorytetu.",
-	"nniLinkToThisIssue":"Link do Kwestii"
+	"nniSystemIntroducedAnewIssue":"Une nouvelle Question a était introduite au Système",
+	"nniOn":"concernant",
+	"nniWelcomeToTheDeliberationOfTheIssue":"Nous vous invitons à la deliberation de cette Question, discussion et attribution de la priorité.",
+	"nniLinkToThisIssue":"Link à la Question"
   },
   "notificationLackOfRealizationReport":{
 	"nlrSystemName":"SDD",
-	"nlrNoSystemReportTheImplemIssue":"Brak w Systemie Raportu Realizacyjnego Kwestii",
-	"nlrOn":"dotyczącej",
-	"nlrTheImplementationTeam":"Zespół Realizacyjny",
-	"nlrPost":"Napisz",
-	"nlrGoToTheDiscussionOfRealization":"Idź do dyskusji realizacyjnej",
-	"nlrLinkToIssue":"Link do Kwestii"
+	"nlrNoSystemReportTheImplemIssue":"Il n'y a pas de Rapport de Réalisation de la Question",
+	"nlrOn":" concernant ",
+	"nlrTheImplementationTeam":"Equipe de Réalisation",
+	"nlrPost":"Ecrivez",
+	"nlrGoToTheDiscussionOfRealization":"Allez à la discussion de réalisation",
+	"nlrLinkToIssue":"Link à la Question"
   },
   "listRaport":{
-	"lraListOfReports":"Lista raportów"
+	"lraListOfReports":"Liste de rapports"
   },
   "informacjeRaport":{
-	"inrTheImplementationReport":"Raport Realizacyjny",
-	"inrCreationDate":"Data utworzenia",
-	"inrapAuthor":"Autor",
-	"inrapTitle":"Tytuł",
-	"inrapDetails":"Szczegóły",
-	"inrapSeeAllTheReportsForTheIssue":"Zobacz wszystkie raporty dla tej Kwestii"
+	"inrTheImplementationReport":"Rapport de Réalisation",
+	"inrCreationDate":"Date de création",
+	"inrapAuthor":"Auteur",
+	"inrapTitle":"Titre",
+	"inrapDetails":"Details",
+	"inrapSeeAllTheReportsForTheIssue":"Voyez tous les rapports de cette Question"
   },
   "editColumnRealization":{
-	"retResolutionPrintToPDF":"Drukuj Uchwałę do pliku PDF"
+	"retResolutionPrintToPDF":"Imprimez la Décision vers un répertoire PDF"
   },
   "raport":{
-	"raporShow":"Pokaż"
+	"raporShow":"Montrez"
   },
   "realizacja":{
-	"rzcDuringImplementation":"Realizowane",
-	"rzcCompletedImplementation":"Zrealizowane"
+	"rzcDuringImplementation":"En réalisation",
+	"rzcCompletedImplementation":"Réalisées"
   },
   "realizacjaTab1":{
-	"pinfoDuringImplementation":"REALIZOWANE"
+	"pinfoDuringImplementation":"EN RÉALISATION"
   },
   "realizacjaTab2":{
-	"pinfoCompletedImplementation":"ZREALIZOWANE",
-	"pinfoCompletedImplemA":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do tego właśnie dzału - Zrealizowane.",
-	"pinfoCompletedImplemB":"Kwestie zrealizowane, to również Kwestie dotyczące ustawień globalnych, Kwestii okolicznościowych, dotyczacych jednorazowych wydarzeń, lub prcedur zakończonych, jednoznacznie sfinalizowanych, itp...."
+	"pinfoCompletedImplementation":"REALISEES",
+	"pinfoCompletedImplemA":"Réalisation de la Question dure jusqu'au moment, ou l'Ensemble des Utilisateurs la reconnaisse réalisée, en l'envoyant au chapitre - REALISEES.",
+	"pinfoCompletedImplemB":"Questions réalisées sont aussi des Questions concernant paramètres globaux, Questions circonstancielles, concernant événements uniques, processus terminés, finalisés, etc...."
   },
   "editParametrModalInner":{
-	"epmParameterEdition":"Edycja parametru",
-	"epmConfirmChanges":"Zmień",
-	"epmCancel":"Anuluj"
+	"epmParameterEdition":"Edition du paramètre",
+	"epmConfirmChanges":"Modifiez",
+	"epmCancel":"Annulez"
   },
   "listParametr":{
-	"pinfoGlobalParameters":"PARAMETRY GLOBALNE",
-	"pinfoGlobalParametersA":"Tutaj masz możliwość zaproponować zmianę parametrów funkcjonowania Systemu, które wyszczególniono poniżej.",
-	"pinfoGlobalParametersB":"Wszelkie parametry indywidualne oraz globalne ustawienia, sposób i tryb działania Systemu ustalane są zawsze decyzją Ogółu, zarówno na starcie Systemu, jak i w dowolnej chwili podczas używania Systemu.",
-	"pinfoGlobalParametersC":"Takie rozwiazanie jest konieczne, ponieważ nie ma tu administratora, którego aktywność byłaby wyłomem wobec głównej zasady Systemu - rozstrzygania wszystkiego wolą Ogółu.",
-	"lipView":"Zobacz",
-	"lipOneParameterIsTheProcessOfChanging":"Jeden parametr jest w trakcie zmiany. Kolejną można dokonać po finalizacji obecnej.",
-	"lipOrganizationData":"Dane organizacji",
-	"lipNameOfOrganization":"Nazwa organizacji",
-	"lipTerritory":"Terytorium",
-	"lipContactDetails":"Kontakty",
-	"lipRegulations":"Regulamin",
-	"lipVote":"Głosowanie",
-	"lipVotingTimeInHours":"Czas głosowania(w godzinach)",
-	"lipIssuesAndSpecialCommOfWaitingTimeInDays":"Czas wyczekiwania Kwestii i komentarzy specjalnych (w dniach)",
-	"lipHowMuchIssuePassingToVote":"Ilość Kwesti przechodzących do głosowania",
-	"lipNumberOfMinToPauseReEntry":"Ilość minut koniecznej pauzy do ponownej akcjii tego samego typu",
-	"lipAddIssue":"Dodanie Kwestii",
-	"lipAddingCommentWithinAissue":"Dodanie komentarza w ramach danej Kwestii",
-	"lipTheAdditionOfAreferWithinTheComm":"Dodanie odniesienia w ramach danego komentarza",
-	"lipReportsOfImplementation":"Raporty Realizacyjne",
-	"lipDeadlineForFilingTheReportsInDays":"Okres składania Raportów Realizacyjnych (w dniach)"
+	"pinfoGlobalParameters":"PARAMETRES GLOBAUX",
+	"pinfoGlobalParametersA":"Ici vous pouvez proposer le changement des paramètres de fonctionnement du Système, qui sont précisés ci-dessous.",
+	"pinfoGlobalParametersB":"Tous les paramètres individuels et réglages globaux, modes de fonctionnement du Système sont fixés par la décision de tous, au démarrage du Système et à chaque moment pendant utilisation du Système.",
+	"pinfoGlobalParametersC":"Une tel solution est nécessaire, car il n'y a pas de l'admin, dont l'activité serait contraire au principe fondamental du Système - toutes les décisions sont prises par Tous.",
+	"lipView":"Voyez",
+	"lipOneParameterIsTheProcessOfChanging":"Un paramètre est en cours de changement. Le suivant sera possible après la finalisation de celui-ci.",
+	"lipOrganizationData":"Données de l'Organisation",
+	"lipNameOfOrganization":"Nom de l'Organisation",
+	"lipTerritory":"Territoire",
+	"lipContactDetails":"Contactes",
+	"lipRegulations":"Réglement",
+	"lipVote":"Vote",
+	"lipVotingTimeInHours":"Temps du vote (en heures)",
+	"lipIssuesAndSpecialCommOfWaitingTimeInDays":"Durée d'attente de la Question et commentaires spéciaux ( en jours)",
+	"lipHowMuchIssuePassingToVote":"Nombre de Questions passants au vote",
+	"lipNumberOfMinToPauseReEntry":"Nombre de minutes de pause nécessaire pour une action de même type",
+	"lipAddIssue":"Ajout de Question",
+	"lipAddingCommentWithinAissue":"Ajout de commentaire à l'intérieur de la Question",
+	"lipTheAdditionOfAreferWithinTheComm":"Ajout de référence dans le commentaire",
+	"lipReportsOfImplementation":"Rapports de Réalisation",
+	"lipDeadlineForFilingTheReportsInDays":"Durée de dépôt des Rapports de Réalisation (en jours)"
   },
   "userEmailContact":{
-	"uecPost":"Napisz"
+	"uecPost":"Ecrivez"
   },
   "sendMessage":{
-	"smSendingMessages":"WYSŁANIE WIADOMOŚCI",
-	"smSendAnEmailToTheUser":"Wyślesz wiadomość e-mail do wybranego Użytkownika.",
-	"smNewMessageTo":"Nowa wiadomość do ",
-	"smFrom":"Od",
-	"smTo":"Do",
-	"smContents":"Treść",
-	"smSend":"Wyślij"
+	"smSendingMessages":"ENVOI DE MESSAGE",
+	"smSendAnEmailToTheUser":"Vous enverrez un e-mail pour l'Utilisateur choisi.",
+	"smNewMessageTo":"Nouveau message pour ",
+	"smFrom":"De ",
+	"smTo":"A ",
+	"smContents":"Texte",
+	"smSend":"Envoi"
   },
   "administracjaUserMain":{
-	"pinfoMyIssues":"MOJE KWESTIE",
-	"pinfoMyIssuesA":"Tutaj znajdziesz wszystkie Kwestie, przez Ciebie dodane.",
-	"pinfoMyIssuesB":"Możesz z tego miejsca przeglądać ich szczegóły.",
-	"pinfoMyIssuesC":"Możesz stąd lobbować, czyli wysyłać Użytkownikom prośby wsparcia Kwestii, na których szczególnie Ci zależy.",
-	"aumMyIssues":"Moje Kwestie",
-	"aumParameters":"Parametry",
-	"aumUsers":"Użytkownicy",
-	"aumSuggestions":"Propozycje",
-	"aumApplyForTheOrdinaryMember":"Aplikuj na Członka Zwyczajnego",
-	"aumYouHaveNotCreatedAnyIssue":"Nie utworzyłeś jeszcze żadnej Kwestii.",
-	"aumSorry":"Przepraszamy!",
-	"aumThereIsAlreadyAissueApplique":"Istnieje już Kwestia Aplikacyjna! Aby ją zobaczyć kliknij",
-	"aumHere":"tutaj"
+	"pinfoMyIssues":"MES QUESTIONS",
+	"pinfoMyIssuesA":"Ici vous trouverez toute les Questions ajoutées par vous.",
+	"pinfoMyIssuesB":"D'ici vous pouvez visionner tous leurs détails.",
+	"pinfoMyIssuesC":"D'ici vous pouvez faire du lobbying, c.à.d. envoyer aux Utilisateurs prières de supporter la Question, dont vous tenez particulièrement.",
+	"aumMyIssues":"Mes Questions",
+	"aumParameters":"Paramètres",
+	"aumUsers":"Utilisateurs",
+	"aumSuggestions":"Propositions",
+	"aumApplyForTheOrdinaryMember":"Appliquez comme Membre Ordinaire",
+	"aumYouHaveNotCreatedAnyIssue":"Vous n'avez pas encore créé une Question.",
+	"aumSorry":"Désolés!",
+	"aumThereIsAlreadyAissueApplique":"Une Question Application existe déjà! pour la voir cliquez ",
+	"aumHere":"ici"
   },
   "lobbujZaKwestia":{
-	"aumYouLobbyingIssue":"Lobbuj za Kwestią"
+	"aumYouLobbyingIssue":"Appuyez la Question (lobbying)"
   },
   "accessDenied":{
-	"acdYouDoNotHavePermissionToViewThisPage":"Nie posiadasz dostępu do tej części strony!",
-	"acdZaloguj":"Zaloguj się"
+	"acdYouDoNotHavePermissionToViewThisPage":"Vous n'avez pas d'accès à cette partie de la page!",
+	"acdZaloguj":"Connectez-vous"
   },
   "accessDeniedUser":{
-	"acuYouDoNotHaveAccessToTheSystem":"Nie posiadasz dostępu do Systemu!"
+	"acuYouDoNotHaveAccessToTheSystem":"Vous n'avez pas d'accès au Système!"
   },
   "notFound":{
-	"nfoSorryThePageYouRequestedDoesNotExist":"Przepraszamy, strona o podanym adresie nie istnieje."
+	"nfoSorryThePageYouRequestedDoesNotExist":"Désolés, la page de cette adresse n'existe pas."
   },
   "subMenu":{
 	"smenlanguages":"Języki"
