@@ -72,9 +72,7 @@
 	"globDoNotYouVotedYetOnThisIssueWelcome":"Nie zagłosowałaś/eś jeszcze w tej Kwestii, zapraszamy: ",
 	"globTheCurrentStrengthOfPriority":"Aktualna siła priorytetu: ",
 	"globRequiredQuorum":"Wymagane kworum: ",
-	"globCurrentPresence":"aktualna obecność: ",
-	"gloSelect":"Wybierz",
-	"glob":""
+	"globCurrentPresence":"aktualna obecność: "
   },
   "header":{
 	"heaLanguages":"Języki",
@@ -99,7 +97,7 @@
 			"dymAboutSystemE":"Obszerniejszy opis Systemu",
 	"dymBeforeYouAdd":"O dodawaniu Kwestii",
 	  "dymAddingIssues":"Dodawanie Kwestii",
-			"dymAddingIssueA":"Każdy zalogowany Członek Zwykły może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
+			"dymAddingIssueA":"Każdy zalogowany Członek Zwyczajny może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
 			"dymAddingIssueB":"Priorytety poszczególnych Użytkowników sumują się i najlepsze Kwestie przechodzą do głosowania. Pozytywne głosowanie powoduje, że Kwestia staje się uchwałą obowiązującą wszyskich, zgromadzonych tu, Użytkowników.",
 			"dymAddingIssueC":"Prosimy o rozważne dodawanie. Dodanej Kwestii nie można usuwać ani edytować.",
 

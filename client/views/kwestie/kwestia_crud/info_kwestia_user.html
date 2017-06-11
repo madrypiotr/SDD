@@ -208,93 +208,51 @@
         {{>listZespolRealizacyjnyDoubleModal}}
     {{/unless}}
 
-<!-- pageInfo -->
+<!-- pageInfo in footer -->
 
-
-{{#if  isRealizowana}}
-
-	<div class="footer">
-		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp; {{_ "more.moreImplemIssueDetails"}} </div>
-			<div id="container">
-				<div class="footer_center">
-					<p>{{_ "more.moreImplemIssueDetailsA"}}</p>
-					<p>{{_ "more.moreImplemIssueDetailsB"}}</p>
-					<p>{{_ "more.moreImplemIssueDetailsC"}}</p>
-			<p><b>{{_ "more.moreImplemIssueDetailsD"}}</b></p>
-				</div>
-			</div>
-	</div>
-{{/if}} 
-
-
-<!--	
-{{#if ?zrealizowana?}}
- 
-				<div class="footer">
-				  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp; SZCZEGÓŁY KWESTII ZREALIZOWANEJ </div>
-					<div id="container">
-						<div class="footer_center">
-							<p>{{_ "more.moreA"}}</p>
-							<p>{{_ "more.moreB"}}</p>
-							<p>{{_ "more.moreC"}}</p>
-						</div>
-					</div>
-				</div>
-{{/if}} 
--->
-
-<!--	
-{{#if ?deliberowana?}}
-	<div class="footer">
-	  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreDeliberIssueDetails"}}</div>
-		<div id="container">
-			<div class="footer_center">
-				<p>{{_ "more.moreDeliberIssueDetailsA"}}</p>
-				<p>{{_ "more.moreDeliberIssueDetailsB"}}</p>
-				<p>{{_ "more.moreDeliberIssueDetailsC"}}</p>
-			</div>
-		</div>
-	</div>
-{{/if}} 
--->
-
-	{{#if isGlosowana}}
-		<div class="footer">
-		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp; {{_ "more.moreVotingDetails"}}</div>
-			<div id="container">
-				<div class="footer_center">
-					<p>{{_ "more.moreVotingB"}}</p>
-					<p>{{_ "more.moreVotingC"}}</p>
-					<p>{{_ "more.moreVotingE"}}</p>
-				</div>
-			</div>
-		</div>
-	{{/if}}
-
-{{#if isIssueArchiwalna}}
 <div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreArchiIssueDetails"}}</div>
+	<div id="button"> <i class="fa fa-info-circle"></i> &nbsp;
+	{{#if isDeliberowana}} {{_ "more.moreDeliberIssueDetails"}} {{/if}}
+            {{#unless kwestiaInKosz}}
+	{{#if isGlosowana}} {{_ "more.moreVotingDetails"}} {{/if}}
+			{{/unless}}
+	{{#if isRealizowana}} {{_ "more.moreImplemIssueDetails"}} {{/if}}
+	{{#if isZrealizowana}} SZCZEGÓŁY KWESTII ZREALIZOWANEJ {{/if}}
+	{{#if kwestiaInKosz}} {{_ "more.moreTheIssueInTheTrashCan"}} {{/if}}
+	</div>
 	<div id="container">
 		<div class="footer_center">
-			<br /><br />
-		<p>{{_ "more.moreArchiIssueDetailsA"}}</p>
+		{{#if isDeliberowana}}
+		<p>{{_ "more.moreDeliberIssueDetailsA"}}</p>
+		<p>{{_ "more.moreDeliberIssueDetailsB"}}</p>
+		<p>{{_ "more.moreDeliberIssueDetailsC"}}</p>
+		{{/if}}
+		{{#if  isRealizowana}}
+			<p>{{_ "more.moreImplemIssueDetailsA"}}</p>
+			<p>{{_ "more.moreImplemIssueDetailsB"}}</p>
+			<p>{{_ "more.moreImplemIssueDetailsC"}}</p>
+			<p><b>{{_ "more.moreImplemIssueDetailsD"}}</b></p>
+		{{/if}}
+		{{#if  isZrealizowana}}
+			<p>{{_ "more.moreA"}}</p>
+			<p>{{_ "more.moreB"}}</p>
+			<p>{{_ "more.moreC"}}</p>
+		{{/if}}
+				{{#unless kwestiaInKosz}}
+		{{#if isGlosowana}}
+			<p>{{_ "more.moreVotingB"}}</p>
+			<p>{{_ "more.moreVotingC"}}</p>
+			<p>{{_ "more.moreVotingE"}}</p>
+		{{/if}}
+				{{/unless}}
+		{{#if kwestiaInKosz}}
+			<p>{{_ "more.moreTheIssueInTheTrashCanA"}}</p>
+			<p>{{_ "more.moreTheIssueInTheTrashCanB"}}</p>
+			<p>{{_ "more.moreTheIssueInTheTrashCanC"}}</p>
+		{{/if}}
 		</div>
 	</div>
-</div>
-	{{/if}}
-
-{{#if kwestiaInKosz}}
-	<div class="footer">
-	  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreTheIssueInTheTrashCan"}}</div>
-		<div id="container">
-			<div class="footer_center">
-				<p>{{_ "more.moreTheIssueInTheTrashCanA"}}</p>
-				<p>{{_ "more.moreTheIssueInTheTrashCanB"}}</p>
-				<p>{{_ "more.moreTheIssueInTheTrashCanC"}}</p>
-			</div>
 		</div>
-	</div>
-{{/if}}
 </template>
 
 <template name="issueManageZR">
