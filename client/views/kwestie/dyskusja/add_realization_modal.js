@@ -42,7 +42,7 @@ Template.addRealizationReportModal.events({
         if ($('#addRRForm').valid()) {
             var report=getReportsForIssueAtSpecificDuration(this.idKwestia);
             if(report!=false){
-                bootbox.alert(TXV.RR_EXSIST);
+                bootbox.alert(TAPi18n.__('txv.RR_EXSIST'));
             }
             else {
                 $("#addRRModal").modal("hide");
@@ -116,7 +116,7 @@ Template.addRealizationReportModal.events({
                         Meteor.call('updateUserRanking', Meteor.userId(), newValue, function (error) {
                             if (error) {
                                 if (typeof Errors === "undefined")
-                                    Log.error(TXV.ERROR + error.reason);
+                                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                                 else
                                     throwError(error.reason);
                             }

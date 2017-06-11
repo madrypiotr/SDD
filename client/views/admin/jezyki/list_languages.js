@@ -7,9 +7,9 @@ Template.listLanguages.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                {key: 'languageName', label: TXV.NAME, tmpl: Template.nameLanguage},
-                {key: 'shortName', label: TXV.SHORT_NAME, tmpl: Template.shortNameLanguage},
-                {key: '_id', label: TXV.OPTIONS, tmpl: Template.languageOptions, headerClass: "col-md-3"}
+                {key: 'languageName', label: TAPi18n.__('txv.NAME'), tmpl: Template.nameLanguage},
+                {key: 'shortName', label: TAPi18n.__('txv.SHORT_NAME'), tmpl: Template.shortNameLanguage},
+                {key: '_id', label: TAPi18n.__('txv.OPTIONS'), tmpl: Template.languageOptions, headerClass: "col-md-3"}
             ]
         };
     },
@@ -39,7 +39,7 @@ Template.languageOptions.events({
         Meteor.call('updateLanguageEnabled', id, lang, function (error) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error(TXV.ERROR + error.reason);
+                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else {
                     throwError(error.reason);
                 }
@@ -58,7 +58,7 @@ Template.languageOptions.events({
         Meteor.call('updateLanguageEnabled', id, lang, function (error) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error(TXV.ERROR + error.reason);
+                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else {
                     throwError(error.reason);
                 }

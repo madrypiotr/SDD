@@ -48,10 +48,10 @@ Template.resetPassword.events({
                 Accounts.resetPassword(token,newPassword);
             }
             else{
-                throwError(TXV.TOKEN_HAS_EXPIRED);
+                throwError(TAPi18n.__('txv.TOKEN_HAS_EXPIRED'));
             }
         }else{
-            throwError(TXV.TOKEN_HAS_EXPIRED);
+            throwError(TAPi18n.__('txv.TOKEN_HAS_EXPIRED'));
         }
     }
 });

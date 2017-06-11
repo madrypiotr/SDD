@@ -11,9 +11,9 @@ Template.zrModalCurrentIssueMyResolutionsInner.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                {key: 'numerUchwaly', label: TXV.RESOLUTION_NO},
-                {key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES},
-                {key: 'dataRealizacji', label: TXV.REALIZ_DATE, tmpl: Template.dataRealizKwestia}
+                {key: 'numerUchwaly', label: TAPi18n.__('txv.RESOLUTION_NO')},
+                {key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue')},
+                {key: 'dataRealizacji', label: TAPi18n.__('txv.REALIZ_DATE'), tmpl: Template.dataRealizKwestia}
             ]
         };
     },

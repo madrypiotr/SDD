@@ -7,10 +7,10 @@ Template.administracjaUserMain.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'dataWprowadzenia', label: TXV.DATE_OF_INTRO, tmpl: Template.dataUtwKwestia },
-                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
-                { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'ascending'},
-                { key: 'options', label: TXV.OPTIONS, tmpl: Template.lobbujZaKwestia }
+                { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATE_OF_INTRO'), tmpl: Template.dataUtwKwestia },
+                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaPriority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'ascending'},
+                { key: 'options', label: TAPi18n.__('txv.OPTIONS'), tmpl: Template.lobbujZaKwestia }
             ]
         };
     },
@@ -95,8 +95,8 @@ Template.lobbujZaKwestia.events({
        if(kwestia.lobbowana){
            if(moment(kwestia.lobbowana).add(24,'hours').format() > moment(new Date()).format()){
                GlobalNotification.warning({
-                   title: TXV.INFO,
-                   content: TXV.NOT_POSS_LESS24,
+                   title: TAPi18n.__('txv.INFO'),
+                   content: TAPi18n.__('txv.NOT_POSS_LESS24'),
                    duration: 4
                });
            }
@@ -109,7 +109,7 @@ Template.lobbujZaKwestia.events({
 bootboxEmail=function(idKwestia){
     var form=bootbox.dialog({
         message:
-        '<p><b>'+TXV.EMAIL_CONTENT+'</b>'+TXV.ENCOURAGE+'</p>'+
+        '<p><b>' + TAPi18n.__('txv.EMAIL_CONTENT') + '</b>' + TAPi18n.__('txv.ENCOURAGE') + '</p>' +
         '<div class="row">  ' +
         '<div class="col-md-12"> ' +
         '<form class="form-horizontal"> ' +
@@ -117,7 +117,7 @@ bootboxEmail=function(idKwestia){
         '<div class="col-md-12"> ' +
         '<textarea id="emailText" name="emailText" type="text"  class="form-control" rows=5></textarea> '+
         '</form> </div>  </div>',
-        title: TXV.MESS_TO_MEMBER,
+        title: TAPi18n.__('txv.MESS_TO_MEMBER'),
         closeButton:false,
         buttons: {
             success: {
@@ -129,7 +129,7 @@ bootboxEmail=function(idKwestia){
                 }
             },
             danger: {
-                label: TXV.CANCEL,
+                label: TAPi18n.__('txv.CANCEL'),
                 className: "btn-danger",
                 callback: function() {
                     $('.btn-success').css("visibility", "visible");
@@ -141,7 +141,7 @@ bootboxEmail=function(idKwestia){
 sendEmailAndNotification=function(idKwestia,emailText){
     if(emailText==null || emailText.trim()==''){
         GlobalNotification.error({
-            title: TXV.INFO,
+            title: TAPi18n.__('txv.INFO'),
             content: FIELD_CONT_CNBE,
             duration: 4
         });
@@ -162,7 +162,7 @@ sendEmailAndNotification=function(idKwestia,emailText){
                 });
             }
             else{
-                bootbox.alert(TXV.SEND_ERROR, function() {
+                bootbox.alert(TAPi18n.__('txv.SEND_ERROR'), function() {
                 });
             }
         });

@@ -106,8 +106,8 @@ Template.ZRTemplate.events({
             var zespolToUpdate = z.zespol.slice();
             if (z.zespol.length > 0) {
                 GlobalNotification.error({
-                    title: TXV.ERROR,
-                    content: TXV.FIRST_MEM_IMPL_TEAM_EXIS,
+                    title: TAPi18n.__('txv.ERROR'),
+                    content: TAPi18n.__('txv.FIRST_MEM_IMPL_TEAM_EXIS'),
                     duration: 4
                 });
                 return false;

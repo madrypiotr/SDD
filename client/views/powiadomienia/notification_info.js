@@ -77,14 +77,14 @@ Template.notificationNewIssue.helpers({
     },
     temat:function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.BELONGS_TO_THE_SYSTEM;
+            return TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         else
         var temat=Temat.findOne({_id:this.idTemat});
         return temat? temat.nazwaTemat : "";
     },
     rodzaj:function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.TECHNICAL;
+            return TAPi18n.__('txv.TECHNICAL');
         else
             var rodzaj=Rodzaj.findOne({_id:this.idRodzaj});
         return rodzaj? rodzaj.nazwaRodzaj : "";
@@ -109,14 +109,14 @@ Template.notificationLackOfRealizationReport.helpers({
     },
     temat:function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.BELONGS_TO_THE_SYSTEM;
+            return TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         else
             var temat=Temat.findOne({_id:this.idTemat});
         return temat? temat.nazwaTemat : "";
     },
     rodzaj:function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.TECHNICAL;
+            return TAPi18n.__('txv.TECHNICAL');
         else
             var rodzaj=Rodzaj.findOne({_id:this.idRodzaj});
         return rodzaj? rodzaj.nazwaRodzaj : "";
@@ -158,7 +158,7 @@ Template.notificationApplicationAnswer.helpers({
         return this.powiadomienieTyp==NOTIFICATION_TYPE.APPLICATION_REJECTED? true : false;
     },
     userTypeData:function(){
-        return this.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ? TXV.ORD_MEMBER : TXV.HONORARY_MEMBER;
+        return this.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ? TAPi18n.__('txv.ORD_MEMBER') : TAPi18n.__('txv.HONORARY_MEMBER');
     }
 });
 
@@ -184,14 +184,14 @@ Template.notificationLobbingMessage.helpers({
     },
     temat:function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.BELONGS_TO_THE_SYSTEM;
+            return TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         else
             var temat=Temat.findOne({_id:this.idTemat});
         return temat? temat.nazwaTemat : "";
     },
     rodzaj:function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.TECHNICAL;
+            return TAPi18n.__('txv.TECHNICAL');
         else
             var rodzaj=Rodzaj.findOne({_id:this.idRodzaj});
         return rodzaj? rodzaj.nazwaRodzaj : "";
@@ -238,14 +238,14 @@ Template.notificationVoteStarted.helpers({
     },
     temat:function(){
         if(this.kwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.BELONGS_TO_THE_SYSTEM;
+            return TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         else
             var temat=Temat.findOne({_id:this.kwestia.idTemat});
         return temat? temat.nazwaTemat : "";
     },
     rodzaj:function(){
         if(this.kwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.TECHNICAL;
+            return TAPi18n.__('txv.TECHNICAL');
         else
             var rodzaj=Rodzaj.findOne({_id:this.kwestia.idRodzaj});
         return rodzaj? rodzaj.nazwaRodzaj : "";

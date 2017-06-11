@@ -10,7 +10,7 @@ Template.loginFormTop.events({
         if (isNotEmpty(user.login, 'login') && isNotEmpty(user.password, 'hasło') && isValidPassword(user.password)) {
             Meteor.loginWithPassword(user.login, user.password, function (err) {
                 if (err) {
-                    throwError(TXV.INCOR_LOGIN_DET);
+                    throwError(TAPi18n.__('txv.INCOR_LOGIN_DET'));
                 } else {
                     if (Meteor.loggingIn()) {
                         Router.go('home');
@@ -18,7 +18,7 @@ Template.loginFormTop.events({
                 }
             });
         } else {
-            throwError(TXV.FILL_FORM_CORR);
+            throwError(TAPi18n.__('txv.FILL_FORM_CORR'));
             return false;
         }
     }

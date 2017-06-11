@@ -13,8 +13,8 @@ Template.notificationList.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'powiadomienieTyp', label: TXV.SUBJECT,tmpl: Template.tematLink,sortOrder: 1, sortDirection: 'descending' },
-                { key: 'dataWprowadzenia', label: TXV.DATA, tmpl: Template.dataWpr,sortOrder: 0, sortDirection: 'descending' }
+                { key: 'powiadomienieTyp', label: TAPi18n.__('glob.globSubject'),tmpl: Template.tematLink,sortOrder: 1, sortDirection: 'descending' },
+                { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATA'), tmpl: Template.dataWpr,sortOrder: 0, sortDirection: 'descending' }
             ],
             rowClass:function(item){
                 if(item.czyOdczytany==false)
@@ -50,7 +50,7 @@ getTopicTypeNotification=function(powiadomienieTyp,idNadawca,idKwestia){
         case NOTIFICATION_TYPE.LOOBBING_MESSAGE:{
             var user=Users.findOne({_id:idNadawca});
             if(user)
-                return powiadomienieTyp+ TXV.BY + user.profile.fullName;break;
+                return powiadomienieTyp+ TAPi18n.__('txv.BY') + user.profile.fullName;break;
         }
         default : return powiadomienieTyp;
     }

@@ -11,8 +11,8 @@ Template.decyzjaModalInner.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                {key: 'nazwa', label: TXV.NAME_OF_TEAM},
-                {key: 'zespol', label: TXV.SPECIF_OF_TEAM, tmpl: Template.zespolDoubleTemplatee}
+                {key: 'nazwa', label: TAPi18n.__('txv.NAME_OF_TEAM')},
+                {key: 'zespol', label: TAPi18n.__('txv.SPECIF_OF_TEAM'), tmpl: Template.zespolDoubleTemplatee}
             ]
         };
     },

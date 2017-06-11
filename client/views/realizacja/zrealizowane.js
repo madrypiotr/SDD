@@ -7,13 +7,13 @@ Template.realizacjaTab2.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'dataRealizacji', label: TXV.START_OF_THE_IMPLEMENTATION, tmpl: Template.dataRealizKwestia },
-//                { key: 'numerUchwaly', label: TXV.RESOLUTION_NO, tmpl: Template.numerUchwKwestia },
-                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
-                { key: 'idTemat', label: TXV.SUBJECT, tmpl: Template.tematKwestia },
-//                { key: 'idRodzaj', label: TXV.TYPE, tmpl: Template.rodzajKwestia },
-                {key: 'raporty', label: TXV.REPORT, tmpl:Template.raport},
-                { key: 'options', label: TXV.OPTIONS, tmpl: Template.editColumnRealization }
+                { key: 'dataRealizacji', label: TAPi18n.__('txv.START_OF_THE_IMPLEMENTATION'), tmpl: Template.dataRealizKwestia },
+//                { key: 'numerUchwaly', label: TAPi18n.__('txv.RESOLUTION_NO'), tmpl: Template.numerUchwKwestia },
+                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'idTemat', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestia },
+//                { key: 'idRodzaj', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestia },
+                {key: 'raporty', label: TAPi18n.__('txv.REPORT'), tmpl:Template.raport},
+                { key: 'options', label: TAPi18n.__('txv.OPTIONS'), tmpl: Template.editColumnRealization }
             ]
         };
     },
@@ -68,20 +68,20 @@ Template.realizacjaTab2.events({
                     membersNames=ret;
                     var docDefinition = {
                         content: [
-                            { text: TXV.DATA +" " + moment(this.dataRealizacji).format("DD.MM.YYYY").toString() + " "+TXV.R, style: 'uchwalaTop'},
+                            { text: TAPi18n.__('txv.DATA') +" " + moment(this.dataRealizacji).format("DD.MM.YYYY").toString() + " "+TAPi18n.__('txv.R'), style: 'uchwalaTop'},
                             { text: globalParameters.nazwaOrganizacji + "\n" +
                             globalParameters.terytorium + "\n" +
                             globalParameters.kontakty + "\n"
                             },
-                            { text: TXV.RESOLUTION_NO + ": " + numerUchwaly + "\n\n\n\t\t" + TXV.BELONGS_TO_THE_ISSUES + ": " + issueName, style: 'uchwalaHeadline'},
+                            { text: TAPi18n.__('txv.RESOLUTION_NO') + ": " + numerUchwaly + "\n\n\n\t\t" + TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ": " + issueName, style: 'uchwalaHeadline'},
                             { text: "\n\t\t\t\t\t\t" + issueContent, style: 'contentStyle'},
-                            { text: "\n\t\t" +TXV.DESCRIPTION+": "+ issueContent, style: 'contentStyle'},
-                            { text: "\n" +TXV.NUMBER_OF_USERS+" - " + glosujacyLength +
-                            "\n"+TXV.NUMBER_OF_PRESENT+"  - " + glosujacyLength +
-                            "\n"+TXV.YES_NUMBER_OF_VOTERS+" - " + voteFor +
-                            "\n"+TXV.NO_NUMBER_OF_VOTERS+" - " + voteAgainst +
-                            "\n"+TXV.ABSTAINED_NUMBER_OF_VOTERS+" - " + abstained +
-                            "\n\n"+TXV.TEAM_IMPLEMENTATION+":" +
+                            { text: "\n\t\t" + TAPi18n.__('txv.DESCRIPTION') + ": " + issueContent, style: 'contentStyle'},
+                            { text: "\n" + TAPi18n.__('txv.NUMBER_OF_USERS') + " - " + glosujacyLength +
+                            "\n" + TAPi18n.__('txv.NUMBER_OF_PRESENT') + "  - " + glosujacyLength +
+                            "\n" + TAPi18n.__('txv.YES_NUMBER_OF_VOTERS') + " - " + voteFor +
+                            "\n" + TAPi18n.__('txv.NO_NUMBER_OF_VOTERS') + " - " + voteAgainst +
+                            "\n" + TAPi18n.__('txv.ABSTAINED_NUMBER_OF_VOTERS') + " - " + abstained +
+                            "\n\n" + TAPi18n.__('txv.TEAM_IMPLEMENTATION') + ":" +
                             "\n1. - " + membersNames[0] +
                             "\n2. - " + membersNames[1] +
                             "\n3. - " + membersNames[2]
@@ -96,21 +96,21 @@ Template.realizacjaTab2.events({
                     pdfMake.createPdf(docDefinition).open();
                 }
             });
-        }else{
+        } else {
             var docDefinition = {
                 content: [
-                    { text: TXV.DN+" " + moment(this.dataRealizacji).format("DD.MM.YYYY").toString() +" "+TXV.R, style: 'uchwalaTop'},
+                    { text: TAPi18n.__('txv.DN')+" " + moment(this.dataRealizacji).format("DD.MM.YYYY").toString() +" "+TAPi18n.__('txv.R'), style: 'uchwalaTop'},
                     { text: globalParameters.nazwaOrganizacji + "\n" +
                     globalParameters.terytorium + "\n" +
                     globalParameters.kontakty + "\n"
                     },
-                    { text: TXV.RESOLUTION_NO+": " + this.numerUchwaly.toString() + "\n"+ TXV.BELONGS_TO_THE_ISSUES + ": " + this.kwestiaNazwa , style: 'uchwalaHeadline'},
-                    { text: "\n\t\t" +TXV.DESCRIPTION+": "+ issueContent, style: 'contentStyle'},
-                    { text: "\n" +TXV.NUMBER_OF_USERS+" - " + this.glosujacy.length +
-                    "\n"+TXV.NUMBER_OF_PRESENT+"  - " + this.glosujacy.length +
-                     "\n"+TXV.YES_NUMBER_OF_VOTERS+" - " + voteFor +
-                    "\n"+TXV.NO_NUMBER_OF_VOTERS+" - " + voteAgainst +
-                    "\n"+TXV.ABSTAINED_NUMBER_OF_VOTERS+" - " + abstained
+                    { text: TAPi18n.__('txv.RESOLUTION_NO')+": " + this.numerUchwaly.toString() + "\n"+ TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ": " + this.kwestiaNazwa , style: 'uchwalaHeadline'},
+                    { text: "\n\t\t" + TAPi18n.__('txv.DESCRIPTION') + ": " + issueContent, style: 'contentStyle'},
+                    { text: "\n" + TAPi18n.__('txv.NUMBER_OF_USERS') + " - " + this.glosujacy.length +
+                    "\n" + TAPi18n.__('txv.NUMBER_OF_PRESENT') + "  - " + this.glosujacy.length +
+                    "\n" + TAPi18n.__('txv.YES_NUMBER_OF_VOTERS') + " - " + voteFor +
+                    "\n" + TAPi18n.__('txv.NO_NUMBER_OF_VOTERS') + " - " + voteAgainst +
+                    "\n" + TAPi18n.__('txv.ABSTAINED_NUMBER_OF_VOTERS') + " - " + abstained
                     }
                 ],
                 styles: {

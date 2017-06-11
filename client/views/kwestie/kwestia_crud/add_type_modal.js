@@ -29,14 +29,14 @@ Template.addTypeModalInner.events({
 
         if(typesCount>0){
             GlobalNotification.error({
-                title:  TXV.WARNING,
-                content: TXV.GIVEN_TYPE_EXISTS,
+                title:  TAPi18n.__('txv.WARNING'),
+                content: TAPi18n.__('txv.GIVEN_TYPE_EXISTS'),
                 duration: 4 // duration the notification should stay in seconds
             });
         }else{
             if(nazwaRodzaj == "" || nazwaRodzaj == null) {
                 GlobalNotification.error({
-                    title:  TXV.WARNING,
+                    title:  TAPi18n.__('txv.WARNING'),
                     content: FIELD_TYPE_CNBE,
                     duration: 4 // duration the notification should stay in seconds
                 });

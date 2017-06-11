@@ -97,12 +97,12 @@ Meteor.methods({
         var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
         var temat = Temat.findOne({_id:kwestiaItem.idTemat});
         if(!rodzaj)
-            rodzaj=TXV.BELONGS_TO_THE_SYSTEM;
+            rodzaj=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
 
         else
             rodzaj=rodzaj.nazwaRodzaj;
         if(!temat)
-            temat=TXV.TECHNICAL;
+            temat=TAPi18n.__('txv.TECHNICAL');
 		
         else temat=temat.nazwaTemat;
 
@@ -123,8 +123,8 @@ Meteor.methods({
                 });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TXV.SYSTEM_NAME,
-                    subject: TXV.ADD_NEW_ISSUE,
+                    from: TAPi18n.__('txv.SYSTEM_NAME'),
+                    subject: TAPi18n.__('txv.ADD_NEW_ISSUE'),
                     html: html
                 });
             }
@@ -151,8 +151,8 @@ Meteor.methods({
                 });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TXV.SYSTEM_NAME,
-                    subject: TXV.PASS_A_RESOLUTION,
+                    from: TAPi18n.__('txv.SYSTEM_NAME'),
+                    subject: TAPi18n.__('txv.PASS_A_RESOLUTION'),
                     html: html
                 });
             }
@@ -165,11 +165,11 @@ Meteor.methods({
         var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
         var temat = Temat.findOne({_id:kwestiaItem.idTemat});
         if(!rodzaj)
-            rodzaj=TXV.BELONGS_TO_THE_SYSTEM;
+            rodzaj=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         else
             rodzaj=rodzaj.nazwaRodzaj;
         if(!temat)
-            temat=TXV.TECHNICAL;
+            temat=TAPi18n.__('txv.TECHNICAL');
         else temat=temat.nazwaTemat;
 
         Users.find({}).forEach(function(item) {
@@ -189,8 +189,8 @@ Meteor.methods({
                 });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TXV.SYSTEM_NAME,
-                    subject: TXV.NO_CURRENT_REPORT,
+                    from: TAPi18n.__('txv.SYSTEM_NAME'),
+                    subject: TAPi18n.__('txv.NO_CURRENT_REPORT'),
                     html: html
                 });
             }
@@ -205,8 +205,8 @@ Meteor.methods({
         var temat=null;
         var url=Meteor.absoluteUrl()+"issue_info/"+kwestiaItem._id;
         if(kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
-            rodzaj=TXV.TECHNICAL;
-            temat=TXV.BELONGS_TO_THE_SYSTEM;
+            rodzaj=TAPi18n.__('txv.TECHNICAL');
+            temat=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         }
         else{
             rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj}).nazwaRodzaj;
@@ -236,7 +236,7 @@ Meteor.methods({
                 Email.send({
                     to: item.emails[0].address,
                     from: author.profile.firstName+" "+author.profile.lastName,
-                    subject: TXV.SUPPORT_MY_ISSUE,
+                    subject: TAPi18n.__('txv.SUPPORT_MY_ISSUE'),
                     html: html
                 });
             }
@@ -249,8 +249,8 @@ Meteor.methods({
         var temat=null;
         var rodzaj=null;
         if(kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
-            temat=TXV.BELONGS_TO_THE_SYSTEM;
-            rodzaj=TXV.TECHNICAL;
+            temat=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
+            rodzaj=TAPi18n.__('txv.TECHNICAL');
         }
         else {
             rodzaj = Rodzaj.findOne({_id: kwestiaItem.idRodzaj}).nazwaRodzaj;
@@ -284,7 +284,7 @@ Meteor.methods({
                 });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TXV.SYSTEM_NAME,
+                    from: TAPi18n.__('txv.SYSTEM_NAME'),
                     subject: BEGAN_VOTING_ISSUE,
                     html: html
                 });
@@ -297,7 +297,7 @@ Meteor.methods({
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TXV.CONFIRM_OF_RECE+data.userType,
+            subject: TAPi18n.__('txv.CONFIRM_OF_RECE') + data.userType,
             html: data.html
         });
     },
@@ -307,7 +307,7 @@ Meteor.methods({
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TXV.REJECT_OF_APLIC+data.userType,
+            subject: TAPi18n.__('txv.REJECT_OF_APLIC') + data.userType,
             html: data.html
         });
     },
@@ -316,7 +316,7 @@ Meteor.methods({
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TXV.POSITIVE_CONSIDER+data.userType,
+            subject: TAPi18n.__('txv.POSITIVE_CONSIDER') + data.userType,
             html: data.html
         });
     },
@@ -327,7 +327,7 @@ Meteor.methods({
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TXV.DATA_LOGGING+Parametr.findOne().nazwaOrganizacji,
+            subject: TAPi18n.__('txv.DATA_LOGGING') + Parametr.findOne().nazwaOrganizacji,
             html: data.html
         });
     },
@@ -341,7 +341,7 @@ Meteor.methods({
                     Email.send({
                         to: data.to,
                         from: data.to,
-                        subject: TXV.RESET_ACCES_PASS+Parametr.findOne().nazwaOrganizacji,
+                        subject: TAPi18n.__('txv.RESET_ACCES_PASS') + Parametr.findOne().nazwaOrganizacji,
                         html: data.html
                     });
                 }
@@ -355,14 +355,14 @@ recognizeSex=function(userData){
         if(userData.profile.pesel!="") {
             var pesel = userData.profile.pesel.substring(9, 10);
             if (_.contains(['1', '3', '5', '7', '9'], pesel))
-                welcomeGender = TXV.HONORABLE;
+                welcomeGender = TAPi18n.__('txv.HONORABLE');
             else welcomeGender = DEAR
         }
         else
-            welcomeGender=TXV.MR_MRS;
+            welcomeGender=TAPi18n.__('txv.MR_MRS');
     }
     else
-        welcomeGender=TXV.MR_MRS;
+        welcomeGender=TAPi18n.__('txv.MR_MRS');
 
     return welcomeGender;
 };
@@ -370,10 +370,10 @@ applicationEmail=function(userData,emailTypeText,passw){
     var urlLogin=Meteor.absoluteUrl()+"account/login";
     var welcomeGender=recognizeSex(userData);
 
-    var  userTypeData=null;
+    var userTypeData = null;
     switch (userData.profile.userType){
-        case USERTYPE.CZLONEK: userTypeData=TXV.ORD_MEMBER;break;
-        case USERTYPE.DORADCA: userTypeData=TXV.COUNSELOR;break;
+        case USERTYPE.CZLONEK: userTypeData=TAPi18n.__('txv.ORD_MEMBER');break;
+        case USERTYPE.DORADCA: userTypeData=TAPi18n.__('txv.COUNSELOR');break;
     }
     var url=null;
     var login=null;
@@ -387,13 +387,13 @@ applicationEmail=function(userData,emailTypeText,passw){
     else if (emailTypeText == "acceptNew") {
         emailTypeText = 'email_application_accepted';
         if(userData.linkAktywacyjny)
-            url=Meteor.absoluteUrl()+"account/activate_account/"+userData.linkAktywacyjny;
-        if(welcomeGender==TXV.HONORABLE)
-            textGender=TXV.H_COULD;
-        else if(welcomeGender==TXV.DEAR)
-            textGender=TXV.D_COULD;
+            url = Meteor.absoluteUrl() + "account/activate_account/" + userData.linkAktywacyjny;
+        if (welcomeGender == TAPi18n.__('txv.HONORABLE'))
+            textGender = TAPi18n.__('txv.H_COULD');
+        else if (welcomeGender == TAPi18n.__('txv.DEAR'))
+            textGender = TAPi18n.__('txv.D_COULD');
         else
-            textGender=TXV.HD_COULD;
+            textGender = TAPi18n.__('txv.HD_COULD');
     }
     else if(emailTypeText=="acceptExisting"){
         emailTypeText = 'email_application_accepted_existing_user';
@@ -445,7 +445,7 @@ applicationEmail=function(userData,emailTypeText,passw){
     });
     var obj={
         to:to,
-        from:TXV.SYSTEM_NAME+Parametr.findOne().nazwaOrganizacji,
+        from: TAPi18n.__('txv.SYSTEM_NAME') + Parametr.findOne().nazwaOrganizacji,
         html:html,
         userType:userTypeData
     };

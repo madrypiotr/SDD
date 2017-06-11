@@ -170,7 +170,7 @@ addNewUser=function(firstName,lastName,city,email,kwestia){
                         else{
                             Meteor.call("sendFirstLoginData",idUser,newUser[0].password,function(error){
                                 if(error){
-                                    bootbox.alert(TXV.ALERT_LOG1 + TXV.ALERT_LOG2 + TXV.ALERT_LOG3);
+                                    bootbox.alert(TAPi18n.__('txv.ALERT_LOG1') + TAPi18n.__('txv.ALERT_LOG2') + TAPi18n.__('txv.ALERT_LOG3'));
 
                                     var emailError = {
                                         idUserDraft: userDraft._id,

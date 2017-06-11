@@ -21,12 +21,12 @@ Template.hibernowaneList.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'dataWprowadzenia', label: TXV.DATE_OF_INTRO, tmpl: Template.dataUtwKwestia },
-                { key: 'kwestiaNazwa', label: TXV.NAME, tmpl: Template.nazwaKwestiiHibernowaneLink },
-                { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia,sortOrder:1,sortDirection:'ascending' },
-                { key: '', label: TXV.SUBJECT, tmpl: Template.tematKwestiiHibernowane },
-                { key: '', label: TXV.TYPE, tmpl: Template.rodzajKwestiiHibernowane },
-                { key: 'status', label: TXV.STATUS }
+                { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATE_OF_INTRO'), tmpl: Template.dataUtwKwestia },
+                { key: 'kwestiaNazwa', label: TAPi18n.__('txv.NAME'), tmpl: Template.nazwaKwestiiHibernowaneLink },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaPriority'), tmpl: Template.priorytetKwestia,sortOrder:1,sortDirection:'ascending' },
+                { key: '', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestiiHibernowane },
+                { key: '', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestiiHibernowane },
+                { key: 'status', label: TAPi18n.__('txv.STATUS') }
             ]
         };
     },
@@ -71,7 +71,7 @@ Template.hibernowaneList.rendered = function () {
 Template.tematKwestiiHibernowane.helpers({
     'getTemat': function (id) {
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.BELONGS_TO_THE_SYSTEM;
+            return TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         var item = Temat.findOne({_id: id});
         return !!item && !!item.nazwaTemat ? item.nazwaTemat : id;
     }
@@ -80,7 +80,7 @@ Template.tematKwestiiHibernowane.helpers({
 Template.rodzajKwestiiHibernowane.helpers({
     'getRodzaj': function (id) {
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            return TXV.TECHNICAL;
+            return TAPi18n.__('txv.TECHNICAL');
         var item = Rodzaj.findOne({_id: id});
         return !!item && !!item.nazwaRodzaj ? item.nazwaRodzaj : id;
     }

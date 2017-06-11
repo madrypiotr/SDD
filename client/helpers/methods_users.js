@@ -83,12 +83,15 @@ checkExistsUser=function(searchedEmail,userType1,userType2){
 };
 przyjecieWnioskuConfirmation=function(time,email,userTypeText){
     bootbox.dialog({
-        message: TXV.YOUR_APPLICATION_FORM_WIL_BE_WAITING + time + TXV.DAYS_FOR_APPROVAL_OF_THE_TOTAL_MEMBERS + getNazwaOrganizacji() +
-        TXV.AFTER_A_POSITIVE_EXAMINATION_WILL_RECIVE_INFO + email + TXV.YOU_WILL_RECEIVE_A_LINK_TO_ACTIVATE_YOUR + userTypeText,
-        title: TXV.WARNING,
+        message:
+            TAPi18n.__('txv.YOUR_APPLICATION_FORM_WIL_BE_WAITING') + time +
+            TAPi18n.__('txv.DAYS_FOR_APPROVAL_OF_THE_TOTAL_MEMBERS') + getNazwaOrganizacji() +
+            TAPi18n.__('txv.AFTER_A_POSITIVE_EXAMINATION_WILL_RECIVE_INFO') + email +
+            TAPi18n.__('txv.YOU_WILL_RECEIVE_A_LINK_TO_ACTIVATE_YOUR') + userTypeText,
+        title: TAPi18n.__('txv.WARNING'),
         buttons: {
             main: {
-                label: TXV.OK,
+                label: TAPi18n.__('txv.OK'),
                 className: "btn-primary"
             }
         }

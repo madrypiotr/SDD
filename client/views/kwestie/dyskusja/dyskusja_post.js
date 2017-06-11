@@ -140,7 +140,7 @@ Template.discussionAnswerForm.events({
             Meteor.call('addPostAnswer', post, function (error, ret) {
                 if (error) {
                     if (typeof Errors === "undefined")
-                        Log.error(TXV.ERROR + error.reason);
+                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                     else
                         throwError(error.reason);
                 } else {
@@ -151,7 +151,7 @@ Template.discussionAnswerForm.events({
                     Meteor.call('updateUserRanking', Meteor.userId(), newValue, function (error) {
                         if (error) {
                             if (typeof Errors === "undefined")
-                                Log.error(TXV.ERROR + error.reason);
+                                Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                             else
                                 throwError(error.reason);
                         }

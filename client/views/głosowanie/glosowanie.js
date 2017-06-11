@@ -7,11 +7,11 @@ Template.glosowanie.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'dataGlosowania', label: TXV.DATE_OF_VOTE, tmpl: Template.dataGlosowaniaKwestia ,sortOrder:0,sortDirection:'ascending'},
-                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
-                { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'descending'},
-                { key: 'idTemat', label: TXV.SUBJECT, tmpl: Template.tematKwestia},
-                { key: 'idRodzaj', label: TXV.TYPE, tmpl: Template.rodzajKwestia}
+                { key: 'dataGlosowania', label: TAPi18n.__('txv.DATE_OF_VOTE'), tmpl: Template.dataGlosowaniaKwestia ,sortOrder:0,sortDirection:'ascending'},
+                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaPriority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'descending'},
+                { key: 'idTemat', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestia},
+                { key: 'idRodzaj', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestia}
             ]
         };
     }

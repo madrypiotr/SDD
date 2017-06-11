@@ -36,7 +36,7 @@ Template.issueDetails.rendered = function () {
             Meteor.call('setGlosujacyTab', kwestia._id, voters, function (error, ret) {
                 if (error) {
                     if (typeof Errors === "undefined")
-                        Log.error(TXV.ERROR + error.reason);
+                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                     else {
                         throwError(error.reason);
                     }
@@ -49,7 +49,7 @@ Template.issueDetails.rendered = function () {
             Meteor.call('updateUserRanking', Meteor.userId(), newValue, function (error) {
                 if (error) {
                     if (typeof Errors === "undefined")
-                        Log.error(TXV.ERROR + error.reason);
+                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                     else {
                         throwError(error.reason);
                     }
@@ -207,7 +207,7 @@ Template.issueDetails.helpers({
         var kworum = liczenieKworumZwykle();
         var usersCount = this.glosujacy.length;
         var lock=kworum-usersCount;
-        return lock==1 ? lock+ TXV.PERSON : lock+ TXV.PERSONS;
+        return lock == 1 ? lock + TAPi18n.__('txv.PERSON') : lock + TAPi18n.__('txv.PERSONS');
     },
     ZRComplete:function(){
         var zespol=null;
@@ -225,7 +225,7 @@ Template.issueDetails.helpers({
         else
             count=getZRCount(this.idZespolRealizacyjny,null);
         var result=3-count;
-        return (result >1)  ? result+ TXV.MEMBERS : result+ TXV.MEMBER;
+        return (result > 1) ? result + TAPi18n.__('txv.MEMBERS') : result + TAPi18n.__('txv.MEMBER');
     },
     helperObserver:function(){
         if(this.status == KWESTIA_STATUS.OCZEKUJACA || this.status == KWESTIA_STATUS.GLOSOWANA ||
@@ -264,8 +264,8 @@ Template.issueManageZR.helpers({
             enableRegex: false,
             filters: ['customFilter'],
             fields: [
-                { key: 'profile.fullName', label: TXV.F_NAME+" "+TXV.L_NAME },
-                { key: '_id', label: TXV.OPTIONS, tmpl: Template.zrOptions }
+                { key: 'profile.fullName', label: TAPi18n.__('txv.F_NAME')+" "+TAPi18n.__('txv.L_NAME') },
+                { key: '_id', label: TAPi18n.__('txv.OPTIONS'), tmpl: Template.zrOptions }
             ],
             rowClass: function (item) {
                 if(item._id==Meteor.userId())
@@ -294,7 +294,7 @@ Template.zrOptions.events({
         var idZR=document.getElementById("idZR").value;
         var zr=ZespolRealizacyjny.findOne({_id:idZR});
         if(zr._id=="jjXKur4qC5ZGPQkgN"){
-            bootbox.alert(TXV.NO_EXIT_INFO1);
+            bootbox.alert(TAPi18n.__('txv.NO_EXIT_INFO1'));
         }
         else {
             var zespol = zr.zespol.length;

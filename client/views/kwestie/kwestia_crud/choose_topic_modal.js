@@ -12,11 +12,11 @@ Template.chooseTopicModalInner.helpers({
             fields: [
                 {
                     key: 'nazwaTemat',
-                    label: TXV.NAME
+                    label: TAPi18n.__('txv.NAME')
                 },
                 {
                     key: 'opis',
-                    label: TXV.DESCRIPTION
+                    label: TAPi18n.__('txv.DESCRIPTION')
                 },
                 {
                     key: '_id',

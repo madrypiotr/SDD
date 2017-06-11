@@ -120,7 +120,7 @@ Template.czlonekZwyczajnyForm.events({
                                         addIssueOsobowa(newUser);
                                     }
                                     else {
-                                        throwError(TXV.USER_EXIST);
+                                        throwError(TAPi18n.__('txv.USER_EXIST'));
                                         document.getElementById("submitZwyczajny").disabled = false;
                                         return false;
                                     }
@@ -129,7 +129,7 @@ Template.czlonekZwyczajnyForm.events({
                         }
                     }
                     else{
-                        throwError(TXV.ACCESS_EXIST);
+                        throwError(TAPi18n.__('txv.ACCESS_EXIST'));
                         document.getElementById("submitZwyczajny").disabled = false;
                         return false;
                     }
@@ -144,10 +144,10 @@ Template.czlonekZwyczajnyForm.events({
         bootbox.dialog({
             message: getRegulamin(),
             //TAP.i18n("_ addKwestiaForm.legend"),
-            title: TXV.RULES_OF_THE_ORGANIZATION + getNazwaOrganizacji(),
+            title: TAPi18n.__('txv.RULES_OF_THE_ORGANIZATION') + getNazwaOrganizacji(),
             buttons: {
                 main: {
-                    label: TXV.OK,
+                    label: TAPi18n.__('txv.OK'),
                     className: "btn-primary"
                 }
             }
@@ -166,7 +166,7 @@ Template.czlonekZwyczajnyForm.helpers({
         return Meteor.userId() ? "disabled" : "";
     },
     nazwaOrganizacji:function(){
-    return Parametr.findOne() ? Parametr.findOne().nazwaOrganizacji : TXV.ORG_NAME;
+        return Parametr.findOne() ? Parametr.findOne().nazwaOrganizacji : TAPi18n.__('txv.ORG_NAME');
     }
 });
 getRegulamin=function(){
@@ -192,7 +192,7 @@ addIssueOsobowa=function(newUser){
                 });
             }
             else {
-                throwError(TXV.USER_EXIST);
+                throwError(TAPi18n.__('txv.USER_EXIST'));
                 document.getElementById("submitZwyczajny").disabled = false;
                 return false;
             }
@@ -203,7 +203,7 @@ addUserDraft=function(newUser){
     Meteor.call('addUserDraft', newUser, function (error, ret) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error(TXV.ERROR + error.reason);
+                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else
                     throwError(error.reason);
             }
@@ -241,14 +241,14 @@ addKwestiaOsobowa=function(idUserDraft,newUser){
                 {
                     idUser: idUserDraft,
                     dataWprowadzenia: new Date(),
-                    kwestiaNazwa: TXV.APPLYING + newUser[0].firstName + " " + newUser[0].lastName,
+                    kwestiaNazwa: TAPi18n.__('txv.APPLYING') + newUser[0].firstName + " " + newUser[0].lastName,
                     wartoscPriorytetu: 0,
                     wartoscPriorytetuWRealizacji:0,
                     idTemat: Temat.findOne({})._id,
                     idRodzaj: Rodzaj.findOne({})._id,
                     idZespolRealizacyjny:ret,
                     dataGlosowania: null,
-                    krotkaTresc: TXV.APPLY_SYSTEM + newUser[0].userType,
+                    krotkaTresc: TAPi18n.__('txv.APPLY_SYSTEM') + newUser[0].userType,
                     szczegolowaTresc: daneAplikanta,
                     isOption: false,
                     status: KWESTIA_STATUS.OSOBOWA,

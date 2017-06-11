@@ -45,7 +45,7 @@ Template.uzasadnienieKoszModal.events({
                         Meteor.call('addPost', post, function (error, ret) {
                             if (error) {
                                 if (typeof Errors === "undefined")
-                                    Log.error(TXV.ERROR + error.reason);
+                                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                                 else {
                                     throwError(error.reason);
                                 }
@@ -59,7 +59,7 @@ Template.uzasadnienieKoszModal.events({
                                     Meteor.call('updateUserRanking', Meteor.userId(), newValue, function (error) {
                                         if (error) {
                                             if (typeof Errors === "undefined")
-                                                Log.error(TXV.ERROR + error.reason);
+                                                Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                                             else
                                                 throwError(error.reason);
                                         }

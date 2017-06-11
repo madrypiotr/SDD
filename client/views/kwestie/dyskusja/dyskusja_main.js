@@ -57,7 +57,7 @@ Template.discussionPostForm.events({
                 Meteor.call('addPost', post, function (error, ret) {
                     if (error) {
                         if (typeof Errors === "undefined")
-                            Log.error(TXV.ERROR + error.reason);
+                            Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                         else
                             throwError(error.reason);
                     } else {
@@ -68,7 +68,7 @@ Template.discussionPostForm.events({
                         Meteor.call('updateUserRanking', Meteor.userId(), newValue, function (error) {
                             if (error) {
                                 if (typeof Errors === "undefined")
-                                    Log.error(TXV.ERROR + error.reason);
+                                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                                 else
                                     throwError(error.reason);
                             }
@@ -103,8 +103,8 @@ Template.discussionRating.events({
                 flag = false;
                 if (post.glosujacy[i].value === ratingValue) {
                     GlobalNotification.error({
-                        title: TXV.WARNING,
-                        content: TXV.YOU_GAVE_PRIOR,
+                        title: TAPi18n.__('txv.WARNING'),
+                        content: TAPi18n.__('txv.YOU_GAVE_PRIOR'),
                         duration: 4 // duration the notification should stay in seconds
                     });
                     return false;
@@ -136,7 +136,7 @@ Template.discussionRating.events({
         Meteor.call('updatePostRating', ratingPostId, postUpdate, function (error, ret) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error(TXV.ERROR + error.reason);
+                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else
                     throwError(error.reason);
             }

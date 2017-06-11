@@ -12,7 +12,7 @@ Template.chooseTypeModalInner.helpers({
             fields: [
                 {
                     key: 'nazwaRodzaj',
-                    label: TXV.NAME
+                    label: TAPi18n.__('txv.NAME')
                 },
                 {
                     key: '_id',

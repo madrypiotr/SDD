@@ -92,12 +92,12 @@ Template.listKwestia.helpers({
             noDataTemplate:Template.noData,
             filters:['customFilter'],
             fields: [
-                { key: 'dataWprowadzenia', label: TXV.DATA, tmpl: Template.dataUtwKwestia ,sortOrder:1,sortDirection:'descending'},
-                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
-                { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia },
-                { key: 'idTemat', label: TXV.SUBJECT, tmpl: Template.tematKwestia },
-                { key: 'idRodzaj', label: TXV.TYPE, tmpl: Template.rodzajKwestia },
-                { key: 'Kworum', label: TXV.QUORUM, tmpl: Template.kworumNumber}
+                { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATA'), tmpl: Template.dataUtwKwestia ,sortOrder:1,sortDirection:'descending'},
+                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaPriority'), tmpl: Template.priorytetKwestia },
+                { key: 'idTemat', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestia },
+                { key: 'idRodzaj', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestia },
+                { key: 'Kworum', label: TAPi18n.__('txv.QUORUM'), tmpl: Template.kworumNumber}
             ],
             rowClass: function (item) {
                 tab = self.liczbaKwestiRV.get();
@@ -118,12 +118,12 @@ Template.listKwestia.helpers({
             noDataTemplate: Template.noData,
             filters: ['customFilter'],
             fields: [
-                { key: 'dataWprowadzenia', label: TXV.DATA, tmpl: Template.dataUtwKwestia ,sortOrder:1,sortDirection:'descending'},
-                { key: 'kwestiaNazwa', label: TXV.NAME_OF_ISSUES, tmpl: Template.nazwaKwestiLink },
-                { key: 'wartoscPriorytetu', label: TXV.PRIORITY, tmpl: Template.priorytetKwestia },
-                { key: 'idTemat', label: TXV.SUBJECT, tmpl: Template.tematKwestia },
-                { key: 'idRodzaj', label: TXV.TYPE, tmpl: Template.rodzajKwestia },
-                { key: 'Kworum', label: TXV.QUORUM, tmpl: Template.kworumNumber}
+                { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATA'), tmpl: Template.dataUtwKwestia ,sortOrder:1,sortDirection:'descending'},
+                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaPriority'), tmpl: Template.priorytetKwestia },
+                { key: 'idTemat', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestia },
+                { key: 'idRodzaj', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestia },
+                { key: 'Kworum', label: TAPi18n.__('txv.QUORUM'), tmpl: Template.kworumNumber}
             ],
             rowClass: function (item) {
                 tab = self.liczbaKwestiRV.get();
@@ -241,7 +241,7 @@ checkTimePause=function(typePause,lastAddedTime){
     if(newTimeToAdd > moment(new Date()).format()){
         var ms = moment(newTimeToAdd,"DD/MM/YYYY HH:mm:ss").diff(moment(new Date(),"DD/MM/YYYY HH:mm:ss"));
         var s = moment.utc(ms).format("mm:ss");
-        var timeString= s.substring(0, s.indexOf(":"))+ TXV.MIN+s.substring(s.indexOf(":")+1, s.length)+ TXV.SEC;
+        var timeString = s.substring(0, s.indexOf(":")) + TAPi18n.__('txv.MIN') + s.substring(s.indexOf(":") + 1, s.length) + TAPi18n.__('txv.SEC');
         return timeString ;
     }
     else
@@ -261,7 +261,7 @@ Template.nazwaKwestiLink.helpers({
 Template.tematKwestia.helpers({
     'topicName': function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
-            return TXV.BELONGS_TO_THE_SYSTEM;
+            return TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         }
         var topic = Temat.findOne({_id: this.idTemat}).nazwaTemat;
         if(topic.length>20){
@@ -274,7 +274,7 @@ Template.tematKwestia.helpers({
 Template.rodzajKwestia.helpers({
     'typeName': function(){
         if(this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
-            return TXV.TECHNICAL;
+            return TAPi18n.__('txv.TECHNICAL');
         }
         var type = Rodzaj.findOne({_id: this.idRodzaj}).nazwaRodzaj;
         if(type.length>20){
