@@ -7,7 +7,7 @@ getUserLanguage = function () {
     if (user && user.profile.language) {
         return user.profile.language;
     }
-    return defaultLang;
+    return Session.get('language') || defaultLang;
 };
 
 if (Meteor.isClient) {

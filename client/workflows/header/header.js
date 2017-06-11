@@ -66,6 +66,7 @@ Template.language.events({
                     language: lang
                 }
             };
+            Session.set('language', lang);
 
             Meteor.call('updateUserLanguage', Meteor.userId(), newUser, function (error) {
                 if (error) {
@@ -123,13 +124,13 @@ Template.header.events({
 
 Template.language.helpers({
     'getUserLang': function () {
-        if (Meteor.user()) {
-            if (Meteor.user().profile.language) {
-                return Meteor.user().profile.language;
-            }
+        var user = Meteor.user();
+
+        if (user && user.profile.language) {
+            return Meteor.user().profile.language;
         }
-        else
-            return LANGUAGES.DEFAULT_LANGUAGE;
+
+        return Session.get('language') || LANGUAGES.DEFAULT_LANGUAGE;
     },
     'langs': function () {
         var langs = Languages.find({isEnabled: true, czyAktywny: true});
@@ -145,10 +146,7 @@ Template.language.helpers({
             if (nazwa) {
                 return nazwa + "  " + users + TAPi18n.__('txv.PERSONS');
             }
-            else {
-                return "none";
-            }
+            return "none";
         }
     }
 });
-

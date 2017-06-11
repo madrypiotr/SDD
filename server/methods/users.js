@@ -39,9 +39,9 @@ Meteor.methods({
           }
         );
     },
-    updateUserLanguage: function(currentUserId,value) {
-        Users.update({_id:currentUserId}, {$set:{'profile.language': value}});
-    },
+    // updateUserLanguage: function(currentUserId,value) {
+    //     Users.update({_id:currentUserId}, {$set:{'profile.language': value}});
+    // },
     updateUserRanking: function(currentUserId,value) {
         Users.update({_id:currentUserId},{$set:{'profile.rADking': value}});
     },
@@ -49,7 +49,7 @@ Meteor.methods({
         Users.update({_id:currentUserId},{$set:{'profile.userType': value}});
     },
     updateUserLanguage: function(id,user) {
-        Users.update({_id:id},{$set:{'profile.language':user.profile.language}});
+        Users.update({_id: id}, {$set: {'profile.language': user.profile.language}});
     },
     sendMessageToUser: function(newEmail) {
         var id=Message.insert({
