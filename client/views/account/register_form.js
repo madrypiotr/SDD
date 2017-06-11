@@ -148,7 +148,7 @@ Template.registerForm.events({
                                                         var addedUser = ret;
                                                         Meteor.loginWithPassword(newUser[0].login, newUser[0].password, function (err) {
                                                             if (err) {
-                                                                throwError(TXV.INCOR_LOGIN_DET);
+                                                                throwError(TAPi18n.__('txv.INCOR_LOGIN_DET'));
                                                             } else {
                                                                 var zespol = ZespolRealizacyjny.findOne({_id: "jjXKur4qC5ZGPQkgN"});
                                                                 if (zespol) {
@@ -161,7 +161,7 @@ Template.registerForm.events({
                                                                                 if (error) {
                                                                                     // optionally use a meteor errors package
                                                                                     if (typeof Errors === "undefined")
-                                                                                        Log.error(TXV.ERROR + error.reason);
+                                                                                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                                                                                     else {
                                                                                         throwError(error.reason);
                                                                                     }
@@ -173,7 +173,7 @@ Template.registerForm.events({
                                                                                 if (error) {
                                                                                     // optionally use a meteor errors package
                                                                                     if (typeof Errors === "undefined")
-                                                                                        Log.error(TXV.ERROR + error.reason);
+                                                                                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                                                                                     else {
                                                                                         throwError(error.reason);
                                                                                     }
@@ -186,11 +186,11 @@ Template.registerForm.events({
                                                                     Router.go('home');
                                                                 }
                                                                 bootbox.dialog({
-                                                                    message: TXV.YOUR_LOGIN + newUser[0].login,
-                                                                    title: TXV.HELLO + newUser[0].firstName,
+                                                                    message: TAPi18n.__('txv.YOUR_LOGIN') + newUser[0].login,
+                                                                    title: TAPi18n.__('txv.HELLO') + newUser[0].firstName,
                                                                     buttons: {
                                                                         main: {
-                                                                            label: TXV.OK,
+                                                                            label: TAPi18n.__('txv.OK'),
                                                                             className: "btn-primary"
                                                                         }
                                                                     }
@@ -202,7 +202,7 @@ Template.registerForm.events({
                                                 });
                                             }
                                             else{
-                                                bootbox.alert(TXV.REG_NOT_POSS)
+                                                bootbox.alert(TAPi18n.__('txv.REG_NOT_POSS'))
                                             }
                                         } else {
                                             throwError(err.reason)
@@ -210,7 +210,7 @@ Template.registerForm.events({
                                     });
                                 }
                                 else {
-                                    throwError(TXV.ACCESS_EXIST);
+                                    throwError(TAPi18n.__('txv.ACCESS_EXIST'));
                                     document.getElementById("submitRegistration").disabled = false;
                                     return false;
                                 }
@@ -218,7 +218,7 @@ Template.registerForm.events({
                         });
                     }
                     else {
-                        throwError(TXV.USER_EXIST);
+                        throwError(TAPi18n.__('txv.USER_EXIST'));
                         document.getElementById("submitRegistration").disabled = false;
                         return false;
                     }
@@ -232,10 +232,10 @@ Template.registerForm.events({
     'click #statutBootbox':function(){
         bootbox.dialog({
             message: getRegulamin(),
-            title: TXV.RULES_OF_THE_ORGANIZATION +getNazwaOrganizacji(),
+            title: TAPi18n.__('txv.RULES_OF_THE_ORGANIZATION') + getNazwaOrganizacji(),
             buttons: {
                 main: {
-                    label: TXV.OK,
+                    label: TAPi18n.__('txv.OK'),
                     className: "btn-primary"
                 }
             }

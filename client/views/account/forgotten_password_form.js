@@ -51,7 +51,7 @@ Template.forgottenPassword.events({
                         Meteor.call('sendResetPasswordEmail', options.email, function (error, ret) {
                             if (error) {
                                 document.getElementById("resetButton").disabled=false;
-                                throwError(TXV.ALERT_LOG4);
+                                throwError(TAPi18n.__('txv.ALERT_LOG4'));
                                 var emailError = {
                                     email: options.email,
                                     type: NOTIFICATION_TYPE.RESET_PASSWORD
@@ -60,8 +60,8 @@ Template.forgottenPassword.events({
                             }
                             else {
                                 GlobalNotification.success({
-                                    title: TXV.SUCCESS,
-                                    content: TXV.LINK_CHAN_PASS,
+                                    title: TAPi18n.__('txv.SUCCESS'),
+                                    content: TAPi18n.__('txv.LINK_CHAN_PASS'),
                                     duration: 5 // duration the notification should stay in seconds
                                 });
                                 Router.go('login_form');
@@ -70,7 +70,7 @@ Template.forgottenPassword.events({
                         });
                     }else{
                         document.getElementById("resetButton").disabled=false;
-                        throwError(TXV.EM_DOES_NOT);
+                        throwError(TAPi18n.__('txv.EM_DOES_NOT'));
                         return false;
                     }
                 }

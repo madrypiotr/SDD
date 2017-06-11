@@ -28,8 +28,8 @@ Template.sendMessage.events({
         var text=null;
         if(subject.trim()==null || subject=="") {
             if (content.trim() == null || content == "")
-                text = TXV.SUBJECT_AND_CONTENT;
-            else text = TXV.SUBJECT2;
+                text = TAPi18n.__('txv.SUBJECT_AND_CONTENT');
+            else text = TAPi18n.__('txv.SUBJECT2');
             askToFillSubject(text,newEmail);
         }
         else
@@ -45,7 +45,7 @@ sendMessage=function(newEmail,idReceiver){
     Meteor.call('sendMessageToUser', newEmail, function (error, ret) {
         if (error) {
             if (typeof Errors === "undefined")
-                Log.error(TXV.ERROR + error.reason);
+                Log.error(TAPi18n.__('txv.ERROR') + error.reason);
             else
                 throwError(error.reason);
         }
@@ -85,12 +85,12 @@ addPowiadomienieFunction=function(content){
 askToFillSubject=function(text,newEmail){
     var result=null;
     bootbox.dialog({
-        message: TXV.IF_SEND_WITHOUT +text,
-        title: TXV.WARNING,
+        message: TAPi18n.__('txv.IF_SEND_WITHOUT') + text,
+        title: TAPi18n.__('txv.WARNING'),
         closeButton:false,
         buttons: {
             success: {
-                label: TXV.SEND,
+                label: TAPi18n.__('txv.SEND'),
                 className: "btn-success successAttention",
                 callback: function() {
                     $('.successAttention').css("visibility", "hidden");
@@ -98,7 +98,7 @@ askToFillSubject=function(text,newEmail){
                 }
             },
             danger: {
-                label: TXV.CANCEL,
+                label: TAPi18n.__('txv.CANCEL'),
                 className: "btn-danger",
                 callback:function(){
                     $('.successAttention').css("visibility", "visible");

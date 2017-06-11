@@ -36,37 +36,35 @@ Template.addNazwaModal.events({
         var idKwestia=this._id;
         var nazwa = document.getElementById('nazwaZR').value;
         var zespoly = ZespolRealizacyjny.find({czyAktywny:true});
-        var z = TXV.IMPLEMENTATION_TEAM_FOR;
         if (nazwa.toLowerCase().trim() =="") {
             $('#nazwaZR').css("visibility", "visible");
             GlobalNotification.error({
-                title: TXV.ERROR,
-                content: TXV.FILL_NAME_OF_TEAM,
+                title: TAPi18n.__('txv.ERROR'),
+                content: TAPi18n.__('txv.FILL_NAME_OF_TEAM'),
                 duration: 4 
             });
         }
         else {
-            var found=false;
-            var text=TXV.IMPLEMENTATION_TEAM_FOR+nazwa;
+            var found = false;
+            var text = TAPi18n.__('txv.IMPLEMENTATION_TEAM_FOR') + nazwa;
             zespoly.forEach(function(zespol){
                 if (_.isEqual(zespol.nazwa.toLowerCase().trim(), text.toLowerCase().trim()))
                     found = true;
             });
-            if(found==true){
+            if (found == true) {
                 $('#nazwaZR').css("visibility", "visible");
                 GlobalNotification.error({
-                    title: TXV.ERROR,
-                    content: TXV.NAME_OF_TEAM_EXIST,
+                    title: TAPi18n.__('txv.ERROR'),
+                    content: TAPi18n.__('txv.NAME_OF_TEAM_EXIST'),
                     duration: 4 
                 });
-            }
-            else {
+            } else {
                 $('#nazwaZR').css("visibility", "hidden");
-                var text=TXV.IMPLEMENTATION_TEAM_FOR+nazwa;
-                var kwestia=Kwestia.findOne({_id:idKwestia});
-                if(kwestia) {
-                    var zespol=ZespolRealizacyjnyDraft.findOne({_id:kwestia.idZespolRealizacyjny});
-                    if(zespol) {
+                var text = TAPi18n.__('txv.IMPLEMENTATION_TEAM_FOR') + nazwa;
+                var kwestia = Kwestia.findOne({_id: idKwestia});
+                if (kwestia) {
+                    var zespol = ZespolRealizacyjnyDraft.findOne({_id: kwestia.idZespolRealizacyjny});
+                    if (zespol) {
                         var tablicaZR = zespol.zespol.slice();
                         tablicaZR.push(Meteor.userId());
                         var newZespol={
@@ -76,7 +74,7 @@ Template.addNazwaModal.events({
                         Meteor.call('updateZespolRealizacyjnyDraft', kwestia.idZespolRealizacyjny, newZespol, function (error, ret) {
                             if (error) {
                                 if (typeof Errors === "undefined")
-                                    Log.error(TXV.ERROR + error.reason);
+                                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                                 else {
                                     throwError(error.reason);
                                 }

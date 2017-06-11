@@ -127,7 +127,7 @@ managePriorityKwestiaRealizowana = function (ratingKwestiaId, kwestia, object, r
     Meteor.call('updateKwestiaWRealizacjiRating', ratingKwestiaId, kwestiaUpdate, function (error, ret) {
         if (error) {
             if (typeof Errors === "undefined")
-                Log.error(TXV.ERROR + error.reason);
+                Log.error(TAPi18n.__('txv.ERROR') + error.reason);
             else
                 throwError(error.reason);
         }
@@ -182,12 +182,12 @@ managePriorityKwestiaDelibGlosowana = function (ratingKwestiaId, kwestia, object
             Meteor.call('updateUserRanking', kwestiaOwner, newValue, function (error) {
                 if (error) {
                     if (typeof Errors === "undefined")
-                        Log.error(TXV.ERROR + error.reason);
+                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                     else {
                         throwError(error.reason);
                     }
                 } else {
-                    var komunikat = TXV.GIVING_PRIORITY + ratingValue;
+                    var komunikat = TAPi18n.__('txv.GIVING_PRIORITY') + ratingValue;
                     Notifications.success("", komunikat, {timeout: 3000});
                 }
             });

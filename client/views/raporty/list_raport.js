@@ -17,10 +17,22 @@ Template.listRaport.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                {key: 'dataUtworzenia', label: TXV.CREATION_DATE, tmpl:Template.dataUtworzenia,sortDirection: 'descending',sortOrder:1},
-                {key: '_id', label: TXV.TITLE, tmpl:Template.raportDetails},
-                {key: 'autorFullName', label: TXV.AUTHOR},
-
+                {
+                    key: 'dataUtworzenia',
+                    label: TAPi18n.__('txv.CREATION_DATE'),
+                    tmpl: Template.dataUtworzenia,
+                    sortDirection: 'descending',
+                    sortOrder: 1
+                },
+                {
+                    key: '_id',
+                    label: TAPi18n.__('txv.TITLE'),
+                    tmpl: Template.raportDetails
+                },
+                {
+                    key: 'autorFullName',
+                    label: TAPi18n.__('txv.AUTHOR')
+                }
             ]
         };
     },

@@ -52,7 +52,7 @@ Template.editParametrModalInner.events({
             $('.successBtn').css("visibility", "hidden");
             var odp = checkIssueGlobalParamExists();
             if (odp == true) {
-                bootbox.alert(TXV.GL_PAR_CHANGE4);
+                bootbox.alert(TAPi18n.__('txv.GL_PAR_CHANGE4'));
                 $("#editParametrMod").modal("hide");
                 document.getElementById("parametrFormEditModal").reset();
             }
@@ -63,8 +63,8 @@ Template.editParametrModalInner.events({
                 var newValue = document.getElementById("param").value;
                 if (newValue == null || newValue.trim() == "") {
                     GlobalNotification.error({
-                        title: TXV.ERROR,
-                        content: TXV.FIELD + session.title + TXV.CAN_NOT_BE_EMPTY,
+                        title: TAPi18n.__('txv.ERROR'),
+                        content: TAPi18n.__('txv.FIELD') + session.title + TAPi18n.__('txv.CAN_NOT_BE_EMPTY'),
                         duration: 4
                     });
                 }
@@ -80,23 +80,23 @@ Template.editParametrModalInner.events({
 
 parametrPreview=function(paramName,title,oldValue,newValue){
     bootbox.dialog({
-        message: '<p class="bg-warning padding-15 color-red"><b>' + TXV.YOU_INT_CHANGE + '</b></p>' +
-        '<p>' + TXV.I_SUGG_CH_CONT + '<b>' + title.toUpperCase() + '</b>' + TXV.WITH_THE_VALUE + '</p>' +
+        message: '<p class="bg-warning padding-15 color-red"><b>' + TAPi18n.__('txv.YOU_INT_CHANGE') + '</b></p>' +
+        '<p>' + TAPi18n.__('txv.I_SUGG_CH_CONT') + '<b>' + title.toUpperCase() + '</b>' + TAPi18n.__('txv.WITH_THE_VALUE') + '</p>' +
         '<p>' + oldValue + '</p>' +
-        '<p>' + TXV.ON + '</p>' +
+        '<p>' + TAPi18n.__('txv.ON') + '</p>' +
         '<p>' + newValue + '</p>',
-        title: TXV.WARNING,
+        title: TAPi18n.__('txv.WARNING'),
         closeButton: false,
         buttons: {
             success: {
-                label: TXV.I_AGREE,
+                label: TAPi18n.__('txv.I_AGREE'),
                 className: "btn-success successBtn",
                 callback: function () {
                     $('.successBtn').css("visibility", "hidden");
                     var odp=checkIssueGlobalParamExists();
                     var params=ParametrDraft.find({czyAktywny:true});
                     if(odp==true || params.count()>0){
-                        bootbox.alert(TXV.GL_PAR_CHANGE4);
+                        bootbox.alert(TAPi18n.__('txv.GL_PAR_CHANGE4'));
                         $("#editParametrMod").modal("hide");
                     }
                     else
@@ -105,7 +105,7 @@ parametrPreview=function(paramName,title,oldValue,newValue){
                 }
             },
             danger: {
-                label: TXV.RESIGNS,
+                label: TAPi18n.__('txv.RESIGNS'),
                 className: "btn-danger",
                 callback: function () {
                     $('.btn-success2').css("visibility", "visible");

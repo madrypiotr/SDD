@@ -140,12 +140,12 @@ isIssueAllowedToArchiveBin=function(issue){
     {
         var text=null;
         if(issue.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            text=TXV.GL_PAR_CHANGE1;
+            text = TAPi18n.__('txv.GL_PAR_CHANGE1');
         if(issue.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            text=TXV.GL_PAR_CHANGE2;
+            text = TAPi18n.__('txv.GL_PAR_CHANGE2');
         else
-            text=TXV.GL_PAR_CHANGE3;
-        bootbox.alert(TXV.GL_PAR_INFO+text+"!");
+            text = TAPi18n.__('txv.GL_PAR_CHANGE3');
+        bootbox.alert(TAPi18n.__('txv.GL_PAR_INFO') + text + "!");
         return false;
     }
     return true;

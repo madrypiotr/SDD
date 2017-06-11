@@ -57,9 +57,7 @@ Template.previewKwestia.events({
             setValue(temat, rodzaj, isOption, kwestia);
         }
         else
-            bootbox.alert(TXV.GIVEN_ISSUE_EXISTS, function() {
-            });
-
+            bootbox.alert(TAPi18n.__('txv.GIVEN_ISSUE_EXISTS'), function () {});
     }
 });
 setValue=function(temat,rodzaj,isOption,kwestia){
@@ -85,7 +83,7 @@ setValue=function(temat,rodzaj,isOption,kwestia){
         Meteor.call('addTemat', nowyTemat, function (error,ret) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error(TXV.ERROR + error.reason);
+                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else
                     throwError(error.reason);
 
@@ -103,7 +101,7 @@ setValue=function(temat,rodzaj,isOption,kwestia){
                 Meteor.call('addRodzaj', newRodzaj, function (error,ret) {
                     if (error) {
                         if (typeof Errors === "undefined")
-                            Log.error(TXV.ERROR + error.reason);
+                            Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                         else
                             throwError(error.reason);
 
@@ -141,7 +139,7 @@ setValue=function(temat,rodzaj,isOption,kwestia){
             Meteor.call('addRodzaj', newRodzaj, function (error,ret) {
                 if (error) {
                     if (typeof Errors === "undefined")
-                        Log.error(TXV.ERROR + error.reason);
+                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                     else
                         throwError(error.reason);
 
@@ -188,7 +186,7 @@ addKwestia=function(idTemat,idRodzaj,isOption,kwestia){
     Meteor.call('addKwestia', newKwestia, function (error, ret) {
         if (error) {
             if (typeof Errors === "undefined")
-                Log.error(TXV.ERROR + error.reason);
+                Log.error(TAPi18n.__('txv.ERROR') + error.reason);
             else {
                 throwError(error.reason);
             }
@@ -205,7 +203,7 @@ addKwestia=function(idTemat,idRodzaj,isOption,kwestia){
                 }
             } );
             addPowiadomienieIssueFunction(ret,newKwestia[0].dataWprowadzenia,NOTIFICATION_TYPE.NEW_ISSUE,"");
-            var text=TXV.LACK_OF_ACTIVITY;
+            var text=TAPi18n.__('txv.LACK_OF_ACTIVITY');
             addPowiadomienieIssueFunction(ret,newKwestia[0].dataWprowadzenia,NOTIFICATION_TYPE.ISSUE_NO_PRIORITY,text);
             Router.go('administracjaUserMain');
         }

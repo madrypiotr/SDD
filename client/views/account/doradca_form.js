@@ -98,7 +98,7 @@ Template.doradcaForm.events({
                                             });
                                         }
                                         else{
-                                            throwError(TXV.ACCESS_EXIST);
+                                            throwError(TAPi18n.__('txv.ACCESS_EXIST'));
                                             document.getElementById("submitButton").disabled = false;
                                             return false;
                                         }
@@ -106,7 +106,7 @@ Template.doradcaForm.events({
                                 });
                             }
                             else{
-                                throwError(TXV.USER_EXIST);
+                                throwError(TAPi18n.__('txv.USER_EXIST'));
                                 document.getElementById("submitButton").disabled = false;
                                 return false;
                             }
@@ -114,7 +114,7 @@ Template.doradcaForm.events({
                     });
                 }
                 else{
-                    throwError(TXV.ACCESS_EXIST);
+                    throwError(TAPi18n.__('txv.ACCESS_EXIST'));
                     document.getElementById("submitButton").disabled = false;
                     return false;
                 }
@@ -178,7 +178,7 @@ addKwestiaOsobowaDoradca=function(idUserDraft,newUser){
             Meteor.call('addKwestiaOsobowa', newKwestia, function (error, ret) {
                 if (error) {
                     if (typeof Errors === "undefined")
-                        Log.error(TXV.ERROR + error.reason);
+                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                     else {
                         //if(error.error === 409)
                         throwError(error.reason);

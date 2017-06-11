@@ -42,11 +42,11 @@ Template.profileList.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'profile.firstName', label: TXV.F_NAME },
-                { key: 'profile.lastName', label: TXV.L_NAME },
-                { key: 'profile.rADking', label: TXV.RANKING },
-                { key: 'profile.city', label: TXV.CITY },
-                { key: 'Kontakt', label: TXV.CONTACT, tmpl: Template.userEmailContact }
+                { key: 'profile.firstName', label: TAPi18n.__('txv.F_NAME') },
+                { key: 'profile.lastName', label: TAPi18n.__('txv.L_NAME') },
+                { key: 'profile.rADking', label: TAPi18n.__('txv.RANKING') },
+                { key: 'profile.city', label: TAPi18n.__('txv.CITY') },
+                { key: 'Kontakt', label: TAPi18n.__('txv.CONTACT'), tmpl: Template.userEmailContact }
             ],
             rowClass: function (item) {
                 var tab = self.usersRV.get();

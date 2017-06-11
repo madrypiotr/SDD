@@ -58,7 +58,7 @@ Template.previewKwestiaOpcja.events({
         Meteor.call(methodToCall, newKwestiaOpcja, function (error, ret) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error(TXV.ERROR + error.reason);
+                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else {
                     throwError(error.reason);
                 }
@@ -85,7 +85,7 @@ Template.previewKwestiaOpcja.events({
                     if (error)
                     {
                         if (typeof Errors === "undefined")
-                            Log.error(TXV.ERROR + error.reason);
+                            Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                         else {
                             throwError(error.reason);
                         }

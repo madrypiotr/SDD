@@ -38,7 +38,7 @@ Template.addLanguage.events({
         Meteor.call('addLanguage', newLang, function (error) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error(TXV.ERROR + error.reason);
+                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else {
                     throwError(error.reason);
                 }

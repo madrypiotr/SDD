@@ -64,7 +64,7 @@ Template.informacjeKwestiaArchiwum.events({
                 Meteor.call('updateUserRanking', kwestia.idUser, newValue, function (error) {
                     if (error) {
                         if (typeof Errors === "undefined")
-                            Log.error(TXV.ERROR + error.reason);
+                            Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                         else
                             throwError(error.reason);
                     }

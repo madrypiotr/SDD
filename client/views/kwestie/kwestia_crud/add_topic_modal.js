@@ -17,15 +17,15 @@ Template.addTopicModalInner.events({
 
         if(topicsCount > 0){
             GlobalNotification.error({
-                title: TXV.WARNING,
-                content: TXV.GIVEN_TOPIC_EXISTS,
+                title: TAPi18n.__('txv.WARNING'),
+                content: TAPi18n.__('txv.GIVEN_TOPIC_EXISTS'),
                 duration: 4 // duration the notification should stay in seconds
             });
         }else{
             if(topicName == "" || topicName == null){
                 GlobalNotification.error({
-                    title: TXV.WARNING,
-                    content: TXV.FIELD_TOPIC_CNBE,
+                    title: TAPi18n.__('txv.WARNING'),
+                    content: TAPi18n.__('txv.FIELD_TOPIC_CNBE'),
                     duration: 4 // duration the notification should stay in seconds
                 });
             }else {

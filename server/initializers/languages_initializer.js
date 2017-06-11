@@ -16,7 +16,7 @@ Meteor.startup(function () {
         Meteor.call('addLanguage', lang, function (error,ret) {
             if (error) {
                 if (typeof Errors === "undefined")
-                    Log.error(TXV.ERROR + error.reason);
+                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else
                     throwError(error.reason);
             }
@@ -34,11 +34,11 @@ Meteor.startup(function () {
                     Meteor.call('setPagesInfo', item, function (error) {
                         if (error) {
                             if (typeof Errors === "undefined")
-                                Log.error(TXV.ERROR + error.reason);
+                                Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                             else
                                 throwError(error.reason);
                         }
-                        else console.log(item.routeName+ TXV.ADDED);
+                        else console.log(item.routeName+ TAPi18n.__('txv.ADDED'));
                     });
 */					
                 });

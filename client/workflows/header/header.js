@@ -70,13 +70,13 @@ Template.language.events({
             Meteor.call('updateUserLanguage', Meteor.userId(), newUser, function (error) {
                 if (error) {
                     if (typeof Errors === "undefined")
-                        Log.error(TXV.ERROR + error.reason);
+                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                     else
                         throwError(error.reason);
                 } else {
                     TAPi18n.setLanguage(lang)
                         .done(function () {
-                            console.log(TXV.LOAD_LANG);
+                            console.log(TAPi18n.__('txv.LOAD_LANG'));
                         })
                         .fail(function (error_message) {
                             console.log(error_message);
@@ -100,7 +100,7 @@ Template.language.events({
         var item = PagesInfo.findOne({shortLanguageName: lang, routeName: routeName});
         var title = TAPi18n.__("pageInfo." + lang + "." + routeName);
         bootbox.dialog({
-            message: item.infoText ? item.infoText : TXV.NO_DESCR,
+            message: item.infoText ? item.infoText : TAPi18n.__('txv.NO_DESCR'),
             title: title
         });
     },
@@ -116,7 +116,7 @@ Template.header.events({
     },
     'click #newRootClick':function(e){
         e.preventDefault();
-        bootbox.confirm(TXV.FUTURE_FUNCTION, function(result) {
+        bootbox.confirm(TAPi18n.__('txv.FUTURE_FUNCTION'), function(result) {
         });
     },
 });
@@ -143,7 +143,7 @@ Template.language.helpers({
             var nazwa = param.nazwaOrganizacji;
             var users=Users.find({'profile.userType':USERTYPE.CZLONEK}).count();
             if (nazwa) {
-                return nazwa+"  "+users+TXV.PERSONS;
+                return nazwa + "  " + users + TAPi18n.__('txv.PERSONS');
             }
             else {
                 return "none";

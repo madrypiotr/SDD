@@ -2,23 +2,23 @@ i18n.setDefaultLanguage("pl");
 
 getUserLanguage = function () {
     var defaultLang = "pl";
-    var user = Users.findOne({_id: Meteor.userId()});
-    if (user.profile.language)
+    var userId = Meteor.userId();
+    var user = Users.findOne({_id: userId});
+    if (user && user.profile.language) {
         return user.profile.language;
-    else
-        return defaultLang;
+    }
+    return defaultLang;
 };
 
 if (Meteor.isClient) {
     Meteor.startup(function () {
-        if(Meteor.user()) {
+        Tracker.autorun(function () {
             var lang = getUserLanguage();
             TAPi18n.setLanguage(lang)
-                .done(function () {
-                })
+                .done(function () {})
                 .fail(function (error_message) {
                     console.log(error_message);
                 });
-        }
+        });
     });
 }

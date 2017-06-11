@@ -22,48 +22,48 @@ Template.listParametr.events({
    },
     'click #editOrganisationName':function(e){
         e.preventDefault();
-        editParameter("nazwaOrganizacji",TXV.ORG_NAME,this.nazwaOrganizacji);
+        editParameter("nazwaOrganizacji", TAPi18n.__('txv.ORG_NAME'), this.nazwaOrganizacji);
     },
     'click #editTeritory':function(e){
         e.preventDefault();
-        editParameter("terytorium",TXV.TERITORY,this.terytorium);
+        editParameter("terytorium", TAPi18n.__('txv.TERITORY'), this.terytorium);
     },
     'click #editContacts':function(e){
         e.preventDefault();
-        editParameter("kontakty",TXV.CONTACTS,this.kontakty);
+        editParameter("kontakty", TAPi18n.__('txv.CONTACTS'), this.kontakty);
     },
     'click #editStatute':function(e){
         e.preventDefault();
-        editParameter("regulamin",TXV.STATUT,this.regulamin);
+        editParameter("regulamin", TAPi18n.__('txv.STATUT'), this.regulamin);
     },
     'click #editVoteDuration':function(e){
         e.preventDefault();
-        editParameter("voteDuration",TXV.VOTE_TIME,this.voteDuration);
+        editParameter("voteDuration", TAPi18n.__('txv.VOTE_TIME'), this.voteDuration);
     },
     'click #editIssueWaiting':function(e){
         e.preventDefault();
-        editParameter("czasWyczekiwaniaKwestiiSpec",TXV.WAITING_TIME,this.czasWyczekiwaniaKwestiiSpecjalnej);
+        editParameter("czasWyczekiwaniaKwestiiSpec", TAPi18n.__('txv.WAITING_TIME'), this.czasWyczekiwaniaKwestiiSpecjalnej);
     },
     'click #editVoteQuantity':function(e){
         e.preventDefault();
-        editParameter("voteQuantity",TXV.MAX_ISSUE_IN_VOTING,this.voteQuantity);
+        editParameter("voteQuantity", TAPi18n.__('txv.MAX_ISSUE_IN_VOTING'), this.voteQuantity);
     },
     'click #editIssuePause':function(e){
         e.preventDefault();
-        editParameter("addIssuePause",TXV.FREQ_ADD_ISSUE,this.addIssuePause);
+        editParameter("addIssuePause", TAPi18n.__('txv.FREQ_ADD_ISSUE'), this.addIssuePause);
     },
     'click #editCommentPause':function(e){
         e.preventDefault();
-        editParameter("addCommentPause",TXV.FREQ_ADD_COMM,this.addCommentPause);
+        editParameter("addCommentPause", TAPi18n.__('txv.FREQ_ADD_COMM'), this.addCommentPause);
     },
     'click #editReferencePause':function(e){
         e.preventDefault();
-        editParameter("addReferencePause",TXV.FREQ_ADD_REFER,this.addReferencePause);
+        editParameter("addReferencePause", TAPi18n.__('txv.FREQ_ADD_REFER'), this.addReferencePause);
 
     },
     'click #editRRDuration':function(e){
         e.preventDefault();
-        editParameter("okresSkladaniaRR",TXV.FREQ_ADD_REPPO,this.addReferencePause);
+        editParameter("okresSkladaniaRR", TAPi18n.__('txv.FREQ_ADD_REPPO'), this.addReferencePause);
     }
 });
 editParameter=function(name,parameterName,value){
