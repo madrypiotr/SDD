@@ -1,3 +1,3 @@
 Meteor.startup(function(){
-   process.env.MAIL_URL = "smtp://systemadtestowy@gmail.com :ywotsetDAmetsys@smtp.gmail.com:587"
+   process.env.MAIL_URL = "smtp://m@drypiotr.pl :smaga111@smtp.drypiotr.pl:587"
 });
