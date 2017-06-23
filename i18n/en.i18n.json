@@ -1012,7 +1012,7 @@
 	"THIS_FIELD_IS_REQUIRED": "e-Pole jest wymagane",
 	"ENTER_A_VALUE_GREATER_THAN_ZERO": "e-Podaj wartość większą od zera",
 	"YOU_CAN_NOT_ENTER_NEGATIVE_VALUES": "e-Nie można wprowadzać ujemnych wartości",
-	"THE__SPECIFIED_VALUE_IS_NOT_A_NUMBER": "e-Podana wartość nie jest liczbą",
+	"THE_SPECIFIED_VALUE_IS_NOT_A_NUMBER": "e-Podana wartość nie jest liczbą",
 	"THE_FIELD_MUST_HAVE_A_MINIMUM": "e-Pole musi mieć minimum ",
 	"CHARACTERS": "e- znaków",
 	"THE_FIELD_MUST_HAVE_A_MAX": "e-Pole musi mieć maksimum ",

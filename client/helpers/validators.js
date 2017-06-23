@@ -9,7 +9,7 @@ negativeNumberMessage = function () {
     return TAPi18n.__('txv.YOU_CAN_NOT_ENTER_NEGATIVE_VALUES');
 };
 decimalNumberMessage = function () {
-    return TAPi18n.__('txv.THE__SPECIFIED_VALUE_IS_NOT_A_NUMBER');
+    return TAPi18n.__('txv.THE_SPECIFIED_VALUE_IS_NOT_A_NUMBER');
 };
 minLengthMessage = function (length) {
     return TAPi18n.__('txv.THE_FIELD_MUST_HAVE_A_MINIMUM') + length + TAPi18n.__('txv.CHARACTERS');

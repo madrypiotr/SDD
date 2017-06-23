@@ -1017,7 +1017,7 @@
 	"THIS_FIELD_IS_REQUIRED": "Pole jest wymagane",
 	"ENTER_A_VALUE_GREATER_THAN_ZERO": "Podaj wartość większą od zera",
 	"YOU_CAN_NOT_ENTER_NEGATIVE_VALUES": "Nie można wprowadzać ujemnych wartości",
-	"THE__SPECIFIED_VALUE_IS_NOT_A_NUMBER": "Podana wartość nie jest liczbą",
+	"THE_SPECIFIED_VALUE_IS_NOT_A_NUMBER": "Podana wartość nie jest liczbą",
 	"THE_FIELD_MUST_HAVE_A_MINIMUM": "Pole musi mieć minimum ",
 	"CHARACTERS": " znaków",
 	"THE_FIELD_MUST_HAVE_A_MAX": "Pole musi mieć maksimum ",
