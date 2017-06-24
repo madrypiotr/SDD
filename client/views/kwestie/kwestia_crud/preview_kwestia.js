@@ -193,7 +193,7 @@ addKwestia=function(idTemat,idRodzaj,isOption,kwestia){
         }
         else {
             Session.set("kwestiaPreview", null);
-            Meteor.call("sendEmailAddedIssue", ret, function(error) {
+            Meteor.call("sendEmailAddedIssue", ret, getUserLanguage(), function(error) {
                 if(error){
                     var emailError = {
                         idIssue: ret,

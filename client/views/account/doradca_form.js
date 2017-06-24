@@ -193,7 +193,7 @@ addKwestiaOsobowaDoradca=function(idUserDraft,newUser){
                     przyjecieWnioskuConfirmation(Parametr.findOne().czasWyczekiwaniaKwestiiSpecjalnej, daneAplikanta.email, "doradztwo");
                     Meteor.call("sendApplicationConfirmation", idUserDraft,function(error){
                         if(!error) {
-                            Meteor.call("sendEmailAddedIssue", ret, function (error) {
+                            Meteor.call("sendEmailAddedIssue", ret, getUserLanguage(), function (error) {
                                 if (error) {
                                     var emailError = {
                                         idIssue: ret,

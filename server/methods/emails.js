@@ -90,19 +90,18 @@ Meteor.methods({
             });
         });
     },
-    sendEmailAddedIssue: function (idKwestia) {
+    sendEmailAddedIssue: function (idKwestia, lang) {
         this.unblock();
         var parametr = Parametr.findOne({});
         var kwestiaItem = Kwestia.findOne({_id:idKwestia});
         var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
         var temat = Temat.findOne({_id:kwestiaItem.idTemat});
         if(!rodzaj)
-            rodzaj=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
-
+            rodzaj=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM', null, lang);
         else
             rodzaj=rodzaj.nazwaRodzaj;
         if(!temat)
-            temat=TAPi18n.__('txv.TECHNICAL');
+            temat=TAPi18n.__('txv.TECHNICAL', null, lang);
 		
         else temat=temat.nazwaTemat;
 
@@ -119,12 +118,25 @@ Meteor.methods({
                     rodzaj: rodzaj,
                     temat: temat,
                     url:Meteor.absoluteUrl()+"issue_info/"+kwestiaItem._id,
-                    urlLogin:Meteor.absoluteUrl()+"account/login"
-                });
+                    urlLogin:Meteor.absoluteUrl()+"account/login",
+
+                    globDoNotAnswerThat: TAPi18n.__('glob.globDoNotAnswerThat', null, lang),
+                    globIntroducedAnewIssue: TAPi18n.__('glob.globIntroducedAnewIssue', null, lang),
+                    globLinkToThisIssue: TAPi18n.__('glob.globLinkToThisIssue', null, lang),
+                    globLogIn: TAPi18n.__('glob.globLogIn', null, lang),
+                    globLoginToTheSystem: TAPi18n.__('glob.globLoginToTheSystem', null, lang),
+                    globOn: TAPi18n.__('glob.globOn', null, lang),
+                    globShortSystemName: TAPi18n.__('glob.globShortSystemName', null, lang),
+                    globSubject: TAPi18n.__('glob.globSubject', null, lang),
+                    globThisIsAnAutomaticInformationSystem: TAPi18n.__('glob.globThisIsAnAutomaticInformationSystem', null, lang),
+                    globToTheSystem: TAPi18n.__('glob.globToTheSystem', null, lang),
+                    globType: TAPi18n.__('glob.globType', null, lang),
+                    globWelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize: TAPi18n.__('glob.globWelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize', null, lang)
+            });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TAPi18n.__('txv.SYSTEM_NAME'),
-                    subject: TAPi18n.__('txv.ADD_NEW_ISSUE'),
+                    from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
+                    subject: TAPi18n.__('txv.ADD_NEW_ISSUE', null, lang),
                     html: html
                 });
             }
