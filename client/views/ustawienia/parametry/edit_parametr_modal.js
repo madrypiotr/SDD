@@ -191,7 +191,7 @@ createIssueChangeParam=function(paramName,title,oldValue,newValue){
                             throwError(error.reason);
                         else {
                             addPowiadomienieGlobalneFunction(ret);
-                            Meteor.call("sendEmailAddedIssue", ret, function(error) {
+                            Meteor.call("sendEmailAddedIssue", ret, getUserLanguage(), function(error) {
                                 if(error){
                                     var emailError = {
                                         idIssue: ret,
