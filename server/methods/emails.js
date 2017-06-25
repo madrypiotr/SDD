@@ -217,8 +217,8 @@ Meteor.methods({
         var temat=null;
         var url=Meteor.absoluteUrl()+"issue_info/"+kwestiaItem._id;
         if(kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
-            rodzaj=TAPi18n.__('txv.TECHNICAL', null, lang);
-            temat=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM', null, lang);
+            rodzaj=TAPi18n.__('txv.TECHNICAL');
+            temat=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         }
         else{
             rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj}).nazwaRodzaj;
@@ -248,7 +248,7 @@ Meteor.methods({
                 Email.send({
                     to: item.emails[0].address,
                     from: author.profile.firstName+" "+author.profile.lastName,
-                    subject: TAPi18n.__('txv.SUPPORT_MY_ISSUE', null, lang),
+                    subject: TAPi18n.__('txv.SUPPORT_MY_ISSUE'),
                     html: html
                 });
             }
