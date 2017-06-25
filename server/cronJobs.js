@@ -63,7 +63,7 @@ checkingRRExist=function(){
                }},{sort:{dataWprowadzenia:-1}});
 
            if(raporty.count()==0) {
-               Meteor.call("sendEmailNoRealizationReport", kwestia._id, function (error) {
+               Meteor.call("sendEmailNoRealizationReport", kwestia._id, getUserLanguage(), function (error) {
                    if (error) {
                        console.log(error.reason);
                        var emailError = {

@@ -208,7 +208,7 @@ Meteor.startup(function(){
                     console.log(error.reason);
             });
             addPowiadomienieKwestiaGlosowanaMethod(newKwestia._id);
-            Meteor.call("sendEmailStartedVoting",newKwestia._id, function(error){
+            Meteor.call("sendEmailStartedVoting",newKwestia._id, getUserLanguage(), function(error){
                 if(error){
                     var emailError = {
                         idIssue: newKwestia._id,

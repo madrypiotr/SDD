@@ -1,26 +1,26 @@
-{{_ glob.globShortSystemName}}<br/>
+{{globShortSystemName}}<br/>
 {{organizacja}}<br/><br/>
 
 {{welcomeGender}} {{username}}!<br/><br/>
 
-{{_ glob.globWeInformYouAboutTheOngoingVotingProcedureIssues}} {{nazwaKwestii}}<br/>
-<b>{{_ glob.globSubject}}</b> {{temat}},<br/>
-<b>{{_ glob.globType}}</b> {{rodzaj}}<br/>
-{{_ glob.globOn}}<b>{{szczegolyKwestii}}</b> <br/><br/>
+{{globWeInformYouAboutTheOngoingVotingProcedureIssues}} {{nazwaKwestii}}<br/>
+<b>{{globSubject}}</b> {{temat}},<br/>
+<b>{{globType}}</b> {{rodzaj}}<br/>
+{{globOn}}<b>{{szczegolyKwestii}}</b> <br/><br/>
 
-<b>{{_ glob.globEndOfVoting}}</b> {{dataGlosowania}}<br/><br/>
+<b>{{globEndOfVoting}}</b> {{dataGlosowania}}<br/><br/>
 
 {{#if nadanoPriorytet idKwestii idUser}}
-    {{_ glob.globThanksForVoting}}<br/>
-    <b>{{_ glob.globGivenPriority}}</b> {{mojPriorytet idKwestii idUser}}<br/>
-    {{_ glob.globYouCanEvenChangeThePriorityBeforeItHasFinishedVoting}}<br/><br/>
+    {{globThanksForVoting}}<br/>
+    <b>{{globGivenPriority}}</b> {{mojPriorytet idKwestii idUser}}<br/>
+    {{globYouCanEvenChangeThePriorityBeforeItHasFinishedVoting}}<br/><br/>
 {{else}}
-    <b>{{_ glob.globDoNotYouVotedYetOnThisIssueWelcome}} <a href={{url}}>{{_ glob.globLinkToThisIssue}}</a></b><br/>
+    <b>{{globDoNotYouVotedYetOnThisIssueWelcome}} <a href={{url}}>{{globLinkToThisIssue}}</a></b><br/>
 {{/if}}
 
-<b>{{_ glob.globTheCurrentStrengthOfPriority}}</b> {{wartoscPriorytetu}}<br/>
-<b>{{_ glob.globRequiredQuorum}}</b> {{kworum}} / {{_ glob.globCurrentPresence}} {{glosujacy}}<br/><br/>
+<b>{{globTheCurrentStrengthOfPriority}}</b> {{wartoscPriorytetu}}<br/>
+<b>{{globRequiredQuorum}}</b> {{kworum}} / {{globCurrentPresence}} {{glosujacy}}<br/><br/>
 
-{{_ glob.globThisIsAnAutomaticInformationSystem}} {{_ glob.globShortSystemName}} {{organizacja}}<br />
-{{_ glob.globDoNotAnswerThat}} <br />
-{{_ glob.globLoginToTheSystem}} <a href="{{urlLogin}}">{{_ glob.globLogIn}}</a>
+{{globThisIsAnAutomaticInformationSystem}} {{globShortSystemName}} {{organizacja}}<br />
+{{globDoNotAnswerThat}} <br />
+{{globLoginToTheSystem}} <a href="{{urlLogin}}">{{globLogIn}}</a>
