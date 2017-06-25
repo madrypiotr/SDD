@@ -151,7 +151,7 @@ sendEmailAndNotification=function(idKwestia,emailText){
         Meteor.call("updateKwestiaCzasLobbowana",idKwestia,new Date(),function(error){
             if(!error){
                 addPowiadomienieLobbingIssueFunction(idKwestia,emailText);
-                Meteor.call("sendEmailLobbingIssue", getUserLanguage(), idKwestia,emailText,Meteor.userId(),function(error){
+                Meteor.call("sendEmailLobbingIssue", idKwestia,emailText,Meteor.userId(), getUserLanguage(), function(error){
                     if(error){
                         var emailError = {
                             idIssue: idKwestia,
