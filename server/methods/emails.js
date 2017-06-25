@@ -105,7 +105,7 @@ Meteor.methods({
 		
         else temat=temat.nazwaTemat;
 
-        Users.find({}).forEach(function(item) {
+        Users.find({}).forEach(function(item, lang) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType==USERTYPE.CZLONEK) {
                 var html = SSR.render('email_added_issue',{
                     welcomeGender:recognizeSex(item),
@@ -142,13 +142,13 @@ Meteor.methods({
             }
         });
     },
-    sendEmailAct: function (idKwestia) {
+    sendEmailAct: function (idKwestia, lang) {
         this.unblock();
         var parametr = Parametr.findOne({});
         var kwestiaItem = Kwestia.findOne({_id:idKwestia});
         var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
         var temat = Temat.findOne({_id:kwestiaItem.idTemat});
-        Users.find({}).forEach(function(item) {
+        Users.find({}).forEach(function(item, lang) {
             if (!Roles.userIsInRole(item, ['admin'])) {
                 var html = SSR.render('email_act',{
                     welcomeGender:recognizeSex(item),
@@ -163,28 +163,28 @@ Meteor.methods({
                 });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TAPi18n.__('txv.SYSTEM_NAME'),
-                    subject: TAPi18n.__('txv.PASS_A_RESOLUTION'),
+                    from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
+                    subject: TAPi18n.__('txv.PASS_A_RESOLUTION', null, lang),
                     html: html
                 });
             }
         });
     },
-    sendEmailNoRealizationReport: function (idKwestia) {
+    sendEmailNoRealizationReport: function (idKwestia, lang) {
         this.unblock();
         var parametr = Parametr.findOne({});
         var kwestiaItem = Kwestia.findOne({_id:idKwestia});
         var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
         var temat = Temat.findOne({_id:kwestiaItem.idTemat});
         if(!rodzaj)
-            rodzaj=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
+            rodzaj=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM', null, lang);
         else
             rodzaj=rodzaj.nazwaRodzaj;
         if(!temat)
-            temat=TAPi18n.__('txv.TECHNICAL');
+            temat=TAPi18n.__('txv.TECHNICAL', null, lang);
         else temat=temat.nazwaTemat;
 
-        Users.find({}).forEach(function(item) {
+        Users.find({}).forEach(function(item, lang) {
 
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType==USERTYPE.CZLONEK) {
                 var html = SSR.render('email_no_realization_report',{
@@ -201,14 +201,14 @@ Meteor.methods({
                 });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TAPi18n.__('txv.SYSTEM_NAME'),
-                    subject: TAPi18n.__('txv.NO_CURRENT_REPORT'),
+                    from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
+                    subject: TAPi18n.__('txv.NO_CURRENT_REPORT', null, lang),
                     html: html
                 });
             }
         });
     },
-    sendEmailLobbingIssue: function (idKwestia,uzasadnienie,idAuthor) {
+    sendEmailLobbingIssue: function (idKwestia,uzasadnienie,idAuthor, lang) {
         this.unblock();
         var parametr = Parametr.findOne({});
         var kwestiaItem = Kwestia.findOne({_id:idKwestia});
@@ -217,8 +217,8 @@ Meteor.methods({
         var temat=null;
         var url=Meteor.absoluteUrl()+"issue_info/"+kwestiaItem._id;
         if(kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
-            rodzaj=TAPi18n.__('txv.TECHNICAL');
-            temat=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
+            rodzaj=TAPi18n.__('txv.TECHNICAL', null, lang);
+            temat=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM', null, lang);
         }
         else{
             rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj}).nazwaRodzaj;
@@ -226,7 +226,7 @@ Meteor.methods({
         }
 
         var author=Users.findOne({_id:idAuthor});
-        Users.find({}).forEach(function(item) {
+        Users.find({}).forEach(function(item, lang) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType==USERTYPE.CZLONEK) {
                 var html = SSR.render('email_lobbing_issue',{
                     welcomeGender:recognizeSex(item),
@@ -248,21 +248,21 @@ Meteor.methods({
                 Email.send({
                     to: item.emails[0].address,
                     from: author.profile.firstName+" "+author.profile.lastName,
-                    subject: TAPi18n.__('txv.SUPPORT_MY_ISSUE'),
+                    subject: TAPi18n.__('txv.SUPPORT_MY_ISSUE', null, lang),
                     html: html
                 });
             }
         });
     },
-    sendEmailStartedVoting: function (idKwestia) {
+    sendEmailStartedVoting: function (idKwestia, lang) {
         this.unblock();
         var parametr = Parametr.findOne({});
         var kwestiaItem = Kwestia.findOne({_id:idKwestia});
         var temat=null;
         var rodzaj=null;
         if(kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
-            temat=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
-            rodzaj=TAPi18n.__('txv.TECHNICAL');
+            temat=TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM', null, lang);
+            rodzaj=TAPi18n.__('txv.TECHNICAL', null, lang);
         }
         else {
             rodzaj = Rodzaj.findOne({_id: kwestiaItem.idRodzaj}).nazwaRodzaj;
@@ -275,7 +275,7 @@ Meteor.methods({
             kworum=liczenieKworumStatutowe();
         else
             kworum=liczenieKworumZwykle();
-        Users.find({}).forEach(function(item) {
+        Users.find({}).forEach(function(item, lang) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType==USERTYPE.CZLONEK) {
                 var html = SSR.render('email_started_voting',{
                     welcomeGender:recognizeSex(item),
@@ -296,64 +296,64 @@ Meteor.methods({
                 });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TAPi18n.__('txv.SYSTEM_NAME'),
+                    from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
                     subject: BEGAN_VOTING_ISSUE,
                     html: html
                 });
             }
         });
     },
-    sendApplicationConfirmation:function(idUser){
+    sendApplicationConfirmation:function(idUser, lang){
         var userData = UsersDraft.findOne({_id: idUser});
         var data=applicationEmail(userData,"confirm",null);
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TAPi18n.__('txv.CONFIRM_OF_RECE') + data.userType,
+            subject: TAPi18n.__('txv.CONFIRM_OF_RECE', null, lang) + data.userType,
             html: data.html
         });
     },
-    sendApplicationRejected:function(userData){
+    sendApplicationRejected:function(userData, lang){
         var data=applicationEmail(userData,"reject",null);
 
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TAPi18n.__('txv.REJECT_OF_APLIC') + data.userType,
+            subject: TAPi18n.__('txv.REJECT_OF_APLIC', null, lang) + data.userType,
             html: data.html
         });
     },
-    sendApplicationAccepted:function(userData,text){
+    sendApplicationAccepted:function(userData,text, lang){
         var data=applicationEmail(userData,text,null);
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TAPi18n.__('txv.POSITIVE_CONSIDER') + data.userType,
+            subject: TAPi18n.__('txv.POSITIVE_CONSIDER', null, lang) + data.userType,
             html: data.html
         });
     },
-    sendFirstLoginData:function(idUser,pass){
+    sendFirstLoginData:function(idUser,pass, lang){
 
         var userData = Users.findOne({_id:idUser});
         var data=applicationEmail(userData,"loginData",pass);
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TAPi18n.__('txv.DATA_LOGGING') + Parametr.findOne().nazwaOrganizacji,
+            subject: TAPi18n.__('txv.DATA_LOGGING', null, lang) + Parametr.findOne().nazwaOrganizacji,
             html: data.html
         });
     },
     sendResetPasswordEmail:function(email, pass){
         var users = Users.find();
         users.forEach(function (user) {
-            _.each(user.emails, function (em) {
+            _.each(user.emails, function (em, lang) {
                 if (_.isEqual(em.address.toLowerCase(), email.toLowerCase())) {
                     var userData = user;
                     var data=applicationEmail(userData, "resetPassword", pass);
                     Email.send({
                         to: data.to,
                         from: data.to,
-                        subject: TAPi18n.__('txv.RESET_ACCES_PASS') + Parametr.findOne().nazwaOrganizacji,
+                        subject: TAPi18n.__('txv.RESET_ACCES_PASS', null, lang) + Parametr.findOne().nazwaOrganizacji,
                         html: data.html
                     });
                 }
@@ -361,31 +361,31 @@ Meteor.methods({
         });
     }
 });
-recognizeSex=function(userData){
+recognizeSex=function(userData, lang){
     var welcomeGender=null;
     if(userData.profile.pesel){
         if(userData.profile.pesel!="") {
             var pesel = userData.profile.pesel.substring(9, 10);
             if (_.contains(['1', '3', '5', '7', '9'], pesel))
-                welcomeGender = TAPi18n.__('txv.HONORABLE');
+                welcomeGender = TAPi18n.__('txv.HONORABLE', null, lang);
             else welcomeGender = DEAR
         }
         else
-            welcomeGender=TAPi18n.__('txv.MR_MRS');
+            welcomeGender=TAPi18n.__('txv.MR_MRS', null, lang);
     }
     else
-        welcomeGender=TAPi18n.__('txv.MR_MRS');
+        welcomeGender=TAPi18n.__('txv.MR_MRS', null, lang);
 
     return welcomeGender;
 };
-applicationEmail=function(userData,emailTypeText,passw){
+applicationEmail=function(userData,emailTypeText,passw, lang){
     var urlLogin=Meteor.absoluteUrl()+"account/login";
     var welcomeGender=recognizeSex(userData);
 
     var userTypeData = null;
     switch (userData.profile.userType){
-        case USERTYPE.CZLONEK: userTypeData=TAPi18n.__('txv.ORD_MEMBER');break;
-        case USERTYPE.DORADCA: userTypeData=TAPi18n.__('txv.COUNSELOR');break;
+        case USERTYPE.CZLONEK: userTypeData=TAPi18n.__('txv.ORD_MEMBER', null, lang);break;
+        case USERTYPE.DORADCA: userTypeData=TAPi18n.__('txv.COUNSELOR', null, lang);break;
     }
     var url=null;
     var login=null;
@@ -400,12 +400,12 @@ applicationEmail=function(userData,emailTypeText,passw){
         emailTypeText = 'email_application_accepted';
         if(userData.linkAktywacyjny)
             url = Meteor.absoluteUrl() + "account/activate_account/" + userData.linkAktywacyjny;
-        if (welcomeGender == TAPi18n.__('txv.HONORABLE'))
-            textGender = TAPi18n.__('txv.H_COULD');
-        else if (welcomeGender == TAPi18n.__('txv.DEAR'))
-            textGender = TAPi18n.__('txv.D_COULD');
+        if (welcomeGender == TAPi18n.__('txv.HONORABLE', null, lang))
+            textGender = TAPi18n.__('txv.H_COULD', null, lang);
+        else if (welcomeGender == TAPi18n.__('txv.DEAR', null, lang))
+            textGender = TAPi18n.__('txv.D_COULD', null, lang);
         else
-            textGender = TAPi18n.__('txv.HD_COULD');
+            textGender = TAPi18n.__('txv.HD_COULD', null, lang);
     }
     else if(emailTypeText=="acceptExisting"){
         emailTypeText = 'email_application_accepted_existing_user';
@@ -457,7 +457,7 @@ applicationEmail=function(userData,emailTypeText,passw){
     });
     var obj={
         to:to,
-        from: TAPi18n.__('txv.SYSTEM_NAME') + Parametr.findOne().nazwaOrganizacji,
+        from: TAPi18n.__('txv.SYSTEM_NAME', null, lang) + Parametr.findOne().nazwaOrganizacji,
         html:html,
         userType:userTypeData
     };
