@@ -45,9 +45,10 @@
 	<!--Szukanie Kwestii-->
 			<div class="pull-right col-lg-6 col-md-4 col-sm-6 col-xs-6">
 				<section class="dymek">
+				{{_ 'more.moreSearchIssues'}}
 					{{> reactiveTableFilter
 					id="customFilter"
-					label={{_ 'more.moreSearchIssues'}}
+					label="?"
 					fields=getFilterFields}}
 					<!--Wpisz frazę nazwy-->
 					<ul>
