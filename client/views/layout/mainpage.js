@@ -28,7 +28,7 @@ Template.mainpage.events({
         }
         else
             notificationPauseWarning("kwestii",kwestiaCanBeInserted);
-    }
+    },
 
     'click #wievMap': function () {
             Router.go("map");
