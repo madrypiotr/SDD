@@ -28,10 +28,12 @@ Template.mainpage.events({
         }
         else
             notificationPauseWarning("kwestii",kwestiaCanBeInserted);
-    },
+    }
+});
 
+Template.mainpage.events({
     'click #wievMap': function () {
             Router.go("map");
 	}
- 
+
 });
