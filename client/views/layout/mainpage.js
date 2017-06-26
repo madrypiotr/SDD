@@ -30,7 +30,7 @@ Template.mainpage.events({
             notificationPauseWarning("kwestii",kwestiaCanBeInserted);
     }
 
-    'click #addKwestiaButton': function () {
+    'click #wievMap': function () {
             Router.go("map");
 	}
  
