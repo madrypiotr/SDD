@@ -1,0 +1,34 @@
+<template name="map">
+<div class="main">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="mainmain">
+	<p class="fontSizeBig">{{_ "glob.globShortSystemName"}}</p>
+	<p class="fontSizeMore">{{_ "more.fullNameSystem"}}</p>
+	<p class="fontSizeMore">M A P A</p>
+	<p class="fontSizeMoreSmall">{{_ "more.descriptionOfTheSystem"}}</p>
+			
+			<br />
+			
+				{{#if currentUser}}
+				{{#if isZwyczajnyLogged}}
+
+				MAPA
+
+				{{/if}}
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  MAPA </div>
+	<div id="container">
+			<div class="footer_center">
+				<p>mapa1</p>
+				<p>mapa2</p>
+				<p>mapa3</p>
+			</div>
+	</div>
+</div>
+</template>

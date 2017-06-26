@@ -29,4 +29,9 @@ Template.mainpage.events({
         else
             notificationPauseWarning("kwestii",kwestiaCanBeInserted);
     }
+
+    'click #addKwestiaButton': function () {
+            Router.go("map");
+	}
+ 
 });
