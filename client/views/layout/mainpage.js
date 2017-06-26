@@ -30,6 +30,6 @@ Template.mainpage.events({
             notificationPauseWarning("kwestii",kwestiaCanBeInserted);
     },
     'click #wievMap': function () {
-            Router.go("addKwestia");
+            Router.go("map");
 	}
 });
