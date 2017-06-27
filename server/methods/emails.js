@@ -105,7 +105,7 @@ Meteor.methods({
 		
         else temat=temat.nazwaTemat;
 
-        Users.find({}).forEach(function(item, lang) {
+        Users.find({}).forEach(function(item) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType==USERTYPE.CZLONEK) {
                 var html = SSR.render('email_added_issue',{
                     welcomeGender:recognizeSex(item),
