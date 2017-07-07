@@ -72,6 +72,8 @@ Template.realizacjaTab2.events({
                             { text: globalParameters.nazwaOrganizacji + "\n" +
                             globalParameters.terytorium + "\n" +
                             globalParameters.terytAdres + "\n" +
+                            globalParameters.terytCODE + "\n" +
+                            globalParameters.terytCity + "\n" +
                             globalParameters.kontakty + "\n"
                             },
                             { text: TAPi18n.__('txv.RESOLUTION_NO') + ": " + numerUchwaly + "\n\n\n\t\t" + TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ": " + issueName, style: 'uchwalaHeadline'},
@@ -104,6 +106,8 @@ Template.realizacjaTab2.events({
                     { text: globalParameters.nazwaOrganizacji + "\n" +
                     globalParameters.terytorium + "\n" +
                     globalParameters.terytAdres + "\n" +
+					globalParameters.terytCODE + "\n" +
+					globalParameters.terytCity + "\n" +
                     globalParameters.kontakty + "\n"
                     },
                     { text: TAPi18n.__('txv.RESOLUTION_NO')+": " + this.numerUchwaly.toString() + "\n"+ TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ": " + this.kwestiaNazwa , style: 'uchwalaHeadline'},

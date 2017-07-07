@@ -46,6 +46,24 @@
                                 </div>
                             {{/if}}
 							
+							
+                            {{#if terytCODEInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="terytCODE" type="text" class="form-control" id="param"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+							
+							
+                            {{#if terytCityInput parametrInScope.title}}
+                                <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
+                                <div class="col-xs-9">
+                                    <input name="terytCity" type="text" class="form-control" id="param"
+                                           value="{{parametrInScope.value}}" required/>
+                                </div>
+                            {{/if}}
+							
                             {{#if kontaktInput parametrInScope.title}}
                                 <label class="control-label col-xs-3" for="{{parametrInScope.name}}">{{parametrInScope.title}}:</label>
                                 <div class="col-xs-9">

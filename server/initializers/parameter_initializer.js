@@ -5,6 +5,8 @@ Meteor.startup(function () {
             "nazwaOrganizacji": TXV.ORG_NAME,
             "terytorium": TXV.TERITORY,
             "terytAdres": TXV.TERITADR,
+            "terytAdres": TXV.TERITCOD,
+            "terytAdres": TXV.TERITCITY,
             "kontakty": TXV.CONTACTS,
             "regulamin": TXV.MISSING_RULES,
             "czasWyczekiwaniaKwestiiSpecjalnej":2,

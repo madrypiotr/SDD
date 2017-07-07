@@ -14,6 +14,12 @@ Template.editParametrModalInner.helpers({
     terytAdresInput:function(parameterName){
         return parameterName==TXV.TERITADR ? true :false;
     },
+    terytCODEInput:function(parameterName){
+        return parameterName==TXV.TERITCOD ? true :false;
+    },
+    terytCityInput:function(parameterName){
+        return parameterName==TXV.TERITCITY ? true :false;
+    },
     kontaktInput:function(parameterName){
         return parameterName==TXV.CONTACTS ? true :false;
     },
@@ -123,6 +129,8 @@ createIssueChangeParam=function(paramName,title,oldValue,newValue){
     var nazwaOrg=params.nazwaOrganizacji;
     var terytorium=params.terytorium;
     var terytAdres=params.terytAdres;
+    var terytCODE=params.terytCODE;
+    var terytCity=params.terytCity;
     var kontakty=params.kontakty;
     var reg=params.regulamin;
     var voteDur=params.voteDuration;
@@ -137,6 +145,8 @@ createIssueChangeParam=function(paramName,title,oldValue,newValue){
         case "nazwaOrganizacji":nazwaOrg=newValue;break;
         case "terytorium":terytorium=newValue;break;
         case "terytAdres":terytAdres=newValue;break;
+        case "terytCODE":terytCODE=newValue;break;
+        case "terytCity":terytCity=newValue;break;
         case "kontakty":kontakty=newValue;break;
         case "regulamin":reg=newValue;break;
         case "voteDuration":voteDur=newValue;break;
@@ -152,6 +162,8 @@ createIssueChangeParam=function(paramName,title,oldValue,newValue){
         nazwaOrganizacji: nazwaOrg,
         terytorium: terytorium,
         terytAdres: terytAdres,
+        terytCODE: terytCODE,
+        terytCity: terytCity,
         kontakty: kontakty,
         regulamin: reg,
         voteDuration:voteDur,

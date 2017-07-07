@@ -32,6 +32,14 @@ Template.listParametr.events({
         e.preventDefault();
         editParameter("terytAdres", TAPi18n.__('txv.TERITADR'), this.terytAdres);
     },
+    'click #editTeritCODE':function(e){
+        e.preventDefault();
+        editParameter("terytCODE", TAPi18n.__('txv.TERITCOD'), this.terytAdres);
+    },
+    'click #editTeritCity':function(e){
+        e.preventDefault();
+        editParameter("terytCity", TAPi18n.__('txv.TERITCITY'), this.terytAdres);
+    },
     'click #editContacts':function(e){
         e.preventDefault();
         editParameter("kontakty", TAPi18n.__('txv.CONTACTS'), this.kontakty);

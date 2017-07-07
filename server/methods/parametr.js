@@ -4,6 +4,8 @@ Meteor.methods({
             nazwaOrganizacji: newParametr[0].nazwaOrganizacji,
             terytorium: newParametr[0].terytorium,
             terytAdres: newParametr[0].terytAdres,
+            terytCODE: newParametr[0].terytCODE,
+            terytCity: newParametr[0].terytCity,
             kontakty: newParametr[0].kontakty,
             regulamin: newParametr[0].regulamin,
             voteDuration: newParametr[0].voteDuration,

@@ -179,6 +179,8 @@ Meteor.startup(function(){
             nazwaOrganizacji:globalPramsDraft.nazwaOrganizacji,
             terytorium:globalPramsDraft.terytorium,
             terytAdres:globalPramsDraft.terytAdres,
+            terytCODE:globalPramsDraft.terytCODE,
+            terytCity:globalPramsDraft.terytCity,
             kontakty:globalPramsDraft.kontakty,
             regulamin: globalPramsDraft.regulamin,
             voteDuration: globalPramsDraft.voteDuration,

@@ -55,6 +55,32 @@
 						</div>
 					</div>
 					
+					
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="inputEmail"><!--Terytorium KOD-->
+						{{_ 'listParametr.lipTerritCODE'}}:</label>
+						<div class="col-xs-8">
+							<input class="form-control" id="terytCODE" name="terytCODE" readonly type="text" value="{{terytCODE}}">
+						</div>
+						<div class="btn-group col-xs-1">
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritCODE"><i class="fa fa-edit"></i> <!--Edytuj-->
+							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+						</div>
+					</div>
+					
+					
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="inputEmail"><!--Terytorium City-->
+						{{_ 'listParametr.lipTerritCity'}}:</label>
+						<div class="col-xs-8">
+							<input class="form-control" id="terytCity" name="terytCity" readonly type="text" value="{{terytCity}}">
+						</div>
+						<div class="btn-group col-xs-1">
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritCity"><i class="fa fa-edit"></i> <!--Edytuj-->
+							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+						</div>
+					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Kontakty-->
 						{{_ 'listParametr.lipContactDetails'}}:</label>
