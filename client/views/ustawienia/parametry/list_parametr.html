@@ -18,40 +18,43 @@
 		<div class="row">
 			<div class="col col-md-10">
 				<form class="form-horizontal" id="parametrForm" name="parametrForm">
-					<legend><!--Dane organizacji-->
+				
+		<legend><!--Dane organizacji-->
 					{{_ 'listParametr.lipOrganizationData'}}</legend>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Nazwa organizacji-->
 						{{_ 'listParametr.lipNameOfOrganization'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="nazwaOrganizacji" name="nazwaOrganizacji" readonly type="text" value="{{nazwaOrganizacji}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editOrganisationName"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-6">
+							<input class="form-control" id="nazwaOrganizacji" name="nazwaOrganizacji" readonly type="text" value="{{nazwaOrganizacji}}">
+						</div>
 					</div>
+						
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Terytorium-->
 						{{_ 'listParametr.lipTerritory'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="terytorium" name="terytorium" readonly type="text" value="{{terytorium}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritory"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+						</div>
+						<div class="col-xs-4">
+							<input class="form-control" id="terytorium" name="terytorium" readonly type="text" value="{{terytorium}}">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Terytorium Adres-->
 						{{_ 'listParametr.lipTerritAdres'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="terytAdres" name="terytAdres" readonly type="text" value="{{terytAdres}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritAdres"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+						</div>
+						<div class="col-xs-6">
+							<input class="form-control" id="terytAdres" name="terytAdres" readonly type="text" value="{{terytAdres}}">
 						</div>
 					</div>
 					
@@ -59,12 +62,12 @@
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Terytorium KOD-->
 						{{_ 'listParametr.lipTerritCODE'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="terytCODE" name="terytCODE" readonly type="text" value="{{terytCODE}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritCODE"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+						</div>
+						<div class="col-xs-1">
+							<input class="form-control" id="terytCODE" name="terytCODE" readonly type="text" value="{{terytCODE}}">
 						</div>
 					</div>
 					
@@ -72,120 +75,132 @@
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Terytorium City-->
 						{{_ 'listParametr.lipTerritCity'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="terytCity" name="terytCity" readonly type="text" value="{{terytCity}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritCity"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+						</div>
+						<div class="col-xs-4">
+							<input class="form-control" id="terytCity" name="terytCity" readonly type="text" value="{{terytCity}}">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Kontakty-->
 						{{_ 'listParametr.lipContactDetails'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="kontakty" name="kontakty" readonly type="text" value="{{kontakty}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editContacts"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-4">
+							<input class="form-control" id="kontakty" name="kontakty" readonly type="text" value="{{kontakty}}">
+						</div>
 					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Statut-->
 						{{_ 'glob.globStatut'}}:</label>
-						<div class="col-xs-8">
-							<textarea class="form-control" id="regulamin" name="regulamin" readonly rows="3"></textarea>
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editStatute"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-8">
+							<textarea class="form-control" id="regulamin" name="regulamin" readonly rows="3"></textarea>
+						</div>
 					</div><br>
-					<legend><!--Głosowanie-->
+					
+		<legend><!--Głosowanie-->
 					{{_ 'listParametr.lipVote'}}</legend>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Czas głosowania(w godzinach)-->
 						{{_ 'listParametr.lipVotingTimeInHours'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="CzasGlosowania" name="CzasGlosowania" readonly value="{{voteDuration}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editVoteDuration"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-1">
+							<input class="form-control" id="CzasGlosowania" name="CzasGlosowania" readonly value="{{voteDuration}}">
+						</div>
 					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="CzasWyczekiwaniaKwestiiSpec"><!--Czas wyczekiwania kwestii i komentarzy specjalnych (w dniach)-->
 						{{_ 'listParametr.lipIssuesAndSpecialCommOfWaitingTimeInDays'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="CzasWyczekiwaniaKwestiiSpec" name="CzasWyczekiwaniaKwestiiSpec" readonly value="{{czasWyczekiwaniaKwestiiSpecjalnej}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editIssueWaiting"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-1">
+							<input class="form-control" id="CzasWyczekiwaniaKwestiiSpec" name="CzasWyczekiwaniaKwestiiSpec" readonly value="{{czasWyczekiwaniaKwestiiSpecjalnej}}">
+						</div>
 					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Ilość kwesti przechodzących do głosowania-->
 						{{_ 'listParametr.lipHowMuchIssuePassingToVote'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="IloscKwestiiDoGlosowania" name="IloscKwestiiDoGlosowania" readonly value="{{voteQuantity}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editVoteQuantity"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-1">
+							<input class="form-control" id="IloscKwestiiDoGlosowania" name="IloscKwestiiDoGlosowania" readonly value="{{voteQuantity}}">
+						</div>
 					</div><br>
-					<legend><!--Ilość minut koniecznej pauzy do ponownej akcjii tego samego typu-->
+					
+		<legend><!--Ilość minut koniecznej pauzy do ponownej akcjii tego samego typu-->
 					{{_ 'listParametr.lipNumberOfMinToPauseReEntry'}}</legend>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="addIssuePause"><!--Dodanie kwestii-->
 						{{_ 'listParametr.lipAddIssue'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="addIssuePause" name="addIssuePause" readonly value="{{addIssuePause}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editIssuePause"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-1">
+							<input class="form-control" id="addIssuePause" name="addIssuePause" readonly value="{{addIssuePause}}">
+						</div>
 					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="add"><!--Dodanie komentarza w ramach danej kwestii-->
 						{{_ 'listParametr.lipAddingCommentWithinAissue'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="addCommentPause" name="addCommentPause" readonly value="{{addCommentPause}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editCommentPause"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-1">
+							<input class="form-control" id="addCommentPause" name="addCommentPause" readonly value="{{addCommentPause}}">
+						</div>
 					</div>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="addReferencePause"><!--Dodanie odniesienia w ramach danego komentarza-->
 						{{_ 'listParametr.lipTheAdditionOfAreferWithinTheComm'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="addReferencePause" name="addReferencePause" readonly value="{{addReferencePause}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editReferencePause"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-1">
+							<input class="form-control" id="addReferencePause" name="addReferencePause" readonly value="{{addReferencePause}}">
+						</div>
 					</div><br>
-					<legend><!--Raporty Realizacyjne-->
+					
+		<legend><!--Raporty Realizacyjne-->
 					{{_ 'listParametr.lipReportsOfImplementation'}}</legend>
+					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Okres składania Raportów Realizacyjnych (w dniach)-->
 						{{_ 'listParametr.lipDeadlineForFilingTheReportsInDays'}}:</label>
-						<div class="col-xs-8">
-							<input class="form-control" id="okresSkladaniaRR" name="okresSkladaniaRR" readonly value="{{okresSkladaniaRR}}">
-						</div>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editRRDuration"><i class="fa fa-edit"></i> <!--Edytuj-->
 							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
 						</div>
+						<div class="col-xs-1">
+							<input class="form-control" id="okresSkladaniaRR" name="okresSkladaniaRR" readonly value="{{okresSkladaniaRR}}">
+						</div>
 					</div>
+					
                 </form>
             </div>
         </div>
