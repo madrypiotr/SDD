@@ -28,6 +28,10 @@ Template.listParametr.events({
         e.preventDefault();
         editParameter("terytorium", TAPi18n.__('txv.TERITORY'), this.terytorium);
     },
+    'click #editTeritAdres':function(e){
+        e.preventDefault();
+        editParameter("terytAdres", TAPi18n.__('txv.TERITADR'), this.terytAdres);
+    },
     'click #editContacts':function(e){
         e.preventDefault();
         editParameter("kontakty", TAPi18n.__('txv.CONTACTS'), this.kontakty);

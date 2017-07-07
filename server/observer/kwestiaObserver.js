@@ -178,6 +178,7 @@ Meteor.startup(function(){
         var obj={
             nazwaOrganizacji:globalPramsDraft.nazwaOrganizacji,
             terytorium:globalPramsDraft.terytorium,
+            terytAdres:globalPramsDraft.terytAdres,
             kontakty:globalPramsDraft.kontakty,
             regulamin: globalPramsDraft.regulamin,
             voteDuration: globalPramsDraft.voteDuration,

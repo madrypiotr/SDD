@@ -11,6 +11,9 @@ Template.editParametrModalInner.helpers({
     terytoriumInput:function(parameterName){
         return parameterName==TXV.TERITORY ? true :false;
     },
+    terytAdresInput:function(parameterName){
+        return parameterName==TXV.TERITADR ? true :false;
+    },
     kontaktInput:function(parameterName){
         return parameterName==TXV.CONTACTS ? true :false;
     },
@@ -119,6 +122,7 @@ createIssueChangeParam=function(paramName,title,oldValue,newValue){
     var params=Parametr.findOne();
     var nazwaOrg=params.nazwaOrganizacji;
     var terytorium=params.terytorium;
+    var terytAdres=params.terytAdres;
     var kontakty=params.kontakty;
     var reg=params.regulamin;
     var voteDur=params.voteDuration;
@@ -132,6 +136,7 @@ createIssueChangeParam=function(paramName,title,oldValue,newValue){
     switch(paramName){
         case "nazwaOrganizacji":nazwaOrg=newValue;break;
         case "terytorium":terytorium=newValue;break;
+        case "terytAdres":terytAdres=newValue;break;
         case "kontakty":kontakty=newValue;break;
         case "regulamin":reg=newValue;break;
         case "voteDuration":voteDur=newValue;break;
@@ -146,6 +151,7 @@ createIssueChangeParam=function(paramName,title,oldValue,newValue){
     {
         nazwaOrganizacji: nazwaOrg,
         terytorium: terytorium,
+        terytAdres: terytAdres,
         kontakty: kontakty,
         regulamin: reg,
         voteDuration:voteDur,
