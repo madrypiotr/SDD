@@ -50,6 +50,7 @@
 	"globIntroducedAnewIssue":" une nouvelle Question a été introduite",
 	"globWelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize":"Nous vous invitons à la délibération, discussion  et détermination de la priorité de la Question. ",
 	"globIencourageYouToSupportIssue":"Je vous encourage à soutenir la Question: ",
+	"globExplainThis":"f-uzasadnienie",
 	"globThankYouForRegisteringInOurSystem":"Merci de vous enregistrer dans notre système ",
 	"globYourLoginData":"Vos données de connexion: ",
 	"globLogin":"Login: ",
@@ -127,7 +128,8 @@
 			
 	  "dymDoesNotDuplic":"Ne doublez pas des compétences des Équipes de Réalisation.",
 			"dymDoesNotDuplicA":"Avant créer une nouvelle ER, vérifiez, si dans un autre thème il n'y a pas un correspondant. ...",
-			"dymDoesNotDuplicC":"... avant cliquer, comme troisième membre sur [Adhérer], ainsi acceptant composition tri personnelle de ER - consultez la liste de ER crées déjà, afin de transmettre à un d'eux la réalisation de la Question.",
+			"dymDoesNotDuplicB":"... avant cliquer, comme troisième membre sur [Adhérer], ainsi acceptant composition", 
+			"dymDoesNotDuplicC":"tri personnelle de ER - consultez la liste de ER crées déjà, afin de transmettre à un d'eux la réalisation de la Question.",
 
 		"dymDescrType":"Genre, c.à.d. le positionnement dans le Thème.",
 			"dymDescrTypeA":"Le Système n'impose pas des noms, mais nous vous prions de choisir des noms adéquats au contenus, pour que nous puissions facilement trouver des Questions dans les domaines attendus. Avant de fixer son nom, verifiez s'il n'existe pas déjà le genre correspondant au Thème de votre Question. Exemples des Genres dans le Thème organisation: réunion, conférence, rassemblement, spectacle, exposé... Dans le Thème finance: contributions, subventions, termes, la transparence, etc. Décrivez le Genre de préférence avec un mot.",
@@ -221,7 +223,13 @@
 	"edShortcutForExample_en":"Abréviation (ex. pl, en, etc.)"
   },
   "listLanguages":{
-	"listOfLanguages":"Liste de langues"
+	"listOfLanguages":"Liste de langues",
+	"polski": "polski",
+	"angielski": "angielski",
+	"niemiecki": "niemiecki",
+	"szwedzki": "szwedzki",
+	"francuski": "francuski",
+	"czeski": "czeski"
   },
   "languageOptions":{
 	"loOff":"Déconnecter ",
@@ -796,6 +804,7 @@
 	"moreUsers":"UTILISATEURS",
 	"moreUsersA":"Dans cette liste vous pouvez également trier par. chaque colonne, ou chercher (filtrer) par. nom et prénom",
 	"moreUsersB":"Le classement est l'image de l'activité de l'Utilisateur. Le classement s'améliore lorsque la Question avance à la mise en œuvre, et diminue lorsque la question n'est pas acceptée par l'Ensemble, jetée dans la poubelle, etc ... Le classement n'a pas d'influence sur les fonctions opérationnelles. Le système ne favorise en aucune façon l'Utilisateur sur la base du classement. Il est seulement l'information pour les Utilisateurs, pour leurs propres conclusions.",
+	"moreUsersC":"f-Punkty Rankingu przydzielane są następująco:",
 	"moreUsersD":"attribution de la priorité: 1, ajout d'une référence au commentaire: 2, l'ajout du commentaire: 5, dépôt du Rapport de Réalisation: 5, l'entrée à l'Equipe de Réalisation: 10, l'ajout d'une Question: 12, promotion de la Questions à la Réalisation: 20, le retrait des questions au Archive: -25, la sortie de l'Equipe de Réalisation: -30, retrait de la Question à la poubelle: -40",
 	"moreAplyMemb":"ADHÉREZ COMME MEMBRE",
 	"moreAplyMembA":"Avant d'envoyer l'acte de candidature, soit conscient que ce système, il n'est pas un autre site de réseautage social. Ici, nous créons la loi qui nous obligera. Par conséquent, traiter votre affiliation à nous très sérieusement. Assurez-vous de lire les documents déjà adoptés.",
@@ -865,9 +874,6 @@
 	"more":".",
 	"more":".",
 	"more":".",
-	"more":".",
-	"more":".",
-	"more":".",
 	"more":"."
   },
   "txv": {
@@ -909,7 +915,15 @@
 	"TERITCITY": "f-City",
 	"CONTACT": "Contacte",
 	"CONTACTS": "Contactes",
+	"MISSING_ORG_NAME": "f-brak Nazwy Organizacji",
+	"MISSING_TERITORY": "f-brak Terytorium",
+	"MISSING_TERITADR": "f-brak Adresu",
+	"MISSING_TERITCOD": "f-brak KODU poczt.",
+	"MISSING_TERITCITY": "f-brak Miasta",
+	"MISSING_CONTACTS": "f-brak Kontaktów",
+	"MISSING_RULES": "pas de réglements",
 	"STATUT": "Regulamin",
+	"RULES_OF_THE_ORGANIZATION": "Règlements de l'organisation ",
 	"SORRY": "Désolés. ",
 	"VOTE_TIME": "Durée de vote (en heures)",
 	"WAITING_TIME": "Durée d'attente de la Question et commentaires spéciaux (en jours)",
@@ -940,8 +954,6 @@
 	"NO_NUMBER_OF_VOTERS": "Votantes contre ",
 	"ABSTAINED_NUMBER_OF_VOTERS": "S'abstenantes ",
 	"TEAM_IMPLEMENTATION": "Equipe de Réalisation",
-	"RULES_OF_THE_ORGANIZATION": "Règlements de l'organisation ",
-	"MISSING_RULES": "pas de réglements",
 	"APPLYING": "Application - ",
 	"APPLY_SYSTEM": "Application pour l'admission au système comme ",
 	"ACCESS_EXIST": "Il y a déjà une application pour même adresse e-mail!",

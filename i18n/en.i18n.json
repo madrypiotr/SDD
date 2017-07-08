@@ -72,8 +72,7 @@
 	"globDoNotYouVotedYetOnThisIssueWelcome":"You have not voted on this issue. You are welcome to do it: ",
 	"globTheCurrentStrengthOfPriority":"Present priority rank: ",
 	"globRequiredQuorum":"Quorum required: ",
-	"globCurrentPresence":"Current presence: ",
-	"gloSelect":"Wybierz"
+	"globCurrentPresence":"Current presence: "
   },
   "header":{
 	"heaLanguages":"Languages",
@@ -224,7 +223,13 @@
 	"edShortcutForExample_en":"Abbreviation (eg. pl, en, etc...)"
   },
   "listLanguages":{
-	"listOfLanguages":"List of languages"
+	"listOfLanguages":"List of languages",
+	"polski": "e-polski",
+	"angielski": "e-angielski",
+	"niemiecki": "eniemiecki",
+	"szwedzki": "e-szwedzki",
+	"francuski": "e-francuski",
+	"czeski": "e-czeski"
   },
   "languageOptions":{
 	"loOff":"Switch off",
@@ -869,9 +874,6 @@
 	"more":".",
 	"more":".",
 	"more":".",
-	"more":".",
-	"more":".",
-	"more":".",
 	"more":"."
   },
   "txv": {
@@ -911,9 +913,17 @@
 	"TERITADR": "e-Adres",
 	"TERITCOD": "ZIPCODE",
 	"TERITCITY": "City",
-	"CONTACT": "e-Kontakt",
 	"CONTACTS": "e-Kontakty",
+	"CONTACT": "e-Kontakt",
+	"MISSING_ORG_NAME": "e-brak Nazwy Organizacji",
+	"MISSING_TERITORY": "e-brak Terytorium",
+	"MISSING_TERITADR": "e-brak Adresu",
+	"MISSING_TERITCOD": "e-brak KODU poczt.",
+	"MISSING_TERITCITY": "e-brak Miasta",
+	"MISSING_CONTACTS": "e-brak Kontaktów",
+	"MISSING_RULES": "e-brak regulaminu",
 	"STATUT": "e-Regulamin",
+	"RULES_OF_THE_ORGANIZATION": "e-Regulamin organizacji ",
 	"SORRY": "e-Przepraszamy. ",
 	"VOTE_TIME": "e-Czas głosowania(w godzinach)",
 	"WAITING_TIME": "e-Czas wyczekiwania kwestii i komentarzy specjalnych (w dniach)",
@@ -944,8 +954,6 @@
 	"NO_NUMBER_OF_VOTERS": "e-Głosujących przeciw",
 	"ABSTAINED_NUMBER_OF_VOTERS": "e-Wstrzymujących się",
 	"TEAM_IMPLEMENTATION": "e-Zespół Realizacyjny",
-	"RULES_OF_THE_ORGANIZATION": "e-Regulamin organizacji ",
-	"MISSING_RULES": "e-brak regulaminu",
 	"APPLYING": "e-Aplikowanie - ",
 	"APPLY_SYSTEM": "e-Aplikacja o przyjęcie do systemu jako ",
 	"ACCESS_EXIST": "e-Został już złożony wniosek na podany adres email!",

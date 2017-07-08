@@ -1,8 +1,7 @@
 Meteor.startup(function () {
-    //console.log("ZMIANA_PARAMS");
     var globalParameters = [
         {
-            "nazwaOrganizacji": TAPi18n.__(txv.MISSING_ORG_NAME),
+            "nazwaOrganizacji": TAPi18n.__('txv.MISSING_ORG_NAME'),
             "terytorium": TAPi18n.__('txv.MISSING_TERITORY'),
             "terytAdres": TAPi18n.__('txv.MISSING_TERITADR'),
             "terytCODE": TAPi18n.__('txv.MISSING_TERITCOD'),
