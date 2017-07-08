@@ -8,7 +8,7 @@ Template.uzasadnienieKoszModal.events({
         if (uzasadnienie) {
             if(uzasadnienie.trim()!="") {
                 document.getElementById("zatwierdzPrzeniesDoKosza").disabled = true;
-                var message = TXV.MOVE_TO_TRASH;
+                var message = TAPi18n.__('txv.MOVE_TO_TRASH');
                 var idKwestia = this.idKwestia;
                 var idUser = Meteor.userId();
                 var addDate = new Date();

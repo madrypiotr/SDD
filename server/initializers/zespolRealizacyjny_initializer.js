@@ -1,7 +1,7 @@
 Meteor.startup(function(){
     var ZR = {
         "_id": "jjXKur4qC5ZGPQkgN",
-        "nazwa": TXV.ZR_PERSONS,
+        "nazwa": TAPi18n.__('txv.ZR_PERSONS'),
         "zespol": [],
         "kwestie":[],
         "czyAktywny":true

@@ -3,12 +3,12 @@ Meteor.startup(function () {
     var tabOfLangs = [];
     if(Languages.find({}).count()==0) {
         tabOfLangs = [
-            {languageName: TXV.POLISH, shortName: TXV.PL, isEnabled: true, czyAktywny: true},
-            {languageName: TXV.ENGLISH, shortName: TXV.EN, isEnabled: true, czyAktywny: true},
-            {languageName: TXV.GERMAN, shortName: TXV.DE, isEnabled: false, czyAktywny: false},
-            {languageName: TXV.SWEDISH, shortName: TXV.SE, isEnabled: false, czyAktywny: false},
-            {languageName: TXV.CZECH, shortName: TXV.CZ, isEnabled: false, czyAktywny: false},
-            {languageName: TXV.FRENCH, shortName: TXV.FR, isEnabled: false, czyAktywny: false}
+            {languageName: TAPi18n.__('txv.POLISH'), shortName: TAPi18n.__('txv.PL'), isEnabled: true, czyAktywny: true},
+            {languageName: TAPi18n.__('txv.ENGLISH'), shortName: TAPi18n.__('txv.EN'), isEnabled: true, czyAktywny: true},
+            {languageName: TAPi18n.__('txv.GERMAN'), shortName: TAPi18n.__('txv.DE'), isEnabled: false, czyAktywny: false},
+            {languageName: TAPi18n.__('txv.SWEDISH'), shortName: TAPi18n.__('txv.SE'), isEnabled: false, czyAktywny: false},
+            {languageName: TAPi18n.__('txv.CZECH'), shortName: TAPi18n.__('txv.CZ'), isEnabled: false, czyAktywny: false},
+            {languageName: TAPi18n.__('txv.FRENCH'), shortName: TAPi18n.__('txv.FR'), isEnabled: false, czyAktywny: false}
         ]
     }
 
@@ -30,17 +30,6 @@ Meteor.startup(function () {
                         infoText:"",
                         czyAktywny:true
                     }
-/*
-                    Meteor.call('setPagesInfo', item, function (error) {
-                        if (error) {
-                            if (typeof Errors === "undefined")
-                                Log.error(TAPi18n.__('txv.ERROR') + error.reason);
-                            else
-                                throwError(error.reason);
-                        }
-                        else console.log(item.routeName+ TAPi18n.__('txv.ADDED'));
-                    });
-*/					
                 });
             }
         });

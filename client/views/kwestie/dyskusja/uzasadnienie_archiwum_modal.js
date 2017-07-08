@@ -9,7 +9,7 @@ Template.uzasadnienieArchiwumModal.events({
             if(uzasadnienie.trim()!="") {
                 document.getElementById("zatwierdzPrzeniesDoArchiwum").disabled = true;
 
-                var message = TXV.MOVE_TO_ARCH;
+                var message = TAPi18n.__('txv.MOVE_TO_ARCH');
                 var idKwestia = this.idKwestia;
                 var idUser = Meteor.userId();
                 var addDate = new Date();

@@ -2,8 +2,8 @@ Meteor.startup(function(){
     var temat =
     {
         "_id": "3TBYqrgpJiQQSDEbt",
-        "nazwaTemat": TXV.ORGANIZATIONAL,
-        "opis": TXV.INTERNAL_AFFAIRS
+        "nazwaTemat": TAPi18n.__('txv.ORGANIZATIONAL'),
+        "opis": TAPi18n.__('txv.INTERNAL_AFFAIRS')
     };
 
     if(Temat.find().count() == 0){

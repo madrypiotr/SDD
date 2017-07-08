@@ -6,46 +6,46 @@ Template.editParametrModalInner.helpers({
         return Session.get('chosenParameterSession');
     },
     nazwaOrganizacjiInput:function(parameterName){
-        return parameterName==TXV.ORG_NAME ? true :false;
+        return parameterName==TAPi18n.__('txv.ORG_NAME') ? true :false;
     },
     terytoriumInput:function(parameterName){
-        return parameterName==TXV.TERITORY ? true :false;
+        return parameterName==TAPi18n.__('txv.TERITORY') ? true :false;
     },
     terytAdresInput:function(parameterName){
-        return parameterName==TXV.TERITADR ? true :false;
+        return parameterName==TAPi18n.__('txv.TERITADR') ? true :false;
     },
     terytCODEInput:function(parameterName){
-        return parameterName==TXV.TERITCOD ? true :false;
+        return parameterName==TAPi18n.__('txv.TERITCOD') ? true :false;
     },
     terytCityInput:function(parameterName){
-        return parameterName==TXV.TERITCITY ? true :false;
+        return parameterName==TAPi18n.__('txv.TERITCITY') ? true :false;
     },
     kontaktInput:function(parameterName){
-        return parameterName==TXV.CONTACTS ? true :false;
+        return parameterName==TAPi18n.__('txv.CONTACTS') ? true :false;
     },
     statutInput:function(parameterName){
-        return parameterName==TXV.STATUT ? true :false;
+        return parameterName==TAPi18n.__('txv.STATUT') ? true :false;
     },
     voteDurationInput:function(parameterName){
-        return parameterName==TXV.VOTE_TIME ? true :false;
+        return parameterName==TAPi18n.__('txv.VOTE_TIME') ? true :false;
     },
     czasWyczekiwaniaKwestiiSpecjalnejInput:function(parameterName){
-        return parameterName==TXV.WAITING_TIME ? true :false;
+        return parameterName==TAPi18n.__('txv.WAITING_TIME') ? true :false;
     },
     editVoteQuantityInput:function(parameterName){
-        return parameterName==TXV.MAX_ISSUE_IN_VOTING ? true :false;
+        return parameterName==TAPi18n.__('txv.MAX_ISSUE_IN_VOTING') ? true :false;
     },
     editIssuePauseInput:function(parameterName){
-        return parameterName==TXV.FREQ_ADD_ISSUE ? true :false;
+        return parameterName==TAPi18n.__('txv.FREQ_ADD_ISSUE') ? true :false;
     },
     editCommentPauseInput:function(parameterName){
-        return parameterName==FREQ_ADD_COMM ? true :false;
+        return parameterName==TAPi18n.__('txv.FREQ_ADD_COMM') ? true :false;
     },
     editReferencePauseInput:function(parameterName){
-        return parameterName==TXV.FREQ_ADD_REFER ? true :false;
+        return parameterName==TAPi18n.__('txv.FREQ_ADD_REFER') ? true :false;
     },
     editRRDurationInput:function(parameterName){
-        return parameterName==TXV.FREQ_ADD_REPPO ? true :false;
+        return parameterName==TAPi18n.__('txv.FREQ_ADD_REPPO') ? true :false;
     }
 });
 
@@ -193,10 +193,10 @@ createIssueChangeParam=function(paramName,title,oldValue,newValue){
                         {
                             idUser: Meteor.userId(),
                             dataWprowadzenia: new Date(),
-                            kwestiaNazwa: TXV.GL_PAR_CHANGE5 + Meteor.user().profile.firstName + "  " + Meteor.user().profile.lastName,
+                            kwestiaNazwa: TAPi18n.__('txv.GL_PAR_CHANGE5') + Meteor.user().profile.firstName + "  " + Meteor.user().profile.lastName,
                             wartoscPriorytetu: 0,
                             dataGlosowania: null,
-                            krotkaTresc: TXV.GL_PAR_CHANGE6,
+                            krotkaTresc: TAPi18n.__('txv.GL_PAR_CHANGE6'),
                             szczegolowaTresc: dataParams,
                             isOption: false,
                             status: KWESTIA_STATUS.ADMINISTROWANA,

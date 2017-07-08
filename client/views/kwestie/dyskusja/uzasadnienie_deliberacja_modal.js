@@ -3,7 +3,7 @@ Template.uzasadnienieDeliberacjaModal.events({
         e.preventDefault();
         var uzasadnienie = document.getElementById('uzasadnienieWK').value;
         if (uzasadnienie) {
-            var message = TXV.MOVE_TO_DELIB;
+            var message = TAPi18n.__('txv.MOVE_TO_DELIB');
             var idKwestia = Session.get("idkwestiiWK");
             var idUser = Meteor.userId();
             var addDate = new Date();
