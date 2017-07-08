@@ -2,12 +2,12 @@ Meteor.startup(function () {
     //console.log("ZMIANA_PARAMS");
     var globalParameters = [
         {
-            "nazwaOrganizacji": TAPi18n.__('txv.ORG_NAME'),
-            "terytorium": TAPi18n.__('txv.TERITORY'),
-            "terytAdres": TAPi18n.__('txv.TERITADR'),
-            "terytCODE": TAPi18n.__('txv.TERITCOD'),
-            "terytCity": TAPi18n.__('txv.TERITCITY'),
-            "kontakty": TAPi18n.__('txv.CONTACTS'),
+            "nazwaOrganizacji": TAPi18n.__('txv.MISSING_ORG_NAME'),
+            "terytorium": TAPi18n.__('txv.MISSING_TERITORY'),
+            "terytAdres": TAPi18n.__('txv.MISSING_TERITADR'),
+            "terytCODE": TAPi18n.__('txv.MISSING_TERITCOD'),
+            "terytCity": TAPi18n.__('txv.MISSING_TERITCITY'),
+            "kontakty": TAPi18n.__('txv.MISSING_CONTACTS'),
             "regulamin": TAPi18n.__('txv.MISSING_RULES'),
             "czasWyczekiwaniaKwestiiSpecjalnej":1,
             "voteQuantity":3,
