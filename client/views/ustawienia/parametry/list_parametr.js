@@ -34,11 +34,11 @@ Template.listParametr.events({
     },
     'click #editTeritCODE':function(e){
         e.preventDefault();
-        editParameter("terytCODE", TAPi18n.__('txv.TERITCOD'), this.terytAdres);
+        editParameter("terytCODE", TAPi18n.__('txv.TERITCOD'), this.terytCODE);
     },
     'click #editTeritCity':function(e){
         e.preventDefault();
-        editParameter("terytCity", TAPi18n.__('txv.TERITCITY'), this.terytAdres);
+        editParameter("terytCity", TAPi18n.__('txv.TERITCITY'), this.terytCity);
     },
     'click #editContacts':function(e){
         e.preventDefault();
