@@ -163,7 +163,7 @@
 
 		"dymINarchi":"ARCHIVE",
 		  "dymTXarchA":"Archive serve à stocker les Questions envoyées ici pour des raisons diverses, comme insuffisance de la priorité, la décision sur la résignation de la délibération ou autres.", 
-		  "dymTXarchB":"Les données au Archive sont présentées au même format que sur la liste des Questions. Tant que on ne postule pas la retourner à la délibération - la Question reste archivée.",
+		  "dymTXarchB":"Les données au Archive sont présentées au même format que sur la liste des Questions.",
 		  "dymTXarchC":"Archive joue un rôle de rangement. Il n'y pas d'admin dans le Système. Toutes décisions découlent de délibérations et attribution de priorités. ",
 
 		"dymSettings":"Options",

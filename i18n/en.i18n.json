@@ -163,7 +163,7 @@
 
 		"dymINarchi":"ARCHIVE",
 		  "dymTXarchA":"Archive is used to record Issues sent here for a number of reasons, such as lack of sufficient priority rank of given Issue, decision of the Users to resign discussing further the Issue and others.", 
-		  "dymTXarchB":"Data in archive are presented in identical format as in Issues Register. As long as there is no proposal to revive the Issue for discussion it will remain in archive.",
+		  "dymTXarchB":"Data in archive are presented in identical format as in Issues Register. ",
 		  "dymTXarchC":"The Archive plays arrangement function. There is no admin in the System. All decisions will result from discussion and from giving priorities.",
 
 		"dymSettings":"Settings",
