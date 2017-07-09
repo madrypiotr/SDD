@@ -2,8 +2,6 @@
   "glob":{
 	"globShortSystemName":"SDD",
 	"globHonorableDear":"Szanowny/a ",
-	"globYouHere":"Jesteś na stronie",
-	"globInfo":"info",
 	"globStatut":"Regulamin",
 	"globSave":"Zapisz",
 	"globPost":"Napisz",
@@ -240,9 +238,9 @@
 	"adfNameOfType":"Nazwa Rodzaju",
 	"adfNameOfTypeForExamp":"Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)",
 	"adfTimeDebate":"Czas dyskusji:",
-	"adfTimeDebateDays":"Czas dyskusji (dni). Domyślnie 7 dni",
+	"adfTimeDebateDays":"Czas dyskusji (dni).",
 	"adfTimeToVote":"Czas głosowania:",
-	"adfVotingTimeDefault":"Czas głosowania (h). Domyślnie 24 h.",
+	"adfVotingTimeDefault":"Czas głosowania (h).",
 	"adfTheRequiredQuorum":"Wymagane kworum:",
 	"adfTheIssueOfOrdinary":"Kwestia zwykła",
 	"adfTheIssueOfStatutory":"Kwestia statutowa"
@@ -252,9 +250,9 @@
 	"erfNameOfType":"Nazwa Rodzaju:",
 	"erfNameOfTypeForExamp":"Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)",
 	"erfTimeDebate":"Czas dyskusji:",
-	"erfTimeDebateDays":"Czas dyskusji (dni). Domyślnie 7 dni",
+	"erfTimeDebateDays":"Czas dyskusji (dni).",
 	"erfTimeToVote":"Czas głosowania:",
-	"erfVotingTimeDefault":"Czas głosowania (h). Domyślnie 24 h.",
+	"erfVotingTimeDefault":"Czas głosowania (h).",
 	"erfTheRequiredQuorum":"Wymagane kworum:"
   },
   "listRodzaj":{

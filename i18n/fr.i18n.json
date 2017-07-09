@@ -2,8 +2,6 @@
   "glob":{
 	"globShortSystemName":"SDD",
 	"globHonorableDear":"Estimé /ée ",
-	"globYouHere":"Vous êtes sur la page ",
-	"globInfo":"info",
 	"globStatut":"f-Regulamin",
 	"globSave":"Notez",
 	"globPost":"Ecrivez",
@@ -254,7 +252,7 @@
 	"erfTimeDebate":"Czas dyskusji:",
 	"erfTimeDebateDays":"Czas dyskusji (dni).",
 	"erfTimeToVote":"Czas głosowania:",
-	"erfVotingTimeDefault":"Czas głosowania (h). Domyślnie 24 h.",
+	"erfVotingTimeDefault":"Czas głosowania (h).",
 	"erfTheRequiredQuorum":"Wymagane kworum:"
   },
   "listRodzaj":{
