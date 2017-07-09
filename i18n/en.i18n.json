@@ -18,6 +18,7 @@
 	"globEmail":"e-mail ",
 	"globFname":"First name",
 	"globLname":"Family name",
+	"globFandLname":"Name and Surname",
 	"globPID":"Personal ID",
 	"globAdress":"Address",
 	"globPostalC":"Postal Code",
@@ -302,7 +303,6 @@
 	"ikaFinalDeliberationAndVoting":"The end of discussion and voting",
 	"ikaNameIssue":"Name of the Issue",
 	"ikaPriority":"Priority",
-	"archRodzaj":"The Type",
 	"ikaContentIssue":"The Issue text",
 	"ikaShortContent":"Short text",
 	"ikaDescriptionWithTheReasons":"Description with justification",
@@ -443,7 +443,6 @@
 	"mAcYourProfile":"Your profile",
 	"mAcEditProfile":"Edit profile",
 	"mAcLogin":"Login",
-	"mAcFnameAndLName":"Name and Surname",
 	"mAcTheRoleOfTheSystem":"Position in the System",
 	"mAcRanking":"Ranking"
   },
@@ -495,8 +494,7 @@
     "aKwNameIssueOption":"Issue Option name: ",
     "aKwShortContent":"Short text",
 	"aKwDataApplicator":"Aplicants data",
-    "aKwDescriptionOfTheReasons":"Description with justification",
-	"aKwFnameAndLname":"Name and surname"
+    "aKwDescriptionOfTheReasons":"Description with justification"
   },
   "opcjeList":{
 	"aKwOptionsIssue":"Issue Options"
@@ -698,8 +696,7 @@
   },
   "editParametrModalInner":{
 	"epmParameterEdition":"Editing parameter",
-	"epmConfirmChanges":"Change",
-	"epmCancel":"Cancel"
+	"epmConfirmChanges":"Change"
   },
   "listParametr":{
 	"pinfoGlobalParameters":"GLOBAL PARAMETERS",
@@ -711,9 +708,7 @@
 	"lipOrganizationData":"Organization data",
 	"lipNameOfOrganization":"Name of the organization",
 	"lipTerritory":"Territory",
-	"lipTerritAdres":"Addres",
 	"lipTerritCODE":"ZIPCODE",
-	"lipTerritCity":"City",
 	"lipContactDetails":"Contacts",
 	"lipRegulations":"Regulations",
 	"lipVote":"Voting",
@@ -989,7 +984,6 @@
 	"F_NAME": "e-Imię",
 	"L_NAME": "e-Nazwisko",
 	"CITY": "e-Miasto",
-	"DO_STORE": "e-Zapisz",
 	"DO_NOT_EMPTY": "e-Formularz nie może zawierać pustych pól!",
 	"INCOR_LOGIN_DET": "e-Niepoprawne dane logowania",
 	"FILL_FORM_CORR": "e-Uzupelnij poprawnie pola formularza.",

@@ -18,6 +18,7 @@
 	"globEmail":"e-mail ",
 	"globFname":"Imię",
 	"globLname":"Nazwisko",
+	"globFandLname":"Imię i Nazwisko",
 	"globPID":"PESEL",
 	"globAdress":"Adres",
 	"globPostalC":"Kod pocztowy",
@@ -302,7 +303,6 @@
 	"ikaFinalDeliberationAndVoting":"Finał deliberacji i głosowania",
 	"ikaNameIssue":"Nazwa Kwestii",
 	"ikaPriority":"Priorytet",
-	"archRodzaj":"Rodzaj",
 	"ikaContentIssue":"Treść Kwestii",
 	"ikaShortContent":"Krótka treść",
 	"ikaDescriptionWithTheReasons":"Opis z uzasadnieniem",
@@ -443,7 +443,6 @@
 	"mAcYourProfile":"Twój profil",
 	"mAcEditProfile":"Edytuj profil",
 	"mAcLogin":"Login",
-	"mAcFnameAndLName":"Imię i Nazwisko",
 	"mAcTheRoleOfTheSystem":"Rola w Systemie",
 	"mAcRanking":"Ranking"
   },
@@ -495,8 +494,7 @@
     "aKwNameIssueOption":"Nazwa Kwestii Opcji:",
     "aKwShortContent":"Krótka treść",
 	"aKwDataApplicator":"Dane aplikującego",
-    "aKwDescriptionOfTheReasons":"Opis z uzasadnieniem",
-	"aKwFnameAndLname":"Imię i Nazwisko"
+    "aKwDescriptionOfTheReasons":"Opis z uzasadnieniem"
   },
   "opcjeList":{
 	"aKwOptionsIssue":"Opcje Kwestii"
@@ -698,8 +696,7 @@
   },
   "editParametrModalInner":{
 	"epmParameterEdition":"Edycja parametru",
-	"epmConfirmChanges":"Zmień",
-	"epmCancel":"Anuluj"
+	"epmConfirmChanges":"Zmień"
   },
   "listParametr":{
 	"pinfoGlobalParameters":"PARAMETRY GLOBALNE",
@@ -711,9 +708,7 @@
 	"lipOrganizationData":"Dane organizacji",
 	"lipNameOfOrganization":"Nazwa organizacji",
 	"lipTerritory":"Terytorium",
-	"lipTerritAdres":"Adres",
 	"lipTerritCODE":"KOD poczt.",
-	"lipTerritCity":"Miasto",
 	"lipContactDetails":"Kontakty",
 	"lipRegulations":"Regulamin",
 	"lipVote":"Głosowanie",
@@ -989,7 +984,6 @@
 	"F_NAME": "Imię",
 	"L_NAME": "Nazwisko",
 	"CITY": "Miasto",
-	"DO_STORE": "Zapisz",
 	"DO_NOT_EMPTY": "Formularz nie może zawierać pustych pól!",
 	"INCOR_LOGIN_DET": "Niepoprawne dane logowania",
 	"FILL_FORM_CORR": "Uzupelnij poprawnie pola formularza.",
