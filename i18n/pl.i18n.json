@@ -280,16 +280,6 @@
 	"dAiLess":"mniej",
 	"dAiMore":"więcej"
   },
-  "uzasadnienieArchiwumModalInner":{
-	"umiExplainYourProposal":"Uzasadnij propozycję",
-	"umiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej",
-	"umiTheIssueToTheArchive":"Kwestii do Archiwum",
-	"umiWhereHeReturnedIissues":", gdzie odsyłane są Kwestie niekoniecznie aktualne i pilne oraz oczekujące na lepsze warunki dla ich ponownego rozpatrzenia.",
-	"umiIfYourDecisionIsConsistent":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
-	"umiBroaderJustification":"uzasadnienie",
-	"umiOtherwisePress":"W przeciwnym wypadku naciśnij",
-	"umiSubmit":"Zatwierdź"
-  },
   "uzasadnienieDeliberacjaModalInner":{
 	"udiExplainYourProposal":"Uzasadnij propozycję",
 	"udiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej ",

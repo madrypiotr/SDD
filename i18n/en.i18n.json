@@ -280,16 +280,6 @@
 	"dAiLess":"less",
 	"dAiMore":"more or"
   },
-  "uzasadnienieArchiwumModalInner":{
-	"umiExplainYourProposal":"Justify the proposal",
-	"umiYouIntendToApply":"You are about to apply to direct this ",
-	"umiTheIssueToTheArchive":"Issue to Archive",
-	"umiWhereHeReturnedIissues":", whereto are send Issues not necessarily present and urgent and awaiting for better conditions for their anew consideration.",
-	"umiIfYourDecisionIsConsistent":"If your decision is in accordance with such intention - give bellow its, ",
-	"umiBroaderJustification":"justification",
-	"umiOtherwisePress":"Otherwise click ",
-	"umiSubmit":"Approve"
-  },
   "uzasadnienieDeliberacjaModalInner":{
 	"udiExplainYourProposal":"Justify the proposal",
 	"udiYouIntendToApply":"You are going to apply to move this ",

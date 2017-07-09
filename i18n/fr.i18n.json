@@ -280,16 +280,6 @@
 	"dAiLess":"moins",
 	"dAiMore":"plus"
   },
-  "uzasadnienieArchiwumModalInner":{
-	"umiExplainYourProposal":"Justifiez la proposition",
-	"umiYouIntendToApply":"Avez-vous l'intention demander l'envoi de cette ",
-	"umiTheIssueToTheArchive":"Question aux Archives",
-	"umiWhereHeReturnedIissues":", ou sont envoyées les Questions pas nécessairement actuelles ni urgentes ainsi que celles qui attendent les meilleures conditions pour la délibération.",
-	"umiIfYourDecisionIsConsistent":"Si votre décision corresponde à une tel intention - donnez ci-dessous sa ",
-	"umiBroaderJustification":"motivation",
-	"umiOtherwisePress":"Dans le cas contraire pressez",
-	"umiSubmit":"Acceptez"
-  },
   "uzasadnienieDeliberacjaModalInner":{
 	"udiExplainYourProposal":"Justifiez la proposition",
 	"udiYouIntendToApply":"Avez-vous l'intention demander son envoi ",
