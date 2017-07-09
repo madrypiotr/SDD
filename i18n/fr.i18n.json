@@ -163,7 +163,7 @@
 
 		"dymINarchi":"ARCHIVE",
 		  "dymTXarchA":"Archive serve à stocker les Questions envoyées ici pour des raisons diverses, comme insuffisance de la priorité, la décision sur la résignation de la délibération ou autres.", 
-		  "dymTXarchB":"Les données au Archive sont présentées au même format que sur la liste des Questions.",
+		  "dymTXarchB":"Les données au Archive sont présentées au même format que sur la liste des Questions. Tant que on ne postule pas la retourner à la délibération - la Question reste archivée.",
 		  "dymTXarchC":"Archive joue un rôle de rangement. Il n'y pas d'admin dans le Système. Toutes décisions découlent de délibérations et attribution de priorités. ",
 
 		"dymSettings":"Options",
@@ -279,6 +279,26 @@
   "discussionAnswerItem":{
 	"dAiLess":"moins",
 	"dAiMore":"plus"
+  },
+  "uzasadnienieArchiwumModalInner":{
+	"umiExplainYourProposal":"Justifiez la proposition",
+	"umiYouIntendToApply":"Avez-vous l'intention demander l'envoi de cette ",
+	"umiTheIssueToTheArchive":"Question aux Archives",
+	"umiWhereHeReturnedIissues":", ou sont envoyées les Questions pas nécessairement actuelles ni urgentes ainsi que celles qui attendent les meilleures conditions pour la délibération.",
+	"umiIfYourDecisionIsConsistent":"Si votre décision corresponde à une tel intention - donnez ci-dessous sa ",
+	"umiBroaderJustification":"motivation",
+	"umiOtherwisePress":"Dans le cas contraire pressez",
+	"umiSubmit":"Acceptez"
+  },
+  "uzasadnienieDeliberacjaModalInner":{
+	"udiExplainYourProposal":"Justifiez la proposition",
+	"udiYouIntendToApply":"Avez-vous l'intention demander son envoi ",
+	"udiIssueForDeliberation":"Question à la Délibération",
+	"udiWhereIssuesAreDiscussed":", ou les Questions sont discutées.",
+	"udiIfYourDecisionIsConsistent":"Si Votre décision corresponde à une tel intention - donnez ci-dessous sa ",
+	"udiBroaderJustification":"motivation",
+	"udiOtherwisePress":"Dans le cas contraire pressez ",
+	"udiSubmit":"Acceptez"
   },
   "uzasadnienieKoszModalInner":{
 	"ukiExplainYourProposal":"Justifiez la proposition",

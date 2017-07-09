@@ -163,7 +163,7 @@
 
 		"dymINarchi":"ARCHIVE",
 		  "dymTXarchA":"Archive is used to record Issues sent here for a number of reasons, such as lack of sufficient priority rank of given Issue, decision of the Users to resign discussing further the Issue and others.", 
-		  "dymTXarchB":"Data in archive are presented in identical format as in Issues Register.",
+		  "dymTXarchB":"Data in archive are presented in identical format as in Issues Register. As long as there is no proposal to revive the Issue for discussion it will remain in archive.",
 		  "dymTXarchC":"The Archive plays arrangement function. There is no admin in the System. All decisions will result from discussion and from giving priorities.",
 
 		"dymSettings":"Settings",
@@ -279,6 +279,26 @@
   "discussionAnswerItem":{
 	"dAiLess":"less",
 	"dAiMore":"more or"
+  },
+  "uzasadnienieArchiwumModalInner":{
+	"umiExplainYourProposal":"Justify the proposal",
+	"umiYouIntendToApply":"You are about to apply to direct this ",
+	"umiTheIssueToTheArchive":"Issue to Archive",
+	"umiWhereHeReturnedIissues":", whereto are send Issues not necessarily present and urgent and awaiting for better conditions for their anew consideration.",
+	"umiIfYourDecisionIsConsistent":"If your decision is in accordance with such intention - give bellow its, ",
+	"umiBroaderJustification":"justification",
+	"umiOtherwisePress":"Otherwise click ",
+	"umiSubmit":"Approve"
+  },
+  "uzasadnienieDeliberacjaModalInner":{
+	"udiExplainYourProposal":"Justify the proposal",
+	"udiYouIntendToApply":"You are going to apply to move this ",
+	"udiIssueForDeliberation":"Issue for Discussion",
+	"udiWhereIssuesAreDiscussed":", where the Issues are discussed.",
+	"udiIfYourDecisionIsConsistent":"JIf your decision is in accordance with such intention - give bellow its ",
+	"udiBroaderJustification":"justification",
+	"udiOtherwisePress":"Otherwise press ",
+	"udiSubmit":"Approve"
   },
   "uzasadnienieKoszModalInner":{
 	"ukiExplainYourProposal":"Justify the proposal",

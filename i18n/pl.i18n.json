@@ -163,7 +163,7 @@
 
 		"dymINarchi":"ARCHIWUM",
 		  "dymTXarchA":"Archiwum służy składowaniu Kwestii skierowanych tu z różnych powodów, takich jak brak wymaganego poziomu priorytetu przez Kwestię, decyzję uczestników o rezygnacji z dyskusji nad Kwestią i innych.", 
-		  "dymTXarchB":"Dane w archiwum są prezentowane w identycznym formacie jak w wykazie Kwestii.",
+		  "dymTXarchB":"Dane w archiwum są prezentowane w identycznym formacie jak w wykazie Kwestii. Dopóki nie zawnioskuje się o przywrócenie do deliberacji - Kwestia ta będzie archiwalną.",
 		  "dymTXarchC":"Archiwum pełni funkcję porządkującą. W Systemie nie ma admina. Wszystkie decyzje będą wynikały z deliberacji i nadawania priorytetów.",
 
 		"dymSettings":"Ustawienia",
@@ -205,7 +205,7 @@
 		"dymGlobalParamB":"Zmienić można parametry, począwszy od nazwy i kontaktów organizacji, po szczegółowe zachowania w funkcjach czasu. Każdy Członek może podać nową wartość dowolnego parametru, tworząc automatycznie Kwestię techniczną do przyjęcia przez Ogół. Przejście takiej Kwestii do realizacji oznacza automatyczną zmianę parametru na nową wartość.",
 		 "dymGlobalParamC":"Ustalone już parametry można również później zmieniać. W danym czasie można procedować zmianę jednego parametru. Po jego ustaleniu można zmieniać kolejny.",
 		 
-		"dymUsersList":"Znajdziesz tutaj wykaz Użytkowników Systemu oraz będziesz mógł się z nimi kontaktować."
+		"dymUsersList":"Znajdziesz tutaj wykaz Użytkowników Systemu oraz bedziesz mógł się z nimi kontaktować."
   },
   "language":{
 	"lanSystSDD":"SDD"
@@ -279,6 +279,26 @@
   "discussionAnswerItem":{
 	"dAiLess":"mniej",
 	"dAiMore":"więcej"
+  },
+  "uzasadnienieArchiwumModalInner":{
+	"umiExplainYourProposal":"Uzasadnij propozycję",
+	"umiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej",
+	"umiTheIssueToTheArchive":"Kwestii do Archiwum",
+	"umiWhereHeReturnedIissues":", gdzie odsyłane są Kwestie niekoniecznie aktualne i pilne oraz oczekujące na lepsze warunki dla ich ponownego rozpatrzenia.",
+	"umiIfYourDecisionIsConsistent":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
+	"umiBroaderJustification":"uzasadnienie",
+	"umiOtherwisePress":"W przeciwnym wypadku naciśnij",
+	"umiSubmit":"Zatwierdź"
+  },
+  "uzasadnienieDeliberacjaModalInner":{
+	"udiExplainYourProposal":"Uzasadnij propozycję",
+	"udiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej ",
+	"udiIssueForDeliberation":"Kwestii do Deliberacji",
+	"udiWhereIssuesAreDiscussed":", gdzie są Kwestie dyskutowane.",
+	"udiIfYourDecisionIsConsistent":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
+	"udiBroaderJustification":"uzasadnienie",
+	"udiOtherwisePress":"W przeciwnym wypadku naciśnij ",
+	"udiSubmit":"Zatwierdź"
   },
   "uzasadnienieKoszModalInner":{
 	"ukiExplainYourProposal":"Uzasadnij propozycję",
