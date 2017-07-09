@@ -7,8 +7,8 @@ Template.kosz.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
-                { key: 'wartoscPriorytetu', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaPriority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'descending'},
+                { key: 'kwestiaNazwa', label: TAPi18n.__('glob.globNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('glob.globPriority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'descending'},
                 { key: 'idTemat', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestia },
                 { key: 'idRodzaj', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestia }
             ]

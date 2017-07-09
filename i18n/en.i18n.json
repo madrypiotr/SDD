@@ -13,8 +13,10 @@
 	"globThankYou":"Thank you!",
 	"globSelect":"Chose",
 	"globReturn":"Return",
+	"globNameIssue":"Name of the Issue",
 	"globSubject":"Topic  ",
 	"globType":"Type  ",
+	"globPriority":"Priority",
 	"globEmail":"e-mail ",
 	"globFname":"First name",
 	"globLname":"Family name",
@@ -24,6 +26,7 @@
 	"globPostalC":"Postal Code",
 	"globCity":"City",
 	"globInTheSystem":" in system ",
+	"globDescrWithTheReasons":"Description with justification",
 	"globWeAreHappyToInformYouThatYourApplicationFor":"We are pleased to inform that your application for ",
 	"globItWasSettledPositively":" has been accepted.",
 	"globToActivateYourAccountClick":"To activate account click ",
@@ -234,56 +237,6 @@
 	"loOff":"Switch off",
 	"loOn":"Switch on"
   },
-  "addRodzajForm":{
-	"adfAddType":"Add Type",
-	"adfNameOfType":"Name of Type",
-	"adfNameOfTypeForExamp":"Name of Type (eg. application, resolution, proposal, inquiry, etc.)",
-	"adfTimeDebate":"Discussion Time:",
-	"adfTimeDebateDays":"Discussion time (days).",
-	"adfTimeToVote":"Voting time:",
-	"adfVotingTimeDefault":"Voting time (h).",
-	"adfTheRequiredQuorum":"Quorum required:",
-	"adfTheIssueOfOrdinary":"Ordinary Issue",
-	"adfTheIssueOfStatutory":"Statutory Issue"
-  },
-  "editRodzajForm":{
-	"erfEditType":"Edit Type",
-	"erfNameOfType":"Name of Type:",
-	"erfNameOfTypeForExamp":"Name of Type (eg. application, resolution, proposal, inquiry, itp.)",
-	"erfTimeDebate":"Discussion Time:",
-	"erfTimeDebateDays":"Discussion time (days).",
-	"erfTimeToVote":"Voting time:",
-	"erfVotingTimeDefault":"Voting time (h).",
-	"erfTheRequiredQuorum":"Quorum reqiuired: "
-  },
-  "listRodzaj":{
-	"liListOfTypes":"List of Types"
-  },
-  "addTematForm":{
-	"aTfAddSubject":"Add Topic",
-    "aTfNameSubject":"Topic name:",
-    "aTfNameSubjectForExample":"Topic name (eg. law, politics, justice, trade, culture, itp.)",
-    "aTfDescription":"Description: "
-  },
-  "editTematForm":{
-	"etfEditSubject":"Edit Topic",
-    "etfNameSubject":"Topic name:",
-    "etfNameSubjectForExample":"Topic name (eg. law, politics, justice, trade, culture, etc.)",
-    "etfDescriptionSubject":"Topic description:"
-  },
-  "listTemat":{
-	"LiToCategorization":"Categorization",
-	"LiToAddSubject":"Add Topic",
-	"LiToTheNumbOfTypesInTheSubject":"Number of Types in Topic",
-	"LiToAllTypes":"All Types"
-  },
-  "optionsColumnTemat":{
-	"oCoAddType":"Add Type",
-	"oCoRefreshTypes":"Refresh Types"
-  },
-  "optionsColumnRodzaj":{
-	"oCrEditType":"Edit Type"
-  },
   "archiwum":{
 	"archives":"Archival",
 	"arcHibernating":"Hibernating",
@@ -301,11 +254,8 @@
 	"ikaLaunchDateOfTheIssues":"Date of introducing the Issue",
 	"ikaDateOfVote":"Date of the Voting",
 	"ikaFinalDeliberationAndVoting":"The end of discussion and voting",
-	"ikaNameIssue":"Name of the Issue",
-	"ikaPriority":"Priority",
 	"ikaContentIssue":"The Issue text",
 	"ikaShortContent":"Short text",
-	"ikaDescriptionWithTheReasons":"Description with justification",
 	"ikaDiscussionOnTheIssue":"Discussing the Issue"
   },
   "addRealizationReportModalInner":{
@@ -362,14 +312,12 @@
   },
   "addKwestiaForm":{
     "akfAddIssue":"Add Issue",
-	"akfNameIssue":"Name of the Issue",
 	"akfChooseExisting":"Choose existing ",
 	"akfEnterTheNew":"Introduce new",
 	"akfSelectOrEnterTheSubject":"Choose or introduce Topic ",
 	"akfSelectOrEnterTheType":"Choose or enter Type",
 	"akfShortContentIssue":"The Issue in short text ",
 	"akfShortContent":"Short text",
-	"akfDescriptionWithTheReasons":"Description with justification",
 	"akfAddThisIssue":"Add this Issue"
   },
   "activateAccount":{
@@ -493,19 +441,16 @@
     "aKwAddingIssueOption":"Adding Issue Option",
     "aKwNameIssueOption":"Issue Option name: ",
     "aKwShortContent":"Short text",
-	"aKwDataApplicator":"Aplicants data",
-    "aKwDescriptionOfTheReasons":"Description with justification"
+	"aKwDataApplicator":"Aplicants data"
   },
   "opcjeList":{
 	"aKwOptionsIssue":"Issue Options"
   },
   "previewKwestiaOpcja":{
 	"pkoIssue":"Issue",
-	"pkoNameIssue":"Issue name",
 	"pkoShortContentIssue":"Issue short text",
 	"pkoDataApplicator":"Applicant data",
 	"pkoFnameAndLname":"Name and surname",
-	"pkoDescriptionOfTheReasons":"Description with justification",
 	"pkoCorrect":"Corrify",
 	"pkoSubmittedApplicationMayNotBeWithdrawn":"ATTENTION! Application can not be withdrawn. Apply responsibly and check before entering it to the System."
   },
@@ -538,8 +483,7 @@
 	"KwdParameter":"Parametr",
     "KwdInitialValue":"Initial value",
 	"KwdTheProposedValue":"Proposed value",
-    "KwdShortContentIssue":"Short description of the Issue",
-	"KwdDescriptionOfTheReasons":"Description with justification"
+    "KwdShortContentIssue":"Short description of the Issue"
   },
   "managePriorities":{
 	"mpPriorityInTheImplem":"Priority in execution",
@@ -560,9 +504,7 @@
   "kwestiaTopButtons":{
     "ktReportsOfImplementation":"Execution Reports",
 	"ktSubmissionOfTheReport":"Adding Report",
-	"ktAddOption":"Add Option",
-    "ktMoveItToTheArchive":"To the Archive",
-	"ktMoveItToTheTrash":"To the Thrash Bin"
+	"ktAddOption":"Add Option"
   },
   "informacjeKwestia":{
     "ikDetailsIssue":"Details of the Issue",
@@ -634,7 +576,6 @@
   "previewKwestia":{
 	"pKwIssue":"Issue",
 	"pKwShortContent":"Short text",
-    "pKwDescriptionOfTheReasons":"Description with justification",
 	"pKwSubmittedMpplicationMayNotBeWithdrawn":"ATTENTION! Once entered application can not be withdrawn. Apply responsibly and check before introducing to the System",
 	"pKwCorrect":"Make correction"
   },

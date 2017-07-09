@@ -13,8 +13,10 @@
 	"globThankYou":"Merci!",
 	"globSelect":"Choisissez",
 	"globReturn":"Retour",
+	"globNameIssue":"Nom de Question",
 	"globSubject":"Thème ",
 	"globType":"Genre ",
+	"globPriority":"Priorité",
 	"globEmail":"e-mail ",
 	"globFname":"Prénom ",
 	"globLname":"Nom ",
@@ -24,6 +26,7 @@
 	"globPostalC":"Code postale",
 	"globCity":"Ville",
 	"globInTheSystem":" dans le système ",
+	"globDescrWithTheReasons":"Descriptif avec la motivation",
 	"globWeAreHappyToInformYouThatYourApplicationFor":"Nous sommes heureux de vous informer, que votre application ",
 	"globItWasSettledPositively":" a été acceptée.",
 	"globToActivateYourAccountClick":"Pour activer le compte cliquez ",
@@ -234,56 +237,6 @@
 	"loOff":"Déconnecter ",
 	"loOn":"Connecter"
   },
-  "addRodzajForm":{
-	"adfAddType":"Ajoutez Genre",
-	"adfNameOfType":"Nom du Genre",
-	"adfNameOfTypeForExamp":"Nom du Genre (ex. postulat, arrêté, proposition, question etc.).",
-	"adfTimeDebate":"Durée de discussion: ",
-	"adfTimeDebateDays":"Durée de discussion (jours).",
-	"adfTimeToVote":"Durée du vote: ",
-	"adfVotingTimeDefault":"Durée du vote (h).",
-	"adfTheRequiredQuorum":"Quorum exigé: ",
-	"adfTheIssueOfOrdinary":"Question ordinaire",
-	"adfTheIssueOfStatutory":"Kwestia statutowa"
-  },
-  "editRodzajForm":{
-	"erfEditType":"Éditez Genre",
-	"erfNameOfType":"Nom du Genre: ",
-	"erfNameOfTypeForExamp":"Nom du Genre (ex. postulat, arrêté, proposition, question etc.).",
-	"erfTimeDebate":"Czas dyskusji:",
-	"erfTimeDebateDays":"Czas dyskusji (dni).",
-	"erfTimeToVote":"Czas głosowania:",
-	"erfVotingTimeDefault":"Czas głosowania (h).",
-	"erfTheRequiredQuorum":"Wymagane kworum:"
-  },
-  "listRodzaj":{
-	"liListOfTypes":"Liste de Genres"
-  },
-  "addTematForm":{
-	"aTfAddSubject":"Ajoutez un Thème",
-    "aTfNameSubject":"Nom du Thème: ",
-    "aTfNameSubjectForExample":"Nom du Thème (ex. loi, politique, justice, commerce, culture etc.)",
-    "aTfDescription":"Description:"
-  },
-  "editTematForm":{
-	"etfEditSubject":"Éditez Thème:",
-    "etfNameSubject":"Nom du Thème: ",
-    "etfNameSubjectForExample":"Nom du Thème (ex. loi, politique, justice, commerce, culture etc.)",
-    "etfDescriptionSubject":"Description du Thème: "
-  },
-  "listTemat":{
-	"LiToCategorization":"Catégorisation",
-	"LiToAddSubject":"Ajoutez un Thème",
-	"LiToTheNumbOfTypesInTheSubject":"Nombre de Genres dans un Thème",
-	"LiToAllTypes":"Tous les Genres"
-  },
-  "optionsColumnTemat":{
-	"oCoAddType":"Donnez Genre",
-	"oCoRefreshTypes":"Rafraichissez Genres"
-  },
-  "optionsColumnRodzaj":{
-	"oCrEditType":"Éditez Genre"
-  },
   "archiwum":{
 	"archives":"Archive",
 	"arcHibernating":"Hiberné",
@@ -301,11 +254,8 @@
 	"ikaLaunchDateOfTheIssues":"Date de l'introduction de la Question",
 	"ikaDateOfVote":"Date du vote",
 	"ikaFinalDeliberationAndVoting":"Fin de la délibération et du vote",
-	"ikaNameIssue":"Nom de Question",
-	"ikaPriority":"Priorité",
 	"ikaContentIssue":"Texte de la Question",
 	"ikaShortContent":"Texte court",
-	"ikaDescriptionWithTheReasons":"Description avec motivation",
 	"ikaDiscussionOnTheIssue":"Discussion de la Question"
   },
   "addRealizationReportModalInner":{
@@ -362,14 +312,12 @@
   },
   "addKwestiaForm":{
     "akfAddIssue":"Ajoutez une Question",
-	"akfNameIssue":"Nom de la Question",
 	"akfChooseExisting":"Choisissez existant",
 	"akfEnterTheNew":"Entrez un nouveau",
 	"akfSelectOrEnterTheSubject":"Choisissez ou entrez un Thème",
 	"akfSelectOrEnterTheType":"Choisissez ou entrez un Genre",
 	"akfShortContentIssue":"Texte bref de la Question",
 	"akfShortContent":"Texte bref",
-	"akfDescriptionWithTheReasons":"Descriptif avec motivation",
 	"akfAddThisIssue":"Ajoutez cette Question"
   },
   "activateAccount":{
@@ -493,19 +441,16 @@
     "aKwAddingIssueOption":"Ajout de Question-Option",
     "aKwNameIssueOption":"Nom de la Question Option:",
     "aKwShortContent":"Texte bref",
-	"aKwDataApplicator":"Données de l'applicant",
-    "aKwDescriptionOfTheReasons":"Motivation"
+	"aKwDataApplicator":"Données de l'applicant"
   },
   "opcjeList":{
 	"aKwOptionsIssue":"Options de la Question"
   },
   "previewKwestiaOpcja":{
 	"pkoIssue":"Question",
-	"pkoNameIssue":"Nom de la Question",
 	"pkoShortContentIssue":"Texte bref de la Question",
 	"pkoDataApplicator":"Données de l'applicant",
 	"pkoFnameAndLname":"Prénom et Nom",
-	"pkoDescriptionOfTheReasons":"Descriptif avec la motivation",
 	"pkoCorrect":"Correction",
 	"pkoSubmittedApplicationMayNotBeWithdrawn":"ATTENTION! Postulat déposé ne peut être retiré. Postulez responsable et vérifiez avant introduction dans le Système."
   },
@@ -538,8 +483,7 @@
 	"KwdParameter":"Parametre",
     "KwdInitialValue":"Valeur initiale",
 	"KwdTheProposedValue":"Valeur proposée",
-    "KwdShortContentIssue":"Texte bref de la Question",
-	"KwdDescriptionOfTheReasons":"Description avec motivation"
+    "KwdShortContentIssue":"Texte bref de la Question"
   },
   "managePriorities":{
 	"mpPriorityInTheImplem":"Priorité à la réalisation",
@@ -560,9 +504,7 @@
   "kwestiaTopButtons":{
     "ktReportsOfImplementation":"Rapports de Réalisation",
 	"ktSubmissionOfTheReport":"Dépôt du Rapport",
-	"ktAddOption":"Ajout d'une Option",
-    "ktMoveItToTheArchive":"xxx",
-	"ktMoveItToTheTrash":"A la poubelle"
+	"ktAddOption":"Ajout d'une Option"
   },
   "informacjeKwestia":{
     "ikDetailsIssue":"Details de la Question",
@@ -634,7 +576,6 @@
   "previewKwestia":{
 	"pKwIssue":"Question",
 	"pKwShortContent":"Texte bref",
-    "pKwDescriptionOfTheReasons":"Descriptif avec la motivation",
 	"pKwSubmittedMpplicationMayNotBeWithdrawn":"ATTENTION! Proposition déposée ne peut être annulée. Proposez responsable et vérifiez avant l'introduction dans le Système",
 	"pKwCorrect":"Correction"
   },

@@ -93,8 +93,8 @@ Template.listKwestia.helpers({
             filters:['customFilter'],
             fields: [
                 { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATA'), tmpl: Template.dataUtwKwestia ,sortOrder:1,sortDirection:'descending'},
-                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
-                { key: 'wartoscPriorytetu', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaPriority'), tmpl: Template.priorytetKwestia },
+                { key: 'kwestiaNazwa', label: TAPi18n.__('glob.globNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('glob.globPriority'), tmpl: Template.priorytetKwestia },
                 { key: 'idTemat', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestia },
                 { key: 'idRodzaj', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestia },
                 { key: 'Kworum', label: TAPi18n.__('txv.QUORUM'), tmpl: Template.kworumNumber}
@@ -119,8 +119,8 @@ Template.listKwestia.helpers({
             filters: ['customFilter'],
             fields: [
                 { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATA'), tmpl: Template.dataUtwKwestia ,sortOrder:1,sortDirection:'descending'},
-                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
-                { key: 'wartoscPriorytetu', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaPriority'), tmpl: Template.priorytetKwestia },
+                { key: 'kwestiaNazwa', label: TAPi18n.__('glob.globNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('glob.globPriority'), tmpl: Template.priorytetKwestia },
                 { key: 'idTemat', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestia },
                 { key: 'idRodzaj', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestia },
                 { key: 'Kworum', label: TAPi18n.__('txv.QUORUM'), tmpl: Template.kworumNumber}

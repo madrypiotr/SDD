@@ -13,8 +13,10 @@
 	"globThankYou":"Dziękuję!",
 	"globSelect":"Wybierz",
 	"globReturn":"Powrót",
+	"globNameIssue":"Nazwa Kwestii",
 	"globSubject":"Temat ",
 	"globType":"Rodzaj ",
+	"globPriority":"Priorytet",
 	"globEmail":"e-mail ",
 	"globFname":"Imię",
 	"globLname":"Nazwisko",
@@ -24,6 +26,7 @@
 	"globPostalC":"Kod pocztowy",
 	"globCity":"Miasto",
 	"globInTheSystem":" w systemie ",
+	"globDescrWithTheReasons":"Opis z uzasadnieniem",
 	"globWeAreHappyToInformYouThatYourApplicationFor":"Z radością informujemy, że Twoja aplikacja na ",
 	"globItWasSettledPositively":" została rozpatrzona pozytywnie.",
 	"globToActivateYourAccountClick":"Aby aktywować konto kliknij ",
@@ -234,56 +237,6 @@
 	"loOff":"Wyłącz",
 	"loOn":"Włącz"
   },
-  "addRodzajForm":{
-	"adfAddType":"Dodaj Rodzaj",
-	"adfNameOfType":"Nazwa Rodzaju",
-	"adfNameOfTypeForExamp":"Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)",
-	"adfTimeDebate":"Czas dyskusji:",
-	"adfTimeDebateDays":"Czas dyskusji (dni).",
-	"adfTimeToVote":"Czas głosowania:",
-	"adfVotingTimeDefault":"Czas głosowania (h).",
-	"adfTheRequiredQuorum":"Wymagane kworum:",
-	"adfTheIssueOfOrdinary":"Kwestia zwykła",
-	"adfTheIssueOfStatutory":"Kwestia statutowa"
-  },
-  "editRodzajForm":{
-	"erfEditType":"Edytuj Rodzaj",
-	"erfNameOfType":"Nazwa Rodzaju:",
-	"erfNameOfTypeForExamp":"Nazwa Rodzaju (np. wniosek, uchwała, propozycja, zapytanie itp.)",
-	"erfTimeDebate":"Czas dyskusji:",
-	"erfTimeDebateDays":"Czas dyskusji (dni).",
-	"erfTimeToVote":"Czas głosowania:",
-	"erfVotingTimeDefault":"Czas głosowania (h).",
-	"erfTheRequiredQuorum":"Wymagane kworum:"
-  },
-  "listRodzaj":{
-	"liListOfTypes":"Lista rodzajów"
-  },
-  "addTematForm":{
-	"aTfAddSubject":"Dodaj Temat",
-    "aTfNameSubject":"Nazwa Tematu:",
-    "aTfNameSubjectForExample":"Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)",
-    "aTfDescription":"Opis:"
-  },
-  "editTematForm":{
-	"etfEditSubject":"Edytuj Temat",
-    "etfNameSubject":"Nazwa Tematu:",
-    "etfNameSubjectForExample":"Nazwa Tematu (np. prawo, polityka, sprawiedliwość, handel, kultura itp.)",
-    "etfDescriptionSubject":"Opis Tematu:"
-  },
-  "listTemat":{
-	"LiToCategorization":"Kategoryzacja",
-	"LiToAddSubject":"Dodaj Temat",
-	"LiToTheNumbOfTypesInTheSubject":"Liczba rodzajów w temacie",
-	"LiToAllTypes":"Wszystkie rodzaje"
-  },
-  "optionsColumnTemat":{
-	"oCoAddType":"Dodaj Rodzaj",
-	"oCoRefreshTypes":"Odśwież Rodzaje"
-  },
-  "optionsColumnRodzaj":{
-	"oCrEditType":"Edytuj Rodzaj"
-  },
   "archiwum":{
 	"archives":"Archiwum",
 	"arcHibernating":"Hibernowane",
@@ -301,11 +254,8 @@
 	"ikaLaunchDateOfTheIssues":"Data wprowadzenia Kwestii",
 	"ikaDateOfVote":"Data głosowania",
 	"ikaFinalDeliberationAndVoting":"Finał deliberacji i głosowania",
-	"ikaNameIssue":"Nazwa Kwestii",
-	"ikaPriority":"Priorytet",
 	"ikaContentIssue":"Treść Kwestii",
 	"ikaShortContent":"Krótka treść",
-	"ikaDescriptionWithTheReasons":"Opis z uzasadnieniem",
 	"ikaDiscussionOnTheIssue":"Dyskusja Kwestii"
   },
   "addRealizationReportModalInner":{
@@ -362,14 +312,12 @@
   },
   "addKwestiaForm":{
     "akfAddIssue":"Dodaj Kwestię",
-	"akfNameIssue":"Nazwa Kwestii",
 	"akfChooseExisting":"Wybierz istniejący",
 	"akfEnterTheNew":"Wprowadź nowy",
 	"akfSelectOrEnterTheSubject":"Wybierz lub wprowadź Temat",
 	"akfSelectOrEnterTheType":"Wybierz lub wprowadź Rodzaj",
 	"akfShortContentIssue":"Krótka treść Kwestii",
 	"akfShortContent":"Krótka treść",
-	"akfDescriptionWithTheReasons":"Opis z uzasadnieniem",
 	"akfAddThisIssue":"Dodaj tę Kwestię"
   },
   "activateAccount":{
@@ -493,19 +441,16 @@
     "aKwAddingIssueOption":"Dodawanie Kwestii-Opcji",
     "aKwNameIssueOption":"Nazwa Kwestii Opcji:",
     "aKwShortContent":"Krótka treść",
-	"aKwDataApplicator":"Dane aplikującego",
-    "aKwDescriptionOfTheReasons":"Opis z uzasadnieniem"
+	"aKwDataApplicator":"Dane aplikującego"
   },
   "opcjeList":{
 	"aKwOptionsIssue":"Opcje Kwestii"
   },
   "previewKwestiaOpcja":{
 	"pkoIssue":"Kwestia",
-	"pkoNameIssue":"Nazwa Kwestii",
 	"pkoShortContentIssue":"Krótka treść Kwestii",
 	"pkoDataApplicator":"Dane aplikującego",
 	"pkoFnameAndLname":"Imię i Nazwisko",
-	"pkoDescriptionOfTheReasons":"Opis z uzasadnieniem",
 	"pkoCorrect":"Popraw",
 	"pkoSubmittedApplicationMayNotBeWithdrawn":"UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do Systemu."
   },
@@ -538,8 +483,7 @@
 	"KwdParameter":"Parametr",
     "KwdInitialValue":"Wartość początkowa",
 	"KwdTheProposedValue":"Proponowana wartość",
-    "KwdShortContentIssue":"Krótka treść Kwestii",
-	"KwdDescriptionOfTheReasons":"Opis z uzasadnieniem"
+    "KwdShortContentIssue":"Krótka treść Kwestii"
   },
   "managePriorities":{
 	"mpPriorityInTheImplem":"Priorytet w realizacji",
@@ -560,9 +504,7 @@
   "kwestiaTopButtons":{
     "ktReportsOfImplementation":"Raporty Realizacyjne",
 	"ktSubmissionOfTheReport":"Złożenie Raportu",
-	"ktAddOption":"Dodaj Opcję",
-    "ktMoveItToTheArchive":"Do Archiwum",
-	"ktMoveItToTheTrash":"Do Kosza"
+	"ktAddOption":"Dodaj Opcję"
   },
   "informacjeKwestia":{
     "ikDetailsIssue":"Szczegóły Kwestii",
@@ -634,7 +576,6 @@
   "previewKwestia":{
 	"pKwIssue":"Kwestia",
 	"pKwShortContent":"Krótka treść",
-    "pKwDescriptionOfTheReasons":"Opis z uzasadnieniem",
 	"pKwSubmittedMpplicationMayNotBeWithdrawn":"UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do Systemu",
 	"pKwCorrect":"Popraw"
   },

@@ -9,7 +9,7 @@ Template.realizacjaTab2.helpers({
             fields: [
                 { key: 'dataRealizacji', label: TAPi18n.__('txv.START_OF_THE_IMPLEMENTATION'), tmpl: Template.dataRealizKwestia },
 //                { key: 'numerUchwaly', label: TAPi18n.__('txv.RESOLUTION_NO'), tmpl: Template.numerUchwKwestia },
-                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'kwestiaNazwa', label: TAPi18n.__('glob.globNameIssue'), tmpl: Template.nazwaKwestiLink },
                 { key: 'idTemat', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestia },
 //                { key: 'idRodzaj', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestia },
                 {key: 'raporty', label: TAPi18n.__('txv.REPORT'), tmpl:Template.raport},

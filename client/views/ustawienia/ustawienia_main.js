@@ -8,8 +8,8 @@ Template.administracjaUserMain.helpers({
             enableRegex: false,
             fields: [
                 { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATE_OF_INTRO'), tmpl: Template.dataUtwKwestia },
-                { key: 'kwestiaNazwa', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaNameIssue'), tmpl: Template.nazwaKwestiLink },
-                { key: 'wartoscPriorytetu', label: TAPi18n.__('informacjeKwestiaArchiwum.ikaPriority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'ascending'},
+                { key: 'kwestiaNazwa', label: TAPi18n.__('glob.globNameIssue'), tmpl: Template.nazwaKwestiLink },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('glob.globPriority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'ascending'},
                 { key: 'options', label: TAPi18n.__('txv.OPTIONS'), tmpl: Template.lobbujZaKwestia }
             ]
         };
