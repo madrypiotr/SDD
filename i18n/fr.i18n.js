@@ -1,4 +1,4 @@
-i18n.map("en", {
+i18n.map("fr", {
     resetPasswordDialog: {
         title: "f-Resetuj hasło",
         newPassword: "f-Nowe hasło",
