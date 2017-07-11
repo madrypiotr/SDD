@@ -280,6 +280,16 @@
 	"dAiLess":"mniej",
 	"dAiMore":"więcej"
   },
+  "uzasadnienieDeliberacjaModalInner":{
+	"udiExplainYourProposal":"Uzasadnij propozycję",
+	"udiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej ",
+	"udiIssueForDeliberation":"Kwestii do Deliberacji",
+	"udiWhereIssuesAreDiscussed":", gdzie są Kwestie dyskutowane.",
+	"udiIfYourDecisionIsConsistent":"Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej ",
+	"udiBroaderJustification":"uzasadnienie",
+	"udiOtherwisePress":"W przeciwnym wypadku naciśnij ",
+	"udiSubmit":"Zatwierdź"
+  },
   "uzasadnienieKoszModalInner":{
 	"ukiExplainYourProposal":"Uzasadnij propozycję",
 	"ukiYouIntendToApply":"Zamierzasz wnioskować o skierowanie tej ",

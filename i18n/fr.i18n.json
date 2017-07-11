@@ -280,6 +280,16 @@
 	"dAiLess":"moins",
 	"dAiMore":"plus"
   },
+  "uzasadnienieDeliberacjaModalInner":{
+	"udiExplainYourProposal":"Justifiez la proposition",
+	"udiYouIntendToApply":"Avez-vous l'intention demander son envoi ",
+	"udiIssueForDeliberation":"Question à la Délibération",
+	"udiWhereIssuesAreDiscussed":", ou les Questions sont discutées.",
+	"udiIfYourDecisionIsConsistent":"Si Votre décision corresponde à une tel intention - donnez ci-dessous sa ",
+	"udiBroaderJustification":"motivation",
+	"udiOtherwisePress":"Dans le cas contraire pressez ",
+	"udiSubmit":"Acceptez"
+  },
   "uzasadnienieKoszModalInner":{
 	"ukiExplainYourProposal":"Justifiez la proposition",
 	"ukiYouIntendToApply":"Avez-vous l'intention demander l'envoi de cette ",
