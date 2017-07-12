@@ -5,7 +5,6 @@ Badanie zmian w postach, zespołach i kwestii w celu sprawdzenia czy kwestia pow
  deliberowana na glosowana
  glosowana na realizowana
  glosowana na archiwalna
- archiwalna na deliberowana
  */
 
 Meteor.startup(function(){
