@@ -13,7 +13,7 @@ Template.notificationList.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'powiadomienieTyp', label: TAPi18n.__('glob.globSubject'),tmpl: Template.tematLink,sortOrder: 1, sortDirection: 'descending' },
+                { key: 'powiadomienieTyp', label: TAPi18n.__('glob.Subject'),tmpl: Template.tematLink,sortOrder: 1, sortDirection: 'descending' },
                 { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATA'), tmpl: Template.dataWpr,sortOrder: 0, sortDirection: 'descending' }
             ],
             rowClass:function(item){

@@ -120,18 +120,18 @@ Meteor.methods({
                     url:Meteor.absoluteUrl()+"issue_info/"+kwestiaItem._id,
                     urlLogin:Meteor.absoluteUrl()+"account/login",
 
-                    globDoNotAnswerThat: TAPi18n.__('glob.globDoNotAnswerThat', null, lang),
-                    globIntroducedAnewIssue: TAPi18n.__('glob.globIntroducedAnewIssue', null, lang),
-                    globLinkToThisIssue: TAPi18n.__('glob.globLinkToThisIssue', null, lang),
-                    globLogIn: TAPi18n.__('glob.globLogIn', null, lang),
-                    globLoginToTheSystem: TAPi18n.__('glob.globLoginToTheSystem', null, lang),
-                    globOn: TAPi18n.__('glob.globOn', null, lang),
-                    globShortSystemName: TAPi18n.__('glob.globShortSystemName', null, lang),
-                    globSubject: TAPi18n.__('glob.globSubject', null, lang),
-                    globThisIsAnAutomaticInformationSystem: TAPi18n.__('glob.globThisIsAnAutomaticInformationSystem', null, lang),
-                    globToTheSystem: TAPi18n.__('glob.globToTheSystem', null, lang),
-                    globType: TAPi18n.__('glob.globType', null, lang),
-                    globWelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize: TAPi18n.__('glob.globWelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize', null, lang)
+                    globDoNotAnswerThat: TAPi18n.__('glob.DoNotAnswerThat', null, lang),
+                    globIntroducedAnewIssue: TAPi18n.__('glob.IntroducedAnewIssue', null, lang),
+                    globLinkToThisIssue: TAPi18n.__('glob.LinkToThisIssue', null, lang),
+                    globLogIn: TAPi18n.__('glob.LogIn', null, lang),
+                    globLoginToTheSystem: TAPi18n.__('glob.LoginToTheSystem', null, lang),
+                    globOn: TAPi18n.__('glob.On', null, lang),
+                    globShortSystemName: TAPi18n.__('glob.ShortSystemName', null, lang),
+                    globSubject: TAPi18n.__('glob.Subject', null, lang),
+                    globThisIsAnAutomaticInformationSystem: TAPi18n.__('glob.ThisIsAnAutomaticInformationSystem', null, lang),
+                    globToTheSystem: TAPi18n.__('glob.ToTheSystem', null, lang),
+                    globType: TAPi18n.__('glob.Type', null, lang),
+                    globWelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize: TAPi18n.__('glob.WelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize', null, lang)
             });
                 Email.send({
                     to: item.emails[0].address,

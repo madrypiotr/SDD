@@ -23,20 +23,20 @@
             <tr>
                 <td><span class="glyphicon glyphicon-envelope"></span><strong> 
 <!--e-mail-->
-{{_ 'glob.globEmail'}}</strong></td>
+{{_ 'glob.Email'}}</strong></td>
                 <td>{{test emails}}</td>
             </tr>
             <tr>
                 <td><span class="glyphicon glyphicon-info-sign"></span><strong> 
 <!--Imię i Nazwisko-->
-{{_ 'glob.globFandLname'}}</strong></td>
+{{_ 'glob.FandLname'}}</strong></td>
                 <td>{{profile.fullName}}</td>
             </tr>
             {{#if profile.pesel}}
                 <tr>
                     <td><span class="fa fa-envelope"></span><strong> 
 <!--PESEL-->
-{{_ 'glob.globPID'}}</strong></td>
+{{_ 'glob.PID'}}</strong></td>
                     <td>{{profile.pesel}}</td>
                 </tr>
             {{/if}}
@@ -50,7 +50,7 @@
             <tr>
                 <td><span class="glyphicon glyphicon-map-marker"></span><strong> 
 <!--Adres-->
-{{_ 'glob.globAdress'}}</strong></td>
+{{_ 'glob.Adress'}}</strong></td>
                 <td>{{profile.address}}, {{profile.zip}} {{profile.city}}</td>
             </tr>
             <tr>

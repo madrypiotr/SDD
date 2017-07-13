@@ -15,14 +15,14 @@
 
                         <div class="col-xs-9">
                             <input class="form-control required" name="kwestiaNazwa" id="kwestiaNazwa"
-                                   placeholder="{{_ 'glob.globNameIssue'}}" value={{kwestiaNazwa}}>
+                                   placeholder="{{_ 'glob.NameIssue'}}" value={{kwestiaNazwa}}>
                         </div>
                     </div>
                     <div class="form-group" id="tematyGroup">
                         <label class="control-label col-xs-3"
                                for="inputEmail">
 <!--Temat:-->
-{{_ "glob.globSubject"}}:</label>
+{{_ "glob.Subject"}}:</label>
 
                         <div class="col-xs-3">
                             <input type="text" readonly name="temat" id="temat" class="form-control"
@@ -32,7 +32,7 @@
                     <div class="form-group" id="rodzajeGroup">
                         <label class="control-label col-xs-3" for="inputEmail">
 <!--Rodzaj-->
-{{_ "glob.globType"}}:</label>
+{{_ "glob.Type"}}:</label>
 
                         <div class="col-xs-3">
                             <input type="text" readonly name="rodzaj" id="rodzaj" class="form-control"
@@ -62,20 +62,20 @@
                                     </tr>
                                     {{#if protectorZR}}
                                         <tr>
-                                            <td><strong>{{_ "glob.globEmail"}}: </strong></td><td>{{szczegolowaTresc.email}}</td>
+                                            <td><strong>{{_ "glob.Email"}}: </strong></td><td>{{szczegolowaTresc.email}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>{{_ "glob.globPID"}}: </strong></td><td>{{szczegolowaTresc.pesel}}</td>
+                                            <td><strong>{{_ "glob.PID"}}: </strong></td><td>{{szczegolowaTresc.pesel}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>{{_ "glob.globAdress"}}: </strong></td><td>{{szczegolowaTresc.address}}</td>
+                                            <td><strong>{{_ "glob.Adress"}}: </strong></td><td>{{szczegolowaTresc.address}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>{{_ "glob.globPostalC"}}: </strong></td><td>{{szczegolowaTresc.zip}}</td>
+                                            <td><strong>{{_ "glob.PostalC"}}: </strong></td><td>{{szczegolowaTresc.zip}}</td>
                                         </tr>
                                     {{/if}}
                                         <tr>
-                                            <td><strong>{{_ "glob.globCity"}}: </strong></td><td>{{szczegolowaTresc.city}}</td>
+                                            <td><strong>{{_ "glob.City"}}: </strong></td><td>{{szczegolowaTresc.city}}</td>
                                         </tr>
                                 </table>
                             </div>
@@ -83,11 +83,11 @@
                         <div class="form-group" id="szczegolowaTrescGroup">
                             <label class="control-label col-xs-3" for="inputEmail">
 <!--Opis z uzasadnieniem-->
-{{_ "glob.globDescrWithTheReasons"}}:</label>
+{{_ "glob.DescrWithTheReasons"}}:</label>
 
                             <div class="col-xs-9">
 <!--Opis z uzasadnieniem-->
-<textarea class="form-control" name="szczegolowaTrescUwagi" maxlength="1500" value={{szczegolowaTresc.uwagi}} id="szczegolowaTrescUwagi" placeholder="{{_ 'glob.globDescrWithTheReasons'}}" required></textarea>
+<textarea class="form-control" name="szczegolowaTrescUwagi" maxlength="1500" value={{szczegolowaTresc.uwagi}} id="szczegolowaTrescUwagi" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required></textarea>
                             </div>
                         </div>
                     {{else}}
@@ -98,7 +98,7 @@
 
                             <div class="col-xs-9">
 <!--Opis z uzasadnieniem-->
-<textarea class="form-control" name="szczegolowaTresc" maxlength="1500" value={{szczegolowaTresc}} id="szczegolowaTresc" placeholder="{{_ 'glob.globDescrWithTheReasons'}}" required></textarea>
+<textarea class="form-control" name="szczegolowaTresc" maxlength="1500" value={{szczegolowaTresc}} id="szczegolowaTresc" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required></textarea>
                             </div>
                         </div>
                     {{/if}}
@@ -107,7 +107,7 @@
 <!--Dodaj Kwestię Opcję-->
 <input type="submit" class="btn btn-primary" value="{{_ 'addKwestiaOpcjaForm.aKwAddingIssueOption'}}" id="submitAddKwestiaOpcja">
 <!--Anuluj-->
-<input id="anuluj" type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
+<input id="anuluj" type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
                         </div>
                     </div>
                 </form>

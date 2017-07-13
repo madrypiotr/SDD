@@ -13,58 +13,58 @@
                 <form class="form-horizontal" id="userForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
-{{_ 'glob.globEmail'}}: </label>
+{{_ 'glob.Email'}}: </label>
 
                         <div class="col-xs-9">
-<input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.globEmail'}}"
+<input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.Email'}}"
                                    value={{email}}
                                            required {{isNotEmpty}}>
                         </div>
                     </div>
                     <div class="form-group">
-<label class="control-label col-xs-3" for="firstName">{{_ 'glob.globFname'}}: </label>
+<label class="control-label col-xs-3" for="firstName">{{_ 'glob.Fname'}}: </label>
 
                         <div class="col-xs-9">
-<input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.globFname'}}"
+<input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.Fname'}}"
                                    value={{profile.firstName}}
                                            required {{isNotEmpty}}>
                         </div>
                     </div>
                     <div class="form-group">
-<label class="control-label col-xs-3" for="lastName">{{_ 'glob.globLname'}}: </label>
+<label class="control-label col-xs-3" for="lastName">{{_ 'glob.Lname'}}: </label>
 
                         <div class="col-xs-9">
-<input name="lastName" type="text" class="form-control" id="lastName" placeholder="{{_ 'glob.globLname'}}" value={{profile.lastName}} required {{isNotEmpty}}>
+<input name="lastName" type="text" class="form-control" id="lastName" placeholder="{{_ 'glob.Lname'}}" value={{profile.lastName}} required {{isNotEmpty}}>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="phoneNumber">
-{{_ 'glob.globPID'}}: </label>
+{{_ 'glob.PID'}}: </label>
 
                         <div class="col-xs-9">
-<input name="pesel" type="text" class="form-control" id="pesel" placeholder="{{_ 'glob.globPID'}}" value={{profile.pesel}} required>
+<input name="pesel" type="text" class="form-control" id="pesel" placeholder="{{_ 'glob.PID'}}" value={{profile.pesel}} required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="postalAddress">
-{{_ 'glob.globAdress'}}: </label>
+{{_ 'glob.Adress'}}: </label>
 
                         <div class="col-xs-9">
-<textarea name="address" rows="3" class="form-control" id="postalAddress" placeholder="{{_ 'glob.globAdress'}}" value={{profile.address}} required></textarea>
+<textarea name="address" rows="3" class="form-control" id="postalAddress" placeholder="{{_ 'glob.Adress'}}" value={{profile.address}} required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
-{{_ 'glob.globPostalC'}}: </label>
+{{_ 'glob.PostalC'}}: </label>
                         <div class="col-xs-9">
-<input class="form-control" type="text" name="ZipCode" id="ZipCode" placeholder="{{_ 'glob.globPostalC'}}" required/>
+<input class="form-control" type="text" name="ZipCode" id="ZipCode" placeholder="{{_ 'glob.PostalC'}}" required/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
-{{_ 'glob.globCity'}}: </label>
+{{_ 'glob.City'}}: </label>
                         <div class="col-xs-9">
-<input name="city" type="text" class="form-control" id="city" placeholder="{{_ 'glob.globCity'}}" value={{profile.city}} required {{isNotEmpty}}>
+<input name="city" type="text" class="form-control" id="city" placeholder="{{_ 'glob.City'}}" value={{profile.city}} required {{isNotEmpty}}>
                         </div>
                     </div>
                     <div class="form-group">
@@ -102,7 +102,7 @@
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
 <input type="submit" class="btn btn-primary" value="{{_ 'czlonekZwyczajnyForm.cZwIapplyForAdmission'}}" id="submitZwyczajny">
-<input type="reset" class="btn btn-default" value="{{_ 'glob.globCancel'}}">
+<input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
                         </div>
                     </div>
                 </form>

@@ -23,9 +23,9 @@ Template.archiwumList.helpers({
             fields: [
                 { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATE_OF_INTRO'), tmpl: Template.dataUtwKwestia },
                 { key: 'kwestiaNazwa', label: TAPi18n.__('txv.NAME'), tmpl: Template.nazwaKwestiiArchiwumLink },
-                { key: 'wartoscPriorytetu', label: TAPi18n.__('glob.globPriority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'ascending'},
-                { key: '', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestiiArchiwum },
-                { key: '', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestiiArchiwum },
+                { key: 'wartoscPriorytetu', label: TAPi18n.__('glob.Priority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'ascending'},
+                { key: '', label: TAPi18n.__('glob.Subject'), tmpl: Template.tematKwestiiArchiwum },
+                { key: '', label: TAPi18n.__('glob.Type'), tmpl: Template.rodzajKwestiiArchiwum },
                 { key: 'status', label: TAPi18n.__('txv.STATUS') }
             ]
         };

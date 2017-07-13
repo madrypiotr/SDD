@@ -12,10 +12,10 @@ Template.opcjeList.helpers({
             enableRegex: false,
             fields: [
                 { key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATE_OF_INTRO'), tmpl: Template.dataUtwKwestia },
-                { key: 'kwestiaNazwa', label: TAPi18n.__('glob.globNameIssue'), tmpl: Template.opcjeNazwaKwestiLink },
+                { key: 'kwestiaNazwa', label: TAPi18n.__('glob.NameIssue'), tmpl: Template.opcjeNazwaKwestiLink },
                 { key: 'wartoscPriorytetu', label: TAPi18n.__('txv.VAL_OF_PRIORITY'), tmpl: Template.priorytetKwestia,sortOrder:1,sortDirection:'descending' },
-                { key: 'idTemat', label: TAPi18n.__('glob.globSubject'), tmpl: Template.tematKwestia },
-                { key: 'idRodzaj', label: TAPi18n.__('glob.globType'), tmpl: Template.rodzajKwestia },
+                { key: 'idTemat', label: TAPi18n.__('glob.Subject'), tmpl: Template.tematKwestia },
+                { key: 'idRodzaj', label: TAPi18n.__('glob.Type'), tmpl: Template.rodzajKwestia },
                 { key: 'status', label: TAPi18n.__('txv.STATUS'), tmpl: Template.statusKwestia }
             ],
             rowClass: function (item) {

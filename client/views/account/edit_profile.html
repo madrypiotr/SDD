@@ -9,7 +9,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputImię">
 <!--Imię-->
-{{_ 'glob.globFname'}}:</label>
+{{_ 'glob.Fname'}}:</label>
 
                         <div class="col-xs-9">
                             <input name="name" class="form-control" id="firstName" value="{{profile.firstName}}"
@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputNazwisko">
 <!--Nazwisko-->
-{{_ 'glob.globLname'}}:</label>
+{{_ 'glob.Lname'}}:</label>
 
                         <div class="col-xs-9">
                             <input name="surname" class="form-control" id="lastName" value="{{profile.lastName}}"
@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputAdres">
 <!--Adres-->
-{{_ 'glob.globAdress'}}:</label>
+{{_ 'glob.Adress'}}:</label>
 
                             <div class="col-xs-9">
                                 <textarea name="address" class="form-control" id="address"
@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputZipcode">
 <!--Kod pocztowy-->
-{{_ 'glob.globPostalC'}}:</label>
+{{_ 'glob.PostalC'}}:</label>
 
                             <div class="col-xs-9">
                                 <input name="zipcode" type="text" class="form-control" id="zipcode" value="{{profile.zip}}" required>
@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputMiasto">
 <!--Miasto-->
-{{_ 'glob.globCity'}}: </label>
+{{_ 'glob.City'}}: </label>
                         <div class="col-xs-9">
                             <input name="city" class="form-control" id="city" value="{{profile.city}}" required>
                         </div>
@@ -68,10 +68,10 @@
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
 <!--Zapisz-->
-<input type="submit" class="btn btn-primary" value="{{_ 'glob.globSave'}}">
+<input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
                             <a href="{{pathFor 'manage_account'}}" class="btn btn-default">
 <!--Anuluj-->
-{{_ 'glob.globCancel'}}</a>
+{{_ 'glob.Cancel'}}</a>
                         </div>
                     </div>
                 </form>

@@ -8,7 +8,7 @@
 {{_ "kwestiaDetails.KwdDataAplicator"}}
                 {{#if isHonorowyType typ}}
 <!--e-mail-->
-{{_ "glob.globEmail"}}: 
+{{_ "glob.Email"}}: 
                         {{szczegolowaTresc.email}}
                 {{/if}}
                 {{#unless isHonorowyType typ}}
@@ -17,20 +17,20 @@
                     {{szczegolowaTresc.fullName}}
                 {{#if protectorZR}}
 <!--e-mail-->
-{{_ "glob.globEmail"}}: 
+{{_ "glob.Email"}}: 
                         {{szczegolowaTresc.email}}
 <!--PESEL-->
-{{_ "glob.globPID"}}:
+{{_ "glob.PID"}}:
                         {{szczegolowaTresc.pesel}}
 <!--Adres-->
-{{_ "glob.globAdress"}}: 
+{{_ "glob.Adress"}}: 
                         {{szczegolowaTresc.address}}
 <!--Kod pocztowy-->
-{{_ "glob.globPostalC"}}: 
+{{_ "glob.PostalC"}}: 
                         {{szczegolowaTresc.zip}}
                 {{/if}}
 <!--Miasto-->
-{{_ "glob.globCity"}}: 
+{{_ "glob.City"}}: 
                         {{szczegolowaTresc.city}}
                 {{/unless}}
 <!--Dodatkowe-->

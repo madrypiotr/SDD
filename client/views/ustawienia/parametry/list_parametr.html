@@ -7,7 +7,7 @@
 				<div class="input-group">
 					<div class="btn-group">
 						{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <!--<a href="{{pathFor 'editParametry'}}" class="btn btn-primary">-->
-						 <!--<i class="fa fa-edit"></i>{{_ 'glob.globEdit'}}-->
+						 <!--<i class="fa fa-edit"></i>{{_ 'glob.Edit'}}-->
 						 <!--</a>-->
 						 {{else}} <a class="kwestiaId btn btn-primary" id="parametersClick"><i class="fa fa-edit"></i> <!--Zobacz kwestię-->
 						{{_ 'listParametr.lipView'}}</a> {{/if}} {{/if}}
@@ -27,7 +27,7 @@
 						{{_ 'listParametr.lipNameOfOrganization'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editOrganisationName"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-6">
 							<input class="form-control" id="nazwaOrganizacji" name="nazwaOrganizacji" readonly type="text" value="{{nazwaOrganizacji}}">
@@ -39,7 +39,7 @@
 						{{_ 'listParametr.lipTerritory'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritory"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-4">
 							<input class="form-control" id="terytorium" name="terytorium" readonly type="text" value="{{terytorium}}">
@@ -48,10 +48,10 @@
 					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Terytorium Adres-->
-						{{_ 'glob.globAdress'}}:</label>
+						{{_ 'glob.Adress'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritAdres"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-6">
 							<input class="form-control" id="terytAdres" name="terytAdres" readonly type="text" value="{{terytAdres}}">
@@ -64,7 +64,7 @@
 						{{_ 'listParametr.lipTerritCODE'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritCODE"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-2">
 							<input class="form-control" id="terytCODE" name="terytCODE" readonly type="text" value="{{terytCODE}}">
@@ -74,10 +74,10 @@
 					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Terytorium City-->
-						{{_ 'glob.globCity'}}:</label>
+						{{_ 'glob.City'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editTeritCity"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-4">
 							<input class="form-control" id="terytCity" name="terytCity" readonly type="text" value="{{terytCity}}">
@@ -89,7 +89,7 @@
 						{{_ 'listParametr.lipContactDetails'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editContacts"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-4">
 							<input class="form-control" id="kontakty" name="kontakty" readonly type="text" value="{{kontakty}}">
@@ -98,10 +98,10 @@
 					
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="inputEmail"><!--Regulamin-->
-						{{_ 'glob.globStatut'}}:</label>
+						{{_ 'glob.Statut'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editStatute"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-8">
 							<textarea class="form-control" id="regulamin" name="regulamin" readonly rows="3"></textarea>
@@ -116,7 +116,7 @@
 						{{_ 'listParametr.lipVotingTimeInHours'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editVoteDuration"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-1">
 							<input class="form-control" id="CzasGlosowania" name="CzasGlosowania" readonly value="{{voteDuration}}">
@@ -128,7 +128,7 @@
 						{{_ 'listParametr.lipIssuesAndSpecialCommOfWaitingTimeInDays'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editIssueWaiting"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-1">
 							<input class="form-control" id="CzasWyczekiwaniaKwestiiSpec" name="CzasWyczekiwaniaKwestiiSpec" readonly value="{{czasWyczekiwaniaKwestiiSpecjalnej}}">
@@ -140,7 +140,7 @@
 						{{_ 'listParametr.lipHowMuchIssuePassingToVote'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editVoteQuantity"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-1">
 							<input class="form-control" id="IloscKwestiiDoGlosowania" name="IloscKwestiiDoGlosowania" readonly value="{{voteQuantity}}">
@@ -155,7 +155,7 @@
 						{{_ 'listParametr.lipAddIssue'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editIssuePause"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-1">
 							<input class="form-control" id="addIssuePause" name="addIssuePause" readonly value="{{addIssuePause}}">
@@ -167,7 +167,7 @@
 						{{_ 'listParametr.lipAddingCommentWithinAissue'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editCommentPause"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-1">
 							<input class="form-control" id="addCommentPause" name="addCommentPause" readonly value="{{addCommentPause}}">
@@ -179,7 +179,7 @@
 						{{_ 'listParametr.lipTheAdditionOfAreferWithinTheComm'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editReferencePause"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-1">
 							<input class="form-control" id="addReferencePause" name="addReferencePause" readonly value="{{addReferencePause}}">
@@ -194,7 +194,7 @@
 						{{_ 'listParametr.lipDeadlineForFilingTheReportsInDays'}}:</label>
 						<div class="btn-group col-xs-1">
 							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <a class="btn btn-primary" id="editRRDuration"><i class="fa fa-edit"></i> <!--Edytuj-->
-							{{_ 'glob.globEdit'}}</a> {{/if}} {{/if}}
+							{{_ 'glob.Edit'}}</a> {{/if}} {{/if}}
 						</div>
 						<div class="col-xs-1">
 							<input class="form-control" id="okresSkladaniaRR" name="okresSkladaniaRR" readonly value="{{okresSkladaniaRR}}">
