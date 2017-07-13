@@ -19,14 +19,14 @@
     <div role="tabpanel" class="tab-pane" id="manageZRIssue"><br />
 	{{> issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
 		<div class="footer">
-		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.moreImplemTeam"}} </div>
+		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.ImplemTeam"}} </div>
 			<div id="container">
 				<div class="footer_center">
-					<p>{{_ "more.moreImplemTeamA"}}</p>
-					<p>{{_ "more.moreImplemTeamB"}}</p>
-					<p>{{_ "more.moreImplemTeamC"}}</p>
-					<p>{{_ "more.moreImplemTeamD"}}</p>
-			<p><b>{{_ "more.moreImplemTeamE"}}</b></p>
+					<p>{{_ "more.ImplemTeamA"}}</p>
+					<p>{{_ "more.ImplemTeamB"}}</p>
+					<p>{{_ "more.ImplemTeamC"}}</p>
+					<p>{{_ "more.ImplemTeamD"}}</p>
+			<p><b>{{_ "more.ImplemTeamE"}}</b></p>
 				</div>
 			</div>
 		</div>
@@ -212,43 +212,43 @@
 
 <div class="footer">
 	<div id="button"> <i class="fa fa-info-circle"></i> &nbsp;
-	{{#if isDeliberowana}} {{_ "more.moreDeliberIssueDetails"}} {{/if}}
+	{{#if isDeliberowana}} {{_ "more.DeliberIssueDetails"}} {{/if}}
             {{#unless kwestiaInKosz}}
-	{{#if isGlosowana}} {{_ "more.moreVotingDetails"}} {{/if}}
+	{{#if isGlosowana}} {{_ "more.VotingDetails"}} {{/if}}
 			{{/unless}}
-	{{#if isRealizowana}} {{_ "more.moreImplemIssueDetails"}} {{/if}}
+	{{#if isRealizowana}} {{_ "more.ImplemIssueDetails"}} {{/if}}
 	{{#if isZrealizowana}} SZCZEGÓŁY KWESTII ZREALIZOWANEJ {{/if}}
-	{{#if kwestiaInKosz}} {{_ "more.moreTheIssueInTheTrashCan"}} {{/if}}
+	{{#if kwestiaInKosz}} {{_ "more.TheIssueInTheTrashCan"}} {{/if}}
 	</div>
 	<div id="container">
 		<div class="footer_center">
 		{{#if isDeliberowana}}
-		<p>{{_ "more.moreDeliberIssueDetailsA"}}</p>
-		<p>{{_ "more.moreDeliberIssueDetailsB"}}</p>
-		<p>{{_ "more.moreDeliberIssueDetailsC"}}</p>
+		<p>{{_ "more.DeliberIssueDetailsA"}}</p>
+		<p>{{_ "more.DeliberIssueDetailsB"}}</p>
+		<p>{{_ "more.DeliberIssueDetailsC"}}</p>
 		{{/if}}
 		{{#if  isRealizowana}}
-			<p>{{_ "more.moreImplemIssueDetailsA"}}</p>
-			<p>{{_ "more.moreImplemIssueDetailsB"}}</p>
-			<p>{{_ "more.moreImplemIssueDetailsC"}}</p>
-			<p><b>{{_ "more.moreImplemIssueDetailsD"}}</b></p>
+			<p>{{_ "more.ImplemIssueDetailsA"}}</p>
+			<p>{{_ "more.ImplemIssueDetailsB"}}</p>
+			<p>{{_ "more.ImplemIssueDetailsC"}}</p>
+			<p><b>{{_ "more.ImplemIssueDetailsD"}}</b></p>
 		{{/if}}
 		{{#if  isZrealizowana}}
-			<p>{{_ "more.moreA"}}</p>
-			<p>{{_ "more.moreB"}}</p>
-			<p>{{_ "more.moreC"}}</p>
+			<p>{{_ "more.A"}}</p>
+			<p>{{_ "more.B"}}</p>
+			<p>{{_ "more.C"}}</p>
 		{{/if}}
 				{{#unless kwestiaInKosz}}
 		{{#if isGlosowana}}
-			<p>{{_ "more.moreVotingB"}}</p>
-			<p>{{_ "more.moreVotingC"}}</p>
-			<p>{{_ "more.moreVotingE"}}</p>
+			<p>{{_ "more.VotingB"}}</p>
+			<p>{{_ "more.VotingC"}}</p>
+			<p>{{_ "more.VotingE"}}</p>
 		{{/if}}
 				{{/unless}}
 		{{#if kwestiaInKosz}}
-			<p>{{_ "more.moreTheIssueInTheTrashCanA"}}</p>
-			<p>{{_ "more.moreTheIssueInTheTrashCanB"}}</p>
-			<p>{{_ "more.moreTheIssueInTheTrashCanC"}}</p>
+			<p>{{_ "more.TheIssueInTheTrashCanA"}}</p>
+			<p>{{_ "more.TheIssueInTheTrashCanB"}}</p>
+			<p>{{_ "more.TheIssueInTheTrashCanC"}}</p>
 		{{/if}}
 		</div>
 	</div>
