@@ -1,12 +1,16 @@
 {
   "glob":{
 	"ShortSystemName":"SDD",
+	"HonorableDear":"Dear ",
 	"Statut":"e-Regulamin",
 	"Save":"Save",
+	"Post":"write",
 	"Close":"Close",
 	"Cancel":"Cancel",
 	"Add":"Add",
+	"Here":"here",
 	"Edit":"Edit",
+	"ThankYou":"Thank you!",
 	"Select":"Chose",
 	"Return":"Return",
 	"NameIssue":"Name of the Issue",
