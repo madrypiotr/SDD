@@ -1,26 +1,26 @@
-{{globShortSystemName}}<br/>
+{{ShortSystemName}}<br/>
 {{organizacja}}<br/><br/>
 
 {{welcomeGender}} {{username}}!<br/><br/>
 
-{{globWeInformYouAboutTheOngoingVotingProcedureIssues}} {{nazwaKwestii}}<br/>
-<b>{{globSubject}}</b> {{temat}},<br/>
-<b>{{globType}}</b> {{rodzaj}}<br/>
-{{globOn}}<b>{{szczegolyKwestii}}</b> <br/><br/>
+{{WeInformYouAboutTheOngoingVotingProcedureIssues}} {{nazwaKwestii}}<br/>
+<b>{{Subject}}</b> {{temat}},<br/>
+<b>{{Type}}</b> {{rodzaj}}<br/>
+{{On}}<b>{{szczegolyKwestii}}</b> <br/><br/>
 
-<b>{{globEndOfVoting}}</b> {{dataGlosowania}}<br/><br/>
+<b>{{EndOfVoting}}</b> {{dataGlosowania}}<br/><br/>
 
 {{#if nadanoPriorytet idKwestii idUser}}
-    {{globThanksForVoting}}<br/>
-    <b>{{globGivenPriority}}</b> {{mojPriorytet idKwestii idUser}}<br/>
-    {{globYouCanEvenChangeThePriorityBeforeItHasFinishedVoting}}<br/><br/>
+    {{ThanksForVoting}}<br/>
+    <b>{{GivenPriority}}</b> {{mojPriorytet idKwestii idUser}}<br/>
+    {{YouCanEvenChangeThePriorityBeforeItHasFinishedVoting}}<br/><br/>
 {{else}}
-    <b>{{globDoNotYouVotedYetOnThisIssueWelcome}} <a href={{url}}>{{globLinkToThisIssue}}</a></b><br/>
+    <b>{{DoNotYouVotedYetOnThisIssueWelcome}} <a href={{url}}>{{LinkToThisIssue}}</a></b><br/>
 {{/if}}
 
-<b>{{globTheCurrentStrengthOfPriority}}</b> {{wartoscPriorytetu}}<br/>
-<b>{{globRequiredQuorum}}</b> {{kworum}} / {{globCurrentPresence}} {{glosujacy}}<br/><br/>
+<b>{{TheCurrentStrengthOfPriority}}</b> {{wartoscPriorytetu}}<br/>
+<b>{{RequiredQuorum}}</b> {{kworum}} / {{CurrentPresence}} {{glosujacy}}<br/><br/>
 
-{{globThisIsAnAutomaticInformationSystem}} {{globShortSystemName}} {{organizacja}}<br />
-{{globDoNotAnswerThat}} <br />
-{{globLoginToTheSystem}} <a href="{{urlLogin}}">{{globLogIn}}</a>
+{{ThisIsAnAutomaticInformationSystem}} {{ShortSystemName}} {{organizacja}}<br />
+{{DoNotAnswerThat}} <br />
+{{LoginToTheSystem}} <a href="{{urlLogin}}">{{LogIn}}</a>
