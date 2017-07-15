@@ -381,8 +381,7 @@
 	"mAcYourProfile":"Twój profil",
 	"mAcEditProfile":"Edytuj profil",
 	"mAcLogin":"Login",
-	"mAcTheRoleOfTheSystem":"Rola w Systemie",
-	"mAcRanking":"Ranking"
+	"mAcTheRoleOfTheSystem":"Rola w Systemie"
   },
   "_loginButtonsAdditionalLoggedInDropdownActions":{
 	"lBaMyProfile":"Mój profil"
@@ -727,9 +726,6 @@
 	"ParamGlobE":"Zmianę parametru może zaproponować każdy Użytkownik Systemu.",
 	"Users":"UŻYTKOWNICY",
 	"UsersA":"W tym wykazie możesz również sortować wg. każdej kolumny, lub szukać (filtrować) wg. nazwiska i imienia",
-	"UsersB":"Ranking jest obrazem aktywności Użytkownika. Ranking poprawia się, gdy Kwestia awansuje do Realizacji, a maleje, gdy Kwestia nie jest akceprowana przez Ogół, wrzucana do Kosza, itp ... Ranking nie ma żadnego wpływu na funkcje operacyjne. System nie faworyzuje w żaden sposób Użytkownika na postawie Rankingu. To jest jedynie informacja dla Użytkowników, dla ich własnych wniosków.",
-	"UsersC":"Punkty Rankingu przydzielane są następująco:",
-	"UsersD":"nadanie priorytetu: 1, dodanie odniesienia do komentarza: 2, dodanie komentarza: 5, złożenie Raportu Realizacyjnego: 5, wejście do Zespołu Realizacyjnego: 10, dodanie Kwestii: 12, awans Kwestii do Realizacji: 20, wycofanie Kwestii do Archiwum: -25, wyjście z Zespołu Realizacyjnego: -30, wycofanie Kwestii do Kosza: -40",
 	"AplyMemb":"DOŁĄCZ JAKO CZŁONEK",
 	"AplyMembA":"Zanim wyślesz wniosek aplikacyjny, miej świadomość, że ten System, to nie jest kolejny portal społecznościowy. Tutaj tworzymy prawo, które będzie nas obowiązywało. W związku z tym, swoją przynależność do nas potraktuj bardzo serio. Koniecznie zapoznaj się z przyjętymi już dokumentami.",
 	"AplyMembB":"O każdym aspekcie zdarzeń decyduje Ogół Członków większością głosów. Będziesz miał te same możliwości oddziaływania na bieg spraw, co każdy inny Członek - Użytkownik tego Systemu.",
@@ -1025,7 +1021,6 @@
 	"DO_YOU_WANT_TO_BE_OR_OUTPUT": "Możesz zrezygnować lub w nim pozostać.",
 	"ADDED_TO_THE_IT_WE_HAVE_ALREADY_SET": "Zostałeś dodany do Zespołu Realizacyjnego. Mamy już komplet",
 	"THIS_DECISION_MAY_BE_TAKEN_ONLY_MEMBER_OF_THE_TEAM": "Niestety, decyzję o realizowaniu tej Kwestii może podjąć jedynie członek zespołu. Poproś jednego z nich, aby przyjął realizację, wybierz inny Zespół, lub stwórz nowy. ",
-	"PASS_A_RESOLUTION": "Podjęto uchwałę",
-	"RANKING": "Ranking"
+	"PASS_A_RESOLUTION": "Podjęto uchwałę"
   }
 }

@@ -59,17 +59,6 @@ Template.informacjeKwestiaArchiwum.events({
                 else
                     throwError(error.reason);
             }
-            else {
-                var newValue = ratingValue + getUserRadkingValue(kwestia.idUser) - oldValue;
-                Meteor.call('updateUserRanking', kwestia.idUser, newValue, function (error) {
-                    if (error) {
-                        if (typeof Errors === "undefined")
-                            Log.error(TAPi18n.__('txv.ERROR') + error.reason);
-                        else
-                            throwError(error.reason);
-                    }
-                });
-            }
         });
     }
 });

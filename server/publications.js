@@ -22,11 +22,11 @@ Meteor.publish('usersUsernames', function () {
 });
 
 Meteor.publish('usersFullNamesTypesRanking', function () {
-    return Users.find({}, {fields: {'profile.firstName': 1,'profile.lastName': 1,'profile.fullName': 1,'profile.userType':1,'profile.rADking':1}});
+    return Users.find({}, {fields: {'profile.firstName': 1,'profile.lastName': 1,'profile.fullName': 1,'profile.userType':1}});
 });
 
 Meteor.publish("usersTypeRanking",function(){
-    return Users.find({}, {fields: {'profile.userType': 1,'profile.rADking':1}});
+    return Users.find({}, {fields: {'profile.userType': 1}});
 });
 
 Meteor.publish('usersFullNames', function () {

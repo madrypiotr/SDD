@@ -124,9 +124,7 @@ Template.registerForm.events({
                                                     uwagi: $(e.target).find('[name=uwagi]').val(),
                                                     language: $(e.target).find('[name=language]').val(),
                                                     city: $(e.target).find('[name=city]').val(),
-                                                    pesel: $(e.target).find('[name=pesel]').val(),
-                                                    rADking: 0
-
+                                                    pesel: $(e.target).find('[name=pesel]').val()
                                                 }];
                                             //-- generowanie loginu dla użytkownika
                                             newUser[0].login = ret; //generateLogin(newUser[0].firstName, newUser[0].lastName);

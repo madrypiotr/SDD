@@ -54,16 +54,6 @@ Template.uzasadnienieKoszModal.events({
                                 var postId=ret;
                                 var z2 = Posts.find({idKwestia: idKwestia, postType: POSTS_TYPES.KOSZ});
                                 if(z2.count()<=1) {
-                                    var newValue = 0;
-                                    newValue = Number(RADKING.DODANIE_ODNIESIENIA) + getUserRadkingValue(Meteor.userId());
-                                    Meteor.call('updateUserRanking', Meteor.userId(), newValue, function (error) {
-                                        if (error) {
-                                            if (typeof Errors === "undefined")
-                                                Log.error(TAPi18n.__('txv.ERROR') + error.reason);
-                                            else
-                                                throwError(error.reason);
-                                        }
-                                    });
                                     document.getElementById("message").value = "";
                                     $("#uzasadnijWyborKosz").modal("hide");
                                     $('html, body').animate({

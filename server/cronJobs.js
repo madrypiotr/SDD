@@ -148,7 +148,6 @@ checkingEndOfVote = function() {
                                             zip: userDraft.profile.zip,
                                             language: userDraft.profile.language,
                                             userType: userDraft.profile.userType,
-                                            rADking: 0,
                                             pesel: userDraft.profile.pesel
                                         };
                                         text="rewriteFromDraftToUser";
@@ -274,10 +273,6 @@ awansUzytkownika = function(idZespoluRealiz, pktZaUdzialWZesp) {
 
     zespol.forEach(function (idUzytkownikaZespolu){
         var uzytkownikAwansujacy = Users.findOne({_id: idUzytkownikaZespolu});
-        if(uzytkownikAwansujacy) {
-            uzytkownikAwansujacy.profile.rADking += pktZaUdzialWZesp;
-            Meteor.call('updateUserRanking', idUzytkownikaZespolu, uzytkownikAwansujacy.profile.rADking);
-        }
     });
 };
 

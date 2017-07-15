@@ -43,16 +43,6 @@ Template.uzasadnienieDeliberacjaModal.events({
                         }
                     }
                     else {
-                        var newValue = 0;
-                        newValue = Number(RADKING.DODANIE_ODNIESIENIA) + getUserRadkingValue(Meteor.userId());
-                        Meteor.call('updateUserRanking', Meteor.userId(), newValue, function (error) {
-                            if (error) {
-                                if (typeof Errors === "undefined")
-                                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
-                                else
-                                    throwError(error.reason);
-                            }
-                        });
                         document.getElementById("message").value = "";
                         $("#uzasadnijWyborWK").modal("hide");
                         Session.set("idkwestiiWK", null);

@@ -42,19 +42,6 @@ Template.issueDetails.rendered = function () {
                     }
                 }
             });
-            var newValue = 0;
-
-            newValue = Number(RADKING.NADANIE_PRIORYTETU) + getUserRadkingValue(Meteor.userId());
-
-            Meteor.call('updateUserRanking', Meteor.userId(), newValue, function (error) {
-                if (error) {
-                    if (typeof Errors === "undefined")
-                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
-                    else {
-                        throwError(error.reason);
-                    }
-                }
-            });
         }
     }
 

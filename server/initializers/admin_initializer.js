@@ -49,8 +49,7 @@ Meteor.startup(function () {
                     phone: user.phone,
                     web: user.web,
                     role: user.roles,
-                    userType:user.userType,
-                    rADking: 0
+                    userType:user.userType
                 }
             });
 

@@ -25,9 +25,7 @@ Template.activateAccount.rendered=function(){
                                     uwagi: userDraft.profile.uwagi,
                                     language: userDraft.profile.language,
                                     city:userDraft.profile.city,
-                                    pesel:userDraft.profile.pesel,
-                                    rADking:0
-
+                                    pesel:userDraft.profile.pesel
                                 }];
                             newUser[0].login = ret;
                             newUser[0].fullName=newUser[0].firstName+" "+newUser[0].lastName;

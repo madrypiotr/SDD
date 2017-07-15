@@ -76,21 +76,6 @@ Template.previewKwestiaOpcja.events({
                 addPowiadomienieBasicOptionIssueFunction(ret,newKwestiaOpcja[0].dataWprowadzenia);
                 var text="Nie odnotowaliśmy Twojej aktywności w następującej Kwestii:";
                 addPowiadomienieIssueFunction(ret,newKwestiaOpcja[0].dataWprowadzenia,NOTIFICATION_TYPE.ISSUE_NO_PRIORITY,text);
-                var userKwestia= Meteor.userId();
-                var newValue=0;
-
-                newValue=Number(RADKING.DODANIE_KWESTII)+getUserRadkingValue(userKwestia);
-
-                Meteor.call('updateUserRanking', userKwestia,newValue, function (error) {
-                    if (error)
-                    {
-                        if (typeof Errors === "undefined")
-                            Log.error(TAPi18n.__('txv.ERROR') + error.reason);
-                        else {
-                            throwError(error.reason);
-                        }
-                    }
-                });
 
                 Session.set("kwestiaPreviewOpcja",null);
                 Session.set("actualKwestiaId",null);

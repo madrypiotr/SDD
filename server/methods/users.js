@@ -13,7 +13,6 @@ Meteor.methods({
                 zip: newUser[0].zip,
                 roleDesc:  newUser[0].roleDesc,
                 language:newUser[0].language,
-                rADking:newUser[0].rADking,
                 userType:newUser[0].userType,
                 city:newUser[0].city,
                 pesel:newUser[0].pesel,
@@ -42,9 +41,6 @@ Meteor.methods({
     // updateUserLanguage: function(currentUserId,value) {
     //     Users.update({_id:currentUserId}, {$set:{'profile.language': value}});
     // },
-    updateUserRanking: function(currentUserId,value) {
-        Users.update({_id:currentUserId},{$set:{'profile.rADking': value}});
-    },
     updateUserType: function(currentUserId,value) {
         Users.update({_id:currentUserId},{$set:{'profile.userType': value}});
     },
@@ -67,7 +63,6 @@ Meteor.methods({
             'profile.zip': fields.zip,
             'profile.language': fields.language,
             'profile.userType': fields.userType,
-            'profile.rADking': fields.rADking,
             'profile.pesel': fields.pesel
         }});
     },

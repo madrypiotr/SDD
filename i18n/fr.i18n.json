@@ -381,8 +381,7 @@
 	"mAcYourProfile":"Votre profil",
 	"mAcEditProfile":"Éditez profil",
 	"mAcLogin":"S'identifier",
-	"mAcTheRoleOfTheSystem":"Rôle dans le Système",
-	"mAcRanking":"Ordre"
+	"mAcTheRoleOfTheSystem":"Rôle dans le Système"
   },
   "_loginButtonsAdditionalLoggedInDropdownActions":{
 	"lBaMyProfile":"Mon profil"
@@ -727,9 +726,6 @@
 	"ParamGlobE":"Chaque Utilisateur du Système peut proposer changement d'un paramètre.",
 	"Users":"UTILISATEURS",
 	"UsersA":"Dans cette liste vous pouvez également trier par. chaque colonne, ou chercher (filtrer) par. nom et prénom",
-	"UsersB":"Le classement est l'image de l'activité de l'Utilisateur. Le classement s'améliore lorsque la Question avance à la mise en œuvre, et diminue lorsque la question n'est pas acceptée par l'Ensemble, jetée dans la poubelle, etc ... Le classement n'a pas d'influence sur les fonctions opérationnelles. Le système ne favorise en aucune façon l'Utilisateur sur la base du classement. Il est seulement l'information pour les Utilisateurs, pour leurs propres conclusions.",
-	"UsersC":"f-Punkty Rankingu przydzielane są następująco:",
-	"UsersD":"attribution de la priorité: 1, ajout d'une référence au commentaire: 2, l'ajout du commentaire: 5, dépôt du Rapport de Réalisation: 5, l'entrée à l'Equipe de Réalisation: 10, l'ajout d'une Question: 12, promotion de la Questions à la Réalisation: 20, le retrait des questions au Archive: -25, la sortie de l'Equipe de Réalisation: -30, retrait de la Question à la poubelle: -40",
 	"AplyMemb":"ADHÉREZ COMME MEMBRE",
 	"AplyMembA":"Avant d'envoyer l'acte de candidature, soit conscient que ce système, il n'est pas un autre site de réseautage social. Ici, nous créons la loi qui nous obligera. Par conséquent, traiter votre affiliation à nous très sérieusement. Assurez-vous de lire les documents déjà adoptés.",
 	"AplyMembB":"C'est l'Ensemble des Membres qui décide par la majorité a propos de tous les aspects des événements. Vous aurez la même capacité d'influencer le cours des événements, que tout autre Membre - Utilisateur de ce Système.",
@@ -1025,7 +1021,6 @@
 	"DO_YOU_WANT_TO_BE_OR_OUTPUT": "Vous pouvez résigner ou rester.",
 	"ADDED_TO_THE_IT_WE_HAVE_ALREADY_SET": "Vous êtes ajouté à l'Equipe de Réalisation. Vous êtes au complet",
 "THIS_DECISION_MAY_BE_TAKEN_ONLY_MEMBER_OF_THE_TEAM": "Hélas, la décision sur la réalisation de cette Question ne peut être prise que par membre de l’équipe. Demandez un d'eux qu'il accepte la réalisation, choisissez une autre Equipe ou créez une nouvelle. ",
-	"PASS_A_RESOLUTION": "La décision est prise",
-	"RANKING": "f-Ranking"
+	"PASS_A_RESOLUTION": "La décision est prise"
   }
 }

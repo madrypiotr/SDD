@@ -62,17 +62,6 @@ Template.discussionPostForm.events({
                             throwError(error.reason);
                     } else {
                         document.getElementById("message").value = "";
-
-                        var newValue = 0;
-                        newValue = Number(RADKING.DODANIE_KOMENTARZA) + getUserRadkingValue(Meteor.userId());
-                        Meteor.call('updateUserRanking', Meteor.userId(), newValue, function (error) {
-                            if (error) {
-                                if (typeof Errors === "undefined")
-                                    Log.error(TAPi18n.__('txv.ERROR') + error.reason);
-                                else
-                                    throwError(error.reason);
-                            }
-                        });
                     }
                 });
             }

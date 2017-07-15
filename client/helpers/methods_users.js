@@ -2,13 +2,6 @@ IsAdminUser = function () {
     return Roles.userIsInRole(Meteor.user(), ['admin']);
 };
 
-getUserRadkingValue = function (idUser) {
-    var user = Users.findOne({_id: idUser});
-    if (user) {
-        return Number(user.profile.rADking)
-    }
-};
-
 getAllUsersWhoVoted = function (idKWestia) {
     var kwestia = Kwestia.findOne({_id: idKWestia});
     if (kwestia) {
