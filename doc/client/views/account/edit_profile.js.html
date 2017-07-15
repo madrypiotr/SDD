@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>edit_profile.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../";
+    var thisFile = "client\\views\\account\\edit_profile.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>edit_profile.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.profileEdit.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">"#profileForm"</span>).validate({
+        <span class="hljs-attr">rules</span>: {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>email: {
+email: true
+},</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">            zipcode:{
+                <span class="hljs-attr">kodPocztowyValidation</span>:<span class="hljs-literal">true</span>
+            }
+        },
+        <span class="hljs-attr">messages</span>: {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>email: {
+required: fieldEmptyMessage(),
+email: validEmailMessage()
+},</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">            name: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage()
+            },
+            <span class="hljs-attr">surname</span>: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage()
+            },
+            <span class="hljs-attr">address</span>: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage()
+            },
+            <span class="hljs-attr">zipcode</span>: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage()
+            }
+        },
+        <span class="hljs-attr">highlight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+            highlightFunction(element);
+        },
+        <span class="hljs-attr">unhighlight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+            unhighlightFunction(element);
+        },
+        <span class="hljs-attr">errorElement</span>: <span class="hljs-string">'span'</span>,
+        <span class="hljs-attr">errorClass</span>: <span class="hljs-string">'help-block'</span>,
+        <span class="hljs-attr">errorPlacement</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, element</span>) </span>{
+            <span class="hljs-keyword">if</span> (element.length) {
+                error.insertAfter(element);
+            } <span class="hljs-keyword">else</span> {
+                error.insertAfter(element);
+            }
+        }
+    })
+};
+Template.profileEdit.helpers({
+    <span class="hljs-attr">email</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> getEmail(<span class="hljs-keyword">this</span>);
+    },
+
+    <span class="hljs-attr">isSelected</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">gender</span>) </span>{
+        <span class="hljs-keyword">var</span> gen = <span class="hljs-keyword">this</span>.profile.gender;
+        <span class="hljs-keyword">if</span> (gen == gender)
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"checked"</span>;
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;
+    },
+    <span class="hljs-attr">userZwyczajny</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.profile.userType== USERTYPE.CZLONEK ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    }
+});
+
+Template.profileEdit.events({
+    <span class="hljs-string">'submit form'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        e.preventDefault();
+
+        <span class="hljs-keyword">var</span> currentUserId = <span class="hljs-keyword">this</span>._id;
+        <span class="hljs-keyword">var</span> userType = Users.findOne({<span class="hljs-attr">_id</span>: currentUserId}).profile.userType;
+        <span class="hljs-keyword">if</span> (isNotEmpty($(e.target).find(<span class="hljs-string">'[name=name]'</span>).val(), <span class="hljs-string">'imię'</span>) &amp;&amp;
+            isNotEmpty($(e.target).find(<span class="hljs-string">'[name=surname]'</span>).val(), <span class="hljs-string">'nazwisko'</span>)) <span class="hljs-comment">//&amp;&amp;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>isEmail($(e.target).find('[name=email]').val()))</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">            {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>var object = {
+address: $(e.target).find('[name=email]').val()
+};
+var array = [];
+array.push(object);</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">            <span class="hljs-keyword">var</span> userProperties = {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>emails: array,</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                profile: {
+                    <span class="hljs-attr">firstName</span>: $(e.target).find(<span class="hljs-string">'[name=name]'</span>).val(),
+                    <span class="hljs-attr">lastName</span>: $(e.target).find(<span class="hljs-string">'[name=surname]'</span>).val(),
+                    <span class="hljs-attr">fullName</span>: $(e.target).find(<span class="hljs-string">'[name=name]'</span>).val() + <span class="hljs-string">' '</span> + $(e.target).find(<span class="hljs-string">'[name=surname]'</span>).val(),
+                    <span class="hljs-attr">address</span>: $(e.target).find(<span class="hljs-string">'[name=address]'</span>).val(),
+                    <span class="hljs-attr">zip</span>: $(e.target).find(<span class="hljs-string">'[name=zipcode]'</span>).val(),
+                    <span class="hljs-attr">city</span>: $(e.target).find(<span class="hljs-string">'[name=city]'</span>).val(),
+                    <span class="hljs-attr">userType</span>: userType
+                }
+            };
+            Meteor.call(<span class="hljs-string">'updateUser'</span>, currentUserId, userProperties, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+                <span class="hljs-keyword">if</span> (error) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>optionally use a meteor errors package</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                        Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                    <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">if</span> (error.error === <span class="hljs-number">409</span>)
+                            throwError(error.reason);
+                    }
+                }
+                <span class="hljs-keyword">else</span> {
+                    Router.go(<span class="hljs-string">'manage_account'</span>);
+                }
+            });
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+    }
+});
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

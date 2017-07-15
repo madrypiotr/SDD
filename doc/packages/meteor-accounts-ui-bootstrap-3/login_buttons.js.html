@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>login_buttons.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "packages\\meteor-accounts-ui-bootstrap-3\\login_buttons.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>login_buttons.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">if</span> (!Accounts._loginButtons)
+		Accounts._loginButtons = {};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>for convenience</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> loginButtonsSession = Accounts._loginButtonsSession;
+
+	UI.registerHelper(<span class="hljs-string">"loginButtons"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> Template._loginButtons;
+	});
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>shared between dropdown and single mode</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	Template._loginButtons.events({
+		<span class="hljs-string">'click #login-buttons-logout'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+			Meteor.logout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+				loginButtonsSession.closeDropdown();
+			});
+		}
+	});
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>loginButtonLoggedOut template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+	Template._loginButtonsLoggedOut.dropdown = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> Accounts._loginButtons.dropdown();
+	};
+
+	Template._loginButtonsLoggedOut.services = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> Accounts._loginButtons.getLoginServices();
+	};
+
+	Template._loginButtonsLoggedOut.singleService = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">var</span> services = Accounts._loginButtons.getLoginServices();
+		<span class="hljs-keyword">if</span> (services.length !== <span class="hljs-number">1</span>)
+			<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(
+				<span class="hljs-string">"Shouldn't be rendering this template with more than one configured service"</span>);
+		<span class="hljs-keyword">return</span> services[<span class="hljs-number">0</span>];
+	};
+
+	Template._loginButtonsLoggedOut.configurationLoaded = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> Accounts.loginServicesConfigured();
+	};
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>loginButtonsLoggedIn template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>decide whether we should show a dropdown rather than a row of
+buttons</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	Template._loginButtonsLoggedIn.dropdown = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> Accounts._loginButtons.dropdown();
+	};
+
+	Template._loginButtonsLoggedIn.displayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> Accounts._loginButtons.displayName();
+	};
+
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>loginButtonsMessage template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+	Template._loginButtonsMessages.errorMessage = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> loginButtonsSession.get(<span class="hljs-string">'errorMessage'</span>);
+	};
+
+	Template._loginButtonsMessages.infoMessage = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> loginButtonsSession.get(<span class="hljs-string">'infoMessage'</span>);
+	};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>loginButtonsLoggingInPadding template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+	Template._loginButtonsLoggingInPadding.dropdown = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> Accounts._loginButtons.dropdown();
+	};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p>helpers</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+	Accounts._loginButtons.displayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">var</span> user = Meteor.user();
+		<span class="hljs-keyword">if</span> (!user)
+			<span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;
+
+		<span class="hljs-keyword">if</span> (user.profile &amp;&amp; user.profile.name)
+			<span class="hljs-keyword">return</span> user.profile.name;
+		<span class="hljs-keyword">if</span> (user.username)
+			<span class="hljs-keyword">return</span> user.username;
+		<span class="hljs-keyword">if</span> (user.emails &amp;&amp; user.emails[<span class="hljs-number">0</span>] &amp;&amp; user.emails[<span class="hljs-number">0</span>].address)
+			<span class="hljs-keyword">return</span> user.emails[<span class="hljs-number">0</span>].address;
+
+		<span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;
+	};
+
+	Accounts._loginButtons.getLoginServices = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p>First look for OAuth services.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">		<span class="hljs-keyword">var</span> services = Package[<span class="hljs-string">'accounts-oauth'</span>] ? Accounts.oauth.serviceNames() : [];
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p>Be equally kind to all login services. This also preserves
+backwards-compatibility. (But maybe order should be
+configurable?)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">		services.sort();
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p>Add password, if it's there; it must come last.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">		<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.hasPasswordService())
+			services.push(<span class="hljs-string">'password'</span>);
+
+		<span class="hljs-keyword">return</span> _.map(services, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>) </span>{
+			<span class="hljs-keyword">return</span> {
+				<span class="hljs-attr">name</span>: name
+			};
+		});
+	};
+
+	Accounts._loginButtons.hasPasswordService = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> !!Package[<span class="hljs-string">'accounts-password'</span>];
+	};
+
+	Accounts._loginButtons.dropdown = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.hasPasswordService() || Accounts._loginButtons.getLoginServices().length &gt; <span class="hljs-number">1</span>;
+	};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p>XXX improve these. should this be in accounts-password instead?</p>
+<p>XXX these will become configurable, and will be validated on
+the server as well.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	Accounts._loginButtons.validateUsername = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">username</span>) </span>{
+		<span class="hljs-keyword">if</span> (username.length &gt;= <span class="hljs-number">3</span>) {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+		} <span class="hljs-keyword">else</span> {
+			loginButtonsSession.errorMessage(<span class="hljs-string">"Username must be at least 3 characters long"</span>);
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		}
+	};
+	Accounts._loginButtons.validateEmail = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">email</span>) </span>{
+		<span class="hljs-keyword">if</span> (Accounts.ui._passwordSignupFields() === <span class="hljs-string">"USERNAME_AND_OPTIONAL_EMAIL"</span> &amp;&amp; email === <span class="hljs-string">''</span>)
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+
+		<span class="hljs-keyword">var</span> re = <span class="hljs-regexp">/^(([^&lt;&gt;()[\]\\.,;:\s@\"]+(\.[^&lt;&gt;()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/</span>;
+
+		<span class="hljs-keyword">if</span> (re.test(email)) {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+		} <span class="hljs-keyword">else</span> {
+			loginButtonsSession.errorMessage(<span class="hljs-string">"Invalid email"</span>);
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		}
+	};
+	Accounts._loginButtons.validatePassword = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">password</span>) </span>{
+		<span class="hljs-keyword">if</span> (password.length &gt;= <span class="hljs-number">6</span>) {
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+		} <span class="hljs-keyword">else</span> {
+			loginButtonsSession.errorMessage(<span class="hljs-string">"Password must be at least 6 characters long"</span>);
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		}
+	};
+
+	Accounts._loginButtons.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">debugger</span>;
+	};
+
+})();
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

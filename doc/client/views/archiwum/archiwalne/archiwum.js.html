@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>archiwum.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\archiwum\\archiwalne\\archiwum.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>archiwum.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.archiwumList.events({
+    <span class="hljs-string">'click .glyphicon-trash'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, template</span>) </span>{
+        Session.set(<span class="hljs-string">'kwestiaInScope'</span>, <span class="hljs-keyword">this</span>);
+    },
+    <span class="hljs-string">'click .glyphicon-pencil'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, template</span>) </span>{
+        Session.set(<span class="hljs-string">'kwestiaInScope'</span>, <span class="hljs-keyword">this</span>);
+    },
+    <span class="hljs-string">'click .glyphicon-repeat'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, template</span>) </span>{
+        Session.set(<span class="hljs-string">'kwestiaInScope'</span>, <span class="hljs-keyword">this</span>);
+    },
+    <span class="hljs-string">'click .glyphicon-info-sign'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event, template</span>) </span>{
+        Session.set(<span class="hljs-string">'kwestiaInScope'</span>, <span class="hljs-keyword">this</span>);
+    }
+});
+Template.archiwumList.helpers({
+    <span class="hljs-string">'settings'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">rowsPerPage</span>: <span class="hljs-number">20</span>,
+            <span class="hljs-attr">showFilter</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">showNavigation</span>: <span class="hljs-string">'always'</span>,
+            <span class="hljs-attr">showColumnToggles</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">enableRegex</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">fields</span>: [
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'dataWprowadzenia'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.DATE_OF_INTRO'</span>), <span class="hljs-attr">tmpl</span>: Template.dataUtwKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'kwestiaNazwa'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.NAME'</span>), <span class="hljs-attr">tmpl</span>: Template.nazwaKwestiiArchiwumLink },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'wartoscPriorytetu'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'glob.Priority'</span>), <span class="hljs-attr">tmpl</span>: Template.priorytetKwestia ,<span class="hljs-attr">sortOrder</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">sortDirection</span>:<span class="hljs-string">'ascending'</span>},
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">''</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'glob.Subject'</span>), <span class="hljs-attr">tmpl</span>: Template.tematKwestiiArchiwum },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">''</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'glob.Type'</span>), <span class="hljs-attr">tmpl</span>: Template.rodzajKwestiiArchiwum },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'status'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.STATUS'</span>) }
+            ]
+        };
+    },
+    <span class="hljs-string">'isAdminUser'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> IsAdminUser();
+    },
+    <span class="hljs-string">'tematNazwa'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Temat.findOne({<span class="hljs-attr">_id</span>: <span class="hljs-keyword">this</span>.idTemat});
+    },
+    <span class="hljs-string">'rodzajNazwa'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Rodzaj.findOne({<span class="hljs-attr">_id</span>: <span class="hljs-keyword">this</span>.idRodzaj});
+    }
+});
+
+Template.archiwum.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'[data-toggle="tooltip"]'</span>).tooltip();
+}
+
+Template.tematKwestiiArchiwum.helpers({
+    <span class="hljs-string">'getTemat'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
+            <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.BELONGS_TO_THE_SYSTEM'</span>);
+        <span class="hljs-keyword">var</span> item = Temat.findOne({<span class="hljs-attr">_id</span>: id});
+        <span class="hljs-keyword">return</span> !!item &amp;&amp; !!item.nazwaTemat ? item.nazwaTemat : id;
+    }
+});
+
+Template.rodzajKwestiiArchiwum.helpers({
+    <span class="hljs-string">'getRodzaj'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
+            <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.TECHNICAL'</span>);
+        <span class="hljs-keyword">var</span> item = Rodzaj.findOne({<span class="hljs-attr">_id</span>: id});
+        <span class="hljs-keyword">return</span> !!item &amp;&amp; !!item.nazwaRodzaj ? item.nazwaRodzaj : id;
+    }
+});
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

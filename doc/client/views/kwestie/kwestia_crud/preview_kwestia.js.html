@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>preview_kwestia.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\kwestia_crud\\preview_kwestia.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>preview_kwestia.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.previewKwestia.rendered=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"save"</span>).disabled = <span class="hljs-literal">false</span>;
+};
+Template.previewKwestia.helpers({
+    <span class="hljs-attr">getTematName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+        <span class="hljs-keyword">return</span> Temat.findOne({<span class="hljs-attr">_id</span>: id}).nazwaTemat;
+    },
+    <span class="hljs-attr">getRodzajName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+        <span class="hljs-keyword">return</span> Rodzaj.findOne({<span class="hljs-attr">_id</span>: id}).nazwaRodzaj;
+    },
+    <span class="hljs-attr">temat</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">var</span> sess=Session.get(<span class="hljs-string">"kwestiaPreview"</span>);
+        <span class="hljs-keyword">var</span> t=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span>(sess){
+            t=firstLetterToUpperCase(sess.temat);
+            <span class="hljs-keyword">return</span> t ? t : <span class="hljs-literal">null</span>;
+        }
+    },
+    <span class="hljs-attr">rodzaj</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">var</span> sess=Session.get(<span class="hljs-string">"kwestiaPreview"</span>);
+        <span class="hljs-keyword">var</span> t=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span>(sess){
+            t=firstLetterToUpperCase(sess.rodzaj);
+            <span class="hljs-keyword">return</span> t ? t : <span class="hljs-literal">null</span>;
+        }
+    }
+});
+
+Template.previewKwestia.events({
+    <span class="hljs-string">'click #cancel'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        Session.set(<span class="hljs-string">"kwestiaPreview"</span>, <span class="hljs-literal">null</span>);
+        Router.go(<span class="hljs-string">"listKwestia"</span>);
+    },
+    <span class="hljs-string">'click #save'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        e.preventDefault();
+
+        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"save"</span>).disabled = <span class="hljs-literal">true</span>;
+
+        <span class="hljs-keyword">var</span> kwestie=Kwestia.find({<span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">var</span> kwestia = Session.get(<span class="hljs-string">"kwestiaPreview"</span>);
+
+        <span class="hljs-keyword">var</span> flag=<span class="hljs-literal">false</span>;
+        kwestie.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{
+            <span class="hljs-keyword">if</span>(item.kwestiaNazwa.trim().toUpperCase() == kwestia.kwestiaNazwa.trim().toUpperCase()) {
+                flag=<span class="hljs-literal">true</span>;
+            }
+        });
+        <span class="hljs-keyword">if</span>(flag==<span class="hljs-literal">false</span>) {
+            <span class="hljs-keyword">var</span> temat = kwestia.temat;
+            <span class="hljs-keyword">var</span> rodzaj = kwestia.rodzaj;
+
+            <span class="hljs-keyword">var</span> idParentKwestii = Session.get(<span class="hljs-string">"idKwestia"</span>);
+            <span class="hljs-keyword">var</span> isOption = <span class="hljs-literal">false</span>;
+
+
+            kwestia.idParent ? isOption = <span class="hljs-literal">true</span> : isOption = <span class="hljs-literal">false</span>;
+            setValue(temat, rodzaj, isOption, kwestia);
+        }
+        <span class="hljs-keyword">else</span>
+            bootbox.alert(TAPi18n.__(<span class="hljs-string">'txv.GIVEN_ISSUE_EXISTS'</span>), <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{});
+    }
+});
+setValue=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">temat,rodzaj,isOption,kwestia</span>)</span>{
+    <span class="hljs-keyword">var</span> idTemat=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">var</span> idRodzaj=<span class="hljs-literal">null</span>;
+
+    <span class="hljs-keyword">var</span> foundIdTemat=<span class="hljs-literal">null</span>;
+    Temat.find({}).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
+        <span class="hljs-keyword">if</span>(item.nazwaTemat.trim().toLowerCase()==temat.trim().toLowerCase())
+        {
+            foundIdTemat=item._id;
+            <span class="hljs-keyword">return</span>;
+        }
+    });
+
+    <span class="hljs-keyword">if</span>(foundIdTemat==<span class="hljs-literal">null</span>) {
+        temat=firstLetterToUpperCase(temat);
+
+        <span class="hljs-keyword">var</span> nowyTemat=[{
+            <span class="hljs-attr">nazwaTemat</span>:temat,
+            <span class="hljs-attr">opis</span>:<span class="hljs-string">""</span>
+        }];
+        Meteor.call(<span class="hljs-string">'addTemat'</span>, nowyTemat, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error,ret</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                    Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                <span class="hljs-keyword">else</span>
+                    throwError(error.reason);
+
+            }
+            <span class="hljs-keyword">else</span> {
+                rodzaj=firstLetterToUpperCase(rodzaj);
+                <span class="hljs-keyword">var</span> newRodzaj=[{
+                    <span class="hljs-attr">idTemat</span>:ret,
+                    <span class="hljs-attr">nazwaRodzaj</span>: rodzaj,
+                    <span class="hljs-attr">czasDyskusji</span>:<span class="hljs-number">7</span>,
+                    <span class="hljs-attr">czasGlosowania</span>:<span class="hljs-number">24</span>
+                }];
+                idTemat=ret;
+
+                Meteor.call(<span class="hljs-string">'addRodzaj'</span>, newRodzaj, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error,ret</span>) </span>{
+                    <span class="hljs-keyword">if</span> (error) {
+                        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                            Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                        <span class="hljs-keyword">else</span>
+                            throwError(error.reason);
+
+                    }
+                    <span class="hljs-keyword">else</span> {
+                        idRodzaj=ret;
+                        addKwestia(idTemat,idRodzaj,isOption,kwestia);
+                    }
+                });
+            }
+        });
+    }
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">var</span> foundIdRodzaj=<span class="hljs-literal">null</span>;
+        idTemat=foundIdTemat;
+        Rodzaj.find({}).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
+            <span class="hljs-keyword">if</span>(item.idTemat==foundIdTemat)
+            {
+                <span class="hljs-keyword">if</span>(item.nazwaRodzaj.trim().toLowerCase()==rodzaj.trim().toLowerCase()){
+                    idTemat=item.idTemat;
+                    idRodzaj=item._id;
+                    foundIdRodzaj=item._id;
+                }
+            }
+        });
+        <span class="hljs-keyword">if</span>(foundIdRodzaj==<span class="hljs-literal">null</span>){
+
+            rodzaj=firstLetterToUpperCase(rodzaj);
+            <span class="hljs-keyword">var</span> newRodzaj=[{
+                <span class="hljs-attr">idTemat</span>:idTemat,
+                <span class="hljs-attr">nazwaRodzaj</span>: rodzaj,
+                <span class="hljs-attr">czasDyskusji</span>:<span class="hljs-number">7</span>,
+                <span class="hljs-attr">czasGlosowania</span>:<span class="hljs-number">24</span>
+            }];
+            Meteor.call(<span class="hljs-string">'addRodzaj'</span>, newRodzaj, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error,ret</span>) </span>{
+                <span class="hljs-keyword">if</span> (error) {
+                    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                        Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                    <span class="hljs-keyword">else</span>
+                        throwError(error.reason);
+
+                }
+                <span class="hljs-keyword">else</span>{
+                    idRodzaj=ret;
+                    addKwestia(idTemat,idRodzaj,isOption,kwestia);
+                }
+            });
+        }
+        <span class="hljs-keyword">else</span>{
+            addKwestia(idTemat,idRodzaj,isOption,kwestia);
+        }
+    }
+
+};
+
+firstLetterToUpperCase=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">text</span>)</span>{
+    <span class="hljs-keyword">var</span> firstLetter= text.charAt(<span class="hljs-number">0</span>).toUpperCase();
+    <span class="hljs-keyword">return</span> text.replace(text.charAt(<span class="hljs-number">0</span>),firstLetter);
+};
+addKwestia=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idTemat,idRodzaj,isOption,kwestia</span>)</span>{
+    <span class="hljs-keyword">var</span> status = KWESTIA_STATUS.DELIBEROWANA;
+    <span class="hljs-keyword">var</span> newKwestia = [{
+        <span class="hljs-attr">idUser</span>: Meteor.userId(),
+        <span class="hljs-attr">dataWprowadzenia</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(),
+        <span class="hljs-attr">kwestiaNazwa</span>: kwestia.kwestiaNazwa,
+        <span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">wartoscPriorytetuWRealizacji</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">idTemat</span>: idTemat,
+        <span class="hljs-attr">idRodzaj</span>: idRodzaj,
+        <span class="hljs-attr">dataDyskusji</span>: kwestia.dataDyskusji,
+        <span class="hljs-attr">dataGlosowania</span>: kwestia.dataGlosowania,
+        <span class="hljs-attr">dataRealizacji</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">status</span>: status,
+        <span class="hljs-attr">krotkaTresc</span>: kwestia.krotkaTresc,
+        <span class="hljs-attr">szczegolowaTresc</span>: kwestia.szczegolowaTresc,
+        <span class="hljs-attr">isOption</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">sugerowanyTemat</span>: kwestia.sugerowanyTemat,
+        <span class="hljs-attr">sugerowanyRodzaj</span>: kwestia.sugerowanyRodzaj,
+        <span class="hljs-attr">typ</span>:kwestia.typ
+    }];
+    Meteor.call(<span class="hljs-string">'addKwestia'</span>, newKwestia, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+        <span class="hljs-keyword">if</span> (error) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+            <span class="hljs-keyword">else</span> {
+                throwError(error.reason);
+            }
+        }
+        <span class="hljs-keyword">else</span> {
+            Session.set(<span class="hljs-string">"kwestiaPreview"</span>, <span class="hljs-literal">null</span>);
+            Meteor.call(<span class="hljs-string">"sendEmailAddedIssue"</span>, ret, getUserLanguage(), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+                <span class="hljs-keyword">if</span>(error){
+                    <span class="hljs-keyword">var</span> emailError = {
+                        <span class="hljs-attr">idIssue</span>: ret,
+                        <span class="hljs-attr">type</span>: NOTIFICATION_TYPE.NEW_ISSUE
+                    };
+                    Meteor.call(<span class="hljs-string">"addEmailError"</span>, emailError);
+                }
+            } );
+            addPowiadomienieIssueFunction(ret,newKwestia[<span class="hljs-number">0</span>].dataWprowadzenia,NOTIFICATION_TYPE.NEW_ISSUE,<span class="hljs-string">""</span>);
+            <span class="hljs-keyword">var</span> text=TAPi18n.__(<span class="hljs-string">'txv.LACK_OF_ACTIVITY'</span>);
+            addPowiadomienieIssueFunction(ret,newKwestia[<span class="hljs-number">0</span>].dataWprowadzenia,NOTIFICATION_TYPE.ISSUE_NO_PRIORITY,text);
+            Router.go(<span class="hljs-string">'administracjaUserMain'</span>);
+        }
+    });
+};
+
+addPowiadomienieIssueFunction=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idKwestia,dataWprowadzenia,typ,text</span>)</span>{
+    <span class="hljs-keyword">var</span> users=Users.find({<span class="hljs-string">'profile.userType'</span>:USERTYPE.CZLONEK});
+    users.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">user</span>)</span>{
+        <span class="hljs-keyword">var</span> newPowiadomienie ={
+            <span class="hljs-attr">idOdbiorca</span>: user._id,
+            <span class="hljs-attr">idNadawca</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">dataWprowadzenia</span>: dataWprowadzenia,
+            <span class="hljs-attr">tytul</span>: <span class="hljs-string">""</span>,
+            <span class="hljs-attr">powiadomienieTyp</span>: typ,
+            <span class="hljs-attr">tresc</span>: text,
+            <span class="hljs-attr">idKwestia</span>:idKwestia,
+            <span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">czyOdczytany</span>:<span class="hljs-literal">false</span>
+        };
+        Meteor.call(<span class="hljs-string">"addPowiadomienie"</span>,newPowiadomienie,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+            <span class="hljs-keyword">if</span>(error)
+                throwError(error.reason);
+        })
+    });
+
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

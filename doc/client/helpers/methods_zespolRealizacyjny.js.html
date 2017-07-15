@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>methods_zespolRealizacyjny.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "client\\helpers\\methods_zespolRealizacyjny.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>methods_zespolRealizacyjny.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">isUserInZespolRealizacyjnyNotification=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,zespolTab</span>)</span>{
+    <span class="hljs-keyword">if</span>(_.contains(zespolTab,id)){
+        GlobalNotification.error({
+            <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>),
+            <span class="hljs-attr">content</span>: TAPi18n.__(<span class="hljs-string">'txv.YOU_ARE_ALREADY_IN_THE_IMP_TEAM'</span>),
+            <span class="hljs-attr">duration</span>: <span class="hljs-number">10</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+        });
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+};
+isUserCountInZespolRealizacyjnyNotification=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,zespolTab,numberOfCzlonkowie</span>)</span>{
+    <span class="hljs-keyword">if</span>(zespolTab.length==<span class="hljs-number">3</span>) {
+        <span class="hljs-keyword">var</span> komunikat = TAPi18n.__(<span class="hljs-string">'txv.ITS_ALREADY'</span>) + numberOfCzlonkowie + TAPi18n.__(<span class="hljs-string">'txv.MEMBERS_OF_IMPL_TEAM'</span>);
+        GlobalNotification.error({
+            <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>),
+            <span class="hljs-attr">content</span>: komunikat,
+            <span class="hljs-attr">duration</span>: <span class="hljs-number">10</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+        });
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+};
+addCzlonekToZespolRealizacyjnyNotification=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idUser,zespolToUpdate,numberOfCzlonkowie,zespolId</span>)</span>{
+
+    <span class="hljs-keyword">if</span>(zespolToUpdate.length==<span class="hljs-number">2</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>sprawdzam czy mamy taki zespol z idącym kolejnym członkiem</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">        zespolToUpdate.push(idUser);
+        <span class="hljs-keyword">var</span> kwestie = Kwestia.find({
+            <span class="hljs-attr">$where</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.status==KWESTIA_STATUS.GLOSOWANA || <span class="hljs-keyword">this</span>.status==KWESTIA_STATUS.ARCHIWALNA);
+            }
+        });
+        <span class="hljs-keyword">var</span> flag=<span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">var</span> arrayZespolyDouble=[];
+        kwestie.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">kwestia</span>)</span>{<span class="hljs-comment">//odnajdujemy zespoly</span>
+            <span class="hljs-keyword">var</span> zespol=ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>:kwestia.idZespolRealizacyjny});
+            <span class="hljs-keyword">if</span>(zespol){
+                <span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;
+                _.each(zespol.zespol, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">zespolItem</span>) </span>{<span class="hljs-comment">//dla kazdej aktualnego item z aktualnego zepsolu</span>
+
+                    <span class="hljs-keyword">if</span> (_.contains(zespolToUpdate, zespolItem)) {<span class="hljs-comment">//jezeli z bazy tablica zawiera ten z zespołu</span>
+                        i++;
+                    }
+                });
+                <span class="hljs-keyword">if</span> (i == zespol.zespol.length) {
+                    arrayZespolyDouble.push(zespol._id);
+                    flag = <span class="hljs-literal">true</span>;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>moze sie zdarzyc,ze bd kilka zespołów o tych samym składzie,więc dajmy je do tablicy!</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                }
+            }
+        });
+        <span class="hljs-keyword">if</span>(flag==<span class="hljs-literal">true</span>){
+            Session.setPersistent(<span class="hljs-string">"zespolRealizacyjnyDouble"</span>, arrayZespolyDouble);
+            $(<span class="hljs-string">"#decyzjaModalId"</span>).modal(<span class="hljs-string">"show"</span>);
+        }
+
+        <span class="hljs-keyword">else</span> {<span class="hljs-comment">//to znaczy,ze normalnie mnie dodają do bazy</span>
+            komunikat = TAPi18n.__(<span class="hljs-string">'txv.ADDED_TO_THE_IT_WE_HAVE_ALREADY_SET'</span>);
+            $(<span class="hljs-string">"#addNazwa"</span>).modal(<span class="hljs-string">"show"</span>);
+
+            GlobalNotification.success({
+                <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.SUCCESS'</span>),
+                <span class="hljs-attr">content</span>: komunikat,
+                <span class="hljs-attr">duration</span>: <span class="hljs-number">10</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+            });
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        }
+    }
+    <span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">var</span> text = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> (numberOfCzlonkowie == <span class="hljs-number">0</span>)
+            text = TAPi18n.__(<span class="hljs-string">'txv.MEMBER'</span>);
+        <span class="hljs-keyword">else</span>
+            text = TAPi18n.__(<span class="hljs-string">'txv.MEMBERS'</span>);
+        <span class="hljs-keyword">var</span> komunikat = TAPi18n.__(<span class="hljs-string">'txv.ADDED_TO_THE_IT_NEED_MORE'</span>) + numberOfCzlonkowie + text;
+
+        zespolToUpdate.push(idUser);
+        Meteor.call(<span class="hljs-string">'updateCzlonkowieZR'</span>, zespolId, zespolToUpdate, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                    Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                <span class="hljs-keyword">else</span> {
+                    throwError(error.reason);
+                }
+            }
+            <span class="hljs-keyword">else</span>{
+                GlobalNotification.success({
+                    <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.SUCCESS'</span>),
+                    <span class="hljs-attr">content</span>: komunikat,
+                    <span class="hljs-attr">duration</span>: <span class="hljs-number">10</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+                });
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            }
+        });
+
+    }
+
+
+};
+bladNotification=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    GlobalNotification.error({
+        <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.WARNING'</span>),
+        <span class="hljs-attr">content</span>: TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>),
+        <span class="hljs-attr">duration</span>: <span class="hljs-number">10</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+    });
+};
+
+isUserInZRNotification=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idZespolu</span>)</span>{
+    <span class="hljs-keyword">var</span> zespol=ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>:idZespolu});
+    <span class="hljs-keyword">if</span>(zespol) {
+        <span class="hljs-keyword">if</span> (!_.contains(zespol.zespol, Meteor.userId())) {
+            GlobalNotification.error({
+                <span class="hljs-attr">title</span>:  TAPi18n.__(<span class="hljs-string">'txv.WARNING'</span>),
+                <span class="hljs-attr">content</span>: TAPi18n.__(<span class="hljs-string">'txv.THIS_DECISION_MAY_BE_TAKEN_ONLY_MEMBER_OF_THE_TEAM'</span>),
+                <span class="hljs-attr">duration</span>: <span class="hljs-number">10</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+            });
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+};
+
+addCzlonekToZespolRealizacyjnyNotificationNew=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idUser,zespolToUpdate,numberOfCzlonkowie,zespolId</span>)</span>{
+
+    <span class="hljs-keyword">if</span>(zespolToUpdate.length==<span class="hljs-number">2</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>sprawdzam czy mamy taki zespol z idącym kolejnym członkiem,szukamy w ZR</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">        zespolToUpdate.push(idUser);
+
+        <span class="hljs-keyword">var</span> flag=<span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">var</span> arrayZespolyDouble=[];
+        <span class="hljs-keyword">var</span> zespoly=ZespolRealizacyjny.find({<span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">if</span>(zespoly){
+            zespoly.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">zespol</span>) </span>{
+                <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+                _.each(zespol.zespol, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">zespolItem</span>) </span>{<span class="hljs-comment">//dla kazdej aktualnego item z aktualnego zepsolu</span>
+
+                    <span class="hljs-keyword">if</span> (_.contains(zespolToUpdate, zespolItem)) {<span class="hljs-comment">//jezeli z bazy tablica zawiera ten z zespołu</span>
+                        i++;
+                    }
+                });
+                <span class="hljs-keyword">if</span> (i == zespol.zespol.length) {
+                    arrayZespolyDouble.push(zespol._id);
+                    flag = <span class="hljs-literal">true</span>;
+                }
+            });
+        }
+
+        <span class="hljs-keyword">if</span>(flag==<span class="hljs-literal">true</span>){<span class="hljs-comment">//są takowe, więc wyświtlamy</span>
+            Session.setPersistent(<span class="hljs-string">"zespolRealizacyjnyDouble"</span>, arrayZespolyDouble);
+            $(<span class="hljs-string">"#decyzjaModalId"</span>).modal(<span class="hljs-string">"show"</span>);
+        }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>nie ma tekiego w bazie,więc sobie uzupelniamy drafta.to finish</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">        <span class="hljs-keyword">else</span> {
+            $(<span class="hljs-string">"#addNazwa"</span>).modal(<span class="hljs-string">"show"</span>);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>GlobalNotification.success({
+title: 'Sukces',
+content: komunikat,
+duration: 10 // duration the notification should stay in seconds
+});</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        }
+    }
+    <span class="hljs-keyword">else</span>{
+        <span class="hljs-keyword">var</span> text = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> (numberOfCzlonkowie == <span class="hljs-number">0</span> || numberOfCzlonkowie==<span class="hljs-number">2</span>)
+            text = TAPi18n.__(<span class="hljs-string">'txv.MEMBER'</span>);
+        <span class="hljs-keyword">else</span>
+            text = TAPi18n.__(<span class="hljs-string">'txv.MEMBERS'</span>);
+        <span class="hljs-keyword">var</span> komunikat = TAPi18n.__(<span class="hljs-string">'txv.ADDED_TO_THE_IT_NEED_MORE'</span>) + numberOfCzlonkowie + text;
+
+        zespolToUpdate.push(idUser);
+        Meteor.call(<span class="hljs-string">'updateCzlonkowieZRDraft'</span>, zespolId, zespolToUpdate, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                    Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                <span class="hljs-keyword">else</span> {
+                    throwError(error.reason);
+                }
+            }
+            <span class="hljs-keyword">else</span>{
+                GlobalNotification.success({
+                    <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.SUCCESS'</span>),
+                    <span class="hljs-attr">content</span>: komunikat,
+                    <span class="hljs-attr">duration</span>: <span class="hljs-number">10</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+                });
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            }
+        });
+
+    }
+
+
+};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>FUNKCJE</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">getCzlonekFullName=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number,idZR,ZRType</span>)</span>{
+    <span class="hljs-keyword">var</span> userID=getZRData(number,idZR,ZRType);
+    <span class="hljs-keyword">if</span>(userID){
+        <span class="hljs-keyword">var</span> user = Users.findOne({<span class="hljs-attr">_id</span>: userID});
+        <span class="hljs-keyword">if</span>(user.profile) {
+            <span class="hljs-keyword">return</span> user.profile.fullName;
+        }
+    }
+};
+getZRData=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">number,idZR,ZRType</span>)</span>{
+    <span class="hljs-keyword">var</span> z=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">if</span>(ZRType==<span class="hljs-string">"ZRDraft"</span>)
+        z = ZespolRealizacyjnyDraft.findOne({<span class="hljs-attr">_id</span>: idZR});
+    <span class="hljs-keyword">else</span>
+        z = ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>: idZR});
+    <span class="hljs-keyword">if</span>(z){
+        zespolId = z._id;
+        <span class="hljs-keyword">var</span> zespol = z.zespol;
+        <span class="hljs-keyword">if</span>(zespol){
+            <span class="hljs-keyword">var</span> id = zespol[number];
+            <span class="hljs-keyword">return</span> id ? id :<span class="hljs-literal">null</span>;
+        }
+    }
+};
+checkIfInZR=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idZR,idMember</span>)</span>{
+    <span class="hljs-keyword">var</span> z = ZespolRealizacyjnyDraft.findOne({<span class="hljs-attr">_id</span>: idZR});
+    <span class="hljs-keyword">if</span>(z){
+        <span class="hljs-keyword">return</span> _.contains(z.zespol,idMember) ? idMember :<span class="hljs-literal">null</span>;
+    }
+},
+rezygnujZRAlert=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idUserZR,idKwestia</span>)</span>{
+    bootbox.dialog({
+        <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.YOU_ARE_A_MEMBER_OF_THIS_WORKING_GROUP'</span>),
+        <span class="hljs-attr">message</span>: TAPi18n.__(<span class="hljs-string">'txv.DO_YOU_WANT_TO_BE_OR_OUTPUT'</span>),
+        <span class="hljs-attr">buttons</span>: {
+            <span class="hljs-attr">success</span>: {
+                <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.RESIGNS'</span>),
+                <span class="hljs-attr">className</span>: <span class="hljs-string">"btn-success successGiveUp"</span>,
+                <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+                    $(<span class="hljs-string">'.successGiveUp'</span>).css(<span class="hljs-string">"visibility"</span>, <span class="hljs-string">"hidden"</span>);
+                    rezygnujZRFunction(idUserZR,idKwestia);
+                }
+            },
+            <span class="hljs-attr">main</span>: {
+                <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.REMAIN'</span>),
+                <span class="hljs-attr">className</span>: <span class="hljs-string">"btn-primary"</span>
+            }
+        }
+    });
+};
+rezygnujZRFunction=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idUserZR,idKwestia</span>)</span>{
+
+    <span class="hljs-keyword">var</span> kwestia=Kwestia.findOne({<span class="hljs-attr">_id</span>:idKwestia});
+    <span class="hljs-keyword">if</span>(kwestia) {
+        <span class="hljs-keyword">var</span> zespol=ZespolRealizacyjnyDraft.findOne({<span class="hljs-attr">_id</span>:kwestia.idZespolRealizacyjny});
+        <span class="hljs-keyword">if</span>(zespol) {
+            <span class="hljs-keyword">var</span> zespolR = zespol.zespol.slice();
+            zespolR= _.without(zespolR,Meteor.userId());
+            <span class="hljs-keyword">var</span> ZRDraft= {
+                <span class="hljs-attr">nazwa</span>: <span class="hljs-string">""</span>,
+                <span class="hljs-string">"zespol"</span>: zespolR,
+                <span class="hljs-string">"idZR"</span>: <span class="hljs-literal">null</span>
+            };
+            $(<span class="hljs-string">'.successGiveUp'</span>).css(<span class="hljs-string">"visibility"</span>, <span class="hljs-string">"visible"</span>);
+            Meteor.call(<span class="hljs-string">'updateZespolRealizacyjnyDraft'</span>, zespol._id, ZRDraft, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+                <span class="hljs-keyword">if</span> (error) {
+                    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                        Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                    <span class="hljs-keyword">else</span> {
+                        throwError(error.reason);
+                    }
+                }
+            });
+        }
+    }
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

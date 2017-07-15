@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>validators.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "client\\helpers\\validators.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>validators.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+<p>validation Messages</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">fieldEmptyMessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.THIS_FIELD_IS_REQUIRED'</span>);
+};
+positiveNumberMessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.ENTER_A_VALUE_GREATER_THAN_ZERO'</span>);
+};
+negativeNumberMessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.YOU_CAN_NOT_ENTER_NEGATIVE_VALUES'</span>);
+};
+decimalNumberMessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.THE_SPECIFIED_VALUE_IS_NOT_A_NUMBER'</span>);
+};
+minLengthMessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">length</span>) </span>{
+    <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.THE_FIELD_MUST_HAVE_A_MINIMUM'</span>) + length + TAPi18n.__(<span class="hljs-string">'txv.CHARACTERS'</span>);
+};
+maxLengthMessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">length</span>) </span>{
+    <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.THE_FIELD_MUST_HAVE_A_MAX'</span>) + length + TAPi18n.__(<span class="hljs-string">'txv.CHARACTERS'</span>);
+};
+properLengthMessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">length</span>) </span>{
+    <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.THE_FIELD_MUST_HAVE_A'</span>) + length + TAPi18n.__(<span class="hljs-string">'txv.CHARACTERS'</span>);
+};
+validEmailMessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.ENTER_THE_CORRECT_EMAIL_ADDRESS'</span>);
+};
+equalToMessage = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> TAPi18n.__(<span class="hljs-string">'txv.ENTER_THE_SAME_VALUE_AGAIN'</span>);
+};
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>validation- highlight field</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">highlightFunction = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+    <span class="hljs-keyword">var</span> id_attr = <span class="hljs-string">"#"</span> + $(element).attr(<span class="hljs-string">"id"</span>) + <span class="hljs-string">"1"</span>;
+    $(element).closest(<span class="hljs-string">'.form-group'</span>).removeClass(<span class="hljs-string">'has-success'</span>).addClass(<span class="hljs-string">'has-error'</span>);
+    $(id_attr).removeClass(<span class="hljs-string">'glyphicon-ok'</span>).addClass(<span class="hljs-string">'glyphicon-remove'</span>);
+};
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>validation- unhighlight field</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">unhighlightFunction = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+    <span class="hljs-keyword">var</span> id_attr = <span class="hljs-string">"#"</span> + $(element).attr(<span class="hljs-string">"id"</span>) + <span class="hljs-string">"1"</span>;
+    $(element).closest(<span class="hljs-string">'.form-group'</span>).removeClass(<span class="hljs-string">'has-error'</span>).addClass(<span class="hljs-string">'has-success'</span>);
+    $(id_attr).removeClass(<span class="hljs-string">'glyphicon-remove'</span>).addClass(<span class="hljs-string">'glyphicon-ok'</span>);
+};
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>validation - error</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">validationPlacementError = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, element</span>) </span>{
+    <span class="hljs-keyword">if</span> (element.length) {
+        error.insertAfter(element);
+    } <span class="hljs-keyword">else</span> {
+        error.insertAfter(element);
+    }
+};
+
+jQuery.validator.addMethod(<span class="hljs-string">"checkExistsNazwaKwestii"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, element</span>) </span>{
+    <span class="hljs-keyword">var</span> kwestie = Kwestia.find({<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>});
+    <span class="hljs-keyword">var</span> found = <span class="hljs-literal">null</span>;
+    kwestie.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
+        <span class="hljs-keyword">if</span> (_.isEqual(item.kwestiaNazwa.toLowerCase().trim(), value.toLowerCase().trim())) {
+            found = <span class="hljs-literal">true</span>;
+        }
+    });
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || found == <span class="hljs-literal">null</span>;
+}, TAPi18n.__(<span class="hljs-string">'txv.THIS_ISSUE_ALREADY_EXISTS'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"checkExistsNazwaZespoluRealizacyjnego"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, element</span>) </span>{
+    <span class="hljs-keyword">var</span> zespoly = ZespolRealizacyjny.find({});
+    <span class="hljs-keyword">var</span> found = <span class="hljs-literal">null</span>;
+    zespoly.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
+        <span class="hljs-keyword">if</span> (_.isEqual(item.nazwa.toLowerCase().trim(), value.toLowerCase().trim())) {
+            found = <span class="hljs-literal">true</span>;
+        }
+    });
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || found == <span class="hljs-literal">null</span>;
+}, TAPi18n.__(<span class="hljs-string">'txv.THE_IMPL_TEAM_OF_THE_SAME_NAME_ALREADY_EXISTS'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"checkExistsAnyEmail"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, element</span>) </span>{
+    <span class="hljs-keyword">var</span> found = <span class="hljs-literal">null</span>;
+        found=checkExistsUser(value,<span class="hljs-literal">null</span>,<span class="hljs-literal">null</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || found == <span class="hljs-literal">null</span>;
+}, TAPi18n.__(<span class="hljs-string">'txv.THERE_ARE_ALREADY_IN_THE_SYSTEM_YOU_ADDRESS_AN_EMAIL'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"checkExistsEmailZwyczajny"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, element</span>) </span>{
+    <span class="hljs-keyword">var</span> found=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">var</span> users=Users.find({<span class="hljs-string">'profile.userType'</span>:{<span class="hljs-attr">$in</span>:[USERTYPE.CZLONEK]}});
+    users.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">user</span>)</span>{
+       <span class="hljs-keyword">if</span>(user.emails[<span class="hljs-number">0</span>].address==value)
+        found=<span class="hljs-literal">true</span>;
+    });
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || found== <span class="hljs-literal">null</span>;
+}, TAPi18n.__(<span class="hljs-string">'txv.THERE_IS_ALREADY_A_SYSTEM_USER_WITH_THE_GIVEN_EMAIL_ADDRESS'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"checkExistsEmail"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, element,param</span>) </span>{
+    <span class="hljs-keyword">var</span> found = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">if</span> (!Meteor.userId()) {
+        found=checkExistsUser(value,param,<span class="hljs-literal">null</span>);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || found == <span class="hljs-literal">null</span>;
+}, TAPi18n.__(<span class="hljs-string">'txv.THERE_ARE_ALREADY_IN_THE_SYSTEM_PROVIDED_THE_USER_FOR_WHICH_YOURE_TRYING'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"checkExistsEmail2"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, element,param</span>) </span>{
+    <span class="hljs-keyword">var</span> found = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || found == <span class="hljs-literal">null</span>;
+}, TAPi18n.__(<span class="hljs-string">'txv.LONGER_EXISTS_ON_THE_SPECIFIED_USER'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"checkExistsEmailDraft"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, element</span>) </span>{
+    <span class="hljs-keyword">var</span> usersDraft = UsersDraft.find({
+        <span class="hljs-attr">$where</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> (((<span class="hljs-keyword">this</span>.email == value) || (<span class="hljs-keyword">this</span>.email.toLowerCase() == value.toLowerCase()))&amp;&amp; <span class="hljs-keyword">this</span>.czyAktywny==<span class="hljs-literal">true</span>);
+        }
+    });
+    <span class="hljs-keyword">var</span> found = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">if</span> (usersDraft.count() &gt; <span class="hljs-number">0</span>) {
+        found = <span class="hljs-literal">true</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || found == <span class="hljs-literal">null</span>;
+}, TAPi18n.__(<span class="hljs-string">'txv.IT_HAS_ALREADY_SUBMITTED_A_REQUEST_TO_THE_SPECIFIED_EMAIL'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"exactlength"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, element,param</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || value.length == param;
+}, TAPi18n.__(<span class="hljs-string">'txv.ENTER_EXACTLY'</span>) + TAPi18n.__(<span class="hljs-string">'txv.CHARACTERS'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"peselValidation"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, element</span>) </span>{
+    <span class="hljs-keyword">var</span> filter =<span class="hljs-regexp">/^[0-9]{11}$/</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || filter.test(value);
+}, TAPi18n.__(<span class="hljs-string">'txv.WRONG_FORMAT_PID'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"peselValidation2"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, element</span>) </span>{
+    <span class="hljs-keyword">var</span> found=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">var</span> wagi = [<span class="hljs-number">9</span>,<span class="hljs-number">7</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">9</span>,<span class="hljs-number">7</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">9</span>,<span class="hljs-number">7</span>];
+    <span class="hljs-keyword">var</span> suma = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i &lt; wagi.length; i++)
+    {
+        suma+=(<span class="hljs-built_in">parseInt</span>(value.substring(i,i+<span class="hljs-number">1</span>),<span class="hljs-number">10</span>)*wagi[i]);
+    }
+    suma=suma % <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">var</span> cyfraKontr = <span class="hljs-built_in">parseInt</span>(value.substring(<span class="hljs-number">10</span>,<span class="hljs-number">11</span>),<span class="hljs-number">10</span>);
+    <span class="hljs-keyword">if</span>(suma==cyfraKontr)
+        found=<span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">else</span> found ==<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || found == <span class="hljs-literal">false</span>;
+}, TAPi18n.__(<span class="hljs-string">'txv.WRONG_NUMBER_PID'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"kodPocztowyValidation"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, element</span>) </span>{
+    <span class="hljs-keyword">var</span> filter =<span class="hljs-regexp">/^[0-9]{2}-[0-9]{3}$/</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.optional(element) || filter.test(value);
+}, TAPi18n.__(<span class="hljs-string">'txv.WRONG_FORMAT'</span>));
+
+jQuery.validator.addMethod(<span class="hljs-string">"isNotEmptyValue"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, element</span>) </span>{
+    <span class="hljs-keyword">return</span> value==<span class="hljs-number">0</span> || value==<span class="hljs-string">""</span> ? <span class="hljs-literal">false</span> : <span class="hljs-literal">true</span>;
+}, TAPi18n.__(<span class="hljs-string">'txv.THE_FIELD_IS_REQUIRED'</span>));
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>NOT USED!</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">trimInput = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>{
+    <span class="hljs-keyword">return</span> value.replace(<span class="hljs-regexp">/^\s*|\s*$/g</span>, <span class="hljs-string">''</span>);
+};
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<div class="dox">
+<div class="summary">
+</div>
+<div class="body">
+</div>
+<div class="details">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">isNotEmpty = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, statement, fieldName</span>) </span>{
+    value = value.replace(<span class="hljs-regexp">/\s+/g</span>, <span class="hljs-string">''</span>);
+    <span class="hljs-keyword">if</span> (value !== <span class="hljs-string">''</span> &amp;&amp; value !== <span class="hljs-string">'0'</span>) {
+        <span class="hljs-keyword">if</span> (fieldName != <span class="hljs-literal">null</span>) {
+            <span class="hljs-built_in">document</span>.getElementById(fieldName).classList.remove(<span class="hljs-string">'has-error'</span>);
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+    <span class="hljs-keyword">if</span> (fieldName != <span class="hljs-literal">null</span>) {
+        <span class="hljs-built_in">document</span>.getElementById(fieldName).classList.add(<span class="hljs-string">'has-error'</span>);
+    }
+    throwError(TAPi18n.__(<span class="hljs-string">'txv.FILL_IN_THE_FIELD'</span>) + statement);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+};
+
+
+isEmail = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>{
+    <span class="hljs-keyword">var</span> filter = <span class="hljs-regexp">/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/</span>;
+    <span class="hljs-keyword">if</span> (filter.test(value)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+    throwError(TAPi18n.__(<span class="hljs-string">'txv.PLEASE_ENTER_A_VALID_EMAIL_ADDRESS'</span>));
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+};
+
+isValidPassword = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">password</span>) </span>{
+    <span class="hljs-keyword">if</span> (password.length &lt; <span class="hljs-number">6</span>) {
+        throwError(TAPi18n.__(<span class="hljs-string">'txv.PASSWORD_SHOULD_BE_AT_LEAST_6_CHAR'</span>));
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+
+areValidPasswords = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">password, confirm</span>) </span>{
+    <span class="hljs-keyword">if</span> (!isValidPassword(password)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">if</span> (password !== confirm) {
+        throwError(TAPi18n.__(<span class="hljs-string">'txv.PASSWORD_DO_NOT_MATCH'</span>));
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+
+isPositiveNumber = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, statement</span>) </span>{
+    <span class="hljs-keyword">if</span> (value &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+    throwError(TAPi18n.__(<span class="hljs-string">'txv.YOU_CAN_NOT_GIVE_NEGATIVE_VALUES_IN_A_FIELD'</span>) + statement);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+};
+
+isNumeric = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, statement</span>) </span>{
+    <span class="hljs-keyword">var</span> filter = <span class="hljs-regexp">/^\d+([.]\d+)?$/</span>;
+    <span class="hljs-keyword">if</span> (filter.test(value)) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+    throwError(TAPi18n.__(<span class="hljs-string">'txv.PLEASE_ENTER_THE_CORRECT_NUMBER_FORMAT_IN_FIELD'</span>) + statement);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>client.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../";
+    var thisFile = "packages\\meteor-roles\\examples\\mini-pages\\client\\client.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>client.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">;(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+  "use strict"</span>;
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>//////////////////////////////////////////////////////////////////
+Routing stub</p>
+<p>Separate routing package details from general app code.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Meteor.navigateTo = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">path</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>...over-ridden in routing.js</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">};
+
+
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>//////////////////////////////////////////////////////////////////
+App.signout</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">App.signout = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'logging out...'</span>);
+  Meteor.logout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'...done'</span>);
+    Meteor.navigateTo(<span class="hljs-string">'/'</span>);
+  });
+};
+
+
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>//////////////////////////////////////////////////////////////////
+Patches</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>stubs for IE</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">if</span> (!<span class="hljs-built_in">window</span>.console) {
+  <span class="hljs-built_in">window</span>.console = {}
+}
+<span class="hljs-keyword">if</span> (!<span class="hljs-built_in">window</span>.console.log) {
+  <span class="hljs-built_in">window</span>.console.log = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">msg</span>) </span>{
+    $(<span class="hljs-string">'#log'</span>).append(<span class="hljs-string">'&lt;br /&gt;&lt;p&gt;'</span> + msg + <span class="hljs-string">'&lt;/p&gt;'</span>)
+  };
+}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>fix bootstrap dropdown unclickable issue on iOS
+https://github.com/twitter/bootstrap/issues/4550</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">$(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'touchstart.dropdown.data-api'</span>, <span class="hljs-string">'.dropdown-menu'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    e.stopPropagation();
+});
+
+
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>//////////////////////////////////////////////////////////////////
+Subscriptions</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+Deps.autorun(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p>register dependency on user so subscriptions
+will update once user has logged in</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">  <span class="hljs-keyword">var</span> user = Meteor.user();
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p>secrets</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">  Meteor.subscribe(<span class="hljs-string">'secrets'</span>);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p>users, for manage-users page</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">  Meteor.subscribe(<span class="hljs-string">'users'</span>);
+});
+
+
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p>//////////////////////////////////////////////////////////////////
+Templates</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+Template.signin.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p>auto-trigger accounts-ui login form dropdown</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">  Accounts._loginButtonsSession.set(<span class="hljs-string">'dropdownVisible'</span>, <span class="hljs-literal">true</span>);
+};
+
+Template.header.events({
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14"></a>
+</div>
+<p>template data, if any, is available in 'this'</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">  <span class="hljs-string">'click .btn-navbar'</span> : openCloseNav
+});
+Template.header.helpers({
+  <span class="hljs-attr">displayName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> displayName();
+  }
+});
+
+Template.secrets.helpers({
+  <span class="hljs-attr">secrets</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> Meteor.secrets.find();
+  }
+});
+
+Template.noteOfTheDay.helpers({
+  <span class="hljs-attr">note</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">"Greetings "</span> + displayName() + <span class="hljs-string">"!"</span>;
+  }
+});
+
+Template.manage.helpers({
+  <span class="hljs-attr">users</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> Meteor.users.find();
+  },
+  <span class="hljs-attr">email</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.emails[<span class="hljs-number">0</span>].address;
+  },
+  <span class="hljs-attr">roles</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.roles) <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;none&gt;'</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.roles.join(<span class="hljs-string">','</span>);
+  }
+});
+
+
+
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15"></a>
+</div>
+<p>//////////////////////////////////////////////////////////////////
+Misc helper functions</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayName</span> (<span class="hljs-params">user</span>) </span>{
+  <span class="hljs-keyword">var</span> name;
+
+  <span class="hljs-keyword">if</span> (!user) {
+    user = Meteor.user();
+  }
+
+  <span class="hljs-keyword">if</span> (!user) <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;missing user&gt;"</span>;
+
+  <span class="hljs-keyword">if</span> (user.profile) {
+    name = user.profile.name;
+  }
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-string">'string'</span> === <span class="hljs-keyword">typeof</span> name) {
+    name = name.trim();
+  } <span class="hljs-keyword">else</span> {
+    name = <span class="hljs-literal">null</span>;
+  }
+
+  <span class="hljs-keyword">if</span> (!name &amp;&amp; user.emails &amp;&amp; user.emails.length &gt; <span class="hljs-number">0</span>) {
+    name = user.emails[<span class="hljs-number">0</span>].address;
+  }
+
+  <span class="hljs-keyword">return</span> name || <span class="hljs-string">"&lt;missing name&gt;"</span>;
+}
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16"></a>
+</div>
+<p>insta-open/close nav rather than animate collapse.
+this improves UX on mobile devices</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">openCloseNav</span> (<span class="hljs-params">e</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17"></a>
+</div>
+<p>Select .nav-collapse within same .navbar as current button</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">  <span class="hljs-keyword">var</span> nav = $(e.target).closest(<span class="hljs-string">'.navbar'</span>).find(<span class="hljs-string">'.nav-collapse'</span>);
+
+  <span class="hljs-keyword">if</span> (nav.height() != <span class="hljs-number">0</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-18" id="section-18"></a>
+</div>
+<p>If it has a height, hide it</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    nav.height(<span class="hljs-number">0</span>);
+  } <span class="hljs-keyword">else</span> {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-19" id="section-19"></a>
+</div>
+<p>If it's collapsed, show it</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    nav.height(<span class="hljs-string">'auto'</span>);
+  }
+}
+
+
+}());
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>
