@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>info_kwestia_top_buttons.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\kwestia_crud\\info_kwestia_top_buttons.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>info_kwestia_top_buttons.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.kwestiaTopButtons.helpers({
+    <span class="hljs-attr">actualIssue</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id</span>)</span>{
+        <span class="hljs-keyword">var</span> issue=Kwestia.findOne({<span class="hljs-attr">_id</span>:id});
+        <span class="hljs-keyword">return</span> issue? issue : <span class="hljs-literal">null</span>;
+    },
+    <span class="hljs-attr">hasUserRights</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idKwestia</span>) </span>{
+        <span class="hljs-keyword">if</span>(!Meteor.userId())
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"disabled"</span>;
+        <span class="hljs-keyword">var</span> user=Meteor.user().profile;
+        <span class="hljs-keyword">if</span>(user){
+            <span class="hljs-keyword">if</span>(user.userType) {
+                <span class="hljs-keyword">if</span> (user.userType != USERTYPE.CZLONEK)
+                    <span class="hljs-keyword">return</span> <span class="hljs-string">"disabled"</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> isKwestiaGlosowana(idKwestia);
+    },
+    <span class="hljs-attr">isRealizowanaNieaktywny</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">status,czyAktywny</span>)</span>{
+        <span class="hljs-keyword">return</span> (status==KWESTIA_STATUS.REALIZOWANA || status==KWESTIA_STATUS.ZREALIZOWANA) &amp;&amp; czyAktywny==<span class="hljs-literal">true</span> ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">isGlobalParams</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">typ</span>)</span>{
+        <span class="hljs-keyword">return</span> typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">isInZR</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idZR</span>)</span>{
+        <span class="hljs-keyword">var</span> zr=ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>:idZR});
+        <span class="hljs-keyword">return</span> _.contains(zr.zespol,Meteor.userId()) ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">isZrealizowanaChangeParamsGlosowana</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">typ,status</span>)</span>{
+        <span class="hljs-keyword">if</span>(Meteor.userId())
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">return</span> status==KWESTIA_STATUS.ZREALIZOWANA || typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">isKwestiaAccessOrChangeParams</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">typ,status,czyAktywny</span>)</span>{
+        <span class="hljs-keyword">return</span> typ==KWESTIA_TYPE.ACCESS_DORADCA ||
+            typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ||
+            typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ||
+            status==KWESTIA_STATUS.GLOSOWANA ||
+            status==KWESTIA_STATUS.ZREALIZOWANA ||
+            status==KWESTIA_STATUS.ARCHIWALNA ||
+            czyAktywny==<span class="hljs-literal">false</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">isKwestiaAccessOrChangeParamsRealizacja</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">typ,status,czyAktywny</span>)</span>{
+        <span class="hljs-keyword">return</span> ((typ==KWESTIA_TYPE.ACCESS_DORADCA ||
+        typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ||
+        typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) &amp;&amp; (status==KWESTIA_STATUS.REALIZOWANA || status==KWESTIA_STATUS.ZREALIZOWANA) &amp;&amp; czyAktywny==<span class="hljs-literal">false</span>) ||
+        status==KWESTIA_STATUS.GLOSOWANA ||
+        status==KWESTIA_STATUS.OCZEKUJACA ||
+        status==KWESTIA_STATUS.ARCHIWALNA ||
+        czyAktywny==<span class="hljs-literal">false</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">isArchiwalna</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">status,typ</span>)</span>{
+        <span class="hljs-keyword">return</span> _.contains([KWESTIA_STATUS.HIBERNOWANA,KWESTIA_STATUS.ARCHIWALNA],status) || typ==<span class="hljs-literal">false</span> ? <span class="hljs-literal">true</span>: <span class="hljs-literal">false</span>;
+    }
+});
+Template.kwestiaTopButtons.events({
+    <span class="hljs-string">'click #backToList'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-built_in">window</span>.history.back();
+    },
+    <span class="hljs-string">'click #addOptionButton'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> kwestiaCanBeInserted=kwestiaIsAllowedToInsert();
+        <span class="hljs-keyword">if</span>(kwestiaCanBeInserted==<span class="hljs-literal">true</span>) {
+            <span class="hljs-keyword">var</span> kw = <span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">var</span> kwestia = Kwestia.findOne({<span class="hljs-attr">_id</span>: <span class="hljs-keyword">this</span>.idKwestia});
+            <span class="hljs-keyword">if</span> (kwestia) {
+                <span class="hljs-keyword">if</span> (kwestia.idParent) {
+                    <span class="hljs-keyword">if</span> (kwestia.isOption == <span class="hljs-literal">false</span>)
+                        kw = kwestia;
+                    <span class="hljs-keyword">else</span>
+                        kw = Kwestia.findOne({<span class="hljs-attr">idParent</span>: kwestia.idParent});
+
+                }
+            }
+            Session.setPersistent(<span class="hljs-string">"actualKwestia"</span>, kw);
+            Router.go(<span class="hljs-string">"addKwestiaOpcja"</span>);
+        }
+        <span class="hljs-keyword">else</span>
+            notificationPauseWarning(<span class="hljs-string">"kwestii"</span>,kwestiaCanBeInserted);
+    },
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<div class="dox">
+<div class="summary">
+<p>'click #doArchiwum': function (e) {
+e.preventDefault();
+var idKw = e.target.name;
+var issue=Kwestia.findOne({_id:idKw});
+if(isIssueAllowedToArchiveBin(issue)==true){
+var z = Posts.findOne({idKwestia: idKw, postType: &quot;archiwum&quot;});
+if (z) {
+$('html, body').animate({
+scrollTop: $(&quot;.doArchiwumClass&quot;).offset().top
+}, 600);
+}
+else {
+$(&quot;#uzasadnijWyborArchiwum&quot;).modal(&quot;show&quot;);
+}
+}
+},</p>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-string">'click #doKosza'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        e.preventDefault();
+        <span class="hljs-keyword">var</span> idKw = e.target.name;
+        <span class="hljs-keyword">var</span> issue=Kwestia.findOne({<span class="hljs-attr">_id</span>:idKw});
+        <span class="hljs-keyword">if</span>(isIssueAllowedToArchiveBin(issue)==<span class="hljs-literal">true</span>) {
+            <span class="hljs-keyword">var</span> z = Posts.findOne({<span class="hljs-attr">idKwestia</span>: idKw, <span class="hljs-attr">postType</span>: <span class="hljs-string">"kosz"</span>});
+            <span class="hljs-keyword">if</span> (z) {
+                $(<span class="hljs-string">'html, body'</span>).animate({
+                    <span class="hljs-attr">scrollTop</span>: $(<span class="hljs-string">".doKoszaClass"</span>).offset().top
+                }, <span class="hljs-number">600</span>);
+            }
+            <span class="hljs-keyword">else</span> {
+                $(<span class="hljs-string">"#uzasadnijWyborKosz"</span>).modal(<span class="hljs-string">"show"</span>);
+            }
+        }
+    },
+    <span class="hljs-string">'click #addRealizationReportClick'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        e.preventDefault();
+        <span class="hljs-keyword">var</span> odp=getReportsForIssueAtSpecificDuration(<span class="hljs-keyword">this</span>.idKwestia);
+        <span class="hljs-keyword">if</span>(odp==<span class="hljs-literal">false</span>)
+            $(<span class="hljs-string">"#addRRModal"</span>).modal(<span class="hljs-string">"show"</span>);
+        <span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">var</span> className=<span class="hljs-string">".doRealizationRaportClass"</span>+ odp._id;
+            $(<span class="hljs-string">'html, body'</span>).animate({
+                 <span class="hljs-attr">scrollTop</span>: $(className).offset().top
+             }, <span class="hljs-number">600</span>);
+        }
+    }
+});
+
+getReportsForIssueAtSpecificDuration=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idKwestia</span>)</span>{
+    <span class="hljs-keyword">var</span> timeNow = moment(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()).format();
+    <span class="hljs-keyword">var</span> issue=Kwestia.findOne({<span class="hljs-attr">_id</span>:idKwestia});
+    <span class="hljs-keyword">var</span> lastReportId=issue.raporty;
+    <span class="hljs-keyword">var</span> report=Raport.findOne({<span class="hljs-attr">_id</span>:_.last(issue.raporty)});
+    <span class="hljs-keyword">if</span>(report==<span class="hljs-literal">null</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">var</span> reportAddedTime=report.dataUtworzenia;
+    <span class="hljs-keyword">return</span> reportAddedTime &gt; _.last(issue.listaDatRR) ? report : <span class="hljs-literal">false</span>;
+};
+
+isIssueAllowedToArchiveBin=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">issue</span>)</span>{
+    <span class="hljs-keyword">if</span>((issue.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE &amp;&amp; issue.status==KWESTIA_STATUS.ZREALIZOWANA) ||
+        (_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issue.typ) &amp;&amp; issue.status==KWESTIA_STATUS.REALIZOWANA))
+    {
+        <span class="hljs-keyword">var</span> text=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span>(issue.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
+            text = TAPi18n.__(<span class="hljs-string">'txv.GL_PAR_CHANGE1'</span>);
+        <span class="hljs-keyword">if</span>(issue.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
+            text = TAPi18n.__(<span class="hljs-string">'txv.GL_PAR_CHANGE2'</span>);
+        <span class="hljs-keyword">else</span>
+            text = TAPi18n.__(<span class="hljs-string">'txv.GL_PAR_CHANGE3'</span>);
+        bootbox.alert(TAPi18n.__(<span class="hljs-string">'txv.GL_PAR_INFO'</span>) + text + <span class="hljs-string">"!"</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+
+};
+
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

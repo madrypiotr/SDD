@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>usersDraft.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "server\\methods\\usersDraft.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>usersDraft.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Meteor.methods({
+    <span class="hljs-attr">addUserDraft</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newUser</span>) </span>{
+     <span class="hljs-keyword">var</span> id= UsersDraft.insert({
+            <span class="hljs-attr">username</span>: newUser[<span class="hljs-number">0</span>].login,
+            <span class="hljs-attr">email</span>: newUser[<span class="hljs-number">0</span>].email,
+            <span class="hljs-attr">profile</span>: {
+                <span class="hljs-attr">firstName</span>: newUser[<span class="hljs-number">0</span>].firstName,
+                <span class="hljs-attr">lastName</span>: newUser[<span class="hljs-number">0</span>].lastName,
+                <span class="hljs-attr">fullName</span>: newUser[<span class="hljs-number">0</span>].firstName + <span class="hljs-string">' '</span> + newUser[<span class="hljs-number">0</span>].lastName,
+                <span class="hljs-attr">address</span>: newUser[<span class="hljs-number">0</span>].address,
+                <span class="hljs-attr">zip</span>: newUser[<span class="hljs-number">0</span>].zip,
+                <span class="hljs-attr">language</span>:newUser[<span class="hljs-number">0</span>].language,
+                <span class="hljs-attr">userType</span>:newUser[<span class="hljs-number">0</span>].userType,
+                <span class="hljs-attr">uwagi</span>:newUser[<span class="hljs-number">0</span>].uwagi,
+                <span class="hljs-attr">idUser</span>:newUser[<span class="hljs-number">0</span>].idUser,
+                <span class="hljs-attr">isExpectant</span>:newUser[<span class="hljs-number">0</span>].isExpectant,
+                <span class="hljs-attr">city</span>:newUser[<span class="hljs-number">0</span>].city,
+                <span class="hljs-attr">pesel</span>:newUser[<span class="hljs-number">0</span>].pesel
+            },
+             <span class="hljs-attr">czyZrealizowany</span>:<span class="hljs-literal">false</span>,
+             <span class="hljs-attr">linkAktywacyjny</span>:<span class="hljs-literal">null</span>,
+             <span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>,
+             <span class="hljs-attr">dataWprowadzenia</span>:<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(),
+             <span class="hljs-attr">licznikKlikniec</span>:<span class="hljs-number">0</span>
+        });
+        <span class="hljs-keyword">return</span> id;
+
+    },
+    <span class="hljs-attr">removeUserDraft</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id</span>)</span>{
+        UsersDraft.update({<span class="hljs-attr">_id</span>:id},{<span class="hljs-attr">$set</span>:{<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">false</span>,<span class="hljs-attr">czyZrealizowany</span>:<span class="hljs-literal">true</span>}});
+    },
+    <span class="hljs-attr">removeUserDraftAddNewIdUser</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,idUser</span>)</span>{
+        UsersDraft.update({<span class="hljs-attr">_id</span>:id},{<span class="hljs-attr">$set</span>:{<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">false</span>,<span class="hljs-attr">czyZrealizowany</span>:<span class="hljs-literal">true</span>,<span class="hljs-string">'profile.idUser'</span>:idUser}});
+    },
+    <span class="hljs-attr">removeUserDraftNotZrealizowany</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id</span>)</span>{
+        UsersDraft.update({<span class="hljs-attr">_id</span>:id},{<span class="hljs-attr">$set</span>:{<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">false</span>,<span class="hljs-attr">czyZrealizowany</span>:<span class="hljs-literal">false</span>}});
+    },
+    <span class="hljs-attr">removeUserDraftNotZrealizowanyLicznik</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,licznik</span>)</span>{
+        UsersDraft.update({<span class="hljs-attr">_id</span>:id},{<span class="hljs-attr">$set</span>:{<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">false</span>,<span class="hljs-attr">czyZrealizowany</span>:<span class="hljs-literal">false</span>,<span class="hljs-attr">licznikKlikniec</span>:licznik}});
+    },
+    <span class="hljs-attr">setZrealizowanyActivationHashUserDraft</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,activationLink,realization</span>)</span>{
+        UsersDraft.update({<span class="hljs-attr">_id</span>:id},{<span class="hljs-attr">$set</span>:{<span class="hljs-attr">linkAktywacyjny</span>:activationLink,<span class="hljs-attr">czyZrealizowany</span>:realization}});
+    },
+    <span class="hljs-attr">setActivationHashUserDraft</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,activationLink</span>)</span>{
+        UsersDraft.update({<span class="hljs-attr">_id</span>:id},{<span class="hljs-attr">$set</span>:{<span class="hljs-attr">linkAktywacyjny</span>:activationLink}});
+    },
+    <span class="hljs-attr">updateLicznikKlikniec</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,counter</span>)</span>{
+        UsersDraft.update({<span class="hljs-attr">_id</span>:id},{<span class="hljs-attr">$set</span>:{<span class="hljs-attr">licznikKlikniec</span>:counter}});
+    },
+});
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>add_type_modal.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\kwestia_crud\\add_type_modal.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>add_type_modal.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+<div class="dox">
+<div class="summary">
+<p>Created by Bartłomiej Szewczyk on 2015-11-26.</p>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.addTypeModalInner.helpers({
+    <span class="hljs-attr">topicName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> topicId = Session.get(<span class="hljs-string">"choosenTopic"</span>);
+        <span class="hljs-keyword">if</span> (topicId!=<span class="hljs-literal">null</span>){
+            <span class="hljs-keyword">return</span> topicId;
+        }
+        <span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>
+        }
+    }
+});
+
+Template.addTypeModalInner.events({
+    <span class="hljs-string">'click #addTypeModalBtn'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"addTypeModalBtn"</span>).disabled = <span class="hljs-literal">true</span>;
+        Meteor.setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"addTypeModalBtn"</span>).disabled = <span class="hljs-literal">false</span>;
+        }, <span class="hljs-number">2000</span>);
+
+        <span class="hljs-keyword">var</span> nazwaRodzaj = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"typeName"</span>).value;
+        <span class="hljs-keyword">var</span> temat = Temat.findOne({<span class="hljs-attr">nazwaTemat</span>: Session.get(<span class="hljs-string">"choosenTopic"</span>)});
+        <span class="hljs-keyword">var</span> typesCount = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span>(temat) {
+            typesCount = Rodzaj.find({<span class="hljs-attr">idTemat</span>: temat._id, <span class="hljs-attr">nazwaRodzaj</span>: nazwaRodzaj}).count();
+        }
+
+        <span class="hljs-keyword">if</span>(typesCount&gt;<span class="hljs-number">0</span>){
+            GlobalNotification.error({
+                <span class="hljs-attr">title</span>:  TAPi18n.__(<span class="hljs-string">'txv.WARNING'</span>),
+                <span class="hljs-attr">content</span>: TAPi18n.__(<span class="hljs-string">'txv.GIVEN_TYPE_EXISTS'</span>),
+                <span class="hljs-attr">duration</span>: <span class="hljs-number">4</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+            });
+        }<span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">if</span>(nazwaRodzaj == <span class="hljs-string">""</span> || nazwaRodzaj == <span class="hljs-literal">null</span>) {
+                GlobalNotification.error({
+                    <span class="hljs-attr">title</span>:  TAPi18n.__(<span class="hljs-string">'txv.WARNING'</span>),
+                    <span class="hljs-attr">content</span>: FIELD_TYPE_CNBE,
+                    <span class="hljs-attr">duration</span>: <span class="hljs-number">4</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+                });
+            }<span class="hljs-keyword">else</span>{
+                Session.setPersistent(<span class="hljs-string">"choosenType"</span>, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"typeName"</span>).value);
+                $(<span class="hljs-string">"#addTypeModalId"</span>).modal(<span class="hljs-string">"hide"</span>);
+            }
+        }
+
+        <span class="hljs-keyword">if</span>(temat){
+            <span class="hljs-keyword">if</span>(Rodzaj.find({<span class="hljs-attr">idTemat</span>: temat._id}).count()&gt;<span class="hljs-number">0</span>) {
+            <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"chooseTypeBtn"</span>).disabled = <span class="hljs-literal">false</span>;
+            }
+            <span class="hljs-keyword">else</span>{
+                <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"chooseTypeBtn"</span>).disabled = <span class="hljs-literal">true</span>;
+            }
+        }
+    }
+});
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>zrealizowane.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../";
+    var thisFile = "client\\views\\realizacja\\zrealizowane.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>zrealizowane.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.realizacjaTab2.helpers({
+    <span class="hljs-string">'settings'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">rowsPerPage</span>: <span class="hljs-number">20</span>,
+            <span class="hljs-attr">showFilter</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">showNavigation</span>: <span class="hljs-string">'always'</span>,
+            <span class="hljs-attr">showColumnToggles</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">enableRegex</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">fields</span>: [
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'dataRealizacji'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.START_OF_THE_IMPLEMENTATION'</span>), <span class="hljs-attr">tmpl</span>: Template.dataRealizKwestia },
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<pre><code>           { key: 'numerUchwaly', label: TAPi18n.__('txv.RESOLUTION_NO'), tmpl: Template.numerUchwKwestia },
+</code></pre>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                { <span class="hljs-attr">key</span>: <span class="hljs-string">'kwestiaNazwa'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'glob.NameIssue'</span>), <span class="hljs-attr">tmpl</span>: Template.nazwaKwestiLink },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'idTemat'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'glob.Subject'</span>), <span class="hljs-attr">tmpl</span>: Template.tematKwestia },
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<pre><code>           { key: 'idRodzaj', label: TAPi18n.__('glob.Type'), tmpl: Template.rodzajKwestia },
+</code></pre>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                {<span class="hljs-attr">key</span>: <span class="hljs-string">'raporty'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.REPORT'</span>), <span class="hljs-attr">tmpl</span>:Template.raport},
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'options'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.OPTIONS'</span>), <span class="hljs-attr">tmpl</span>: Template.editColumnRealization }
+            ]
+        };
+    },
+    <span class="hljs-attr">ZrealizowaneList</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Kwestia.find({<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">status</span>: {<span class="hljs-attr">$in</span>:[KWESTIA_STATUS.ZREALIZOWANA]}}).fetch();
+    },
+    <span class="hljs-attr">zrealizowaneCount</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Kwestia.find({<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">status</span>: KWESTIA_STATUS.ZREALIZOWANA}).count();
+    },
+    <span class="hljs-attr">ZrealizowaneListCount</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> ile = Kwestia.find({<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">status</span>: {<span class="hljs-attr">$in</span>:[KWESTIA_STATUS.ZREALIZOWANA]}}).count();
+        <span class="hljs-keyword">return</span> ile &gt; <span class="hljs-number">0</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    }
+});
+
+Template.realizacjaTab2.events({
+    <span class="hljs-string">'click #printResolution'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> globalParameters = Parametr.findOne({});
+        <span class="hljs-keyword">var</span> vote = <span class="hljs-keyword">this</span>.glosujacy;
+        <span class="hljs-keyword">var</span> voteFor = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">var</span> voteAgainst = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">var</span> abstained = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">var</span> membersNames = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">3</span>);
+        <span class="hljs-keyword">var</span> issueContent;
+
+        <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++){
+            membersNames[i] = <span class="hljs-string">""</span>;
+        }
+        <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; vote.length; i++){
+            <span class="hljs-keyword">if</span>(vote[i].value&gt;<span class="hljs-number">0</span>){
+                voteFor++;
+            }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(vote[i].value&lt;<span class="hljs-number">0</span>){
+                voteAgainst++
+            }<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(vote[i].value==<span class="hljs-number">0</span>){
+                abstained++
+            }
+        }
+
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.typ == KWESTIA_TYPE.BASIC){
+            issueContent = <span class="hljs-keyword">this</span>.szczegolowaTresc;
+        }<span class="hljs-keyword">else</span>{
+            issueContent = <span class="hljs-keyword">this</span>.krotkaTresc;
+        }
+        <span class="hljs-keyword">var</span> numerUchwaly=<span class="hljs-keyword">this</span>.numerUchwaly.toString();
+        <span class="hljs-keyword">var</span> glosujacyLength=<span class="hljs-keyword">this</span>.glosujacy.length;
+        <span class="hljs-keyword">var</span> issueName=<span class="hljs-keyword">this</span>.kwestiaNazwa;
+
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.idZespolRealizacyjny){
+            <span class="hljs-keyword">var</span> realizationTeam = ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>: <span class="hljs-keyword">this</span>.idZespolRealizacyjny}).zespol;
+            Meteor.call(<span class="hljs-string">"serverGetFullName"</span>,realizationTeam,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error,ret</span>)</span>{
+                <span class="hljs-keyword">if</span>(!error){
+                    membersNames=ret;
+                    <span class="hljs-keyword">var</span> docDefinition = {
+                        <span class="hljs-attr">content</span>: [
+                            { <span class="hljs-attr">text</span>: TAPi18n.__(<span class="hljs-string">'txv.DATA'</span>) +<span class="hljs-string">" "</span> + moment(<span class="hljs-keyword">this</span>.dataRealizacji).format(<span class="hljs-string">"DD.MM.YYYY"</span>).toString() + <span class="hljs-string">" "</span>+TAPi18n.__(<span class="hljs-string">'txv.R'</span>), <span class="hljs-attr">style</span>: <span class="hljs-string">'uchwalaTop'</span>},
+                            { <span class="hljs-attr">text</span>: globalParameters.nazwaOrganizacji + <span class="hljs-string">"\n"</span> +
+                            globalParameters.terytorium + <span class="hljs-string">"\n"</span> +
+                            globalParameters.terytAdres + <span class="hljs-string">"\n"</span> +
+                            globalParameters.terytCODE + <span class="hljs-string">"\n"</span> +
+                            globalParameters.terytCity + <span class="hljs-string">"\n"</span> +
+                            globalParameters.kontakty + <span class="hljs-string">"\n"</span>
+                            },
+                            { <span class="hljs-attr">text</span>: TAPi18n.__(<span class="hljs-string">'txv.RESOLUTION_NO'</span>) + <span class="hljs-string">": "</span> + numerUchwaly + <span class="hljs-string">"\n\n\n\t\t"</span> + TAPi18n.__(<span class="hljs-string">'txv.BELONGS_TO_THE_ISSUES'</span>) + <span class="hljs-string">": "</span> + issueName, <span class="hljs-attr">style</span>: <span class="hljs-string">'uchwalaHeadline'</span>},
+                            { <span class="hljs-attr">text</span>: <span class="hljs-string">"\n\t\t\t\t\t\t"</span> + issueContent, <span class="hljs-attr">style</span>: <span class="hljs-string">'contentStyle'</span>},
+                            { <span class="hljs-attr">text</span>: <span class="hljs-string">"\n\t\t"</span> + TAPi18n.__(<span class="hljs-string">'txv.DESCRIPTION'</span>) + <span class="hljs-string">": "</span> + issueContent, <span class="hljs-attr">style</span>: <span class="hljs-string">'contentStyle'</span>},
+                            { <span class="hljs-attr">text</span>: <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.NUMBER_OF_USERS'</span>) + <span class="hljs-string">" - "</span> + glosujacyLength +
+                            <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.NUMBER_OF_PRESENT'</span>) + <span class="hljs-string">"  - "</span> + glosujacyLength +
+                            <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.YES_NUMBER_OF_VOTERS'</span>) + <span class="hljs-string">" - "</span> + voteFor +
+                            <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.NO_NUMBER_OF_VOTERS'</span>) + <span class="hljs-string">" - "</span> + voteAgainst +
+                            <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.ABSTAINED_NUMBER_OF_VOTERS'</span>) + <span class="hljs-string">" - "</span> + abstained +
+                            <span class="hljs-string">"\n\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.TEAM_IMPLEMENTATION'</span>) + <span class="hljs-string">":"</span> +
+                            <span class="hljs-string">"\n1. - "</span> + membersNames[<span class="hljs-number">0</span>] +
+                            <span class="hljs-string">"\n2. - "</span> + membersNames[<span class="hljs-number">1</span>] +
+                            <span class="hljs-string">"\n3. - "</span> + membersNames[<span class="hljs-number">2</span>]
+                            }
+                        ],
+                        <span class="hljs-attr">styles</span>: {
+                            <span class="hljs-attr">uchwalaTop</span>: {<span class="hljs-attr">fontSize</span>: <span class="hljs-number">12</span>, <span class="hljs-attr">alignment</span>: <span class="hljs-string">'right'</span>},
+                            <span class="hljs-attr">uchwalaHeadline</span>: {<span class="hljs-attr">fontSize</span>: <span class="hljs-number">16</span>, <span class="hljs-attr">bold</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">alignment</span>: <span class="hljs-string">'center'</span>, <span class="hljs-attr">margin</span>: [<span class="hljs-number">0</span>,<span class="hljs-number">50</span>,<span class="hljs-number">0</span>,<span class="hljs-number">50</span>]},
+                            <span class="hljs-attr">contentStyle</span>: {<span class="hljs-attr">fontSize</span>: <span class="hljs-number">12</span>, <span class="hljs-attr">alignment</span>: <span class="hljs-string">'justify'</span>}
+                        }
+                    };
+                    pdfMake.createPdf(docDefinition).open();
+                }
+            });
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">var</span> docDefinition = {
+                <span class="hljs-attr">content</span>: [
+                    { <span class="hljs-attr">text</span>: TAPi18n.__(<span class="hljs-string">'txv.DN'</span>)+<span class="hljs-string">" "</span> + moment(<span class="hljs-keyword">this</span>.dataRealizacji).format(<span class="hljs-string">"DD.MM.YYYY"</span>).toString() +<span class="hljs-string">" "</span>+TAPi18n.__(<span class="hljs-string">'txv.R'</span>), <span class="hljs-attr">style</span>: <span class="hljs-string">'uchwalaTop'</span>},
+                    { <span class="hljs-attr">text</span>: globalParameters.nazwaOrganizacji + <span class="hljs-string">"\n"</span> +
+                    globalParameters.terytorium + <span class="hljs-string">"\n"</span> +
+                    globalParameters.terytAdres + <span class="hljs-string">"\n"</span> +
+					globalParameters.terytCODE + <span class="hljs-string">"\n"</span> +
+					globalParameters.terytCity + <span class="hljs-string">"\n"</span> +
+                    globalParameters.kontakty + <span class="hljs-string">"\n"</span>
+                    },
+                    { <span class="hljs-attr">text</span>: TAPi18n.__(<span class="hljs-string">'txv.RESOLUTION_NO'</span>)+<span class="hljs-string">": "</span> + <span class="hljs-keyword">this</span>.numerUchwaly.toString() + <span class="hljs-string">"\n"</span>+ TAPi18n.__(<span class="hljs-string">'txv.BELONGS_TO_THE_ISSUES'</span>) + <span class="hljs-string">": "</span> + <span class="hljs-keyword">this</span>.kwestiaNazwa , <span class="hljs-attr">style</span>: <span class="hljs-string">'uchwalaHeadline'</span>},
+                    { <span class="hljs-attr">text</span>: <span class="hljs-string">"\n\t\t"</span> + TAPi18n.__(<span class="hljs-string">'txv.DESCRIPTION'</span>) + <span class="hljs-string">": "</span> + issueContent, <span class="hljs-attr">style</span>: <span class="hljs-string">'contentStyle'</span>},
+                    { <span class="hljs-attr">text</span>: <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.NUMBER_OF_USERS'</span>) + <span class="hljs-string">" - "</span> + <span class="hljs-keyword">this</span>.glosujacy.length +
+                    <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.NUMBER_OF_PRESENT'</span>) + <span class="hljs-string">"  - "</span> + <span class="hljs-keyword">this</span>.glosujacy.length +
+                    <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.YES_NUMBER_OF_VOTERS'</span>) + <span class="hljs-string">" - "</span> + voteFor +
+                    <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.NO_NUMBER_OF_VOTERS'</span>) + <span class="hljs-string">" - "</span> + voteAgainst +
+                    <span class="hljs-string">"\n"</span> + TAPi18n.__(<span class="hljs-string">'txv.ABSTAINED_NUMBER_OF_VOTERS'</span>) + <span class="hljs-string">" - "</span> + abstained
+                    }
+                ],
+                <span class="hljs-attr">styles</span>: {
+                    <span class="hljs-attr">uchwalaTop</span>: {<span class="hljs-attr">fontSize</span>: <span class="hljs-number">12</span>, <span class="hljs-attr">alignment</span>: <span class="hljs-string">'right'</span>},
+                    <span class="hljs-attr">uchwalaHeadline</span>: {<span class="hljs-attr">fontSize</span>: <span class="hljs-number">16</span>, <span class="hljs-attr">bold</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">alignment</span>: <span class="hljs-string">'center'</span>, <span class="hljs-attr">margin</span>: [<span class="hljs-number">0</span>,<span class="hljs-number">50</span>,<span class="hljs-number">0</span>,<span class="hljs-number">50</span>]},
+                    <span class="hljs-attr">contentStyle</span>: {<span class="hljs-attr">fontSize</span>: <span class="hljs-number">12</span>, <span class="hljs-attr">alignment</span>: <span class="hljs-string">'justify'</span>}
+                }
+            };
+            pdfMake.createPdf(docDefinition).open();
+        }
+    }
+});
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

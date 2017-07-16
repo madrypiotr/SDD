@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>kwestiaObserver.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "server\\observer\\kwestiaObserver.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>kwestiaObserver.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+<div class="dox">
+<div class="summary">
+<p>Created by Bartłomiej Szewczyk on 2015-08-31.</p>
+<p>Badanie zmian w postach, zespołach i kwestii w celu sprawdzenia czy kwestia powinna zmienić status z:
+deliberowana na glosowana
+glosowana na realizowana
+glosowana na archiwalna</p>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+Meteor.startup(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> globalParamsDraft=ParametrDraft.find();
+    globalParamsDraft.observe({
+        <span class="hljs-attr">added</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newParam</span>)</span>{
+            <span class="hljs-keyword">var</span> params=ParametrDraft.find({<span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>}, {<span class="hljs-attr">sort</span>: {<span class="hljs-attr">dataWprowadzenia</span>:<span class="hljs-number">-1</span>}});
+            <span class="hljs-keyword">if</span>(params.count()&gt;<span class="hljs-number">1</span>){
+                <span class="hljs-keyword">var</span> issue=Kwestia.findOne({<span class="hljs-attr">idParametr</span>:newParam._id});
+                <span class="hljs-keyword">if</span>(issue)
+                    Meteor.call(<span class="hljs-string">"removeKwestia"</span>,issue._id);
+                Meteor.call(<span class="hljs-string">"setActivityParametrDraft"</span>,newParam._id,<span class="hljs-literal">false</span>);
+            }
+        }
+    });
+
+    <span class="hljs-keyword">var</span> kwestie = Kwestia.find({
+        <span class="hljs-attr">status</span>: {
+            <span class="hljs-attr">$in</span>: [
+                KWESTIA_STATUS.DELIBEROWANA,
+                KWESTIA_STATUS.GLOSOWANA,
+                KWESTIA_STATUS.REALIZOWANA,
+                KWESTIA_STATUS.ADMINISTROWANA,
+                KWESTIA_STATUS.ZREALIZOWANA,
+                KWESTIA_STATUS.OSOBOWA
+            ]
+        }
+    });
+
+    kwestie.observe({
+        <span class="hljs-attr">changedAt</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newKwestia, oldKwestia, atIndex</span>) </span>{
+            <span class="hljs-keyword">var</span> kworum = liczenieKworumZwykle();
+            <span class="hljs-keyword">var</span> usersCount = newKwestia.glosujacy.length;
+            <span class="hljs-keyword">var</span> ZRDraft=<span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">var</span> zespolCount=<span class="hljs-literal">null</span>;
+            <span class="hljs-keyword">if</span>(newKwestia.idZespolRealizacyjny) {
+                ZRDraft = ZespolRealizacyjnyDraft.findOne({<span class="hljs-attr">_id</span>: newKwestia.idZespolRealizacyjny});
+                <span class="hljs-keyword">if</span>(ZRDraft)
+                    zespolCount = ZRDraft.zespol.length;
+                <span class="hljs-keyword">else</span> {
+                    ZRDraft = ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>: newKwestia.idZespolRealizacyjny});
+                    <span class="hljs-keyword">if</span>(ZRDraft)
+                        zespolCount = ZRDraft.zespol.length;
+                    <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">if</span>(newKwestia.czyAktywny==<span class="hljs-literal">false</span>)
+                            zespolCount = newKwestia.zespol.czlonkowie.length;
+                    }
+                }
+            }
+            <span class="hljs-keyword">if</span>(newKwestia.wartoscPriorytetu &gt; <span class="hljs-number">0</span> &amp;&amp; usersCount &gt;= kworum &amp;&amp; newKwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE &amp;&amp; newKwestia.status==KWESTIA_STATUS.ADMINISTROWANA) {
+                moveKwestiaToGlosowana(newKwestia);
+            }
+
+            <span class="hljs-keyword">if</span>(newKwestia.wartoscPriorytetu &gt; <span class="hljs-number">0</span> &amp;&amp; usersCount &gt;= kworum &amp;&amp; zespolCount &gt;= <span class="hljs-number">3</span> &amp;&amp; newKwestia.status != KWESTIA_STATUS.REALIZOWANA){
+                <span class="hljs-keyword">if</span>(newKwestia.status == KWESTIA_STATUS.DELIBEROWANA){
+                    moveKwestiaToGlosowana(newKwestia);
+                }
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(newKwestia.status==KWESTIA_STATUS.OSOBOWA &amp;&amp; (newKwestia.typ==KWESTIA_TYPE.ACCESS_DORADCA || newKwestia.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY)){
+                    moveKwestiaToGlosowana(newKwestia);
+                }
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (newKwestia.status == KWESTIA_STATUS.OCZEKUJACA){
+                   <span class="hljs-keyword">if</span>(newKwestia.isAnswerPositive==<span class="hljs-literal">true</span>){
+                        }
+                }
+            }
+
+            <span class="hljs-keyword">if</span>(newKwestia.status == KWESTIA_STATUS.REALIZOWANA &amp;&amp; newKwestia.wartoscPriorytetuWRealizacji &lt; ((<span class="hljs-number">-1</span>)*newKwestia.wartoscPriorytetu) &amp;&amp; newKwestia.czyAktywny==<span class="hljs-literal">true</span>){
+                Meteor.call(<span class="hljs-string">'removeKwestiaSetReason'</span>, newKwestia._id,KWESTIA_ACTION.NEGATIVE_PRIORITY,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+                    <span class="hljs-keyword">if</span>(!error) {
+                        <span class="hljs-keyword">if</span> (newKwestia.idZespolRealizacyjny) {
+                            manageZR(newKwestia);
+                        }
+                    }
+                    <span class="hljs-keyword">else</span>
+                        throwError(error.reason);
+                });
+
+            }
+            <span class="hljs-keyword">if</span>(oldKwestia.status != newKwestia.status){
+                <span class="hljs-keyword">if</span>(oldKwestia.status == KWESTIA_STATUS.REALIZOWANA &amp;&amp; (newKwestia.status == KWESTIA_STATUS.ZREALIZOWANA || newKwestia.status == KWESTIA_STATUS.ARCHIWALNA)){
+                    unhibernateKwestieOpcje(newKwestia);
+                }
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>sprawdzenie czy jakas kwestia opuściła głosowanie,jeśli tak,wpuść inne(zrealizowana dla param glob)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                <span class="hljs-keyword">if</span>(oldKwestia.status == KWESTIA_STATUS.GLOSOWANA &amp;&amp;
+                    (newKwestia.status==KWESTIA_STATUS.ZREALIZOWANA ||
+                    newKwestia.status==KWESTIA_STATUS.REALIZOWANA ||
+                    newKwestia.status==KWESTIA_STATUS.HIBERNOWANA)){
+
+                    <span class="hljs-keyword">var</span> kwestie = Kwestia.find(
+                        {   <span class="hljs-attr">status</span>: {
+                            <span class="hljs-attr">$in</span>: [
+                                KWESTIA_STATUS.DELIBEROWANA,
+                                KWESTIA_STATUS.ADMINISTROWANA,
+                                KWESTIA_STATUS.OSOBOWA
+                            ]
+                        }
+                        },
+                        {<span class="hljs-attr">wartoscPriorytetu</span>: {<span class="hljs-attr">$gt</span>: <span class="hljs-number">0</span>}},
+                        {<span class="hljs-attr">sort</span>: {<span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-number">-1</span>, <span class="hljs-attr">dataWprowadzenia</span>: <span class="hljs-number">1</span>}});
+
+                    <span class="hljs-keyword">var</span> arrayKwestie=[];
+                    <span class="hljs-keyword">var</span> idParent=oldKwestia.idParent;
+                    kwestie.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">kwestia</span>) </span>{
+                        <span class="hljs-keyword">var</span> condtion=<span class="hljs-literal">null</span>;
+                        <span class="hljs-keyword">if</span>(kwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
+                            condtion=liczenieKworumZwykle();
+                        <span class="hljs-keyword">else</span> {
+                            <span class="hljs-keyword">var</span> rodzaj=Rodzaj.findOne({<span class="hljs-attr">_id</span>:kwestia.idRodzaj});
+                            <span class="hljs-keyword">if</span>(rodzaj.rodzajNazwa==<span class="hljs-string">"Statutowe"</span>)
+                            condtion=liczenieKworumStatutowe();
+                            <span class="hljs-keyword">else</span> condtion=liczenieKworumZwykle();
+                        }
+                        <span class="hljs-keyword">if</span>(kwestia.glosujacy.length&gt;=condtion) {
+                            <span class="hljs-keyword">if</span> (kwestia.idZespolRealizacyjny) {
+                                <span class="hljs-keyword">var</span> zespol = ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>: kwestia.idZespolRealizacyjny});
+                                <span class="hljs-keyword">if</span> (!zespol) {
+                                    zespol = ZespolRealizacyjnyDraft.findOne({<span class="hljs-attr">_id</span>: kwestia.idZespolRealizacyjny});
+                                }
+                                <span class="hljs-keyword">if</span> (zespol.zespol.length &gt;= <span class="hljs-number">3</span>)
+                                    arrayKwestie.push(kwestia);
+                            }
+                            <span class="hljs-keyword">else</span>
+                                arrayKwestie.push(kwestia);
+                        }
+                    });
+
+                    <span class="hljs-keyword">if</span>(arrayKwestie.length&gt;<span class="hljs-number">0</span>) {
+                        arrayKwestie = _.sortBy(arrayKwestie, <span class="hljs-string">"wartoscPriorytetu"</span>);
+                        arrayKwestie.reverse();
+
+                        <span class="hljs-keyword">var</span> kwestieGlosowane=Kwestia.find({<span class="hljs-attr">status</span>:KWESTIA_STATUS.GLOSOWANA,<span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>});
+                        <span class="hljs-keyword">var</span> tab=<span class="hljs-literal">null</span>;
+                        <span class="hljs-keyword">if</span>(kwestieGlosowane.count()==<span class="hljs-number">0</span>) {
+                            tab = setInQueueToVote(arrayKwestie,arrayKwestie.length);
+                        }
+                        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(kwestieGlosowane.count()==<span class="hljs-number">1</span>){
+                            tab= _.first(setInQueueToVote(arrayKwestie,arrayKwestie.length),<span class="hljs-number">2</span>);
+                        }
+                        <span class="hljs-keyword">else</span>{
+                            tab= _.first(setInQueueToVote(arrayKwestie,<span class="hljs-number">1</span>),<span class="hljs-number">1</span>);
+                        }
+                        _.each(tab,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">kwestiaId</span>)</span>{
+                            <span class="hljs-keyword">var</span> kwestia=Kwestia.findOne({<span class="hljs-attr">_id</span>:kwestiaId});
+                            <span class="hljs-keyword">if</span>(kwestia){
+                                <span class="hljs-keyword">if</span>(kwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
+                                    moveKwestiaToGlosowana(kwestia);
+                                <span class="hljs-keyword">else</span> {
+                                    <span class="hljs-keyword">var</span> zr = ZespolRealizacyjnyDraft.findOne({<span class="hljs-attr">_id</span>: arrayKwestie[<span class="hljs-number">0</span>].idZespolRealizacyjny});
+                                    moveKwestiaToGlosowana(kwestia);
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>jezeli kwestia idzie do kosza,uwolinij hibernowane</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">            <span class="hljs-keyword">if</span>(oldKwestia.czyAktywny==<span class="hljs-literal">true</span> &amp;&amp; oldKwestia.status==KWESTIA_STATUS.REALIZOWANA &amp;&amp; newKwestia.czyAktywny==<span class="hljs-literal">false</span>){
+                unhibernateKwestieOpcje(newKwestia);
+            }
+        }
+    });
+
+    kwestiaAllowedToGlosowana=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">var</span> allKwestieGlosowane=Kwestia.find({<span class="hljs-attr">status</span>:KWESTIA_STATUS.GLOSOWANA,<span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>}).count();
+        <span class="hljs-keyword">return</span> allKwestieGlosowane &lt; <span class="hljs-number">3</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    };
+    changeParametersSuccessObserver=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">kwestia</span>)</span>{<span class="hljs-comment">//głosowana-&gt;zrealizowana</span>
+        <span class="hljs-keyword">var</span> globalPramsDraft=ParametrDraft.findOne({<span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">var</span> obj={
+            <span class="hljs-attr">nazwaOrganizacji</span>:globalPramsDraft.nazwaOrganizacji,
+            <span class="hljs-attr">terytorium</span>:globalPramsDraft.terytorium,
+            <span class="hljs-attr">terytAdres</span>:globalPramsDraft.terytAdres,
+            <span class="hljs-attr">terytCODE</span>:globalPramsDraft.terytCODE,
+            <span class="hljs-attr">terytCity</span>:globalPramsDraft.terytCity,
+            <span class="hljs-attr">kontakty</span>:globalPramsDraft.kontakty,
+            <span class="hljs-attr">regulamin</span>: globalPramsDraft.regulamin,
+            <span class="hljs-attr">voteDuration</span>: globalPramsDraft.voteDuration,
+            <span class="hljs-attr">voteQuantity</span>:globalPramsDraft.voteQuantity,
+            <span class="hljs-attr">czasWyczekiwaniaKwestiiSpecjalnej</span>:globalPramsDraft.czasWyczekiwaniaKwestiiSpecjalnej,
+            <span class="hljs-attr">addIssuePause</span>:globalPramsDraft.addIssuePause,
+            <span class="hljs-attr">addCommentPause</span>:globalPramsDraft.addCommentPause,
+            <span class="hljs-attr">addReferencePause</span>:globalPramsDraft.addReferencePause,
+            <span class="hljs-attr">okresSkladaniaRR</span>:globalPramsDraft.okresSkladaniaRR
+        };
+        <span class="hljs-keyword">var</span> globalParam=Parametr.findOne();
+        Meteor.call(<span class="hljs-string">"updateParametr"</span>,globalParam._id,obj,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+            <span class="hljs-keyword">if</span>(!error)
+                Meteor.call(<span class="hljs-string">"setActivityParametrDraft"</span>,globalPramsDraft._id,<span class="hljs-literal">false</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+                    <span class="hljs-keyword">if</span>(!error)
+                        Meteor.call(<span class="hljs-string">"updateStatusKwestii"</span>,kwestia._id,KWESTIA_STATUS.ZREALIZOWANA);
+                });
+        });
+    };
+    moveKwestiaToGlosowana=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newKwestia,ZRDraft,ifUpdateZR</span>)</span>{
+        <span class="hljs-keyword">if</span>(kwestiaAllowedToGlosowana()) {
+            <span class="hljs-keyword">var</span> czasGlosowania = Parametr.findOne({}).voteDuration;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>console.log(&quot;ZMIANA_PARAMS&quot;);</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">            <span class="hljs-keyword">var</span> final = moment(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()).add(czasGlosowania, <span class="hljs-string">"hours"</span>).format();
+            <span class="hljs-keyword">var</span> start = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+            Meteor.call(<span class="hljs-string">'updateStatusDataGlosowaniaKwestiiFinal'</span>, newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+                <span class="hljs-keyword">if</span>(error)
+                    <span class="hljs-built_in">console</span>.log(error.reason);
+            });
+            addPowiadomienieKwestiaGlosowanaMethod(newKwestia._id);
+            Meteor.call(<span class="hljs-string">"sendEmailStartedVoting"</span>,newKwestia._id, getUserLanguage(), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+                <span class="hljs-keyword">if</span>(error){
+                    <span class="hljs-keyword">var</span> emailError = {
+                        <span class="hljs-attr">idIssue</span>: newKwestia._id,
+                        <span class="hljs-attr">type</span>: NOTIFICATION_TYPE.VOTE_BEGINNING
+                    };
+                    Meteor.call(<span class="hljs-string">"addEmailError"</span>, emailError);
+                }
+            });
+        }
+    };
+    setInQueueToVote=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">kwestie,numberKwestieAvailable</span>)</span>{
+        <span class="hljs-keyword">var</span> tab=[];
+        <span class="hljs-keyword">var</span> tabKwestie = [];
+        kwestie.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
+            tabKwestie.push(item);
+        });
+        <span class="hljs-keyword">var</span> arrayTheSameWartoscPrior = _.where(tabKwestie, {<span class="hljs-string">'wartoscPriorytetu'</span>: tabKwestie[<span class="hljs-number">0</span>].wartoscPriorytetu});
+        <span class="hljs-keyword">if</span> (arrayTheSameWartoscPrior.length &gt;= <span class="hljs-number">3</span>) {
+            <span class="hljs-keyword">var</span> tabKwestieSort = _.sortBy(arrayTheSameWartoscPrior, <span class="hljs-string">"dataWprowadzenia"</span>);
+            <span class="hljs-keyword">if</span>(numberKwestieAvailable==<span class="hljs-number">3</span>) {
+                tab=setTabValues(<span class="hljs-number">3</span>,tabKwestieSort,tab);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(numberKwestieAvailable==<span class="hljs-number">2</span>){
+                tab=setTabValues(<span class="hljs-number">2</span>,tabKwestieSort,tab);
+            }
+            <span class="hljs-keyword">else</span>
+                tab.push(tabKwestieSort[<span class="hljs-number">0</span>]._id);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (arrayTheSameWartoscPrior.length == <span class="hljs-number">2</span>) {
+            <span class="hljs-keyword">var</span> tabKwestieSort = _.sortBy(arrayTheSameWartoscPrior, <span class="hljs-string">"dataWprowadzenia"</span>);
+            <span class="hljs-keyword">if</span>(numberKwestieAvailable==<span class="hljs-number">3</span>) {
+                tab.push(tabKwestieSort[<span class="hljs-number">0</span>]._id);
+                tab.push(tabKwestieSort[<span class="hljs-number">1</span>]._id);
+                tabKwestie = _.reject(tabKwestie, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>{
+                    <span class="hljs-keyword">return</span> el.wartoscPriorytetu == tabKwestieSort[<span class="hljs-number">0</span>].wartoscPriorytetu
+                });
+                tabKwestie = (_.sortBy(tabKwestie, <span class="hljs-string">"wartoscPriorytetu"</span>)).reverse();
+                arrayTheSameWartoscPrior = _.where(tabKwestie, {<span class="hljs-string">'wartoscPriorytetu'</span>: tabKwestie[<span class="hljs-number">0</span>].wartoscPriorytetu});
+                <span class="hljs-keyword">var</span> tabKwestieSort2 = _.sortBy(arrayTheSameWartoscPrior, <span class="hljs-string">"dataWprowadzenia"</span>);
+                tab.push(tabKwestieSort[<span class="hljs-number">0</span>]._id);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(numberKwestieAvailable==<span class="hljs-number">2</span>){
+                tab.push(tabKwestieSort[<span class="hljs-number">0</span>]._id);
+                tab.push(tabKwestieSort[<span class="hljs-number">1</span>]._id);
+            }
+            <span class="hljs-keyword">else</span>{
+                tab.push(tabKwestieSort[<span class="hljs-number">0</span>]._id);
+            }
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">if</span>(numberKwestieAvailable==<span class="hljs-number">3</span>) {
+                arrayTheSameWartoscPrior = _.where(tabKwestie, {<span class="hljs-string">'wartoscPriorytetu'</span>: tabKwestie[<span class="hljs-number">1</span>].wartoscPriorytetu});
+                <span class="hljs-keyword">if</span> (arrayTheSameWartoscPrior.length &gt;= <span class="hljs-number">2</span>) {
+                    tabKwestieSort = _.sortBy(arrayTheSameWartoscPrior, <span class="hljs-string">"dataWprowadzenia"</span>);
+                    tab = setTabValues(numberKwestieAvailable, [tabKwestie[<span class="hljs-number">0</span>], tabKwestieSort[<span class="hljs-number">0</span>], tabKwestieSort[<span class="hljs-number">1</span>]], tab);
+                }
+                <span class="hljs-keyword">else</span> {
+                    tab = setTabValues(numberKwestieAvailable, [tabKwestie[<span class="hljs-number">0</span>], tabKwestie[<span class="hljs-number">1</span>], tabKwestie[<span class="hljs-number">2</span>]], tab);
+                }
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(numberKwestieAvailable==<span class="hljs-number">2</span>){
+                arrayTheSameWartoscPrior = _.where(tabKwestie, {<span class="hljs-string">'wartoscPriorytetu'</span>: tabKwestie[<span class="hljs-number">1</span>].wartoscPriorytetu});
+                <span class="hljs-keyword">if</span> (arrayTheSameWartoscPrior.length &gt;= <span class="hljs-number">2</span>) {
+                    tabKwestieSort = _.sortBy(arrayTheSameWartoscPrior, <span class="hljs-string">"dataWprowadzenia"</span>);
+                    tab = setTabValues(numberKwestieAvailable, [tabKwestie[<span class="hljs-number">0</span>], tabKwestieSort[<span class="hljs-number">0</span>]], tab);
+                }
+                <span class="hljs-keyword">else</span>{
+                    tab = setTabValues(numberKwestieAvailable, [tabKwestie[<span class="hljs-number">0</span>], tabKwestie[<span class="hljs-number">1</span>]], tab);
+                }
+            }
+            <span class="hljs-keyword">else</span>{
+                tab.push(tabKwestie[<span class="hljs-number">0</span>]._id);
+            }
+        }
+        <span class="hljs-keyword">return</span> tab;
+    };
+    setTabValues=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">numberKwestieAvailable,tabKwestieSort,tab</span>)</span>{
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;numberKwestieAvailable;i++){
+            tab.push(tabKwestieSort[i]._id);
+        }
+        <span class="hljs-keyword">return</span> tab;
+    };
+    rewriteZRMembersToList=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">zespolRealizacyjny,newKwestia</span>)</span>{
+        <span class="hljs-keyword">var</span> czlonkowieZespolu = [];
+        _.each(zespolRealizacyjny.zespol, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">idUser</span>) </span>{
+            <span class="hljs-keyword">var</span> user = Users.findOne({<span class="hljs-attr">_id</span>: idUser});
+            czlonkowieZespolu.push(user.profile.firstName + <span class="hljs-string">" "</span> + user.profile.lastName);
+        });
+        <span class="hljs-keyword">var</span> obj={
+            <span class="hljs-attr">nazwa</span>:zespolRealizacyjny.nazwa,
+            <span class="hljs-attr">czlonkowie</span>:czlonkowieZespolu
+        };
+        Meteor.call(<span class="hljs-string">"addConstZR"</span>, newKwestia._id, obj, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+            <span class="hljs-keyword">if</span> (error)
+                throwError(error.reason);
+        });
+    };
+    manageZR=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newKwestia</span>)</span>{
+        <span class="hljs-keyword">var</span> zespolRealizacyjny = ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>: newKwestia.idZespolRealizacyjny});
+        <span class="hljs-keyword">if</span> (zespolRealizacyjny.kwestie.length &gt; <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">var</span> kwestie = _.reject(zespolRealizacyjny.kwestie, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">kwestiaId</span>) </span>{
+                <span class="hljs-keyword">return</span> kwestiaId == newKwestia._id
+            });
+            <span class="hljs-keyword">if</span>(kwestie.length==<span class="hljs-number">0</span> &amp;&amp; zespolRealizacyjny._id!=ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>:<span class="hljs-string">"jjXKur4qC5ZGPQkgN"</span>})._id){
+                Meteor.call(<span class="hljs-string">"updateKwestieZRChangeActivity"</span>, zespolRealizacyjny._id, kwestie,<span class="hljs-literal">false</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+                    <span class="hljs-keyword">if</span> (error)
+                        <span class="hljs-built_in">console</span>.log(error.reason);
+                    <span class="hljs-keyword">else</span>
+                        rewriteZRMembersToList(zespolRealizacyjny, newKwestia);
+                });
+            }
+            <span class="hljs-keyword">else</span> {
+                Meteor.call(<span class="hljs-string">"updateKwestieZR"</span>, zespolRealizacyjny._id, kwestie, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+                    <span class="hljs-keyword">if</span> (error)
+                        <span class="hljs-built_in">console</span>.log(error.reason);
+                    <span class="hljs-keyword">else</span>
+                        rewriteZRMembersToList(zespolRealizacyjny, newKwestia);
+                });
+            }
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">if</span>(zespolRealizacyjny._id!=ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>:<span class="hljs-string">"jjXKur4qC5ZGPQkgN"</span>})._id){
+                Meteor.call(<span class="hljs-string">'removeZespolRealizacyjny'</span>, zespolRealizacyjny._id, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+                    <span class="hljs-keyword">if</span> (error)
+                        <span class="hljs-built_in">console</span>.log(error.reason);
+                    <span class="hljs-keyword">else</span>
+                        rewriteZRMembersToList(zespolRealizacyjny, newKwestia);
+                });
+            }
+            <span class="hljs-keyword">else</span>
+                rewriteZRMembersToList(zespolRealizacyjny, newKwestia);
+        }
+    };
+    unhibernateKwestieOpcje=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">kwestia</span>)</span>{
+        <span class="hljs-keyword">var</span> kwestieOpcje = Kwestia.find({<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">idParent</span>: kwestia.idParent, <span class="hljs-attr">status</span>: KWESTIA_STATUS.HIBERNOWANA});
+        kwestieOpcje.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">kwestiaOpcja</span>)</span>{
+            <span class="hljs-keyword">if</span>(kwestiaOpcja._id!=kwestia._id) {
+                Meteor.call(<span class="hljs-string">'updateStatusKwestii'</span>, kwestiaOpcja._id, KWESTIA_STATUS.DELIBEROWANA);
+            }
+        });
+    }
+});
+
+addPowiadomienieAplikacjaObsRespondMethod=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idKwestia,dataWprowadzenia,typ,idReceiver,idUserDraft</span>)</span>{
+    <span class="hljs-keyword">var</span> newPowiadomienie ={
+        <span class="hljs-attr">idOdbiorca</span>: idReceiver,
+        <span class="hljs-attr">idNadawca</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">dataWprowadzenia</span>: dataWprowadzenia,
+        <span class="hljs-attr">tytul</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">powiadomienieTyp</span>: typ,
+        <span class="hljs-attr">tresc</span>: <span class="hljs-string">""</span>,
+        <span class="hljs-attr">idKwestia</span>:idKwestia,
+        <span class="hljs-attr">idUserDraft</span>:idUserDraft,
+        <span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">czyOdczytany</span>:<span class="hljs-literal">false</span>
+    };
+    Meteor.call(<span class="hljs-string">"addPowiadomienie"</span>,newPowiadomienie,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+        <span class="hljs-keyword">if</span>(error)
+            <span class="hljs-built_in">console</span>.log(error.reason);
+    });
+};
+
+addPowiadomienieKwestiaGlosowanaMethod=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idKwestia</span>)</span>{
+    <span class="hljs-keyword">var</span> users=Users.find({<span class="hljs-string">'profile.userType'</span>:USERTYPE.CZLONEK});
+    <span class="hljs-keyword">var</span> kwestia=Kwestia.findOne({<span class="hljs-attr">_id</span>:idKwestia});
+    users.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">user</span>)</span>{
+        <span class="hljs-keyword">var</span> newPowiadomienie ={
+            <span class="hljs-attr">idOdbiorca</span>: user._id,
+            <span class="hljs-attr">idNadawca</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">dataWprowadzenia</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(),
+            <span class="hljs-attr">tytul</span>: <span class="hljs-string">""</span>,
+            <span class="hljs-attr">powiadomienieTyp</span>: NOTIFICATION_TYPE.VOTE_BEGINNING,
+            <span class="hljs-attr">tresc</span>: <span class="hljs-string">""</span>,
+            <span class="hljs-attr">idKwestia</span>:idKwestia,
+            <span class="hljs-attr">kwestia</span>:kwestia,
+            <span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">czyOdczytany</span>:<span class="hljs-literal">false</span>
+        };
+        Meteor.call(<span class="hljs-string">"addPowiadomienie"</span>,newPowiadomienie,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+            <span class="hljs-keyword">if</span>(error)
+                <span class="hljs-built_in">console</span>.log(error.reason);
+        });
+    });
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

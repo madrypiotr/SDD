@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>info_kwestia_manage_priorities.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\kwestia_crud\\info_kwestia_manage_priorities.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>info_kwestia_manage_priorities.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.managePriorities.helpers({
+    <span class="hljs-attr">priority</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">priorytet</span>) </span>{
+        <span class="hljs-keyword">if</span> (priorytet) {
+            <span class="hljs-keyword">if</span> (priorytet &gt; <span class="hljs-number">0</span>) {
+                priorytet = <span class="hljs-string">"+"</span> + priorytet;
+                <span class="hljs-keyword">return</span> priorytet;
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> priorytet;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    },
+    <span class="hljs-attr">isSelected</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">number, idParent, glosujacy, status, idKwestia</span>) </span>{
+        <span class="hljs-keyword">if</span> (!Meteor.userId())
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"disabled"</span>;
+        <span class="hljs-keyword">if</span> (Meteor.user().profile.userType != USERTYPE.CZLONEK)
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"disabled"</span>;
+        <span class="hljs-keyword">var</span> kwestia = Kwestia.findOne({<span class="hljs-attr">_id</span>: idKwestia});
+        <span class="hljs-keyword">var</span> flag = <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">if</span> (kwestia) {
+            <span class="hljs-keyword">if</span> (kwestia.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) {
+                <span class="hljs-keyword">var</span> globalParams = ParametrDraft.findOne({<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>});
+                <span class="hljs-keyword">if</span> (globalParams) {
+                    <span class="hljs-keyword">var</span> kwestie = Kwestia.find({
+                        <span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,
+                        <span class="hljs-string">'glosujacy.idUser'</span>: Meteor.userId(),
+                        <span class="hljs-attr">typ</span>: KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE,
+                        <span class="hljs-attr">idParametr</span>: globalParams._id
+                    });
+                }
+            }
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">var</span> kwestie = Kwestia.find({
+                    <span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,
+                    <span class="hljs-string">'glosujacy.idUser'</span>: Meteor.userId(),
+                    <span class="hljs-attr">idParent</span>: idParent
+                });
+        }
+        <span class="hljs-keyword">if</span> (status == KWESTIA_STATUS.REALIZOWANA) {
+            <span class="hljs-keyword">var</span> kwestia = Kwestia.findOne({<span class="hljs-attr">_id</span>: idKwestia});
+            <span class="hljs-keyword">if</span> (kwestia) {
+                <span class="hljs-keyword">var</span> glosujacyUser = _.findWhere(kwestia.glosujacyWRealizacji, {<span class="hljs-string">'idUser'</span>: Meteor.userId()});
+                <span class="hljs-keyword">if</span> (glosujacyUser) {
+                    <span class="hljs-keyword">if</span> (glosujacyUser.value == number) {
+                        flag = <span class="hljs-literal">true</span>;
+                    }
+                    <span class="hljs-keyword">else</span> flag = <span class="hljs-literal">false</span>;
+                }
+                <span class="hljs-keyword">else</span>
+                    flag = <span class="hljs-literal">false</span>;
+            }
+        }
+        <span class="hljs-keyword">else</span> {
+            kwestie.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">kwestiaItem</span>) </span>{
+                <span class="hljs-keyword">var</span> array = [];
+                <span class="hljs-keyword">var</span> tabGlosujacych = glosujacy;
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; kwestiaItem.glosujacy.length; j++) {
+                    <span class="hljs-keyword">if</span> (kwestiaItem.glosujacy[j].idUser == Meteor.userId()) {
+                        <span class="hljs-keyword">if</span> (kwestiaItem.glosujacy[j].value == number) {
+                            flag = <span class="hljs-literal">true</span>;
+                        }
+                    }
+                }
+            });
+        }
+        <span class="hljs-keyword">return</span> flag == <span class="hljs-literal">true</span> ? <span class="hljs-string">"disabled"</span> : <span class="hljs-string">""</span>;
+    },
+    <span class="hljs-attr">isUserOrDoradcaLogged</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> (!Meteor.userId())
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"disabled"</span>;
+        <span class="hljs-keyword">return</span> Meteor.user().profile.userType != USERTYPE.CZLONEK ? <span class="hljs-string">"disabled"</span> : <span class="hljs-string">""</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;
+    },
+    <span class="hljs-attr">koszZrealizowanaArchiwum</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">czyAktywny, status</span>) </span>{
+        <span class="hljs-keyword">return</span> czyAktywny == <span class="hljs-literal">false</span> || status == KWESTIA_STATUS.ZREALIZOWANA || status == KWESTIA_STATUS.ARCHIWALNA || status == KWESTIA_STATUS.OCZEKUJACA
+        || status == KWESTIA_STATUS.HIBERNOWANA ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">isRealizowana</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">status</span>) </span>{
+        <span class="hljs-keyword">return</span> status == KWESTIA_STATUS.REALIZOWANA ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    }
+});
+
+Template.managePriorities.events({
+    <span class="hljs-string">'click #priorytetButton'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-keyword">var</span> aktualnaKwestiaId = Session.set(<span class="hljs-string">"idK"</span>, <span class="hljs-keyword">this</span>._id);
+        <span class="hljs-keyword">var</span> u = Meteor.userId();
+        <span class="hljs-keyword">var</span> ratingValue = <span class="hljs-built_in">parseInt</span>(e.target.value);
+        <span class="hljs-keyword">var</span> ratingKwestiaId = e.target.name;
+        <span class="hljs-keyword">var</span> kwestia = Kwestia.findOne({<span class="hljs-attr">_id</span>: ratingKwestiaId});
+
+        <span class="hljs-keyword">var</span> object = {
+            <span class="hljs-attr">idUser</span>: Meteor.userId(),
+            <span class="hljs-attr">value</span>: ratingValue
+        };
+        <span class="hljs-keyword">if</span> (kwestia.status == KWESTIA_STATUS.REALIZOWANA) {
+            managePriorityKwestiaRealizowana(ratingKwestiaId, kwestia, object, ratingValue);
+
+        }
+        <span class="hljs-keyword">else</span> {
+            managePriorityKwestiaDelibGlosowana(ratingKwestiaId, kwestia, object, ratingValue);
+
+        }
+    }
+});
+managePriorityKwestiaRealizowana = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ratingKwestiaId, kwestia, object, ratingValue</span>) </span>{
+    <span class="hljs-keyword">var</span> wartoscPriorytetuWRealizacji = kwestia.wartoscPriorytetuWRealizacji;
+    <span class="hljs-keyword">var</span> glosujacyWRealizacji = kwestia.glosujacyWRealizacji;
+    <span class="hljs-keyword">var</span> myGlos = _.findWhere(glosujacyWRealizacji, {<span class="hljs-string">'idUser'</span>: Meteor.userId()});
+
+    <span class="hljs-keyword">if</span> (myGlos) {
+        wartoscPriorytetuWRealizacji -= myGlos.value;
+        wartoscPriorytetuWRealizacji += ratingValue;
+        <span class="hljs-keyword">var</span> newGlosujacyWRealiz = _.reject(glosujacyWRealizacji, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>{
+            <span class="hljs-keyword">return</span> el.idUser == Meteor.userId()
+        });
+        object.value = ratingValue;
+        glosujacyWRealizacji = newGlosujacyWRealiz;
+        glosujacyWRealizacji.push(object);
+    }
+    <span class="hljs-keyword">else</span> {
+        wartoscPriorytetuWRealizacji += ratingValue;
+        glosujacyWRealizacji.push(object);
+    }
+    <span class="hljs-keyword">var</span> kwestiaUpdate = [{
+        <span class="hljs-attr">wartoscPriorytetuWRealizacji</span>: wartoscPriorytetuWRealizacji,
+        <span class="hljs-attr">glosujacyWRealizacji</span>: glosujacyWRealizacji
+    }];
+    Meteor.call(<span class="hljs-string">'updateKwestiaWRealizacjiRating'</span>, ratingKwestiaId, kwestiaUpdate, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+        <span class="hljs-keyword">if</span> (error) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+            <span class="hljs-keyword">else</span>
+                throwError(error.reason);
+        }
+    });
+};
+
+managePriorityKwestiaDelibGlosowana = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ratingKwestiaId, kwestia, object, ratingValue</span>) </span>{
+    <span class="hljs-keyword">var</span> wartoscPriorytetu = <span class="hljs-built_in">parseInt</span>(kwestia.wartoscPriorytetu);
+    <span class="hljs-keyword">var</span> parent = <span class="hljs-keyword">this</span>.idParent;
+    <span class="hljs-keyword">var</span> kwestieOpcje = Kwestia.find({<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">idParent</span>: parent});
+    <span class="hljs-keyword">var</span> glosujacyTab = kwestia.glosujacy;
+
+    <span class="hljs-keyword">var</span> flag = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">if</span> (kwestieOpcje.count() &gt; <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; kwestieOpcje.length; i++) {
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; kwestieOpcje[i].glosujacy.length; j++) {
+                <span class="hljs-keyword">var</span> user = kwestieOpcje[i].glosujacy[j].idUser;
+                <span class="hljs-keyword">var</span> oddanyGlos = kwestieOpcje[i].glosujacy[j].value;
+                <span class="hljs-keyword">if</span> (user == Meteor.userId()) {
+                    <span class="hljs-keyword">if</span> (oddanyGlos == ratingValue) {
+                        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                    }
+                }
+            }
+        }
+    }
+    <span class="hljs-keyword">var</span> oldValue = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; kwestia.glosujacy.length; i++) {
+        <span class="hljs-keyword">if</span> (kwestia.glosujacy[i].idUser === Meteor.userId()) {
+            flag = <span class="hljs-literal">false</span>;
+            oldValue = glosujacyTab[i].value;
+            wartoscPriorytetu -= glosujacyTab[i].value;
+            glosujacyTab[i].value = ratingValue;
+            wartoscPriorytetu += glosujacyTab[i].value;
+        }
+    }
+
+    <span class="hljs-keyword">var</span> kwestiaUpdate = [{
+        <span class="hljs-attr">wartoscPriorytetu</span>: wartoscPriorytetu,
+        <span class="hljs-attr">glosujacy</span>: glosujacyTab
+    }];
+    Meteor.call(<span class="hljs-string">'updateKwestiaRating'</span>, ratingKwestiaId, kwestiaUpdate, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+        <span class="hljs-keyword">if</span> (error) {
+                    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                        Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                    <span class="hljs-keyword">else</span> {
+                        throwError(error.reason);
+                    }
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">var</span> komunikat = TAPi18n.__(<span class="hljs-string">'txv.GIVING_PRIORITY'</span>) + ratingValue;
+                    Notifications.success(<span class="hljs-string">""</span>, komunikat, {<span class="hljs-attr">timeout</span>: <span class="hljs-number">3000</span>});
+
+        }
+    });
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

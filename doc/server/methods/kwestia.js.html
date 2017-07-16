@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>kwestia.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "server\\methods\\kwestia.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>kwestia.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Meteor.methods({
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>metody Kwestia GŁÓWNA</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    addKwestia:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newKwestia</span>)</span>{
+        <span class="hljs-keyword">var</span> z = ZespolRealizacyjnyDraft.insert({<span class="hljs-attr">nazwa</span>: <span class="hljs-string">""</span>, <span class="hljs-attr">zespol</span>: []});
+        <span class="hljs-keyword">var</span> issueNumber = <span class="hljs-string">""</span>;
+        Meteor.call(<span class="hljs-string">'generateNextIssueNumber'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                throwError(error.reason);
+            } <span class="hljs-keyword">else</span> {
+                issueNumber = ret;
+            }
+        });
+        <span class="hljs-keyword">var</span> id = Kwestia.insert({
+            <span class="hljs-attr">idUser</span>: newKwestia[<span class="hljs-number">0</span>].idUser,
+            <span class="hljs-attr">dataWprowadzenia</span>: newKwestia[<span class="hljs-number">0</span>].dataWprowadzenia,
+            <span class="hljs-attr">kwestiaNazwa</span>: newKwestia[<span class="hljs-number">0</span>].kwestiaNazwa,
+            <span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-built_in">parseInt</span>(newKwestia[<span class="hljs-number">0</span>].wartoscPriorytetu),
+            <span class="hljs-attr">wartoscPriorytetuWRealizacji</span>: <span class="hljs-built_in">parseInt</span>(newKwestia[<span class="hljs-number">0</span>].wartoscPriorytetuWRealizacji),
+            <span class="hljs-attr">idTemat</span>: newKwestia[<span class="hljs-number">0</span>].idTemat,
+            <span class="hljs-attr">idRodzaj</span>: newKwestia[<span class="hljs-number">0</span>].idRodzaj,
+            <span class="hljs-attr">dataDyskusji</span>: newKwestia[<span class="hljs-number">0</span>].dataDyskusji,
+            <span class="hljs-attr">dataGlosowania</span>: newKwestia[<span class="hljs-number">0</span>].dataGlosowania,
+            <span class="hljs-attr">dataRealizacji</span>: newKwestia[<span class="hljs-number">0</span>].dataRealizacji,
+            <span class="hljs-attr">czyAktywny</span>: newKwestia[<span class="hljs-number">0</span>].czyAktywny = <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">status</span>: newKwestia[<span class="hljs-number">0</span>].status,
+            <span class="hljs-attr">krotkaTresc</span>: newKwestia[<span class="hljs-number">0</span>].krotkaTresc,
+            <span class="hljs-attr">szczegolowaTresc</span>: newKwestia[<span class="hljs-number">0</span>].szczegolowaTresc,
+            <span class="hljs-attr">glosujacy</span>: [],
+            <span class="hljs-attr">glosujacyWRealizacji</span>:[],
+            <span class="hljs-attr">isOption</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">numerUchwaly</span>: newKwestia[<span class="hljs-number">0</span>].numerUchwaly,
+            <span class="hljs-attr">typ</span>:newKwestia[<span class="hljs-number">0</span>].typ,
+
+            <span class="hljs-attr">idZespolRealizacyjny</span>: z,
+            <span class="hljs-attr">issueNumber</span>: issueNumber
+        });
+        Kwestia.update({<span class="hljs-attr">_id</span>: id}, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">idParent</span>: id}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">addKwestiaOsobowa</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newKwestia</span>) </span>{
+        <span class="hljs-keyword">var</span> issueNumber = <span class="hljs-string">""</span>;
+        Meteor.call(<span class="hljs-string">'generateNextIssueNumber'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                throwError(error.reason);
+            } <span class="hljs-keyword">else</span> {
+                issueNumber = ret;
+            }
+        });
+        <span class="hljs-keyword">var</span> id = Kwestia.insert({
+            <span class="hljs-attr">idUser</span>: newKwestia[<span class="hljs-number">0</span>].idUser,
+            <span class="hljs-attr">dataWprowadzenia</span>: newKwestia[<span class="hljs-number">0</span>].dataWprowadzenia,
+            <span class="hljs-attr">kwestiaNazwa</span>: newKwestia[<span class="hljs-number">0</span>].kwestiaNazwa,
+            <span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-built_in">parseInt</span>(newKwestia[<span class="hljs-number">0</span>].wartoscPriorytetu),
+            <span class="hljs-attr">wartoscPriorytetuWRealizacji</span>: <span class="hljs-built_in">parseInt</span>(newKwestia[<span class="hljs-number">0</span>].wartoscPriorytetuWRealizacji),
+            <span class="hljs-attr">idTemat</span>: newKwestia[<span class="hljs-number">0</span>].idTemat,
+            <span class="hljs-attr">idRodzaj</span>: newKwestia[<span class="hljs-number">0</span>].idRodzaj,
+            <span class="hljs-attr">dataDyskusji</span>: newKwestia[<span class="hljs-number">0</span>].dataDyskusji,
+            <span class="hljs-attr">dataGlosowania</span>: newKwestia[<span class="hljs-number">0</span>].dataGlosowania,
+            <span class="hljs-attr">dataRealizacji</span>: newKwestia[<span class="hljs-number">0</span>].dataRealizacji,
+            <span class="hljs-attr">czyAktywny</span>: newKwestia[<span class="hljs-number">0</span>].czyAktywny = <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">status</span>: newKwestia[<span class="hljs-number">0</span>].status,
+            <span class="hljs-attr">krotkaTresc</span>: newKwestia[<span class="hljs-number">0</span>].krotkaTresc,
+            <span class="hljs-attr">szczegolowaTresc</span>: newKwestia[<span class="hljs-number">0</span>].szczegolowaTresc,
+            <span class="hljs-attr">glosujacy</span>: [],
+            <span class="hljs-attr">glosujacyWRealizacji</span>:[],
+            <span class="hljs-attr">isOption</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">numerUchwaly</span>: newKwestia[<span class="hljs-number">0</span>].numerUchwaly,
+            <span class="hljs-attr">idZespolRealizacyjny</span>: newKwestia[<span class="hljs-number">0</span>].idZespolRealizacyjny,
+            <span class="hljs-attr">typ</span>:newKwestia[<span class="hljs-number">0</span>].typ,
+            <span class="hljs-attr">issueNumber</span>: issueNumber
+        });
+        Kwestia.update({<span class="hljs-attr">_id</span>: id}, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">idParent</span>: id}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+ <span class="hljs-attr">addKwestiaADMINISTROWANA</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newKwestia</span>) </span>{
+     <span class="hljs-keyword">var</span> issueNumber = <span class="hljs-string">""</span>;
+     Meteor.call(<span class="hljs-string">'generateNextIssueNumber'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+         <span class="hljs-keyword">if</span> (error) {
+             <span class="hljs-built_in">console</span>.log(error.reason);
+         } <span class="hljs-keyword">else</span> {
+             issueNumber = ret;
+         }
+     });
+        <span class="hljs-keyword">var</span> id = Kwestia.insert({
+            <span class="hljs-attr">idUser</span>: newKwestia[<span class="hljs-number">0</span>].idUser,
+            <span class="hljs-attr">dataWprowadzenia</span>: newKwestia[<span class="hljs-number">0</span>].dataWprowadzenia,
+            <span class="hljs-attr">kwestiaNazwa</span>: newKwestia[<span class="hljs-number">0</span>].kwestiaNazwa,
+            <span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-built_in">parseInt</span>(newKwestia[<span class="hljs-number">0</span>].wartoscPriorytetu),
+            <span class="hljs-attr">idTemat</span>: newKwestia[<span class="hljs-number">0</span>].idTemat,
+            <span class="hljs-attr">idRodzaj</span>: newKwestia[<span class="hljs-number">0</span>].idRodzaj,
+            <span class="hljs-attr">startGlosowania</span>:newKwestia[<span class="hljs-number">0</span>].startGlosowania,
+            <span class="hljs-attr">dataGlosowania</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">czyAktywny</span>: newKwestia[<span class="hljs-number">0</span>].czyAktywny = <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">status</span>: newKwestia[<span class="hljs-number">0</span>].status,
+            <span class="hljs-attr">krotkaTresc</span>: newKwestia[<span class="hljs-number">0</span>].krotkaTresc,
+            <span class="hljs-attr">szczegolowaTresc</span>: newKwestia[<span class="hljs-number">0</span>].szczegolowaTresc,
+            <span class="hljs-attr">glosujacy</span>: [],
+            <span class="hljs-attr">idParametr</span> : newKwestia[<span class="hljs-number">0</span>].idParametr,
+            <span class="hljs-attr">typ</span>:newKwestia[<span class="hljs-number">0</span>].typ,
+            <span class="hljs-attr">issueNumber</span>: issueNumber
+        });
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">addKwestiaOpcja</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newKwestiaOpcja</span>) </span>{
+        <span class="hljs-keyword">var</span> z = ZespolRealizacyjnyDraft.insert({<span class="hljs-attr">idKwestia</span>: id, <span class="hljs-attr">nazwa</span>: <span class="hljs-string">""</span>, <span class="hljs-attr">zespol</span>: []});
+        <span class="hljs-keyword">var</span> issueNumber = <span class="hljs-string">""</span>;
+        Meteor.call(<span class="hljs-string">'generateNextIssueNumber'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                <span class="hljs-built_in">console</span>.log(error.reason);
+            } <span class="hljs-keyword">else</span> {
+                issueNumber = ret;
+            }
+        });
+
+        <span class="hljs-keyword">var</span> id = Kwestia.insert({
+            <span class="hljs-attr">idUser</span>: Meteor.userId(),
+            <span class="hljs-attr">dataWprowadzenia</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].dataWprowadzenia,
+            <span class="hljs-attr">kwestiaNazwa</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].kwestiaNazwa,
+            <span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-built_in">parseInt</span>(newKwestiaOpcja[<span class="hljs-number">0</span>].wartoscPriorytetu),
+            <span class="hljs-attr">wartoscPriorytetuWRealizacji</span>: <span class="hljs-built_in">parseInt</span>(newKwestiaOpcja[<span class="hljs-number">0</span>].wartoscPriorytetuWRealizacji),
+            <span class="hljs-attr">idTemat</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].idTemat,
+            <span class="hljs-attr">idRodzaj</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].idRodzaj,
+            <span class="hljs-attr">dataDyskusji</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].dataDyskusji,
+            <span class="hljs-attr">dataGlosowania</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].dataGlosowania,
+            <span class="hljs-attr">dataRealizacji</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].dataRealizacji,
+            <span class="hljs-attr">czyAktywny</span>: newKwestiaOpcja.czyAktywny = <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">status</span>: newKwestiaOpcja.status = KWESTIA_STATUS.DELIBEROWANA,
+            <span class="hljs-attr">krotkaTresc</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].krotkaTresc,
+            <span class="hljs-attr">szczegolowaTresc</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].szczegolowaTresc,
+            <span class="hljs-attr">glosujacy</span>: [],
+            <span class="hljs-attr">glosujacyWRealizacji</span>:[],
+            <span class="hljs-attr">isOption</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">idParent</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].idParent,
+            <span class="hljs-attr">numerUchwaly</span>: newKwestiaOpcja[<span class="hljs-number">0</span>].numerUchwaly,
+            <span class="hljs-attr">idZespolRealizacyjny</span>: z,
+            <span class="hljs-attr">typ</span>:newKwestiaOpcja[<span class="hljs-number">0</span>].typ,
+            <span class="hljs-attr">issueNumber</span>: issueNumber
+        });
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">addKwestiaOsobowaOpcja</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newKwestia</span>) </span>{
+        <span class="hljs-keyword">var</span> issueNumber = <span class="hljs-string">""</span>;
+        Meteor.call(<span class="hljs-string">'generateNextIssueNumber'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                <span class="hljs-built_in">console</span>.log(error.reason);
+            } <span class="hljs-keyword">else</span> {
+                issueNumber = ret;
+            }
+        });
+
+        <span class="hljs-keyword">var</span> id = Kwestia.insert({
+            <span class="hljs-attr">idUser</span>: newKwestia[<span class="hljs-number">0</span>].idUser,
+            <span class="hljs-attr">dataWprowadzenia</span>: newKwestia[<span class="hljs-number">0</span>].dataWprowadzenia,
+            <span class="hljs-attr">kwestiaNazwa</span>: newKwestia[<span class="hljs-number">0</span>].kwestiaNazwa,
+            <span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-built_in">parseInt</span>(newKwestia[<span class="hljs-number">0</span>].wartoscPriorytetu),
+            <span class="hljs-attr">wartoscPriorytetuWRealizacji</span>: <span class="hljs-built_in">parseInt</span>(newKwestia[<span class="hljs-number">0</span>].wartoscPriorytetuWRealizacji),
+            <span class="hljs-attr">idTemat</span>: newKwestia[<span class="hljs-number">0</span>].idTemat,
+            <span class="hljs-attr">idRodzaj</span>: newKwestia[<span class="hljs-number">0</span>].idRodzaj,
+            <span class="hljs-attr">dataDyskusji</span>: newKwestia[<span class="hljs-number">0</span>].dataDyskusji,
+            <span class="hljs-attr">dataGlosowania</span>: newKwestia[<span class="hljs-number">0</span>].dataGlosowania,
+            <span class="hljs-attr">dataRealizacji</span>: newKwestia[<span class="hljs-number">0</span>].dataRealizacji,
+            <span class="hljs-attr">czyAktywny</span>: newKwestia[<span class="hljs-number">0</span>].czyAktywny = <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">status</span>: newKwestia[<span class="hljs-number">0</span>].status,
+            <span class="hljs-attr">krotkaTresc</span>: newKwestia[<span class="hljs-number">0</span>].krotkaTresc,
+            <span class="hljs-attr">szczegolowaTresc</span>: newKwestia[<span class="hljs-number">0</span>].szczegolowaTresc,
+            <span class="hljs-attr">glosujacy</span>: [],
+            <span class="hljs-attr">glosujacyWRealizacji</span>:[],
+            <span class="hljs-attr">isOption</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">numerUchwaly</span>: newKwestia[<span class="hljs-number">0</span>].numerUchwaly,
+            <span class="hljs-attr">idZespolRealizacyjny</span>: newKwestia[<span class="hljs-number">0</span>].idZespolRealizacyjny,
+            <span class="hljs-attr">idParent</span>: newKwestia[<span class="hljs-number">0</span>].idParent,
+            <span class="hljs-attr">typ</span>:newKwestia[<span class="hljs-number">0</span>].typ,
+            <span class="hljs-attr">issueNumber</span>: issueNumber
+        });
+    },
+    <span class="hljs-attr">updateKwestiaRating</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, obj</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id,
+            {
+                <span class="hljs-attr">$set</span>: {
+                    <span class="hljs-attr">wartoscPriorytetu</span>: obj[<span class="hljs-number">0</span>].wartoscPriorytetu,
+                    <span class="hljs-attr">glosujacy</span>: obj[<span class="hljs-number">0</span>].glosujacy
+                }
+            }, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateKwestiaWRealizacjiRating</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, obj</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id,
+            {
+                <span class="hljs-attr">$set</span>: {
+                    <span class="hljs-attr">wartoscPriorytetuWRealizacji</span>: obj[<span class="hljs-number">0</span>].wartoscPriorytetuWRealizacji,
+                    <span class="hljs-attr">glosujacyWRealizacji</span>: obj[<span class="hljs-number">0</span>].glosujacyWRealizacji
+                }
+            }, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">setGlosujacyTab</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, obj</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">glosujacy</span>: obj}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateWartoscPriorytetu</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, obj</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">wartoscPriorytetu</span>: obj}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateStatusKwestii</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, status</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">status</span>: status}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateStatusNrUchwalyDataRealizacjiiKwestii</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, status,numerUchwaly,data</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">status</span>: status,<span class="hljs-attr">numerUchwaly</span>:numerUchwaly,<span class="hljs-attr">dataRealizacji</span>:data}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateStatNrUchwDtRealIdZespolKwestii</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, status, numerUchwaly, dataRealizacji,idZR</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {
+            <span class="hljs-attr">$set</span>: {
+                <span class="hljs-attr">status</span>: status,
+                <span class="hljs-attr">numerUchwaly</span>: numerUchwaly,
+                <span class="hljs-attr">dataRealizacji</span>: dataRealizacji,
+                <span class="hljs-attr">idZespolRealizacyjny</span>:idZR,
+                <span class="hljs-attr">listaDatRR</span>:[moment(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()).format()]
+            }
+        }, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateStatusDataGlosowaniaKwestii</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, status, dataGlosowania</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {
+            <span class="hljs-attr">$set</span>: {
+                <span class="hljs-attr">status</span>: status,
+                <span class="hljs-attr">dataGlosowania</span>: dataGlosowania
+            }
+        }, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateStatusDataGlosowaniaKwestiiFinal</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, status, dataGlosowania,start</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {
+            <span class="hljs-attr">$set</span>: {
+                <span class="hljs-attr">status</span>: status,
+                <span class="hljs-attr">dataGlosowania</span>: dataGlosowania,
+                <span class="hljs-attr">startGlosowania</span>:start
+            }
+        }, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">removeKwestia</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id</span>)</span>{
+        Kwestia.update(id,{<span class="hljs-attr">$set</span>: {<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">false</span>}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+    },
+    <span class="hljs-attr">removeKwestiaSetReason</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,reason</span>)</span>{
+        Kwestia.update(id,{<span class="hljs-attr">$set</span>: {<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">false</span>,<span class="hljs-attr">reason</span>:reason}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+    },
+    <span class="hljs-attr">removeKwestiaSetReasonAnswer</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,reason,answer</span>)</span>{
+        Kwestia.update(id,{<span class="hljs-attr">$set</span>: {<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">false</span>,<span class="hljs-attr">reason</span>:reason,<span class="hljs-attr">isAnswerPositive</span>:answer}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+    },
+    <span class="hljs-attr">setAnswerKwestiaOczekujaca</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,answer</span>)</span>{
+        Kwestia.update(id,{<span class="hljs-attr">$set</span>: {<span class="hljs-attr">isAnswerPositive</span>:answer}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+    },
+    <span class="hljs-attr">setAnswerKwestiaOczekujacaNrUchwDataRealizacji</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,answer,nrUch,dataRealizacji</span>)</span>{
+        Kwestia.update(id,{<span class="hljs-attr">$set</span>: {<span class="hljs-attr">isAnswerPositive</span>:answer,<span class="hljs-attr">numerUchwaly</span>:nrUch,<span class="hljs-attr">dataRealizacji</span>:dataRealizacji}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+    },
+    <span class="hljs-attr">updateStatIdZespolu</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,status,idZR</span>)</span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {
+            <span class="hljs-attr">$set</span>: {
+                <span class="hljs-attr">status</span>: status,
+                <span class="hljs-attr">idZespolRealizacyjny</span>:idZR
+            }
+        }, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateStatusDataOczekwianiaKwestii</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id, status,dataOczekiwania</span>) </span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">status</span>: status, <span class="hljs-attr">dataRozpoczeciaOczekiwania</span>:dataOczekiwania}}, {<span class="hljs-attr">upsert</span>: <span class="hljs-literal">true</span>});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">addConstZR</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,zespol</span>)</span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">zespol</span>: zespol}});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateKwestiaCzasLobbowana</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,lobbowana</span>)</span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">lobbowana</span>:lobbowana}});
+        <span class="hljs-keyword">return</span> id;
+    },
+    <span class="hljs-attr">updateReportsIssue</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,reports</span>)</span>{
+        <span class="hljs-keyword">var</span> id = Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">raporty</span>:reports}});
+    },
+    <span class="hljs-attr">updateDeadlineNextRR</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,checkArrayRR</span>)</span>{
+        Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">listaDatRR</span>:checkArrayRR}});
+    },
+    <span class="hljs-attr">setIssueProblemSendingEmail</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id,emailProblem</span>)</span>{
+        Kwestia.update(id, {<span class="hljs-attr">$set</span>: {<span class="hljs-attr">emailProblemNotification</span>:emailProblem}});
+    }
+});
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

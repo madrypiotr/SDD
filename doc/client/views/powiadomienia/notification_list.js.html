@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>notification_list.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../";
+    var thisFile = "client\\views\\powiadomienia\\notification_list.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>notification_list.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.notificationList.created = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+};
+
+Template.notificationList.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+};
+Template.notificationList.helpers({
+    <span class="hljs-string">'settings'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> self = Template.instance();
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">rowsPerPage</span>: <span class="hljs-number">10</span>,
+            <span class="hljs-attr">showFilter</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">showNavigation</span>: <span class="hljs-string">'always'</span>,
+            <span class="hljs-attr">showColumnToggles</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">enableRegex</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">fields</span>: [
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'powiadomienieTyp'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'glob.Subject'</span>),<span class="hljs-attr">tmpl</span>: Template.tematLink,<span class="hljs-attr">sortOrder</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">sortDirection</span>: <span class="hljs-string">'descending'</span> },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'dataWprowadzenia'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.DATA'</span>), <span class="hljs-attr">tmpl</span>: Template.dataWpr,<span class="hljs-attr">sortOrder</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">sortDirection</span>: <span class="hljs-string">'descending'</span> }
+            ],
+            <span class="hljs-attr">rowClass</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)</span>{
+                <span class="hljs-keyword">if</span>(item.czyOdczytany==<span class="hljs-literal">false</span>)
+                <span class="hljs-keyword">return</span> <span class="hljs-string">"danger"</span>;
+            }
+        };
+    }
+});
+Template.dataWpr.helpers({
+    <span class="hljs-attr">date</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">this</span>.dataWprowadzenia;
+        <span class="hljs-keyword">if</span> (d) <span class="hljs-keyword">return</span> moment(d).format(<span class="hljs-string">"DD-MM-YYYY, HH:mm"</span>);
+    }
+});
+Template.tematLink.helpers({
+    <span class="hljs-attr">notificationTitle</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">var</span> idNadawca=<span class="hljs-keyword">this</span>.idNadawca;
+        <span class="hljs-keyword">var</span> idKwestia=<span class="hljs-keyword">this</span>.idKwestia;
+        <span class="hljs-keyword">return</span> getTopicTypeNotification(<span class="hljs-keyword">this</span>.powiadomienieTyp,idNadawca,idKwestia);
+    }
+});
+
+getTopicTypeNotification=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">powiadomienieTyp,idNadawca,idKwestia</span>)</span>{
+    <span class="hljs-keyword">switch</span>(powiadomienieTyp){
+        <span class="hljs-keyword">case</span> NOTIFICATION_TYPE.MESSAGE_FROM_USER:{
+            <span class="hljs-keyword">var</span> user = Users.findOne({<span class="hljs-attr">_id</span>: idNadawca});
+            <span class="hljs-keyword">return</span> powiadomienieTyp+<span class="hljs-string">" "</span>+ user.profile.fullName;<span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-keyword">case</span> NOTIFICATION_TYPE.NEW_ISSUE:{<span class="hljs-comment">//sth wrong,when applies guest</span>
+            <span class="hljs-keyword">var</span> kwestia=Kwestia.findOne({<span class="hljs-attr">_id</span>:idKwestia});
+            <span class="hljs-keyword">return</span> powiadomienieTyp +<span class="hljs-string">": "</span>+kwestia.kwestiaNazwa;<span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-keyword">case</span> NOTIFICATION_TYPE.LOOBBING_MESSAGE:{
+            <span class="hljs-keyword">var</span> user=Users.findOne({<span class="hljs-attr">_id</span>:idNadawca});
+            <span class="hljs-keyword">if</span>(user)
+                <span class="hljs-keyword">return</span> powiadomienieTyp+ TAPi18n.__(<span class="hljs-string">'txv.BY'</span>) + user.profile.fullName;<span class="hljs-keyword">break</span>;
+        }
+        <span class="hljs-keyword">default</span> : <span class="hljs-keyword">return</span> powiadomienieTyp;
+    }
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

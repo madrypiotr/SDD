@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>edit_parametr_modal.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\ustawienia\\parametry\\edit_parametr_modal.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>edit_parametr_modal.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.editParametrModalInner.rendered=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    $(<span class="hljs-string">'.successBtn'</span>).css(<span class="hljs-string">"visibility"</span>, <span class="hljs-string">"visible"</span>);
+},
+Template.editParametrModalInner.helpers({
+    <span class="hljs-attr">parametrInScope</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Session.get(<span class="hljs-string">'chosenParameterSession'</span>);
+    },
+    <span class="hljs-attr">nazwaOrganizacjiInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.ORG_NAME'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">terytoriumInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.TERITORY'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">terytAdresInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.TERITADR'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">terytCODEInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.TERITCOD'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">terytCityInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.TERITCITY'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">kontaktInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.CONTACTS'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">statutInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.STATUT'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">voteDurationInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.VOTE_TIME'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">czasWyczekiwaniaKwestiiSpecjalnejInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.WAITING_TIME'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">editVoteQuantityInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.MAX_ISSUE_IN_VOTING'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">editIssuePauseInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.FREQ_ADD_ISSUE'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">editCommentPauseInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.FREQ_ADD_COMM'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">editReferencePauseInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.FREQ_ADD_REFER'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">editRRDurationInput</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parameterName</span>)</span>{
+        <span class="hljs-keyword">return</span> parameterName==TAPi18n.__(<span class="hljs-string">'txv.FREQ_ADD_REPPO'</span>) ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>;
+    }
+});
+
+Template.editParametrModalInner.events({
+    <span class="hljs-string">'click .btn-danger'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        e.preventDefault();
+        Session.setPersistent(<span class="hljs-string">"chosenParameterSession"</span>,<span class="hljs-literal">null</span>);
+        $(<span class="hljs-string">"#editParametrMod"</span>).modal(<span class="hljs-string">"hide"</span>);
+    },
+    <span class="hljs-string">'submit form'</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+        e.preventDefault();
+        <span class="hljs-keyword">if</span> ($(<span class="hljs-string">'#parametrFormEditModal'</span>).valid()) {
+            $(<span class="hljs-string">'.successBtn'</span>).css(<span class="hljs-string">"visibility"</span>, <span class="hljs-string">"hidden"</span>);
+            <span class="hljs-keyword">var</span> odp = checkIssueGlobalParamExists();
+            <span class="hljs-keyword">if</span> (odp == <span class="hljs-literal">true</span>) {
+                bootbox.alert(TAPi18n.__(<span class="hljs-string">'txv.GL_PAR_CHANGE4'</span>));
+                $(<span class="hljs-string">"#editParametrMod"</span>).modal(<span class="hljs-string">"hide"</span>);
+                <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"parametrFormEditModal"</span>).reset();
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">var</span> session = Session.get(<span class="hljs-string">"chosenParameterSession"</span>);
+
+                <span class="hljs-keyword">var</span> val = session.name;
+                <span class="hljs-keyword">var</span> newValue = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"param"</span>).value;
+                <span class="hljs-keyword">if</span> (newValue == <span class="hljs-literal">null</span> || newValue.trim() == <span class="hljs-string">""</span>) {
+                    GlobalNotification.error({
+                        <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>),
+                        <span class="hljs-attr">content</span>: TAPi18n.__(<span class="hljs-string">'txv.FIELD'</span>) + session.title + TAPi18n.__(<span class="hljs-string">'txv.CAN_NOT_BE_EMPTY'</span>),
+                        <span class="hljs-attr">duration</span>: <span class="hljs-number">4</span>
+                    });
+                }
+                <span class="hljs-keyword">else</span> {
+                    parametrPreview(session.name, session.title, session.value, newValue);
+                }
+            }
+            $(<span class="hljs-string">'.successBtn'</span>).css(<span class="hljs-string">"visibility"</span>, <span class="hljs-string">"visible"</span>);
+        }
+
+    }
+});
+
+parametrPreview=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">paramName,title,oldValue,newValue</span>)</span>{
+    bootbox.dialog({
+        <span class="hljs-attr">message</span>: <span class="hljs-string">'&lt;p class="bg-warning padding-15 color-red"&gt;&lt;b&gt;'</span> + TAPi18n.__(<span class="hljs-string">'txv.YOU_INT_CHANGE'</span>) + <span class="hljs-string">'&lt;/b&gt;&lt;/p&gt;'</span> +
+        <span class="hljs-string">'&lt;p&gt;'</span> + TAPi18n.__(<span class="hljs-string">'txv.I_SUGG_CH_CONT'</span>) + <span class="hljs-string">'&lt;b&gt;'</span> + title.toUpperCase() + <span class="hljs-string">'&lt;/b&gt;'</span> + TAPi18n.__(<span class="hljs-string">'txv.WITH_THE_VALUE'</span>) + <span class="hljs-string">'&lt;/p&gt;'</span> +
+        <span class="hljs-string">'&lt;p&gt;'</span> + oldValue + <span class="hljs-string">'&lt;/p&gt;'</span> +
+        <span class="hljs-string">'&lt;p&gt;'</span> + TAPi18n.__(<span class="hljs-string">'txv.ON'</span>) + <span class="hljs-string">'&lt;/p&gt;'</span> +
+        <span class="hljs-string">'&lt;p&gt;'</span> + newValue + <span class="hljs-string">'&lt;/p&gt;'</span>,
+        <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.WARNING'</span>),
+        <span class="hljs-attr">closeButton</span>: <span class="hljs-literal">false</span>,
+        <span class="hljs-attr">buttons</span>: {
+            <span class="hljs-attr">success</span>: {
+                <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.I_AGREE'</span>),
+                <span class="hljs-attr">className</span>: <span class="hljs-string">"btn-success successBtn"</span>,
+                <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                    $(<span class="hljs-string">'.successBtn'</span>).css(<span class="hljs-string">"visibility"</span>, <span class="hljs-string">"hidden"</span>);
+                    <span class="hljs-keyword">var</span> odp=checkIssueGlobalParamExists();
+                    <span class="hljs-keyword">var</span> params=ParametrDraft.find({<span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>});
+                    <span class="hljs-keyword">if</span>(odp==<span class="hljs-literal">true</span> || params.count()&gt;<span class="hljs-number">0</span>){
+                        bootbox.alert(TAPi18n.__(<span class="hljs-string">'txv.GL_PAR_CHANGE4'</span>));
+                        $(<span class="hljs-string">"#editParametrMod"</span>).modal(<span class="hljs-string">"hide"</span>);
+                    }
+                    <span class="hljs-keyword">else</span>
+                        createIssueChangeParam(paramName, title, oldValue, newValue);
+                    $(<span class="hljs-string">'.successBtn'</span>).css(<span class="hljs-string">"visibility"</span>, <span class="hljs-string">"visible"</span>);
+                }
+            },
+            <span class="hljs-attr">danger</span>: {
+                <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.RESIGNS'</span>),
+                <span class="hljs-attr">className</span>: <span class="hljs-string">"btn-danger"</span>,
+                <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                    $(<span class="hljs-string">'.btn-success2'</span>).css(<span class="hljs-string">"visibility"</span>, <span class="hljs-string">"visible"</span>);
+                }
+            }
+        }
+    });
+};
+
+createIssueChangeParam=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">paramName,title,oldValue,newValue</span>)</span>{
+    <span class="hljs-keyword">var</span> params=Parametr.findOne();
+    <span class="hljs-keyword">var</span> nazwaOrg=params.nazwaOrganizacji;
+    <span class="hljs-keyword">var</span> terytorium=params.terytorium;
+    <span class="hljs-keyword">var</span> terytAdres=params.terytAdres;
+    <span class="hljs-keyword">var</span> terytCODE=params.terytCODE;
+    <span class="hljs-keyword">var</span> terytCity=params.terytCity;
+    <span class="hljs-keyword">var</span> kontakty=params.kontakty;
+    <span class="hljs-keyword">var</span> reg=params.regulamin;
+    <span class="hljs-keyword">var</span> voteDur=params.voteDuration;
+    <span class="hljs-keyword">var</span> voteQuan=params.voteQuantity;
+    <span class="hljs-keyword">var</span> czasWycz=params.czasWyczekiwaniaKwestiiSpecjalnej;
+    <span class="hljs-keyword">var</span> issuePause=params.addIssuePause;
+    <span class="hljs-keyword">var</span> commPause=params.addCommentPause;
+    <span class="hljs-keyword">var</span> refPause=params.addReferencePause;
+    <span class="hljs-keyword">var</span> okresSkladaniaRR=params.okresSkladaniaRR;
+
+    <span class="hljs-keyword">switch</span>(paramName){
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"nazwaOrganizacji"</span>:nazwaOrg=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"terytorium"</span>:terytorium=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"terytAdres"</span>:terytAdres=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"terytCODE"</span>:terytCODE=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"terytCity"</span>:terytCity=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"kontakty"</span>:kontakty=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"regulamin"</span>:reg=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"voteDuration"</span>:voteDur=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"voteQuantity"</span>:voteQuan=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"czasWyczekiwaniaKwestiiSpecjalnej"</span>:czasWycz=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"addIssuePause"</span>:issuePause=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"addCommentPause"</span>:commPause=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"addReferencePause"</span>:refPause=newValue;<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> <span class="hljs-string">"okresSkladaniaRR"</span>:okresSkladaniaRR=newValue;<span class="hljs-keyword">break</span>;
+    }
+    <span class="hljs-keyword">var</span> addParamDraft =
+    {
+        <span class="hljs-attr">nazwaOrganizacji</span>: nazwaOrg,
+        <span class="hljs-attr">terytorium</span>: terytorium,
+        <span class="hljs-attr">terytAdres</span>: terytAdres,
+        <span class="hljs-attr">terytCODE</span>: terytCODE,
+        <span class="hljs-attr">terytCity</span>: terytCity,
+        <span class="hljs-attr">kontakty</span>: kontakty,
+        <span class="hljs-attr">regulamin</span>: reg,
+        <span class="hljs-attr">voteDuration</span>:voteDur,
+        <span class="hljs-attr">voteQuantity</span>:voteQuan,
+        <span class="hljs-attr">czasWyczekiwaniaKwestiiSpecjalnej</span>:czasWycz,
+        <span class="hljs-attr">addIssuePause</span>:issuePause,
+        <span class="hljs-attr">addCommentPause</span>:commPause,
+        <span class="hljs-attr">addReferencePause</span>:refPause,
+        <span class="hljs-attr">okresSkladaniaRR</span>:okresSkladaniaRR
+    };
+    <span class="hljs-keyword">var</span> odp=checkIssueGlobalParamExists();
+    <span class="hljs-keyword">var</span> params=ParametrDraft.find({<span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>});
+    <span class="hljs-keyword">if</span>(odp==<span class="hljs-literal">false</span> || params.count()==<span class="hljs-number">0</span>) {
+        Meteor.call(<span class="hljs-string">'addParametrDraft'</span>, addParamDraft, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+            <span class="hljs-keyword">if</span> (!error) {
+                <span class="hljs-keyword">var</span> params=ParametrDraft.find({<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>});
+                <span class="hljs-keyword">if</span>(params.count()&gt;<span class="hljs-number">1</span>){
+                    Meteor.call(<span class="hljs-string">"setActivityParametrDraft"</span>,ret,<span class="hljs-literal">false</span>);
+                }
+                <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">var</span> dataParams = {
+                        <span class="hljs-attr">title</span>: title.toUpperCase(),
+                        <span class="hljs-attr">oldValue</span>: oldValue,
+                        <span class="hljs-attr">newValue</span>: newValue
+                    };
+                    <span class="hljs-keyword">var</span> newKwestia = [
+                        {
+                            <span class="hljs-attr">idUser</span>: Meteor.userId(),
+                            <span class="hljs-attr">dataWprowadzenia</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(),
+                            <span class="hljs-attr">kwestiaNazwa</span>: TAPi18n.__(<span class="hljs-string">'txv.GL_PAR_CHANGE5'</span>) + Meteor.user().profile.firstName + <span class="hljs-string">"  "</span> + Meteor.user().profile.lastName,
+                            <span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-number">0</span>,
+                            <span class="hljs-attr">dataGlosowania</span>: <span class="hljs-literal">null</span>,
+                            <span class="hljs-attr">krotkaTresc</span>: TAPi18n.__(<span class="hljs-string">'txv.GL_PAR_CHANGE6'</span>),
+                            <span class="hljs-attr">szczegolowaTresc</span>: dataParams,
+                            <span class="hljs-attr">isOption</span>: <span class="hljs-literal">false</span>,
+                            <span class="hljs-attr">status</span>: KWESTIA_STATUS.ADMINISTROWANA,
+                            <span class="hljs-attr">idParametr</span>: ret,
+                            <span class="hljs-attr">typ</span>: KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE
+                        }];
+
+                    Meteor.call(<span class="hljs-string">'addKwestiaADMINISTROWANA'</span>, newKwestia, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, ret</span>) </span>{
+                        <span class="hljs-keyword">if</span> (error)
+                            throwError(error.reason);
+                        <span class="hljs-keyword">else</span> {
+                            addPowiadomienieGlobalneFunction(ret);
+                            Meteor.call(<span class="hljs-string">"sendEmailAddedIssue"</span>, ret, getUserLanguage(), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+                                <span class="hljs-keyword">if</span>(error){
+                                    <span class="hljs-keyword">var</span> emailError = {
+                                        <span class="hljs-attr">idIssue</span>: ret,
+                                        <span class="hljs-attr">type</span>: NOTIFICATION_TYPE.NEW_ISSUE
+                                    };
+                                    Meteor.call(<span class="hljs-string">"addEmailError"</span>, emailError);
+                                }
+                            } );
+                        }
+                    });
+                }
+            }
+        });
+        Session.setPersistent(<span class="hljs-string">"chosenParameterSession"</span>, <span class="hljs-literal">null</span>);
+        $(<span class="hljs-string">"#editParametrMod"</span>).modal(<span class="hljs-string">"hide"</span>);
+    }
+};
+
+addPowiadomienieGlobalneFunction=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idKwestia</span>)</span>{
+    <span class="hljs-keyword">var</span> users=Users.find({<span class="hljs-string">'profile.userType'</span>:USERTYPE.CZLONEK});
+    <span class="hljs-keyword">var</span> kwestia=Kwestia.findOne({<span class="hljs-attr">_id</span>:idKwestia});
+    users.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">user</span>)</span>{
+        <span class="hljs-keyword">var</span> newPowiadomienie ={
+            <span class="hljs-attr">idOdbiorca</span>: user._id,
+            <span class="hljs-attr">idNadawca</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">dataWprowadzenia</span>: kwestia.dataWprowadzenia,
+            <span class="hljs-attr">tytul</span>: <span class="hljs-string">""</span>,
+            <span class="hljs-attr">powiadomienieTyp</span>: NOTIFICATION_TYPE.NEW_ISSUE,
+            <span class="hljs-attr">tresc</span>: <span class="hljs-string">""</span>,
+            <span class="hljs-attr">idKwestia</span>:idKwestia,
+            <span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">czyOdczytany</span>:<span class="hljs-literal">false</span>
+        };
+        Meteor.call(<span class="hljs-string">"addPowiadomienie"</span>,newPowiadomienie,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+            <span class="hljs-keyword">if</span>(error)
+                throwError(error.reason);
+        })
+    });
+
+};
+
+checkIssueGlobalParamExists=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> kwestie=Kwestia.find({<span class="hljs-attr">typ</span>:KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE, <span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>,
+        <span class="hljs-attr">status</span>:{<span class="hljs-attr">$nin</span>:[KWESTIA_STATUS.ZREALIZOWANA,KWESTIA_STATUS.ARCHIWALNA]}});
+    <span class="hljs-keyword">return</span> kwestie.count()&gt;<span class="hljs-number">0</span>? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

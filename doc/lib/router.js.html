@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>router.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../doc-style.css" />
+  <script src="../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../";
+    var thisFile = "lib\\router.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>router.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Router.configure({
+    <span class="hljs-attr">layoutTemplate</span>: <span class="hljs-string">'layout'</span>,
+    <span class="hljs-attr">notFoundTemplate</span>: <span class="hljs-string">'notFound'</span>,
+    <span class="hljs-attr">loadingTemplate</span>: <span class="hljs-string">'loading'</span>,
+    <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> [
+            Meteor.subscribe(<span class="hljs-string">'parametr'</span>),
+            Meteor.subscribe(<span class="hljs-string">"languages"</span>)
+        ];
+    },
+    <span class="hljs-attr">onAfterAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">var</span> item = Parametr.findOne({});
+        <span class="hljs-keyword">if</span> (!!item &amp;&amp; !!item.nazwaOrganizacji)
+            <span class="hljs-built_in">document</span>.title = item.nazwaOrganizacji;
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-built_in">document</span>.title = Router.current().route.getName();
+    }
+});
+
+Router.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'home'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/'</span>,
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjne"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId()),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>)
+            ]
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (Meteor.user()) {
+                <span class="hljs-keyword">if</span> (IsAdminUser()) {
+                    Router.go(<span class="hljs-string">'admin'</span>);
+                }
+                <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'mainpage'</span>);
+                }
+            }
+            <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'mainpage'</span>);
+        }
+    });
+
+   <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'admin'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/admin'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'listLanguages'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> Users.find()
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (IsAdminUser())
+                <span class="hljs-keyword">this</span>.next();
+            <span class="hljs-keyword">else</span>
+                Router.go(<span class="hljs-string">'home'</span>);
+        }
+    });
+	
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<hr>
+<p>user - ACCOUNT</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'activate_account'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/account/activate_account/:linkAktywacyjny'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'activateAccount'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">'userDraftByLinkAktywacyjny'</span>, <span class="hljs-keyword">this</span>.params.linkAktywacyjny);
+        }
+    });
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'answer_invitation'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/account/answer_invitation/:linkAktywacyjny'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'answerInvitation'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"parametr"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjneDraft"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjne"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId());
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">'userDraftByLinkAktywacyjny'</span>, <span class="hljs-keyword">this</span>.params.linkAktywacyjny);
+        }
+    });
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'login_form'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/account/login'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'loginForm'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (Meteor.userId() != <span class="hljs-literal">null</span>)
+                Router.go(<span class="hljs-string">'home'</span>);
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+        }
+    });
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'forgotten_password'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/account/forgotten_password'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'forgottenPassword'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (Meteor.userId() != <span class="hljs-literal">null</span>)
+                Router.go(<span class="hljs-string">'home'</span>);
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+        }
+    });
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'reset_password'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/account/reset_password/:token'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'resetPassword'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.params.token
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (Meteor.userId() != <span class="hljs-literal">null</span>)
+                Router.go(<span class="hljs-string">'home'</span>);
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">'userChangePassword'</span>, <span class="hljs-keyword">this</span>.params.token);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+        }
+    });
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'register_form'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/account/register'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'registerForm'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (Meteor.userId() != <span class="hljs-literal">null</span>)
+                Router.go(<span class="hljs-string">'home'</span>);
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"languages"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjne"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>)
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'doradca_form'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/doradca_form'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'doradcaForm'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"parametr"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjne"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjneDraft"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>)
+            ]
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'czlonek_zwyczajny_form'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/czlonek_zwyczajny_form/'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'czlonekZwyczajnyForm'</span>,
+        <span class="hljs-attr">data</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> Users.findOne({<span class="hljs-attr">_id</span>:Meteor.userId()});
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span>(Meteor.user())
+                Router.go(<span class="hljs-string">"home"</span>);
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"parametr"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjne"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjneDraft"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>),
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId());
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'profile_edit'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/account/edit'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'profileEdit'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> Users.findOne({<span class="hljs-attr">_id</span>: Meteor.userId()});
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.next();
+
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId())
+        }
+    });
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'manage_account'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/account/manage'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'manageAccount'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> Users.findOne({<span class="hljs-attr">_id</span>: Meteor.userId()});
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId())
+        }
+    });
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<hr>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'listParametr'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/parameters'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'listParametr'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> Parametr.findOne({})
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (IsAdminUser())
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaj"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>)
+            ]
+        }
+    });
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<hr>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>admin - LANGUAGES</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'listLanguages'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/languages_list'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'listLanguages'</span>,
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [<span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"languages"</span>)];
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (IsAdminUser())
+                <span class="hljs-keyword">this</span>.next();
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+        }
+    });
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'addLanguage'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/add_language'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'addLanguage'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (IsAdminUser())
+                <span class="hljs-keyword">this</span>.next();
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'editLanguage'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/edit_language/:_id'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'editLanguage'</span>,
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [<span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"language"</span>, <span class="hljs-keyword">this</span>.params._id)]
+        },
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> Languages.findOne({<span class="hljs-attr">_id</span>: <span class="hljs-keyword">this</span>.params._id})
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (IsAdminUser())
+                <span class="hljs-keyword">this</span>.next();
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+        }
+    });
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>KWESTIA dashboard</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'listKwestia'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/issues_list'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'listKwestia'</span>,
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjneDraft"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId()),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>)
+            ];
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.next();
+        }
+    });
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>MAP</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'map'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/layout'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'map'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.next();
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'addKwestia'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/add_issue'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'addKwestiaForm'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> !!Session.get(<span class="hljs-string">"kwestiaPreview"</span>) ? Session.get(<span class="hljs-string">"kwestiaPreview"</span>) : <span class="hljs-literal">null</span>;
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNazwa"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId())
+            ];
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!IsAdminUser())
+                <span class="hljs-keyword">this</span>.next();
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'addKwestiaOpcja'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/add_issue_option'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'addKwestiaOpcjaForm'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> Session.get(<span class="hljs-string">"actualKwestia"</span>);
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!IsAdminUser())
+                <span class="hljs-keyword">this</span>.next();
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolRealizacyjny"</span>,Session.get(<span class="hljs-string">"actualKwestia"</span>).idZespolRealizacyjny),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId())
+            ]
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'previewKwestiaOpcja'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/issue_option_preview'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'previewKwestiaOpcja'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> Session.get(<span class="hljs-string">"actualKwestia"</span>);
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!IsAdminUser())
+                <span class="hljs-keyword">this</span>.next();
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+        },
+        <span class="hljs-attr">waitOn</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolRealizacyjny"</span>,Session.get(<span class="hljs-string">"actualKwestia"</span>).idZespolRealizacyjny),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId())
+            ]
+        }
+    });
+
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'previewKwestia'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/issue_preview'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'previewKwestia'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> Session.get(<span class="hljs-string">"kwestiaPreview"</span>);
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!IsAdminUser())
+                <span class="hljs-keyword">this</span>.next();
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+        },
+        <span class="hljs-attr">waitOn</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId()),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>)
+            ]
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'informacjeKwestia'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/issue_info/:_id'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'informacjeKwestia'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            Session.set(<span class="hljs-string">"idKwestia"</span>, <span class="hljs-keyword">this</span>.params._id);
+            <span class="hljs-keyword">return</span> Kwestia.findOne(<span class="hljs-keyword">this</span>.params._id);
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> flag = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">var</span> zr=ZespolRealizacyjny.findOne({<span class="hljs-attr">_id</span>:<span class="hljs-string">"jjXKur4qC5ZGPQkgN"</span>});
+
+            <span class="hljs-keyword">if</span>(zr) {
+                <span class="hljs-keyword">if</span> (zr.protector) {
+                    <span class="hljs-keyword">if</span> (zr.protector == Meteor.userId())
+                        flag = <span class="hljs-literal">true</span>;
+                }
+            }
+
+            <span class="hljs-keyword">if</span>(flag==<span class="hljs-literal">true</span>){
+                <span class="hljs-keyword">return</span> [
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersFullNamesTypesRanking"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestie"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"postsByKwestiaId"</span>, <span class="hljs-keyword">this</span>.params._id),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"parametr"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"activeParametrDraft"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjne"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjneDraft"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotReadIssue"</span>,Meteor.userId())
+                ]
+            }<span class="hljs-keyword">else</span>{
+                <span class="hljs-keyword">return</span> [
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersFullNamesTypesRanking"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoPeselEmailDetails"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"postsByKwestiaId"</span>, <span class="hljs-keyword">this</span>.params._id),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"parametr"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"activeParametrDraft"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjne"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjneDraft"</span>),
+                    <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotReadIssue"</span>,Meteor.userId())
+                ]
+            }
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>this.subscribe(&quot;postsByKwestiaId&quot;, this.params._id);</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                <span class="hljs-keyword">this</span>.next();
+            }
+        }
+    });
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<hr>
+<p>Archiwum</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'archiwum'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/archives'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'archiwum'</span>,
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId())
+            ];
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.next();
+        }
+    });
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p>-------- REALIZACJA --------</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'realizacja'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/realization'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'realizacja'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"reports"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersTypeRanking"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId());
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjne"</span>);
+        }
+    });
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'informacjeRaport'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/report_info/:_id'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'informacjeRaport'</span>,
+        <span class="hljs-attr">data</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> Raport.findOne(<span class="hljs-keyword">this</span>.params._id);
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (IsAdminUser())
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId());
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"report"</span>,<span class="hljs-keyword">this</span>.params._id);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"reportsIssue"</span>,<span class="hljs-keyword">this</span>.params._id);
+        }
+    });
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'listRaport'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/reports_list/:_id'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'listRaport'</span>,
+        <span class="hljs-attr">data</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+          <span class="hljs-keyword">return</span> Raport.find({<span class="hljs-attr">idKwestia</span>:{<span class="hljs-attr">$in</span>:[<span class="hljs-keyword">this</span>.params._id]}});
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (IsAdminUser())
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestiaNoDetails"</span>,<span class="hljs-keyword">this</span>.params._id),
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId()),
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"reportsByIssue"</span>,<span class="hljs-keyword">this</span>.params._id);
+        }
+    });
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p>-------- GLOSOWANIE --------</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'glosowanie'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/vote'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'glosowanie'</span>,
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersType"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId())
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'sendMessage'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/new_message/:_id'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'sendMessage'</span>,
+        <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> Users.findOne({<span class="hljs-attr">_id</span>: <span class="hljs-keyword">this</span>.params._id});
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'/account/login'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersTypeAndNames"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId());
+        }
+    });
+
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'administracjaUserMain'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/settings/'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'administracjaUserMain'</span>,
+        <span class="hljs-attr">data</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> Parametr.findOne();
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'home'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.next();
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">'usersType'</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">'usersDraftUserIdIsActive'</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"parametr"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"activeParametrDraft"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjne"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"zespolyRealizacyjneDraft"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"notificationsNotRead"</span>,Meteor.userId());
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>);
+            <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>);
+        }
+    });
+
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'notification_list'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/notification_list'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'notificationList'</span>,
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"myNotifications"</span>,Meteor.userId()),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersTypeFullNames"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>)
+            ];
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'home'</span>);
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.next();
+        }
+    });
+	
+    <span class="hljs-keyword">this</span>.route(<span class="hljs-string">'notificationInfo'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/notification_info/:_id'</span>,
+        <span class="hljs-attr">template</span>: <span class="hljs-string">'notificationInfo'</span>,
+        <span class="hljs-attr">data</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> Powiadomienie.findOne({<span class="hljs-attr">_id</span>:<span class="hljs-keyword">this</span>.params._id});
+        },
+        <span class="hljs-attr">waitOn</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"myNotifications"</span>,Meteor.userId()),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"usersTypeFullNames"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"userDraftActivationLink"</span>, Meteor.userId()),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"kwestieNoDetails"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"tematy"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"rodzaje"</span>),
+                <span class="hljs-keyword">this</span>.subscribe(<span class="hljs-string">"parametr"</span>)
+            ];
+        },
+        <span class="hljs-attr">onBeforeAction</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> (!Meteor.user()) {
+                <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+                <span class="hljs-keyword">this</span>.stop();
+                Router.go(<span class="hljs-string">'home'</span>);
+            }
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">this</span>.next();
+        }
+    });
+});
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<hr>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">var</span> requireLogin = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (!Meteor.user()) {
+        <span class="hljs-keyword">if</span> (Meteor.loggingIn())
+            <span class="hljs-keyword">this</span>.render(<span class="hljs-keyword">this</span>.loadingTemplate);
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">this</span>.render(<span class="hljs-string">'accessDenied'</span>);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">this</span>.next();
+}
+Router.onBeforeAction(requireLogin, {<span class="hljs-attr">only</span>: <span class="hljs-string">'addUserForm'</span>});
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

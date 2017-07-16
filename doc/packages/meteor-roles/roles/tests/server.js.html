@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>server.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "packages\\meteor-roles\\roles\\tests\\server.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>server.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">;(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+  <span class="hljs-keyword">var</span> users = {},
+      roles = [<span class="hljs-string">'admin'</span>,<span class="hljs-string">'editor'</span>,<span class="hljs-string">'user'</span>]
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>use to run individual tests
+Tinytest.oadd = Tinytest.add
+Tinytest.add = function () {}</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addUser</span> (<span class="hljs-params">name</span>) </span>{
+    <span class="hljs-keyword">return</span> Accounts.createUser({<span class="hljs-string">'username'</span>: name})
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reset</span> (<span class="hljs-params"></span>) </span>{
+    Meteor.roles.remove({})
+    Meteor.users.remove({})
+
+    users = {
+      <span class="hljs-string">'eve'</span>: addUser(<span class="hljs-string">'eve'</span>),
+      <span class="hljs-string">'bob'</span>: addUser(<span class="hljs-string">'bob'</span>),
+      <span class="hljs-string">'joe'</span>: addUser(<span class="hljs-string">'joe'</span>)
+    }
+  }
+
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testUser</span> (<span class="hljs-params">test, username, expectedRoles, group</span>) </span>{
+    <span class="hljs-keyword">var</span> userId = users[username],
+        userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+        
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>check using user ids (makes db calls)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    _innerTest(test, userId, username, expectedRoles, group)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>check using passed-in user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    _innerTest(test, userObj, username, expectedRoles, group)
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">_innerTest</span> (<span class="hljs-params">test, userParam, username, expectedRoles, group</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>test that user has only the roles expected and no others</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    _.each(roles, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">role</span>) </span>{
+      <span class="hljs-keyword">var</span> expected = _.contains(expectedRoles, role),
+          msg = username + <span class="hljs-string">' expected to have \''</span> + role + <span class="hljs-string">'\' permission but does not'</span>,
+          nmsg = username + <span class="hljs-string">' had the following un-expected permission: '</span> + role
+
+      <span class="hljs-keyword">if</span> (expected) {
+        test.isTrue(Roles.userIsInRole(userParam, role, group), msg)
+      } <span class="hljs-keyword">else</span> {
+        test.isFalse(Roles.userIsInRole(userParam, role, group), nmsg)
+      }
+    })
+  }
+
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can create and delete roles'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      Roles.createRole(<span class="hljs-string">'test1'</span>)
+      test.equal(Meteor.roles.findOne().name, <span class="hljs-string">'test1'</span>)
+
+      Roles.createRole(<span class="hljs-string">'test2'</span>)
+      test.equal(Meteor.roles.findOne({<span class="hljs-string">'name'</span>:<span class="hljs-string">'test2'</span>}).name, <span class="hljs-string">'test2'</span>)
+
+      test.equal(Meteor.roles.find().count(), <span class="hljs-number">2</span>)
+
+      Roles.deleteRole(<span class="hljs-string">'test1'</span>)
+      test.equal(<span class="hljs-keyword">typeof</span> Meteor.roles.findOne({<span class="hljs-string">'name'</span>:<span class="hljs-string">'test1'</span>}), <span class="hljs-string">'undefined'</span>)
+
+      Roles.deleteRole(<span class="hljs-string">'test2'</span>)
+      test.equal(<span class="hljs-keyword">typeof</span> Meteor.roles.findOne(), <span class="hljs-string">'undefined'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can\'t create duplicate roles'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      Roles.createRole(<span class="hljs-string">'test1'</span>)
+      test.throws(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{Roles.createRole(<span class="hljs-string">'test1'</span>)})
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can\'t create role with empty names'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      Roles.createRole(<span class="hljs-string">''</span>)
+      Roles.createRole(<span class="hljs-literal">null</span>)
+
+      test.equal(Meteor.roles.find().count(), <span class="hljs-number">0</span>)
+
+      Roles.createRole(<span class="hljs-string">' '</span>)
+      test.equal(Meteor.roles.find().count(), <span class="hljs-number">0</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can check if user is in role'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      Meteor.users.update(
+        {<span class="hljs-string">"_id"</span>:users.eve}, 
+        {<span class="hljs-attr">$addToSet</span>: { <span class="hljs-attr">roles</span>: { <span class="hljs-attr">$each</span>: [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>] } } }
+      )
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can check if user is in role by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      Meteor.users.update(
+        {<span class="hljs-string">"_id"</span>:users.eve}, 
+        {<span class="hljs-attr">$addToSet</span>: { <span class="hljs-string">'roles.group1'</span>: { <span class="hljs-attr">$each</span>: [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>] } } })
+      Meteor.users.update(
+        {<span class="hljs-string">"_id"</span>:users.eve}, 
+        {<span class="hljs-attr">$addToSet</span>: { <span class="hljs-string">'roles.group2'</span>: { <span class="hljs-attr">$each</span>: [<span class="hljs-string">'editor'</span>] } } })
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can check if non-existant user is in role'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      test.isFalse(Roles.userIsInRole(<span class="hljs-string">'1'</span>, <span class="hljs-string">'admin'</span>))
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can check if null user is in role'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      <span class="hljs-keyword">var</span> user = <span class="hljs-literal">null</span>
+      reset()
+      
+      test.isFalse(Roles.userIsInRole(user, <span class="hljs-string">'admin'</span>))
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can check user against several roles at once'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      <span class="hljs-keyword">var</span> user 
+      reset()
+
+      Roles.addUsersToRoles(users.eve, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      user = Meteor.users.findOne({<span class="hljs-attr">_id</span>:users.eve})
+
+      test.isTrue(Roles.userIsInRole(user, [<span class="hljs-string">'editor'</span>,<span class="hljs-string">'admin'</span>]))
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can\'t add non-existent user to role'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      Roles.addUsersToRoles([<span class="hljs-string">'1'</span>], [<span class="hljs-string">'admin'</span>])
+      test.equal(Meteor.users.findOne({<span class="hljs-attr">_id</span>:<span class="hljs-string">'1'</span>}), <span class="hljs-literal">undefined</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can add individual users to roles'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      Roles.addUsersToRoles(users.eve, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [])
+      testUser(test, <span class="hljs-string">'joe'</span>, [])
+
+      Roles.addUsersToRoles(users.joe, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [])
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can add individual users to roles by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      Roles.addUsersToRoles(users.eve, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group2'</span>)
+
+      Roles.addUsersToRoles(users.joe, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group2'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group2'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can add user to roles via user object'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      <span class="hljs-keyword">var</span> eve = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.eve}),
+          bob = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.bob})
+
+      Roles.addUsersToRoles(eve, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [])
+      testUser(test, <span class="hljs-string">'joe'</span>, [])
+
+      Roles.addUsersToRoles(bob, [<span class="hljs-string">'editor'</span>])
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can add user to roles multiple times'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      Roles.addUsersToRoles(users.eve, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      Roles.addUsersToRoles(users.eve, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [])
+      testUser(test, <span class="hljs-string">'joe'</span>, [])
+
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'admin'</span>])
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'editor'</span>])
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can add user to roles multiple times by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      Roles.addUsersToRoles(users.eve, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.addUsersToRoles(users.eve, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can add multiple users to roles'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      Roles.addUsersToRoles([users.eve, users.bob], [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [])
+
+      Roles.addUsersToRoles([users.bob, users.joe], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can add multiple users to roles by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      Roles.addUsersToRoles([users.eve, users.bob], [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group2'</span>)
+
+      Roles.addUsersToRoles([users.bob, users.joe], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.addUsersToRoles([users.bob, users.joe], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group2'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group2'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can remove individual users from roles'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>remove user role - one user</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles([users.eve, users.bob], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      Roles.removeUsersFromRoles(users.eve, [<span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+    })
+  Tinytest.add(
+    <span class="hljs-string">'roles - can remove user from roles multiple times'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>remove user role - one user</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles([users.eve, users.bob], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      Roles.removeUsersFromRoles(users.eve, [<span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>try remove again</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.removeUsersFromRoles(users.eve, [<span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can remove users from roles via user object'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      <span class="hljs-keyword">var</span> eve = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.eve}),
+          bob = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.bob})
+    
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p>remove user role - one user</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles([eve, bob], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      Roles.removeUsersFromRoles(eve, [<span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+    })
+
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can remove individual users from roles by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p>remove user role - one user</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles([users.eve, users.bob], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.addUsersToRoles([users.joe, users.bob], [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+
+      Roles.removeUsersFromRoles(users.eve, [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can remove multiple users from roles'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p>remove user role - two users</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles([users.eve, users.bob], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+
+      test.isFalse(Roles.userIsInRole(users.joe, <span class="hljs-string">'admin'</span>))
+      Roles.addUsersToRoles([users.bob, users.joe], [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>, <span class="hljs-string">'editor'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      Roles.removeUsersFromRoles([users.bob, users.joe], [<span class="hljs-string">'admin'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'user'</span>, <span class="hljs-string">'editor'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'user'</span>])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can remove multiple users from roles by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p>remove user role - one user</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles([users.eve, users.bob], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.addUsersToRoles([users.joe, users.bob], [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+
+      Roles.removeUsersFromRoles([users.eve, users.bob], [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+
+      Roles.removeUsersFromRoles([users.joe, users.bob], [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group2'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can set user roles'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      <span class="hljs-keyword">var</span> eve = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.eve}),
+          bob = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.bob}),
+          joe = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.joe})
+    
+      Roles.setUserRoles([users.eve, bob], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p>use addUsersToRoles add some roles</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles([bob, users.joe], [<span class="hljs-string">'admin'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>])
+
+      Roles.setUserRoles([eve, bob], [<span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>])
+
+      Roles.setUserRoles(bob, <span class="hljs-string">'editor'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>])
+
+      Roles.setUserRoles([users.joe, users.bob], [])
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'user'</span>])
+      testUser(test, <span class="hljs-string">'bob'</span>, [])
+      testUser(test, <span class="hljs-string">'joe'</span>, [])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can set user roles by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      <span class="hljs-keyword">var</span> eve = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.eve}),
+          bob = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.bob}),
+          joe = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.joe})
+    
+      Roles.setUserRoles([users.eve, users.bob], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.setUserRoles([users.bob, users.joe], [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14"></a>
+</div>
+<p>use addUsersToRoles add some roles</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles([users.eve, users.bob], [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.addUsersToRoles([users.bob, users.joe], [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>,<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>,<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+
+      Roles.setUserRoles([eve, bob], [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.setUserRoles([eve, joe], [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>,<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+
+      Roles.setUserRoles(bob, <span class="hljs-string">'editor'</span>, <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>,<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+
+      Roles.setUserRoles([bob, users.joe], [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>,<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can set user roles by group including GLOBAL_GROUP'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      <span class="hljs-keyword">var</span> eve = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.eve}),
+          bob = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.bob}),
+          joe = Meteor.users.findOne({<span class="hljs-attr">_id</span>: users.joe})
+    
+      Roles.addUsersToRoles(eve, <span class="hljs-string">'admin'</span>, Roles.GLOBAL_GROUP)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>])
+
+      Roles.setUserRoles(eve, <span class="hljs-string">'editor'</span>, Roles.GLOBAL_GROUP)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'editor'</span>])
+    })
+
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all roles'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+      _.each(roles, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">role</span>) </span>{
+        Roles.createRole(role)
+      })
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15"></a>
+</div>
+<p>compare roles, sorted alphabetically</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      <span class="hljs-keyword">var</span> expected = roles,
+          actual = _.pluck(Roles.getAllRoles().fetch(), <span class="hljs-string">'name'</span>)
+
+      test.equal(actual, expected)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can\'t get roles for non-existant user'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+      test.equal(Roles.getRolesForUser(<span class="hljs-string">'1'</span>), [])
+      test.equal(Roles.getRolesForUser(<span class="hljs-string">'1'</span>, <span class="hljs-string">'group1'</span>), [])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all roles for user'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      <span class="hljs-keyword">var</span> userId = users.eve,
+          userObj
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(Roles.getRolesForUser(userId), [])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+      test.equal(Roles.getRolesForUser(userObj), [])
+
+
+      Roles.addUsersToRoles(userId, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-18" id="section-18"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(Roles.getRolesForUser(userId), [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-19" id="section-19"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+      test.equal(Roles.getRolesForUser(userObj), [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all roles for user by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      <span class="hljs-keyword">var</span> userId = users.eve,
+          userObj
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-20" id="section-20"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(Roles.getRolesForUser(userId, <span class="hljs-string">'group1'</span>), [])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-21" id="section-21"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+      test.equal(Roles.getRolesForUser(userObj, <span class="hljs-string">'group1'</span>), [])
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-22" id="section-22"></a>
+</div>
+<p>add roles</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles(userId, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-23" id="section-23"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(Roles.getRolesForUser(userId, <span class="hljs-string">'group1'</span>), [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      test.equal(Roles.getRolesForUser(userId), [])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-24" id="section-24"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+      test.equal(Roles.getRolesForUser(userObj, <span class="hljs-string">'group1'</span>), [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      test.equal(Roles.getRolesForUser(userObj), [])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all roles for user by group with periods in name'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      Roles.addUsersToRoles(users.joe, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'example.k12.va.us'</span>)
+
+      test.equal(Roles.getRolesForUser(users.joe, <span class="hljs-string">'example.k12.va.us'</span>), [<span class="hljs-string">'admin'</span>])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all roles for user by group including Roles.GLOBAL_GROUP'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      <span class="hljs-keyword">var</span> userId = users.eve,
+          userObj
+
+      Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'editor'</span>], Roles.GLOBAL_GROUP)
+      Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-25" id="section-25"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(Roles.getRolesForUser(userId, <span class="hljs-string">'group1'</span>), [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>, <span class="hljs-string">'editor'</span>])
+      test.equal(Roles.getRolesForUser(userId), [<span class="hljs-string">'editor'</span>])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-26" id="section-26"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+      test.equal(Roles.getRolesForUser(userObj, <span class="hljs-string">'group1'</span>), [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>, <span class="hljs-string">'editor'</span>])
+      test.equal(Roles.getRolesForUser(userObj), [<span class="hljs-string">'editor'</span>])
+    })
+
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - getRolesForUser should not return null entries if user has no roles for group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      <span class="hljs-keyword">var</span> userId = users.eve,
+          userObj
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-27" id="section-27"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(Roles.getRolesForUser(userId, <span class="hljs-string">'group1'</span>), [])
+      test.equal(Roles.getRolesForUser(userId), [])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-28" id="section-28"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+      test.equal(Roles.getRolesForUser(userObj, <span class="hljs-string">'group1'</span>), [])
+      test.equal(Roles.getRolesForUser(userObj), [])
+
+
+      Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'editor'</span>], Roles.GLOBAL_GROUP)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-29" id="section-29"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(Roles.getRolesForUser(userId, <span class="hljs-string">'group1'</span>), [<span class="hljs-string">'editor'</span>])
+      test.equal(Roles.getRolesForUser(userId), [<span class="hljs-string">'editor'</span>])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-30" id="section-30"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+      test.equal(Roles.getRolesForUser(userObj, <span class="hljs-string">'group1'</span>), [<span class="hljs-string">'editor'</span>])
+      test.equal(Roles.getRolesForUser(userObj), [<span class="hljs-string">'editor'</span>])
+    })
+    
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all groups for user'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+    <span class="hljs-keyword">var</span> userId = users.eve,
+        userObj
+
+    Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+    Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group2'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-31" id="section-31"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    test.equal(Roles.getGroupsForUser(userId), [<span class="hljs-string">'group1'</span>, <span class="hljs-string">'group2'</span>])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-32" id="section-32"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+    test.equal(Roles.getGroupsForUser(userObj), [<span class="hljs-string">'group1'</span>, <span class="hljs-string">'group2'</span>])
+  })
+  
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all groups for user by role'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+    <span class="hljs-keyword">var</span> userId = users.eve,
+        userObj
+
+    Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+    Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group2'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-33" id="section-33"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    test.equal(Roles.getGroupsForUser(userId, <span class="hljs-string">'user'</span>), [<span class="hljs-string">'group2'</span>])
+    test.equal(Roles.getGroupsForUser(userId, <span class="hljs-string">'editor'</span>), [<span class="hljs-string">'group1'</span>, <span class="hljs-string">'group2'</span>])
+    test.equal(Roles.getGroupsForUser(userId, <span class="hljs-string">'admin'</span>), [])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-34" id="section-34"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+    test.equal(Roles.getGroupsForUser(userObj, <span class="hljs-string">'user'</span>), [<span class="hljs-string">'group2'</span>])
+    test.equal(Roles.getGroupsForUser(userObj, <span class="hljs-string">'editor'</span>), [<span class="hljs-string">'group1'</span>, <span class="hljs-string">'group2'</span>])
+    test.equal(Roles.getGroupsForUser(userObj, <span class="hljs-string">'admin'</span>), [])
+  })
+  
+  Tinytest.add(
+    <span class="hljs-string">'roles - getGroupsForUser returns [] when not using groups'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+    <span class="hljs-keyword">var</span> userId = users.eve,
+        userObj
+
+    Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-35" id="section-35"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    test.equal(Roles.getGroupsForUser(userId), [])
+    test.equal(Roles.getGroupsForUser(userId, <span class="hljs-string">'editor'</span>), [])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-36" id="section-36"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+    test.equal(Roles.getGroupsForUser(userObj), [])
+    test.equal(Roles.getGroupsForUser(userObj, <span class="hljs-string">'editor'</span>), [])
+  })
+  
+  
+  Tinytest.add(
+    <span class="hljs-string">'roles - getting all groups for user does not include GLOBAL_GROUP'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+    <span class="hljs-keyword">var</span> userId = users.eve,
+        userObj
+
+    Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+    Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group2'</span>)
+    Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>, <span class="hljs-string">'admin'</span>], Roles.GLOBAL_GROUP)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-37" id="section-37"></a>
+</div>
+<p>by userId</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    test.equal(Roles.getGroupsForUser(userId, <span class="hljs-string">'user'</span>), [<span class="hljs-string">'group2'</span>])
+    test.equal(Roles.getGroupsForUser(userId, <span class="hljs-string">'editor'</span>), [<span class="hljs-string">'group1'</span>, <span class="hljs-string">'group2'</span>])
+    test.equal(Roles.getGroupsForUser(userId, <span class="hljs-string">'admin'</span>), [])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-38" id="section-38"></a>
+</div>
+<p>by user object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    userObj = Meteor.users.findOne({<span class="hljs-attr">_id</span>: userId})
+    test.equal(Roles.getGroupsForUser(userObj, <span class="hljs-string">'user'</span>), [<span class="hljs-string">'group2'</span>])
+    test.equal(Roles.getGroupsForUser(userObj, <span class="hljs-string">'editor'</span>), [<span class="hljs-string">'group1'</span>, <span class="hljs-string">'group2'</span>])
+    test.equal(Roles.getGroupsForUser(userObj, <span class="hljs-string">'admin'</span>), [])
+  })
+
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all users in role'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+      _.each(roles, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">role</span>) </span>{
+        Roles.createRole(role)
+      })
+
+      Roles.addUsersToRoles([users.eve, users.joe], [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>])
+      Roles.addUsersToRoles([users.bob, users.joe], [<span class="hljs-string">'editor'</span>])
+
+      <span class="hljs-keyword">var</span> expected = [users.eve, users.joe],
+          actual = _.pluck(Roles.getUsersInRole(<span class="hljs-string">'admin'</span>).fetch(), <span class="hljs-string">'_id'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-39" id="section-39"></a>
+</div>
+<p>order may be different so check difference instead of equality
+difference uses first array as base so have to check both ways</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(_.difference(actual, expected), [])
+      test.equal(_.difference(expected, actual), [])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all users in role by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+      Roles.addUsersToRoles([users.eve, users.joe], [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      Roles.addUsersToRoles([users.bob, users.joe], [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+
+      <span class="hljs-keyword">var</span> expected = [users.eve, users.joe],
+          actual = _.pluck(Roles.getUsersInRole(<span class="hljs-string">'admin'</span>,<span class="hljs-string">'group1'</span>).fetch(), <span class="hljs-string">'_id'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-40" id="section-40"></a>
+</div>
+<p>order may be different so check difference instead of equality
+difference uses first array as base so have to check both ways</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(_.difference(actual, expected), [])
+      test.equal(_.difference(expected, actual), [])
+    })
+  
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all users in role by group including Roles.GLOBAL_GROUP'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+      Roles.addUsersToRoles([users.eve], [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'user'</span>], Roles.GLOBAL_GROUP)
+      Roles.addUsersToRoles([users.bob, users.joe], [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+
+      <span class="hljs-keyword">var</span> expected = [users.eve],
+          actual = _.pluck(Roles.getUsersInRole(<span class="hljs-string">'admin'</span>,<span class="hljs-string">'group1'</span>).fetch(), <span class="hljs-string">'_id'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-41" id="section-41"></a>
+</div>
+<p>order may be different so check difference instead of equality
+difference uses first array as base so have to check both ways</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(_.difference(actual, expected), [])
+      test.equal(_.difference(expected, actual), [])
+
+      expected = [users.eve, users.bob, users.joe]
+      actual = _.pluck(Roles.getUsersInRole(<span class="hljs-string">'admin'</span>,<span class="hljs-string">'group2'</span>).fetch(), <span class="hljs-string">'_id'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-42" id="section-42"></a>
+</div>
+<p>order may be different so check difference instead of equality</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(_.difference(actual, expected), [])
+      test.equal(_.difference(expected, actual), [])
+
+
+      expected = [users.eve]
+      actual = _.pluck(Roles.getUsersInRole(<span class="hljs-string">'admin'</span>).fetch(), <span class="hljs-string">'_id'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-43" id="section-43"></a>
+</div>
+<p>order may be different so check difference instead of equality</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      test.equal(_.difference(actual, expected), [])
+      test.equal(_.difference(expected, actual), [])
+    })
+
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can use Roles.GLOBAL_GROUP to assign blanket permissions'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      Roles.addUsersToRoles([users.joe, users.bob], [<span class="hljs-string">'admin'</span>], Roles.GLOBAL_GROUP)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group1'</span>)
+
+      Roles.removeUsersFromRoles(users.joe, [<span class="hljs-string">'admin'</span>], Roles.GLOBAL_GROUP)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group1'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - Roles.GLOBAL_GROUP is independent of other groups'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      Roles.addUsersToRoles([users.joe, users.bob], [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group5'</span>)
+      Roles.addUsersToRoles([users.joe, users.bob], [<span class="hljs-string">'admin'</span>], Roles.GLOBAL_GROUP)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group5'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group5'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group1'</span>)
+
+      Roles.removeUsersFromRoles(users.joe, [<span class="hljs-string">'admin'</span>], Roles.GLOBAL_GROUP)
+
+      testUser(test, <span class="hljs-string">'eve'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group5'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group5'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group1'</span>)
+    })
+  
+  Tinytest.add(
+    <span class="hljs-string">'roles - Roles.GLOBAL_GROUP also checked when group not specified'</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset()
+
+      Roles.addUsersToRoles(users.joe, <span class="hljs-string">'admin'</span>, Roles.GLOBAL_GROUP)
+
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>])
+
+      Roles.removeUsersFromRoles(users.joe, <span class="hljs-string">'admin'</span>, Roles.GLOBAL_GROUP)
+
+      testUser(test, <span class="hljs-string">'joe'</span>, [])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - mixing group with non-group throws descriptive error'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      <span class="hljs-keyword">var</span> expectedErrorMsg = <span class="hljs-string">"Roles error: Can't mix grouped and non-grouped roles for same user"</span>
+
+      reset() 
+      Roles.addUsersToRoles(users.joe, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      <span class="hljs-keyword">try</span> {
+        Roles.addUsersToRoles(users.joe, [<span class="hljs-string">'admin'</span>])
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"expected exception but didn't get one"</span>)
+      } 
+      <span class="hljs-keyword">catch</span> (ex) {
+        test.isTrue(ex.message == expectedErrorMsg, ex.message)
+      }
+
+      reset() 
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      <span class="hljs-keyword">try</span> {
+        Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'group2'</span>)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"expected exception but didn't get one"</span>)
+      }
+      <span class="hljs-keyword">catch</span> (ex) {
+        test.isTrue(ex.message == expectedErrorMsg, ex.message)
+      }
+
+      reset() 
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      <span class="hljs-keyword">try</span> {
+        Roles.removeUsersFromRoles(users.bob, [<span class="hljs-string">'user'</span>])
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"expected exception but didn't get one"</span>)
+      }
+      <span class="hljs-keyword">catch</span> (ex) {
+        test.isTrue(ex.message == expectedErrorMsg, ex.message)
+      }
+
+      reset() 
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+      <span class="hljs-keyword">try</span> {
+        Roles.setUserRoles(users.bob, [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"expected exception but didn't get one"</span>)
+      }
+      <span class="hljs-keyword">catch</span> (ex) {
+        test.isTrue(ex.message == expectedErrorMsg, ex.message)
+      }
+
+      reset() 
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>])
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-44" id="section-44"></a>
+</div>
+<p>don't expect this to throw error</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.removeUsersFromRoles(users.bob, [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+
+      reset() 
+      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-45" id="section-45"></a>
+</div>
+<p>this is probably not a good idea but shouldn't throw...</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.setUserRoles(users.bob, [<span class="hljs-string">'user'</span>])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">"roles - can use '.' in group name"</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      Roles.addUsersToRoles(users.joe, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'example.com'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'example.com'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">"roles - can use multiple periods in group name"</span>,
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      reset() 
+
+      Roles.addUsersToRoles(users.joe, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'example.k12.va.us'</span>)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'example.k12.va.us'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - invalid group name throws descriptive error'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      <span class="hljs-keyword">var</span> expectedErrorMsg = <span class="hljs-string">"Roles error: groups can not start with '$'"</span>
+
+      reset() 
+      <span class="hljs-keyword">try</span> {
+        Roles.addUsersToRoles(users.joe, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'$group1'</span>)
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"expected exception but didn't get one"</span>)
+      } 
+      <span class="hljs-keyword">catch</span> (ex) {
+        test.isTrue(ex.message == expectedErrorMsg, ex.message)
+      }
+
+      reset() 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-46" id="section-46"></a>
+</div>
+<p>should not throw error</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      Roles.addUsersToRoles(users.bob, [<span class="hljs-string">'editor'</span>, <span class="hljs-string">'user'</span>], <span class="hljs-string">'g$roup1'</span>)
+    })
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printException</span> (<span class="hljs-params">ex</span>) </span>{
+    <span class="hljs-keyword">var</span> tmp = {}
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> ex) {
+      <span class="hljs-keyword">if</span> (key != <span class="hljs-string">'stack'</span>) {
+        tmp[key] = ex[key]
+      }
+    }
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">JSON</span>.stringify(tmp));
+  }
+
+}());
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>
