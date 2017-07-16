@@ -1,8 +1,6 @@
-/**
- * Created by Bartłomiej Szewczyk on 2015-12-07.
- */
-Template.resetPassword.rendered = function () {
+//## Reset password
 
+Template.resetPassword.rendered = function () {
     $("#resetPassword").validate({
         rules: {
             password: {

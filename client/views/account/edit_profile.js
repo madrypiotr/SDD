@@ -36,6 +36,7 @@ Template.profileEdit.rendered = function () {
         }
     })
 };
+
 Template.profileEdit.helpers({
     email: function () {
         return getEmail(this);

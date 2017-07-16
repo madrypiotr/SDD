@@ -1,3 +1,5 @@
+//## Registration form
+
 Template.registerForm.rendered = function () {
     var users=Users.find({'profile.userType':USERTYPE.CZLONEK});
     if(users.count()>=5)
@@ -91,7 +93,7 @@ Template.registerForm.events({
         e.preventDefault();
         if ($('#userForm').valid()) {
             document.getElementById("submitRegistration").disabled = true;
-            // uzupełnienie tymczasowej tablicy danymi z formularza
+            // supplement the temporary table with the form data
             var firstName = $(e.target).find('[name=firstName]').val();
             var lastName = $(e.target).find('[name=lastName]').val();
             var email = $(e.target).find('[name=email]').val();
@@ -126,10 +128,9 @@ Template.registerForm.events({
                                                     city: $(e.target).find('[name=city]').val(),
                                                     pesel: $(e.target).find('[name=pesel]').val()
                                                 }];
-                                            //-- generowanie loginu dla użytkownika
-                                            newUser[0].login = ret; //generateLogin(newUser[0].firstName, newUser[0].lastName);
+                                            // generating a login for the user
+                                            newUser[0].login = ret;
                                             newUser[0].fullName = newUser[0].firstName + " " + newUser[0].lastName;
-
                                             var users=Users.find({'profile.userType':USERTYPE.CZLONEK});
                                             if(users.count()<5) {
                                                 Meteor.call('addUser', newUser, function (error, ret) {
@@ -138,11 +139,11 @@ Template.registerForm.events({
                                                         if (typeof Errors === "undefined")
                                                             Log.error('Error: ' + error.reason);
                                                         else {
-                                                            //if(error.error === 409)
                                                             throwError(error.reason);
                                                         }
                                                     }
-                                                    else {//jeżeli poprawne dane
+                                                    else {
+														// if correct data
                                                         var addedUser = ret;
                                                         Meteor.loginWithPassword(newUser[0].login, newUser[0].password, function (err) {
                                                             if (err) {

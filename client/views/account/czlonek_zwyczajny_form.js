@@ -1,3 +1,5 @@
+//## Support for an Ordinary Member
+
 Template.czlonekZwyczajnyForm.rendered = function () {
     document.getElementById("submitZwyczajny").disabled = false;
 
@@ -143,7 +145,6 @@ Template.czlonekZwyczajnyForm.events({
     'click #statutBootbox':function(){
         bootbox.dialog({
             message: getRegulamin(),
-            //TAP.i18n("_ addKwestiaForm.legend"),
             title: TAPi18n.__('txv.RULES_OF_THE_ORGANIZATION') + getNazwaOrganizacji(),
             buttons: {
                 main: {
@@ -169,9 +170,11 @@ Template.czlonekZwyczajnyForm.helpers({
         return Parametr.findOne() ? Parametr.findOne().nazwaOrganizacji : TAPi18n.__('txv.ORG_NAME');
     }
 });
+
 getRegulamin=function(){
     return Parametr.findOne() ? Parametr.findOne().regulamin :"";
 };
+
 addIssueOsobowa=function(newUser){
     Meteor.call('serverCheckExistsUser', newUser[0].email, USERTYPE.CZLONEK, null, function (error, ret) {
         if (error) {
@@ -199,6 +202,7 @@ addIssueOsobowa=function(newUser){
         }
     });
 };
+
 addUserDraft=function(newUser){
     Meteor.call('addUserDraft', newUser, function (error, ret) {
             if (error) {
@@ -212,6 +216,7 @@ addUserDraft=function(newUser){
             }
         });
 };
+
 addKwestiaOsobowa=function(idUserDraft,newUser){
     var ZR=ZespolRealizacyjny.findOne({_id:"jjXKur4qC5ZGPQkgN"});
     var newZR=[{
@@ -265,7 +270,8 @@ addKwestiaOsobowa=function(idUserDraft,newUser){
                         Router.go("home");
                     przyjecieWnioskuConfirmation(Parametr.findOne().czasWyczekiwaniaKwestiiSpecjalnej,daneAplikanta.email,"członkowstwo");
                     addPowiadomienieAplikacjaIssueFunction(ret,newKwestia[0].dataWprowadzenia);
-                    if(newUser[0].idUser!=null){//jezeli istnieje juz ten użtykownik,jest doradcą,to wyślij mu confirmation w powiad
+                    if(newUser[0].idUser!=null){
+						// If there is already a user, he is an advisor, then send him a confirmation in the message
                         addPowiadomienieAplikacjaRespondFunction(ret,newKwestia[0].dataWprowadzenia,NOTIFICATION_TYPE.APPLICATION_CONFIRMATION);
                     }
                     Meteor.call("sendApplicationConfirmation", idUserDraft,function(error){
@@ -292,8 +298,6 @@ addKwestiaOsobowa=function(idUserDraft,newUser){
             });
         }
     });
-
-
 };
 
 addPowiadomienieAplikacjaIssueFunction=function(idKwestia,dataWprowadzenia){

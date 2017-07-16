@@ -1,3 +1,5 @@
+//## Support for a Member who has the status of Advisor
+
 Template.doradcaForm.rendered = function () {
     document.getElementById("submitButton").disabled = false;
     $('#dataUrodzeniaDatePicker').datetimepicker({
@@ -88,7 +90,7 @@ Template.doradcaForm.events({
                                                             uwagi: $(e.target).find('[name=uwagi]').val(),
                                                             pesel: ""
                                                         }];
-                                                    //-- generowanie loginu dla użytkownika
+                                                    // generating a login for the user
                                                     newUser[0].login = ret; //generateLogin(newUser[0].firstName, newUser[0].lastName);
 
                                                     addUserDraftDoradca(newUser);
@@ -126,6 +128,7 @@ Template.doradcaForm.events({
         Router.go('home');
     }
 });
+
 addUserDraftDoradca=function(newUser){
     Meteor.call('addUserDraft', newUser, function (error, ret) {
         if (error) {
@@ -136,6 +139,7 @@ addUserDraftDoradca=function(newUser){
         }
     });
 };
+
 addKwestiaOsobowaDoradca=function(idUserDraft,newUser){
     var ZR=ZespolRealizacyjny.findOne({_id:"jjXKur4qC5ZGPQkgN"});
     var newZR=[{
@@ -180,7 +184,6 @@ addKwestiaOsobowaDoradca=function(idUserDraft,newUser){
                     if (typeof Errors === "undefined")
                         Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                     else {
-                        //if(error.error === 409)
                         throwError(error.reason);
                     }
                 }
@@ -217,6 +220,7 @@ addKwestiaOsobowaDoradca=function(idUserDraft,newUser){
         }
     });
 };
+
 Template.doradcaForm.helpers({
     nazwaOrganizacji:function(){
         return Parametr.findOne() ? Parametr.findOne().nazwaOrganizacji :"SDD";
