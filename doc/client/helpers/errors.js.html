@@ -46,7 +46,8 @@ Local (client-only) collection
 
         </td>
         <td class="code highlight">
-          <pre class="javascript">Errors = <span class="hljs-keyword">new</span> Mongo.Collection(<span class="hljs-literal">null</span>);
+          <pre class="javascript">
+Errors = <span class="hljs-keyword">new</span> Mongo.Collection(<span class="hljs-literal">null</span>);
 
 throwError = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">message</span>) </span>{
   Errors.insert({<span class="hljs-attr">message</span>: message})

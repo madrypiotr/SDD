@@ -46,7 +46,8 @@ Methods of Setting Status Issues
 
         </td>
         <td class="code highlight">
-          <pre class="javascript">getUpdateKwestiaRatingObject = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ratingValue, object</span>) </span>{
+          <pre class="javascript">
+getUpdateKwestiaRatingObject = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ratingValue, object</span>) </span>{
 </pre>
         </td>
       </tr>
@@ -75,6 +76,7 @@ Methods of Setting Status Issues
 	}];
 	<span class="hljs-keyword">return</span> kwestiaUpdate;
 };
+
 getOldValueOfUserVote = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ratingValue, object</span>) </span>{
 </pre>
         </td>
@@ -95,6 +97,7 @@ getOldValueOfUserVote = <span class="hljs-function"><span class="hljs-keyword">f
 	});
 	<span class="hljs-keyword">return</span> oldValue;
 };
+
 powolajZRFunction = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idKwestia, idAktualnyZR</span>) </span>{
 </pre>
         </td>
@@ -138,6 +141,7 @@ powolajZRFunction = <span class="hljs-function"><span class="hljs-keyword">funct
 		}
 	}
 };
+
 isKwestiaGlosowana = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idKwestia</span>) </span>{
 </pre>
         </td>
@@ -160,6 +164,7 @@ isKwestiaGlosowana = <span class="hljs-function"><span class="hljs-keyword">func
 	}
 	<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;
 };
+
 setInQueueToVoteMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">kwestie</span>) </span>{
 </pre>
         </td>
@@ -255,6 +260,7 @@ setInQueueToVoteMethod = <span class="hljs-function"><span class="hljs-keyword">
 	}
 	<span class="hljs-keyword">return</span> tab;
 };
+
 rewriteZRMembersToListMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">zespolRealizacyjny, newKwestia</span>) </span>{ 
 </pre>
         </td>
@@ -284,6 +290,7 @@ rewriteZRMembersToListMethod = <span class="hljs-function"><span class="hljs-key
 		<span class="hljs-keyword">if</span> (error) throwError(error.reason);
 	});
 };
+
 manageZRMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newKwestia</span>) </span>{
 </pre>
         </td>
@@ -366,6 +373,7 @@ manageZRMethod = <span class="hljs-function"><span class="hljs-keyword">function
 		} <span class="hljs-keyword">else</span> rewriteZRMembersToList(zespolRealizacyjny, newKwestia);
 	}
 };
+
 updateListKwestieMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ZR, kwestiaId</span>) </span>{
 </pre>
         </td>
@@ -409,6 +417,7 @@ updateListKwestieMethod = <span class="hljs-function"><span class="hljs-keyword"
 		});
 	}
 };
+
 createNewZRMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">zrDraft, kwestia</span>) </span>{
 </pre>
         </td>
@@ -454,6 +463,7 @@ createNewZRMethod = <span class="hljs-function"><span class="hljs-keyword">funct
 		}
 	});
 };
+
 nadawanieNumeruUchwalyMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">dataRealizacji</span>) </span>{
 </pre>
         </td>

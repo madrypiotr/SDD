@@ -1,31 +1,22 @@
-isUserInZespolRealizacyjnyNotification=function(id,zespolTab){
-    if(_.contains(zespolTab,id)){
-        GlobalNotification.error({
-            title: TAPi18n.__('txv.ERROR'),
-            content: TAPi18n.__('txv.YOU_ARE_ALREADY_IN_THE_IMP_TEAM'),
-            duration: 10 // duration the notification should stay in seconds
-        });
-        return true;
-    }
-    else
-        return false;
-};
-isUserCountInZespolRealizacyjnyNotification=function(id,zespolTab,numberOfCzlonkowie){
+//## Methods for adding members to Implementing Teams and creating I.T.
+
+isUserCountInZespolRealizacyjnyNotification = function(id,zespolTab,numberOfCzlonkowie){
     if(zespolTab.length==3) {
         var komunikat = TAPi18n.__('txv.ITS_ALREADY') + numberOfCzlonkowie + TAPi18n.__('txv.MEMBERS_OF_IMPL_TEAM');
         GlobalNotification.error({
             title: TAPi18n.__('txv.ERROR'),
             content: komunikat,
-            duration: 10 // duration the notification should stay in seconds
+            duration: 10
         });
         return true;
     }
     return false;
 };
-addCzlonekToZespolRealizacyjnyNotification=function(idUser,zespolToUpdate,numberOfCzlonkowie,zespolId){
+
+addCzlonekToZespolRealizacyjnyNotification = function(idUser,zespolToUpdate,numberOfCzlonkowie,zespolId){
 
     if(zespolToUpdate.length==2) {
-        //sprawdzam czy mamy taki zespol z idącym kolejnym członkiem
+        // I check if we have such a band with another member going
         zespolToUpdate.push(idUser);
         var kwestie = Kwestia.find({
             $where: function () {
@@ -34,20 +25,22 @@ addCzlonekToZespolRealizacyjnyNotification=function(idUser,zespolToUpdate,number
         });
         var flag=false;
         var arrayZespolyDouble=[];
-        kwestie.forEach(function(kwestia){//odnajdujemy zespoly
+        kwestie.forEach(function(kwestia){
+			// we find Teams
             var zespol=ZespolRealizacyjny.findOne({_id:kwestia.idZespolRealizacyjny});
             if(zespol){
                 var i=0;
-                _.each(zespol.zespol, function (zespolItem) {//dla kazdej aktualnego item z aktualnego zepsolu
-
-                    if (_.contains(zespolToUpdate, zespolItem)) {//jezeli z bazy tablica zawiera ten z zespołu
+                _.each(zespol.zespol, function (zespolItem) {
+				// for each current item from the current team
+                    if (_.contains(zespolToUpdate, zespolItem)) {
+					// if the database contains an array from the Team
                         i++;
                     }
                 });
                 if (i == zespol.zespol.length) {
                     arrayZespolyDouble.push(zespol._id);
                     flag = true;
-                    //moze sie zdarzyc,ze bd kilka zespołów o tych samym składzie,więc dajmy je do tablicy!
+                    // It may happen that there will be several teams with the same composition, so let's put them on the board
                 }
             }
         });
@@ -56,14 +49,14 @@ addCzlonekToZespolRealizacyjnyNotification=function(idUser,zespolToUpdate,number
             $("#decyzjaModalId").modal("show");
         }
 
-        else {//to znaczy,ze normalnie mnie dodają do bazy
+        else {
+			// The third has been added to the Team of Executives. We already have a set
             komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_WE_HAVE_ALREADY_SET');
             $("#addNazwa").modal("show");
-
             GlobalNotification.success({
                 title: TAPi18n.__('txv.SUCCESS'),
                 content: komunikat,
-                duration: 10 // duration the notification should stay in seconds
+                duration: 10
             });
             return true;
         }
@@ -75,7 +68,6 @@ addCzlonekToZespolRealizacyjnyNotification=function(idUser,zespolToUpdate,number
         else
             text = TAPi18n.__('txv.MEMBERS');
         var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfCzlonkowie + text;
-
         zespolToUpdate.push(idUser);
         Meteor.call('updateCzlonkowieZR', zespolId, zespolToUpdate, function (error) {
             if (error) {
@@ -89,32 +81,45 @@ addCzlonekToZespolRealizacyjnyNotification=function(idUser,zespolToUpdate,number
                 GlobalNotification.success({
                     title: TAPi18n.__('txv.SUCCESS'),
                     content: komunikat,
-                    duration: 10 // duration the notification should stay in seconds
+                    duration: 10
                 });
                 return true;
             }
         });
-
     }
-
-
 };
-bladNotification=function(){
+
+isUserInZespolRealizacyjnyNotification = function(id,zespolTab){
+	// information about adding to the Team
+    if(_.contains(zespolTab,id)){
+        GlobalNotification.error({
+            title: TAPi18n.__('txv.ERROR'),
+            content: TAPi18n.__('txv.YOU_ARE_ALREADY_IN_THE_IMP_TEAM'),
+            duration: 10
+        });
+        return true;
+    }
+    else
+        return false;
+};
+
+bladNotification = function(){
+	// to report a mistake
     GlobalNotification.error({
         title: TAPi18n.__('txv.WARNING'),
         content: TAPi18n.__('txv.ERROR'),
-        duration: 10 // duration the notification should stay in seconds
+        duration: 10
     });
 };
 
-isUserInZRNotification=function(idZespolu){
+isUserInZRNotification = function(idZespolu){
     var zespol=ZespolRealizacyjny.findOne({_id:idZespolu});
     if(zespol) {
         if (!_.contains(zespol.zespol, Meteor.userId())) {
             GlobalNotification.error({
                 title:  TAPi18n.__('txv.WARNING'),
                 content: TAPi18n.__('txv.THIS_DECISION_MAY_BE_TAKEN_ONLY_MEMBER_OF_THE_TEAM'),
-                duration: 10 // duration the notification should stay in seconds
+                duration: 10
             });
             return true;
         }
@@ -124,20 +129,20 @@ isUserInZRNotification=function(idZespolu){
 };
 
 addCzlonekToZespolRealizacyjnyNotificationNew=function(idUser,zespolToUpdate,numberOfCzlonkowie,zespolId){
-
     if(zespolToUpdate.length==2) {
-        //sprawdzam czy mamy taki zespol z idącym kolejnym członkiem,szukamy w ZR
+        // I check if we have such a team with another member going, we are looking in the Implementation Team
         zespolToUpdate.push(idUser);
-
         var flag=false;
         var arrayZespolyDouble=[];
         var zespoly=ZespolRealizacyjny.find({czyAktywny:true});
         if(zespoly){
             zespoly.forEach(function(zespol) {
                 var i = 0;
-                _.each(zespol.zespol, function (zespolItem) {//dla kazdej aktualnego item z aktualnego zepsolu
+                _.each(zespol.zespol, function (zespolItem) {
+				// for each current item from the current team
 
-                    if (_.contains(zespolToUpdate, zespolItem)) {//jezeli z bazy tablica zawiera ten z zespołu
+                    if (_.contains(zespolToUpdate, zespolItem)) {
+					// if the database contains an array from the Team
                         i++;
                     }
                 });
@@ -148,14 +153,15 @@ addCzlonekToZespolRealizacyjnyNotificationNew=function(idUser,zespolToUpdate,num
             });
         }
 
-        if(flag==true){//są takowe, więc wyświtlamy
+        if(flag==true){
+			// They are so, so we display
             Session.setPersistent("zespolRealizacyjnyDouble", arrayZespolyDouble);
             $("#decyzjaModalId").modal("show");
         }
-        //nie ma tekiego w bazie,więc sobie uzupelniamy drafta.to finish
+        // There is no teak in the base, so we add a draft.to finish
         else {
             $("#addNazwa").modal("show");
-
+			// excluded:
             //GlobalNotification.success({
             //    title: 'Sukces',
             //    content: komunikat,
@@ -185,19 +191,15 @@ addCzlonekToZespolRealizacyjnyNotificationNew=function(idUser,zespolToUpdate,num
                 GlobalNotification.success({
                     title: TAPi18n.__('txv.SUCCESS'),
                     content: komunikat,
-                    duration: 10 // duration the notification should stay in seconds
+                    duration: 10
                 });
                 return true;
             }
         });
-
     }
-
-
 };
 
-//FUNKCJE
-getCzlonekFullName=function(number,idZR,ZRType){
+getCzlonekFullName = function(number,idZR,ZRType){
     var userID=getZRData(number,idZR,ZRType);
     if(userID){
         var user = Users.findOne({_id: userID});
@@ -206,7 +208,8 @@ getCzlonekFullName=function(number,idZR,ZRType){
         }
     }
 };
-getZRData=function(number,idZR,ZRType){
+
+getZRData = function(number,idZR,ZRType){
     var z=null;
     if(ZRType=="ZRDraft")
         z = ZespolRealizacyjnyDraft.findOne({_id: idZR});
@@ -221,13 +224,15 @@ getZRData=function(number,idZR,ZRType){
         }
     }
 };
-checkIfInZR=function(idZR,idMember){
+
+checkIfInZR = function(idZR,idMember){
     var z = ZespolRealizacyjnyDraft.findOne({_id: idZR});
     if(z){
         return _.contains(z.zespol,idMember) ? idMember :null;
     }
 },
-rezygnujZRAlert=function(idUserZR,idKwestia){
+
+rezygnujZRAlert = function(idUserZR,idKwestia){
     bootbox.dialog({
         title: TAPi18n.__('txv.YOU_ARE_A_MEMBER_OF_THIS_WORKING_GROUP'),
         message: TAPi18n.__('txv.DO_YOU_WANT_TO_BE_OR_OUTPUT'),
@@ -247,8 +252,8 @@ rezygnujZRAlert=function(idUserZR,idKwestia){
         }
     });
 };
-rezygnujZRFunction=function(idUserZR,idKwestia){
 
+rezygnujZRFunction = function(idUserZR,idKwestia){
     var kwestia=Kwestia.findOne({_id:idKwestia});
     if(kwestia) {
         var zespol=ZespolRealizacyjnyDraft.findOne({_id:kwestia.idZespolRealizacyjny});

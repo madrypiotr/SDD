@@ -1,4 +1,5 @@
 //## Methods of Setting Status Issues
+
 getUpdateKwestiaRatingObject = function(ratingValue, object) {
 	// updating the Priority of the Issue
 	var glosujacyTab = object.glosujacy.slice();
@@ -16,6 +17,7 @@ getUpdateKwestiaRatingObject = function(ratingValue, object) {
 	}];
 	return kwestiaUpdate;
 };
+
 getOldValueOfUserVote = function(ratingValue, object) {
 	// retrieving the previous value of the user's probe for the Issue
 	var oldValue = 0;
@@ -24,6 +26,7 @@ getOldValueOfUserVote = function(ratingValue, object) {
 	});
 	return oldValue;
 };
+
 powolajZRFunction = function(idKwestia, idAktualnyZR) {
 	// appointment of the Implementation Team
 	var kwestia = Kwestia.findOne({
@@ -55,6 +58,7 @@ powolajZRFunction = function(idKwestia, idAktualnyZR) {
 		}
 	}
 };
+
 isKwestiaGlosowana = function(idKwestia) {
 	// giving the status of the Question of Voting
 	var kwestia = Kwestia.findOne({
@@ -65,6 +69,7 @@ isKwestiaGlosowana = function(idKwestia) {
 	}
 	return "";
 };
+
 setInQueueToVoteMethod = function(kwestie) {
 	// setting the question to the voting queue 
 	var tab = [];
@@ -112,6 +117,7 @@ setInQueueToVoteMethod = function(kwestie) {
 	}
 	return tab;
 };
+
 rewriteZRMembersToListMethod = function(zespolRealizacyjny, newKwestia) { 
     // assignment when going to the trash (and has ZrDraft)
 	var czlonkowieZespolu = [];
@@ -129,6 +135,7 @@ rewriteZRMembersToListMethod = function(zespolRealizacyjny, newKwestia) {
 		if (error) throwError(error.reason);
 	});
 };
+
 manageZRMethod = function(newKwestia) {
     // assignment when it goes to the trash and it has ZR
 	var zespolRealizacyjny = ZespolRealizacyjny.findOne({
@@ -163,6 +170,7 @@ manageZRMethod = function(newKwestia) {
 		} else rewriteZRMembersToList(zespolRealizacyjny, newKwestia);
 	}
 };
+
 updateListKwestieMethod = function(ZR, kwestiaId) {
 	// Updating ZR on the list of issues
 	var kwestia = Kwestia.findOne({
@@ -182,6 +190,7 @@ updateListKwestieMethod = function(ZR, kwestiaId) {
 		});
 	}
 };
+
 createNewZRMethod = function(zrDraft, kwestia) {
 	// method of creating a new Implementation Team
 	var arrayKwestie = [];
@@ -203,6 +212,7 @@ createNewZRMethod = function(zrDraft, kwestia) {
 		}
 	});
 };
+
 nadawanieNumeruUchwalyMethod = function(dataRealizacji) {
 	// assignment of Resolution Number
 	var numerUchw = 1;
