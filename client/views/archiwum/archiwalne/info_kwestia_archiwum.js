@@ -52,7 +52,7 @@ Template.informacjeKwestiaArchiwum.events({
         var oldValue = getOldValueOfUserVote(ratingValue, kwestia);
         var kwestiaUpdate = getUpdateKwestiaRatingObject(ratingValue, kwestia);
 
-        Meteor.call('updateKwestiaRating', kwestia._id, kwestiaUpdate, function (error, ret) {
+        Meteor.call('updateIssueRating', kwestia._id, kwestiaUpdate, function (error, ret) {
             if (error) {
                 if (typeof Errors === "undefined")
                     Log.error('Error: ' + error.reason);

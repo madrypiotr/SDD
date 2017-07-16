@@ -81,7 +81,7 @@ Template.answerInvitation.events({
 		e.preventDefault();
 		var kwestia = getKwestia(Router.current().params);
 		var userDraft = getUserDraftMethod(Router.current().params);
-		Meteor.call('removeKwestiaSetReasonAnswer', kwestia._id, false, function(error) {
+		Meteor.call('removeIssueSetReasonAnswer', kwestia._id, false, function(error) {
 			if (!error) {
 				if (kwestia.idZespolRealizacyjny) {
 					var zrDraft = ZespolRealizacyjnyDraft.findOne({
@@ -145,7 +145,7 @@ applyPositiveMethod = function(kwestia) {
 			var userDraft = getUserDraftMethod(Router.current().params);
 			var counter = userDraft.licznikKlikniec + 1;
 			Meteor.call("updateLicznikKlikniec", userDraft._id, counter, function(error) {
-				if (!error) Meteor.call("setAnswerKwestiaOczekujacaNrUchwDataRealizacji", kwestia._id, true, nrUchw, new Date(), function(error) {
+				if (!error) Meteor.call("setAnswerWaitIssueNrResolDateOfImpl", kwestia._id, true, nrUchw, new Date(), function(error) {
 					if (error) throwError(error.reason);
 				});
 			});

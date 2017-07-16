@@ -15,7 +15,7 @@ Meteor.startup(function(){
             if(params.count()>1){
                 var issue=Kwestia.findOne({idParametr:newParam._id});
                 if(issue)
-                    Meteor.call("removeKwestia",issue._id);
+                    Meteor.call("removeIssue",issue._id);
                 Meteor.call("setActivityParametrDraft",newParam._id,false);
             }
         }
@@ -72,7 +72,7 @@ Meteor.startup(function(){
             }
 
             if(newKwestia.status == KWESTIA_STATUS.REALIZOWANA && newKwestia.wartoscPriorytetuWRealizacji < ((-1)*newKwestia.wartoscPriorytetu) && newKwestia.czyAktywny==true){
-                Meteor.call('removeKwestiaSetReason', newKwestia._id,KWESTIA_ACTION.NEGATIVE_PRIORITY,function(error) {
+                Meteor.call('removeIssueSetReason', newKwestia._id,KWESTIA_ACTION.NEGATIVE_PRIORITY,function(error) {
                     if(!error) {
                         if (newKwestia.idZespolRealizacyjny) {
                             manageZR(newKwestia);
@@ -195,7 +195,7 @@ Meteor.startup(function(){
             if(!error)
                 Meteor.call("setActivityParametrDraft",globalPramsDraft._id,false,function(error){
                     if(!error)
-                        Meteor.call("updateStatusKwestii",kwestia._id,KWESTIA_STATUS.ZREALIZOWANA);
+                        Meteor.call("updateIssueStatus",kwestia._id,KWESTIA_STATUS.ZREALIZOWANA);
                 });
         });
     };
@@ -205,7 +205,7 @@ Meteor.startup(function(){
             //console.log("ZMIANA_PARAMS");
             var final = moment(new Date()).add(czasGlosowania, "hours").format();
             var start = new Date();
-            Meteor.call('updateStatusDataGlosowaniaKwestiiFinal', newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,function(error){
+            Meteor.call('updStatDateVotingIssueFinal', newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,function(error){
                 if(error)
                     console.log(error.reason);
             });
@@ -348,7 +348,7 @@ Meteor.startup(function(){
         var kwestieOpcje = Kwestia.find({czyAktywny: true, idParent: kwestia.idParent, status: KWESTIA_STATUS.HIBERNOWANA});
         kwestieOpcje.forEach(function (kwestiaOpcja){
             if(kwestiaOpcja._id!=kwestia._id) {
-                Meteor.call('updateStatusKwestii', kwestiaOpcja._id, KWESTIA_STATUS.DELIBEROWANA);
+                Meteor.call('updateIssueStatus', kwestiaOpcja._id, KWESTIA_STATUS.DELIBEROWANA);
             }
         });
     }

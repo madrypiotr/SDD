@@ -42,7 +42,7 @@ Meteor.startup(function(){
             //console.log("ZMIANA_PARAMS");
             var final = moment(new Date()).add(czasGlosowania, "hours").format();
             var start = new Date();
-            Meteor.call('updateStatusDataGlosowaniaKwestiiFinal', newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,function(error){
+            Meteor.call('updStatDateVotingIssueFinal', newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,function(error){
                 if(error)
                     console.log(error.reason);
             });

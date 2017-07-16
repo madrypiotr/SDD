@@ -33,7 +33,7 @@ Template.issueDetails.rendered = function () {
             };
             var voters = kwestia.glosujacy.slice();
             voters.push(glosujacy);
-            Meteor.call('setGlosujacyTab', kwestia._id, voters, function (error, ret) {
+            Meteor.call('setVotingTab', kwestia._id, voters, function (error, ret) {
                 if (error) {
                     if (typeof Errors === "undefined")
                         Log.error(TAPi18n.__('txv.ERROR') + error.reason);

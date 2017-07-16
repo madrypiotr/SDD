@@ -34,14 +34,14 @@ Meteor.startup(function(){
                 switch(newPost.postType){
 
                     case POSTS_TYPES.DELIBERACJA:
-                        Meteor.call('updateStatusDataGlosowaniaKwestii', newPost.idKwestia, KWESTIA_STATUS.DELIBEROWANA, null);
+                        Meteor.call('updStatDateVotingIssue', newPost.idKwestia, KWESTIA_STATUS.DELIBEROWANA, null);
                         break;
 
                     case POSTS_TYPES.KOSZ:
                         var issue=Kwestia.findOne({_id:newPost.idKwestia});
                         if(issue.status!=KWESTIA_STATUS.ARCHIWALNA && issue.status!=KWESTIA_STATUS.HIBERNOWANA) {
                             console.log("kwestia realizowana->kosz(bo post)");
-                            Meteor.call('removeKwestiaSetReason', newPost.idKwestia, KWESTIA_ACTION.SPECIAL_COMMENT_BIN, function (error) {
+                            Meteor.call('removeIssueSetReason', newPost.idKwestia, KWESTIA_ACTION.SPECIAL_COMMENT_BIN, function (error) {
                                 if (!error) {
                                     var kwestia = Kwestia.findOne({_id: newPost.idKwestia});
 
@@ -95,7 +95,7 @@ Meteor.startup(function(){
                         var kwestia=Kwestia.findOne({_id:newPost.idKwestia});
                         if(kwestia.status!=KWESTIA_STATUS.ARCHIWALNA && kwestia.status!=KWESTIA_STATUS.HIBERNOWANA) {
                             console.log("kwestia realizowana->Archiwum(bo post)");
-                            Meteor.call('updateStatusKwestii', newPost.idKwestia, KWESTIA_STATUS.ARCHIWALNA, function (error) {
+                            Meteor.call('updateIssueStatus', newPost.idKwestia, KWESTIA_STATUS.ARCHIWALNA, function (error) {
                                 if (!error) {
                                     if (kwestia.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) {//administrowana,glosowana
                                         Meteor.call("setActivityParametrDraft", kwestia.idParametr, false);

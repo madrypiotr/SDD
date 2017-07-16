@@ -173,7 +173,8 @@ Meteor.methods({
             issueNumber: issueNumber
         });
     },
-    updateKwestiaRating: function (id, obj) {
+	
+    updateIssueRating: function (id, obj) {
         var id = Kwestia.update(id,
             {
                 $set: {
@@ -183,7 +184,8 @@ Meteor.methods({
             }, {upsert: true});
         return id;
     },
-    updateKwestiaWRealizacjiRating: function (id, obj) {
+	
+    UpdateIssueInImplemRating: function (id, obj) {
         var id = Kwestia.update(id,
             {
                 $set: {
@@ -193,23 +195,29 @@ Meteor.methods({
             }, {upsert: true});
         return id;
     },
-    setGlosujacyTab: function (id, obj) {
+	
+    setVotingTab: function (id, obj) {
         var id = Kwestia.update(id, {$set: {glosujacy: obj}}, {upsert: true});
         return id;
     },
+	
+	// This function is probably not used. Make sure it is potentially useful
     updateWartoscPriorytetu: function (id, obj) {
         var id = Kwestia.update(id, {$set: {wartoscPriorytetu: obj}}, {upsert: true});
         return id;
     },
-    updateStatusKwestii: function (id, status) {
+	
+    updateIssueStatus: function (id, status) {
         var id = Kwestia.update(id, {$set: {status: status}}, {upsert: true});
         return id;
     },
-    updateStatusNrUchwalyDataRealizacjiiKwestii: function (id, status,numerUchwaly,data) {
+	
+    updateStatusNoResolRealizIssuesDate: function (id, status,numerUchwaly,data) {
         var id = Kwestia.update(id, {$set: {status: status,numerUchwaly:numerUchwaly,dataRealizacji:data}}, {upsert: true});
         return id;
     },
-    updateStatNrUchwDtRealIdZespolKwestii: function (id, status, numerUchwaly, dataRealizacji,idZR) {
+	
+    updStatNoResDatReaIdImplTeam: function (id, status, numerUchwaly, dataRealizacji,idZR) {
         var id = Kwestia.update(id, {
             $set: {
                 status: status,
@@ -221,7 +229,8 @@ Meteor.methods({
         }, {upsert: true});
         return id;
     },
-    updateStatusDataGlosowaniaKwestii: function (id, status, dataGlosowania) {
+	
+    updStatDateVotingIssue: function (id, status, dataGlosowania) {
         var id = Kwestia.update(id, {
             $set: {
                 status: status,
@@ -230,7 +239,8 @@ Meteor.methods({
         }, {upsert: true});
         return id;
     },
-    updateStatusDataGlosowaniaKwestiiFinal: function (id, status, dataGlosowania,start) {
+	
+    updStatDateVotingIssueFinal: function (id, status, dataGlosowania,start) {
         var id = Kwestia.update(id, {
             $set: {
                 status: status,
@@ -240,21 +250,29 @@ Meteor.methods({
         }, {upsert: true});
         return id;
     },
-    removeKwestia: function(id){
+	
+    removeIssue: function(id){
         Kwestia.update(id,{$set: {czyAktywny: false}}, {upsert: true});
     },
-    removeKwestiaSetReason: function(id,reason){
+	
+    removeIssueSetReason: function(id,reason){
         Kwestia.update(id,{$set: {czyAktywny: false,reason:reason}}, {upsert: true});
     },
-    removeKwestiaSetReasonAnswer: function(id,reason,answer){
+	
+    removeIssueSetReasonAnswer: function(id,reason,answer){
         Kwestia.update(id,{$set: {czyAktywny: false,reason:reason,isAnswerPositive:answer}}, {upsert: true});
     },
+	
+	// This function is probably not used. Make sure it is potentially useful
     setAnswerKwestiaOczekujaca:function(id,answer){
         Kwestia.update(id,{$set: {isAnswerPositive:answer}}, {upsert: true});
     },
-    setAnswerKwestiaOczekujacaNrUchwDataRealizacji:function(id,answer,nrUch,dataRealizacji){
+	
+    setAnswerWaitIssueNrResolDateOfImpl:function(id,answer,nrUch,dataRealizacji){
         Kwestia.update(id,{$set: {isAnswerPositive:answer,numerUchwaly:nrUch,dataRealizacji:dataRealizacji}}, {upsert: true});
     },
+	
+	// This function is probably not used. Make sure it is potentially useful
     updateStatIdZespolu:function(id,status,idZR){
         var id = Kwestia.update(id, {
             $set: {
@@ -264,24 +282,31 @@ Meteor.methods({
         }, {upsert: true});
         return id;
     },
+	
+	// This function is probably not used. Make sure it is potentially useful
     updateStatusDataOczekwianiaKwestii: function (id, status,dataOczekiwania) {
         var id = Kwestia.update(id, {$set: {status: status, dataRozpoczeciaOczekiwania:dataOczekiwania}}, {upsert: true});
         return id;
     },
+	
     addConstZR:function(id,zespol){
         var id = Kwestia.update(id, {$set: {zespol: zespol}});
         return id;
     },
-    updateKwestiaCzasLobbowana:function(id,lobbowana){
+	
+    updTheLobbTimeIssue:function(id,lobbowana){
         var id = Kwestia.update(id, {$set: {lobbowana:lobbowana}});
         return id;
     },
+	
     updateReportsIssue:function(id,reports){
         var id = Kwestia.update(id, {$set: {raporty:reports}});
     },
+	
     updateDeadlineNextRR:function(id,checkArrayRR){
         Kwestia.update(id, {$set: {listaDatRR:checkArrayRR}});
     },
+	
     setIssueProblemSendingEmail:function(id,emailProblem){
         Kwestia.update(id, {$set: {emailProblemNotification:emailProblem}});
     }

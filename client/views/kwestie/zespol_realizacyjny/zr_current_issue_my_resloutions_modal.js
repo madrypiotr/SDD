@@ -72,7 +72,7 @@ Template.zrModalCurrentIssueMyResolutionsInner.events({
 manageIssuesWithoutZR=function(issuesArray){
     var issues=Kwestia.find({_id:{$in:issuesArray},status:{$in:[KWESTIA_STATUS.ZREALIZOWANA,KWESTIA_STATUS.REALIZOWANA]}});
     issues.forEach(function(issue){
-        Meteor.call("removeKwestia",issue._id,function(error){
+        Meteor.call("removeIssue",issue._id,function(error){
            if(!error){
 
            }

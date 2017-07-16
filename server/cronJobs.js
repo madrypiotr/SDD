@@ -244,7 +244,7 @@ checkingEndOfVote = function() {
                         }
                         Meteor.call('removeUserDraftNotZrealizowany',userDraft._id);
                     }
-                    Meteor.call('removeKwestiaSetReason', issueUpdated._id,KWESTIA_ACTION.NEGATIVE_PRIORITY_VOTE);
+                    Meteor.call('removeIssueSetReason', issueUpdated._id,KWESTIA_ACTION.NEGATIVE_PRIORITY_VOTE);
 
 
                 }
@@ -263,7 +263,7 @@ checkingDeliberationExpiration=function(){
     kwestie.forEach(function(kwestia){
         var date=moment(kwestia.dataWprowadzenia).add(1,"month").format();
         if(date<=moment(new Date().format()))
-           Meteor.call("removeKwestiaSetReason",kwestia._id,KWESTIA_ACTION.DELIBERATION_EXPIRED);
+           Meteor.call("removeIssueSetReason",kwestia._id,KWESTIA_ACTION.DELIBERATION_EXPIRED);
     });
 };
 //=========================================== metody pomocnicze ===============================================//
@@ -317,7 +317,7 @@ changeParametersSuccess=function(kwestia){
         if(!error) {
             Meteor.call("setActivityParametrDraft", globalPramsDraft._id, false, function (error) {
                 if (!error)
-                    Meteor.call("updateStatusNrUchwalyDataRealizacjiiKwestii", kwestia._id, KWESTIA_STATUS.ZREALIZOWANA, kwestia.issueNumber, new Date());
+                    Meteor.call("updStatNoResDatReaIdImplTeam", kwestia._id, KWESTIA_STATUS.ZREALIZOWANA, kwestia.issueNumber, new Date());
             });
         }
     });
@@ -371,7 +371,7 @@ hibernateKwestieOpcje=function(kwestia){
     if(kwestieOpcje.count()>1){
         kwestieOpcje.forEach(function (kwestiaOpcja) {
             if(kwestiaOpcja._id!=kwestia._id) {
-                Meteor.call('updateStatusKwestii', kwestiaOpcja._id, KWESTIA_STATUS.HIBERNOWANA);
+                Meteor.call('updateIssueStatus', kwestiaOpcja._id, KWESTIA_STATUS.HIBERNOWANA);
             }
         });
     }
