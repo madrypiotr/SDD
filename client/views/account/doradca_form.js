@@ -1,12 +1,12 @@
 //## Support for a Member who has the status of Advisor
 
-Template.doradcaForm.rendered = function () {
+Template.advisorForm.rendered = function () {
     document.getElementById("submitButton").disabled = false;
     $('#dataUrodzeniaDatePicker').datetimepicker({
         sideBySide: true,
         format: 'DD/MM/YYYY'
     });
-    $("#doradcaFormApp").validate({
+    $("#advisorFormApp").validate({
         rules: {
             email: {
                 email: true
@@ -44,10 +44,10 @@ Template.doradcaForm.rendered = function () {
     })
 };
 
-Template.doradcaForm.events({
+Template.advisorForm.events({
     'submit form': function (e) {
         e.preventDefault();
-        if ($('#doradcaFormApp').valid()) {
+        if ($('#advisorFormApp').valid()) {
             document.getElementById("submitButton").disabled = true;
             var email=$(e.target).find('[name=email]').val();
             Meteor.call('serverCheckExistsUser', email, USERTYPE.DORADCA, null, function (error, ret) {
@@ -221,7 +221,7 @@ addKwestiaOsobowaDoradca=function(idUserDraft,newUser){
     });
 };
 
-Template.doradcaForm.helpers({
+Template.advisorForm.helpers({
     nazwaOrganizacji:function(){
         return Parametr.findOne() ? Parametr.findOne().nazwaOrganizacji :"SDD";
     }

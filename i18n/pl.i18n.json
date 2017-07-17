@@ -159,10 +159,10 @@
 		"Implement":"Realizacja",
 		  "ImplementA":"Tu zobaczysz Kwestie, które z powodzeniem przeszły proces deliberacji, a później głosowania.",
 		  "ImplementB":"W takim wypadku generowana jest uchwała, a tym samym rozpoczyna się jej realizacja pilotowana przez Zespół Realizacyjny.",
-		  "ImplementC":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do dzału Zrealizowane, do Archiwum. Jeśli będzie ona uznana za nietrafioną, lub w inny sposób nie do realizacji, może być też skierowana do Kosza.",
+		  "ImplementC":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do działu Zrealizowane, lub do Kosza, jeśli będzie ona uznana za nietrafioną, lub w inny sposób nie do realizacji.",
 
 		"INarchi":"ARCHIWUM",
-		  "TXarchA":"Archiwum służy składowaniu Kwestii skierowanych tu z różnych powodów, takich jak brak wymaganego poziomu priorytetu przez Kwestię, decyzję uczestników o rezygnacji z dyskusji nad Kwestią i innych.", 
+		  "TXarchA":"Archiwum jest podzielone na dwa działy (Kosz i Hibernowane).", 
 		  "TXarchB":"Dane w archiwum są prezentowane w identycznym formacie jak w wykazie Kwestii.",
 		  "TXarchC":"Archiwum pełni funkcję porządkującą. W Systemie nie ma admina. Wszystkie decyzje będą wynikały z deliberacji i nadawania priorytetów.",
 
@@ -352,7 +352,7 @@
 	"cZwOfTheRules":"Regulaminu",
 	"cZwIapplyForAdmission":"Aplikuję o przyjęcie"
   },
-  "doradcaForm":{
+  "advisorForm":{
 	"dorApplyingAdvisorInTheOrganization":"Aplikowanie na doradcę w organizacji",
 	"dorAdditional":"Dodatkowe",
 	"dorWriteAfewWordsAboutYourself":"Napisz parę słów do nas, o sobie i powodach Twojego wniosku...",
