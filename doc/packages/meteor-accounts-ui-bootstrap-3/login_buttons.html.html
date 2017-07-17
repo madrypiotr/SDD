@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>login_buttons.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "packages\\meteor-accounts-ui-bootstrap-3\\login_buttons.html";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+  <script src="../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>login_buttons.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-comment">&lt;!-- vim:set ft=handlebars: --&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>NOTE: You shouldn't use these templates directly. Instead, use the global
+{{loginButtons}} template. For positioning on the right side of your app,
+try {{loginButtons align=&quot;right&quot;}}</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtons"</span>&gt;</span>
+	{{#if currentUser}}
+		{{#if loggingIn}}
+			{{! We aren't actually logged in yet; we're just setting Meteor.userId
+					optimistically during an at-startup login-with-token. We expose this
+					state so other UIs can treat it specially, but we'll just treat it
+					as logged out. }}
+			{{#if dropdown}}
+				{{&gt; _loginButtonsLoggingIn }}
+			{{else}}
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-buttons-with-only-one-button"</span>&gt;</span>
+					{{&gt; _loginButtonsLoggingInSingleLoginButton }}
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			{{/if}}
+		{{else}}
+			{{&gt; _loginButtonsLoggedIn}}
+		{{/if}}
+	{{else}}
+		{{&gt; _loginButtonsLoggedOut}}
+	{{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggedIn"</span>&gt;</span>
+	{{#if dropdown}}
+		{{&gt; _loginButtonsLoggedInDropdown}}
+	{{else}}
+	{{&gt; _loginButtonsLoggedInSingleLogoutButton}}
+	{{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggedOut"</span>&gt;</span>
+	{{#if services}} {{! if at least one service is configured }}
+		{{#if configurationLoaded}}
+			{{#if dropdown}} {{! if more than one service configured, or password is configured}}
+				{{&gt; _loginButtonsLoggedOutDropdown}}
+			{{else}}
+				{{#with singleService}} {{! at this point there must be only one configured services }}
+						{{#if loggingIn}}
+							{{&gt; _loginButtonsLoggingInSingleLoginButton}}
+						{{else}}
+							{{&gt; _loginButtonsLoggedOutSingleLoginButton}}
+						{{/if}}
+				{{/with}}
+			{{/if}}
+		{{/if}}
+	{{else}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"no-services"</span>&gt;</span>No login services configured<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	{{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- used in various places to display messages to user --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsMessages"</span>&gt;</span>
+	{{#if errorMessage}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"alert alert-danger"</span>&gt;</span>{{errorMessage}}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	{{/if}}
+	{{#if infoMessage}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"alert alert-success no-margin"</span>&gt;</span>{{infoMessage}}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	{{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggingIn"</span>&gt;</span>
+	{{&gt; _loginButtonsLoggingInPadding}}
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"loading"</span>&gt;</span>&amp;nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	{{&gt; _loginButtonsLoggingInPadding}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggingInPadding"</span>&gt;</span>
+	{{#unless dropdown}}
+		{{! invisible div used for correct height of surrounding div. this ensures
+				that the _loginButtons template is always the same height
+				and the rest of the page doesn't move up and down }}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-buttons-padding"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-button single-login-button"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"visibility: hidden;"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-buttons-logout"</span>&gt;</span>&amp;nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	{{else}}
+		{{! just add some padding }}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-buttons-padding"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	{{/unless}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

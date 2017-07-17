@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>add_kwestia.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\kwestia_crud\\add_kwestia.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+  <script src="../../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>add_kwestia.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.addKwestiaForm.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+    Session.setPersistent(<span class="hljs-string">"choosenTopic"</span>, <span class="hljs-literal">null</span>);
+    Session.setPersistent(<span class="hljs-string">"choosenType"</span>, <span class="hljs-literal">null</span>);
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"sugerowanyTemat"</span>).readOnly = <span class="hljs-literal">true</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"sugerowanyRodzaj"</span>).readOnly = <span class="hljs-literal">true</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"chooseTypeBtn"</span>).disabled = <span class="hljs-literal">true</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"addTypeBtn"</span>).disabled = <span class="hljs-literal">true</span>;
+
+    $(<span class="hljs-string">"#kwestiaForm"</span>).validate({
+        <span class="hljs-attr">rules</span>: {
+            <span class="hljs-attr">kwestiaNazwa</span>: {
+                <span class="hljs-attr">checkExistsNazwaKwestii</span>: <span class="hljs-literal">true</span>,
+                <span class="hljs-attr">maxlength</span>: <span class="hljs-number">80</span>
+            },
+            <span class="hljs-attr">krotkaTresc</span>: {
+                <span class="hljs-attr">maxlength</span>: <span class="hljs-number">400</span>
+            },
+            <span class="hljs-attr">szczegolowaTresc</span>: {
+                <span class="hljs-attr">maxlength</span>: <span class="hljs-number">1000</span>
+            }
+        },
+        <span class="hljs-attr">messages</span>: {
+            <span class="hljs-attr">sugerowanyTemat</span>:{
+                <span class="hljs-attr">required</span>:fieldEmptyMessage()
+            },
+            <span class="hljs-attr">sugerowanyRodzaj</span>:{
+                <span class="hljs-attr">required</span>:fieldEmptyMessage()
+            },
+            <span class="hljs-attr">kwestiaNazwa</span>: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage(),
+                <span class="hljs-attr">maxlength</span>: maxLengthMessage(<span class="hljs-number">80</span>)
+            },
+            <span class="hljs-attr">krotkaTresc</span>: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage(),
+                <span class="hljs-attr">maxlength</span>: maxLengthMessage(<span class="hljs-number">400</span>)
+            },
+            <span class="hljs-attr">szczegolowaTresc</span>: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage(),
+                <span class="hljs-attr">maxlength</span>: maxLengthMessage(<span class="hljs-number">1000</span>)
+            }
+        },
+        <span class="hljs-attr">highlight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+            highlightFunction(element);
+        },
+        <span class="hljs-attr">unhighlight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+            unhighlightFunction(element);
+        },
+        <span class="hljs-attr">errorElement</span>: <span class="hljs-string">'span'</span>,
+        <span class="hljs-attr">errorClass</span>: <span class="hljs-string">'help-block'</span>,
+        <span class="hljs-attr">errorPlacement</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, element</span>) </span>{
+            validationPlacementError(error, element);
+        }
+    })
+};
+
+Template.addKwestiaForm.helpers({
+    <span class="hljs-attr">topic</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Session.get(<span class="hljs-string">"choosenTopic"</span>);
+    },
+    <span class="hljs-attr">type</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Session.get(<span class="hljs-string">"choosenType"</span>);
+    }
+});
+
+Template.addKwestiaForm.events({
+    <span class="hljs-string">'submit #kwestiaForm'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        e.preventDefault();
+
+        <span class="hljs-keyword">var</span> topicValue = $(e.target).find(<span class="hljs-string">'[id=sugerowanyTemat]'</span>).val();
+        <span class="hljs-keyword">var</span> typeValue = $(e.target).find(<span class="hljs-string">'[id=sugerowanyRodzaj]'</span>).val();
+        <span class="hljs-keyword">if</span>(topicValue == <span class="hljs-literal">null</span> || topicValue == <span class="hljs-string">""</span> || typeValue == <span class="hljs-literal">null</span> || typeValue == <span class="hljs-string">""</span>){
+            GlobalNotification.error({
+                <span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.WARNING'</span>),
+                <span class="hljs-attr">content</span>: TAPi18n.__(<span class="hljs-string">'txv.FILL_SUBJ_AND_TYPE'</span>),
+                <span class="hljs-attr">duration</span>: <span class="hljs-number">4</span> <span class="hljs-comment">// duration the notification should stay in seconds</span>
+            });
+
+        }<span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">var</span> newKwestia = [
+                {
+                    <span class="hljs-attr">idUser</span>: Meteor.userId(),
+                    <span class="hljs-attr">dataWprowadzenia</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(),
+                    <span class="hljs-attr">kwestiaNazwa</span>: $(e.target).find(<span class="hljs-string">'[name=kwestiaNazwa]'</span>).val(),
+                    <span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-number">20</span>,
+                    <span class="hljs-attr">temat</span>: Session.get(<span class="hljs-string">"choosenTopic"</span>),
+                    <span class="hljs-attr">rodzaj</span>: Session.get(<span class="hljs-string">"choosenType"</span>),
+                    <span class="hljs-attr">krotkaTresc</span>: $(e.target).find(<span class="hljs-string">'[name=krotkaTresc]'</span>).val(),
+                    <span class="hljs-attr">szczegolowaTresc</span>: $(e.target).find(<span class="hljs-string">'[name=szczegolowaTresc]'</span>).val(),
+                    <span class="hljs-attr">isOption</span>: <span class="hljs-literal">false</span>,
+                    <span class="hljs-attr">typ</span>: KWESTIA_TYPE.BASIC
+                }];
+
+            Session.setPersistent(<span class="hljs-string">"kwestiaPreview"</span>, newKwestia[<span class="hljs-number">0</span>]);
+            Router.go(<span class="hljs-string">'previewKwestia'</span>);
+        }
+    },
+    <span class="hljs-string">'reset form'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        Router.go(<span class="hljs-string">'listKwestia'</span>);
+    },
+    <span class="hljs-string">'click #chooseTopicBtn'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        $(<span class="hljs-string">"#chooseTopicModalId"</span>).modal(<span class="hljs-string">"show"</span>);
+    },
+    <span class="hljs-string">'click #addTopicBtn'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        $(<span class="hljs-string">"#addTopicModalId"</span>).modal(<span class="hljs-string">"show"</span>);
+    },
+    <span class="hljs-string">'click #chooseTypeBtn'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        $(<span class="hljs-string">"#chooseTypeModalId"</span>).modal(<span class="hljs-string">"show"</span>);
+    },
+    <span class="hljs-string">'click #addTypeBtn'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        $(<span class="hljs-string">"#addTypeModalId"</span>).modal(<span class="hljs-string">"show"</span>);
+    }
+});
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

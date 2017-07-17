@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dyskusja_main.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\dyskusja\\dyskusja_main.html";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+  <script src="../../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>dyskusja_main.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"discussionMain"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{raporty}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"reportsIds"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"status"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"status"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{status}}"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-12"</span>&gt;</span>
+            {{#each getPosts _id}}
+            {{&gt; discussionPostItem
+            wiadomosc = wiadomosc
+            uzasadnienie=uzasadnienie
+            idUser = idUser
+            userFullName = userFullName
+            addDate=addDate
+            idKwestia=idKwestia
+            idRaport=idRaport
+            idPost=_id
+            wartoscPriorytetu = wartoscPriorytetu
+            }}
+            {{/each}}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    {{&gt; discussionPostForm
+    status=status
+    idKwestia=_id
+    czyAktywny=czyAktywny
+    }}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"discussionPostForm"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dyskusjaForm"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-horizontal"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+            {{#if HasUserRights status czyAktywny}}
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
+                <span class="hljs-comment">&lt;!--wpisz komentarz ...--&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span>  <span class="hljs-attr">required</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'discussionPostForm.diEnterAcomment'}}"</span>  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"idKwestia"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"idKwestia"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{idKwestia}}"</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--Dodaj komentarz--&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"warnCommNotChange"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"dyskusjaForm"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'discussionPostForm.diAddAcomment'}}"</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span> 
+                <span class="hljs-comment">&lt;!--Uwaga: komentarza nie można usuwać ani zmieniać--&gt;</span>
+                {{_ "discussionPostForm.diCommentCanNotBeDeletedOrChanged"}}
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            {{/if}}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"discussionRating"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!--Priorytet tej wypowiedzi--&gt;</span>{{_ "discussionRating.drThePriorityOfThisStatement"}}:
+                <span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#discusMain"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-question-circle"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span> 
+                            {{_ "dym.ThisPrioritySorts"}}
+                            <span class="hljs-tag">&lt;<span class="hljs-name">sub</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal fade"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"discusMain"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"dialog"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-dialog"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-content"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-title"</span>&gt;</span>
+                                    {{_ "dym.PriorInTheDiscus"}}
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "dym.ThisPrioritySortsA"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "dym.ThisPrioritySortsB"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" label {{getLabelClass wartoscPriorytetu}}"</span>&gt;</span>{{wartoscPriorytetu}}<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>  
+            <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+                    <span class="hljs-comment">&lt;!--Nadaj priorytet tej treści--&gt;</span>
+                    {{_ "discussionRating.drGivePriorityToThisContent"}}
+                    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span>
+                                <span class="hljs-comment">&lt;!--Udziel wsparcia lub nie--&gt;</span>
+                                {{_ "discussionRating.drGrantSupportOrNot"}}
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            {{#unless isGlosowanaZrealizowanaKosz}}
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"..."</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postNegativePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"-5"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>-5
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postNegativePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"-4"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>-4
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postNegativePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"-3"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>-3
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postNegativePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"-2"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>-2
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postNegativePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"-1"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>-1
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postPositivePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"1"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>+1
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postPositivePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"2"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>+2
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postPositivePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"3"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>+3
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postPositivePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"4"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>+4
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ratingButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs postPositivePriority"</span>
+                <span class="hljs-attr">value</span>=<span class="hljs-string">"5"</span> {{<span class="hljs-attr">isUserLogged</span>}}&gt;</span>+5
+                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            {{/unless}}
+            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">b</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fontSize"</span>&gt;</span>{{userFullName}},<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                        <span class="hljs-comment">&lt;!--Autor Treści--&gt;</span>
+                        {{_ "discussionRating.drAuthorContent"}}
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>{{getSimpleDate addDate}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fontSizeSmall"</span>&gt;</span>{{getFullHourDate addDate}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span> 
+        <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"yourPath/animatedModal.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>		
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

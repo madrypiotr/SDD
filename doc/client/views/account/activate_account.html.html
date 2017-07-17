@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>activate_account.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../";
+    var thisFile = "client\\views\\account\\activate_account.html";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+
+  <script src="../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>activate_account.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"activateAccount"</span>&gt;</span>
+    {{#if notActivatedAccount}}
+    {{&gt; spinner}}
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--Trwa aktywowanie konta--&gt;</span>
+            {{_ "activateAccount.acItTakesActivateAccount"}}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--Jeżeli zbyt długo czekasz na reakcję systemu, spróbuj odświeżyć przeglądarkę lub spróbuj aktywować konto później--&gt;</span>
+            {{_ "activateAccount.acIfYouWaitTooLong"}}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    {{else}}
+		{{#if notFound}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+				<span class="hljs-comment">&lt;!--Uwaga!--&gt;</span>
+				{{_ "activateAccount.activUwaga"}}
+			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+				<span class="hljs-comment">&lt;!--Wystąpił błąd. Spróbuj ponownie--&gt;</span>
+				{{_ "activateAccount.acAnErrorOccuredTryAgain"}}
+			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		{{else}}
+			{{#if activatedAccountRightNow}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-success padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+					<span class="hljs-comment">&lt;!--Dziękujemy za aktywację konta!--&gt;</span>
+					{{_ "activateAccount.acThankYouForActivatingYourAccount"}}
+				<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+					<span class="hljs-comment">&lt;!--Na podany przez Ciebie email w Aplikacji zostanie wysłany login i hasło.--&gt;</span>
+					{{_ "activateAccount.acYouWillBeSentLoginAndPass"}}
+				<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			{{else}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+					<span class="hljs-comment">&lt;!--Informacja.--&gt;</span>
+					{{_ "activateAccount.acInformation"}}
+				<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+					<span class="hljs-comment">&lt;!--Twoje konto zostało już aktywowane. Przejdź --&gt;</span>
+					{{_ "activateAccount.acYourAccHasAlreadyBeenAct"}} 
+					<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{link}}"</span>&gt;</span>
+						<span class="hljs-comment">&lt;!--tutaj--&gt;</span>
+						{{_ "activateAccount.acHere"}}
+					<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+					<span class="hljs-comment">&lt;!-- aby, się zalogować.--&gt;</span>
+					{{_ "activateAccount.acToLogin"}}
+				<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			{{/if}}
+		{{/if}}
+    {{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

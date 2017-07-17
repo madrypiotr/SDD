@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>roles_client.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../";
+    var thisFile = "packages\\meteor-roles\\roles\\roles_client.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+
+  <script src="../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>roles_client.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">;
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<div class="dox">
+<div class="summary">
+<p>Convenience functions for use on client.</p>
+<p>NOTE: You must restrict user actions on the server-side; any
+client-side checks are strictly for convenience and must not be
+trusted.</p>
+</div>
+<div class="body">
+</div>
+<div class="details">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>//////////////////////////////////////////////////////////
+UI helpers</p>
+<p>Use a semi-private variable rather than declaring UI
+helpers directly so that we can unit test the helpers.
+XXX For some reason, the UI helpers are not registered
+before the tests run.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    Roles._uiHelpers = {
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<div class="dox">
+<div class="summary">
+<p>UI helper to check if current user is in at least one
+of the target roles.  For use in client-side templates.</p>
+</div>
+<div class="body">
+</div>
+<div class="details">
+<div class="dox_tag_title">Params</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">role</span>
+<span class="dox_type">String</span>
+<span>Name of role or comma-seperated list of roles
+</span>
+</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">[group]</span>
+<span class="dox_type">String</span>
+<span>Optional, name of group to check
+</span>
+</div>
+<div class="dox_tag_title">Returns</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name"></span>
+<span class="dox_type">Boolean</span>
+<span>true if current user is in at least one of the target roles
+</span>
+</div>
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">        isInRole: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">role, group</span>) </span>{
+            <span class="hljs-keyword">var</span> user = Meteor.user(),
+                comma = (role || <span class="hljs-string">''</span>).indexOf(<span class="hljs-string">','</span>),
+                roles
+
+            <span class="hljs-keyword">if</span> (!user) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+            <span class="hljs-keyword">if</span> (!Match.test(role, <span class="hljs-built_in">String</span>)) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+
+            <span class="hljs-keyword">if</span> (comma !== <span class="hljs-number">-1</span>) {
+                roles = _.reduce(role.split(<span class="hljs-string">','</span>), <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">memo, r</span>) </span>{
+                    <span class="hljs-keyword">if</span> (!r || !r.trim()) {
+                        <span class="hljs-keyword">return</span> memo
+                    }
+                    memo.push(r.trim())
+                    <span class="hljs-keyword">return</span> memo
+                }, [])
+            } <span class="hljs-keyword">else</span> {
+                roles = [role]
+            }
+
+            <span class="hljs-keyword">if</span> (Match.test(group, <span class="hljs-built_in">String</span>)) {
+                <span class="hljs-keyword">return</span> Roles.userIsInRole(user, roles, group)
+            }
+
+            <span class="hljs-keyword">return</span> Roles.userIsInRole(user, roles)
+        },
+        <span class="hljs-attr">userHasPermission</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">permission</span>) </span>{
+            <span class="hljs-keyword">var</span> result = <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">var</span> user = Meteor.user();
+            <span class="hljs-keyword">if</span> (!user) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">if</span> (user) {
+                <span class="hljs-keyword">var</span> rolesToSearch = _.keys(user.roles);
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; rolesToSearch.length; i++) {
+                    <span class="hljs-keyword">var</span> role = Meteor.roles.findOne({<span class="hljs-attr">name</span>: rolesToSearch[i]});
+                    <span class="hljs-keyword">if</span> (_.include(role.subRoles, permission)) {
+                        result = <span class="hljs-literal">true</span>;
+                        <span class="hljs-keyword">break</span>;
+                    }
+                }
+                <span class="hljs-keyword">return</span> result;
+            }
+        },
+
+        <span class="hljs-attr">userHasRole</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">role</span>) </span>{
+            <span class="hljs-keyword">var</span> user = Meteor.user();
+            <span class="hljs-keyword">if</span> (!user) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            <span class="hljs-keyword">if</span> (user) {
+                <span class="hljs-keyword">var</span> rolesToSearch = _.keys(user.roles);
+                <span class="hljs-keyword">if</span> (_.include(rolesToSearch, role)) {
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+                }
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            }
+        }
+    }
+
+    Roles.userHasPermission = Roles._uiHelpers.userHasPermission;
+    Roles.userHasRole = Roles._uiHelpers.userHasRole;
+
+    <span class="hljs-keyword">if</span> (Package.ui) {
+        _.each(Roles._uiHelpers, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">func, name</span>) </span>{
+            Package.ui.UI.registerHelper(name, func)
+        })
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (Package.handlebars) {
+        _.each(Roles._uiHelpers, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">func, name</span>) </span>{
+            Package.handlebars.Handlebars.registerHelper(name, func)
+        })
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">console</span>.log &amp;&amp; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'WARNING: Roles template helpers not registered. Handlebars or UI package not found'</span>)
+    }
+
+}());
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

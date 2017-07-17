@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>methods_users.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "client\\helpers\\methods_users.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+  <script src="../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+      <div class="heading h2">
+        <a href="#check-the-role-email-and-existence-of-the-user-to-confirm-the-adoption">Check the role, email, and existence of the user to confirm the adoption</a>
+      </div>
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="check-the-role-email-and-existence-of-the-user-to-confirm-the-adoption">
+  <h2>
+    <a href="#check-the-role-email-and-existence-of-the-user-to-confirm-the-adoption" name="check-the-role-email-and-existence-of-the-user-to-confirm-the-adoption" class="pilcrow"></a>
+Check the role, email, and existence of the user to confirm the adoption
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+IsAdminUser = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">return</span> Roles.userIsInRole(Meteor.user(), [<span class="hljs-string">'admin'</span>]);
+};
+
+setRoles = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">var</span> roles = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'role'</span>);
+	<span class="hljs-keyword">if</span> (roles) {
+		Roles.getAllRoles().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">role</span>) </span>{
+			<span class="hljs-keyword">var</span> option = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"option"</span>);
+			option.text = role.name;
+			roles.add(option, <span class="hljs-literal">null</span>);
+		});
+	}
+};
+
+getEmail = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">_this</span>) </span>{
+	<span class="hljs-keyword">if</span> (_this.emails &amp;&amp; _this.emails.length) <span class="hljs-keyword">return</span> _this.emails[<span class="hljs-number">0</span>].address;
+	<span class="hljs-keyword">if</span> (_this.services) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>iterate through services</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> serviceName <span class="hljs-keyword">in</span> _this.services) {
+			<span class="hljs-keyword">var</span> serviceObject = _this.services[serviceName];
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>if an 'id' isset then assume valid service</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			<span class="hljs-keyword">if</span> (serviceObject.id) {
+				<span class="hljs-keyword">if</span> (serviceObject.email) {
+					<span class="hljs-keyword">return</span> serviceObject.email;
+				}
+			}
+		}
+	}
+	<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;
+};
+
+checkExistsUser = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">searchedEmail, userType1, userType2</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>used to validate the application on a member, advisor and confiramide in them</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> found = <span class="hljs-literal">null</span>;
+	<span class="hljs-keyword">var</span> userType = <span class="hljs-literal">null</span>;
+	<span class="hljs-keyword">var</span> users = Users.find();
+	users.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">user</span>) </span>{
+		_.each(user.emails, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">email</span>) </span>{
+			<span class="hljs-keyword">if</span> (_.isEqual(email.address.toLowerCase(), searchedEmail.toLowerCase())) {
+				<span class="hljs-keyword">if</span> (userType1 == <span class="hljs-literal">null</span> &amp;&amp; userType2 == <span class="hljs-literal">null</span>) 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>to search or to find such a user in the system</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					found = <span class="hljs-literal">true</span>;
+				<span class="hljs-keyword">else</span> {
+					userType = user.profile.userType;
+					<span class="hljs-keyword">if</span> (userType2 == <span class="hljs-literal">null</span>) {
+						<span class="hljs-keyword">if</span> (userType == userType1) { 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>for the search, whether the advisor / member is in the system</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							found = <span class="hljs-literal">true</span>;
+						}
+					} <span class="hljs-keyword">else</span> {
+						<span class="hljs-keyword">if</span> (userType == userType1 || userType == userType2) { 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>for search it is at least a member or advisor</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							found = <span class="hljs-literal">true</span>;
+						}
+					}
+				}
+			}
+		});
+	});
+	<span class="hljs-keyword">return</span> found;
+};
+
+przyjecieWnioskuConfirmation = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">time, email, userTypeText</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>confirmation of the processing of the application</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	bootbox.dialog({
+		<span class="hljs-attr">message</span>: TAPi18n.__(<span class="hljs-string">'txv.YOUR_APPLICATION_FORM_WIL_BE_WAITING'</span>) + time + TAPi18n.__(<span class="hljs-string">'txv.DAYS_FOR_APPROVAL_OF_THE_TOTAL_MEMBERS'</span>) + getNazwaOrganizacji() + TAPi18n.__(<span class="hljs-string">'txv.AFTER_A_POSITIVE_EXAMINATION_WILL_RECIVE_INFO'</span>) + email + TAPi18n.__(<span class="hljs-string">'txv.YOU_WILL_RECEIVE_A_LINK_TO_ACTIVATE_YOUR'</span>) + userTypeText,
+		<span class="hljs-attr">title</span>: TAPi18n.__(<span class="hljs-string">'txv.WARNING'</span>),
+		<span class="hljs-attr">buttons</span>: {
+			<span class="hljs-attr">main</span>: {
+				<span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.OK'</span>),
+				<span class="hljs-attr">className</span>: <span class="hljs-string">"btn-primary"</span>
+			}
+		}
+	});
+};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p>This function is probably not used. Make sure it is potentially useful</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">getAllUsersWhoVoted = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">idKWestia</span>) </span>{
+	<span class="hljs-keyword">var</span> kwestia = Kwestia.findOne({
+		<span class="hljs-attr">_id</span>: idKWestia
+	});
+	<span class="hljs-keyword">if</span> (kwestia) {
+		<span class="hljs-keyword">var</span> tab = kwestia.glosujacy;
+		<span class="hljs-keyword">if</span> (tab) {
+			<span class="hljs-keyword">var</span> tabNew = [];
+			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; tab.length; j++) {
+				tabNew.push(tab[j].idUser);
+			}
+			<span class="hljs-keyword">return</span> tabNew;
+		}
+	}
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

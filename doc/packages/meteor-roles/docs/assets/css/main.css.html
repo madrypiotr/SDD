@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>main.css</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../";
+    var thisFile = "packages\\meteor-roles\\docs\\assets\\css\\main.css";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+
+  <script src="../../../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>main.css</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+<p>Font sizes for all selectors other than the body are given in percentages,
+with 100% equal to 13px. To calculate a font size percentage, multiply the
+desired size in pixels by 7.6923076923.</p>
+<p>Here's a quick lookup table:</p>
+<p>10px - 76.923%
+11px - 84.615%
+12px - 92.308%
+13px - 100%
+14px - 107.692%
+15px - 115.385%
+16px - 123.077%
+17px - 130.769%
+18px - 138.462%
+19px - 146.154%
+20px - 153.846%</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css">
+<span class="hljs-selector-tag">html</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#333</span>;
+    <span class="hljs-attribute">overflow-y</span>: scroll;
+}
+
+<span class="hljs-selector-tag">body</span> {
+    <span class="hljs-comment">/*font: 13px/1.4 'Lucida Grande', 'Lucida Sans Unicode', 'DejaVu Sans', 'Bitstream Vera Sans', 'Helvetica', 'Arial', sans-serif;*/</span>
+    <span class="hljs-attribute">font</span>: <span class="hljs-number">13px</span>/<span class="hljs-number">1.4</span> <span class="hljs-string">'Helvetica'</span>, <span class="hljs-string">'Arial'</span>, sans-serif;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-comment">/* -- Links ----------------------------------------------------------------- */</span>
+<span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#356de4</span>;
+    <span class="hljs-attribute">text-decoration</span>: none;
+}
+
+<span class="hljs-selector-class">.hidden</span> {
+    <span class="hljs-attribute">display</span>: none;
+}
+
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> { <span class="hljs-attribute">text-decoration</span>: underline; }
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>&quot;Jump to Table of Contents&quot; link is shown to assistive tools, but hidden from
+sight until it's focused.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css">.jump {
+    position: absolute;
+    padding: 3px 6px;
+    left: -99999px;
+    top: 0;
+}
+
+.jump:focus { left: 40%; }
+
+/* -- Paragraphs ------------------------------------------------------------ */
+p { margin: 1.3em 0; }
+dd p, td p { margin-bottom: 0; }
+dd p:first-child, td p:first-child { margin-top: 0; }
+
+/* -- Headings -------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    color: #D98527;/*was #f80*/
+    font-family: 'Trebuchet MS', sans-serif;
+font-family: 'Coda', sans-serif; /*pm*/
+    font-weight: bold;
+    line-height: 1.1;
+    margin: 1.1em 0 0.5em;
+}
+
+h1 {
+    font-size: 184.6%;
+    color: #30418C;
+    margin: 0.75em 0 0.5em;
+}
+
+h2 {
+    font-size: 153.846%;
+    color: #E48A2B;
+}
+
+h3 { font-size: 138.462%; }
+
+h4 {
+    border-bottom: 1px solid #DBDFEA;
+    color: #E48A2B;
+    font-size: 115.385%;
+    font-weight: normal;
+    padding-bottom: 2px;
+}
+
+h5, h6 { font-size: 107.692%; }
+
+/* -- Code and examples ----------------------------------------------------- */
+code, kbd, pre, samp {
+    font-family: Menlo, Monaco, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+    font-size: 92.308%;
+    line-height: 1.35;
+}
+
+p code, p kbd, p samp {
+    background: #FCFBFA;
+    border: 1px solid #EFEEED;
+    padding: 0 3px;
+}
+
+a code, a kbd, a samp,
+pre code, pre kbd, pre samp,
+table code, table kbd, table samp,
+.intro code, .intro kbd, .intro samp,
+.toc code, .toc kbd, .toc samp {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+pre.code, pre.terminal, pre.cmd {
+    overflow-x: auto;
+    *overflow-x: scroll;
+    padding: 0.3em 0.6em;
+}
+
+pre.code {
+    background: #FCFBFA;
+    border: 1px solid #EFEEED;
+    border-left-width: 5px;
+}
+
+pre.terminal, pre.cmd {
+    background: #F0EFFC;
+    border: 1px solid #D0CBFB;
+    border-left: 5px solid #D0CBFB;
+}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>Don't reduce the font size of <code>/<kbd>/<samp> elements inside <pre>
+blocks.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css"><span class="hljs-selector-tag">pre</span> <span class="hljs-selector-tag">code</span>, <span class="hljs-selector-tag">pre</span> <span class="hljs-selector-tag">kbd</span>, <span class="hljs-selector-tag">pre</span> <span class="hljs-selector-tag">samp</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">100%</span>; }
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>Used to denote text that shouldn't be selectable, such as line numbers or
+shell prompts. Guess which browser this doesn't work in.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css"><span class="hljs-selector-class">.noselect</span> {
+    <span class="hljs-attribute">-moz-user-select</span>: -moz-none;
+    <span class="hljs-attribute">-khtml-user-select</span>: none;
+    <span class="hljs-attribute">-webkit-user-select</span>: none;
+    <span class="hljs-attribute">-o-user-select</span>: none;
+    <span class="hljs-attribute">user-select</span>: none;
+}
+
+<span class="hljs-comment">/* -- Lists ----------------------------------------------------------------- */</span>
+<span class="hljs-selector-tag">dd</span> { <span class="hljs-attribute">margin</span>: <span class="hljs-number">0.2em</span> <span class="hljs-number">0</span> <span class="hljs-number">0.7em</span> <span class="hljs-number">1em</span>; }
+<span class="hljs-selector-tag">dl</span> { <span class="hljs-attribute">margin</span>: <span class="hljs-number">1em</span> <span class="hljs-number">0</span>; }
+<span class="hljs-selector-tag">dt</span> { <span class="hljs-attribute">font-weight</span>: bold; }
+
+<span class="hljs-comment">/* -- Tables ---------------------------------------------------------------- */</span>
+<span class="hljs-selector-tag">caption</span>, <span class="hljs-selector-tag">th</span> { <span class="hljs-attribute">text-align</span>: left; }
+
+<span class="hljs-selector-tag">table</span> {
+    <span class="hljs-attribute">border-collapse</span>: collapse;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-tag">td</span>, <span class="hljs-selector-tag">th</span> {
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span> <span class="hljs-number">12px</span>;
+    <span class="hljs-attribute">vertical-align</span>: top;
+}
+
+<span class="hljs-selector-tag">td</span> { <span class="hljs-attribute">background</span>: <span class="hljs-number">#E6E9F5</span>; }
+<span class="hljs-selector-tag">td</span> <span class="hljs-selector-tag">dl</span> { <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>; }
+<span class="hljs-selector-tag">td</span> <span class="hljs-selector-tag">dl</span> <span class="hljs-selector-tag">dl</span> { <span class="hljs-attribute">margin</span>: <span class="hljs-number">1em</span> <span class="hljs-number">0</span>; }
+<span class="hljs-selector-tag">td</span> <span class="hljs-selector-tag">pre</span><span class="hljs-selector-pseudo">:first-child</span> { <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>; }
+
+<span class="hljs-selector-tag">th</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#D2D7E6</span>;<span class="hljs-comment">/*#97A0BF*/</span>
+    <span class="hljs-attribute">border-bottom</span>: none;
+    <span class="hljs-attribute">border-top</span>: none;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#000</span>;<span class="hljs-comment">/*#FFF1D5*/</span>
+    <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Trebuchet MS'</span>, sans-serif;
+<span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Coda'</span>, sans-serif; <span class="hljs-comment">/*pm*/</span>
+    <span class="hljs-attribute">font-weight</span>: bold;
+    <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.3</span>;
+    <span class="hljs-attribute">white-space</span>: nowrap;
+}
+
+
+<span class="hljs-comment">/* -- Layout and Content ---------------------------------------------------- */</span>
+<span class="hljs-selector-id">#doc</span> {
+    <span class="hljs-attribute">margin</span>: auto;
+    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">1024px</span>;
+}
+
+<span class="hljs-selector-class">.content</span> { <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">20px</span> <span class="hljs-number">0</span> <span class="hljs-number">25px</span>; }
+
+<span class="hljs-selector-class">.sidebar</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">15px</span> <span class="hljs-number">0</span> <span class="hljs-number">10px</span>;
+}
+<span class="hljs-selector-id">#bd</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">7px</span> <span class="hljs-number">0</span> <span class="hljs-number">130px</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">99%</span>;
+}
+
+<span class="hljs-comment">/* -- Table of Contents ----------------------------------------------------- */</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>The #toc id refers to the single global table of contents, while the .toc
+class refers to generic TOC lists that could be used throughout the page.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css">
+<span class="hljs-selector-class">.toc</span> <span class="hljs-selector-tag">code</span>, <span class="hljs-selector-class">.toc</span> <span class="hljs-selector-tag">kbd</span>, <span class="hljs-selector-class">.toc</span> <span class="hljs-selector-tag">samp</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">100%</span>; }
+<span class="hljs-selector-class">.toc</span> <span class="hljs-selector-tag">li</span> { <span class="hljs-attribute">font-weight</span>: bold; }
+<span class="hljs-selector-class">.toc</span> <span class="hljs-selector-tag">li</span> <span class="hljs-selector-tag">li</span> { <span class="hljs-attribute">font-weight</span>: normal; }
+
+<span class="hljs-comment">/* -- Intro and Example Boxes ----------------------------------------------- */</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>.intro, .example { margin-bottom: 2em; }
+.example {
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+-moz-box-shadow: 0 0 5px #bfbfbf;
+-webkit-box-shadow: 0 0 5px #bfbfbf;
+box-shadow: 0 0 5px #bfbfbf;
+padding: 1em;
+}
+.intro {
+background: none repeat scroll 0 0 #F0F1F8; border: 1px solid #D4D8EB; padding: 0 1em;
+}</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css">
+<span class="hljs-comment">/* -- Other Styles ---------------------------------------------------------- */</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>These are probably YUI-specific, and should be moved out of Selleck's default
+theme.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css">
+<span class="hljs-selector-class">.button</span> {
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#dadada</span>;
+    <span class="hljs-attribute">-moz-border-radius</span>: <span class="hljs-number">3px</span>;
+    <span class="hljs-attribute">-webkit-border-radius</span>: <span class="hljs-number">3px</span>;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">3px</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#444</span>;
+    <span class="hljs-attribute">display</span>: inline-block;
+    <span class="hljs-attribute">font-family</span>: Helvetica, Arial, sans-serif;
+<span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Coda'</span>, sans-serif; <span class="hljs-comment">/*pm*/</span>
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">92.308%</span>;
+    <span class="hljs-attribute">font-weight</span>: bold;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">4px</span> <span class="hljs-number">13px</span> <span class="hljs-number">3px</span>;
+    <span class="hljs-attribute">-moz-text-shadow</span>: <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">-webkit-text-shadow</span>: <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">white-space</span>: nowrap;
+
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#EFEFEF</span>; <span class="hljs-comment">/* old browsers */</span>
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">-moz-linear-gradient</span>(top, #f5f5f5 0%, #efefef 50%, #e5e5e5 51%, #dfdfdf 100%); <span class="hljs-comment">/* firefox */</span>
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, color-stop(0%,#f5f5f5), <span class="hljs-built_in">color-stop</span>(50%,#efefef), <span class="hljs-built_in">color-stop</span>(51%,#e5e5e5), <span class="hljs-built_in">color-stop</span>(100%,#dfdfdf)); <span class="hljs-comment">/* webkit */</span>
+    <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>( startColorstr=<span class="hljs-string">'#f5f5f5'</span>, endColorstr=<span class="hljs-string">'#dfdfdf'</span>,GradientType=0 ); <span class="hljs-comment">/* ie */</span>
+}
+
+<span class="hljs-selector-class">.button</span><span class="hljs-selector-pseudo">:hover</span> {
+    <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#466899</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">text-decoration</span>: none;
+    <span class="hljs-attribute">-moz-text-shadow</span>: <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-number">#222</span>;
+    <span class="hljs-attribute">-webkit-text-shadow</span>: <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-number">#222</span>;
+    <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-number">#222</span>;
+
+    <span class="hljs-attribute">background</span>: <span class="hljs-number">#6396D8</span>; <span class="hljs-comment">/* old browsers */</span>
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">-moz-linear-gradient</span>(top, #6396D8 0%, #5A83BC 50%, #547AB7 51%, #466899 100%); <span class="hljs-comment">/* firefox */</span>
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, color-stop(0%,#6396D8), <span class="hljs-built_in">color-stop</span>(50%,#5A83BC), <span class="hljs-built_in">color-stop</span>(51%,#547AB7), <span class="hljs-built_in">color-stop</span>(100%,#466899)); <span class="hljs-comment">/* webkit */</span>
+    <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>( startColorstr=<span class="hljs-string">'#6396D8'</span>, endColorstr=<span class="hljs-string">'#466899'</span>,GradientType=0 ); <span class="hljs-comment">/* ie */</span>
+}
+
+<span class="hljs-selector-class">.newwindow</span> { <span class="hljs-attribute">text-align</span>: center; }
+
+<span class="hljs-selector-class">.header</span> <span class="hljs-selector-class">.version</span> <span class="hljs-selector-tag">em</span> {
+    <span class="hljs-attribute">display</span>: block;
+    <span class="hljs-attribute">text-align</span>: right;
+}
+
+
+<span class="hljs-selector-id">#classdocs</span> <span class="hljs-selector-class">.item</span> {
+    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#466899</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">1em</span> <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">1em</span>;
+}
+
+<span class="hljs-selector-id">#classdocs</span> <span class="hljs-selector-class">.item</span> <span class="hljs-selector-class">.params</span> <span class="hljs-selector-tag">p</span>,
+    <span class="hljs-selector-id">#classdocs</span> <span class="hljs-selector-class">.item</span> <span class="hljs-selector-class">.returns</span> <span class="hljs-selector-tag">p</span>,{
+    <span class="hljs-attribute">display</span>: inline;
+}
+
+<span class="hljs-selector-id">#classdocs</span> <span class="hljs-selector-class">.item</span> <span class="hljs-selector-tag">em</span> <span class="hljs-selector-tag">code</span>, <span class="hljs-selector-id">#classdocs</span> <span class="hljs-selector-class">.item</span> <span class="hljs-selector-tag">em</span><span class="hljs-selector-class">.comment</span> {
+    <span class="hljs-attribute">color</span>: green;
+}
+
+<span class="hljs-selector-id">#classdocs</span> <span class="hljs-selector-class">.item</span> <span class="hljs-selector-tag">em</span><span class="hljs-selector-class">.comment</span> <span class="hljs-selector-tag">a</span> {
+    <span class="hljs-attribute">color</span>: green;
+    <span class="hljs-attribute">text-decoration</span>: underline;
+}
+
+<span class="hljs-selector-id">#classdocs</span> <span class="hljs-selector-class">.foundat</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">10px</span>;
+    <span class="hljs-attribute">font-style</span>: normal;
+}
+
+<span class="hljs-selector-class">.attrs</span> <span class="hljs-selector-class">.emits</span> {
+    <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">2em</span>;
+    <span class="hljs-attribute">padding</span>: .<span class="hljs-number">5em</span>;
+    <span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> dashed <span class="hljs-number">#ccc</span>;
+}
+
+<span class="hljs-selector-tag">abbr</span> {
+    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> dashed <span class="hljs-number">#ccc</span>;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">80%</span>;
+    <span class="hljs-attribute">cursor</span>: help;
+}
+
+<span class="hljs-selector-class">.prettyprint</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.L0</span>, 
+<span class="hljs-selector-class">.prettyprint</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.L1</span>, 
+<span class="hljs-selector-class">.prettyprint</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.L2</span>, 
+<span class="hljs-selector-class">.prettyprint</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.L3</span>, 
+<span class="hljs-selector-class">.prettyprint</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.L5</span>, 
+<span class="hljs-selector-class">.prettyprint</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.L6</span>, 
+<span class="hljs-selector-class">.prettyprint</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.L7</span>, 
+<span class="hljs-selector-class">.prettyprint</span> <span class="hljs-selector-tag">li</span><span class="hljs-selector-class">.L8</span> {
+    <span class="hljs-attribute">list-style</span>: decimal;
+}
+
+<span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span> <span class="hljs-selector-tag">p</span> {
+    <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-selector-class">.method</span> <span class="hljs-selector-class">.name</span> {
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">110%</span>;
+}
+
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.methods</span> <span class="hljs-selector-class">.extends</span> <span class="hljs-selector-class">.method</span>,
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.properties</span> <span class="hljs-selector-class">.extends</span> <span class="hljs-selector-class">.property</span>,
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.attrs</span> <span class="hljs-selector-class">.extends</span> <span class="hljs-selector-class">.attr</span>,
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.events</span> <span class="hljs-selector-class">.extends</span> <span class="hljs-selector-class">.event</span> {
+    <span class="hljs-attribute">font-weight</span>: bold;
+}
+
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.methods</span> <span class="hljs-selector-class">.extends</span> <span class="hljs-selector-class">.inherited</span>,
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.properties</span> <span class="hljs-selector-class">.extends</span> <span class="hljs-selector-class">.inherited</span>,
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.attrs</span> <span class="hljs-selector-class">.extends</span> <span class="hljs-selector-class">.inherited</span>,
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.events</span> <span class="hljs-selector-class">.extends</span> <span class="hljs-selector-class">.inherited</span> {
+    <span class="hljs-attribute">font-weight</span>: normal;
+}
+
+<span class="hljs-selector-id">#hd</span> {
+    <span class="hljs-attribute">background</span>: whiteSmoke;
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">-moz-linear-gradient</span>(top,#DCDBD9 0,#F6F5F3 100%);
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear,left top,left bottom,color-stop(0%,#DCDBD9),<span class="hljs-built_in">color-stop</span>(100%,#F6F5F3));
+    <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#dcdbd9'</span>,endColorstr=<span class="hljs-string">'#F6F5F3'</span>,GradientType=0);
+    <span class="hljs-attribute">border-bottom</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#DFDFDF</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">15px</span> <span class="hljs-number">1px</span> <span class="hljs-number">20px</span>;
+    <span class="hljs-attribute">margin-bottom</span>: <span class="hljs-number">15px</span>;
+}
+
+<span class="hljs-selector-id">#hd</span> <span class="hljs-selector-tag">img</span> {
+    <span class="hljs-attribute">margin-right</span>: <span class="hljs-number">10px</span>;
+    <span class="hljs-attribute">vertical-align</span>: middle;
+}
+
+
+<span class="hljs-comment">/* -- API Docs CSS ---------------------------------------------------------- */</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>This file is organized so that more generic styles are nearer the top, and more
+specific styles are nearer the bottom of the file. This allows us to take full
+advantage of the cascade to avoid redundant style rules. Please respect this
+convention when making changes.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css">
+<span class="hljs-comment">/* -- Generic TabView styles ------------------------------------------------ */</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p>These styles apply to all API doc tabviews. To change styles only for a
+specific tabview, see the other sections below.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css">
+<span class="hljs-selector-class">.yui3-js-enabled</span> <span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.tabview</span> {
+    <span class="hljs-attribute">visibility</span>: hidden; <span class="hljs-comment">/* Hide until the TabView finishes rendering. */</span>
+    <span class="hljs-attribute">_visibility</span>: visible;
+}
+
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.tabview</span><span class="hljs-selector-class">.yui3-tabview-content</span> { <span class="hljs-attribute">visibility</span>: visible; }
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.tabview</span> <span class="hljs-selector-class">.yui3-tabview-panel</span> { <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span>; }
+
+<span class="hljs-comment">/* -- Generic Content Styles ------------------------------------------------ */</span>
+
+<span class="hljs-comment">/* Headings */</span>
+<span class="hljs-selector-tag">h2</span>, <span class="hljs-selector-tag">h3</span>, <span class="hljs-selector-tag">h4</span>, <span class="hljs-selector-tag">h5</span>, <span class="hljs-selector-tag">h6</span> {
+    <span class="hljs-attribute">border</span>: none;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#30418C</span>;
+    <span class="hljs-attribute">font-weight</span>: bold;
+    <span class="hljs-attribute">text-decoration</span>: none;
+}
+
+<span class="hljs-selector-class">.link-docs</span> {
+    <span class="hljs-attribute">float</span>: right;
+    <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">4px</span> <span class="hljs-number">4px</span> <span class="hljs-number">6px</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">6px</span> <span class="hljs-number">30px</span> <span class="hljs-number">5px</span>;
+}
+
+<span class="hljs-selector-class">.apidocs</span> { <span class="hljs-attribute">zoom</span>: <span class="hljs-number">1</span>; }
+
+<span class="hljs-comment">/* Generic box styles. */</span>
+<span class="hljs-selector-class">.apidocs</span> <span class="hljs-selector-class">.box</span> {
+    <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">3px</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">1em</span> <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">1em</span>;
+}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p>A flag is a compact, capsule-like indicator of some kind. It's used to
+indicate private and protected items, item return types, etc. in an
+attractive and unobtrusive way.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css">.apidocs .flag {
+    background: #bababa;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 10px;
+    margin: 0 0.5em;
+    padding: 2px 4px 1px;
+}
+
+/* Class/module metadata such as "Uses", "Extends", "Defined in", etc. */
+.apidocs .meta {
+    background: #f9f9f9;
+    border-color: #efefef;
+    color: #555;
+    font-size: 10px;
+    padding: 3px 6px;
+}
+
+.apidocs .meta p { margin: 0; }
+
+/* Deprecation warning. */
+.apidocs .box.deprecated,
+.apidocs .flag.deprecated {
+    background: #fdac9f;
+    border: 1px solid #fd7775;
+}
+
+.apidocs .box.deprecated p { margin: 0.5em 0; }
+.apidocs .flag.deprecated { color: #333; }
+
+/* Module/Class intro description. */
+.apidocs .intro {
+    background: #f0f1f8;
+    border-color: #d4d8eb;
+}
+
+/* Loading spinners. */
+#bd.loading .apidocs,
+#api-list.loading .yui3-tabview-panel {
+    background: #fff url(../img/spinner.gif) no-repeat center 70px;
+    min-height: 150px;
+}
+
+#bd.loading .apidocs .content,
+#api-list.loading .yui3-tabview-panel .apis {
+    display: none;
+}
+
+.apidocs .no-visible-items { color: #666; }
+
+/* Generic inline list. */
+.apidocs ul.inline {
+    display: inline;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.apidocs ul.inline li { display: inline; }
+
+/* Comma-separated list. */
+.apidocs ul.commas li:after { content: ','; }
+.apidocs ul.commas li:last-child:after { content: ''; }
+
+/* Keyboard shortcuts. */
+kbd .cmd { 
+font-family: Monaco, Helvetica; 
+font-family: 'Coda', sans-serif; /*pm*/
+}
+
+/* -- Generic Access Level styles ------------------------------------------- */
+.apidocs .item.protected,
+.apidocs .item.private,
+.apidocs .index-item.protected,
+.apidocs .index-item.deprecated,
+.apidocs .index-item.private {
+    display: none;
+}
+
+.show-deprecated .item.deprecated,
+.show-deprecated .index-item.deprecated,
+.show-protected .item.protected,
+.show-protected .index-item.protected,
+.show-private .item.private,
+.show-private .index-item.private {
+    display: block;
+}
+
+.hide-inherited .item.inherited,
+.hide-inherited .index-item.inherited {
+    display: none;
+}
+
+/* -- Generic Item Index styles --------------------------------------------- */
+.apidocs .index { margin: 1em 0 3em; }
+
+.apidocs .index h3 {
+    border-bottom: 1px solid #efefef;
+    color: #333;
+    font-size: 12px;
+    margin: 2em 0 0.6em;
+    padding-bottom: 2px;
+}
+
+.apidocs .index .no-visible-items { margin-top: 2em; }
+
+.apidocs .index-list {
+    border-color: #efefef;
+    font-size: 11px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    -moz-column-count: 4;
+    -moz-column-gap: 10px;
+    -moz-column-width: 170px;
+    -ms-column-count: 4;
+    -ms-column-gap: 10px;
+    -ms-column-width: 170px;
+    -o-column-count: 4;
+    -o-column-gap: 10px;
+    -o-column-width: 170px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 10px;
+    -webkit-column-width: 170px;
+    column-count: 4;
+    column-gap: 10px;
+    column-width: 170px;
+}
+
+.apidocs .no-columns .index-list {
+    -moz-column-count: 1;
+    -ms-column-count: 1;
+    -o-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+}
+
+.apidocs .index-item { white-space: nowrap; }
+
+.apidocs .index-item .flag {
+    background: none;
+    border: none;
+    color: #afafaf;
+    display: inline;
+    margin: 0 0 0 0.2em;
+    padding: 0;
+}
+
+/* -- Generic API item styles ----------------------------------------------- */
+.apidocs .args {
+    display: inline;
+    margin: 0 0.5em;
+}
+
+.apidocs .flag.chainable { background: #46ca3b; }
+.apidocs .flag.protected { background: #9b86fc; }
+.apidocs .flag.private { background: #fd6b1b; }
+.apidocs .flag.async { background: #356de4; }
+.apidocs .flag.required { background: #e60923; }
+
+.apidocs .item {
+    border-bottom: 1px solid #efefef;
+    margin: 1em 0 2em;
+    padding-bottom: 2em;
+}
+
+.apidocs .item h4,
+.apidocs .item h5,
+.apidocs .item h6 {
+    color: #333;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+.apidocs .item .description p,
+.apidocs .item pre.code {
+    margin: 1em 0 0;
+}
+
+.apidocs .item .meta {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.apidocs .item .name {
+    display: inline;
+    font-size: 13px;
+}
+
+.apidocs .item .type,
+.apidocs .item .type a,
+.apidocs .returns-inline {
+    color: #555;
+}
+
+.apidocs .item .type,
+.apidocs .returns-inline {
+    font-size: 10px;
+    margin: 0 0 0 0;
+}
+
+.apidocs .item .type a { border-bottom: 1px dotted #afafaf; }
+.apidocs .item .type a:hover { border: none; }
+
+/* -- Item Parameter List --------------------------------------------------- */
+.apidocs .params-list {
+    list-style: square;
+    margin: 1em 0 0 2em;
+    padding: 0;
+}
+
+.apidocs .param { margin-bottom: 1em; }
+
+.apidocs .param .type,
+.apidocs .param .type a {
+    color: #666;
+}
+
+.apidocs .param .type {
+    margin: 0 0 0 0.5em;
+    *margin-left: 0.5em;
+}
+
+.apidocs .param-name { font-weight: bold; }
+
+/* -- Item "Emits" block ---------------------------------------------------- */
+.apidocs .item .emits {
+    background: #f9f9f9;
+    border-color: #eaeaea;
+}
+
+/* -- Item "Returns" block -------------------------------------------------- */
+.apidocs .item .returns .type,
+.apidocs .item .returns .type a {
+    font-size: 100%;
+    margin: 0;
+}
+
+/* -- Class Constructor block ----------------------------------------------- */
+.apidocs .constructor .item {
+    border: none;
+    padding-bottom: 0;
+}
+
+/* -- File Source View ------------------------------------------------------ */
+.apidocs .file pre.code,
+#doc .apidocs .file pre.prettyprint {
+    background: inherit;
+    border: none;
+    overflow: visible;
+    padding: 0;
+}
+
+.apidocs .L0,
+.apidocs .L1,
+.apidocs .L2,
+.apidocs .L3,
+.apidocs .L4,
+.apidocs .L5,
+.apidocs .L6,
+.apidocs .L7,
+.apidocs .L8,
+.apidocs .L9 {
+    background: inherit;
+}
+
+/* -- Submodule List -------------------------------------------------------- */
+.apidocs .module-submodule-description {
+    font-size: 11px;
+    margin: 0.3em 0 1em;
+}
+
+.apidocs .module-submodule-description p:first-child { margin-top: 0; }
+
+/* -- Sidebar TabView ------------------------------------------------------- */
+#api-tabview { margin-top: 0.6em; }
+
+#api-tabview-filter,
+#api-tabview-panel {
+    border: 1px solid #dfdfdf;
+}
+
+#api-tabview-filter {
+    border-bottom: none;
+    border-top: none;
+    padding: 0.6em 10px 0 10px;
+}
+
+#api-tabview-panel { border-top: none; }
+#api-filter { width: 97%; }
+
+/* -- Content TabView ------------------------------------------------------- */
+#classdocs .yui3-tabview-panel { border: none; }
+
+/* -- Source File Contents -------------------------------------------------- */
+.prettyprint li.L0,
+.prettyprint li.L1,
+.prettyprint li.L2,
+.prettyprint li.L3,
+.prettyprint li.L5,
+.prettyprint li.L6,
+.prettyprint li.L7,
+.prettyprint li.L8 {
+    list-style: decimal;
+}
+
+/* -- API options ----------------------------------------------------------- */
+#api-options {
+    font-size: 10px;
+    margin-top: 2.2em;
+    position: absolute;
+    right: 1em;
+}
+
+/*#api-options label { margin-right: 0.6em; }*/
+
+/* -- API list -------------------------------------------------------------- */
+#api-list {
+    margin-top: 1em;
+    *zoom: 1;
+}
+
+.apis {
+    font-size: 11px;
+    line-height: 1.4;
+    list-style: none;
+    margin: 0;
+    padding: 0.5em 0 0.5em 0.4em;
+}
+
+.apis a {
+    border: 1px solid transparent;
+    display: block;
+    margin: 0 0 0 -4px;
+    padding: 1px 4px 0;
+    text-decoration: none;
+    _border: none;
+    _display: inline;
+}
+
+.apis a:hover,
+.apis a:focus {
+    background: #E8EDFC;
+    background: -moz-linear-gradient(top, #e8edfc 0%, #becef7 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#E8EDFC), color-stop(100%,#BECEF7));
+    border-color: #AAC0FA;
+    border-radius: 3px;
+    color: #333;
+    outline: none;
+}
+
+.api-list-item a:hover,
+.api-list-item a:focus {
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #fff;
+}
+
+.apis .message { color: #888; }
+.apis .result a { padding: 3px 5px 2px; }
+
+.apis .result .type {
+    right: 4px;
+    top: 7px;
+}
+
+.api-list-item .yui3-highlight {
+    font-weight: bold;
+}
+
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

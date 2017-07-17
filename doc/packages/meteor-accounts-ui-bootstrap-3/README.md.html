@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>README.md</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "packages\\meteor-accounts-ui-bootstrap-3\\README.md";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+  <script src="../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+      <div class="heading h1">
+        <a href="#meteor-accounts-ui-bootstrap-3">meteor-accounts-ui-bootstrap-3</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#prerequisites">Prerequisites</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#how-to-add-to-your-meteor-app">How to add to your meteor app</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#how-to-use">How to use</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#add-additional-logged-in-actions">Add additional logged in actions</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#screenshots">Screenshots</a>
+      </div>
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="docs markdown"><div class="pilwrap" id="meteor-accounts-ui-bootstrap-3">
+  <h1>
+    <a href="#meteor-accounts-ui-bootstrap-3" name="meteor-accounts-ui-bootstrap-3" class="pilcrow"></a>
+meteor-accounts-ui-bootstrap-3
+  </h1>
+</div>
+<p>Meteor accounts-ui styled with twitter/bootstrap 3</p>
+<div class="pilwrap" id="prerequisites">
+  <h2>
+    <a href="#prerequisites" name="prerequisites" class="pilcrow"></a>
+Prerequisites
+  </h2>
+</div>
+<p>Use the meteorite package manager
+http://oortcloud.github.com/meteorite/</p>
+<p><code>[sudo] npm install -g meteorite</code></p>
+<p>You will also need the following:</p>
+<ul>
+<li>Bootstrap 3: <code>mrt add bootstrap-3</code></li>
+<li>At least one accounts plugin: <code>mrt add accounts-password</code>, <code>mrt add accounts-github</code>, etc.</li>
+</ul>
+<div class="pilwrap" id="how-to-add-to-your-meteor-app">
+  <h2>
+    <a href="#how-to-add-to-your-meteor-app" name="how-to-add-to-your-meteor-app" class="pilcrow"></a>
+How to add to your meteor app
+  </h2>
+</div>
+<p><code>mrt add accounts-ui-bootstrap-3</code></p>
+<div class="pilwrap" id="how-to-use">
+  <h2>
+    <a href="#how-to-use" name="how-to-use" class="pilcrow"></a>
+How to use
+  </h2>
+</div>
+<p>Add <code>{{&gt; loginButtons }}</code> to your template</p>
+<p>Example:</p>
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar navbar-default"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"navigation"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-header"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-brand"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Project name<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-toggle collapsed"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span> <span class="hljs-attr">data-target</span>=<span class="hljs-string">".navbar-collapse"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Toggle navigation<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-bar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-bar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon-bar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"navbar-collapse collapse"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav navbar-nav"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav navbar-nav navbar-right"</span>&gt;</span>
+			{{&gt; loginButtons }} <span class="hljs-comment">&lt;!-- here --&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<div class="pilwrap" id="add-additional-logged-in-actions">
+  <h2>
+    <a href="#add-additional-logged-in-actions" name="add-additional-logged-in-actions" class="pilcrow"></a>
+Add additional logged in actions
+  </h2>
+</div>
+<p>You can add additional markup to the logged in dropdown, e.g. to edit
+the user's account or profile, by defining a
+<code>_loginButtonsAdditionalLoggedInDropdownActions</code> template and specifying
+the corresponding events.</p>
+<pre><code class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsAdditionalLoggedInDropdownActions"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-block"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-buttons-edit-profile"</span>&gt;</span>Edytuj profil<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</code></pre>
+<pre><code class="javascript">Template._loginButtonsLoggedInDropdown.events({
+	<span class="hljs-string">'click #login-buttons-edit-profile'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+		event.stopPropagation();
+		Template._loginButtons.toggleDropdown();
+		Router.go(<span class="hljs-string">'profileEdit'</span>);
+	}
+});
+</code></pre>
+<div class="pilwrap" id="screenshots">
+  <h2>
+    <a href="#screenshots" name="screenshots" class="pilcrow"></a>
+Screenshots
+  </h2>
+</div>
+<p><img src="https://dl.dropboxusercontent.com/u/7263172/1.png" alt="Sign In">
+<img src="https://dl.dropboxusercontent.com/u/7263172/2.png" alt="Sign Up">
+<img src="https://dl.dropboxusercontent.com/u/7263172/3.png" alt="Configure Login Service"></p>
+</div>
+  </div>
+</body>
+</html>

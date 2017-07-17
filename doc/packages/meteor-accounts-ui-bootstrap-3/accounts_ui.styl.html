@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>accounts_ui.styl</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "packages\\meteor-accounts-ui-bootstrap-3\\accounts_ui.styl";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+  <script src="../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>accounts_ui.styl</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="stylus"><span class="hljs-selector-id">#login-dropdown-list</span>
+	<span class="hljs-selector-class">.dropdown-menu</span>
+		<span class="hljs-attribute">min-width</span>:	<span class="hljs-number">300px</span>;
+		<span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;
+		<span class="hljs-selector-class">.or</span>
+			<span class="hljs-attribute">text-align</span>: center;
+
+<span class="hljs-selector-id">#login-dropdown-list</span>
+	<span class="hljs-selector-id">#forgot-password-link</span>
+	<span class="hljs-selector-id">#signup-link</span>
+		<span class="hljs-attribute">margin-top</span>:<span class="hljs-number">10px</span>;
+
+	<span class="hljs-selector-class">.btn</span>
+		<span class="hljs-attribute">margin-top</span>: <span class="hljs-number">5px</span>;
+
+	<span class="hljs-selector-tag">input</span>
+		<span class="hljs-attribute">margin</span>:<span class="hljs-number">0px</span>
+		<span class="hljs-attribute">border-radius</span>:<span class="hljs-number">0px</span>;
+
+	<span class="hljs-selector-tag">input</span>:first-of-type
+		<span class="hljs-attribute">margin-top</span>:<span class="hljs-number">0px</span>;
+		<span class="hljs-attribute">border-top-left-radius</span>: <span class="hljs-number">5px</span>;
+		<span class="hljs-attribute">border-top-right-radius</span>: <span class="hljs-number">5px</span>;
+
+	<span class="hljs-selector-tag">input</span>:last-of-type
+		<span class="hljs-attribute">margin-bottom</span>:<span class="hljs-number">5px</span>;
+		<span class="hljs-attribute">border-bottom-left-radius</span>: <span class="hljs-number">5px</span>;
+		<span class="hljs-attribute">border-bottom-right-radius</span>: <span class="hljs-number">5px</span>;
+
+<span class="hljs-selector-class">.modal-backdrop</span>
+	<span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.75</span>;
+
+<span class="hljs-selector-id">#login-buttons-reset-password-modal</span>, <span class="hljs-selector-id">#login-buttons-enroll-account-modal</span>, <span class="hljs-selector-id">#login-buttons-email-address-verified-modal</span>
+	<span class="hljs-selector-class">.modal-content</span>
+		<span class="hljs-attribute">margin-top</span>: <span class="hljs-number">30%</span>;
+
+<span class="hljs-selector-class">.login-buttons-dropdown-align-left</span>
+	&amp;<span class="hljs-selector-id">#login-buttons</span> + <span class="hljs-selector-tag">li</span>
+		<span class="hljs-selector-class">.dropdown-menu</span>
+			<span class="hljs-attribute">float</span>: left;
+			<span class="hljs-attribute">left</span>: <span class="hljs-number">0</span>;
+			<span class="hljs-attribute">right</span>: auto;
+<span class="hljs-selector-class">.login-buttons-dropdown-align-right</span>
+	&amp;<span class="hljs-selector-id">#login-buttons</span> + <span class="hljs-selector-tag">li</span>
+		<span class="hljs-selector-class">.dropdown-menu</span>
+			<span class="hljs-attribute">float</span>: right;
+			<span class="hljs-attribute">right</span>: <span class="hljs-number">0</span>;
+			<span class="hljs-attribute">left</span>: auto;
+
+<span class="hljs-selector-id">#login-buttons</span>
+	<span class="hljs-attribute">display</span>: none;
+
+<span class="hljs-selector-id">#login-dropdown-list</span> <span class="hljs-selector-tag">a</span>
+	<span class="hljs-attribute">cursor</span>: pointer;
+
+<span class="hljs-selector-id">#configure-login-service-dialog-modal</span>
+	<span class="hljs-attribute">position</span>: fixed;
+	<span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+	<span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">300px</span>;
+
+.btn-Facebook{
+	<span class="hljs-attribute">color</span>: white;
+	<span class="hljs-attribute">background-color</span>: <span class="hljs-number">#3B5998</span>;
+}
+.btn-Google{
+	<span class="hljs-attribute">color</span>: white;
+	<span class="hljs-attribute">background-color</span>: <span class="hljs-number">#D34836</span>;
+}
+.btn-Twitter{
+	<span class="hljs-attribute">color</span>: white;
+	<span class="hljs-attribute">background-color</span>: <span class="hljs-number">#4099FF</span>;
+}
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

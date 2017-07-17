@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>info_kwestia_top_buttons.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\kwestia_crud\\info_kwestia_top_buttons.html";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+  <script src="../../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>info_kwestia_top_buttons.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"kwestiaTopButtons"</span>&gt;</span>
+    {{#if isArchiwalna status typ}}
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-toolbar pull-right"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"..."</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"..."</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"backToList"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-arrow-left"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 
+<span class="hljs-comment">&lt;!--Powrót--&gt;</span>
+{{_ "glob.Return"}}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    {{else}}
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
+            {{#if isRealizowanaNieaktywny status czyAktywny}}
+                {{#unless isGlobalParams typ}}
+                    {{#with actualIssue idKwestia}}
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{pathFor 'listRaport'}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn pull-left"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: darkgrey"</span> &gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-list-alt"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 
+<span class="hljs-comment">&lt;!--Lista RR--&gt;</span>
+{{_ "kwestiaTopButtons.ktReportsOfImplementation"}}
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    {{/with}}
+                {{/unless}}
+            {{/if}}
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-toolbar pull-right"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"toolbar"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"..."</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"..."</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"backToList"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-arrow-left"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 
+<span class="hljs-comment">&lt;!--Powrót--&gt;</span>
+{{_ "glob.Return"}}
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    {{#if isRealizowanaNieaktywny status czyAktywny}}
+                        {{#unless isGlobalParams typ}}
+                            {{#if isInZR idZespolRealizacyjny}}
+                                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addRealizationReportClick"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idKwestia}}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-success"</span> {{<span class="hljs-attr">hasUserRights</span> <span class="hljs-attr">idKwestia</span>}}&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-check-circle-o"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-comment">&lt;!--Raport Realizacyjny--&gt;</span>
+{{_ "kwestiaTopButtons.ktSubmissionOfTheReport"}}
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                            {{/if}}
+                        {{/unless}}
+                    {{/if}}
+                    {{#unless isKwestiaAccessOrChangeParams typ status czyAktywny}}
+                       {{#unless isRealizowanaNieaktywny status czyAktywny}}
+                            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addOptionButton"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> {{<span class="hljs-attr">hasUserRights</span> <span class="hljs-attr">idKwestia</span>}}&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-plus"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 
+<span class="hljs-comment">&lt;!--Dodaj Opcję--&gt;</span>
+{{_ "kwestiaTopButtons.ktAddOption"}}
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                        {{/unless}}
+                    {{/unless}}
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                {{&gt; addRealizationReportModal idKwestia=idKwestia}}
+                {{&gt; uzasadnienieKoszModal idKwestia=idKwestia}}
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"group"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"..."</span>&gt;</span>
+                    {{#unless isKwestiaAccessOrChangeParamsRealizacja typ status czyAktywny}}
+                    {{/unless}}
+                    {{#unless isKwestiaAccessOrChangeParamsRealizacja typ status czyAktywny}}
+                        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doKosza"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idKwestia}}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-danger"</span> {{<span class="hljs-attr">hasUserRights</span> <span class="hljs-attr">idKwestia</span>}}&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-trash"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> 
+<span class="hljs-comment">&lt;!--Do Kosza--&gt;</span>
+{{_ "informacjeKwestiaArchiwum.ikaToTheTrash"}}
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    {{/unless}}
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    {{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

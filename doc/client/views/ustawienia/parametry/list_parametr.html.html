@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>list_parametr.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\ustawienia\\parametry\\list_parametr.html";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+  <script src="../../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>list_parametr.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">	<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"listParametr"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+			{{#unless noKwestiaParameters}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15 color-red"</span>&gt;</span><span class="hljs-comment">&lt;!--Istnieje kwestia administrowana dotycząca zmiany parametrów globalnych.--&gt;</span>
+			{{_ 'listParametr.lipOneParameterIsTheProcessOfChanging'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>{{/unless}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col-md-6"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
+						{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-comment">&lt;!--&lt;a href="{{pathFor 'editParametry'}}" class="btn btn-primary"&gt;--&gt;</span>
+						 <span class="hljs-comment">&lt;!--&lt;i class="fa fa-edit"&gt;&lt;/i&gt;{{_ 'glob.Edit'}}--&gt;</span>
+						 <span class="hljs-comment">&lt;!--&lt;/a&gt;--&gt;</span>
+						 {{else}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"kwestiaId btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"parametersClick"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Zobacz kwestię--&gt;</span>
+						{{_ 'listParametr.lipView'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col-md-10"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-horizontal"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"parametrForm"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"parametrForm"</span>&gt;</span>
+				
+		<span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span><span class="hljs-comment">&lt;!--Dane organizacji--&gt;</span>
+					{{_ 'listParametr.lipOrganizationData'}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Nazwa organizacji--&gt;</span>
+						{{_ 'listParametr.lipNameOfOrganization'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editOrganisationName"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-6"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nazwaOrganizacji"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nazwaOrganizacji"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{nazwaOrganizacji}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Terytorium--&gt;</span>
+						{{_ 'listParametr.lipTerritory'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editTeritory"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-4"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"terytorium"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"terytorium"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{terytorium}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Terytorium Adres--&gt;</span>
+						{{_ 'glob.Adress'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editTeritAdres"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-6"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"terytAdres"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"terytAdres"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{terytAdres}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Terytorium KOD--&gt;</span>
+						{{_ 'listParametr.lipTerritCODE'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editTeritCODE"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-2"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"terytCODE"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"terytCODE"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{terytCODE}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Terytorium City--&gt;</span>
+						{{_ 'glob.City'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editTeritCity"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-4"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"terytCity"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"terytCity"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{terytCity}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Kontakty--&gt;</span>
+						{{_ 'listParametr.lipContactDetails'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editContacts"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-4"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"kontakty"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"kontakty"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{kontakty}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Regulamin--&gt;</span>
+						{{_ 'glob.Statut'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editStatute"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-8"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"regulamin"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"regulamin"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">"3"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+					
+		<span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span><span class="hljs-comment">&lt;!--Głosowanie--&gt;</span>
+					{{_ 'listParametr.lipVote'}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Czas głosowania(w godzinach)--&gt;</span>
+						{{_ 'listParametr.lipVotingTimeInHours'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editVoteDuration"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-1"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"CzasGlosowania"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"CzasGlosowania"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{voteDuration}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"CzasWyczekiwaniaKwestiiSpec"</span>&gt;</span><span class="hljs-comment">&lt;!--Czas wyczekiwania kwestii i komentarzy specjalnych (w dniach)--&gt;</span>
+						{{_ 'listParametr.lipIssuesAndSpecialCommOfWaitingTimeInDays'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editIssueWaiting"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-1"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"CzasWyczekiwaniaKwestiiSpec"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"CzasWyczekiwaniaKwestiiSpec"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{czasWyczekiwaniaKwestiiSpecjalnej}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Ilość kwesti przechodzących do głosowania--&gt;</span>
+						{{_ 'listParametr.lipHowMuchIssuePassingToVote'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editVoteQuantity"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-1"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"IloscKwestiiDoGlosowania"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"IloscKwestiiDoGlosowania"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{voteQuantity}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+					
+		<span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span><span class="hljs-comment">&lt;!--Ilość minut koniecznej pauzy do ponownej akcjii tego samego typu--&gt;</span>
+					{{_ 'listParametr.lipNumberOfMinToPauseReEntry'}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"addIssuePause"</span>&gt;</span><span class="hljs-comment">&lt;!--Dodanie kwestii--&gt;</span>
+						{{_ 'listParametr.lipAddIssue'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editIssuePause"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-1"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addIssuePause"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"addIssuePause"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{addIssuePause}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"add"</span>&gt;</span><span class="hljs-comment">&lt;!--Dodanie komentarza w ramach danej kwestii--&gt;</span>
+						{{_ 'listParametr.lipAddingCommentWithinAissue'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editCommentPause"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-1"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addCommentPause"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"addCommentPause"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{addCommentPause}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"addReferencePause"</span>&gt;</span><span class="hljs-comment">&lt;!--Dodanie odniesienia w ramach danego komentarza--&gt;</span>
+						{{_ 'listParametr.lipTheAdditionOfAreferWithinTheComm'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editReferencePause"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-1"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addReferencePause"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"addReferencePause"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{addReferencePause}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+					
+		<span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span><span class="hljs-comment">&lt;!--Raporty Realizacyjne--&gt;</span>
+					{{_ 'listParametr.lipReportsOfImplementation'}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+					
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span><span class="hljs-comment">&lt;!--Okres składania Raportów Realizacyjnych (w dniach)--&gt;</span>
+						{{_ 'listParametr.lipDeadlineForFilingTheReportsInDays'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group col-xs-1"</span>&gt;</span>
+							{{#if isUserCzlonek}} {{#if noKwestiaParameters}} <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"editRRDuration"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> <span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
+							{{_ 'glob.Edit'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> {{/if}} {{/if}}
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-1"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"okresSkladaniaRR"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"okresSkladaniaRR"</span> <span class="hljs-attr">readonly</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{okresSkladaniaRR}}"</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					
+                <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    {{&gt;editParametrModal}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

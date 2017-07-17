@@ -1,0 +1,4253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jquery.tablesorter.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "client\\helpers\\jquery.tablesorter.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+  <script src="../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>jquery.tablesorter.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+<div class="dox">
+<div class="summary">
+<p>!
+TableSorter 2.16.1-beta - Client-side table sorting with ease!</p>
+</div>
+<div class="body">
+</div>
+<div class="details">
+<div class="dox_tag_title">Type</div>
+<div class="dox_tag_detail">
+<span class="dox_type">Quer</span>
+</div>
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-comment">/*jshint browser:true, jquery:true, unused:false, expr: true */</span>
+<span class="hljs-comment">/*global console:false, alert:false */</span>
+!(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+	"use strict"</span>;
+	$.extend({
+		<span class="hljs-comment">/*jshint supernew:true */</span>
+		tablesorter: <span class="hljs-keyword">new</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+			<span class="hljs-keyword">var</span> ts = <span class="hljs-keyword">this</span>;
+
+			ts.version = <span class="hljs-string">"2.16.1-beta"</span>;
+
+			ts.parsers = [];
+			ts.widgets = [];
+			ts.defaults = {
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>*** appearance</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				theme            : <span class="hljs-string">'default'</span>,  <span class="hljs-comment">// adds tablesorter-{theme} to the table for styling</span>
+				widthFixed       : <span class="hljs-literal">false</span>,      <span class="hljs-comment">// adds colgroup to fix widths of columns</span>
+				showProcessing   : <span class="hljs-literal">false</span>,      <span class="hljs-comment">// show an indeterminate timer icon in the header when the table is sorted or filtered.</span>
+
+				headerTemplate   : <span class="hljs-string">'{content}'</span>,<span class="hljs-comment">// header layout template (HTML ok); {content} = innerHTML, {icon} = &lt;i/&gt; (class from cssIcon)</span>
+				onRenderTemplate : <span class="hljs-literal">null</span>,       <span class="hljs-comment">// function(index, template){ return template; }, (template is a string)</span>
+				onRenderHeader   : <span class="hljs-literal">null</span>,       <span class="hljs-comment">// function(index){}, (nothing to return)</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>*** functionality</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				cancelSelection  : <span class="hljs-literal">true</span>,       <span class="hljs-comment">// prevent text selection in the header</span>
+				tabIndex         : <span class="hljs-literal">true</span>,       <span class="hljs-comment">// add tabindex to header for keyboard accessibility</span>
+				dateFormat       : <span class="hljs-string">'mmddyyyy'</span>, <span class="hljs-comment">// other options: "ddmmyyy" or "yyyymmdd"</span>
+				sortMultiSortKey : <span class="hljs-string">'shiftKey'</span>, <span class="hljs-comment">// key used to select additional columns</span>
+				sortResetKey     : <span class="hljs-string">'ctrlKey'</span>,  <span class="hljs-comment">// key used to remove sorting on a column</span>
+				usNumberFormat   : <span class="hljs-literal">true</span>,       <span class="hljs-comment">// false for German "1.234.567,89" or French "1 234 567,89"</span>
+				delayInit        : <span class="hljs-literal">false</span>,      <span class="hljs-comment">// if false, the parsed table contents will not update until the first sort</span>
+				serverSideSorting: <span class="hljs-literal">false</span>,      <span class="hljs-comment">// if true, server-side sorting should be performed because client-side sorting will be disabled, but the ui and events will still be used.</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>*** sort options</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				headers          : {},         <span class="hljs-comment">// set sorter, string, empty, locked order, sortInitialOrder, filter, etc.</span>
+				ignoreCase       : <span class="hljs-literal">true</span>,       <span class="hljs-comment">// ignore case while sorting</span>
+				sortForce        : <span class="hljs-literal">null</span>,       <span class="hljs-comment">// column(s) first sorted; always applied</span>
+				sortList         : [],         <span class="hljs-comment">// Initial sort order; applied initially; updated when manually sorted</span>
+				sortAppend       : <span class="hljs-literal">null</span>,       <span class="hljs-comment">// column(s) sorted last; always applied</span>
+				sortStable       : <span class="hljs-literal">false</span>,      <span class="hljs-comment">// when sorting two rows with exactly the same content, the original sort order is maintained</span>
+
+				sortInitialOrder : <span class="hljs-string">'asc'</span>,      <span class="hljs-comment">// sort direction on first click</span>
+				sortLocaleCompare: <span class="hljs-literal">false</span>,      <span class="hljs-comment">// replace equivalent character (accented characters)</span>
+				sortReset        : <span class="hljs-literal">false</span>,      <span class="hljs-comment">// third click on the header will reset column to default - unsorted</span>
+				sortRestart      : <span class="hljs-literal">false</span>,      <span class="hljs-comment">// restart sort to "sortInitialOrder" when clicking on previously unsorted columns</span>
+
+				emptyTo          : <span class="hljs-string">'bottom'</span>,   <span class="hljs-comment">// sort empty cell to bottom, top, none, zero</span>
+				stringTo         : <span class="hljs-string">'max'</span>,      <span class="hljs-comment">// sort strings in numerical column as max, min, top, bottom, zero</span>
+				textExtraction   : <span class="hljs-string">'basic'</span>,    <span class="hljs-comment">// text extraction method/function - function(node, table, cellIndex){}</span>
+				textAttribute    : <span class="hljs-string">'data-text'</span>,<span class="hljs-comment">// data-attribute that contains alternate cell text (used in textExtraction function)</span>
+				textSorter       : <span class="hljs-literal">null</span>,       <span class="hljs-comment">// choose overall or specific column sorter function(a, b, direction, table, columnIndex) [alt: ts.sortText]</span>
+				numberSorter     : <span class="hljs-literal">null</span>,       <span class="hljs-comment">// choose overall numeric sorter function(a, b, direction, maxColumnValue)</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>*** widget options</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				widgets: [],                   <span class="hljs-comment">// method to add widgets, e.g. widgets: ['zebra']</span>
+				widgetOptions    : {
+					<span class="hljs-attr">zebra</span> : [ <span class="hljs-string">'even'</span>, <span class="hljs-string">'odd'</span> ]    <span class="hljs-comment">// zebra widget alternating row class names</span>
+				},
+				<span class="hljs-attr">initWidgets</span>      : <span class="hljs-literal">true</span>,       <span class="hljs-comment">// apply widgets on tablesorter initialization</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>*** callbacks</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				initialized      : <span class="hljs-literal">null</span>,       <span class="hljs-comment">// function(table){},</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>*** extra css class names</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				tableClass       : <span class="hljs-string">''</span>,
+				<span class="hljs-attr">cssAsc</span>           : <span class="hljs-string">''</span>,
+				<span class="hljs-attr">cssDesc</span>          : <span class="hljs-string">''</span>,
+				<span class="hljs-attr">cssNone</span>          : <span class="hljs-string">''</span>,
+				<span class="hljs-attr">cssHeader</span>        : <span class="hljs-string">''</span>,
+				<span class="hljs-attr">cssHeaderRow</span>     : <span class="hljs-string">''</span>,
+				<span class="hljs-attr">cssProcessing</span>    : <span class="hljs-string">''</span>, <span class="hljs-comment">// processing icon applied to header during sort/filter</span>
+
+				cssChildRow      : <span class="hljs-string">'tablesorter-childRow'</span>, <span class="hljs-comment">// class name indiciating that a row is to be attached to the its parent </span>
+				cssIcon          : <span class="hljs-string">'tablesorter-icon'</span>,     <span class="hljs-comment">//  if this class exists, a &lt;i&gt; will be added to the header automatically</span>
+				cssInfoBlock     : <span class="hljs-string">'tablesorter-infoOnly'</span>, <span class="hljs-comment">// don't sort tbody with this class name (only one class name allowed here!)</span>
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>*** selectors</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				selectorHeaders  : <span class="hljs-string">'&gt; thead th, &gt; thead td'</span>,
+				<span class="hljs-attr">selectorSort</span>     : <span class="hljs-string">'th, td'</span>,   <span class="hljs-comment">// jQuery selector of content within selectorHeaders that is clickable to trigger a sort</span>
+				selectorRemove   : <span class="hljs-string">'.remove-me'</span>,
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p>*** advanced</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				debug            : <span class="hljs-literal">false</span>,
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p>*** Internal variables</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				headerList: [],
+				<span class="hljs-attr">empties</span>: {},
+				<span class="hljs-attr">strings</span>: {},
+				<span class="hljs-attr">parsers</span>: []
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p>deprecated; but retained for backwards compatibility
+widgetZebra: { css: [&quot;even&quot;, &quot;odd&quot;] }</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p>internal css classes - these will ALWAYS be added to
+the table and MUST only contain one class name - fixes #381</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.css = {
+				<span class="hljs-attr">table</span>      : <span class="hljs-string">'tablesorter'</span>,
+				<span class="hljs-attr">cssHasChild</span>: <span class="hljs-string">'tablesorter-hasChildRow'</span>,
+				<span class="hljs-attr">childRow</span>   : <span class="hljs-string">'tablesorter-childRow'</span>,
+				<span class="hljs-attr">header</span>     : <span class="hljs-string">'tablesorter-header'</span>,
+				<span class="hljs-attr">headerRow</span>  : <span class="hljs-string">'tablesorter-headerRow'</span>,
+				<span class="hljs-attr">headerIn</span>   : <span class="hljs-string">'tablesorter-header-inner'</span>,
+				<span class="hljs-attr">icon</span>       : <span class="hljs-string">'tablesorter-icon'</span>,
+				<span class="hljs-attr">info</span>       : <span class="hljs-string">'tablesorter-infoOnly'</span>,
+				<span class="hljs-attr">processing</span> : <span class="hljs-string">'tablesorter-processing'</span>,
+				<span class="hljs-attr">sortAsc</span>    : <span class="hljs-string">'tablesorter-headerAsc'</span>,
+				<span class="hljs-attr">sortDesc</span>   : <span class="hljs-string">'tablesorter-headerDesc'</span>,
+				<span class="hljs-attr">sortNone</span>   : <span class="hljs-string">'tablesorter-headerUnSorted'</span>
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p>labels applied to sortable headers for accessibility (aria) support</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.language = {
+				<span class="hljs-attr">sortAsc</span>  : <span class="hljs-string">'Ascending sort applied, '</span>,
+				<span class="hljs-attr">sortDesc</span> : <span class="hljs-string">'Descending sort applied, '</span>,
+				<span class="hljs-attr">sortNone</span> : <span class="hljs-string">'No sort applied, '</span>,
+				<span class="hljs-attr">nextAsc</span>  : <span class="hljs-string">'activate to apply an ascending sort'</span>,
+				<span class="hljs-attr">nextDesc</span> : <span class="hljs-string">'activate to apply a descending sort'</span>,
+				<span class="hljs-attr">nextNone</span> : <span class="hljs-string">'activate to remove the sort'</span>
+			};
+
+			<span class="hljs-comment">/* debuging utils */</span>
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log</span>(<span class="hljs-params"></span>) </span>{
+				<span class="hljs-keyword">var</span> a = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>],
+					s = <span class="hljs-built_in">arguments</span>.length &gt; <span class="hljs-number">1</span> ? <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>) : a;
+				<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">console</span> !== <span class="hljs-string">"undefined"</span> &amp;&amp; <span class="hljs-keyword">typeof</span> <span class="hljs-built_in">console</span>.log !== <span class="hljs-string">"undefined"</span>) {
+					<span class="hljs-built_in">console</span>[ <span class="hljs-regexp">/error/i</span>.test(a) ? <span class="hljs-string">'error'</span> : <span class="hljs-regexp">/warn/i</span>.test(a) ? <span class="hljs-string">'warn'</span> : <span class="hljs-string">'log'</span> ](s);
+				} <span class="hljs-keyword">else</span> {
+					alert(s);
+				}
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">benchmark</span>(<span class="hljs-params">s, d</span>) </span>{
+				log(s + <span class="hljs-string">" ("</span> + (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime() - d.getTime()) + <span class="hljs-string">"ms)"</span>);
+			}
+
+			ts.log = log;
+			ts.benchmark = benchmark;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14"></a>
+</div>
+<p>$.isEmptyObject from jQuery v1.4</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isEmptyObject</span>(<span class="hljs-params">obj</span>) </span>{
+				<span class="hljs-comment">/*jshint forin: false */</span>
+				<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> obj) {
+					<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+				}
+				<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getElementText</span>(<span class="hljs-params">table, node, cellIndex</span>) </span>{
+				<span class="hljs-keyword">if</span> (!node) { <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>; }
+				<span class="hljs-keyword">var</span> c = table.config,
+					t = c.textExtraction || <span class="hljs-string">''</span>,
+					text = <span class="hljs-string">""</span>;
+				<span class="hljs-keyword">if</span> (t === <span class="hljs-string">"basic"</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15"></a>
+</div>
+<p>check data-attribute first</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					text = $(node).attr(c.textAttribute) || node.textContent || node.innerText || $(node).text() || <span class="hljs-string">""</span>;
+				} <span class="hljs-keyword">else</span> {
+					<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(t) === <span class="hljs-string">"function"</span>) {
+						text = t(node, table, cellIndex);
+					} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(t) === <span class="hljs-string">"object"</span> &amp;&amp; t.hasOwnProperty(cellIndex)) {
+						text = t[cellIndex](node, table, cellIndex);
+					} <span class="hljs-keyword">else</span> {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16"></a>
+</div>
+<p>previous &quot;simple&quot; method</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						text = node.textContent || node.innerText || $(node).text() || <span class="hljs-string">""</span>;
+					}
+				}
+				<span class="hljs-keyword">return</span> $.trim(text);
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">detectParserForColumn</span>(<span class="hljs-params">table, rows, rowIndex, cellIndex</span>) </span>{
+				<span class="hljs-keyword">var</span> cur,
+				i = ts.parsers.length,
+				node = <span class="hljs-literal">false</span>,
+				nodeValue = <span class="hljs-string">''</span>,
+				keepLooking = <span class="hljs-literal">true</span>;
+				<span class="hljs-keyword">while</span> (nodeValue === <span class="hljs-string">''</span> &amp;&amp; keepLooking) {
+					rowIndex++;
+					<span class="hljs-keyword">if</span> (rows[rowIndex]) {
+						node = rows[rowIndex].cells[cellIndex];
+						nodeValue = getElementText(table, node, cellIndex);
+						<span class="hljs-keyword">if</span> (table.config.debug) {
+							log(<span class="hljs-string">'Checking if value was empty on row '</span> + rowIndex + <span class="hljs-string">', column: '</span> + cellIndex + <span class="hljs-string">': "'</span> + nodeValue + <span class="hljs-string">'"'</span>);
+						}
+					} <span class="hljs-keyword">else</span> {
+						keepLooking = <span class="hljs-literal">false</span>;
+					}
+				}
+				<span class="hljs-keyword">while</span> (--i &gt;= <span class="hljs-number">0</span>) {
+					cur = ts.parsers[i];
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17"></a>
+</div>
+<p>ignore the default text parser because it will always be true</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (cur &amp;&amp; cur.id !== <span class="hljs-string">'text'</span> &amp;&amp; cur.is &amp;&amp; cur.is(nodeValue, table, node)) {
+						<span class="hljs-keyword">return</span> cur;
+					}
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-18" id="section-18"></a>
+</div>
+<p>nothing found, return the generic parser (text)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">return</span> ts.getParserById(<span class="hljs-string">'text'</span>);
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildParserCache</span>(<span class="hljs-params">table</span>) </span>{
+				<span class="hljs-keyword">var</span> c = table.config,
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-19" id="section-19"></a>
+</div>
+<p>update table bodies in case we start with an empty table</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					tb = c.$tbodies = c.$table.children(<span class="hljs-string">'tbody:not(.'</span> + c.cssInfoBlock + <span class="hljs-string">')'</span>),
+					rows, list, l, i, h, ch, p, time, parsersDebug = <span class="hljs-string">""</span>;
+				<span class="hljs-keyword">if</span> ( tb.length === <span class="hljs-number">0</span>) {
+					<span class="hljs-keyword">return</span> c.debug ? log(<span class="hljs-string">'Warning: *Empty table!* Not building a parser cache'</span>) : <span class="hljs-string">''</span>;
+				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c.debug) {
+					time = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+					log(<span class="hljs-string">'Detecting parsers for each column'</span>);
+				}
+				rows = tb[<span class="hljs-number">0</span>].rows;
+				<span class="hljs-keyword">if</span> (rows[<span class="hljs-number">0</span>]) {
+					list = [];
+					l = rows[<span class="hljs-number">0</span>].cells.length;
+					<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; l; i++) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-20" id="section-20"></a>
+</div>
+<p>tons of thanks to AnthonyM1229 for working out the following selector (issue #74) to make this work in IE8!
+More fixes to this selector to work properly in iOS and jQuery 1.8+ (issue #132 &amp; #174)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						h = c.$headers.filter(<span class="hljs-string">':not([colspan])'</span>);
+						h = h.add( c.$headers.filter(<span class="hljs-string">'[colspan="1"]'</span>) ) <span class="hljs-comment">// ie8 fix</span>
+							.filter(<span class="hljs-string">'[data-column="'</span> + i + <span class="hljs-string">'"]:last'</span>);
+						ch = c.headers[i];
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-21" id="section-21"></a>
+</div>
+<p>get column parser</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						p = ts.getParserById( ts.getData(h, ch, <span class="hljs-string">'sorter'</span>) );
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-22" id="section-22"></a>
+</div>
+<p>empty cells behaviour - keeping emptyToBottom for backwards compatibility</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						c.empties[i] = ts.getData(h, ch, <span class="hljs-string">'empty'</span>) || c.emptyTo || (c.emptyToBottom ? <span class="hljs-string">'bottom'</span> : <span class="hljs-string">'top'</span> );
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-23" id="section-23"></a>
+</div>
+<p>text strings behaviour in numerical sorts</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						c.strings[i] = ts.getData(h, ch, <span class="hljs-string">'string'</span>) || c.stringTo || <span class="hljs-string">'max'</span>;
+						<span class="hljs-keyword">if</span> (!p) {
+							p = detectParserForColumn(table, rows, <span class="hljs-number">-1</span>, i);
+						}
+						<span class="hljs-keyword">if</span> (c.debug) {
+							parsersDebug += <span class="hljs-string">"column:"</span> + i + <span class="hljs-string">"; parser:"</span> + p.id + <span class="hljs-string">"; string:"</span> + c.strings[i] + <span class="hljs-string">'; empty: '</span> + c.empties[i] + <span class="hljs-string">"\n"</span>;
+						}
+						list.push(p);
+					}
+				}
+				<span class="hljs-keyword">if</span> (c.debug) {
+					log(parsersDebug);
+					benchmark(<span class="hljs-string">"Completed detecting parsers"</span>, time);
+				}
+				c.parsers = list;
+			}
+
+			<span class="hljs-comment">/* utils */</span>
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildCache</span>(<span class="hljs-params">table</span>) </span>{
+				<span class="hljs-keyword">var</span> cc, t, v, i, j, k, $row, rows, cols, cacheTime,
+					totalRows, rowData, colMax,
+					c = table.config,
+					$tb = c.$table.children(<span class="hljs-string">'tbody'</span>),
+				parsers = c.parsers;
+				c.cache = {};
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-24" id="section-24"></a>
+</div>
+<p>if no parsers found, return - it's an empty table.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (!parsers) {
+					<span class="hljs-keyword">return</span> c.debug ? log(<span class="hljs-string">'Warning: *Empty table!* Not building a cache'</span>) : <span class="hljs-string">''</span>;
+				}
+				<span class="hljs-keyword">if</span> (c.debug) {
+					cacheTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-25" id="section-25"></a>
+</div>
+<p>processing icon</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (c.showProcessing) {
+					ts.isProcessing(table, <span class="hljs-literal">true</span>);
+				}
+				<span class="hljs-keyword">for</span> (k = <span class="hljs-number">0</span>; k &lt; $tb.length; k++) {
+					colMax = []; <span class="hljs-comment">// column max value per tbody</span>
+					cc = c.cache[k] = {
+						<span class="hljs-attr">normalized</span>: [] <span class="hljs-comment">// array of normalized row data; last entry contains "rowData" above</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-26" id="section-26"></a>
+</div>
+<p>colMax: #   // added at the end</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-27" id="section-27"></a>
+</div>
+<p>ignore tbodies with class name from c.cssInfoBlock</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (!$tb.eq(k).hasClass(c.cssInfoBlock)) {
+						totalRows = ($tb[k] &amp;&amp; $tb[k].rows.length) || <span class="hljs-number">0</span>;
+						<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; totalRows; ++i) {
+							rowData = {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-28" id="section-28"></a>
+</div>
+<p>order: original row order #
+$row : jQuery Object[]</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								child: [] <span class="hljs-comment">// child row text (filter widget)</span>
+							};
+							<span class="hljs-comment">/** Add the table data to main data array */</span>
+							$row = $($tb[k].rows[i]);
+							rows = [ <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(c.columns) ];
+							cols = [];
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-29" id="section-29"></a>
+</div>
+<p>if this is a child row, add it to the last row's children and continue to the next row
+ignore child row class, if it is the first row</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							<span class="hljs-keyword">if</span> ($row.hasClass(c.cssChildRow) &amp;&amp; i !== <span class="hljs-number">0</span>) {
+								t = cc.normalized.length - <span class="hljs-number">1</span>;
+								cc.normalized[t][c.columns].$row = cc.normalized[t][c.columns].$row.add($row);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-30" id="section-30"></a>
+</div>
+<p>add &quot;hasChild&quot; class name to parent row</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								<span class="hljs-keyword">if</span> (!$row.prev().hasClass(c.cssChildRow)) {
+									$row.prev().addClass(ts.css.cssHasChild);
+								}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-31" id="section-31"></a>
+</div>
+<p>save child row content (un-parsed!)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								rowData.child[t] = $.trim( $row[<span class="hljs-number">0</span>].textContent || $row[<span class="hljs-number">0</span>].innerText || $row.text() || <span class="hljs-string">""</span> );
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-32" id="section-32"></a>
+</div>
+<p>go to the next for loop</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								<span class="hljs-keyword">continue</span>;
+							}
+							rowData.$row = $row;
+							rowData.order = i; <span class="hljs-comment">// add original row position to rowCache</span>
+							<span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; c.columns; ++j) {
+								<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> parsers[j] === <span class="hljs-string">'undefined'</span>) {
+									<span class="hljs-keyword">if</span> (c.debug) {
+										log(<span class="hljs-string">'No parser found for cell:'</span>, $row[<span class="hljs-number">0</span>].cells[j], <span class="hljs-string">'does it have a header?'</span>);
+									}
+									<span class="hljs-keyword">continue</span>;
+								}
+								t = getElementText(table, $row[<span class="hljs-number">0</span>].cells[j], j);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-33" id="section-33"></a>
+</div>
+<p>allow parsing if the string is empty, previously parsing would change it to zero,
+in case the parser needs to extract data from the table cell attributes</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								v = parsers[j].format(t, table, $row[<span class="hljs-number">0</span>].cells[j], j);
+								cols.push(v);
+								<span class="hljs-keyword">if</span> ((parsers[j].type || <span class="hljs-string">''</span>).toLowerCase() === <span class="hljs-string">"numeric"</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-34" id="section-34"></a>
+</div>
+<p>determine column max value (ignore sign)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">									colMax[j] = <span class="hljs-built_in">Math</span>.max(<span class="hljs-built_in">Math</span>.abs(v) || <span class="hljs-number">0</span>, colMax[j] || <span class="hljs-number">0</span>);
+								}
+							}
+							cols.push(rowData);
+							cc.normalized.push(cols);
+						}
+						cc.colMax = colMax;
+					}
+				}
+				<span class="hljs-keyword">if</span> (c.showProcessing) {
+					ts.isProcessing(table); <span class="hljs-comment">// remove processing icon</span>
+				}
+				<span class="hljs-keyword">if</span> (c.debug) {
+					benchmark(<span class="hljs-string">"Building cache for "</span> + totalRows + <span class="hljs-string">" rows"</span>, cacheTime);
+				}
+			}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-35" id="section-35"></a>
+</div>
+<p>init flag (true) used by pager plugin to prevent widget application</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">appendToTable</span>(<span class="hljs-params">table, init</span>) </span>{
+				<span class="hljs-keyword">var</span> c = table.config,
+					wo = c.widgetOptions,
+					b = table.tBodies,
+					rows = [],
+					cc = c.cache,
+					n, totalRows, $bk, $tb,
+					i, k, appendTime;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-36" id="section-36"></a>
+</div>
+<p>empty table - fixes #206/#346</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (isEmptyObject(cc)) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-37" id="section-37"></a>
+</div>
+<p>run pager appender in case the table was just emptied</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">return</span> c.appender ? c.appender(table, rows) :
+						table.isUpdating ? c.$table.trigger(<span class="hljs-string">"updateComplete"</span>, table) : <span class="hljs-string">''</span>; <span class="hljs-comment">// Fixes #532</span>
+				}
+				<span class="hljs-keyword">if</span> (c.debug) {
+					appendTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+				}
+				<span class="hljs-keyword">for</span> (k = <span class="hljs-number">0</span>; k &lt; b.length; k++) {
+					$bk = $(b[k]);
+					<span class="hljs-keyword">if</span> ($bk.length &amp;&amp; !$bk.hasClass(c.cssInfoBlock)) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-38" id="section-38"></a>
+</div>
+<p>get tbody</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						$tb = ts.processTbody(table, $bk, <span class="hljs-literal">true</span>);
+						n = cc[k].normalized;
+						totalRows = n.length;
+						<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; totalRows; i++) {
+							rows.push(n[i][c.columns].$row);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-39" id="section-39"></a>
+</div>
+<p>removeRows used by the pager plugin; don't render if using ajax - fixes #411</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							<span class="hljs-keyword">if</span> (!c.appender || (c.pager &amp;&amp; (!c.pager.removeRows || !wo.pager_removeRows) &amp;&amp; !c.pager.ajax)) {
+								$tb.append(n[i][c.columns].$row);
+							}
+						}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-40" id="section-40"></a>
+</div>
+<p>restore tbody</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						ts.processTbody(table, $tb, <span class="hljs-literal">false</span>);
+					}
+				}
+				<span class="hljs-keyword">if</span> (c.appender) {
+					c.appender(table, rows);
+				}
+				<span class="hljs-keyword">if</span> (c.debug) {
+					benchmark(<span class="hljs-string">"Rebuilt table"</span>, appendTime);
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-41" id="section-41"></a>
+</div>
+<p>apply table widgets; but not before ajax completes</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (!init &amp;&amp; !c.appender) { ts.applyWidget(table); }
+				<span class="hljs-keyword">if</span> (table.isUpdating) {
+					c.$table.trigger(<span class="hljs-string">"updateComplete"</span>, table);
+				}
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">formatSortingOrder</span>(<span class="hljs-params">v</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-42" id="section-42"></a>
+</div>
+<p>look for &quot;d&quot; in &quot;desc&quot; order; return true</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">return</span> (<span class="hljs-regexp">/^d/i</span>.test(v) || v === <span class="hljs-number">1</span>);
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">buildHeaders</span>(<span class="hljs-params">table</span>) </span>{
+				<span class="hljs-keyword">var</span> ch, $t,
+					h, i, t, lock, time,
+					c = table.config;
+				c.headerList = [];
+				c.headerContent = [];
+				<span class="hljs-keyword">if</span> (c.debug) {
+					time = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-43" id="section-43"></a>
+</div>
+<p>children tr in tfoot - see issue #196 &amp; #547</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				c.columns = ts.computeColumnIndex( c.$table.children(<span class="hljs-string">'thead, tfoot'</span>).children(<span class="hljs-string">'tr'</span>) );
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-44" id="section-44"></a>
+</div>
+<p>add icon if cssIcon option exists</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				i = c.cssIcon ? <span class="hljs-string">'&lt;i class="'</span> + ( c.cssIcon === ts.css.icon ? ts.css.icon : c.cssIcon + <span class="hljs-string">' '</span> + ts.css.icon ) + <span class="hljs-string">'"&gt;&lt;/i&gt;'</span> : <span class="hljs-string">''</span>;
+				c.$headers = $(table).find(c.selectorHeaders).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">index</span>) </span>{
+					$t = $(<span class="hljs-keyword">this</span>);
+					ch = c.headers[index];
+					c.headerContent[index] = $(<span class="hljs-keyword">this</span>).html(); <span class="hljs-comment">// save original header content</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-45" id="section-45"></a>
+</div>
+<p>set up header template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					t = c.headerTemplate.replace(<span class="hljs-regexp">/\{content\}/g</span>, $(<span class="hljs-keyword">this</span>).html()).replace(<span class="hljs-regexp">/\{icon\}/g</span>, i);
+					<span class="hljs-keyword">if</span> (c.onRenderTemplate) {
+						h = c.onRenderTemplate.apply($t, [index, t]);
+						<span class="hljs-keyword">if</span> (h &amp;&amp; <span class="hljs-keyword">typeof</span> h === <span class="hljs-string">'string'</span>) { t = h; } <span class="hljs-comment">// only change t if something is returned</span>
+					}
+					$(<span class="hljs-keyword">this</span>).html(<span class="hljs-string">'&lt;div class="'</span> + ts.css.headerIn + <span class="hljs-string">'"&gt;'</span> + t + <span class="hljs-string">'&lt;/div&gt;'</span>); <span class="hljs-comment">// faster than wrapInner</span>
+
+					<span class="hljs-keyword">if</span> (c.onRenderHeader) { c.onRenderHeader.apply($t, [index]); }
+					<span class="hljs-keyword">this</span>.column = <span class="hljs-built_in">parseInt</span>( $(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'data-column'</span>), <span class="hljs-number">10</span>);
+					<span class="hljs-keyword">this</span>.order = formatSortingOrder( ts.getData($t, ch, <span class="hljs-string">'sortInitialOrder'</span>) || c.sortInitialOrder ) ? [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>] : [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>];
+					<span class="hljs-keyword">this</span>.count = <span class="hljs-number">-1</span>; <span class="hljs-comment">// set to -1 because clicking on the header automatically adds one</span>
+					<span class="hljs-keyword">this</span>.lockedOrder = <span class="hljs-literal">false</span>;
+					lock = ts.getData($t, ch, <span class="hljs-string">'lockedOrder'</span>) || <span class="hljs-literal">false</span>;
+					<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> lock !== <span class="hljs-string">'undefined'</span> &amp;&amp; lock !== <span class="hljs-literal">false</span>) {
+						<span class="hljs-keyword">this</span>.order = <span class="hljs-keyword">this</span>.lockedOrder = formatSortingOrder(lock) ? [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>] : [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>];
+					}
+					$t.addClass(ts.css.header + <span class="hljs-string">' '</span> + c.cssHeader);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-46" id="section-46"></a>
+</div>
+<p>add cell to headerList</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					c.headerList[index] = <span class="hljs-keyword">this</span>;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-47" id="section-47"></a>
+</div>
+<p>add to parent in case there are multiple rows</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					$t.parent().addClass(ts.css.headerRow + <span class="hljs-string">' '</span> + c.cssHeaderRow).attr(<span class="hljs-string">'role'</span>, <span class="hljs-string">'row'</span>);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-48" id="section-48"></a>
+</div>
+<p>allow keyboard cursor to focus on element</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (c.tabIndex) { $t.attr(<span class="hljs-string">"tabindex"</span>, <span class="hljs-number">0</span>); }
+				}).attr({
+					<span class="hljs-attr">scope</span>: <span class="hljs-string">'col'</span>,
+					<span class="hljs-attr">role</span> : <span class="hljs-string">'columnheader'</span>
+				});
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-49" id="section-49"></a>
+</div>
+<p>enable/disable sorting</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				updateHeader(table);
+				<span class="hljs-keyword">if</span> (c.debug) {
+					benchmark(<span class="hljs-string">"Built headers:"</span>, time);
+					log(c.$headers);
+				}
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">commonUpdate</span>(<span class="hljs-params">table, resort, callback</span>) </span>{
+				<span class="hljs-keyword">var</span> c = table.config;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-50" id="section-50"></a>
+</div>
+<p>remove rows/elements before update</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				c.$table.find(c.selectorRemove).remove();
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-51" id="section-51"></a>
+</div>
+<p>rebuild parsers</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				buildParserCache(table);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-52" id="section-52"></a>
+</div>
+<p>rebuild the cache map</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				buildCache(table);
+				checkResort(c.$table, resort, callback);
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateHeader</span>(<span class="hljs-params">table</span>) </span>{
+				<span class="hljs-keyword">var</span> s, $th, c = table.config;
+				c.$headers.each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">index, th</span>)</span>{
+					$th = $(th);
+					s = ts.getData( th, c.headers[index], <span class="hljs-string">'sorter'</span> ) === <span class="hljs-string">'false'</span>;
+					th.sortDisabled = s;
+					$th[ s ? <span class="hljs-string">'addClass'</span> : <span class="hljs-string">'removeClass'</span> ](<span class="hljs-string">'sorter-false'</span>).attr(<span class="hljs-string">'aria-disabled'</span>, <span class="hljs-string">''</span> + s);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-53" id="section-53"></a>
+</div>
+<p>aria-controls - requires table ID</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (table.id) {
+						<span class="hljs-keyword">if</span> (s) {
+							$th.removeAttr(<span class="hljs-string">'aria-controls'</span>);
+						} <span class="hljs-keyword">else</span> {
+							$th.attr(<span class="hljs-string">'aria-controls'</span>, table.id);
+						}
+					}
+				});
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setHeadersCss</span>(<span class="hljs-params">table</span>) </span>{
+				<span class="hljs-keyword">var</span> f, i, j, l,
+					c = table.config,
+					list = c.sortList,
+					none = ts.css.sortNone + <span class="hljs-string">' '</span> + c.cssNone,
+					css = [ts.css.sortAsc + <span class="hljs-string">' '</span> + c.cssAsc, ts.css.sortDesc + <span class="hljs-string">' '</span> + c.cssDesc],
+					aria = [<span class="hljs-string">'ascending'</span>, <span class="hljs-string">'descending'</span>],
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-54" id="section-54"></a>
+</div>
+<p>find the footer</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					$t = $(table).find(<span class="hljs-string">'tfoot tr'</span>).children().removeClass(css.join(<span class="hljs-string">' '</span>));
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-55" id="section-55"></a>
+</div>
+<p>remove all header information</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				c.$headers
+					.removeClass(css.join(<span class="hljs-string">' '</span>))
+					.addClass(none).attr(<span class="hljs-string">'aria-sort'</span>, <span class="hljs-string">'none'</span>);
+				l = list.length;
+				<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; l; i++) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-56" id="section-56"></a>
+</div>
+<p>direction = 2 means reset!</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (list[i][<span class="hljs-number">1</span>] !== <span class="hljs-number">2</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-57" id="section-57"></a>
+</div>
+<p>multicolumn sorting updating - choose the :last in case there are nested columns</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						f = c.$headers.not(<span class="hljs-string">'.sorter-false'</span>).filter(<span class="hljs-string">'[data-column="'</span> + list[i][<span class="hljs-number">0</span>] + <span class="hljs-string">'"]'</span> + (l === <span class="hljs-number">1</span> ? <span class="hljs-string">':last'</span> : <span class="hljs-string">''</span>) );
+						<span class="hljs-keyword">if</span> (f.length) {
+							<span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; f.length; j++) {
+								<span class="hljs-keyword">if</span> (!f[j].sortDisabled) {
+									f.eq(j).removeClass(none).addClass(css[list[i][<span class="hljs-number">1</span>]]).attr(<span class="hljs-string">'aria-sort'</span>, aria[list[i][<span class="hljs-number">1</span>]]);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-58" id="section-58"></a>
+</div>
+<p>add sorted class to footer, if it exists</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">									<span class="hljs-keyword">if</span> ($t.length) {
+										$t.filter(<span class="hljs-string">'[data-column="'</span> + list[i][<span class="hljs-number">0</span>] + <span class="hljs-string">'"]'</span>).eq(j).addClass(css[list[i][<span class="hljs-number">1</span>]]);
+									}
+								}
+							}
+						}
+					}
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-59" id="section-59"></a>
+</div>
+<p>add verbose aria labels</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				c.$headers.not(<span class="hljs-string">'.sorter-false'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+					<span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span> = $(<span class="hljs-keyword">this</span>),
+						nextSort = <span class="hljs-keyword">this</span>.order[(<span class="hljs-keyword">this</span>.count + <span class="hljs-number">1</span>) % (c.sortReset ? <span class="hljs-number">3</span> : <span class="hljs-number">2</span>)],
+						txt = $<span class="hljs-keyword">this</span>.text() + <span class="hljs-string">': '</span> +
+							ts.language[ $<span class="hljs-keyword">this</span>.hasClass(ts.css.sortAsc) ? <span class="hljs-string">'sortAsc'</span> : $<span class="hljs-keyword">this</span>.hasClass(ts.css.sortDesc) ? <span class="hljs-string">'sortDesc'</span> : <span class="hljs-string">'sortNone'</span> ] +
+							ts.language[ nextSort === <span class="hljs-number">0</span> ? <span class="hljs-string">'nextAsc'</span> : nextSort === <span class="hljs-number">1</span> ? <span class="hljs-string">'nextDesc'</span> : <span class="hljs-string">'nextNone'</span> ];
+					$<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'aria-label'</span>, txt );
+				});
+			}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-60" id="section-60"></a>
+</div>
+<p>automatically add col group, and column sizes if set</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fixColumnWidth</span>(<span class="hljs-params">table</span>) </span>{
+				<span class="hljs-keyword">if</span> (table.config.widthFixed &amp;&amp; $(table).find(<span class="hljs-string">'colgroup'</span>).length === <span class="hljs-number">0</span>) {
+					<span class="hljs-keyword">var</span> colgroup = $(<span class="hljs-string">'&lt;colgroup&gt;'</span>),
+						overallWidth = $(table).width();
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-61" id="section-61"></a>
+</div>
+<p>only add col for visible columns - fixes #371</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					$(table.tBodies[<span class="hljs-number">0</span>]).find(<span class="hljs-string">"tr:first"</span>).children(<span class="hljs-string">"td:visible"</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+						colgroup.append($(<span class="hljs-string">'&lt;col&gt;'</span>).css(<span class="hljs-string">'width'</span>, <span class="hljs-built_in">parseInt</span>(($(<span class="hljs-keyword">this</span>).width()/overallWidth)*<span class="hljs-number">1000</span>, <span class="hljs-number">10</span>)/<span class="hljs-number">10</span> + <span class="hljs-string">'%'</span>));
+					});
+					$(table).prepend(colgroup);
+				}
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateHeaderSortCount</span>(<span class="hljs-params">table, list</span>) </span>{
+				<span class="hljs-keyword">var</span> s, t, o, c = table.config,
+					sl = list || c.sortList;
+				c.sortList = [];
+				$.each(sl, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i,v</span>)</span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-62" id="section-62"></a>
+</div>
+<p>ensure all sortList values are numeric - fixes #127</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					s = [ <span class="hljs-built_in">parseInt</span>(v[<span class="hljs-number">0</span>], <span class="hljs-number">10</span>), <span class="hljs-built_in">parseInt</span>(v[<span class="hljs-number">1</span>], <span class="hljs-number">10</span>) ];
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-63" id="section-63"></a>
+</div>
+<p>make sure header exists</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					o = c.$headers[s[<span class="hljs-number">0</span>]];
+					<span class="hljs-keyword">if</span> (o) { <span class="hljs-comment">// prevents error if sorton array is wrong</span>
+						c.sortList.push(s);
+						t = $.inArray(s[<span class="hljs-number">1</span>], o.order); <span class="hljs-comment">// fixes issue #167</span>
+						o.count = t &gt;= <span class="hljs-number">0</span> ? t : s[<span class="hljs-number">1</span>] % (c.sortReset ? <span class="hljs-number">3</span> : <span class="hljs-number">2</span>);
+					}
+				});
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCachedSortType</span>(<span class="hljs-params">parsers, i</span>) </span>{
+				<span class="hljs-keyword">return</span> (parsers &amp;&amp; parsers[i]) ? parsers[i].type || <span class="hljs-string">''</span> : <span class="hljs-string">''</span>;
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initSort</span>(<span class="hljs-params">table, cell, event</span>)</span>{
+				<span class="hljs-keyword">var</span> arry, indx, col, order, s,
+					c = table.config,
+					key = !event[c.sortMultiSortKey],
+					$table = c.$table;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-64" id="section-64"></a>
+</div>
+<p>Only call sortStart if sorting is enabled</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				$table.trigger(<span class="hljs-string">"sortStart"</span>, table);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-65" id="section-65"></a>
+</div>
+<p>get current column sort order</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				cell.count = event[c.sortResetKey] ? <span class="hljs-number">2</span> : (cell.count + <span class="hljs-number">1</span>) % (c.sortReset ? <span class="hljs-number">3</span> : <span class="hljs-number">2</span>);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-66" id="section-66"></a>
+</div>
+<p>reset all sorts on non-current column - issue #30</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (c.sortRestart) {
+					indx = cell;
+					c.$headers.each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-67" id="section-67"></a>
+</div>
+<p>only reset counts on columns that weren't just clicked on and if not included in a multisort</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span> !== indx &amp;&amp; (key || !$(<span class="hljs-keyword">this</span>).is(<span class="hljs-string">'.'</span> + ts.css.sortDesc + <span class="hljs-string">',.'</span> + ts.css.sortAsc))) {
+							<span class="hljs-keyword">this</span>.count = <span class="hljs-number">-1</span>;
+						}
+					});
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-68" id="section-68"></a>
+</div>
+<p>get current column index</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				indx = cell.column;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-69" id="section-69"></a>
+</div>
+<p>user only wants to sort on one column</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (key) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-70" id="section-70"></a>
+</div>
+<p>flush the sort list</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					c.sortList = [];
+					<span class="hljs-keyword">if</span> (c.sortForce !== <span class="hljs-literal">null</span>) {
+						arry = c.sortForce;
+						<span class="hljs-keyword">for</span> (col = <span class="hljs-number">0</span>; col &lt; arry.length; col++) {
+							<span class="hljs-keyword">if</span> (arry[col][<span class="hljs-number">0</span>] !== indx) {
+								c.sortList.push(arry[col]);
+							}
+						}
+					}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-71" id="section-71"></a>
+</div>
+<p>add column to sort list</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					order = cell.order[cell.count];
+					<span class="hljs-keyword">if</span> (order &lt; <span class="hljs-number">2</span>) {
+						c.sortList.push([indx, order]);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-72" id="section-72"></a>
+</div>
+<p>add other columns if header spans across multiple</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						<span class="hljs-keyword">if</span> (cell.colSpan &gt; <span class="hljs-number">1</span>) {
+							<span class="hljs-keyword">for</span> (col = <span class="hljs-number">1</span>; col &lt; cell.colSpan; col++) {
+								c.sortList.push([indx + col, order]);
+							}
+						}
+					}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-73" id="section-73"></a>
+</div>
+<p>multi column sorting</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				} <span class="hljs-keyword">else</span> {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-74" id="section-74"></a>
+</div>
+<p>get rid of the sortAppend before adding more - fixes issue #115 &amp; #523</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (c.sortAppend &amp;&amp; c.sortList.length &gt; <span class="hljs-number">1</span>) {
+						<span class="hljs-keyword">for</span> (col = <span class="hljs-number">0</span>; col &lt; c.sortAppend.length; col++) {
+							s = ts.isValueInArray(c.sortAppend[col][<span class="hljs-number">0</span>], c.sortList);
+							<span class="hljs-keyword">if</span> (s &gt;= <span class="hljs-number">0</span>) {
+								c.sortList.splice(s,<span class="hljs-number">1</span>);
+							}
+						}
+					}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-75" id="section-75"></a>
+</div>
+<p>the user has clicked on an already sorted column</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (ts.isValueInArray(indx, c.sortList) &gt;= <span class="hljs-number">0</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-76" id="section-76"></a>
+</div>
+<p>reverse the sorting direction</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						<span class="hljs-keyword">for</span> (col = <span class="hljs-number">0</span>; col &lt; c.sortList.length; col++) {
+							s = c.sortList[col];
+							order = c.$headers[s[<span class="hljs-number">0</span>]];
+							<span class="hljs-keyword">if</span> (s[<span class="hljs-number">0</span>] === indx) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-77" id="section-77"></a>
+</div>
+<p>order.count seems to be incorrect when compared to cell.count</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								s[<span class="hljs-number">1</span>] = order.order[cell.count];
+								<span class="hljs-keyword">if</span> (s[<span class="hljs-number">1</span>] === <span class="hljs-number">2</span>) {
+									c.sortList.splice(col,<span class="hljs-number">1</span>);
+									order.count = <span class="hljs-number">-1</span>;
+								}
+							}
+						}
+					} <span class="hljs-keyword">else</span> {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-78" id="section-78"></a>
+</div>
+<p>add column to sort list array</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						order = cell.order[cell.count];
+						<span class="hljs-keyword">if</span> (order &lt; <span class="hljs-number">2</span>) {
+							c.sortList.push([indx, order]);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-79" id="section-79"></a>
+</div>
+<p>add other columns if header spans across multiple</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							<span class="hljs-keyword">if</span> (cell.colSpan &gt; <span class="hljs-number">1</span>) {
+								<span class="hljs-keyword">for</span> (col = <span class="hljs-number">1</span>; col &lt; cell.colSpan; col++) {
+									c.sortList.push([indx + col, order]);
+								}
+							}
+						}
+					}
+				}
+				<span class="hljs-keyword">if</span> (c.sortAppend !== <span class="hljs-literal">null</span>) {
+					arry = c.sortAppend;
+					<span class="hljs-keyword">for</span> (col = <span class="hljs-number">0</span>; col &lt; arry.length; col++) {
+						<span class="hljs-keyword">if</span> (arry[col][<span class="hljs-number">0</span>] !== indx) {
+							c.sortList.push(arry[col]);
+						}
+					}
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-80" id="section-80"></a>
+</div>
+<p>sortBegin event triggered immediately before the sort</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				$table.trigger(<span class="hljs-string">"sortBegin"</span>, table);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-81" id="section-81"></a>
+</div>
+<p>setTimeout needed so the processing icon shows up</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-82" id="section-82"></a>
+</div>
+<p>set css for headers</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					setHeadersCss(table);
+					multisort(table);
+					appendToTable(table);
+					$table.trigger(<span class="hljs-string">"sortEnd"</span>, table);
+				}, <span class="hljs-number">1</span>);
+			}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-83" id="section-83"></a>
+</div>
+<p>sort multiple columns</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multisort</span>(<span class="hljs-params">table</span>) </span>{ <span class="hljs-comment">/*jshint loopfunc:true */</span>
+				<span class="hljs-keyword">var</span> i, k, num, col, sortTime, colMax,
+					cache, order, sort, x, y,
+					dir = <span class="hljs-number">0</span>,
+					c = table.config,
+					cts = c.textSorter || <span class="hljs-string">''</span>,
+					sortList = c.sortList,
+					l = sortList.length,
+					bl = table.tBodies.length;
+				<span class="hljs-keyword">if</span> (c.serverSideSorting || isEmptyObject(c.cache)) { <span class="hljs-comment">// empty table - fixes #206/#346</span>
+					<span class="hljs-keyword">return</span>;
+				}
+				<span class="hljs-keyword">if</span> (c.debug) { sortTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(); }
+				<span class="hljs-keyword">for</span> (k = <span class="hljs-number">0</span>; k &lt; bl; k++) {
+					colMax = c.cache[k].colMax;
+					cache = c.cache[k].normalized;
+
+					cache.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-84" id="section-84"></a>
+</div>
+<p>cache is undefined here in IE, so don't use it!</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; l; i++) {
+							col = sortList[i][<span class="hljs-number">0</span>];
+							order = sortList[i][<span class="hljs-number">1</span>];
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-85" id="section-85"></a>
+</div>
+<p>sort direction, true = asc, false = desc</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							dir = order === <span class="hljs-number">0</span>;
+
+							<span class="hljs-keyword">if</span> (c.sortStable &amp;&amp; a[col] === b[col] &amp;&amp; l === <span class="hljs-number">1</span>) {
+								<span class="hljs-keyword">return</span> a[c.columns].order - b[c.columns].order;
+							}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-86" id="section-86"></a>
+</div>
+<p>fallback to natural sort since it is more robust</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							num = <span class="hljs-regexp">/n/i</span>.test(getCachedSortType(c.parsers, col));
+							<span class="hljs-keyword">if</span> (num &amp;&amp; c.strings[col]) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-87" id="section-87"></a>
+</div>
+<p>sort strings in numerical columns</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> (c.string[c.strings[col]]) === <span class="hljs-string">'boolean'</span>) {
+									num = (dir ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>) * (c.string[c.strings[col]] ? <span class="hljs-number">-1</span> : <span class="hljs-number">1</span>);
+								} <span class="hljs-keyword">else</span> {
+									num = (c.strings[col]) ? c.string[c.strings[col]] || <span class="hljs-number">0</span> : <span class="hljs-number">0</span>;
+								}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-88" id="section-88"></a>
+</div>
+<p>fall back to built-in numeric sort
+var sort = $.tablesorter[&quot;sort&quot; + s](table, a[c], b[c], c, colMax[c], dir);</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								sort = c.numberSorter ? c.numberSorter(a[col], b[col], dir, colMax[col], table) :
+									ts[ <span class="hljs-string">'sortNumeric'</span> + (dir ? <span class="hljs-string">'Asc'</span> : <span class="hljs-string">'Desc'</span>) ](a[col], b[col], num, colMax[col], col, table);
+							} <span class="hljs-keyword">else</span> {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-89" id="section-89"></a>
+</div>
+<p>set a &amp; b depending on sort direction</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								x = dir ? a : b;
+								y = dir ? b : a;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-90" id="section-90"></a>
+</div>
+<p>text sort function</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">								<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(cts) === <span class="hljs-string">'function'</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-91" id="section-91"></a>
+</div>
+<p>custom OVERALL text sorter</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">									sort = cts(x[col], y[col], dir, col, table);
+								} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(cts) === <span class="hljs-string">'object'</span> &amp;&amp; cts.hasOwnProperty(col)) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-92" id="section-92"></a>
+</div>
+<p>custom text sorter for a SPECIFIC COLUMN</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">									sort = cts[col](x[col], y[col], dir, col, table);
+								} <span class="hljs-keyword">else</span> {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-93" id="section-93"></a>
+</div>
+<p>fall back to natural sort</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">									sort = ts[ <span class="hljs-string">'sortNatural'</span> + (dir ? <span class="hljs-string">'Asc'</span> : <span class="hljs-string">'Desc'</span>) ](a[col], b[col], col, table, c);
+								}
+							}
+							<span class="hljs-keyword">if</span> (sort) { <span class="hljs-keyword">return</span> sort; }
+						}
+						<span class="hljs-keyword">return</span> a[c.columns].order - b[c.columns].order;
+					});
+				}
+				<span class="hljs-keyword">if</span> (c.debug) { benchmark(<span class="hljs-string">"Sorting on "</span> + sortList.toString() + <span class="hljs-string">" and dir "</span> + order + <span class="hljs-string">" time"</span>, sortTime); }
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">resortComplete</span>(<span class="hljs-params">$table, callback</span>)</span>{
+				<span class="hljs-keyword">var</span> table = $table[<span class="hljs-number">0</span>];
+				<span class="hljs-keyword">if</span> (table.isUpdating) {
+					$table.trigger(<span class="hljs-string">'updateComplete'</span>);
+				}
+				<span class="hljs-keyword">if</span> ($.isFunction(callback)) {
+					callback($table[<span class="hljs-number">0</span>]);
+				}
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkResort</span>(<span class="hljs-params">$table, flag, callback</span>) </span>{
+				<span class="hljs-keyword">var</span> sl = $table[<span class="hljs-number">0</span>].config.sortList;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-94" id="section-94"></a>
+</div>
+<p>don't try to resort if the table is still processing
+this will catch spamming of the updateCell method</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (flag !== <span class="hljs-literal">false</span> &amp;&amp; !$table[<span class="hljs-number">0</span>].isProcessing &amp;&amp; sl.length) {
+					$table.trigger(<span class="hljs-string">"sorton"</span>, [sl, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+						resortComplete($table, callback);
+					}, <span class="hljs-literal">true</span>]);
+				} <span class="hljs-keyword">else</span> {
+					resortComplete($table, callback);
+					ts.applyWidget($table[<span class="hljs-number">0</span>], <span class="hljs-literal">false</span>);
+				}
+			}
+
+			<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bindMethods</span>(<span class="hljs-params">table</span>)</span>{
+				<span class="hljs-keyword">var</span> c = table.config,
+					$table = c.$table;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-95" id="section-95"></a>
+</div>
+<p>apply easy methods that trigger bound events</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				$table
+				.unbind(<span class="hljs-string">'sortReset update updateRows updateCell updateAll addRows updateComplete sorton appendCache updateCache applyWidgetId applyWidgets refreshWidgets destroy mouseup mouseleave '</span>.split(<span class="hljs-string">' '</span>).join(c.namespace + <span class="hljs-string">' '</span>))
+				.bind(<span class="hljs-string">"sortReset"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, callback</span>)</span>{
+					e.stopPropagation();
+					c.sortList = [];
+					setHeadersCss(table);
+					multisort(table);
+					appendToTable(table);
+					<span class="hljs-keyword">if</span> ($.isFunction(callback)) {
+						callback(table);
+					}
+				})
+				.bind(<span class="hljs-string">"updateAll"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, resort, callback</span>)</span>{
+					e.stopPropagation();
+					table.isUpdating = <span class="hljs-literal">true</span>;
+					ts.refreshWidgets(table, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>);
+					ts.restoreHeaders(table);
+					buildHeaders(table);
+					ts.bindEvents(table, c.$headers);
+					bindMethods(table);
+					commonUpdate(table, resort, callback);
+				})
+				.bind(<span class="hljs-string">"update"</span> + c.namespace + <span class="hljs-string">" updateRows"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, resort, callback</span>) </span>{
+					e.stopPropagation();
+					table.isUpdating = <span class="hljs-literal">true</span>;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-96" id="section-96"></a>
+</div>
+<p>update sorting (if enabled/disabled)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					updateHeader(table);
+					commonUpdate(table, resort, callback);
+				})
+				.bind(<span class="hljs-string">"updateCell"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, cell, resort, callback</span>) </span>{
+					e.stopPropagation();
+					table.isUpdating = <span class="hljs-literal">true</span>;
+					$table.find(c.selectorRemove).remove();
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-97" id="section-97"></a>
+</div>
+<p>get position from the dom</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">var</span> v, row, icell,
+					$tb = $table.find(<span class="hljs-string">'tbody'</span>),
+					$cell = $(cell),
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-98" id="section-98"></a>
+</div>
+<p>update cache - format: function(s, table, cell, cellIndex)
+no closest in jQuery v1.2.6 - tbdy = $tb.index( $(cell).closest('tbody') ),$row = $(cell).closest('tr');</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					tbdy = $tb.index( $cell.parents(<span class="hljs-string">'tbody'</span>).filter(<span class="hljs-string">':first'</span>) ),
+					$row = $cell.parents(<span class="hljs-string">'tr'</span>).filter(<span class="hljs-string">':first'</span>);
+					cell = $cell[<span class="hljs-number">0</span>]; <span class="hljs-comment">// in case cell is a jQuery object</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-99" id="section-99"></a>
+</div>
+<p>tbody may not exist if update is initialized while tbody is removed for processing</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> ($tb.length &amp;&amp; tbdy &gt;= <span class="hljs-number">0</span>) {
+						row = $tb.eq(tbdy).find(<span class="hljs-string">'tr'</span>).index( $row );
+						icell = $cell.index();
+						c.cache[tbdy].normalized[row][c.columns].$row = $row;
+						v = c.cache[tbdy].normalized[row][icell] = c.parsers[icell].format( getElementText(table, cell, icell), table, cell, icell );
+						<span class="hljs-keyword">if</span> ((c.parsers[icell].type || <span class="hljs-string">''</span>).toLowerCase() === <span class="hljs-string">"numeric"</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-100" id="section-100"></a>
+</div>
+<p>update column max value (ignore sign)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							c.cache[tbdy].colMax[icell] = <span class="hljs-built_in">Math</span>.max(<span class="hljs-built_in">Math</span>.abs(v) || <span class="hljs-number">0</span>, c.cache[tbdy].colMax[icell] || <span class="hljs-number">0</span>);
+						}
+						checkResort($table, resort, callback);
+					}
+				})
+				.bind(<span class="hljs-string">"addRows"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, $row, resort, callback</span>) </span>{
+					e.stopPropagation();
+					table.isUpdating = <span class="hljs-literal">true</span>;
+					<span class="hljs-keyword">if</span> (isEmptyObject(c.cache)) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-101" id="section-101"></a>
+</div>
+<p>empty table, do an update instead - fixes #450</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						updateHeader(table);
+						commonUpdate(table, resort, callback);
+					} <span class="hljs-keyword">else</span> {
+						<span class="hljs-keyword">var</span> i, j, l, rowData, cells,
+						rows = $row.filter(<span class="hljs-string">'tr'</span>).length,
+						tbdy = $table.find(<span class="hljs-string">'tbody'</span>).index( $row.parents(<span class="hljs-string">'tbody'</span>).filter(<span class="hljs-string">':first'</span>) );
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-102" id="section-102"></a>
+</div>
+<p>fixes adding rows to an empty table - see issue #179</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						<span class="hljs-keyword">if</span> (!c.parsers) {
+							buildParserCache(table);
+						}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-103" id="section-103"></a>
+</div>
+<p>add each row</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; rows; i++) {
+							l = $row[i].cells.length;
+							cells = [];
+							rowData = {
+								<span class="hljs-attr">child</span>: [],
+								<span class="hljs-attr">$row</span> : $row.eq(i),
+								<span class="hljs-attr">order</span>: c.cache[tbdy].normalized.length
+							};
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-104" id="section-104"></a>
+</div>
+<p>add each cell</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							<span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; l; j++) {
+								cells[j] = c.parsers[j].format( getElementText(table, $row[i].cells[j], j), table, $row[i].cells[j], j );
+								<span class="hljs-keyword">if</span> ((c.parsers[j].type || <span class="hljs-string">''</span>).toLowerCase() === <span class="hljs-string">"numeric"</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-105" id="section-105"></a>
+</div>
+<p>update column max value (ignore sign)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">									c.cache[tbdy].colMax[j] = <span class="hljs-built_in">Math</span>.max(<span class="hljs-built_in">Math</span>.abs(cells[j]) || <span class="hljs-number">0</span>, c.cache[tbdy].colMax[j] || <span class="hljs-number">0</span>);
+								}
+							}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-106" id="section-106"></a>
+</div>
+<p>add the row data to the end</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							cells.push(rowData);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-107" id="section-107"></a>
+</div>
+<p>update cache</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							c.cache[tbdy].normalized.push(cells);
+						}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-108" id="section-108"></a>
+</div>
+<p>resort using current settings</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						checkResort($table, resort, callback);
+					}
+				})
+				.bind(<span class="hljs-string">"updateComplete"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+					table.isUpdating = <span class="hljs-literal">false</span>;
+				})
+				.bind(<span class="hljs-string">"sorton"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, list, callback, init</span>) </span>{
+					<span class="hljs-keyword">var</span> c = table.config;
+					e.stopPropagation();
+					$table.trigger(<span class="hljs-string">"sortStart"</span>, <span class="hljs-keyword">this</span>);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-109" id="section-109"></a>
+</div>
+<p>update header count index</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					updateHeaderSortCount(table, list);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-110" id="section-110"></a>
+</div>
+<p>set css for headers</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					setHeadersCss(table);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-111" id="section-111"></a>
+</div>
+<p>fixes #346</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (c.delayInit &amp;&amp; isEmptyObject(c.cache)) { buildCache(table); }
+					$table.trigger(<span class="hljs-string">"sortBegin"</span>, <span class="hljs-keyword">this</span>);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-112" id="section-112"></a>
+</div>
+<p>sort the table and append it to the dom</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					multisort(table);
+					appendToTable(table, init);
+					$table.trigger(<span class="hljs-string">"sortEnd"</span>, <span class="hljs-keyword">this</span>);
+					ts.applyWidget(table);
+					<span class="hljs-keyword">if</span> ($.isFunction(callback)) {
+						callback(table);
+					}
+				})
+				.bind(<span class="hljs-string">"appendCache"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, callback, init</span>) </span>{
+					e.stopPropagation();
+					appendToTable(table, init);
+					<span class="hljs-keyword">if</span> ($.isFunction(callback)) {
+						callback(table);
+					}
+				})
+				.bind(<span class="hljs-string">"updateCache"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, callback</span>)</span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-113" id="section-113"></a>
+</div>
+<p>rebuild parsers</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (!c.parsers) {
+						buildParserCache(table);
+					}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-114" id="section-114"></a>
+</div>
+<p>rebuild the cache map</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					buildCache(table);
+					<span class="hljs-keyword">if</span> ($.isFunction(callback)) {
+						callback(table);
+					}
+				})
+				.bind(<span class="hljs-string">"applyWidgetId"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, id</span>) </span>{
+					e.stopPropagation();
+					ts.getWidgetById(id).format(table, c, c.widgetOptions);
+				})
+				.bind(<span class="hljs-string">"applyWidgets"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, init</span>) </span>{
+					e.stopPropagation();
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-115" id="section-115"></a>
+</div>
+<p>apply widgets</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					ts.applyWidget(table, init);
+				})
+				.bind(<span class="hljs-string">"refreshWidgets"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, all, dontapply</span>)</span>{
+					e.stopPropagation();
+					ts.refreshWidgets(table, all, dontapply);
+				})
+				.bind(<span class="hljs-string">"destroy"</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, c, cb</span>)</span>{
+					e.stopPropagation();
+					ts.destroy(table, c, cb);
+				});
+			}
+
+			<span class="hljs-comment">/* public methods */</span>
+			ts.construct = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">settings</span>) </span>{
+				<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+					<span class="hljs-keyword">var</span> table = <span class="hljs-keyword">this</span>,
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-116" id="section-116"></a>
+</div>
+<p>merge &amp; extend config options</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						c = $.extend(<span class="hljs-literal">true</span>, {}, ts.defaults, settings);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-117" id="section-117"></a>
+</div>
+<p>create a table from data (build table widget)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (!table.hasInitialized &amp;&amp; ts.buildTable &amp;&amp; <span class="hljs-keyword">this</span>.tagName !== <span class="hljs-string">'TABLE'</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-118" id="section-118"></a>
+</div>
+<p>return the table (in case the original target is the table's container)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						ts.buildTable(table, c);
+					} <span class="hljs-keyword">else</span> {
+						ts.setup(table, c);
+					}
+				});
+			};
+
+			ts.setup = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table, c</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-119" id="section-119"></a>
+</div>
+<p>if no thead or tbody, or tablesorter is already present, quit</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (!table || !table.tHead || table.tBodies.length === <span class="hljs-number">0</span> || table.hasInitialized === <span class="hljs-literal">true</span>) {
+					<span class="hljs-keyword">return</span> c.debug ? log(<span class="hljs-string">'ERROR: stopping initialization! No table, thead, tbody or tablesorter has already been initialized'</span>) : <span class="hljs-string">''</span>;
+				}
+
+				<span class="hljs-keyword">var</span> k = <span class="hljs-string">''</span>,
+					$table = $(table),
+					m = $.metadata;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-120" id="section-120"></a>
+</div>
+<p>initialization flag</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				table.hasInitialized = <span class="hljs-literal">false</span>;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-121" id="section-121"></a>
+</div>
+<p>table is being processed flag</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				table.isProcessing = <span class="hljs-literal">true</span>;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-122" id="section-122"></a>
+</div>
+<p>make sure to store the config object</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				table.config = c;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-123" id="section-123"></a>
+</div>
+<p>save the settings where they read</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				$.data(table, <span class="hljs-string">"tablesorter"</span>, c);
+				<span class="hljs-keyword">if</span> (c.debug) { $.data( table, <span class="hljs-string">'startoveralltimer'</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()); }
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-124" id="section-124"></a>
+</div>
+<p>removing this in version 3 (only supports jQuery 1.7+)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				c.supportsDataObject = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">version</span>) </span>{
+					version[<span class="hljs-number">0</span>] = <span class="hljs-built_in">parseInt</span>(version[<span class="hljs-number">0</span>], <span class="hljs-number">10</span>);
+					<span class="hljs-keyword">return</span> (version[<span class="hljs-number">0</span>] &gt; <span class="hljs-number">1</span>) || (version[<span class="hljs-number">0</span>] === <span class="hljs-number">1</span> &amp;&amp; <span class="hljs-built_in">parseInt</span>(version[<span class="hljs-number">1</span>], <span class="hljs-number">10</span>) &gt;= <span class="hljs-number">4</span>);
+				})($.fn.jquery.split(<span class="hljs-string">"."</span>));
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-125" id="section-125"></a>
+</div>
+<p>digit sort text location; keeping max+/- for backwards compatibility</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				c.string = { <span class="hljs-string">'max'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'min'</span>: <span class="hljs-number">-1</span>, <span class="hljs-string">'max+'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'max-'</span>: <span class="hljs-number">-1</span>, <span class="hljs-string">'zero'</span>: <span class="hljs-number">0</span>, <span class="hljs-string">'none'</span>: <span class="hljs-number">0</span>, <span class="hljs-string">'null'</span>: <span class="hljs-number">0</span>, <span class="hljs-string">'top'</span>: <span class="hljs-literal">true</span>, <span class="hljs-string">'bottom'</span>: <span class="hljs-literal">false</span> };
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-126" id="section-126"></a>
+</div>
+<p>add table theme class only if there isn't already one there</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (!<span class="hljs-regexp">/tablesorter\-/</span>.test($table.attr(<span class="hljs-string">'class'</span>))) {
+					k = (c.theme !== <span class="hljs-string">''</span> ? <span class="hljs-string">' tablesorter-'</span> + c.theme : <span class="hljs-string">''</span>);
+				}
+				c.$table = $table
+					.addClass(ts.css.table + <span class="hljs-string">' '</span> + c.tableClass + k)
+					.attr({ <span class="hljs-attr">role</span> : <span class="hljs-string">'grid'</span>});
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-127" id="section-127"></a>
+</div>
+<p>give the table a unique id, which will be used in namespace binding</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (!c.namespace) {
+					c.namespace = <span class="hljs-string">'.tablesorter'</span> + <span class="hljs-built_in">Math</span>.random().toString(<span class="hljs-number">16</span>).slice(<span class="hljs-number">2</span>);
+				} <span class="hljs-keyword">else</span> {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-128" id="section-128"></a>
+</div>
+<p>make sure namespace starts with a period &amp; doesn't have weird characters</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					c.namespace = <span class="hljs-string">'.'</span> + c.namespace.replace(<span class="hljs-regexp">/\W/g</span>,<span class="hljs-string">''</span>);
+				}
+
+				c.$tbodies = $table.children(<span class="hljs-string">'tbody:not(.'</span> + c.cssInfoBlock + <span class="hljs-string">')'</span>).attr({
+					<span class="hljs-string">'aria-live'</span> : <span class="hljs-string">'polite'</span>,
+					<span class="hljs-string">'aria-relevant'</span> : <span class="hljs-string">'all'</span>
+				});
+				<span class="hljs-keyword">if</span> (c.$table.find(<span class="hljs-string">'caption'</span>).length) {
+					c.$table.attr(<span class="hljs-string">'aria-labelledby'</span>, <span class="hljs-string">'theCaption'</span>);
+				}
+				c.widgetInit = {}; <span class="hljs-comment">// keep a list of initialized widgets</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-129" id="section-129"></a>
+</div>
+<p>change textExtraction via data-attribute</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				c.textExtraction = c.$table.attr(<span class="hljs-string">'data-text-extraction'</span>) || c.textExtraction || <span class="hljs-string">'basic'</span>;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-130" id="section-130"></a>
+</div>
+<p>build headers</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				buildHeaders(table);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-131" id="section-131"></a>
+</div>
+<p>fixate columns if the users supplies the fixedWidth option
+do this after theme has been applied</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				fixColumnWidth(table);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-132" id="section-132"></a>
+</div>
+<p>try to auto detect column type, and store in tables config</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				buildParserCache(table);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-133" id="section-133"></a>
+</div>
+<p>build the cache for the tbody cells
+delayInit will delay building the cache until the user starts a sort</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (!c.delayInit) { buildCache(table); }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-134" id="section-134"></a>
+</div>
+<p>bind all header events and methods</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				ts.bindEvents(table, c.$headers);
+				bindMethods(table);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-135" id="section-135"></a>
+</div>
+<p>get sort list from jQuery data or metadata
+in jQuery &lt; 1.4, an error occurs when calling $table.data()</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (c.supportsDataObject &amp;&amp; <span class="hljs-keyword">typeof</span> $table.data().sortlist !== <span class="hljs-string">'undefined'</span>) {
+					c.sortList = $table.data().sortlist;
+				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (m &amp;&amp; ($table.metadata() &amp;&amp; $table.metadata().sortlist)) {
+					c.sortList = $table.metadata().sortlist;
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-136" id="section-136"></a>
+</div>
+<p>apply widget init code</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				ts.applyWidget(table, <span class="hljs-literal">true</span>);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-137" id="section-137"></a>
+</div>
+<p>if user has supplied a sort list to constructor</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (c.sortList.length &gt; <span class="hljs-number">0</span>) {
+					$table.trigger(<span class="hljs-string">"sorton"</span>, [c.sortList, {}, !c.initWidgets, <span class="hljs-literal">true</span>]);
+				} <span class="hljs-keyword">else</span> {
+					setHeadersCss(table);
+					<span class="hljs-keyword">if</span> (c.initWidgets) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-138" id="section-138"></a>
+</div>
+<p>apply widget format</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						ts.applyWidget(table, <span class="hljs-literal">false</span>);
+					}
+				}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-139" id="section-139"></a>
+</div>
+<p>show processesing icon</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (c.showProcessing) {
+					$table
+					.unbind(<span class="hljs-string">'sortBegin'</span> + c.namespace + <span class="hljs-string">' sortEnd'</span> + c.namespace)
+					.bind(<span class="hljs-string">'sortBegin'</span> + c.namespace + <span class="hljs-string">' sortEnd'</span> + c.namespace, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+						ts.isProcessing(table, e.type === <span class="hljs-string">'sortBegin'</span>);
+					});
+				}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-140" id="section-140"></a>
+</div>
+<p>initialized</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				table.hasInitialized = <span class="hljs-literal">true</span>;
+				table.isProcessing = <span class="hljs-literal">false</span>;
+				<span class="hljs-keyword">if</span> (c.debug) {
+					ts.benchmark(<span class="hljs-string">"Overall initialization time"</span>, $.data( table, <span class="hljs-string">'startoveralltimer'</span>));
+				}
+				$table.trigger(<span class="hljs-string">'tablesorter-initialized'</span>, table);
+				<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> c.initialized === <span class="hljs-string">'function'</span>) { c.initialized(table); }
+			};
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-141" id="section-141"></a>
+</div>
+<p>computeTableHeaderCellIndexes from:
+http://www.javascripttoolbox.com/lib/table/examples.php
+http://www.javascripttoolbox.com/temp/table_cellindex.html</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.computeColumnIndex = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">trs</span>) </span>{
+				<span class="hljs-keyword">var</span> matrix = [],
+				lookup = {},
+				cols = <span class="hljs-number">0</span>, <span class="hljs-comment">// determine the number of columns</span>
+				i, j, k, l, $cell, cell, cells, rowIndex, cellId, rowSpan, colSpan, firstAvailCol, matrixrow;
+				<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; trs.length; i++) {
+					cells = trs[i].cells;
+					<span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; cells.length; j++) {
+						cell = cells[j];
+						$cell = $(cell);
+						rowIndex = cell.parentNode.rowIndex;
+						cellId = rowIndex + <span class="hljs-string">"-"</span> + $cell.index();
+						rowSpan = cell.rowSpan || <span class="hljs-number">1</span>;
+						colSpan = cell.colSpan || <span class="hljs-number">1</span>;
+						<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(matrix[rowIndex]) === <span class="hljs-string">"undefined"</span>) {
+							matrix[rowIndex] = [];
+						}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-142" id="section-142"></a>
+</div>
+<p>Find first available column in the first row</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						<span class="hljs-keyword">for</span> (k = <span class="hljs-number">0</span>; k &lt; matrix[rowIndex].length + <span class="hljs-number">1</span>; k++) {
+							<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(matrix[rowIndex][k]) === <span class="hljs-string">"undefined"</span>) {
+								firstAvailCol = k;
+								<span class="hljs-keyword">break</span>;
+							}
+						}
+						lookup[cellId] = firstAvailCol;
+						cols = <span class="hljs-built_in">Math</span>.max(firstAvailCol, cols);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-143" id="section-143"></a>
+</div>
+<p>add data-column</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						$cell.attr({ <span class="hljs-string">'data-column'</span> : firstAvailCol }); <span class="hljs-comment">// 'data-row' : rowIndex</span>
+						<span class="hljs-keyword">for</span> (k = rowIndex; k &lt; rowIndex + rowSpan; k++) {
+							<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span>(matrix[k]) === <span class="hljs-string">"undefined"</span>) {
+								matrix[k] = [];
+							}
+							matrixrow = matrix[k];
+							<span class="hljs-keyword">for</span> (l = firstAvailCol; l &lt; firstAvailCol + colSpan; l++) {
+								matrixrow[l] = <span class="hljs-string">"x"</span>;
+							}
+						}
+					}
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-144" id="section-144"></a>
+</div>
+<p>may not be accurate if # header columns !== # tbody columns</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">return</span> cols + <span class="hljs-number">1</span>; <span class="hljs-comment">// add one because it's a zero-based index</span>
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-145" id="section-145"></a>
+</div>
+<p>*** Process table ***
+add processing indicator</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.isProcessing = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table, toggle, $ths</span>) </span>{
+				table = $(table);
+				<span class="hljs-keyword">var</span> c = table[<span class="hljs-number">0</span>].config,
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-146" id="section-146"></a>
+</div>
+<p>default to all headers</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					$h = $ths || table.find(<span class="hljs-string">'.'</span> + ts.css.header);
+				<span class="hljs-keyword">if</span> (toggle) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-147" id="section-147"></a>
+</div>
+<p>don't use sortList if custom $ths used</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> $ths !== <span class="hljs-string">'undefined'</span> &amp;&amp; c.sortList.length &gt; <span class="hljs-number">0</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-148" id="section-148"></a>
+</div>
+<p>get headers from the sortList</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						$h = $h.filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-149" id="section-149"></a>
+</div>
+<p>get data-column from attr to keep  compatibility with jQuery 1.2.6</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.sortDisabled ? <span class="hljs-literal">false</span> : ts.isValueInArray( <span class="hljs-built_in">parseFloat</span>($(<span class="hljs-keyword">this</span>).attr(<span class="hljs-string">'data-column'</span>)), c.sortList) &gt;= <span class="hljs-number">0</span>;
+						});
+					}
+					$h.addClass(ts.css.processing + <span class="hljs-string">' '</span> + c.cssProcessing);
+				} <span class="hljs-keyword">else</span> {
+					$h.removeClass(ts.css.processing + <span class="hljs-string">' '</span> + c.cssProcessing);
+				}
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-150" id="section-150"></a>
+</div>
+<p>detach tbody but save the position
+don't use tbody because there are portions that look for a tbody index (updateCell)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.processTbody = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table, $tb, getIt</span>)</span>{
+				table = $(table)[<span class="hljs-number">0</span>];
+				<span class="hljs-keyword">var</span> holdr;
+				<span class="hljs-keyword">if</span> (getIt) {
+					table.isProcessing = <span class="hljs-literal">true</span>;
+					$tb.before(<span class="hljs-string">'&lt;span class="tablesorter-savemyplace"/&gt;'</span>);
+					holdr = ($.fn.detach) ? $tb.detach() : $tb.remove();
+					<span class="hljs-keyword">return</span> holdr;
+				}
+				holdr = $(table).find(<span class="hljs-string">'span.tablesorter-savemyplace'</span>);
+				$tb.insertAfter( holdr );
+				holdr.remove();
+				table.isProcessing = <span class="hljs-literal">false</span>;
+			};
+
+			ts.clearTableBody = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table</span>) </span>{
+				$(table)[<span class="hljs-number">0</span>].config.$tbodies.empty();
+			};
+
+			ts.bindEvents = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table, $headers</span>)</span>{
+				table = $(table)[<span class="hljs-number">0</span>];
+				<span class="hljs-keyword">var</span> downTime,
+				c = table.config;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-151" id="section-151"></a>
+</div>
+<p>apply event handling to headers and/or additional headers (stickyheaders, scroller, etc)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				$headers
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-152" id="section-152"></a>
+</div>
+<p>http://stackoverflow.com/questions/5312849/jquery-find-self;</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				.find(c.selectorSort).add( $headers.filter(c.selectorSort) )
+				.unbind(<span class="hljs-string">'mousedown mouseup sort keyup '</span>.split(<span class="hljs-string">' '</span>).join(c.namespace + <span class="hljs-string">' '</span>))
+				.bind(<span class="hljs-string">'mousedown mouseup sort keyup '</span>.split(<span class="hljs-string">' '</span>).join(c.namespace + <span class="hljs-string">' '</span>), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e, external</span>) </span>{
+					<span class="hljs-keyword">var</span> cell, type = e.type;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-153" id="section-153"></a>
+</div>
+<p>only recognize left clicks or enter</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> ( ((e.which || e.button) !== <span class="hljs-number">1</span> &amp;&amp; !<span class="hljs-regexp">/sort|keyup/</span>.test(type)) || (type === <span class="hljs-string">'keyup'</span> &amp;&amp; e.which !== <span class="hljs-number">13</span>) ) {
+						<span class="hljs-keyword">return</span>;
+					}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-154" id="section-154"></a>
+</div>
+<p>ignore long clicks (prevents resizable widget from initializing a sort)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (type === <span class="hljs-string">'mouseup'</span> &amp;&amp; external !== <span class="hljs-literal">true</span> &amp;&amp; (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime() - downTime &gt; <span class="hljs-number">250</span>)) { <span class="hljs-keyword">return</span>; }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-155" id="section-155"></a>
+</div>
+<p>set timer on mousedown</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (type === <span class="hljs-string">'mousedown'</span>) {
+						downTime = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();
+						<span class="hljs-keyword">return</span> e.target.tagName === <span class="hljs-string">"INPUT"</span> ? <span class="hljs-string">''</span> : !c.cancelSelection;
+					}
+					<span class="hljs-keyword">if</span> (c.delayInit &amp;&amp; isEmptyObject(c.cache)) { buildCache(table); }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-156" id="section-156"></a>
+</div>
+<p>jQuery v1.2.6 doesn't have closest()</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					cell = <span class="hljs-regexp">/TH|TD/</span>.test(<span class="hljs-keyword">this</span>.tagName) ? <span class="hljs-keyword">this</span> : $(<span class="hljs-keyword">this</span>).parents(<span class="hljs-string">'th, td'</span>)[<span class="hljs-number">0</span>];
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-157" id="section-157"></a>
+</div>
+<p>reference original table headers and find the same cell</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					cell = c.$headers[ $headers.index( cell ) ];
+					<span class="hljs-keyword">if</span> (!cell.sortDisabled) {
+						initSort(table, cell, e);
+					}
+				});
+				<span class="hljs-keyword">if</span> (c.cancelSelection) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-158" id="section-158"></a>
+</div>
+<p>cancel selection</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					$headers
+						.attr(<span class="hljs-string">'unselectable'</span>, <span class="hljs-string">'on'</span>)
+						.bind(<span class="hljs-string">'selectstart'</span>, <span class="hljs-literal">false</span>)
+						.css({
+							<span class="hljs-string">'user-select'</span>: <span class="hljs-string">'none'</span>,
+							<span class="hljs-string">'MozUserSelect'</span>: <span class="hljs-string">'none'</span> <span class="hljs-comment">// not needed for jQuery 1.8+</span>
+						});
+				}
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-159" id="section-159"></a>
+</div>
+<p>restore headers</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.restoreHeaders = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table</span>)</span>{
+				<span class="hljs-keyword">var</span> c = $(table)[<span class="hljs-number">0</span>].config;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-160" id="section-160"></a>
+</div>
+<p>don't use c.$headers here in case header cells were swapped</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				c.$table.find(c.selectorHeaders).each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i</span>)</span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-161" id="section-161"></a>
+</div>
+<p>only restore header cells if it is wrapped
+because this is also used by the updateAll method</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> ($(<span class="hljs-keyword">this</span>).find(<span class="hljs-string">'.'</span> + ts.css.headerIn).length){
+						$(<span class="hljs-keyword">this</span>).html( c.headerContent[i] );
+					}
+				});
+			};
+
+			ts.destroy = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table, removeClasses, callback</span>)</span>{
+				table = $(table)[<span class="hljs-number">0</span>];
+				<span class="hljs-keyword">if</span> (!table.hasInitialized) { <span class="hljs-keyword">return</span>; }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-162" id="section-162"></a>
+</div>
+<p>remove all widgets</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				ts.refreshWidgets(table, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>);
+				<span class="hljs-keyword">var</span> $t = $(table), c = table.config,
+				$h = $t.find(<span class="hljs-string">'thead:first'</span>),
+				$r = $h.find(<span class="hljs-string">'tr.'</span> + ts.css.headerRow).removeClass(ts.css.headerRow + <span class="hljs-string">' '</span> + c.cssHeaderRow),
+				$f = $t.find(<span class="hljs-string">'tfoot:first &gt; tr'</span>).children(<span class="hljs-string">'th, td'</span>);
+				<span class="hljs-keyword">if</span> (removeClasses === <span class="hljs-literal">false</span> &amp;&amp; $.inArray(<span class="hljs-string">'uitheme'</span>, c.widgets) &gt;= <span class="hljs-number">0</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-163" id="section-163"></a>
+</div>
+<p>reapply uitheme classes, in case we want to maintain appearance</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					$t.trigger(<span class="hljs-string">'applyWidgetId'</span>, [<span class="hljs-string">'uitheme'</span>]);
+					$t.trigger(<span class="hljs-string">'applyWidgetId'</span>, [<span class="hljs-string">'zebra'</span>]);
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-164" id="section-164"></a>
+</div>
+<p>remove widget added rows, just in case</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				$h.find(<span class="hljs-string">'tr'</span>).not($r).remove();
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-165" id="section-165"></a>
+</div>
+<p>disable tablesorter</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				$t
+					.removeData(<span class="hljs-string">'tablesorter'</span>)
+					.unbind(<span class="hljs-string">'sortReset update updateAll updateRows updateCell addRows updateComplete sorton appendCache updateCache applyWidgetId applyWidgets refreshWidgets destroy mouseup mouseleave keypress sortBegin sortEnd '</span>.split(<span class="hljs-string">' '</span>).join(c.namespace + <span class="hljs-string">' '</span>));
+				c.$headers.add($f)
+					.removeClass( [ts.css.header, c.cssHeader, c.cssAsc, c.cssDesc, ts.css.sortAsc, ts.css.sortDesc, ts.css.sortNone].join(<span class="hljs-string">' '</span>) )
+					.removeAttr(<span class="hljs-string">'data-column'</span>)
+					.removeAttr(<span class="hljs-string">'aria-label'</span>)
+					.attr(<span class="hljs-string">'aria-disabled'</span>, <span class="hljs-string">'true'</span>);
+				$r.find(c.selectorSort).unbind(<span class="hljs-string">'mousedown mouseup keypress '</span>.split(<span class="hljs-string">' '</span>).join(c.namespace + <span class="hljs-string">' '</span>));
+				ts.restoreHeaders(table);
+				$t.toggleClass(ts.css.table + <span class="hljs-string">' '</span> + c.tableClass + <span class="hljs-string">' tablesorter-'</span> + c.theme, removeClasses === <span class="hljs-literal">false</span>);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-166" id="section-166"></a>
+</div>
+<p>clear flag in case the plugin is initialized again</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				table.hasInitialized = <span class="hljs-literal">false</span>;
+				<span class="hljs-keyword">delete</span> table.config.cache;
+				<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> callback === <span class="hljs-string">'function'</span>) {
+					callback(table);
+				}
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-167" id="section-167"></a>
+</div>
+<p>*** sort functions ***
+regex used in natural sort</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.regex = {
+				<span class="hljs-attr">chunk</span> : <span class="hljs-regexp">/(^([+\-]?(?:0|[1-9]\d*)(?:\.\d*)?(?:[eE][+\-]?\d+)?)?$|^0x[0-9a-f]+$|\d+)/gi</span>, <span class="hljs-comment">// chunk/tokenize numbers &amp; letters</span>
+				chunks: <span class="hljs-regexp">/(^\\0|\\0$)/</span>, <span class="hljs-comment">// replace chunks @ ends</span>
+				hex: <span class="hljs-regexp">/^0x[0-9a-f]+$/i</span> <span class="hljs-comment">// hex</span>
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-168" id="section-168"></a>
+</div>
+<p>Natural sort - https://github.com/overset/javascript-natural-sort (date sorting removed)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.sortNatural = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
+				<span class="hljs-keyword">if</span> (a === b) { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
+				<span class="hljs-keyword">var</span> xN, xD, yN, yD, xF, yF, i, mx,
+					r = ts.regex;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-169" id="section-169"></a>
+</div>
+<p>first try and sort Hex codes</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (r.hex.test(b)) {
+					xD = <span class="hljs-built_in">parseInt</span>(a.match(r.hex), <span class="hljs-number">16</span>);
+					yD = <span class="hljs-built_in">parseInt</span>(b.match(r.hex), <span class="hljs-number">16</span>);
+					<span class="hljs-keyword">if</span> ( xD &lt; yD ) { <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; }
+					<span class="hljs-keyword">if</span> ( xD &gt; yD ) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
+				}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-170" id="section-170"></a>
+</div>
+<p>chunk/tokenize</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				xN = a.replace(r.chunk, <span class="hljs-string">'\\0$1\\0'</span>).replace(r.chunks, <span class="hljs-string">''</span>).split(<span class="hljs-string">'\\0'</span>);
+				yN = b.replace(r.chunk, <span class="hljs-string">'\\0$1\\0'</span>).replace(r.chunks, <span class="hljs-string">''</span>).split(<span class="hljs-string">'\\0'</span>);
+				mx = <span class="hljs-built_in">Math</span>.max(xN.length, yN.length);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-171" id="section-171"></a>
+</div>
+<p>natural sorting through split numeric strings and default strings</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; mx; i++) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-172" id="section-172"></a>
+</div>
+<p>find floats not starting with '0', string or 0 if not defined</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					xF = <span class="hljs-built_in">isNaN</span>(xN[i]) ? xN[i] || <span class="hljs-number">0</span> : <span class="hljs-built_in">parseFloat</span>(xN[i]) || <span class="hljs-number">0</span>;
+					yF = <span class="hljs-built_in">isNaN</span>(yN[i]) ? yN[i] || <span class="hljs-number">0</span> : <span class="hljs-built_in">parseFloat</span>(yN[i]) || <span class="hljs-number">0</span>;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-173" id="section-173"></a>
+</div>
+<p>handle numeric vs string comparison - number &lt; string - (Kyle Adams)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(xF) !== <span class="hljs-built_in">isNaN</span>(yF)) { <span class="hljs-keyword">return</span> (<span class="hljs-built_in">isNaN</span>(xF)) ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>; }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-174" id="section-174"></a>
+</div>
+<p>rely on string comparison if different types - i.e. '02' &lt; 2 != '02' &lt; '2'</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> xF !== <span class="hljs-keyword">typeof</span> yF) {
+						xF += <span class="hljs-string">''</span>;
+						yF += <span class="hljs-string">''</span>;
+					}
+					<span class="hljs-keyword">if</span> (xF &lt; yF) { <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; }
+					<span class="hljs-keyword">if</span> (xF &gt; yF) { <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; }
+				}
+				<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+			};
+
+			ts.sortNaturalAsc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, col, table, c</span>) </span>{
+				<span class="hljs-keyword">if</span> (a === b) { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
+				<span class="hljs-keyword">var</span> e = c.string[ (c.empties[col] || c.emptyTo ) ];
+				<span class="hljs-keyword">if</span> (a === <span class="hljs-string">''</span> &amp;&amp; e !== <span class="hljs-number">0</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">'boolean'</span> ? (e ? <span class="hljs-number">-1</span> : <span class="hljs-number">1</span>) : -e || <span class="hljs-number">-1</span>; }
+				<span class="hljs-keyword">if</span> (b === <span class="hljs-string">''</span> &amp;&amp; e !== <span class="hljs-number">0</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">'boolean'</span> ? (e ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>) : e || <span class="hljs-number">1</span>; }
+				<span class="hljs-keyword">return</span> ts.sortNatural(a, b);
+			};
+
+			ts.sortNaturalDesc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, col, table, c</span>) </span>{
+				<span class="hljs-keyword">if</span> (a === b) { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
+				<span class="hljs-keyword">var</span> e = c.string[ (c.empties[col] || c.emptyTo ) ];
+				<span class="hljs-keyword">if</span> (a === <span class="hljs-string">''</span> &amp;&amp; e !== <span class="hljs-number">0</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">'boolean'</span> ? (e ? <span class="hljs-number">-1</span> : <span class="hljs-number">1</span>) : e || <span class="hljs-number">1</span>; }
+				<span class="hljs-keyword">if</span> (b === <span class="hljs-string">''</span> &amp;&amp; e !== <span class="hljs-number">0</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">'boolean'</span> ? (e ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>) : -e || <span class="hljs-number">-1</span>; }
+				<span class="hljs-keyword">return</span> ts.sortNatural(b, a);
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-175" id="section-175"></a>
+</div>
+<p>basic alphabetical sort</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.sortText = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
+				<span class="hljs-keyword">return</span> a &gt; b ? <span class="hljs-number">1</span> : (a &lt; b ? <span class="hljs-number">-1</span> : <span class="hljs-number">0</span>);
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-176" id="section-176"></a>
+</div>
+<p>return text string value by adding up ascii value
+so the text is somewhat sorted when using a digital sort
+this is NOT an alphanumeric sort</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.getTextValue = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, num, mx</span>) </span>{
+				<span class="hljs-keyword">if</span> (mx) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-177" id="section-177"></a>
+</div>
+<p>make sure the text value is greater than the max numerical value (mx)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-keyword">var</span> i, l = a ? a.length : <span class="hljs-number">0</span>, n = mx + num;
+					<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; l; i++) {
+						n += a.charCodeAt(i);
+					}
+					<span class="hljs-keyword">return</span> num * n;
+				}
+				<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+			};
+
+			ts.sortNumericAsc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, num, mx, col, table</span>) </span>{
+				<span class="hljs-keyword">if</span> (a === b) { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
+				<span class="hljs-keyword">var</span> c = table.config,
+					e = c.string[ (c.empties[col] || c.emptyTo ) ];
+				<span class="hljs-keyword">if</span> (a === <span class="hljs-string">''</span> &amp;&amp; e !== <span class="hljs-number">0</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">'boolean'</span> ? (e ? <span class="hljs-number">-1</span> : <span class="hljs-number">1</span>) : -e || <span class="hljs-number">-1</span>; }
+				<span class="hljs-keyword">if</span> (b === <span class="hljs-string">''</span> &amp;&amp; e !== <span class="hljs-number">0</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">'boolean'</span> ? (e ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>) : e || <span class="hljs-number">1</span>; }
+				<span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(a)) { a = ts.getTextValue(a, num, mx); }
+				<span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(b)) { b = ts.getTextValue(b, num, mx); }
+				<span class="hljs-keyword">return</span> a - b;
+			};
+
+			ts.sortNumericDesc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b, num, mx, col, table</span>) </span>{
+				<span class="hljs-keyword">if</span> (a === b) { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
+				<span class="hljs-keyword">var</span> c = table.config,
+					e = c.string[ (c.empties[col] || c.emptyTo ) ];
+				<span class="hljs-keyword">if</span> (a === <span class="hljs-string">''</span> &amp;&amp; e !== <span class="hljs-number">0</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">'boolean'</span> ? (e ? <span class="hljs-number">-1</span> : <span class="hljs-number">1</span>) : e || <span class="hljs-number">1</span>; }
+				<span class="hljs-keyword">if</span> (b === <span class="hljs-string">''</span> &amp;&amp; e !== <span class="hljs-number">0</span>) { <span class="hljs-keyword">return</span> <span class="hljs-keyword">typeof</span> e === <span class="hljs-string">'boolean'</span> ? (e ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>) : -e || <span class="hljs-number">-1</span>; }
+				<span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(a)) { a = ts.getTextValue(a, num, mx); }
+				<span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(b)) { b = ts.getTextValue(b, num, mx); }
+				<span class="hljs-keyword">return</span> b - a;
+			};
+
+			ts.sortNumeric = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>{
+				<span class="hljs-keyword">return</span> a - b;
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-178" id="section-178"></a>
+</div>
+<p>used when replacing accented characters during sorting</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.characterEquivalents = {
+				<span class="hljs-string">"a"</span> : <span class="hljs-string">"\u00e1\u00e0\u00e2\u00e3\u00e4\u0105\u00e5"</span>, <span class="hljs-comment">// áàâãäąå</span>
+				<span class="hljs-string">"A"</span> : <span class="hljs-string">"\u00c1\u00c0\u00c2\u00c3\u00c4\u0104\u00c5"</span>, <span class="hljs-comment">// ÁÀÂÃÄĄÅ</span>
+				<span class="hljs-string">"c"</span> : <span class="hljs-string">"\u00e7\u0107\u010d"</span>, <span class="hljs-comment">// çćč</span>
+				<span class="hljs-string">"C"</span> : <span class="hljs-string">"\u00c7\u0106\u010c"</span>, <span class="hljs-comment">// ÇĆČ</span>
+				<span class="hljs-string">"e"</span> : <span class="hljs-string">"\u00e9\u00e8\u00ea\u00eb\u011b\u0119"</span>, <span class="hljs-comment">// éèêëěę</span>
+				<span class="hljs-string">"E"</span> : <span class="hljs-string">"\u00c9\u00c8\u00ca\u00cb\u011a\u0118"</span>, <span class="hljs-comment">// ÉÈÊËĚĘ</span>
+				<span class="hljs-string">"i"</span> : <span class="hljs-string">"\u00ed\u00ec\u0130\u00ee\u00ef\u0131"</span>, <span class="hljs-comment">// íìİîïı</span>
+				<span class="hljs-string">"I"</span> : <span class="hljs-string">"\u00cd\u00cc\u0130\u00ce\u00cf"</span>, <span class="hljs-comment">// ÍÌİÎÏ</span>
+				<span class="hljs-string">"o"</span> : <span class="hljs-string">"\u00f3\u00f2\u00f4\u00f5\u00f6"</span>, <span class="hljs-comment">// óòôõö</span>
+				<span class="hljs-string">"O"</span> : <span class="hljs-string">"\u00d3\u00d2\u00d4\u00d5\u00d6"</span>, <span class="hljs-comment">// ÓÒÔÕÖ</span>
+				<span class="hljs-string">"ss"</span>: <span class="hljs-string">"\u00df"</span>, <span class="hljs-comment">// ß (s sharp)</span>
+				<span class="hljs-string">"SS"</span>: <span class="hljs-string">"\u1e9e"</span>, <span class="hljs-comment">// ẞ (Capital sharp s)</span>
+				<span class="hljs-string">"u"</span> : <span class="hljs-string">"\u00fa\u00f9\u00fb\u00fc\u016f"</span>, <span class="hljs-comment">// úùûüů</span>
+				<span class="hljs-string">"U"</span> : <span class="hljs-string">"\u00da\u00d9\u00db\u00dc\u016e"</span> <span class="hljs-comment">// ÚÙÛÜŮ</span>
+			};
+			ts.replaceAccents = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+				<span class="hljs-keyword">var</span> a, acc = <span class="hljs-string">'['</span>, eq = ts.characterEquivalents;
+				<span class="hljs-keyword">if</span> (!ts.characterRegex) {
+					ts.characterRegexArray = {};
+					<span class="hljs-keyword">for</span> (a <span class="hljs-keyword">in</span> eq) {
+						<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> a === <span class="hljs-string">'string'</span>) {
+							acc += eq[a];
+							ts.characterRegexArray[a] = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'['</span> + eq[a] + <span class="hljs-string">']'</span>, <span class="hljs-string">'g'</span>);
+						}
+					}
+					ts.characterRegex = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(acc + <span class="hljs-string">']'</span>);
+				}
+				<span class="hljs-keyword">if</span> (ts.characterRegex.test(s)) {
+					<span class="hljs-keyword">for</span> (a <span class="hljs-keyword">in</span> eq) {
+						<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> a === <span class="hljs-string">'string'</span>) {
+							s = s.replace( ts.characterRegexArray[a], a );
+						}
+					}
+				}
+				<span class="hljs-keyword">return</span> s;
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-179" id="section-179"></a>
+</div>
+<p>*** utilities ***</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.isValueInArray = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">column, arry</span>) </span>{
+				<span class="hljs-keyword">var</span> indx, len = arry.length;
+				<span class="hljs-keyword">for</span> (indx = <span class="hljs-number">0</span>; indx &lt; len; indx++) {
+					<span class="hljs-keyword">if</span> (arry[indx][<span class="hljs-number">0</span>] === column) {
+						<span class="hljs-keyword">return</span> indx;
+					}
+				}
+				<span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+			};
+
+			ts.addParser = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">parser</span>) </span>{
+				<span class="hljs-keyword">var</span> i, l = ts.parsers.length, a = <span class="hljs-literal">true</span>;
+				<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; l; i++) {
+					<span class="hljs-keyword">if</span> (ts.parsers[i].id.toLowerCase() === parser.id.toLowerCase()) {
+						a = <span class="hljs-literal">false</span>;
+					}
+				}
+				<span class="hljs-keyword">if</span> (a) {
+					ts.parsers.push(parser);
+				}
+			};
+
+			ts.getParserById = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>) </span>{
+				<span class="hljs-keyword">var</span> i, l = ts.parsers.length;
+				<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; l; i++) {
+					<span class="hljs-keyword">if</span> (ts.parsers[i].id.toLowerCase() === (name.toString()).toLowerCase()) {
+						<span class="hljs-keyword">return</span> ts.parsers[i];
+					}
+				}
+				<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+			};
+
+			ts.addWidget = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">widget</span>) </span>{
+				ts.widgets.push(widget);
+			};
+
+			ts.getWidgetById = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>) </span>{
+				<span class="hljs-keyword">var</span> i, w, l = ts.widgets.length;
+				<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; l; i++) {
+					w = ts.widgets[i];
+					<span class="hljs-keyword">if</span> (w &amp;&amp; w.hasOwnProperty(<span class="hljs-string">'id'</span>) &amp;&amp; w.id.toLowerCase() === name.toLowerCase()) {
+						<span class="hljs-keyword">return</span> w;
+					}
+				}
+			};
+
+			ts.applyWidget = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table, init</span>) </span>{
+				table = $(table)[<span class="hljs-number">0</span>]; <span class="hljs-comment">// in case this is called externally</span>
+				<span class="hljs-keyword">var</span> c = table.config,
+					wo = c.widgetOptions,
+					widgets = [],
+					time, w, wd;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-180" id="section-180"></a>
+</div>
+<p>prevent numerous consecutive widget applications</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">if</span> (init !== <span class="hljs-literal">false</span> &amp;&amp; table.hasInitialized &amp;&amp; (table.isApplyingWidgets || table.isUpdating)) { <span class="hljs-keyword">return</span>; }
+				<span class="hljs-keyword">if</span> (c.debug) { time = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(); }
+				<span class="hljs-keyword">if</span> (c.widgets.length) {
+					table.isApplyingWidgets = <span class="hljs-literal">true</span>;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-181" id="section-181"></a>
+</div>
+<p>ensure unique widget ids</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					c.widgets = $.grep(c.widgets, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">v, k</span>)</span>{
+						<span class="hljs-keyword">return</span> $.inArray(v, c.widgets) === k;
+					});
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-182" id="section-182"></a>
+</div>
+<p>build widget array &amp; add priority as needed</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					$.each(c.widgets || [], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i,n</span>)</span>{
+						wd = ts.getWidgetById(n);
+						<span class="hljs-keyword">if</span> (wd &amp;&amp; wd.id) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-183" id="section-183"></a>
+</div>
+<p>set priority to 10 if not defined</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">							<span class="hljs-keyword">if</span> (!wd.priority) { wd.priority = <span class="hljs-number">10</span>; }
+							widgets[i] = wd;
+						}
+					});
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-184" id="section-184"></a>
+</div>
+<p>sort widgets by priority</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					widgets.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>)</span>{
+						<span class="hljs-keyword">return</span> a.priority &lt; b.priority ? <span class="hljs-number">-1</span> : a.priority === b.priority ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;
+					});
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-185" id="section-185"></a>
+</div>
+<p>add/update selected widgets</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					$.each(widgets, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">i,w</span>)</span>{
+						<span class="hljs-keyword">if</span> (w) {
+							<span class="hljs-keyword">if</span> (init || !(c.widgetInit[w.id])) {
+								<span class="hljs-keyword">if</span> (w.hasOwnProperty(<span class="hljs-string">'options'</span>)) {
+									wo = table.config.widgetOptions = $.extend( <span class="hljs-literal">true</span>, {}, w.options, wo );
+								}
+								<span class="hljs-keyword">if</span> (w.hasOwnProperty(<span class="hljs-string">'init'</span>)) {
+									w.init(table, w, c, wo);
+								}
+								c.widgetInit[w.id] = <span class="hljs-literal">true</span>;
+							}
+							<span class="hljs-keyword">if</span> (!init &amp;&amp; w.hasOwnProperty(<span class="hljs-string">'format'</span>)) {
+								w.format(table, c, wo, <span class="hljs-literal">false</span>);
+							}
+						}
+					});
+				}
+				setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+					table.isApplyingWidgets = <span class="hljs-literal">false</span>;
+				}, <span class="hljs-number">0</span>);
+				<span class="hljs-keyword">if</span> (c.debug) {
+					w = c.widgets.length;
+					benchmark(<span class="hljs-string">"Completed "</span> + (init === <span class="hljs-literal">true</span> ? <span class="hljs-string">"initializing "</span> : <span class="hljs-string">"applying "</span>) + w + <span class="hljs-string">" widget"</span> + (w !== <span class="hljs-number">1</span> ? <span class="hljs-string">"s"</span> : <span class="hljs-string">""</span>), time);
+				}
+			};
+
+			ts.refreshWidgets = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table, doAll, dontapply</span>) </span>{
+				table = $(table)[<span class="hljs-number">0</span>]; <span class="hljs-comment">// see issue #243</span>
+				<span class="hljs-keyword">var</span> i, c = table.config,
+					cw = c.widgets,
+					w = ts.widgets, l = w.length;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-186" id="section-186"></a>
+</div>
+<p>remove previous widgets</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; l; i++){
+					<span class="hljs-keyword">if</span> ( w[i] &amp;&amp; w[i].id &amp;&amp; (doAll || $.inArray( w[i].id, cw ) &lt; <span class="hljs-number">0</span>) ) {
+						<span class="hljs-keyword">if</span> (c.debug) { log( <span class="hljs-string">'Refeshing widgets: Removing "'</span> + w[i].id + <span class="hljs-string">'"'</span> ); }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-187" id="section-187"></a>
+</div>
+<p>only remove widgets that have been initialized - fixes #442</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						<span class="hljs-keyword">if</span> (w[i].hasOwnProperty(<span class="hljs-string">'remove'</span>) &amp;&amp; c.widgetInit[w[i].id]) {
+							w[i].remove(table, c, c.widgetOptions);
+							c.widgetInit[w[i].id] = <span class="hljs-literal">false</span>;
+						}
+					}
+				}
+				<span class="hljs-keyword">if</span> (dontapply !== <span class="hljs-literal">true</span>) {
+					ts.applyWidget(table, doAll);
+				}
+			};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-188" id="section-188"></a>
+</div>
+<p>get sorter, string, empty, etc options for each column from
+jQuery data, metadata, header option or header class name (&quot;sorter-false&quot;)
+priority = jQuery data &gt; meta &gt; headers option &gt; header class name</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			ts.getData = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">h, ch, key</span>) </span>{
+				<span class="hljs-keyword">var</span> val = <span class="hljs-string">''</span>, $h = $(h), m, cl;
+				<span class="hljs-keyword">if</span> (!$h.length) { <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>; }
+				m = $.metadata ? $h.metadata() : <span class="hljs-literal">false</span>;
+				cl = <span class="hljs-string">' '</span> + ($h.attr(<span class="hljs-string">'class'</span>) || <span class="hljs-string">''</span>);
+				<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> $h.data(key) !== <span class="hljs-string">'undefined'</span> || <span class="hljs-keyword">typeof</span> $h.data(key.toLowerCase()) !== <span class="hljs-string">'undefined'</span>){
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-189" id="section-189"></a>
+</div>
+<p>&quot;data-lockedOrder&quot; is assigned to &quot;lockedorder&quot;; but &quot;data-locked-order&quot; is assigned to &quot;lockedOrder&quot;
+&quot;data-sort-initial-order&quot; is assigned to &quot;sortInitialOrder&quot;</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					val += $h.data(key) || $h.data(key.toLowerCase());
+				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (m &amp;&amp; <span class="hljs-keyword">typeof</span> m[key] !== <span class="hljs-string">'undefined'</span>) {
+					val += m[key];
+				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ch &amp;&amp; <span class="hljs-keyword">typeof</span> ch[key] !== <span class="hljs-string">'undefined'</span>) {
+					val += ch[key];
+				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (cl !== <span class="hljs-string">' '</span> &amp;&amp; cl.match(<span class="hljs-string">' '</span> + key + <span class="hljs-string">'-'</span>)) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-190" id="section-190"></a>
+</div>
+<p>include sorter class name &quot;sorter-text&quot;, etc; now works with &quot;sorter-my-custom-parser&quot;</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					val = cl.match( <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'\\s'</span> + key + <span class="hljs-string">'-([\\w-]+)'</span>) )[<span class="hljs-number">1</span>] || <span class="hljs-string">''</span>;
+				}
+				<span class="hljs-keyword">return</span> $.trim(val);
+			};
+
+			ts.formatFloat = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table</span>) </span>{
+				<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> s !== <span class="hljs-string">'string'</span> || s === <span class="hljs-string">''</span>) { <span class="hljs-keyword">return</span> s; }
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-191" id="section-191"></a>
+</div>
+<p>allow using formatFloat without a table; defaults to US number format</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">var</span> i,
+					t = table &amp;&amp; table.config ? table.config.usNumberFormat !== <span class="hljs-literal">false</span> :
+						<span class="hljs-keyword">typeof</span> table !== <span class="hljs-string">"undefined"</span> ? table : <span class="hljs-literal">true</span>;
+				<span class="hljs-keyword">if</span> (t) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-192" id="section-192"></a>
+</div>
+<p>US Format - 1,234,567.89 -&gt; 1234567.89</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					s = s.replace(<span class="hljs-regexp">/,/g</span>,<span class="hljs-string">''</span>);
+				} <span class="hljs-keyword">else</span> {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-193" id="section-193"></a>
+</div>
+<p>German Format = 1.234.567,89 -&gt; 1234567.89
+French Format = 1 234 567,89 -&gt; 1234567.89</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					s = s.replace(<span class="hljs-regexp">/[\s|\.]/g</span>,<span class="hljs-string">''</span>).replace(<span class="hljs-regexp">/,/g</span>,<span class="hljs-string">'.'</span>);
+				}
+				<span class="hljs-keyword">if</span>(<span class="hljs-regexp">/^\s*\([.\d]+\)/</span>.test(s)) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-194" id="section-194"></a>
+</div>
+<p>make (#) into a negative number -&gt; (10) = -10</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					s = s.replace(<span class="hljs-regexp">/^\s*\(([.\d]+)\)/</span>, <span class="hljs-string">'-$1'</span>);
+				}
+				i = <span class="hljs-built_in">parseFloat</span>(s);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-195" id="section-195"></a>
+</div>
+<p>return the text instead of zero</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">return</span> <span class="hljs-built_in">isNaN</span>(i) ? $.trim(s) : i;
+			};
+
+			ts.isDigit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-196" id="section-196"></a>
+</div>
+<p>replace all unwanted chars and match</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">return</span> <span class="hljs-built_in">isNaN</span>(s) ? (<span class="hljs-regexp">/^[\-+(]?\d+[)]?$/</span>).test(s.toString().replace(<span class="hljs-regexp">/[,.'"\s]/g</span>, <span class="hljs-string">''</span>)) : <span class="hljs-literal">true</span>;
+			};
+
+		}()
+	});
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-197" id="section-197"></a>
+</div>
+<p>make shortcut</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> ts = $.tablesorter;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-198" id="section-198"></a>
+</div>
+<p>extend plugin scope</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	$.fn.extend({
+		<span class="hljs-attr">tablesorter</span>: ts.construct
+	});
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-199" id="section-199"></a>
+</div>
+<p>add default parsers</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"text"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table</span>) </span>{
+			<span class="hljs-keyword">var</span> c = table.config;
+			<span class="hljs-keyword">if</span> (s) {
+				s = $.trim( c.ignoreCase ? s.toLocaleLowerCase() : s );
+				s = c.sortLocaleCompare ? ts.replaceAccents(s) : s;
+			}
+			<span class="hljs-keyword">return</span> s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"text"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"digit"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+			<span class="hljs-keyword">return</span> ts.isDigit(s);
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table</span>) </span>{
+			<span class="hljs-keyword">var</span> n = ts.formatFloat((s || <span class="hljs-string">''</span>).replace(<span class="hljs-regexp">/[^\w,. \-()]/g</span>, <span class="hljs-string">""</span>), table);
+			<span class="hljs-keyword">return</span> s &amp;&amp; <span class="hljs-keyword">typeof</span> n === <span class="hljs-string">'number'</span> ? n : s ? $.trim( s &amp;&amp; table.config.ignoreCase ? s.toLocaleLowerCase() : s ) : s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"numeric"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"currency"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+			<span class="hljs-keyword">return</span> (<span class="hljs-regexp">/^\(?\d+[\u00a3$\u20ac\u00a4\u00a5\u00a2?.]|[\u00a3$\u20ac\u00a4\u00a5\u00a2?.]\d+\)?$/</span>).test((s || <span class="hljs-string">''</span>).replace(<span class="hljs-regexp">/[+\-,. ]/g</span>,<span class="hljs-string">''</span>)); <span class="hljs-comment">// £$€¤¥¢</span>
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table</span>) </span>{
+			<span class="hljs-keyword">var</span> n = ts.formatFloat((s || <span class="hljs-string">''</span>).replace(<span class="hljs-regexp">/[^\w,. \-()]/g</span>, <span class="hljs-string">""</span>), table);
+			<span class="hljs-keyword">return</span> s &amp;&amp; <span class="hljs-keyword">typeof</span> n === <span class="hljs-string">'number'</span> ? n : s ? $.trim( s &amp;&amp; table.config.ignoreCase ? s.toLocaleLowerCase() : s ) : s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"numeric"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"ipAddress"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+			<span class="hljs-keyword">return</span> (<span class="hljs-regexp">/^\d{1,3}[\.]\d{1,3}[\.]\d{1,3}[\.]\d{1,3}$/</span>).test(s);
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table</span>) </span>{
+			<span class="hljs-keyword">var</span> i, a = s ? s.split(<span class="hljs-string">"."</span>) : <span class="hljs-string">''</span>,
+			r = <span class="hljs-string">""</span>,
+			l = a.length;
+			<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; l; i++) {
+				r += (<span class="hljs-string">"00"</span> + a[i]).slice(<span class="hljs-number">-3</span>);
+			}
+			<span class="hljs-keyword">return</span> s ? ts.formatFloat(r, table) : s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"numeric"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"url"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+			<span class="hljs-keyword">return</span> (<span class="hljs-regexp">/^(https?|ftp|file):\/\//</span>).test(s);
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+			<span class="hljs-keyword">return</span> s ? $.trim(s.replace(<span class="hljs-regexp">/(https?|ftp|file):\/\//</span>, <span class="hljs-string">''</span>)) : s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"text"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"isoDate"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+			<span class="hljs-keyword">return</span> (<span class="hljs-regexp">/^\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}/</span>).test(s);
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table</span>) </span>{
+			<span class="hljs-keyword">return</span> s ? ts.formatFloat((s !== <span class="hljs-string">""</span>) ? (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(s.replace(<span class="hljs-regexp">/-/g</span>, <span class="hljs-string">"/"</span>)).getTime() || s) : <span class="hljs-string">""</span>, table) : s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"numeric"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"percent"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+			<span class="hljs-keyword">return</span> (<span class="hljs-regexp">/(\d\s*?%|%\s*?\d)/</span>).test(s) &amp;&amp; s.length &lt; <span class="hljs-number">15</span>;
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table</span>) </span>{
+			<span class="hljs-keyword">return</span> s ? ts.formatFloat(s.replace(<span class="hljs-regexp">/%/g</span>, <span class="hljs-string">""</span>), table) : s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"numeric"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"usLongDate"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-200" id="section-200"></a>
+</div>
+<p>two digit years are not allowed cross-browser
+Jan 01, 2013 12:34:56 PM or 01 Jan 2013</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			<span class="hljs-keyword">return</span> (<span class="hljs-regexp">/^[A-Z]{3,10}\.?\s+\d{1,2},?\s+(\d{4})(\s+\d{1,2}:\d{2}(:\d{2})?(\s+[AP]M)?)?$/i</span>).test(s) || (<span class="hljs-regexp">/^\d{1,2}\s+[A-Z]{3,10}\s+\d{4}/i</span>).test(s);
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table</span>) </span>{
+			<span class="hljs-keyword">return</span> s ? ts.formatFloat( (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(s.replace(<span class="hljs-regexp">/(\S)([AP]M)$/i</span>, <span class="hljs-string">"$1 $2"</span>)).getTime() || s), table) : s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"numeric"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"shortDate"</span>, <span class="hljs-comment">// "mmddyyyy", "ddmmyyyy" or "yyyymmdd"</span>
+		is: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-201" id="section-201"></a>
+</div>
+<p>testing for ##-##-#### or ####-##-##, so it's not perfect; time can be included</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			<span class="hljs-keyword">return</span> (<span class="hljs-regexp">/(^\d{1,2}[\/\s]\d{1,2}[\/\s]\d{4})|(^\d{4}[\/\s]\d{1,2}[\/\s]\d{1,2})/</span>).test((s || <span class="hljs-string">''</span>).replace(<span class="hljs-regexp">/\s+/g</span>,<span class="hljs-string">" "</span>).replace(<span class="hljs-regexp">/[\-.,]/g</span>, <span class="hljs-string">"/"</span>));
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table, cell, cellIndex</span>) </span>{
+			<span class="hljs-keyword">if</span> (s) {
+				<span class="hljs-keyword">var</span> c = table.config,
+					ci = c.$headers.filter(<span class="hljs-string">'[data-column='</span> + cellIndex + <span class="hljs-string">']:last'</span>),
+					format = ci.length &amp;&amp; ci[<span class="hljs-number">0</span>].dateFormat || ts.getData( ci, c.headers[cellIndex], <span class="hljs-string">'dateFormat'</span>) || c.dateFormat;
+				s = s.replace(<span class="hljs-regexp">/\s+/g</span>,<span class="hljs-string">" "</span>).replace(<span class="hljs-regexp">/[\-.,]/g</span>, <span class="hljs-string">"/"</span>); <span class="hljs-comment">// escaped - because JSHint in Firefox was showing it as an error</span>
+				<span class="hljs-keyword">if</span> (format === <span class="hljs-string">"mmddyyyy"</span>) {
+					s = s.replace(<span class="hljs-regexp">/(\d{1,2})[\/\s](\d{1,2})[\/\s](\d{4})/</span>, <span class="hljs-string">"$3/$1/$2"</span>);
+				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (format === <span class="hljs-string">"ddmmyyyy"</span>) {
+					s = s.replace(<span class="hljs-regexp">/(\d{1,2})[\/\s](\d{1,2})[\/\s](\d{4})/</span>, <span class="hljs-string">"$3/$2/$1"</span>);
+				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (format === <span class="hljs-string">"yyyymmdd"</span>) {
+					s = s.replace(<span class="hljs-regexp">/(\d{4})[\/\s](\d{1,2})[\/\s](\d{1,2})/</span>, <span class="hljs-string">"$1/$2/$3"</span>);
+				}
+			}
+			<span class="hljs-keyword">return</span> s ? ts.formatFloat( (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(s).getTime() || s), table) : s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"numeric"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"time"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s</span>) </span>{
+			<span class="hljs-keyword">return</span> (<span class="hljs-regexp">/^(([0-2]?\d:[0-5]\d)|([0-1]?\d:[0-5]\d\s?([AP]M)))$/i</span>).test(s);
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table</span>) </span>{
+			<span class="hljs-keyword">return</span> s ? ts.formatFloat( (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"2000/01/01 "</span> + s.replace(<span class="hljs-regexp">/(\S)([AP]M)$/i</span>, <span class="hljs-string">"$1 $2"</span>)).getTime() || s), table) : s;
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"numeric"</span>
+	});
+
+	ts.addParser({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"metadata"</span>,
+		<span class="hljs-attr">is</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+		},
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">s, table, cell</span>) </span>{
+			<span class="hljs-keyword">var</span> c = table.config,
+			p = (!c.parserMetadataName) ? <span class="hljs-string">'sortValue'</span> : c.parserMetadataName;
+			<span class="hljs-keyword">return</span> $(cell).metadata()[p];
+		},
+		<span class="hljs-attr">type</span>: <span class="hljs-string">"numeric"</span>
+	});
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-202" id="section-202"></a>
+</div>
+<p>add default widgets</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	ts.addWidget({
+		<span class="hljs-attr">id</span>: <span class="hljs-string">"zebra"</span>,
+		<span class="hljs-attr">priority</span>: <span class="hljs-number">90</span>,
+		<span class="hljs-attr">format</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table, c, wo</span>) </span>{
+			<span class="hljs-keyword">var</span> $tb, $tv, $tr, row, even, time, k, l,
+			child = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(c.cssChildRow, <span class="hljs-string">'i'</span>),
+			b = c.$tbodies;
+			<span class="hljs-keyword">if</span> (c.debug) {
+				time = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+			}
+			<span class="hljs-keyword">for</span> (k = <span class="hljs-number">0</span>; k &lt; b.length; k++ ) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-203" id="section-203"></a>
+</div>
+<p>loop through the visible rows</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				$tb = b.eq(k);
+				l = $tb.children(<span class="hljs-string">'tr'</span>).length;
+				<span class="hljs-keyword">if</span> (l &gt; <span class="hljs-number">1</span>) {
+					row = <span class="hljs-number">0</span>;
+					$tv = $tb.children(<span class="hljs-string">'tr:visible'</span>).not(c.selectorRemove);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-204" id="section-204"></a>
+</div>
+<p>revered back to using jQuery each - strangely it's the fastest method</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">					<span class="hljs-comment">/*jshint loopfunc:true */</span>
+					$tv.each(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+						$tr = $(<span class="hljs-keyword">this</span>);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-205" id="section-205"></a>
+</div>
+<p>style children rows the same way the parent row was styled</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">						<span class="hljs-keyword">if</span> (!child.test(<span class="hljs-keyword">this</span>.className)) { row++; }
+						even = (row % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>);
+						$tr.removeClass(wo.zebra[even ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>]).addClass(wo.zebra[even ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>]);
+					});
+				}
+			}
+			<span class="hljs-keyword">if</span> (c.debug) {
+				ts.benchmark(<span class="hljs-string">"Applying Zebra widget"</span>, time);
+			}
+		},
+		<span class="hljs-attr">remove</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">table, c, wo</span>)</span>{
+			<span class="hljs-keyword">var</span> k, $tb,
+				b = c.$tbodies,
+				rmv = (wo.zebra || [ <span class="hljs-string">"even"</span>, <span class="hljs-string">"odd"</span> ]).join(<span class="hljs-string">' '</span>);
+			<span class="hljs-keyword">for</span> (k = <span class="hljs-number">0</span>; k &lt; b.length; k++ ){
+				$tb = $.tablesorter.processTbody(table, b.eq(k), <span class="hljs-literal">true</span>); <span class="hljs-comment">// remove tbody</span>
+				$tb.children().removeClass(rmv);
+				$.tablesorter.processTbody(table, $tb, <span class="hljs-literal">false</span>); <span class="hljs-comment">// restore tbody</span>
+			}
+		}
+	});
+
+})(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>login_buttons_dropdown.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "packages\\meteor-accounts-ui-bootstrap-3\\login_buttons_dropdown.html";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+  <script src="../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>login_buttons_dropdown.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-comment">&lt;!-- vim:set ft=handlebars: --&gt;</span>
+<span class="hljs-comment">&lt;!--           --&gt;</span>
+<span class="hljs-comment">&lt;!-- LOGGED IN --&gt;</span>
+<span class="hljs-comment">&lt;!--           --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggedInDropdown"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-dropdown-list"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropdown"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropdown-toggle"</span>  <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"dropdown"</span>&gt;</span>
+			{{displayName}}
+			{{#with user_profile_picture}}
+				<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"{{this}}"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"30px"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"img-circular"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"#"</span> /&gt;</span>
+			{{/with}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">b</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"caret"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropdown-menu col-sm-3"</span>&gt;</span>
+			{{#if inMessageOnlyFlow}}
+				{{&gt; _loginButtonsMessages}}
+			{{else}}
+				{{#if inChangePasswordFlow}}
+					{{&gt; _loginButtonsChangePassword}}
+				{{else}}
+					{{&gt; _loginButtonsLoggedInDropdownActions}}
+				{{/if}}
+			{{/if}}
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggedInDropdownActions"</span>&gt;</span>
+	{{#if additionalLoggedInDropdownActions}}
+		{{&gt; _loginButtonsAdditionalLoggedInDropdownActions}}
+	{{/if}}
+
+	{{#if allowChangingPassword}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-block"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-buttons-open-change-password"</span>&gt;</span>change password<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+	{{/if}}
+
+	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-block btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-buttons-logout"</span>&gt;</span>sign out<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!--            --&gt;</span>
+<span class="hljs-comment">&lt;!-- LOGGED OUT --&gt;</span>
+<span class="hljs-comment">&lt;!--            --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggedOutDropdown"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-dropdown-list"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropdown"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropdown-toggle"</span>  <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"dropdown"</span>&gt;</span>sign in{{#unless forbidClientAccountCreation}} / up{{/unless}}<span class="hljs-tag">&lt;<span class="hljs-name">b</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"caret"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dropdown-menu"</span>&gt;</span>
+			{{&gt; _loginButtonsLoggedOutAllServices}}
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggedOutAllServices"</span>&gt;</span>
+	{{#each services}}
+	{{#unless hasPasswordService}}
+		{{&gt; _loginButtonsMessages}}
+	{{/unless}}
+		{{#if isPasswordService}}
+			{{#if hasOtherServices}} {{! the password service will always come last }}
+				{{&gt; _loginButtonsLoggedOutPasswordServiceSeparator}}
+			{{/if}}
+			{{&gt; _loginButtonsLoggedOutPasswordService}}
+		{{else}}
+			{{&gt; _loginButtonsLoggedOutSingleLoginButton}}
+		{{/if}}
+	{{/each}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggedOutPasswordServiceSeparator"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"or"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hline"</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"or-text"</span>&gt;</span>or<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hline"</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsLoggedOutPasswordService"</span>&gt;</span>
+	{{#if inForgotPasswordFlow}}
+		{{&gt; _forgotPasswordForm}}
+	{{else}}
+		{{&gt; _loginButtonsMessages}}
+		{{#each fields}}
+			{{&gt; _loginButtonsFormField}}
+		{{/each}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary col-sm-12"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-buttons-password"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>&gt;</span>
+			{{#if inSignupFlow}}
+				create
+			{{else}}
+				sign in
+			{{/if}}
+		<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+		{{#if inLoginFlow}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-other-options"</span>&gt;</span>
+			{{#if showForgotPasswordLink}}
+				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"forgot-password-link"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pull-left"</span> &gt;</span>forgot password?<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+			{{/if}}
+			{{#if showCreateAccountLink}}
+				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"signup-link"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pull-right"</span> &gt;</span>create account<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+			{{/if}}
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		{{/if}}
+		{{#if inSignupFlow}}
+			{{&gt; _loginButtonsBackToLoginLink}}
+		{{/if}}
+	{{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_forgotPasswordForm"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"login-form"</span>&gt;</span>
+		{{&gt; _loginButtonsMessages}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"forgot-password-email-label-and-input"</span>&gt;</span> {{! XXX we should probably use loginButtonsFormField }}
+			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"forgot-password-email"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"E-mail"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> /&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary login-button-form-submit col-sm-12"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-buttons-forgot-password"</span>&gt;</span>reset password<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+		{{&gt; _loginButtonsBackToLoginLink}}
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsBackToLoginLink"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"back-to-login-link"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default col-sm-12"</span>&gt;</span>cancel<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsFormField"</span>&gt;</span>
+	{{#if visible}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-{{fieldName}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"{{inputType}}"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{fieldLabel}}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> /&gt;</span>
+	{{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"_loginButtonsChangePassword"</span>&gt;</span>
+	{{&gt; _loginButtonsMessages}}
+	{{#each fields}}
+		{{&gt; _loginButtonsFormField}}
+	{{/each}}
+	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-buttons-do-change-password"</span>&gt;</span>change password<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"login-buttons-cancel-change-password"</span>&gt;</span>cancel<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

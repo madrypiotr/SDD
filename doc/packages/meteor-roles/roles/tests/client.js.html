@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>client.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "packages\\meteor-roles\\roles\\tests\\client.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+  <script src="../../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>client.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">;(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{<span class="hljs-meta">
+
+  "use strict"</span>;
+
+  <span class="hljs-keyword">var</span> users,
+      roles = [<span class="hljs-string">'admin'</span>,<span class="hljs-string">'editor'</span>,<span class="hljs-string">'user'</span>]
+
+  users = {
+    <span class="hljs-string">'eve'</span>: {
+      <span class="hljs-attr">_id</span>: <span class="hljs-string">'eve'</span>,
+      <span class="hljs-attr">roles</span>: [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>]
+    },
+    <span class="hljs-string">'bob'</span>: {
+      <span class="hljs-attr">_id</span>: <span class="hljs-string">'bob'</span>,
+      <span class="hljs-attr">roles</span>: {
+        <span class="hljs-string">'group1'</span>: [<span class="hljs-string">'user'</span>],
+        <span class="hljs-string">'group2'</span>: [<span class="hljs-string">'editor'</span>]
+      }
+    },
+    <span class="hljs-string">'joe'</span>: {
+      <span class="hljs-attr">_id</span>: <span class="hljs-string">'joe'</span>,
+      <span class="hljs-attr">roles</span>: {
+        <span class="hljs-string">'__global_roles__'</span>: [<span class="hljs-string">'admin'</span>],
+        <span class="hljs-string">'group1'</span>: [<span class="hljs-string">'editor'</span>]
+      }
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">testUser</span> (<span class="hljs-params">test, username, expectedRoles, group</span>) </span>{
+    <span class="hljs-keyword">var</span> user = users[username]
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>test using user object rather than userId to avoid mocking</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    _.each(roles, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">role</span>) </span>{
+      <span class="hljs-keyword">var</span> expected = _.contains(expectedRoles, role),
+          msg = username + <span class="hljs-string">' expected to have \''</span> + role + <span class="hljs-string">'\' permission but does not'</span>,
+          nmsg = username + <span class="hljs-string">' had un-expected permission '</span> + role
+
+      <span class="hljs-keyword">if</span> (expected) {
+        test.isTrue(Roles.userIsInRole(user, role, group), msg)
+      } <span class="hljs-keyword">else</span> {
+        test.isFalse(Roles.userIsInRole(user, role, group), nmsg)
+      }
+    })
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>Mock Meteor.user() for isInRole handlebars helper testing</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">  Meteor.user = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> users.eve
+  }
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can check current users roles via template helper'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      <span class="hljs-keyword">var</span> isInRole,
+          expected,
+          actual
+
+      <span class="hljs-keyword">if</span> (!Roles._handlebarsHelpers) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>probably running package tests outside of a Meteor app.
+skip this test.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">        <span class="hljs-keyword">return</span>
+      }
+
+      isInRole = Roles._handlebarsHelpers.isInRole
+      test.equal(<span class="hljs-keyword">typeof</span> isInRole, <span class="hljs-string">'function'</span>, <span class="hljs-string">"'isInRole' helper not registered"</span>)
+
+      expected = <span class="hljs-literal">true</span>
+      actual = isInRole(<span class="hljs-string">'admin, editor'</span>)
+      test.equal(actual, expected)
+      
+      expected = <span class="hljs-literal">true</span>
+      actual = isInRole(<span class="hljs-string">'admin'</span>)
+      test.equal(actual, expected)
+
+      expected = <span class="hljs-literal">false</span>
+      actual = isInRole(<span class="hljs-string">'unknown'</span>)
+      test.equal(actual, expected)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can check if user is in role'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      testUser(test, <span class="hljs-string">'eve'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>])
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can check if user is in role by group'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'user'</span>], <span class="hljs-string">'group1'</span>)
+      testUser(test, <span class="hljs-string">'bob'</span>, [<span class="hljs-string">'editor'</span>], <span class="hljs-string">'group2'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can check if user is in role with Roles.GLOBAL_GROUP'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>])
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>], Roles.GLOBAL_GROUP)
+      testUser(test, <span class="hljs-string">'joe'</span>, [<span class="hljs-string">'admin'</span>, <span class="hljs-string">'editor'</span>], <span class="hljs-string">'group1'</span>)
+    })
+
+  Tinytest.add(
+    <span class="hljs-string">'roles - can get all roles for user by group with periods in name'</span>, 
+    <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">test</span>) </span>{
+      Roles.addUsersToRoles(users.joe, [<span class="hljs-string">'admin'</span>], <span class="hljs-string">'example.k12.va.us'</span>)
+      test.equal(Roles.getRolesForUser(users.joe, <span class="hljs-string">'example.k12.va.us'</span>), [<span class="hljs-string">'admin'</span>])
+    })
+
+}());
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

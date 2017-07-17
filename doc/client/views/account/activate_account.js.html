@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>activate_account.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../";
+    var thisFile = "client\\views\\account\\activate_account.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+
+  <script src="../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>activate_account.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.activateAccount.rendered=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> currentRoute=Router.current().params;
+    <span class="hljs-keyword">var</span> userD=UsersDraft.findOne({<span class="hljs-attr">linkAktywacyjny</span>:currentRoute.linkAktywacyjny});
+    <span class="hljs-keyword">if</span>(userD){
+        <span class="hljs-keyword">var</span> clickedLinkCount=userD.licznikKlikniec+<span class="hljs-number">1</span>;
+        Meteor.call(<span class="hljs-string">"updateLicznikKlikniec"</span>,userD._id,clickedLinkCount,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+            <span class="hljs-keyword">if</span>(!error){
+                <span class="hljs-keyword">var</span> userDraft=UsersDraft.findOne({<span class="hljs-attr">linkAktywacyjny</span>:currentRoute.linkAktywacyjny,<span class="hljs-attr">czyAktywny</span>:<span class="hljs-literal">true</span>});
+                <span class="hljs-keyword">if</span>(userDraft) {
+                    Meteor.call(<span class="hljs-string">"serverGenerateLogin"</span>,
+                        userDraft.profile.firstName,
+                        userDraft.profile.lastName,
+                        <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, ret</span>)</span>{
+                        <span class="hljs-keyword">if</span>(!err){
+                            <span class="hljs-keyword">var</span> newUser = [
+                                {
+                                    <span class="hljs-attr">email</span>: userDraft.email,
+                                    <span class="hljs-attr">login</span>: <span class="hljs-string">""</span>,
+                                    <span class="hljs-attr">firstName</span>: userDraft.profile.firstName,
+                                    <span class="hljs-attr">lastName</span>: userDraft.profile.lastName,
+                                    <span class="hljs-attr">address</span>: userDraft.profile.address,
+                                    <span class="hljs-attr">zip</span>: userDraft.profile.zip,
+                                    <span class="hljs-attr">role</span>: <span class="hljs-string">'user'</span>,
+                                    <span class="hljs-attr">userType</span>: userDraft.profile.userType,
+                                    <span class="hljs-attr">uwagi</span>: userDraft.profile.uwagi,
+                                    <span class="hljs-attr">language</span>: userDraft.profile.language,
+                                    <span class="hljs-attr">city</span>:userDraft.profile.city,
+                                    <span class="hljs-attr">pesel</span>:userDraft.profile.pesel
+                                }];
+                            newUser[<span class="hljs-number">0</span>].login = ret;
+                            newUser[<span class="hljs-number">0</span>].fullName=newUser[<span class="hljs-number">0</span>].firstName+<span class="hljs-string">" "</span>+newUser[<span class="hljs-number">0</span>].lastName;
+                            newUser[<span class="hljs-number">0</span>].password=CryptoJS.MD5(newUser[<span class="hljs-number">0</span>].login).toString();
+                            newUser[<span class="hljs-number">0</span>].confirm_password=newUser[<span class="hljs-number">0</span>].password;
+
+                            Meteor.call(<span class="hljs-string">'addUser'</span>, newUser, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error,ret</span>) </span>{
+                                <span class="hljs-keyword">if</span> (error) {
+                                    throwError(error.reason);
+                                }
+                                <span class="hljs-keyword">else</span> {
+                                    <span class="hljs-keyword">var</span> idUser=ret;
+                                    Meteor.call(<span class="hljs-string">"removeUserDraftAddNewIdUser"</span>, userDraft._id,idUser, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+                                        <span class="hljs-keyword">if</span> (error)
+                                            throwError(error.reason);
+                                        <span class="hljs-keyword">else</span>{
+                                            Meteor.call(<span class="hljs-string">"sendFirstLoginData"</span>,idUser,newUser[<span class="hljs-number">0</span>].password,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>)</span>{
+                                                <span class="hljs-keyword">if</span>(error){
+                                                    bootbox.alert(TAPi18n.__(<span class="hljs-string">'txv.ALERT_LOG1'</span>) + TAPi18n.__(<span class="hljs-string">'txv.ALERT_LOG2'</span>) + TAPi18n.__(<span class="hljs-string">'txv.ALERT_LOG3'</span>));
+                                                    <span class="hljs-keyword">var</span> emailError = {
+                                                        <span class="hljs-attr">idUserDraft</span>: userDraft._id,
+                                                        <span class="hljs-attr">type</span>: NOTIFICATION_TYPE.FIRST_LOGIN_DATA
+                                                    };
+                                                    Meteor.call(<span class="hljs-string">"addEmailError"</span>, emailError);
+                                                }
+
+                                            })
+                                        }
+                                    });
+                                }
+                            });
+                        }<span class="hljs-keyword">else</span>{
+                            throwError(err.reason);
+                        }
+                    });
+                }
+            }
+            <span class="hljs-keyword">else</span>{
+                throwError(error.reason);
+            }
+        });
+    }
+
+};
+Template.activateAccount.helpers({
+    <span class="hljs-attr">activatedAccountRightNow</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">var</span> currentRoute=Router.current().params;
+        <span class="hljs-keyword">var</span> userDraft=UsersDraft.findOne({<span class="hljs-attr">linkAktywacyjny</span>:currentRoute.linkAktywacyjny});
+        <span class="hljs-keyword">if</span>(userDraft)
+            <span class="hljs-keyword">return</span> userDraft.licznikKlikniec==<span class="hljs-number">1</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    },
+    <span class="hljs-attr">notActivatedAccount</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">var</span> currentRoute=Router.current().params;
+        <span class="hljs-keyword">var</span> userDraft=UsersDraft.findOne({<span class="hljs-attr">linkAktywacyjny</span>:currentRoute.linkAktywacyjny});
+        <span class="hljs-keyword">if</span>(userDraft)
+            <span class="hljs-keyword">return</span> userDraft.czyAktywny==<span class="hljs-literal">true</span> &amp;&amp; userDraft.licznikKlikniec==<span class="hljs-number">0</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    },
+    <span class="hljs-attr">link</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> Meteor.absoluteUrl()+<span class="hljs-string">'account/login'</span>;
+    },
+    <span class="hljs-attr">notFound</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">var</span> currentRoute=Router.current().params;
+        <span class="hljs-keyword">if</span>(UsersDraft.findOne({<span class="hljs-attr">linkAktywacyjny</span>:currentRoute.linkAktywacyjny})){
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }<span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        }
+    }
+});
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

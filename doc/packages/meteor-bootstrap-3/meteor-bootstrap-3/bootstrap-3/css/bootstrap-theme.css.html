@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>bootstrap-theme.css</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../";
+    var thisFile = "packages\\meteor-bootstrap-3\\meteor-bootstrap-3\\bootstrap-3\\css\\bootstrap-theme.css";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+
+  <script src="../../../../../fileSearch.js"></script>
+
+  <link rel="stylesheet" href="../../../../../fileSearch.css" />
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>bootstrap-theme.css</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+<p>!</p>
+<ul>
+<li>Bootstrap v3.2.0 (http://getbootstrap.com)</li>
+<li>Copyright 2011-2014 Twitter, Inc.</li>
+<li>Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</li>
+</ul>
+
+        </td>
+        <td class="code highlight">
+          <pre class="css">
+<span class="hljs-selector-class">.btn-default</span>,
+<span class="hljs-selector-class">.btn-primary</span>,
+<span class="hljs-selector-class">.btn-success</span>,
+<span class="hljs-selector-class">.btn-info</span>,
+<span class="hljs-selector-class">.btn-warning</span>,
+<span class="hljs-selector-class">.btn-danger</span> {
+  <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0</span> -<span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .2);
+  <span class="hljs-attribute">-webkit-box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .15), <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+          <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .15), <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">1px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+}
+<span class="hljs-selector-class">.btn-default</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-primary</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-success</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-info</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-warning</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-danger</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-default</span><span class="hljs-selector-class">.active</span>,
+<span class="hljs-selector-class">.btn-primary</span><span class="hljs-selector-class">.active</span>,
+<span class="hljs-selector-class">.btn-success</span><span class="hljs-selector-class">.active</span>,
+<span class="hljs-selector-class">.btn-info</span><span class="hljs-selector-class">.active</span>,
+<span class="hljs-selector-class">.btn-warning</span><span class="hljs-selector-class">.active</span>,
+<span class="hljs-selector-class">.btn-danger</span><span class="hljs-selector-class">.active</span> {
+  <span class="hljs-attribute">-webkit-box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">5px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .125);
+          <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">5px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .125);
+}
+<span class="hljs-selector-class">.btn</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn</span><span class="hljs-selector-class">.active</span> {
+  <span class="hljs-attribute">background-image</span>: none;
+}
+<span class="hljs-selector-class">.btn-default</span> {
+  <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #fff 0%, #e0e0e0 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #fff 0%, #e0e0e0 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#fff), <span class="hljs-built_in">to</span>(#e0e0e0));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #fff 0%, #e0e0e0 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffffffff'</span>, endColorstr=<span class="hljs-string">'#ffe0e0e0'</span>, GradientType=0);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(enabled = false);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#dbdbdb</span>;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#ccc</span>;
+}
+<span class="hljs-selector-class">.btn-default</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-class">.btn-default</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#e0e0e0</span>;
+  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0</span> -<span class="hljs-number">15px</span>;
+}
+<span class="hljs-selector-class">.btn-default</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-default</span><span class="hljs-selector-class">.active</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#e0e0e0</span>;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#dbdbdb</span>;
+}
+<span class="hljs-selector-class">.btn-default</span><span class="hljs-selector-pseudo">:disabled</span>,
+<span class="hljs-selector-class">.btn-default</span><span class="hljs-selector-attr">[disabled]</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#e0e0e0</span>;
+  <span class="hljs-attribute">background-image</span>: none;
+}
+<span class="hljs-selector-class">.btn-primary</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #428bca 0%, #2d6ca2 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #428bca 0%, #2d6ca2 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#428bca), <span class="hljs-built_in">to</span>(#2d6ca2));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #428bca 0%, #2d6ca2 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff428bca'</span>, endColorstr=<span class="hljs-string">'#ff2d6ca2'</span>, GradientType=0);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(enabled = false);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#2b669a</span>;
+}
+<span class="hljs-selector-class">.btn-primary</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-class">.btn-primary</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2d6ca2</span>;
+  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0</span> -<span class="hljs-number">15px</span>;
+}
+<span class="hljs-selector-class">.btn-primary</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-primary</span><span class="hljs-selector-class">.active</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2d6ca2</span>;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#2b669a</span>;
+}
+<span class="hljs-selector-class">.btn-primary</span><span class="hljs-selector-pseudo">:disabled</span>,
+<span class="hljs-selector-class">.btn-primary</span><span class="hljs-selector-attr">[disabled]</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2d6ca2</span>;
+  <span class="hljs-attribute">background-image</span>: none;
+}
+<span class="hljs-selector-class">.btn-success</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #5cb85c 0%, #419641 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #5cb85c 0%, #419641 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#5cb85c), <span class="hljs-built_in">to</span>(#419641));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #5cb85c 0%, #419641 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff5cb85c'</span>, endColorstr=<span class="hljs-string">'#ff419641'</span>, GradientType=0);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(enabled = false);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#3e8f3e</span>;
+}
+<span class="hljs-selector-class">.btn-success</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-class">.btn-success</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#419641</span>;
+  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0</span> -<span class="hljs-number">15px</span>;
+}
+<span class="hljs-selector-class">.btn-success</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-success</span><span class="hljs-selector-class">.active</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#419641</span>;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#3e8f3e</span>;
+}
+<span class="hljs-selector-class">.btn-success</span><span class="hljs-selector-pseudo">:disabled</span>,
+<span class="hljs-selector-class">.btn-success</span><span class="hljs-selector-attr">[disabled]</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#419641</span>;
+  <span class="hljs-attribute">background-image</span>: none;
+}
+<span class="hljs-selector-class">.btn-info</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #5bc0de 0%, #2aabd2 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #5bc0de 0%, #2aabd2 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#5bc0de), <span class="hljs-built_in">to</span>(#2aabd2));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #5bc0de 0%, #2aabd2 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff5bc0de'</span>, endColorstr=<span class="hljs-string">'#ff2aabd2'</span>, GradientType=0);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(enabled = false);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#28a4c9</span>;
+}
+<span class="hljs-selector-class">.btn-info</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-class">.btn-info</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2aabd2</span>;
+  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0</span> -<span class="hljs-number">15px</span>;
+}
+<span class="hljs-selector-class">.btn-info</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-info</span><span class="hljs-selector-class">.active</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2aabd2</span>;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#28a4c9</span>;
+}
+<span class="hljs-selector-class">.btn-info</span><span class="hljs-selector-pseudo">:disabled</span>,
+<span class="hljs-selector-class">.btn-info</span><span class="hljs-selector-attr">[disabled]</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#2aabd2</span>;
+  <span class="hljs-attribute">background-image</span>: none;
+}
+<span class="hljs-selector-class">.btn-warning</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #f0ad4e 0%, #eb9316 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #f0ad4e 0%, #eb9316 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#f0ad4e), <span class="hljs-built_in">to</span>(#eb9316));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #f0ad4e 0%, #eb9316 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#fff0ad4e'</span>, endColorstr=<span class="hljs-string">'#ffeb9316'</span>, GradientType=0);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(enabled = false);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#e38d13</span>;
+}
+<span class="hljs-selector-class">.btn-warning</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-class">.btn-warning</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#eb9316</span>;
+  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0</span> -<span class="hljs-number">15px</span>;
+}
+<span class="hljs-selector-class">.btn-warning</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-warning</span><span class="hljs-selector-class">.active</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#eb9316</span>;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#e38d13</span>;
+}
+<span class="hljs-selector-class">.btn-warning</span><span class="hljs-selector-pseudo">:disabled</span>,
+<span class="hljs-selector-class">.btn-warning</span><span class="hljs-selector-attr">[disabled]</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#eb9316</span>;
+  <span class="hljs-attribute">background-image</span>: none;
+}
+<span class="hljs-selector-class">.btn-danger</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #d9534f 0%, #c12e2a 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #d9534f 0%, #c12e2a 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#d9534f), <span class="hljs-built_in">to</span>(#c12e2a));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #d9534f 0%, #c12e2a 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffd9534f'</span>, endColorstr=<span class="hljs-string">'#ffc12e2a'</span>, GradientType=0);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(enabled = false);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#b92c28</span>;
+}
+<span class="hljs-selector-class">.btn-danger</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-class">.btn-danger</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#c12e2a</span>;
+  <span class="hljs-attribute">background-position</span>: <span class="hljs-number">0</span> -<span class="hljs-number">15px</span>;
+}
+<span class="hljs-selector-class">.btn-danger</span><span class="hljs-selector-pseudo">:active</span>,
+<span class="hljs-selector-class">.btn-danger</span><span class="hljs-selector-class">.active</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#c12e2a</span>;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#b92c28</span>;
+}
+<span class="hljs-selector-class">.btn-danger</span><span class="hljs-selector-pseudo">:disabled</span>,
+<span class="hljs-selector-class">.btn-danger</span><span class="hljs-selector-attr">[disabled]</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#c12e2a</span>;
+  <span class="hljs-attribute">background-image</span>: none;
+}
+<span class="hljs-selector-class">.thumbnail</span>,
+<span class="hljs-selector-class">.img-thumbnail</span> {
+  <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+          <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+}
+<span class="hljs-selector-class">.dropdown-menu</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-class">.dropdown-menu</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#e8e8e8</span>;
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #f5f5f5 0%, #e8e8e8 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #f5f5f5 0%, #e8e8e8 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#f5f5f5), <span class="hljs-built_in">to</span>(#e8e8e8));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#fff5f5f5'</span>, endColorstr=<span class="hljs-string">'#ffe8e8e8'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.dropdown-menu</span> &gt; <span class="hljs-selector-class">.active</span> &gt; <span class="hljs-selector-tag">a</span>,
+<span class="hljs-selector-class">.dropdown-menu</span> &gt; <span class="hljs-selector-class">.active</span> &gt; <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-class">.dropdown-menu</span> &gt; <span class="hljs-selector-class">.active</span> &gt; <span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#357ebd</span>;
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #428bca 0%, #357ebd 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #428bca 0%, #357ebd 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#428bca), <span class="hljs-built_in">to</span>(#357ebd));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #428bca 0%, #357ebd 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff428bca'</span>, endColorstr=<span class="hljs-string">'#ff357ebd'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.navbar-default</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #fff 0%, #f8f8f8 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #fff 0%, #f8f8f8 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#fff), <span class="hljs-built_in">to</span>(#f8f8f8));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #fff 0%, #f8f8f8 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffffffff'</span>, endColorstr=<span class="hljs-string">'#fff8f8f8'</span>, GradientType=0);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(enabled = false);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">-webkit-box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .15), <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">5px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+          <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .15), <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">5px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+}
+<span class="hljs-selector-class">.navbar-default</span> <span class="hljs-selector-class">.navbar-nav</span> &gt; <span class="hljs-selector-class">.open</span> &gt; <span class="hljs-selector-tag">a</span>,
+<span class="hljs-selector-class">.navbar-default</span> <span class="hljs-selector-class">.navbar-nav</span> &gt; <span class="hljs-selector-class">.active</span> &gt; <span class="hljs-selector-tag">a</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #ebebeb 0%, #f3f3f3 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #ebebeb 0%, #f3f3f3 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#ebebeb), <span class="hljs-built_in">to</span>(#f3f3f3));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #ebebeb 0%, #f3f3f3 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffebebeb'</span>, endColorstr=<span class="hljs-string">'#fff3f3f3'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">-webkit-box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">9px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+          <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">9px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+}
+<span class="hljs-selector-class">.navbar-brand</span>,
+<span class="hljs-selector-class">.navbar-nav</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">a</span> {
+  <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .25);
+}
+<span class="hljs-selector-class">.navbar-inverse</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #3c3c3c 0%, #222 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #3c3c3c 0%, #222 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#3c3c3c), <span class="hljs-built_in">to</span>(#222));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #3c3c3c 0%, #222 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff3c3c3c'</span>, endColorstr=<span class="hljs-string">'#ff222222'</span>, GradientType=0);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(enabled = false);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.navbar-inverse</span> <span class="hljs-selector-class">.navbar-nav</span> &gt; <span class="hljs-selector-class">.open</span> &gt; <span class="hljs-selector-tag">a</span>,
+<span class="hljs-selector-class">.navbar-inverse</span> <span class="hljs-selector-class">.navbar-nav</span> &gt; <span class="hljs-selector-class">.active</span> &gt; <span class="hljs-selector-tag">a</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #222 0%, #282828 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #222 0%, #282828 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#222), <span class="hljs-built_in">to</span>(#282828));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #222 0%, #282828 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff222222'</span>, endColorstr=<span class="hljs-string">'#ff282828'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">-webkit-box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">9px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .25);
+          <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">9px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .25);
+}
+<span class="hljs-selector-class">.navbar-inverse</span> <span class="hljs-selector-class">.navbar-brand</span>,
+<span class="hljs-selector-class">.navbar-inverse</span> <span class="hljs-selector-class">.navbar-nav</span> &gt; <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">a</span> {
+  <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0</span> -<span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .25);
+}
+<span class="hljs-selector-class">.navbar-static-top</span>,
+<span class="hljs-selector-class">.navbar-fixed-top</span>,
+<span class="hljs-selector-class">.navbar-fixed-bottom</span> {
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">0</span>;
+}
+<span class="hljs-selector-class">.alert</span> {
+  <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .2);
+  <span class="hljs-attribute">-webkit-box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .25), <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .05);
+          <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .25), <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .05);
+}
+<span class="hljs-selector-class">.alert-success</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #dff0d8 0%, #c8e5bc 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #dff0d8 0%, #c8e5bc 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#dff0d8), <span class="hljs-built_in">to</span>(#c8e5bc));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #dff0d8 0%, #c8e5bc 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffdff0d8'</span>, endColorstr=<span class="hljs-string">'#ffc8e5bc'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#b2dba1</span>;
+}
+<span class="hljs-selector-class">.alert-info</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #d9edf7 0%, #b9def0 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #d9edf7 0%, #b9def0 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#d9edf7), <span class="hljs-built_in">to</span>(#b9def0));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #d9edf7 0%, #b9def0 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffd9edf7'</span>, endColorstr=<span class="hljs-string">'#ffb9def0'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#9acfea</span>;
+}
+<span class="hljs-selector-class">.alert-warning</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #fcf8e3 0%, #f8efc0 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #fcf8e3 0%, #f8efc0 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#fcf8e3), <span class="hljs-built_in">to</span>(#f8efc0));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #fcf8e3 0%, #f8efc0 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#fffcf8e3'</span>, endColorstr=<span class="hljs-string">'#fff8efc0'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#f5e79e</span>;
+}
+<span class="hljs-selector-class">.alert-danger</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #f2dede 0%, #e7c3c3 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #f2dede 0%, #e7c3c3 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#f2dede), <span class="hljs-built_in">to</span>(#e7c3c3));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #f2dede 0%, #e7c3c3 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#fff2dede'</span>, endColorstr=<span class="hljs-string">'#ffe7c3c3'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#dca7a7</span>;
+}
+<span class="hljs-selector-class">.progress</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #ebebeb 0%, #f5f5f5 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #ebebeb 0%, #f5f5f5 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#ebebeb), <span class="hljs-built_in">to</span>(#f5f5f5));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #ebebeb 0%, #f5f5f5 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffebebeb'</span>, endColorstr=<span class="hljs-string">'#fff5f5f5'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.progress-bar</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #428bca 0%, #3071a9 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #428bca 0%, #3071a9 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#428bca), <span class="hljs-built_in">to</span>(#3071a9));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #428bca 0%, #3071a9 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff428bca'</span>, endColorstr=<span class="hljs-string">'#ff3071a9'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.progress-bar-success</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #5cb85c 0%, #449d44 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #5cb85c 0%, #449d44 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#5cb85c), <span class="hljs-built_in">to</span>(#449d44));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #5cb85c 0%, #449d44 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff5cb85c'</span>, endColorstr=<span class="hljs-string">'#ff449d44'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.progress-bar-info</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #5bc0de 0%, #31b0d5 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #5bc0de 0%, #31b0d5 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#5bc0de), <span class="hljs-built_in">to</span>(#31b0d5));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #5bc0de 0%, #31b0d5 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff5bc0de'</span>, endColorstr=<span class="hljs-string">'#ff31b0d5'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.progress-bar-warning</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #f0ad4e 0%, #ec971f 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #f0ad4e 0%, #ec971f 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#f0ad4e), <span class="hljs-built_in">to</span>(#ec971f));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #f0ad4e 0%, #ec971f 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#fff0ad4e'</span>, endColorstr=<span class="hljs-string">'#ffec971f'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.progress-bar-danger</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #d9534f 0%, #c9302c 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #d9534f 0%, #c9302c 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#d9534f), <span class="hljs-built_in">to</span>(#c9302c));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #d9534f 0%, #c9302c 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffd9534f'</span>, endColorstr=<span class="hljs-string">'#ffc9302c'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.progress-bar-striped</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(45deg, rgba(255, 255, 255, .15) <span class="hljs-number">25%</span>, transparent <span class="hljs-number">25%</span>, transparent <span class="hljs-number">50%</span>, <span class="hljs-built_in">rgba</span>(255, 255, 255, .15) <span class="hljs-number">50%</span>, <span class="hljs-built_in">rgba</span>(255, 255, 255, .15) <span class="hljs-number">75%</span>, transparent <span class="hljs-number">75%</span>, transparent);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(45deg, rgba(255, 255, 255, .15) <span class="hljs-number">25%</span>, transparent <span class="hljs-number">25%</span>, transparent <span class="hljs-number">50%</span>, <span class="hljs-built_in">rgba</span>(255, 255, 255, .15) <span class="hljs-number">50%</span>, <span class="hljs-built_in">rgba</span>(255, 255, 255, .15) <span class="hljs-number">75%</span>, transparent <span class="hljs-number">75%</span>, transparent);
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(45deg, rgba(255, 255, 255, .15) <span class="hljs-number">25%</span>, transparent <span class="hljs-number">25%</span>, transparent <span class="hljs-number">50%</span>, <span class="hljs-built_in">rgba</span>(255, 255, 255, .15) <span class="hljs-number">50%</span>, <span class="hljs-built_in">rgba</span>(255, 255, 255, .15) <span class="hljs-number">75%</span>, transparent <span class="hljs-number">75%</span>, transparent);
+}
+<span class="hljs-selector-class">.list-group</span> {
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">4px</span>;
+  <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+          <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .075);
+}
+<span class="hljs-selector-class">.list-group-item</span><span class="hljs-selector-class">.active</span>,
+<span class="hljs-selector-class">.list-group-item</span><span class="hljs-selector-class">.active</span><span class="hljs-selector-pseudo">:hover</span>,
+<span class="hljs-selector-class">.list-group-item</span><span class="hljs-selector-class">.active</span><span class="hljs-selector-pseudo">:focus</span> {
+  <span class="hljs-attribute">text-shadow</span>: <span class="hljs-number">0</span> -<span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-number">#3071a9</span>;
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #428bca 0%, #3278b3 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #428bca 0%, #3278b3 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#428bca), <span class="hljs-built_in">to</span>(#3278b3));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #428bca 0%, #3278b3 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff428bca'</span>, endColorstr=<span class="hljs-string">'#ff3278b3'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#3278b3</span>;
+}
+<span class="hljs-selector-class">.panel</span> {
+  <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .05);
+          <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">2px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .05);
+}
+<span class="hljs-selector-class">.panel-default</span> &gt; <span class="hljs-selector-class">.panel-heading</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #f5f5f5 0%, #e8e8e8 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #f5f5f5 0%, #e8e8e8 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#f5f5f5), <span class="hljs-built_in">to</span>(#e8e8e8));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#fff5f5f5'</span>, endColorstr=<span class="hljs-string">'#ffe8e8e8'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.panel-primary</span> &gt; <span class="hljs-selector-class">.panel-heading</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #428bca 0%, #357ebd 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #428bca 0%, #357ebd 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#428bca), <span class="hljs-built_in">to</span>(#357ebd));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #428bca 0%, #357ebd 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ff428bca'</span>, endColorstr=<span class="hljs-string">'#ff357ebd'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.panel-success</span> &gt; <span class="hljs-selector-class">.panel-heading</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #dff0d8 0%, #d0e9c6 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #dff0d8 0%, #d0e9c6 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#dff0d8), <span class="hljs-built_in">to</span>(#d0e9c6));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #dff0d8 0%, #d0e9c6 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffdff0d8'</span>, endColorstr=<span class="hljs-string">'#ffd0e9c6'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.panel-info</span> &gt; <span class="hljs-selector-class">.panel-heading</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #d9edf7 0%, #c4e3f3 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #d9edf7 0%, #c4e3f3 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#d9edf7), <span class="hljs-built_in">to</span>(#c4e3f3));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #d9edf7 0%, #c4e3f3 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffd9edf7'</span>, endColorstr=<span class="hljs-string">'#ffc4e3f3'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.panel-warning</span> &gt; <span class="hljs-selector-class">.panel-heading</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #fcf8e3 0%, #faf2cc 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #fcf8e3 0%, #faf2cc 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#fcf8e3), <span class="hljs-built_in">to</span>(#faf2cc));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #fcf8e3 0%, #faf2cc 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#fffcf8e3'</span>, endColorstr=<span class="hljs-string">'#fffaf2cc'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.panel-danger</span> &gt; <span class="hljs-selector-class">.panel-heading</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #f2dede 0%, #ebcccc 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #f2dede 0%, #ebcccc 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#f2dede), <span class="hljs-built_in">to</span>(#ebcccc));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #f2dede 0%, #ebcccc 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#fff2dede'</span>, endColorstr=<span class="hljs-string">'#ffebcccc'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+}
+<span class="hljs-selector-class">.well</span> {
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-linear-gradient</span>(top, #e8e8e8 0%, #f5f5f5 100%);
+  <span class="hljs-attribute">background-image</span>:      <span class="hljs-built_in">-o-linear-gradient</span>(top, #e8e8e8 0%, #f5f5f5 100%);
+  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">-webkit-gradient</span>(linear, left top, left bottom, from(#e8e8e8), <span class="hljs-built_in">to</span>(#f5f5f5));
+  <span class="hljs-attribute">background-image</span>:         <span class="hljs-built_in">linear-gradient</span>(to bottom, #e8e8e8 0%, #f5f5f5 100%);
+  <span class="hljs-attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="hljs-built_in">gradient</span>(startColorstr=<span class="hljs-string">'#ffe8e8e8'</span>, endColorstr=<span class="hljs-string">'#fff5f5f5'</span>, GradientType=0);
+  <span class="hljs-attribute">background-repeat</span>: repeat-x;
+  <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#dcdcdc</span>;
+  <span class="hljs-attribute">-webkit-box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">3px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .05), <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .1);
+          <span class="hljs-attribute">box-shadow</span>: inset <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">3px</span> <span class="hljs-built_in">rgba</span>(0, 0, 0, .05), <span class="hljs-number">0</span> <span class="hljs-number">1px</span> <span class="hljs-number">0</span> <span class="hljs-built_in">rgba</span>(255, 255, 255, .1);
+}
+<span class="hljs-comment">/*# sourceMappingURL=bootstrap-theme.css.map */</span>
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>
