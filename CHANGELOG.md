@@ -33,4 +33,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 * First working version.
 
-[0.0.1]: https://github.com/madrypiotr/SDD/commit/d27df117166d653f91bbc33430f21cb8584d21f9
+[0.1.0]: https://github.com/madrypiotr/SDD/commit/d27df117166d653f91bbc33430f21cb8584d21f9
