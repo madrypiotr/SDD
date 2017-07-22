@@ -10,3 +10,9 @@ Zastosowane technologie:
 -----------------------------
 Meteor.js, MongoDB, NodeJS, HTML, jQuery, Bootstrap.
 
+-----------------------------
+All notable changes to this project will be documented in CHANGELOG.md file.
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+---
+
