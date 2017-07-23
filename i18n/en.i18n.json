@@ -696,9 +696,9 @@
 	"smenlanguages":"Languages "
   },
   "more":{
-	"onMainPage":"STRONA GŁÓWNA",
-	"fullNameSystem":"System Deliberacyjno Decyzyjny",
-	"descriptionOfTheSystem":"- zarządzanie heterarchiczne -",
+	"onMainPage":"MAIN PAGE",
+	"fullNameSystem":"The Deliberative Decision Making System",
+	"descriptionOfTheSystem":"- a tool of heterarchic management by ALL -",
 	"SendMess":"NAPISZ LIST",
 	"listOfIssues":"WYKAZ KWESTII",
 	"listOfIssuesA":"Tutaj zobaczysz wykaz wszystkich Kwestii, które znajdują się aktualnie na etapie dyskusji i priorytetowania. Im większy priorytet posiada Kwestia, tym wyżej jest domyślnie ulokowana. Najwyżej ulokowana Kwestia przechodzi do głosowania. Możesz zmieniać sortowanie kliknięciem na nagłówek kolumny [Priorytet], aby zobaczyć odwrócony układ.",
