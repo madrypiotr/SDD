@@ -1000,6 +1000,9 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
 END OF TERMS AND CONDITIONS
 ```
+
+Go to [README] | [CHANGELOG]
+
 [METEOR]: https://github.com/meteor/meteor
 [MongoDB]: https://github.com/mongodb
 [NodeJS]: https://github.com/nodejs/node/blob/master/LICENSE

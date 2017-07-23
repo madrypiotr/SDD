@@ -31,6 +31,8 @@ Go to [README] | [LICENSE]
 
 ---
 
+Go to [README] | [LICENSE]
+
 [0.2.1]: https://github.com/madrypiotr/SDD
 [0.2.0]: https://github.com/madrypiotr/SDD/commit/e0f91c2b9de34c5b8497c377a1dae410328ced52
 [0.1.2]: https://github.com/madrypiotr/SDD/commit/fe9209e33704a14538703542159ccad418332789

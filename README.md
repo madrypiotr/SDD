@@ -31,6 +31,8 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 ##### and this project adheres to [Semantic Versioning](http://semver.org/).
 ---
 
+Go to [CHANGELOG] | [LICENSE]
+
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
 [Download the SDD source code]: https://github.com/madrypiotr/SDD
