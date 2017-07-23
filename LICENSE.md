@@ -39,17 +39,13 @@ done by developers outside of SDD with their permission.
 
 * on other licenses: [NodeJS], [HTML5], [CSS].
 
----
-
 ** Trademarks
 SDD is a trademark of PM & Partners. 
 All other brand and product names are trademarks, 
 registered trademarks or service marks of their respective holders.
 
----
-
 ** Appendix A: The GPL License
----------------------------
+---
 
 ```
 GNU GENERAL PUBLIC LICENSE
@@ -332,6 +328,7 @@ PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGES.
 
 END OF TERMS AND CONDITIONS
+
 ```
 
 ** Appendix B: The LGPL License
