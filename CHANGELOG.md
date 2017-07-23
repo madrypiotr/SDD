@@ -1,3 +1,4 @@
+                                            Go to [README] | [LICENSE]
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg)  SDD - The Deliberative Decision Making System. A tool of heterarchic management by ALL.
 
 # SDD changelog
@@ -34,3 +35,5 @@
 [0.1.2]: https://github.com/madrypiotr/SDD/commit/fe9209e33704a14538703542159ccad418332789
 [0.1.1]: https://github.com/madrypiotr/SDD/commit/9e116a6ae6b9e82c830546122e4b199daac636df
 [0.1.0]: https://github.com/madrypiotr/SDD/commit/d27df117166d653f91bbc33430f21cb8584d21f9
+[README]: https://github.com/madrypiotr/SDD/blob/master/README.md
+[LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md

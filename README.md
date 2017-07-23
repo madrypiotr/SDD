@@ -1,3 +1,4 @@
+                                            Go to  [CHANGELOG] | [LICENSE]
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg)  SDD - The Deliberative Decision Making System. A tool of heterarchic management by ALL.
 
 ## About SDD
@@ -39,3 +40,6 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 [HTML5]: https://www.w3.org/2011/03/html-license-options.html
 [jQuery]: https://github.com/jquery/jquery/blob/master/LICENSE.txt
 [Bootstrap]: https://github.com/twbs/bootstrap
+[LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
+[CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
+
