@@ -1,14 +1,15 @@
-# Witajcie w Testach Systemu Deliberacyjno Decyzyjnego #
-## Budujemy tutaj narzędzie dla zarządzania społecznością przez jej Ogół ##
-System ten ma umożliwić wpływ każdemu na wszystko w ramach społeczności nim objętej. Zasadą nadrzędną jest równy dostęp do wnioskowania, uzgadniania i głosowania pomysłów, wniosków, projektów.
+# SDD - The Deliberative Decision Making System (heterarchic management) #
+## - A tool for community management by all its members - ##
+```
+This system is designed to make it possible for everyone in the community to influence it. The principle of equal access to the conclusion, reconciliation and vote of ideas, proposals and projects is equal.
 
-Nie będzie w tym Systemie administratora, który mógłby arbitralnie cokolwiek zmieniać, korygować parametry, dopisywać użytkowników, ograniczać im prawa, usuwać... Wszelkie parametry indywidualne oraz globalne ustawienia, czyli sposób i tryb działania Systemu ustalane są tylko decyzją Ogółu, zarówno na starcie konfiguracja Systemu, jak i zmiany podczas eksploatacji.
+There will be no admin system that can arbitrarily change anything, correct parameters, add users, restrict their rights, or delete ... Any individual parameters and global settings, mode or mode of operation of the System are determined only by decision of all members. This procedure applies both to the startup of the System configuration and to changes made during further use.
+```
+Test version [SDD] 
 
-Wersja testowa [SDD] 
+Admin login (language setting only) - Login: adminSDD, Hasło: 2015adminSDD!
 
-Logowanie admina (tylko ustawianie języków) - Login: adminSDD, Hasło: 2015adminSDD!
-
-Zastosowane technologie: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstrap].
+Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstrap].
 
 ---
 ##### All notable changes to this project will be documented in CHANGELOG.md file.
