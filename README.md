@@ -1,15 +1,33 @@
-# SDD - The Deliberative Decision Making System (heterarchic management) #
-## - A tool for community management by all its members - ##
-```
-This system is designed to make it possible for everyone in the community to influence it. The principle of equal access to the conclusion, reconciliation and vote of ideas, proposals and projects is equal.
+# SDD - The Deliberative Decision Making System #
+## - A tool of heterarchic management by all members of the community - ##
+> ###### This system is designed to make it possible for everyone in the community 
+> ###### to influence it. The principle of equal access to the conclusion, reconciliation 
+> ###### and vote of ideas, proposals and projects is equal.
 
-There will be no admin system that can arbitrarily change anything, correct parameters, add users, restrict their rights, or delete ... Any individual parameters and global settings, mode or mode of operation of the System are determined only by decision of all members. This procedure applies both to the startup of the System configuration and to changes made during further use.
-```
+> ###### There will be no admin system that can arbitrarily change anything, correct
+> ###### parameters, add users, restrict their rights, or delete ... 
+> ###### Any individual parameters and global settings, mode or mode of operation 
+> ###### of the System are determined only by decision of all members. 
+> ###### This procedure applies both to the startup of the System configuration 
+> ###### and to changes made during further use.
+
+---
+# This is a working version of the software. 
+# It can not be put into public service!
+---
+
 Test version [SDD] 
 
-Admin login (language setting only) - Login: adminSDD, Hasło: 2015adminSDD!
-
 Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstrap].
+
+## Installation
+* [Install the METEOR] 
+* [Download the SDD source code] 
+##### Because this is a development draft, further development should be known to developers of these components.
+
+## Admin login (language setting only) 
+* Login: adminSDD, 
+* Password: (ask by m@drypiotr.pl)
 
 ---
 ##### All notable changes to this project will be documented in CHANGELOG.md file.
@@ -18,6 +36,8 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 ---
 
 [SDD]: http://sdd.ha.pl
+[Download the SDD source code]: https://github.com/madrypiotr/SDD
+[Install the METEOR]: https://www.meteor.com/install
 [METEOR]: https://github.com/meteor/meteor
 [MongoDB]: https://github.com/mongodb
 [NodeJS]: https://github.com/nodejs/node/blob/master/LICENSE
