@@ -4,7 +4,7 @@ System ten ma umożliwić wpływ każdemu na wszystko w ramach społeczności ni
 
 Nie będzie w tym Systemie administratora, który mógłby arbitralnie cokolwiek zmieniać, korygować parametry, dopisywać użytkowników, ograniczać im prawa, usuwać... Wszelkie parametry indywidualne oraz globalne ustawienia, czyli sposób i tryb działania Systemu ustalane są tylko decyzją Ogółu, zarówno na starcie konfiguracja Systemu, jak i zmiany podczas eksploatacji.
 
-Wersja testowa [WWW] 
+Wersja testowa [SDD] 
 
 Logowanie admina (tylko ustawianie języków) - Login: adminSDD, Hasło: 2015adminSDD!
 
@@ -16,7 +16,7 @@ Zastosowane technologie: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Boot
 ##### and this project adheres to [Semantic Versioning](http://semver.org/).
 ---
 
-[WWW] http://sdd.ha.pl
+[SDD]: http://sdd.ha.pl
 [METEOR]: https://github.com/meteor/meteor
 [MongoDB]: https://github.com/mongodb
 [NodeJS]: https://github.com/nodejs/node/blob/master/LICENSE
