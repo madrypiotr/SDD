@@ -1,79 +1,64 @@
-<template name="mainpage">
-<div class="main">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="mainmain">
-	<p class="fontSizeBig">{{_ "glob.ShortSystemName"}}</p>
-	<p class="fontSizeMore">{{_ "more.fullNameSystem"}}</p>
-	<p class="fontSizeMoreSmall">{{_ "more.descriptionOfTheSystem"}}</p>
-				<br />
-	
-				{{#if currentUser}}
-				{{#if isZwyczajnyLogged}}
-					<section class="dymek">
-						<small>
-							<a id="addKwestiaButton" class="btn btn-primary">
-								<i class="fa fa-plus"></i>
-								<!--Dodaj nową Kwestię-->{{_ 'listKwestia.liAddANewIssue'}}
-							</a>
-						</small>
-						<ul align="left">
-							<a data-toggle="modal" href="#mainZanimDod">
-									<small>{{_ 'dym.BeforeYouAdd'}}
-									<sub class="fa fa-external-link"></sub>
-									</small>
-							</a>
-						</ul>
-						<div class="modal fade" id="mainZanimDod" role="dialog">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<p class="modal-title" align="left">
-											{{_ 'dym.AddingIssues'}}
-										</p>
-									</div>
-									<div class="modal-body" align="left">
-										<small>
-										<p>{{_ 'dym.AddingIssueA'}}</p>
-										<p>{{_ 'dym.AddingIssueB'}}</p>
-										<p><strong>{{_ 'dym.AddingIssueC'}}</strong></p>
-										</small>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<template>
+		<div class="main">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="mainmain">
+						<p class="fontSizeBig">{{_ "glob.ShortSystemName"}}</p>
+						<p class="fontSizeMore">{{_ "more.fullNameSystem"}}</p>
+						<p class="fontSizeMoreSmall">{{_ "more.descriptionOfTheSystem"}}</p>
+						{{#if currentUser}} {{#if isZwyczajnyLogged}}
+						<section class="dymek">
+							<small><a class="btn btn-primary" id="addKwestiaButton"><i class="fa fa-plus"></i> <!--Dodaj nową Kwestię-->{{_ 'listKwestia.liAddANewIssue'}}</a></small>
+							<div align="left" style="margin-left: 2em">
+								<a data-toggle="modal" href="#mainZanimDod"><small>{{_ 'dym.BeforeYouAdd'}} <sub class="fa fa-external-link"></sub></small></a>
+							</div>
+							<div class="modal fade" id="mainZanimDod" role="dialog">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal" type="button">&times;</button>
+											<p align="left" class="modal-title">{{_ 'dym.AddingIssues'}}</p>
+										</div>
+										<div align="left" class="modal-body">
+											<small></small>
+											<p><small>{{_ 'dym.AddingIssueA'}}</small></p>
+											<p><small>{{_ 'dym.AddingIssueB'}}</small></p>
+											<p><small><strong>{{_ 'dym.AddingIssueC'}}</strong></small></p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</section>
-				<br />
-
-				{{/if}}
-				{{/if}}
-			
-						<br /><br />
-						<a id="wievMap" class="btn btn-info">
-						<i class="fa fa-map"></i> mapa </a>				
-						
+						</section><br>
+						{{/if}} {{/if}}
+						<a class="btn btn-info" id="wievMap"><i class="fa fa-map"></i> mapa</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<center>
+					WERSJA TESTOWA - możesz bez konsekwencji sprawdzać funkcje
+				</center>
 			</div>
 		</div>
-	</div>
-		
-<div>
-<center>
-WERSJA TESTOWA - możesz bez konsekwencji sprawdzać funkcje
-</center>
-</div>		
-		
-</div>
-
-<div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.onMainPage"}} </div>
-	<div id="container">
-			<div class="footer_center">
-				<p>{{_ "dym.AboutSystemA"}}</p>
-				<p>{{_ "dym.AboutSystemB"}}</p>
-				<p>{{_ "dym.AboutSystemC"}}</p>
-				<p>{{_ "dym.AboutSystemD"}}</p>
+		<div class="footer">
+			<div id="button">
+				<i class="fa fa-info-circle"></i> &nbsp; {{_ "more.onMainPage"}}
 			</div>
-	</div>
-</div>
-</template>
+			<div id="container">
+				<div class="footer_center">
+					<p>{{_ "dym.AboutSystemA"}}</p>
+					<p>{{_ "dym.AboutSystemB"}}</p>
+					<p>{{_ "dym.AboutSystemC"}}</p>
+					<p>{{_ "dym.AboutSystemD"}}</p>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+</html>
