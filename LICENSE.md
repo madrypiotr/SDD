@@ -39,12 +39,10 @@ done by developers outside of SDD with their permission.
 
 * on other licenses: [NodeJS], [HTML5], [CSS].
 
-** Trademarks
-SDD is a trademark of PM & Partners. 
-All other brand and product names are trademarks, 
-registered trademarks or service marks of their respective holders.
+**Trademarks**
+Trademarks SDD is a trademark of PM & Partners. All other brand and product names are registered trademarks or service marks of their respective holders
 
-** Appendix A: The GPL License
+**Appendix A: The GPL License**
 ---
 
 ```
@@ -328,12 +326,10 @@ PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGES.
 
 END OF TERMS AND CONDITIONS
-
 ```
 
-** Appendix B: The LGPL License
-----------------------------
-
+**Appendix B: The LGPL License**
+---
 ```
 GNU LESSER GENERAL PUBLIC LICENSE
 Version 2.1, February 1999
@@ -795,7 +791,7 @@ DAMAGES.
 END OF TERMS AND CONDITIONS
 ```
 
-** Appendix C: The MIT License
+**Appendix C: The MIT License**
 ---
 
 ```
@@ -820,12 +816,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
 
-
-** Appendix D: The Apache License
+**Appendix D: The Apache License**
 ---
 
 ```
-
                               Apache License
                         Version 2.0, January 2004
                      http://www.apache.org/licenses/
