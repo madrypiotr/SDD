@@ -1,5 +1,6 @@
-Software License Agreement
-==================
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg)  SDD - The Deliberative Decision Making System. A tool of heterarchic management by ALL.
+
+# Software License Agreement
 
 ## SDD - The Deliberative Decision Making System
 ### - heterarchic management - 
