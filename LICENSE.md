@@ -41,7 +41,7 @@ done by developers outside of SDD with their permission.
 
 ---
 
-**Trademarks
+** Trademarks
 SDD is a trademark of PM & Partners. 
 All other brand and product names are trademarks, 
 registered trademarks or service marks of their respective holders.
