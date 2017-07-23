@@ -24,34 +24,31 @@ recipient of your version of this software to use, reproduce, modify
 and distribute this software under any of the above licenses.
 
 Sources of Intellectual Property Included in SDD
------------------------------------------------------
+
+---
 
 Where not otherwise indicated, all SDD content is authored by
 SDD engineers and consists of SDD-owned intellectual
 property. In some specific instances, SDD will incorporate work
 done by developers outside of SDD with their permission.
 
-The following libraries are included only in the development version of SDD under the MIT license (see Appendix C):
+#### The following libraries are included only in the development version of SDD 
+* under the MIT license (see Appendix C): [METEOR], [jQuery], [Bootstrap],
 
-* [METEOR]
-* [jQuery]
-* [Bootstrap]
-* [Less]
+* under the Apache License (see Appendix D): [MongoDB], [Less],
 
-The following libraries are included only in the development version of SDD under the Apache License (see Appendix D):
+* on other licenses: [NodeJS], [HTML5], [CSS].
 
-* Less.js - Copyright (c) 2009-2014 Alexis Sellier & The Core Less Team.
+---
 
-Trademarks
-----------
-
+**Trademarks
 SDD is a trademark of PM & Partners. 
 All other brand and product names are trademarks, 
 registered trademarks or service marks of their respective holders.
 
 ---
 
-Appendix A: The GPL License
+**Appendix A: The GPL License
 ---------------------------
 
 ```
@@ -337,7 +334,7 @@ POSSIBILITY OF SUCH DAMAGES.
 END OF TERMS AND CONDITIONS
 ```
 
-Appendix B: The LGPL License
+** Appendix B: The LGPL License
 ----------------------------
 
 ```
@@ -801,8 +798,8 @@ DAMAGES.
 END OF TERMS AND CONDITIONS
 ```
 
-Appendix C: The MIT License
----------------------------
+** Appendix C: The MIT License
+---
 
 ```
 The MIT License (MIT)
@@ -827,8 +824,8 @@ THE SOFTWARE.
 ```
 
 
-Appendix D: The Apache License
-------------------------------
+** Appendix D: The Apache License
+---
 
 ```
 
@@ -1010,6 +1007,10 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 END OF TERMS AND CONDITIONS
 ```
 [METEOR]: https://github.com/meteor/meteor
+[MongoDB]: https://github.com/mongodb
+[NodeJS]: https://github.com/nodejs/node/blob/master/LICENSE
+[HTML5]: https://www.w3.org/2011/03/html-license-options.html
+[CSS]: https://www.w3.org/Consortium/Legal/2002/ipr-notice-20021231#Copyright
 [jQuery]: https://github.com/jquery/jquery/blob/master/LICENSE.txt
 [Bootstrap]: https://github.com/twbs/bootstrap
 [Less]: https://github.com/less
