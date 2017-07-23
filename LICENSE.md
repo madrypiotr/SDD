@@ -1,8 +1,8 @@
 Software License Agreement
 ==================
 
-SDD - TheDeliberative Decision Making System - heterarchic management - http://sdd.ha.pl
-Copyright (c) 2013-2017, PM & Partners. All rights reserved.
+###### SDD - The Deliberative Decision Making System - heterarchic management - http://sdd.ha.pl
+####### Copyright (c) 2013-2017, PM & Partners. All rights reserved.
 
 Licensed under the terms of any of the following licenses at your choice:
 
