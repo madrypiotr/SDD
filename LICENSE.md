@@ -33,8 +33,10 @@ done by developers outside of SDD with their permission.
 
 The following libraries are included only in the development version of SDD under the MIT license (see Appendix C):
 
-* jQuery Form Plugin (used in jquery adapter test) - Copyright (c) 2012 M. Alsup
+* [METEOR]
+* [jQuery]
 * [Bootstrap]
+* [Less]
 
 The following libraries are included only in the development version of SDD under the Apache License (see Appendix D):
 
@@ -1007,4 +1009,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
 END OF TERMS AND CONDITIONS
 ```
+[METEOR]: https://github.com/meteor/meteor
+[jQuery]: https://github.com/jquery/jquery/blob/master/LICENSE.txt
 [Bootstrap]: https://github.com/twbs/bootstrap
+[Less]: https://github.com/less
