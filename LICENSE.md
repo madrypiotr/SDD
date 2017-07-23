@@ -13,7 +13,7 @@ Licensed under the terms of any of the following licenses at your choice:
 
  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
    http://www.gnu.org/licenses/lgpl.html
-   (See Appendix B)
+   (Appendix B)
 
 You are not required to, but if you want to explicitly declare the
 license you have chosen to be bound to when using, reproducing,
