@@ -5,8 +5,15 @@ Go to [README] | [LICENSE]
 # SDD changelog
 
 ---
-### [0.2.1] – 2017-- **Unreleased**
+### [0.3.2] – 2017-- **Unreleased**
 >###### ...
+---
+### [0.3.1] – 2017-05-16 **Added**
+* Adding and correcting Page Info (pop up from below).
+* Reorganization of the panel set (liquidation of the panel of the Archives)
+---
+### [0.3.0] – 2017-03-15 **Added**
+* Add a home page.
 ---
 ### [0.2.0] – 2017-03-08 **Removed**
 * Admin files deleted.
@@ -33,7 +40,9 @@ Go to [README] | [LICENSE]
 
 Go to [README] | [LICENSE]
 
-[0.2.1]: https://github.com/madrypiotr/SDD
+[0.3.2]: https://github.com/madrypiotr/SDD
+[0.3.1]: https://github.com/madrypiotr/SDD/commits?author=madrypiotr&since=2017-05-16T22:00:00Z&until=2017-05-17T22:00:00Z
+[0.3.0]: https://github.com/madrypiotr/SDD/commit/b9a6d5d80d5e6f69b648559b003f37658d84f694
 [0.2.0]: https://github.com/madrypiotr/SDD/commit/e0f91c2b9de34c5b8497c377a1dae410328ced52
 [0.1.2]: https://github.com/madrypiotr/SDD/commit/fe9209e33704a14538703542159ccad418332789
 [0.1.1]: https://github.com/madrypiotr/SDD/commit/9e116a6ae6b9e82c830546122e4b199daac636df
