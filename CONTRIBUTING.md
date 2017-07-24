@@ -90,14 +90,22 @@ Włodzimierz Zydorczak,
 
 **If someone inadvertently omitted, please let us know.**
 
-## Version Guidance
+## HARMONOGRAM
 
-| Version | Status     | Packagist           | Namespace    | Repo                | Docs                | PSR-7 | PHP Version |
-|---------|------------|---------------------|--------------|---------------------|---------------------|-------|-------------|
-| 3.x     | EOL        | `guzzle/guzzle`     | `Guzzle`     | [v3][guzzle-3-repo] | [v3][guzzle-3-docs] | No    | >= 5.3.3    |
-| 4.x     | EOL        | `guzzlehttp/guzzle` | `GuzzleHttp` | [v4][guzzle-4-repo] | N/A                 | No    | >= 5.4      |
-| 5.x     | Maintained | `guzzlehttp/guzzle` | `GuzzleHttp` | [v5][guzzle-5-repo] | [v5][guzzle-5-docs] | No    | >= 5.4      |
-| 6.x     | Latest     | `guzzlehttp/guzzle` | `GuzzleHttp` | [v6][guzzle-6-repo] | [v6][guzzle-6-docs] | Yes   | >= 5.5      |
+| Etap | Plan | Realizacja | Uwagi |
+|---------|------------|---------------------|----------------------------------------------------------|
+| Wypracowanie koncepcji | 08.04.2013 -  | 08.04.2013 - 08.XI.2013 | Praca Grupy Inicjatywnej 'Grupa Liderów'. Ukończone wnioskiem o powołanie Zespołu Zadaniowego (projektowego) |
+| Prace projektowe | 09.11.2013 - 02.03.2015 | 09.11.2013 - 02.03.2015 | Uchwała ZK DB nr 8/11/2013, powołanie Zespołu Zadaniowego - 26 posiedzeń Zespołu - Finalizacja. |
+| Konkurs ofert | 03.03.2015 - 24.04.2015 | 03.03.2015 - 24.04.2015 | Ogłoszenie rozpoczęcia i zakończenia "Konkursu Ofert na wykonanie SDD" |
+| Rozstrzygnięcie Konkursu | 25.04.2015 - 30.04.2015 | 25.04.2015 - 30.04.2015 | Powołanie Sądu Konkursowego i wybór najlepszej pracy konkursowej. |
+| Uzgodnienia z Wykonawcą | 02.05.2015 - 15.05.2015 | 02.05.2015 - 15.05.2015 | Przygotowanie i podpisanie umowy z Wykonawcą. |
+| Produkcja | 15.05.2015 - 31.10.2015 | 15.05.2015 - 14.01.2016 |  |
+| Odbiór | 21.12.2015 | 14.01.2016 |  |
+| Wdrażanie |  |  |  |
+| Przejęcie do kontynuacji |  |  |  |
+| Kontynuacja |  |  |  |
+| Planowane ukończenie |  |  |  |
+| Wdrażanie |  |  |  |
 
 Go to [README] | [CHANGELOG] | [LICENSE]
 
