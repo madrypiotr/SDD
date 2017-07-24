@@ -9,7 +9,7 @@ Go to  [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 #### THIS IS A WORKING WERSION OF THE SOFTWARE. IT CAN NOT BE PUT INTO PUBLIC SERVICE! 
 ---
 
-Test version [SDD] on a web.
+Here's how it works today: [SDD]
 
 Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstrap].
 
