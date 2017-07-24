@@ -64,3 +64,4 @@ Go to [README] | [LICENSE] | [CONTRIBUTING]
 [0.1.0]: https://github.com/madrypiotr/SDD/commit/d27df117166d653f91bbc33430f21cb8584d21f9
 [README]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
+[CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md

@@ -1013,4 +1013,4 @@ Go to [README] | [CHANGELOG] | [CONTRIBUTING]
 [Less]: https://github.com/less
 [README]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
-
+[CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md

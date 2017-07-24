@@ -6,53 +6,83 @@ Go to [README] | [CHANGELOG] | [LICENSE]
 
 # People who are grateful for the development of this system.
 ---
-* **Supporting donations:** 
-Adam Kotucha, 
-Adam Zubrzycki, 
-Andrew Gorayski, 
-Andrzej Jędrzejewski, 
-Arkadiusz Wronka, 
-Bartłomiej Lipiński, 
-Dorota Radziszewska, 
-Filip Rembiałkowski, 
-Ireneusz Trubilowicz, 
-Jan Sposób, 
-Jerzy Wojnar, 
-Jolanta Dziembała, 
-Krzysztof Jakuczek, 
-Krzysztof Jan Naleźniak, 
-Krzysztof Łęcki, 
-Krzysztof Żurawski, 
-Leszek Urbaniak, 
-Maciej Kamiński, 
-Magdalena Szymczyk, 
-Marian Waszkielewicz, 
-Marzena Jędrzejewska, 
-Mateusz Wójtowicz, 
-Mirosław Dykiel, 
-Partyk Wołczyński, 
-Paweł Gębuś, 
-Piotr Gos, 
+
+
+* **Engaged programming companies:** 
+OneBI. 
+
+* **Developers:** 
+Konrad Komada, 
+Maciej Łabędzki, 
 Piotr Mądry, 
-Piotr Strzelewicz, 
+Filip Rembiałkowski, 
+Michał Wanat, 
+
+* **Supporting organizations:** 
+proSDD. 
+
+* **Supporting donations:** 
+Tomasz Butrym, 
+Zbigniew Drobniak, 
+Mirosław Dykiel, 
+Jolanta Dziembała, 
+Stanisław Franczak, 
+Paweł Gębuś, 
+Andrew Gorayski, 
+Piotr Gos, 
+Krzysztof Jakuczek, 
+Marzena Jędrzejewska, 
+Andrzej Jędrzejewski, 
+Zbigniew Kękuś, 
+Adam Kotucha, 
+Maciej Kamiński, 
+Roman Klimczyk, 
 Powel Kontny, 
 Rafał Kornatka, 
-Roman Klimczyk, 
-Ryszard Tutko, 
-Stanisław Franczak, 
+Bartłomiej Lipiński, 
+Krzysztof Łęcki, 
+Piotr Mądry, 
+Krzysztof Jan Naleźniak, 
 Tadeusz Rabsztyn, 
-Tomasz Butrym, 
+Dorota Radziszewska, 
+Filip Rembiałkowski, 
 Tomasz Sadza, 
+Jan Sposób, 
+Piotr Strzelewicz, 
+Magdalena Szymczyk, 
+Ireneusz Trubilowicz, 
+Ryszard Tutko, 
+Leszek Urbaniak, 
+Marian Waszkielewicz, 
+Jerzy Wojnar, 
+Partyk Wołczyński, 
+Mateusz Wójtowicz, 
 Tomasz Wciślik, 
+Arkadiusz Wronka, 
 Wojciech Zapała, 
-Zbigniew Drobniak, 
-Zbigniew Kękuś. 
+Adam Zubrzycki, 
+Krzysztof Żurawski. 
 
+* **Supporting Fans:** 
+Janusz Allina, 
+Małgorzata Dobrowolska, 
+Anna Dmitruk, 
+Kinga Duraj, 
+Hubert Durlik,
+Justyna Gos, 
+Ryszard Kakowski, 
+Adam Kramarczyk, 
+Renek Książkiewicz, 
+Jacek Lesinski, 
+Jarosław Noszczak, 
+Magdalena Rutkowska, 
+Antek Rybczyk, 
+Krzysztof Ratman, 
+Antek Rybczyk, 
+Eugenia Siebiatyńska, 
+Włodzimierz Zydorczak, 
 
-
-OneBI Sp z o.o. ul. NOWOGRODZKA 50/515
-00-695 WARSZAWA
-
+**If someone inadvertently omitted, please let us know.**
 
 Go to [README] | [CHANGELOG] | [LICENSE]
 

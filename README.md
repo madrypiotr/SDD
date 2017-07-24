@@ -44,5 +44,6 @@ Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 [Bootstrap]: https://github.com/twbs/bootstrap
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
+[CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
 [How to contribute?]: 
 
