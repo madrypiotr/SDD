@@ -2,6 +2,8 @@
 
 Go to [README] | [LICENSE] | [CONTRIBUTING]
 
+## [How to contribute] to the development of this project?
+
 # SDD changelog
 
 ---
@@ -65,3 +67,4 @@ Go to [README] | [LICENSE] | [CONTRIBUTING]
 [README]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
+[How to contribute]: https://github.com/madrypiotr/SDD/blob/master/HOW-TO-CONTRIBUTE.md

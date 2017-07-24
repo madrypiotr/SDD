@@ -45,6 +45,6 @@ Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
-[How to contribute]: https://github.com/madrypiotr/SDD/blob/master/README.md
+[How to contribute]: https://github.com/madrypiotr/SDD/blob/master/HOW-TO-CONTRIBUTE.md
 
 
