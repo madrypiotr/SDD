@@ -7,7 +7,8 @@ Go to [README] | [CHANGELOG] | [LICENSE]
 # SUPPORT:
 ---
 * **programming companies:** 
-OneBI Sp. z o.o. 
+[OneBI] ,
+[WanWeb].
 
 * **supporting organizations:** 
 proSDD. 
@@ -24,7 +25,7 @@ Filip Rembiałkowski (OneBI),
 Karolina Salamon (OneBI), 
 Marzena Smoleń (OneBI), 
 Bartłomiej Szewczyk (OneBI), 
-Michał Wanat, 
+Michał Wanat (WanWeb), 
 
 * **Supporting donations:** 
 Tomasz Butrym, 
@@ -106,4 +107,6 @@ Go to [README] | [CHANGELOG] | [LICENSE]
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
 [How to contribute]: 
+[WanWeb]: http://ha.pl/#contact
+[OneBI]: http://www.onebi.eu
 
