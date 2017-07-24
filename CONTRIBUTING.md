@@ -106,7 +106,7 @@ Go to [README] | [CHANGELOG] | [LICENSE]
 [README]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
-[How to contribute]: 
+[How to contribute?]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [WanWeb]: http://ha.pl/#contact
 [OneBI]: http://www.onebi.eu
 
