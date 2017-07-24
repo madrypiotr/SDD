@@ -4,22 +4,27 @@ Go to [README] | [CHANGELOG] | [LICENSE]
 
 ## [How to contribute] to the development of this project?
 
+# SUPPORT:
+---
+* **programming companies:** 
+OneBI Sp. z o.o. 
+
+* **supporting organizations:** 
+proSDD. 
+
 # People who are grateful for the development of this system.
 ---
-
-
-* **Engaged programming companies:** 
-OneBI. 
-
 * **Developers:** 
 Konrad Komada, 
+Damian Kwaśny (OneBI), 
 Maciej Łabędzki, 
-Piotr Mądry, 
-Filip Rembiałkowski, 
+Konrad Mazurkiewicz (OneBI), 
+Piotr Mądry (proSDD), 
+Filip Rembiałkowski (OneBI), 
+Karolina Salamon (OneBI), 
+Marzena Smoleń (OneBI), 
+Bartłomiej Szewczyk (OneBI), 
 Michał Wanat, 
-
-* **Supporting organizations:** 
-proSDD. 
 
 * **Supporting donations:** 
 Tomasz Butrym, 
@@ -75,6 +80,7 @@ Adam Kramarczyk,
 Renek Książkiewicz, 
 Jacek Lesinski, 
 Jarosław Noszczak, 
+Ewa Ptak,
 Magdalena Rutkowska, 
 Antek Rybczyk, 
 Krzysztof Ratman, 
