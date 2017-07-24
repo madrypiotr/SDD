@@ -5,10 +5,18 @@ Go to [README] | [LICENSE]
 # SDD changelog
 
 ---
-### [0.3.3] – 2017-- **Unreleased**
->###### ...
+### [0.3.5] – 2017-- **Unreleased**
+>###### 
 ---
-### [0.3.2] – 2017-06-11 ****
+### [0.3.4] – 2017-07-15 **Removed**
+* Resignation from the rankings
+>###### System users will not have a rating of engagement.
+---
+### [0.3.3] – 2017-06-26 **Added**
+* Description of ViewMap
+>###### Project to add a site with a user location map. This will show the location of the users and ultimately the entire SDD network.
+---
+### [0.3.2] – 2017-06-11 **Changed**
 * Regionalization (implementation of translation into French)
 * Regionalization (implementation of translation into English)
 ---
@@ -44,7 +52,9 @@ Go to [README] | [LICENSE]
 
 Go to [README] | [LICENSE]
 
-[0.3.3]: https://github.com/madrypiotr/SDD
+[0.3.5]: https://github.com/madrypiotr/SDD
+[0.3.4]: https://github.com/madrypiotr/SDD/commit/fe41e173ba88ee22e05f49a503d7a7852d9d8185
+[0.3.3]: https://github.com/madrypiotr/SDD/commits?author=madrypiotr&since=2017-06-25T22:00:00Z&until=2017-06-26T22:00:00Z
 [0.3.2]: https://github.com/madrypiotr/SDD/commits?author=madrypiotr&since=2017-06-10T22:00:00Z&until=2017-06-11T22:00:00Z
 [0.3.1]: https://github.com/madrypiotr/SDD/commits?author=madrypiotr&since=2017-05-16T22:00:00Z&until=2017-05-17T22:00:00Z
 [0.3.0]: https://github.com/madrypiotr/SDD/commit/b9a6d5d80d5e6f69b648559b003f37658d84f694
