@@ -5,10 +5,14 @@ Go to [README] | [LICENSE]
 # SDD changelog
 
 ---
-### [0.3.2] – 2017-- **Unreleased**
+### [0.3.3] – 2017-- **Unreleased**
 >###### ...
 ---
-### [0.3.1] – 2017-05-16 **Added**
+### [0.3.2] – 2017-06-11 ****
+* Regionalization (implementation of translation into French)
+* Regionalization (implementation of translation into English)
+---
+### [0.3.1] – 2017-05-17 **Added**
 * Adding and correcting Page Info (pop up from below).
 * Reorganization of the panel set (liquidation of the panel of the Archives)
 ---
@@ -40,7 +44,8 @@ Go to [README] | [LICENSE]
 
 Go to [README] | [LICENSE]
 
-[0.3.2]: https://github.com/madrypiotr/SDD
+[0.3.3]: https://github.com/madrypiotr/SDD
+[0.3.2]: https://github.com/madrypiotr/SDD/commits?author=madrypiotr&since=2017-06-10T22:00:00Z&until=2017-06-11T22:00:00Z
 [0.3.1]: https://github.com/madrypiotr/SDD/commits?author=madrypiotr&since=2017-05-16T22:00:00Z&until=2017-05-17T22:00:00Z
 [0.3.0]: https://github.com/madrypiotr/SDD/commit/b9a6d5d80d5e6f69b648559b003f37658d84f694
 [0.2.0]: https://github.com/madrypiotr/SDD/commit/e0f91c2b9de34c5b8497c377a1dae410328ced52
