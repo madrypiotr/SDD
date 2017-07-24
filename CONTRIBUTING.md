@@ -99,13 +99,11 @@ Włodzimierz Zydorczak,
 | Konkurs ofert | 03.03.2015 - 24.04.2015 | 03.03.2015 - 24.04.2015 | Ogłoszenie rozpoczęcia i zakończenia "Konkursu Ofert na wykonanie SDD" |
 | Rozstrzygnięcie Konkursu | 25.04.2015 - 30.04.2015 | 25.04.2015 - 30.04.2015 | Powołanie Sądu Konkursowego i wybór najlepszej pracy konkursowej. |
 | Uzgodnienia z Wykonawcą | 02.05.2015 - 15.05.2015 | 02.05.2015 - 15.05.2015 | Przygotowanie i podpisanie umowy z Wykonawcą. |
-| Produkcja | 15.05.2015 - 31.10.2015 | 15.05.2015 - 14.01.2016 |  |
-| Odbiór | 21.12.2015 | 14.01.2016 |  |
-| Wdrażanie |  |  |  |
-| Przejęcie do kontynuacji |  |  |  |
-| Kontynuacja |  |  |  |
-| Planowane ukończenie |  |  |  |
-| Wdrażanie |  |  |  |
+| Produkcja | 15.05.2015 - 31.10.2015 | 15.05.2015 - 14.01.2016 | [OneBI] |
+| Odbiór | 21.12.2015 | 14.01.2016 | Otrzymaliśmy jedynie kod źródłowy. Brak wypełnienia innych skladników umowy i dokumentacji. |
+| Wdrażanie | 22.12.2015 - | - | Nie możliwe. |
+| Kontynuacja produkcji | 22.12.2015 - 21.12.2019 | 22.12.2015 -  | Metodą wolontariatu programistów amatorów. |
+| Wdrażanie | 22.12.2019 | 22.12.2019 - | - |
 
 Go to [README] | [CHANGELOG] | [LICENSE]
 
