@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg) The Deliberative Decision Making System. A tool of heterarchic management by ALL.
 
-Go to  [CHANGELOG] | [LICENSE]
+Go to  [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
 ## About SDD
 **This system is designed to make it possible for everyone in the community to influence it. The principle of equal access to the conclusion, reconciliation and vote of ideas, proposals and projects is equal. There will be no admin system that can arbitrarily change anything, correct parameters, add users, restrict their rights, or delete. Any individual parameters and global settings, mode or mode of operation of the System are determined only by decision of all members. This procedure applies both to the startup of the System configuration and to changes made during further use.**
@@ -13,13 +13,12 @@ Test version [SDD] on a web.
 
 Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstrap].
 
+## [How to contribute?]
+
 ## Installation
 * [Install the METEOR] 
 * [Download the SDD source code] 
 * Because this is a development draft, further development should be known to developers of these components.
-
-## Reporting Issues
-* Please use the [SDD GitHub issue page] to report bugs and feature requests.
 
 ## Admin login (language setting only) 
 * Login: adminSDD, 
@@ -31,7 +30,7 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 ##### and this project adheres to [Semantic Versioning](http://semver.org/).
 ---
 
-Go to [CHANGELOG] | [LICENSE]
+Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
@@ -45,4 +44,5 @@ Go to [CHANGELOG] | [LICENSE]
 [Bootstrap]: https://github.com/twbs/bootstrap
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
+[How to contribute?]: 
 

@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg) The Deliberative-Decision System. A tool of heterarchic management by ALL.
 
-Go to [README] | [CHANGELOG]
+Go to [README] | [CHANGELOG] | [CONTRIBUTING]
 
 # Software License Agreement
 
@@ -1001,7 +1001,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 END OF TERMS AND CONDITIONS
 ```
 
-Go to [README] | [CHANGELOG]
+Go to [README] | [CHANGELOG] | [CONTRIBUTING]
 
 [METEOR]: https://github.com/meteor/meteor
 [MongoDB]: https://github.com/mongodb

@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg) The Deliberative-Decision System. A tool of heterarchic management by ALL.
 
-Go to [README] | [LICENSE]
+Go to [README] | [LICENSE] | [CONTRIBUTING]
 
 # SDD changelog
 
@@ -50,7 +50,7 @@ Go to [README] | [LICENSE]
 
 ---
 
-Go to [README] | [LICENSE]
+Go to [README] | [LICENSE] | [CONTRIBUTING]
 
 [0.3.5]: https://github.com/madrypiotr/SDD
 [0.3.4]: https://github.com/madrypiotr/SDD/commit/fe41e173ba88ee22e05f49a503d7a7852d9d8185
