@@ -4,7 +4,7 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
 # 
 ---
-* **XXX** 
+* ** vvv ** 
 
 ## HARMONOGRAM
 
@@ -21,7 +21,7 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 | Kontynuacja produkcji | 22.12.2015 - 21.12.2019 | 22.12.2015 -  | Metodą wolontariatu programistów amatorów. |
 | Wdrażanie | 22.12.2019 | 22.12.2019 - | - |
 
-Go to [README] | [CHANGELOG] | [LICENSE]
+Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
@@ -36,6 +36,7 @@ Go to [README] | [CHANGELOG] | [LICENSE]
 [README]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
+[CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
 [How to contribute]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [WanWeb]: http://ha.pl/#contact
 [OneBI]: http://www.onebi.eu
