@@ -15,10 +15,10 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 | Konkurs ofert | 03.03.2015 - 24.04.2015 | 03.03.2015 - 24.04.2015 | Ogłoszenie rozpoczęcia i zakończenia "Konkursu Ofert  na wykonanie SDD" |
 | Rozstrzygnięcie Konkursu | 25.04.2015 - 30.04.2015 | 25.04.2015 - 30.04.2015 | Powołanie Sądu Konkursowego i wybór najlepszej pracy konkursowej (OneBI) |
 | Uzgodnienia z Wykonawcą | 02.05.2015 - 15.05.2015 | 02.05.2015 - 15.05.2015 | Przygotowanie i podpisanie umowy z OneBI |
-| Produkcja | 15.05.2015 - 31.10.2015 | 15.05.2015 - 14.01.2016 | OneBI |
-| Odbiór | 21.12.2015 | 14.01.2016 | Otrzymaliśmy jedynie kod źródłowy. Brak wypełnienia innych składników umowy, brak dokumentacji kodu  i brak dokumentacji gwarantowanej umownie. |
+| Produkcja | 15.05.2015 - 31.10.2015 | 15.05.2015 - 14.01.2016 | Programowanie OneBI + Piotr Mądry: project manager |
+| Odbiór | 21.12.2015 | 14.01.2016 | Otrzymaliśmy jedynie kod źródłowy. Brak wypełnienia innych składników oraz dokumentacji gwarantowanej umownie. |
 | Wdrażanie | 22.12.2015 - | - | Nie możliwe. Korekta harmonogramu |
-| Kontynuacja produkcji | 22.12.2015 - 21.12.2019 | 22.12.2015 -  | Metodą wolontariatu programistów amatorów. |
+| Kontynuacja produkcji | 22.12.2015 - 21.12.2019 | 22.12.2015 -  | Metodą wolontariatu programistów amatorów + ukłony dla "wymiataczy" Java Script'u |
 | Wdrażanie | 22.12.2019 | 22.12.2019 - | - |
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
