@@ -3,11 +3,9 @@
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
 ### It is great to see you here! If you want to help, you may wish to review our plans below.
----
 ##### We are very glad that you are here! Because time is precious to everyone - we explain briefly and specifically.
-
+---
 #### This application ...
-
 | will be a tool | will not be a tool |
 |-------------------------------------------------|-------------------------------------------------|
 |  |  |
