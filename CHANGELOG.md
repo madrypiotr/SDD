@@ -1,4 +1,4 @@
-![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg) The Deliberative-Decision System. A tool of heterarchic management by ALL.
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg) 
 
 Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
