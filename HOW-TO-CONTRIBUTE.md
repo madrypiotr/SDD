@@ -2,7 +2,7 @@
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
-## It is great to see you here! If you want to help, you may wish to review our plans below.
+### It is great to see you here! If you want to help, you may wish to review our plans below.
 ---
 ##### We are very glad that you are here! Because time is precious to everyone - we explain briefly and specifically.
 
@@ -12,8 +12,8 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 |-------------------------------------------------|-------------------------------------------------|
 |  |  |
 | built on the platform MeteorJS + MongoDB + NodeJS | that powers PHP + SQL |
-| for managing democratic organizations. | for managing hierarchical organizations. |
 | entirely managed by all Users. Also global settings of the system. | in which an organizational administrator interferes. He will not be there at all. |
+| for managing democratic organizations. | for managing hierarchical organizations. |
 |  |  |
 
 ## HARMONOGRAM
@@ -28,7 +28,7 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 | Produkcja | 15.05.2015 - 31.10.2015 | 15.05.2015 - 14.01.2016 | Programowanie OneBI + Piotr Mądry: project manager |
 | Odbiór | 21.12.2015 | 14.01.2016 | Otrzymaliśmy jedynie kod źródłowy. Brak wypełnienia innych składników oraz dokumentacji gwarantowanej umownie. |
 | Wdrażanie | 22.12.2015 - | - | Nie możliwe. Korekta harmonogramu |
-| Kontynuacja produkcji | 22.12.2015 - 21.12.2019 | 22.12.2015 -  | Metodą wolontariatu programistów amatorów + ukłony dla "wymiataczy" Java Script'u |
+| Kontynuacja produkcji | 22.12.2015 - 21.12.2019 |  -  | Metodą wolontariatu programistów amatorów + ukłony dla "wymiataczy" Java Script'u |
 | Wdrażanie | 22.12.2019 | 22.12.2019 - | - |
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
