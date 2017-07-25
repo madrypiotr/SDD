@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg) The Deliberative-Decision System. A tool of heterarchic management by ALL.
 
-Go to [README] | [LICENSE] | [CONTRIBUTING] [CODE OF CONDUCT] 
+Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
 ## [How to contribute] to the development of this project?
 
@@ -52,7 +52,7 @@ Go to [README] | [LICENSE] | [CONTRIBUTING] [CODE OF CONDUCT]
 
 ---
 
-Go to [README] | [LICENSE] | [CONTRIBUTING] [CODE OF CONDUCT] 
+Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
 [0.3.5]: https://github.com/madrypiotr/SDD
 [0.3.4]: https://github.com/madrypiotr/SDD/commit/fe41e173ba88ee22e05f49a503d7a7852d9d8185

@@ -35,7 +35,7 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 
 ---
 
-Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] [CODE OF CONDUCT] 
+Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues

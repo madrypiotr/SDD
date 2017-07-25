@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg) The Deliberative Decision Making System. A tool of heterarchic management by ALL.
 
-Go to [README] | [CHANGELOG] | [LICENSE] [CODE OF CONDUCT] 
+Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT] 
 
 ## [How to contribute] to the development of this project?
 
@@ -90,7 +90,7 @@ Włodzimierz Zydorczak,
 
 **If someone inadvertently omitted, please let us know.**
 
-Go to [README] | [CHANGELOG] | [LICENSE] [CODE OF CONDUCT] 
+Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT] 
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
