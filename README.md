@@ -25,7 +25,22 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 * Password: (ask by m@drypiotr.pl)
 
 ---
-##### All notable changes to this project will be documented in CHANGELOG.md file. The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+#### The task of the application will be:
+1. accept requests for new users,
+2. accept User requests on various matters,
+3. enable discussion of reported cases,
+4. give priority to those matters in accordance with the will of the users,
+5. submit the three highest rated cases to the vote,
+6. handle voting,
+7. transfer win the issue to the panel Realization and generating a Resolution,
+8. ensure that the issue is addressed,
+9. in the absence of the implementation report - alert the Users,
+10. when the issue is not implemented and lack of implementation reports - throw it in the trash.
+
+**These are the most important operations that are already implanted.
+However, our application is similar to your home in the raw state.
+We still have to do finishing work and usability.**
+
 ---
 
 Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
