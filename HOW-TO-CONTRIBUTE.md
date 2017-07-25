@@ -5,7 +5,7 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 ### It is great to see you here! If you want to help, you may wish to review our plans below.
 ##### We are very glad that you are here! Because time is precious to everyone - we explain briefly and specifically.
 ---
-#### This application ...
+### This application ...
 | will be a tool | will not be a tool |
 |-------------------------------------------------|-------------------------------------------------|
 |  |  |
@@ -14,20 +14,20 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 | for managing democratic organizations. | for managing hierarchical organizations. |
 |  |  |
 
-## HARMONOGRAM
+### TIMETABLE
 
-| Etap | Plan | Realizacja | Uwagi |
+| Stage | Plan | Implementation | Comments |
 |-------------|---------------------|---------------------|-----------------------------------------|
-| Wypracowanie koncepcji | 08.04.2013 -  | 08.04.2013 - 08.XI.2013 | Praca Grupy Inicjatywnej 'Grupa Liderów'. Ukończone wnioskiem o powołanie Zespołu Zadaniowego (projektowego) |
-| Prace projektowe | 09.11.2013 - 02.03.2015 | 09.11.2013 - 02.03.2015 | Uchwała ZK DB nr 8/11/2013, powołanie Zespołu Zadaniowego.  26 posiedzeń Zespołu Zadaniowego - Finalizacja. |
-| Konkurs ofert | 03.03.2015 - 24.04.2015 | 03.03.2015 - 24.04.2015 | Ogłoszenie rozpoczęcia i zakończenia "Konkursu Ofert  na wykonanie SDD" |
-| Rozstrzygnięcie Konkursu | 25.04.2015 - 30.04.2015 | 25.04.2015 - 30.04.2015 | Powołanie Sądu Konkursowego i wybór najlepszej pracy konkursowej (OneBI) |
-| Uzgodnienia z Wykonawcą | 02.05.2015 - 15.05.2015 | 02.05.2015 - 15.05.2015 | Przygotowanie i podpisanie umowy z OneBI |
-| Produkcja | 15.05.2015 - 31.10.2015 | 15.05.2015 - 14.01.2016 | Programowanie OneBI + Piotr Mądry: project manager |
-| Odbiór | 21.12.2015 | 14.01.2016 | Otrzymaliśmy jedynie kod źródłowy. Brak wypełnienia innych składników oraz dokumentacji gwarantowanej umownie. |
-| Wdrażanie | 22.12.2015 - | - | Nie możliwe. Korekta harmonogramu |
-| Kontynuacja produkcji | 22.12.2015 - 21.12.2019 |  -  | Metodą wolontariatu programistów amatorów + ukłony dla "wymiataczy" Java Script'u |
-| Wdrażanie | 22.12.2019 | 22.12.2019 - | - |
+| Working out a concept | 08.04.2013 -  | 08.04.2013 - 08.XI.2013 | Work of the Initiative Group. Completed by the decision to set up Task Team for the project |
+| Design work | 09.11.2013 - 02.03.2015 | 09.11.2013 - 02.03.2015 | ZK DB Resolution No 8/11/2013, appointment of Task Team. 26 meetings of the Task Team - Finalization. |
+| Competition for best offer | 03.03.2015 - 24.04.2015 | 03.03.2015 - 24.04.2015 | Announcing the start and end of the SSD Production Contest |
+| Settlement of the Contest | 25.04.2015 - 30.04.2015 | 25.04.2015 - 30.04.2015 | Appointing the Competition Jury and choosing the best competition entry (OneBI) |
+| Contract with the Contractor | 02.05.2015 - 15.05.2015 | 02.05.2015 - 15.05.2015 | Preparation and signing of the contract with the Contractor |
+| Production | 15.05.2015 - 31.10.2015 | 15.05.2015 - 14.01.2016 | Programming (OneBI), project management (Piotr Mądry) |
+| Reception | 21.12.2015 | 14.01.2016 | We only received the source code. Failure to comply with other provisions of the contract and lack of documentation that was guaranteed by the contract. |
+| Implementation of | 22.12.2015 - | - | Nie możliwe. Korekta harmonogramu |
+| Continuation of production | 22.12.2015 - 21.12.2019 |  -  | We do volunteer programmers amateurs + count on help professionals from Java Script |
+| Implementation of | 22.12.2019 | - | - |
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
