@@ -1,6 +1,7 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg) The Deliberative Decision Making System. A tool of heterarchic management by ALL.
 
-Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
+Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 
+
 ---
 
 ### Contributor Covenant Code of Conduct
@@ -39,7 +40,7 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 Project keepers who do not follow Code of Conduct in good faith may receive repercussions appropriate to the seriousness of the conduct.
 
 ---
-Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
+Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues

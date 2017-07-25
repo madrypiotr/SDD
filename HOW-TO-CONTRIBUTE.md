@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg) The Deliberative Decision Making System. A tool of heterarchic management by ALL.
 
-Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
+Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
 ### It is great to see you here! If you want to help, you may wish to review our plans below.
 ##### We are very glad that you are here! Because time is precious to everyone - we explain briefly and specifically.
@@ -15,7 +15,7 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 |  |  |
 
 
-### Project participant [CODE OF CONDUCT] - Our Pledge and Standards.
+#### Project participant [CODE OF CONDUCT] - Our Pledge and Standards.
 
 
 ### TIMETABLE
@@ -35,7 +35,7 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
 ---
 
-Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
+Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] [CODE OF CONDUCT] 
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
@@ -54,4 +54,4 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 [How to contribute]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [WanWeb]: http://ha.pl/#contact
 [OneBI]: http://www.onebi.eu
-[CODE OF CONDUCT]: 
+[CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md

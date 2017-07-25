@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd.jpg) The Deliberative Decision Making System. A tool of heterarchic management by ALL.
 
-Go to  [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
+Go to  [CHANGELOG] | [LICENSE] | [CONTRIBUTING] [CODE OF CONDUCT] 
 
 ## About SDD
 **This system is designed to make it possible for everyone in the community to influence it. The principle of equal access to the conclusion, reconciliation and vote of ideas, proposals and projects is equal. There will be no admin system that can arbitrarily change anything, correct parameters, add users, restrict their rights, or delete. Any individual parameters and global settings, mode or mode of operation of the System are determined only by decision of all members. This procedure applies both to the startup of the System configuration and to changes made during further use.**
@@ -30,7 +30,7 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 ##### and this project adheres to [Semantic Versioning](http://semver.org/).
 ---
 
-Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
+Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] [CODE OF CONDUCT] 
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
@@ -46,5 +46,5 @@ Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
 [How to contribute]: https://github.com/madrypiotr/SDD/blob/master/HOW-TO-CONTRIBUTE.md
-
+[CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
 
