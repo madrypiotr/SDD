@@ -2,9 +2,25 @@
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
-# 
+# How to contribute?
 ---
-* ** vvv ** 
+* ** Target ** 
+We are very glad that you are here! Because time is precious to everyone - we explain briefly and specifically - this app ...
+
+| is | is not |
+|------------------------------------------------------|-----------------------------------------------|
+| an application for social organizations | a business application |
+| a tool for strengthening democratic procedures | a hierarchical management tool |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
 
 ## HARMONOGRAM
 
