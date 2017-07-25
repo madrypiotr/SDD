@@ -8,17 +8,11 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
 #### This application ...
 
-| will be | will not be |
+| will be a tool | will not be a tool |
 |-------------------------------------------------------|------------------------------------------------------|
-| a tool for managing democratic organizations | a tool for managing hierarchical organizations |
-| a tool entirely managed by all Users | a tool in which an organizational administrator interferes |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| built on the platform MeteorJS + MongoDB + NodeJS | that powers PHP + SQL |
+| for managing democratic organizations. | for managing hierarchical organizations. |
+| entirely managed by all Users. Also global settings of the system. | in which an organizational administrator interferes. He will not be there at all. |
 |  |  |
 |  |  |
 
