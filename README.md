@@ -41,6 +41,9 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 However, our application is similar to your home in the raw state.
 We still have to do finishing work and usability.**
 
+The above listed operations will be implemented in five main panels (see illustration).
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panels.jpg) 
+
 ---
 
 Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
