@@ -2,25 +2,24 @@
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
-## How to contribute?
+## It is great to see you here! If you want to help, you may wish to review our plans below.
 ---
 ##### We are very glad that you are here! Because time is precious to everyone - we explain briefly and specifically.
 
 #### This application ...
 
 | will be a tool | will not be a tool |
-|-------------------------------------------------------|------------------------------------------------------|
+|-------------------------------------------------|-------------------------------------------------|
+|  |  |
 | built on the platform MeteorJS + MongoDB + NodeJS | that powers PHP + SQL |
 | for managing democratic organizations. | for managing hierarchical organizations. |
 | entirely managed by all Users. Also global settings of the system. | in which an organizational administrator interferes. He will not be there at all. |
 |  |  |
-|  |  |
-
 
 ## HARMONOGRAM
 
 | Etap | Plan | Realizacja | Uwagi |
-|-------------|---------------------|---------------------|----------------------------------------------------|
+|-------------|---------------------|---------------------|-----------------------------------------|
 | Wypracowanie koncepcji | 08.04.2013 -  | 08.04.2013 - 08.XI.2013 | Praca Grupy Inicjatywnej 'Grupa Liderów'. Ukończone wnioskiem o powołanie Zespołu Zadaniowego (projektowego) |
 | Prace projektowe | 09.11.2013 - 02.03.2015 | 09.11.2013 - 02.03.2015 | Uchwała ZK DB nr 8/11/2013, powołanie Zespołu Zadaniowego.  26 posiedzeń Zespołu Zadaniowego - Finalizacja. |
 | Konkurs ofert | 03.03.2015 - 24.04.2015 | 03.03.2015 - 24.04.2015 | Ogłoszenie rozpoczęcia i zakończenia "Konkursu Ofert  na wykonanie SDD" |
