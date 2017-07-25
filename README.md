@@ -20,17 +20,18 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 
 ### [How to contribute] to the development of this project?
 
-## Admin login (language setting only) 
+#### Admin login (language setting only) 
 * Login: adminSDD, 
 * Password: (ask by m@drypiotr.pl)
 
 ---
-##### All notable changes to this project will be documented in CHANGELOG.md file.
-##### The format is based on [Keep a Changelog](http://keepachangelog.com/)
-##### and this project adheres to [Semantic Versioning](http://semver.org/).
+##### All notable changes to this project will be documented in CHANGELOG.md file. The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 ---
 
 Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
+
+---
+###### (c) 2013-2017, PM & Partners. All rights reserved.
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues

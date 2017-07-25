@@ -54,6 +54,9 @@ Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 
 Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
+---
+###### (c) 2013-2017, PM & Partners. All rights reserved.
+
 [0.3.5]: https://github.com/madrypiotr/SDD
 [0.3.4]: https://github.com/madrypiotr/SDD/commit/fe41e173ba88ee22e05f49a503d7a7852d9d8185
 [0.3.3]: https://github.com/madrypiotr/SDD/commits?author=madrypiotr&since=2017-06-25T22:00:00Z&until=2017-06-26T22:00:00Z

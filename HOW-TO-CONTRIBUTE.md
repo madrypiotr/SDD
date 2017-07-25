@@ -9,14 +9,15 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 | will be a tool | will not be a tool |
 |-------------------------------------------|-------------------------------------------|
 |  |  |
-| built on the platform MeteorJS + MongoDB + NodeJS | that powers PHP + SQL |
+| built on the platform MeteorJS + MongoDB | that powers PHP + SQL |
 | entirely managed by all Users. Also global settings of the system. | in which an organizational administrator interferes. He will not be there at all. |
 | for managing democratic organizations. | for managing hierarchical organizations. |
 |  |  |
 
-
-#### Project participant [CODE OF CONDUCT] - Our Pledge and Standards.
-
+### Code of this app ...
+* it is in the final phase of documentation development,
+* there are no implemented tests ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/help-wanted.jpg) 
+* Other needs - see [Issues]
 
 ### TIMETABLE
 
@@ -35,7 +36,14 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 
 ---
 
-Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
+#### Project participant [CODE OF CONDUCT] - our Pledge and Standards.
+
+---
+
+Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 
+
+---
+###### (c) 2013-2017, PM & Partners. All rights reserved.
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
@@ -55,3 +63,4 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 [WanWeb]: http://ha.pl/#contact
 [OneBI]: http://www.onebi.eu
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
+[Issues]: https://github.com/madrypiotr/SDD/issues

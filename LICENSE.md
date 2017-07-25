@@ -6,7 +6,6 @@ Go to [README] | [CHANGELOG] | [CONTRIBUTING] | [CODE OF CONDUCT]
 
 ## SDD - The Deliberative Decision Making System
 ### - heterarchic management - 
-###### Copyright (c) 2013-2017, PM & Partners. All rights reserved.
 
 Licensed under the terms of any of the following licenses at your choice:
 
@@ -1002,6 +1001,10 @@ END OF TERMS AND CONDITIONS
 ```
 
 Go to [README] | [CHANGELOG] | [CONTRIBUTING] | [CODE OF CONDUCT] 
+
+---
+###### (c) 2013-2017, PM & Partners. All rights reserved.
+
 
 [METEOR]: https://github.com/meteor/meteor
 [MongoDB]: https://github.com/mongodb

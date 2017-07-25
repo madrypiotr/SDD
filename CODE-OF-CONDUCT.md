@@ -40,7 +40,11 @@ Instances of abusive, harassing, or otherwise unacceptable behavior may be repor
 Project keepers who do not follow Code of Conduct in good faith may receive repercussions appropriate to the seriousness of the conduct.
 
 ---
+
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 
+
+---
+###### (c) 2013-2017, PM & Partners. All rights reserved.
 
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues

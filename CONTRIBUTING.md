@@ -92,6 +92,9 @@ Włodzimierz Zydorczak,
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT] 
 
+---
+###### (c) 2013-2017, PM & Partners. All rights reserved.
+
 [SDD]: http://sdd.ha.pl
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
 [Download the SDD source code]: https://github.com/madrypiotr/SDD
