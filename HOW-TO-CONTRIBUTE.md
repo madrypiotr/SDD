@@ -2,15 +2,16 @@
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 
-# How to contribute?
+## How to contribute?
 ---
-* ** Target ** 
-We are very glad that you are here! Because time is precious to everyone - we explain briefly and specifically - this app ...
+##### We are very glad that you are here! Because time is precious to everyone - we explain briefly and specifically.
 
-| is | is not |
-|------------------------------------------------------|-----------------------------------------------|
-| an application for social organizations | a business application |
-| a tool for strengthening democratic procedures | a hierarchical management tool |
+#### This application ...
+
+| will be | will not be |
+|-------------------------------------------------------|------------------------------------------------------|
+| a tool for managing democratic organizations | a tool for managing hierarchical organizations |
+| a tool entirely managed by all Users | a tool in which an organizational administrator interferes |
 |  |  |
 |  |  |
 |  |  |
