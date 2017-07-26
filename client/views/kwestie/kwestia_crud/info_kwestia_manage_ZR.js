@@ -113,7 +113,7 @@ Template.ZRTemplate.events({
                 return false;
             }
             else {
-                if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), teamToUpdate, 2, zespolId) == false) {
+                if (addMemberToImplemTeamNotificationNew(Meteor.userId(), teamToUpdate, 2, zespolId) == false) {
                     bladNotification();
                 }
             }
@@ -132,10 +132,10 @@ Template.ZRTemplate.events({
             var teamToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 
-            if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), teamToUpdate) == false) {
+            if (isUserInImplemTeamNotification(Meteor.userId(), teamToUpdate) == false) {
                 if (isUserCountInImplemTeamNotification(Meteor.userId(), teamToUpdate, 2) == false) {
 
-                    if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), teamToUpdate, liczba, zespolId) == false) {
+                    if (addMemberToImplemTeamNotificationNew(Meteor.userId(), teamToUpdate, liczba, zespolId) == false) {
                         bladNotification();
                     }
                 }
@@ -156,9 +156,9 @@ Template.ZRTemplate.events({
             var teamToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 
-            if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), teamToUpdate) == false) {//jeżeli nie jest w zespole
+            if (isUserInImplemTeamNotification(Meteor.userId(), teamToUpdate) == false) {//jeżeli nie jest w zespole
                 if (isUserCountInImplemTeamNotification(Meteor.userId(), teamToUpdate, 2) == false) {
-                    if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), teamToUpdate, liczba, zespolId) == false) {
+                    if (addMemberToImplemTeamNotificationNew(Meteor.userId(), teamToUpdate, liczba, zespolId) == false) {
                         bladNotification();
                     }
                 }

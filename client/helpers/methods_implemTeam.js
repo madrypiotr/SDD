@@ -85,7 +85,7 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numb
 	}
 };
 
-isUserInZespolRealizacyjnyNotification = function(id, zespolTab) {
+isUserInImplemTeamNotification = function(id, zespolTab) {
 	// information about adding to the Team
 	if (_.contains(zespolTab, id)) {
 		GlobalNotification.error({
@@ -124,7 +124,7 @@ isUserInZRNotification = function(idZespolu) {
 	return false;
 };
 
-addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, teamToUpdate, numberOfMembers, zespolId) {
+addMemberToImplemTeamNotificationNew = function(idUser, teamToUpdate, numberOfMembers, zespolId) {
 	if (teamToUpdate.length == 2) {
 		// I check if we have such a team with another member going, we are looking in the Implementation Team
 		teamToUpdate.push(idUser);
