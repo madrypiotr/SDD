@@ -1,10 +1,10 @@
 Meteor.methods({
-    addZespolRealizacyjny: function (newTeam) {
+    addZespolRealizacyjny: function (newZespol) {
         var id = ZespolRealizacyjny.insert({
-            nazwa: newTeam[0].nazwa,
-            zespol:newTeam[0].zespol,
-            kwestie:newTeam[0].kwestie,
-            czyAktywny:newTeam[0].czyAktywny
+            nazwa: newZespol[0].nazwa,
+            zespol:newZespol[0].zespol,
+            kwestie:newZespol[0].kwestie,
+            czyAktywny:newZespol[0].czyAktywny
         });
         return id;
     },

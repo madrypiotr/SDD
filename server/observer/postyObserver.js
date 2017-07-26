@@ -24,7 +24,7 @@ Meteor.startup(function(){
         }
     });
     var postyPodKwestiami = Posts.find({czyAktywny: true});
-    var aTeams = ImplemTeamDraft.find({});
+    var zespoly = ImplemTeamDraft.find({});
 
     postyPodKwestiami.observe({
         changedAt: function(newPost, oldPost, atIndex) {

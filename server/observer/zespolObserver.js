@@ -21,15 +21,14 @@ Meteor.startup(function(){
             ]
         }
     });
-    var aTeams = ImplemTeamDraft.find({});
+    var zespoly = ImplemTeamDraft.find({});
 
-    aTeams.observe({
-        changedAt: function(newTeam, oldTeam, atIndex) {
-		// oldTeam, atIndex only once here. Check if you need it?	
+    zespoly.observe({
+        changedAt: function(newZespol, oldZespol, atIndex) {
             var kworum = liczenieKworumZwykle();
-            var kwestia = Kwestia.findOne({czyAktywny: true, idZespolRealizacyjny: newTeam._id});
+            var kwestia = Kwestia.findOne({czyAktywny: true, idZespolRealizacyjny: newZespol._id});
             if (kwestia != null) {
-                if(kwestia.wartoscPriorytetu > 0 && kwestia.glosujacy.length >= kworum && newTeam.zespol.length >= 3 && kwestia.status != KWESTIA_STATUS.REALIZOWANA){
+                if(kwestia.wartoscPriorytetu > 0 && kwestia.glosujacy.length >= kworum && newZespol.zespol.length >= 3 && kwestia.status != KWESTIA_STATUS.REALIZOWANA){
                     if(kwestia.status == KWESTIA_STATUS.DELIBEROWANA){
                         moveIssueAsAvote(kwestia);
                     }
