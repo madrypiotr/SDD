@@ -19,6 +19,66 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 * there are no implemented tests ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/help-wanted.jpg) 
 * Other needs - see [Issues]
 
+### The Issue starts its life (template)
+```
+HTML
+
+<template name = "discussionMain">
+    <input type = "hidden" value = "{{raporty}}" id="reportsIds"/>
+    <div class="row">
+        <input id="status" name="status" type="hidden" value="{{status}}">
+        <div class="col-xs-12">
+            {{#each getPosts _id}}
+            {{> discussionPostItem
+            wiadomosc = wiadomosc
+            uzasadnienie = uzasadnienie
+            idUser = idUser
+            userFullName = userFullName
+            addDate = addDate
+            idKwestia = idKwestia
+            idRaport = idRaport
+            idPost = _id
+            wartoscPriorytetu = wartoscPriorytetu
+            }}
+            {{/each}}
+        </div>
+    </div>
+    {{> discussionPostForm
+    status = status
+    idKwestia = _id
+    czyAktywny = czyAktywny
+    }}
+</template>
+```
+#### Example of help from JS ...
+```
+JavaScript
+
+Template.discussionMain.helpers({
+	'getPosts': function(id) {
+		return Posts.find({
+			idKwestia: id,
+			isParent: true
+		}, {
+			sort: {
+				wartoscPriorytetu: -1
+			}
+		});
+	}
+});
+
+Template.discussionPostForm.helpers({
+	HasUserRights: function(status, czyAktywny) {
+		if (!Meteor.userId()) return false;
+		 return status == KWESTIA_STATUS.GLOSOWANA
+				|| status == KWESTIA_STATUS.ZREALIZOWANA
+				|| status == KWESTIA_STATUS.OCZEKUJACA
+				|| czyAktywny == false ? false : true;
+	}
+});
+
+```
+
 ### TIMETABLE
 
 | Stage | Plan | Implementation | Comments |
