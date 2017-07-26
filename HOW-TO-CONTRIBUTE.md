@@ -20,9 +20,7 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 * Other needs - see [Issues]
 
 ### The Issue starts its life (template)
-```
-HTML
-
+```HTML
 <template name = "discussionMain">
     <input type = "hidden" value = "{{raporty}}" id="reportsIds"/>
     <div class="row">
@@ -51,8 +49,7 @@ HTML
 </template>
 ```
 #### Example of help from JS ...
-```
-JavaScript
+```javascript
 
 Template.discussionMain.helpers({
 	'getPosts': function(id) {
