@@ -83,11 +83,11 @@ Template.answerInvitation.events({
 		var userDraft = getUserDraftMethod(Router.current().params);
 		Meteor.call('removeIssueSetReasonAnswer', kwestia._id, false, function(error) {
 			if (!error) {
-				if (kwestia.idaImplemTeam) {
+				if (kwestia.idZespolRealizacyjny) {
 					var zrDraft = ImplemTeamDraft.findOne({
-						_id: kwestia.idaImplemTeam
+						_id: kwestia.idZespolRealizacyjny
 					});
-					Meteor.call("removeImplemTeamDraft", kwestia.idaImplemTeam, function(error) {
+					Meteor.call("removeImplemTeamDraft", kwestia.idZespolRealizacyjny, function(error) {
 						if (!error) {
 							rewriteZRMembersToListMethod(zrDraft, kwestia);
 							var licznik = userDraft.licznikKlikniec + 1;
@@ -123,13 +123,13 @@ applyPositiveMethod = function(kwestia) {
 	var nrUchw = kwestia.issueNumber;
 	kwestia.dataRealizacji = new Date();
 	kwestia.numerUchwaly = kwestia.issueNumber;
-	var idZr = kwestia.idaImplemTeam;
+	var idZr = kwestia.idZespolRealizacyjny;
 	var zrDraft = ImplemTeamDraft.findOne({
-		_id: kwestia.idaImplemTeam
+		_id: kwestia.idZespolRealizacyjny
 	});
 	if (zrDraft.idZR != null) {
 		// If draft has id ZR (copy from existing ZR), then add to the ZR list of this draft
-		var ZR = aImplemTeam.findOne({
+		var ZR = ZespolRealizacyjny.findOne({
 			_id: zrDraft.idZR
 		});
 		if (ZR) {
@@ -140,7 +140,7 @@ applyPositiveMethod = function(kwestia) {
 	} else {
 		createNewZRMethod(zrDraft, kwestia);
 	}
-	Meteor.call('removeImplemTeamDraft', kwestia.idaImplemTeam, function(error) {
+	Meteor.call('removeImplemTeamDraft', kwestia.idZespolRealizacyjny, function(error) {
 		if (!error) {
 			var userDraft = getUserDraftMethod(Router.current().params);
 			var counter = userDraft.licznikKlikniec + 1;

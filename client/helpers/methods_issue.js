@@ -33,12 +33,12 @@ powolajZRFunction = function(idKwestia, idAktualnyZR) {
 		_id: idKwestia
 	});
 	if (kwestia) {
-		var zespolWybrany = aImplemTeam.findOne({
+		var zespolWybrany = ZespolRealizacyjny.findOne({
 			_id: idAktualnyZR
 		});
 		if (zespolWybrany) {
 			var myZR = ImplemTeamDraft.findOne({
-				_id: kwestia.idaImplemTeam
+				_id: kwestia.idZespolRealizacyjny
 			});
 			if (myZR) {
 				var myNewZR = {
@@ -50,8 +50,8 @@ powolajZRFunction = function(idKwestia, idAktualnyZR) {
 					if (error) {
 						throwError(error.reason);
 					} else {
-						$("#listaImplemTeam").modal("hide");
-						$("#listaImplemTeamDouble").modal("hide");
+						$("#listZespolRealizacyjny").modal("hide");
+						$("#listZespolRealizacyjnyDouble").modal("hide");
 					}
 				});
 			}
@@ -138,8 +138,8 @@ rewriteZRMembersToListMethod = function(zespolRealizacyjny, newKwestia) {
 
 manageZRMethod = function(newKwestia) {
     // assignment when it goes to the trash and it has ZR
-	var zespolRealizacyjny = aImplemTeam.findOne({
-		_id: newKwestia.idaImplemTeam
+	var zespolRealizacyjny = ZespolRealizacyjny.findOne({
+		_id: newKwestia.idZespolRealizacyjny
 	});
 	if (zespolRealizacyjny.kwestie.length > 0) {
 		// Remove me from the implementation team
@@ -147,7 +147,7 @@ manageZRMethod = function(newKwestia) {
 			return kwestiaId == newKwestia._id
 		});
 		// if I was the only one, set false if it was not a Team for Human Execution
-		if (kwestie.length == 0 && zespolRealizacyjny._id != aImplemTeam.findOne({
+		if (kwestie.length == 0 && zespolRealizacyjny._id != ZespolRealizacyjny.findOne({
 				_id: "jjXKur4qC5ZGPQkgN"
 			})._id) {
 			Meteor.call("updateKwestieZRChangeActivity", zespolRealizacyjny._id, kwestie, false, function(error) {
@@ -162,8 +162,8 @@ manageZRMethod = function(newKwestia) {
 		}
 	} else { 
 	   // if there are no issues, set to false,
-		if (zespolRealizacyjny._id != aImplemTeam.findOne()._id) {
-			Meteor.call('removeaImplemTeam', zespolRealizacyjny._id, function(error) {
+		if (zespolRealizacyjny._id != ZespolRealizacyjny.findOne()._id) {
+			Meteor.call('removeZespolRealizacyjny', zespolRealizacyjny._id, function(error) {
 				if (error) throwError(error.reason);
 				else rewriteZRMembersToList(zespolRealizacyjny, newKwestia);
 			});
@@ -201,7 +201,7 @@ createNewZRMethod = function(zrDraft, kwestia) {
 		kwestie: arrayKwestie,
 		czyAktywny: true
 	}];
-	Meteor.call('addaImplemTeam', newZR, function(error, ret) {
+	Meteor.call('addZespolRealizacyjny', newZR, function(error, ret) {
 		if (error) {
 			if (typeof Errors === "undefined") Log.error(ERROR + error.reason);
 			else throwError(error.reason);

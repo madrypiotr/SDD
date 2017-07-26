@@ -31,7 +31,7 @@ Meteor.methods({
             numerUchwaly: newKwestia[0].numerUchwaly,
             typ:newKwestia[0].typ,
 
-            idaImplemTeam: z,
+            idZespolRealizacyjny: z,
             issueNumber: issueNumber
         });
         Kwestia.update({_id: id}, {$set: {idParent: id}}, {upsert: true});
@@ -65,7 +65,7 @@ Meteor.methods({
             glosujacyWRealizacji:[],
             isOption: false,
             numerUchwaly: newKwestia[0].numerUchwaly,
-            idaImplemTeam: newKwestia[0].idaImplemTeam,
+            idZespolRealizacyjny: newKwestia[0].idZespolRealizacyjny,
             typ:newKwestia[0].typ,
             issueNumber: issueNumber
         });
@@ -132,7 +132,7 @@ Meteor.methods({
             isOption: true,
             idParent: newKwestiaOpcja[0].idParent,
             numerUchwaly: newKwestiaOpcja[0].numerUchwaly,
-            idaImplemTeam: z,
+            idZespolRealizacyjny: z,
             typ:newKwestiaOpcja[0].typ,
             issueNumber: issueNumber
         });
@@ -167,7 +167,7 @@ Meteor.methods({
             glosujacyWRealizacji:[],
             isOption: true,
             numerUchwaly: newKwestia[0].numerUchwaly,
-            idaImplemTeam: newKwestia[0].idaImplemTeam,
+            idZespolRealizacyjny: newKwestia[0].idZespolRealizacyjny,
             idParent: newKwestia[0].idParent,
             typ:newKwestia[0].typ,
             issueNumber: issueNumber
@@ -223,7 +223,7 @@ Meteor.methods({
                 status: status,
                 numerUchwaly: numerUchwaly,
                 dataRealizacji: dataRealizacji,
-                idaImplemTeam:idZR,
+                idZespolRealizacyjny:idZR,
                 listaDatRR:[moment(new Date()).format()]
             }
         }, {upsert: true});
@@ -277,7 +277,7 @@ Meteor.methods({
         var id = Kwestia.update(id, {
             $set: {
                 status: status,
-                idaImplemTeam:idZR
+                idZespolRealizacyjny:idZR
             }
         }, {upsert: true});
         return id;

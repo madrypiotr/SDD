@@ -51,8 +51,8 @@ Template.realizacjaTab1.events({
         var issueName=this.kwestiaNazwa;
         var realizationDate=moment(this.dataRealizacji).format("DD.MM.YYYY").toString();
 
-        if(this.idaImplemTeam){
-            var realizationTeam = aImplemTeam.findOne({_id: this.idaImplemTeam}).zespol;
+        if(this.idZespolRealizacyjny){
+            var realizationTeam = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny}).zespol;
             Meteor.call("serverGetFullName",realizationTeam,function(error,ret){
                 if(!error){
                     membersNames=ret;

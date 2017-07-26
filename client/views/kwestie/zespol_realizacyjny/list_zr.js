@@ -1,7 +1,7 @@
-Template.listaImplemTeamModal.helpers({
+Template.listZespolRealizacyjnyModal.helpers({
 });
 
-Template.listaImplemTeamModalInner.helpers({
+Template.listZespolRealizacyjnyModalInner.helpers({
     'settings': function () {
         return {
             rowsPerPage: 10,
@@ -17,7 +17,7 @@ Template.listaImplemTeamModalInner.helpers({
         };
     },
     ZRList: function(){
-        return aImplemTeam.find({czyAktywny:true});
+        return ZespolRealizacyjny.find({czyAktywny:true});
     }
 });
 
@@ -41,7 +41,7 @@ Template.zespolOptionsTemplate.rendered=function(){
     $('#powolajZR').css("visibility", "visible");
 };
 
-Template.listaImplemTeamModalInner.events({
+Template.listZespolRealizacyjnyModalInner.events({
     'click #powolajZR': function () {
         //jezeli jest w zepsole,powolaj
         if(isUserInZRNotification(this._id)==false) {//jezeli jestem w  takowym zespole

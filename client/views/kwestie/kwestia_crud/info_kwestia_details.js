@@ -1,7 +1,7 @@
 Template.kwestiaDetails.helpers({
     protectorZR:function(){
         if(!Meteor.userId()) return false;
-        var zr=aImplemTeam.findOne({_id:"jjXKur4qC5ZGPQkgN"});
+        var zr=ZespolRealizacyjny.findOne({_id:"jjXKur4qC5ZGPQkgN"});
         if(zr){
             if(zr.protector)
                 return zr.protector==Meteor.userId() ? true : false;

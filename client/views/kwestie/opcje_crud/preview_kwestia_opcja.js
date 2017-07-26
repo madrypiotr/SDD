@@ -13,7 +13,7 @@ Template.previewKwestiaOpcja.helpers({
     },
     protectorZR:function(){
         if(!Meteor.userId()) return false;
-        var zr=aImplemTeam.findOne({_id:"jjXKur4qC5ZGPQkgN"});
+        var zr=ZespolRealizacyjny.findOne({_id:"jjXKur4qC5ZGPQkgN"});
         if(zr){
             if(zr.protector)
                 return zr.protector==Meteor.userId() ? true : false;
@@ -48,7 +48,7 @@ Template.previewKwestiaOpcja.events({
             szczegolowaTresc: kwestia.szczegolowaTresc,
             idParent: kwestia.idParent,
             isOption: true,
-            idaImplemTeam:kwestia.idaImplemTeam,
+            idZespolRealizacyjny:kwestia.idZespolRealizacyjny,
             typ:kwestia.typ
         }];
         var methodToCall=null;

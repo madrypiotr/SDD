@@ -542,13 +542,13 @@
 	"deImCreatingAnewTeamImplementation":"Tworzę nowy Zespół Realizacyjny",
 	"deIacceptAnIssueForMyTeam":"Przyjmę Kwestię do mojego Zespołu"
   },
-  "listaImplemTeamModalInner":{
+  "listZespolRealizacyjnyModalInner":{
 	"lzrImplementation teams":"Zespoły Realizacyjne"
   },
   "zespolOptionsTemplate":{
 	"zotPleaseMentionImplTeam":"Powołaj ZR"
   },
-  "listaImplemTeamDoubleModalInner":{
+  "listZespolRealizacyjnyDoubleModalInner":{
 	"izdSelectTheAppropriateImplTeamForTheIssue":"Wskaż odpowiedni ZR dla tej Kwestii. Kwestia zostanie przyjęta do realizacji pod warunkiem, że jesteś tego Zespołu Członkiem. Poszukaj więc Twojego Zespołu Realizacyjnego, lub wróć aby utworzyć nowy Zespół.",
 	"izdResign":"Rezygnuj"
   },

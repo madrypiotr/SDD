@@ -149,7 +149,7 @@ Template.registerForm.events({
                                                             if (err) {
                                                                 throwError(TAPi18n.__('txv.INCOR_LOGIN_DET'));
                                                             } else {
-                                                                var zespol = aImplemTeam.findOne({_id: "jjXKur4qC5ZGPQkgN"});
+                                                                var zespol = ZespolRealizacyjny.findOne({_id: "jjXKur4qC5ZGPQkgN"});
                                                                 if (zespol) {
                                                                     if (zespol.zespol.length < 3) {
                                                                         var ZR = zespol.zespol.slice();

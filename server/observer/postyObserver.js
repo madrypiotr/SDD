@@ -52,13 +52,13 @@ Meteor.startup(function(){
                                         }
                                     }
                                     if (kwestia.status == KWESTIA_STATUS.REALIZOWANA || kwestia.status == KWESTIA_STATUS.ZREALIZOWANA) {
-                                        if (kwestia.idaImplemTeam) {
-                                            //if (kwestia.idaImplemTeam != null)
+                                        if (kwestia.idZespolRealizacyjny) {
+                                            //if (kwestia.idZespolRealizacyjny != null)
                                             //manageZRPosts(kwestia);
                                         }
                                     }
                                     else if ((kwestia.status == KWESTIA_STATUS.DELIBEROWANA || kwestia.status == KWESTIA_STATUS.OSOBOWA) && kwestia.typ != KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) {//osobowa,parametry,
-                                        var zr = ImplemTeamDraft.findOne({_id: kwestia.idaImplemTeam});
+                                        var zr = ImplemTeamDraft.findOne({_id: kwestia.idZespolRealizacyjny});
                                         if (zr) {
                                             rewriteZRMembersToList(zr, kwestia);
                                         }
@@ -106,14 +106,14 @@ Meteor.startup(function(){
                                     //TODO
                                     if ((kwestia.status == KWESTIA_STATUS.REALIZOWANA || kwestia.status == KWESTIA_STATUS.ZREALIZOWANA) && kwestia.typ != KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) {
                                         if (kwestia.typ == KWESTIA_TYPE.BASIC) {
-                                            if (kwestia.idaImplemTeam) {
-                                                //f (kwestia.idaImplemTeam != null)
+                                            if (kwestia.idZespolRealizacyjny) {
+                                                //f (kwestia.idZespolRealizacyjny != null)
                                                 //manageZRPosts(kwestia);
                                             }
                                         }
                                     }
                                     else if ((kwestia.status == KWESTIA_STATUS.DELIBEROWANA || kwestia.status == KWESTIA_STATUS.OSOBOWA) && kwestia.typ != KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) {
-                                        var zr = ImplemTeamDraft.findOne({_id: kwestia.idaImplemTeam});
+                                        var zr = ImplemTeamDraft.findOne({_id: kwestia.idZespolRealizacyjny});
                                         if (zr) {
                                             rewriteZRMembersToList(zr, kwestia);
                                         }

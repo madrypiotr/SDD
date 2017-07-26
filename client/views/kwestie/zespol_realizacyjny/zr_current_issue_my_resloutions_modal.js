@@ -18,7 +18,7 @@ Template.zrModalCurrentIssueMyResolutionsInner.helpers({
         };
     },
     IssuesList: function(){
-        var zr = aImplemTeam.findOne({_id: this.idaImplemTeam});
+        var zr = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
         var issues = Kwestia.find({_id: {$in: zr.kwestie}, czyAktywny: true});
         return issues;
     }
@@ -31,7 +31,7 @@ Template.zrModalCurrentIssueMyResolutionsInner.events({
         $("#zrCurrentIssueMyResolutions").modal("hide");
 
 
-        var zr=aImplemTeam.findOne({_id:this.idaImplemTeam});
+        var zr=ZespolRealizacyjny.findOne({_id:this.idZespolRealizacyjny});
         var currentIssueId=Router.current().params._id;
         var zespol= _.without(zr.zespol,Meteor.userId());
         Meteor.call("updateCzlonkowieZR",zr._id,zespol,function(error){//to FINISH
@@ -51,12 +51,12 @@ Template.zrModalCurrentIssueMyResolutionsInner.events({
                         KWESTIA_STATUS.OCZEKUJACA,
                         KWESTIA_STATUS.DELIBEROWANA]},
                     _id:{$nin:[currentIssueId]},
-                    idaImplemTeam:{$in:array}
+                    idZespolRealizacyjny:{$in:array}
                 });
                 if(allIssues.count()>0){
                     var newZRList=[];
                     allIssues.forEach(function(issue){
-                        newZRList.push(issue.idaImplemTeam);
+                        newZRList.push(issue.idZespolRealizacyjny);
                     });
                     var zrCur=ImplemTeamDraft.find({_id:{$in:newZRList}});
                     zrCur.forEach(function(zrItem){

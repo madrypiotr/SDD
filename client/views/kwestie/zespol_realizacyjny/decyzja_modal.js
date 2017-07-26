@@ -19,7 +19,7 @@ Template.decyzjaModalInner.helpers({
     ZRDoubleList: function(){
         var val=Session.get("zespolRealizacyjnyDouble");
         if(val) {
-            var zesp = aImplemTeam.find({_id: {$in: val}});
+            var zesp = ZespolRealizacyjny.find({_id: {$in: val}});
             if(zesp){
                 return zesp;
 
@@ -55,7 +55,7 @@ Template.decyzjaModalInner.events({
         //sprawdzam,czy mam uprawnienia
         $('#nowyZRButton').css("visibility", "hidden");
         $('#istniejacyZRButton').css("visibility", "hidden");
-        $("#listaImplemTeamDouble").modal("show");
+        $("#listZespolRealizacyjnyDouble").modal("show");
         $('#nowyZRButton').css("visibility", "visible");
         $('#istniejacyZRButton').css("visibility", "visible");
     },

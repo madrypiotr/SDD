@@ -86,9 +86,9 @@
 
 </section>
                         {{#if pierwszyCzlonekFullName idZR}}
-                            <button class="btn btn-success" id="member1" {{isActualUser 0 idZR}} style="visibility: visible">{{pierwszyCzlonekFullName idZR}}</button>
+                            <button class="btn btn-success" id="czlonek1" {{isActualUser 0 idZR}} style="visibility: visible">{{pierwszyCzlonekFullName idZR}}</button>
                         {{else}}
-                            <button style="border-style: solid; border-width: 2px; border-color:gray"  class="btn" id="member1" {{isInZR idZR}}>
+                            <button style="border-style: solid; border-width: 2px; border-color:gray"  class="btn" id="czlonek1" {{isInZR idZR}}>
 <!--Dołączam-->
 {{_ "ZRTemplate.zrIjoin"}}</button>
                         {{/if}}

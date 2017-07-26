@@ -7,8 +7,8 @@ Meteor.startup(function(){
         "czyAktywny":true
     };
 
-    if(aImplemTeam.find().count() == 0){
-        aImplemTeam.insert({
+    if(ZespolRealizacyjny.find().count() == 0){
+        ZespolRealizacyjny.insert({
             _id:ZR._id,
             nazwa:ZR.nazwa,
             zespol:ZR.zespol,

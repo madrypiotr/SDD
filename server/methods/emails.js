@@ -29,8 +29,8 @@ Template.email_started_voting.helpers({
     }
 });
 Template.email_no_realization_report.helpers({
-    czlonekZR:function(idaImplemTeam){
-        var zr=aImplemTeam.findOne({_id:idaImplemTeam});
+    czlonekZR:function(idZespolRealizacyjny){
+        var zr=ZespolRealizacyjny.findOne({_id:idZespolRealizacyjny});
         var array=[];
         _.each(zr.zespol,function(czlonekId){
             var user=Users.findOne({_id:czlonekId});
@@ -193,7 +193,7 @@ Meteor.methods({
                     organizacja: parametr.nazwaOrganizacji,
                     krotkaTresc: kwestiaItem.krotkaTresc,
                     nazwaKwestii: kwestiaItem.kwestiaNazwa,
-                    idaImplemTeam:kwestiaItem.idaImplemTeam,
+                    idZespolRealizacyjny:kwestiaItem.idZespolRealizacyjny,
                     rodzaj: rodzaj,
                     temat: temat,
                     url:Meteor.absoluteUrl()+"issue_info/"+kwestiaItem._id,

@@ -61,8 +61,8 @@ Template.realizacjaTab2.events({
         var glosujacyLength=this.glosujacy.length;
         var issueName=this.kwestiaNazwa;
 
-        if(this.idaImplemTeam){
-            var realizationTeam = aImplemTeam.findOne({_id: this.idaImplemTeam}).zespol;
+        if(this.idZespolRealizacyjny){
+            var realizationTeam = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny}).zespol;
             Meteor.call("serverGetFullName",realizationTeam,function(error,ret){
                 if(!error){
                     membersNames=ret;
