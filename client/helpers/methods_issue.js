@@ -37,7 +37,7 @@ powolajZRFunction = function(idKwestia, idAktualnyZR) {
 			_id: idAktualnyZR
 		});
 		if (zespolWybrany) {
-			var myZR = ZespolRealizacyjnyDraft.findOne({
+			var myZR = ImplemTeamDraft.findOne({
 				_id: kwestia.idZespolRealizacyjny
 			});
 			if (myZR) {
@@ -46,7 +46,7 @@ powolajZRFunction = function(idKwestia, idAktualnyZR) {
 					zespol: zespolWybrany.zespol,
 					idZR: idAktualnyZR
 				};
-				Meteor.call('updateZespolRealizacyjnyDraft', myZR._id, myNewZR, function(error, ret) {
+				Meteor.call('updateImplemTeamDraft', myZR._id, myNewZR, function(error, ret) {
 					if (error) {
 						throwError(error.reason);
 					} else {

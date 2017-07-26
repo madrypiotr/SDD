@@ -10,7 +10,7 @@ Template.informacjeKwestia.helpers({
         var zespol=null;
         zespol = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
         if (!zespol)
-            zespol = ZespolRealizacyjnyDraft.findOne({_id: this.idZespolRealizacyjny});
+            zespol = ImplemTeamDraft.findOne({_id: this.idZespolRealizacyjny});
         if(zespol.idZR)
             zespol=ZespolRealizacyjny.findOne({_id: zespol.idZR});
         return _.contains(zespol.zespol,Meteor.userId()) ? true : false;
@@ -245,7 +245,7 @@ Template.issueManageZR.helpers({
             var zespol = null;
             zespol = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
             if (!zespol)
-                zespol = ZespolRealizacyjnyDraft.findOne({_id: this.idZespolRealizacyjny});
+                zespol = ImplemTeamDraft.findOne({_id: this.idZespolRealizacyjny});
             if (zespol.idZR)
                 zespol = ZespolRealizacyjny.findOne({_id: zespol.idZR});
             return zespol.nazwa;
@@ -306,7 +306,7 @@ Template.zrOptions.events({
 getZRCount=function(idZR,idIssue){
     var zespol = ZespolRealizacyjny.findOne({_id: idZR});
     if (!zespol) {
-        zespol = ZespolRealizacyjnyDraft.findOne({_id: idZR});
+        zespol = ImplemTeamDraft.findOne({_id: idZR});
         if(zespol) {
             if (zespol.idZR) {
                 var z = ZespolRealizacyjny.findOne({_id: zespol.idZR});

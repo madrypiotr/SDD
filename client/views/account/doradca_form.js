@@ -147,7 +147,7 @@ addKwestiaOsobowaDoradca=function(idUserDraft,newUser){
         idZR:ZR._id,
         zespol:ZR.zespol
     }];
-    Meteor.call('addZespolRealizacyjnyDraft', newZR, function (error,ret) {
+    Meteor.call('addImplemTeamDraft', newZR, function (error,ret) {
         if (error) {
             throwError(error.reason);
         }

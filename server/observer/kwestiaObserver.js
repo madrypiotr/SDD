@@ -41,7 +41,7 @@ Meteor.startup(function(){
             var ZRDraft=null;
             var zespolCount=null;
             if(newKwestia.idZespolRealizacyjny) {
-                ZRDraft = ZespolRealizacyjnyDraft.findOne({_id: newKwestia.idZespolRealizacyjny});
+                ZRDraft = ImplemTeamDraft.findOne({_id: newKwestia.idZespolRealizacyjny});
                 if(ZRDraft)
                     zespolCount = ZRDraft.zespol.length;
                 else {
@@ -122,7 +122,7 @@ Meteor.startup(function(){
                             if (kwestia.idZespolRealizacyjny) {
                                 var zespol = ZespolRealizacyjny.findOne({_id: kwestia.idZespolRealizacyjny});
                                 if (!zespol) {
-                                    zespol = ZespolRealizacyjnyDraft.findOne({_id: kwestia.idZespolRealizacyjny});
+                                    zespol = ImplemTeamDraft.findOne({_id: kwestia.idZespolRealizacyjny});
                                 }
                                 if (zespol.zespol.length >= 3)
                                     arrayKwestie.push(kwestia);
@@ -153,7 +153,7 @@ Meteor.startup(function(){
                                 if(kwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
                                     moveKwestiaToGlosowana(kwestia);
                                 else {
-                                    var zr = ZespolRealizacyjnyDraft.findOne({_id: arrayKwestie[0].idZespolRealizacyjny});
+                                    var zr = ImplemTeamDraft.findOne({_id: arrayKwestie[0].idZespolRealizacyjny});
                                     moveKwestiaToGlosowana(kwestia);
                                 }
                             }

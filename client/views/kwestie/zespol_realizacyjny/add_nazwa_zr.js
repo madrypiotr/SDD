@@ -63,7 +63,7 @@ Template.addNazwaModal.events({
                 var text = TAPi18n.__('txv.IMPLEMENTATION_TEAM_FOR') + nazwa;
                 var kwestia = Kwestia.findOne({_id: idKwestia});
                 if (kwestia) {
-                    var zespol = ZespolRealizacyjnyDraft.findOne({_id: kwestia.idZespolRealizacyjny});
+                    var zespol = ImplemTeamDraft.findOne({_id: kwestia.idZespolRealizacyjny});
                     if (zespol) {
                         var tablicaZR = zespol.zespol.slice();
                         tablicaZR.push(Meteor.userId());
@@ -71,7 +71,7 @@ Template.addNazwaModal.events({
                             nazwa:text,
                             zespol:tablicaZR
                         };
-                        Meteor.call('updateZespolRealizacyjnyDraft', kwestia.idZespolRealizacyjny, newZespol, function (error, ret) {
+                        Meteor.call('updateImplemTeamDraft', kwestia.idZespolRealizacyjny, newZespol, function (error, ret) {
                             if (error) {
                                 if (typeof Errors === "undefined")
                                     Log.error(TAPi18n.__('txv.ERROR') + error.reason);

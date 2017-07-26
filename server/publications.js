@@ -242,7 +242,7 @@ Meteor.publish('zespolRealizacyjny', function(id){
 });
 
 Meteor.publish('zespolyRealizacyjneDraft', function(){
-    return ZespolRealizacyjnyDraft.find({});
+    return ImplemTeamDraft.find({});
 });
 
 Meteor.publish('kwestieRealizacja', function () {

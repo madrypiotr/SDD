@@ -38,7 +38,7 @@ Template.zrModalCurrentIssueMyResolutionsInner.events({
             if(error)
                 throwError(error.reason);
             else{
-                var zrList=ZespolRealizacyjnyDraft.find({idZR:zr._id});
+                var zrList=ImplemTeamDraft.find({idZR:zr._id});
                 var array=[];
                 zrList.forEach(function(zr){
                     array.push(zr._id);
@@ -58,7 +58,7 @@ Template.zrModalCurrentIssueMyResolutionsInner.events({
                     allIssues.forEach(function(issue){
                         newZRList.push(issue.idZespolRealizacyjny);
                     });
-                    var zrCur=ZespolRealizacyjnyDraft.find({_id:{$in:newZRList}});
+                    var zrCur=ImplemTeamDraft.find({_id:{$in:newZRList}});
                     zrCur.forEach(function(zrItem){
                        Meteor.call("updateCzlonkowieNazwaZRDraft",zrItem._id,zespol,zr.nazwa);
                     });

@@ -1,7 +1,7 @@
 Meteor.methods({
     // metody Kwestia GŁÓWNA
     addKwestia:function(newKwestia){
-        var z = ZespolRealizacyjnyDraft.insert({nazwa: "", zespol: []});
+        var z = ImplemTeamDraft.insert({nazwa: "", zespol: []});
         var issueNumber = "";
         Meteor.call('generateNextIssueNumber', function (error, ret) {
             if (error) {
@@ -102,7 +102,7 @@ Meteor.methods({
         return id;
     },
     addKwestiaOpcja: function (newKwestiaOpcja) {
-        var z = ZespolRealizacyjnyDraft.insert({idKwestia: id, nazwa: "", zespol: []});
+        var z = ImplemTeamDraft.insert({idKwestia: id, nazwa: "", zespol: []});
         var issueNumber = "";
         Meteor.call('generateNextIssueNumber', function (error, ret) {
             if (error) {

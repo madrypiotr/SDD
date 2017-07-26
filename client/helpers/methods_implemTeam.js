@@ -1,9 +1,9 @@
 //## Methods for adding members to Implementing Teams and creating I.T.
 
-isUserCountInZespolRealizacyjnyNotification = function(id, zespolTab, numberOfCzlonkowie) {
+isUserCountInImplemTeamNotification = function(id, zespolTab, numberOfMembers) {
 	// 
 	if (zespolTab.length == 3) {
-		var komunikat = TAPi18n.__('txv.ITS_ALREADY') + numberOfCzlonkowie + TAPi18n.__('txv.MEMBERS_OF_IMPL_TEAM');
+		var komunikat = TAPi18n.__('txv.ITS_ALREADY') + numberOfMembers + TAPi18n.__('txv.MEMBERS_OF_IMPL_TEAM');
 		GlobalNotification.error({
 			title: TAPi18n.__('txv.ERROR'),
 			content: komunikat,
@@ -14,7 +14,7 @@ isUserCountInZespolRealizacyjnyNotification = function(id, zespolTab, numberOfCz
 	return false;
 };
 
-addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, numberOfCzlonkowie, zespolId) {
+addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, numberOfMembers, zespolId) {
 	// 
 	if (zespolToUpdate.length == 2) {
 		// I check if we have such a band with another member going
@@ -63,9 +63,9 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, nu
 		}
 	} else {
 		var text = null;
-		if (numberOfCzlonkowie == 0) text = TAPi18n.__('txv.MEMBER');
+		if (numberOfMembers == 0) text = TAPi18n.__('txv.MEMBER');
 		else text = TAPi18n.__('txv.MEMBERS');
-		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfCzlonkowie + text;
+		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
 		zespolToUpdate.push(idUser);
 		Meteor.call('updateCzlonkowieZR', zespolId, zespolToUpdate, function(error) {
 			if (error) {
@@ -124,7 +124,7 @@ isUserInZRNotification = function(idZespolu) {
 	return false;
 };
 
-addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate, numberOfCzlonkowie, zespolId) {
+addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate, numberOfMembers, zespolId) {
 	if (zespolToUpdate.length == 2) {
 		// I check if we have such a team with another member going, we are looking in the Implementation Team
 		zespolToUpdate.push(idUser);
@@ -167,9 +167,9 @@ addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate,
 		}
 	} else {
 		var text = null;
-		if (numberOfCzlonkowie == 0 || numberOfCzlonkowie == 2) text = TAPi18n.__('txv.MEMBER');
+		if (numberOfMembers == 0 || numberOfMembers == 2) text = TAPi18n.__('txv.MEMBER');
 		else text = TAPi18n.__('txv.MEMBERS');
-		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfCzlonkowie + text;
+		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
 		zespolToUpdate.push(idUser);
 		Meteor.call('updateCzlonkowieZRDraft', zespolId, zespolToUpdate, function(error) {
 			if (error) {
@@ -205,7 +205,7 @@ getCzlonekFullName = function(number, idZR, ZRType) {
 getZRData = function(number, idZR, ZRType) {
 	// Recognizing the status of the Implementation team
 	var z = null;
-	if (ZRType == "ZRDraft") z = ZespolRealizacyjnyDraft.findOne({
+	if (ZRType == "ZRDraft") z = ImplemTeamDraft.findOne({
 		_id: idZR
 	});
 	else z = ZespolRealizacyjny.findOne({
@@ -223,7 +223,7 @@ getZRData = function(number, idZR, ZRType) {
 
 checkIfInZR = function(idZR, idMember) {
 	// Decision on participation or exit from the Implementation Team
-		var z = ZespolRealizacyjnyDraft.findOne({
+		var z = ImplemTeamDraft.findOne({
 			_id: idZR
 		});
 		if (z) {
@@ -257,7 +257,7 @@ rezygnujZRFunction = function(idUserZR, idKwestia) {
 		_id: idKwestia
 	});
 	if (kwestia) {
-		var zespol = ZespolRealizacyjnyDraft.findOne({
+		var zespol = ImplemTeamDraft.findOne({
 			_id: kwestia.idZespolRealizacyjny
 		});
 		if (zespol) {
@@ -269,7 +269,7 @@ rezygnujZRFunction = function(idUserZR, idKwestia) {
 				"idZR": null
 			};
 			$('.successGiveUp').css("visibility", "visible");
-			Meteor.call('updateZespolRealizacyjnyDraft', zespol._id, ZRDraft, function(error) {
+			Meteor.call('updateImplemTeamDraft', zespol._id, ZRDraft, function(error) {
 				if (error) {
 					if (typeof Errors === "undefined") Log.error(TAPi18n.__('txv.ERROR') + error.reason);
 					else {

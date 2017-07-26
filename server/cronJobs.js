@@ -116,21 +116,21 @@ checkingEndOfVote = function() {
                             hibernateKwestieOpcje(issueUpdated);
                         }
 
-                        var zrDraft = ZespolRealizacyjnyDraft.findOne({_id: issueUpdated.idZespolRealizacyjny});
+                        var zrDraft = ImplemTeamDraft.findOne({_id: issueUpdated.idZespolRealizacyjny});
                         if (zrDraft.idZR != null) {
                             var ZR = ZespolRealizacyjny.findOne({_id: zrDraft.idZR});
                             if(ZR) {
                                 updateListKwestie(ZR, issueUpdated);
-                                Meteor.call('removeZespolRealizacyjnyDraft',issueUpdated.idZespolRealizacyjny);
+                                Meteor.call('removeImplemTeamDraft',issueUpdated.idZespolRealizacyjny);
                             }
                             else {
                                 createNewZR(zrDraft, issueUpdated);
-                                Meteor.call('removeZespolRealizacyjnyDraft',issueUpdated.idZespolRealizacyjny);
+                                Meteor.call('removeImplemTeamDraft',issueUpdated.idZespolRealizacyjny);
                             }
                         }
                         else {
                             createNewZR(zrDraft, issueUpdated);
-                            Meteor.call('removeZespolRealizacyjnyDraft',issueUpdated.idZespolRealizacyjny);
+                            Meteor.call('removeImplemTeamDraft',issueUpdated.idZespolRealizacyjny);
                         }
 
 
@@ -207,7 +207,7 @@ checkingEndOfVote = function() {
                     if(issueUpdated.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE){
                         Meteor.call("setActivityParametrDraft", issueUpdated.idParametr, false);
                     }
-                    var ZRDraft=ZespolRealizacyjnyDraft.findOne({_id:issueUpdated.idZespolRealizacyjny});
+                    var ZRDraft=ImplemTeamDraft.findOne({_id:issueUpdated.idZespolRealizacyjny});
                     if(ZRDraft){
                         var zr=null;
                         if(ZRDraft.idZR!=null)
@@ -217,7 +217,7 @@ checkingEndOfVote = function() {
                             rewriteZRMembersToList(zr, issueUpdated);
                         else
                             rewriteZRMembersToList(ZRDraft, issueUpdated);
-                        Meteor.call('removeZespolRealizacyjnyDraft', ZRDraft._id, function (error) {
+                        Meteor.call('removeImplemTeamDraft', ZRDraft._id, function (error) {
                             if (error)
                                 console.log(error.reason);
                         });
@@ -269,7 +269,7 @@ checkingDeliberationExpiration=function(){
 //=========================================== metody pomocnicze ===============================================//
 
 awansUzytkownika = function(idZespoluRealiz, pktZaUdzialWZesp) {
-    var zespol = ZespolRealizacyjnyDraft.findOne({_id: idZespoluRealiz}).zespol;
+    var zespol = ImplemTeamDraft.findOne({_id: idZespoluRealiz}).zespol;
 
     zespol.forEach(function (idUzytkownikaZespolu){
         var uzytkownikAwansujacy = Users.findOne({_id: idUzytkownikaZespolu});

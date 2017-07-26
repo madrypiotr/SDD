@@ -14,7 +14,7 @@ Template.listKwestia.rendered = function () {
                 }
                 var zrCondition=true;
                 if(this.idZespolRealizacyjny){
-                    var zrDraft=ZespolRealizacyjnyDraft.findOne({_id:this.idZespolRealizacyjny});
+                    var zrDraft=ImplemTeamDraft.findOne({_id:this.idZespolRealizacyjny});
                     if(zrDraft){
                         if(zrDraft.zespol.length>=3)
                             zrCondition=true;

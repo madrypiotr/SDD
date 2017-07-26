@@ -21,7 +21,7 @@ Meteor.startup(function(){
             ]
         }
     });
-    var zespoly = ZespolRealizacyjnyDraft.find({});
+    var zespoly = ImplemTeamDraft.find({});
 
     zespoly.observe({
         changedAt: function(newZespol, oldZespol, atIndex) {

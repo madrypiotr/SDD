@@ -9,7 +9,7 @@ Template.ZRTemplate.helpers({
         if(status==KWESTIA_STATUS.REALIZOWANA)
             zespolR = ZespolRealizacyjny.findOne({_id: idZR});
         else
-            zespolR= ZespolRealizacyjnyDraft.findOne({_id:idZR});
+            zespolR= ImplemTeamDraft.findOne({_id:idZR});
 
         if (zespolR){
             return zespolR.nazwa;
@@ -49,7 +49,7 @@ Template.ZRTemplate.helpers({
     isInZR:function(idZr){
         if(Meteor.user().profile.userType!==USERTYPE.CZLONEK)
             return "disabled";
-        var zrDraft=ZespolRealizacyjnyDraft.findOne({_id:idZr});
+        var zrDraft=ImplemTeamDraft.findOne({_id:idZr});
         if(zrDraft){
             return _.contains(zrDraft.zespol,Meteor.userId()) ? "disabled" :"";
         }
@@ -58,7 +58,7 @@ Template.ZRTemplate.helpers({
         var zespol=null;
         var text=null;
         if(status==KWESTIA_STATUS.GLOSOWANA || status==KWESTIA_STATUS.OSOBOWA || status==KWESTIA_STATUS.OCZEKUJACA) {
-            zespol = ZespolRealizacyjnyDraft.findOne({_id: idZR});
+            zespol = ImplemTeamDraft.findOne({_id: idZR});
         }
         else {
             zespol = ZespolRealizacyjny.findOne({_id: idZR});
@@ -102,7 +102,7 @@ Template.ZRTemplate.events({
             rezygnujZRAlert(getZRData(0,zespolId,"ZRDraft"),this.idKwestia);
         }
         else {
-            var z = ZespolRealizacyjnyDraft.findOne({_id: zespolId});
+            var z = ImplemTeamDraft.findOne({_id: zespolId});
             var zespolToUpdate = z.zespol.slice();
             if (z.zespol.length > 0) {
                 GlobalNotification.error({
@@ -127,13 +127,13 @@ Template.ZRTemplate.events({
             rezygnujZRAlert(checkIfInZR(zespolId,Meteor.userId()),this.idKwestia);
         }
         else {
-            var z = ZespolRealizacyjnyDraft.findOne({_id: zespolId});
+            var z = ImplemTeamDraft.findOne({_id: zespolId});
 
             var zespolToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 
             if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), zespolToUpdate) == false) {
-                if (isUserCountInZespolRealizacyjnyNotification(Meteor.userId(), zespolToUpdate, 2) == false) {
+                if (isUserCountInImplemTeamNotification(Meteor.userId(), zespolToUpdate, 2) == false) {
 
                     if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), zespolToUpdate, liczba, zespolId) == false) {
                         bladNotification();
@@ -151,13 +151,13 @@ Template.ZRTemplate.events({
             rezygnujZRAlert(checkIfInZR(zespolId,Meteor.userId()),this.idKwestia);
         }
         else {
-            var z = ZespolRealizacyjnyDraft.findOne({_id: zespolId});
+            var z = ImplemTeamDraft.findOne({_id: zespolId});
 
             var zespolToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 
             if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), zespolToUpdate) == false) {//jeżeli nie jest w zespole
-                if (isUserCountInZespolRealizacyjnyNotification(Meteor.userId(), zespolToUpdate, 2) == false) {
+                if (isUserCountInImplemTeamNotification(Meteor.userId(), zespolToUpdate, 2) == false) {
                     if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), zespolToUpdate, liczba, zespolId) == false) {
                         bladNotification();
                     }
