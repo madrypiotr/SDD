@@ -31,16 +31,15 @@ Meteor.startup(function(){
             if (kwestia != null) {
                 if(kwestia.wartoscPriorytetu > 0 && kwestia.glosujacy.length >= kworum && newTeam.zespol.length >= 3 && kwestia.status != KWESTIA_STATUS.REALIZOWANA){
                     if(kwestia.status == KWESTIA_STATUS.DELIBEROWANA){
-                        moveKwestiaToGlosowana(kwestia);
+                        moveIssueAsAvote(kwestia);
                     }
                 }
             }
         }
     });
-    moveKwestiaToGlosowana=function(newKwestia,ZRDraft,ifUpdateZR){
+    moveIssueAsAvote = function(newKwestia,ZRDraft,ifUpdateZR){
         if(kwestiaAllowedToGlosowana()){
             var czasGlosowania = Parametr.findOne({}).voteDuration;
-            //console.log("ZMIANA_PARAMS");
             var final = moment(new Date()).add(czasGlosowania, "hours").format();
             var start = new Date();
             Meteor.call('updStatDateVotingIssueFinal', newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,function(error){
@@ -56,11 +55,11 @@ Meteor.startup(function(){
                     Meteor.call("addEmailError", emailError);
                 }
             });
-            addPowiadomienieKwestiaGlosowanaMethod(newKwestia._id);
+            addNotificationIssueVoteMethod(newKwestia._id);
         }
     };
 
-    addPowiadomienieKwestiaGlosowanaMethod=function(idKwestia){
+    addNotificationIssueVoteMethod=function(idKwestia){
         var users=Users.find({'profile.userType':USERTYPE.CZLONEK});
         var kwestia=Kwestia.findOne({_id:idKwestia});
         users.forEach(function(user){

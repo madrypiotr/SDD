@@ -1,10 +1,10 @@
 /**
  * Created by Bartłomiej Szewczyk on 2015-08-31.
-
-Badanie zmian w postach, zespołach i kwestii w celu sprawdzenia czy kwestia powinna zmienić status z:
- deliberowana na glosowana
- glosowana na realizowana
- glosowana na archiwalna
+ * Edited by Piotr Mądry
+Study changes in posts, teams and issues to see if the issue should change status from:
+ deliberated on the vote
+ vote on the implementation
+ vote  on the archival
  */
 
 Meteor.startup(function(){
@@ -55,15 +55,15 @@ Meteor.startup(function(){
                 }
             }
             if(newKwestia.wartoscPriorytetu > 0 && usersCount >= kworum && newKwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE && newKwestia.status==KWESTIA_STATUS.ADMINISTROWANA) {
-                moveKwestiaToGlosowana(newKwestia);
+                moveIssueAsAvote(newKwestia);
             }
 
             if(newKwestia.wartoscPriorytetu > 0 && usersCount >= kworum && zespolCount >= 3 && newKwestia.status != KWESTIA_STATUS.REALIZOWANA){
                 if(newKwestia.status == KWESTIA_STATUS.DELIBEROWANA){
-                    moveKwestiaToGlosowana(newKwestia);
+                    moveIssueAsAvote(newKwestia);
                 }
                 else if(newKwestia.status==KWESTIA_STATUS.OSOBOWA && (newKwestia.typ==KWESTIA_TYPE.ACCESS_DORADCA || newKwestia.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY)){
-                    moveKwestiaToGlosowana(newKwestia);
+                    moveIssueAsAvote(newKwestia);
                 }
                 else if (newKwestia.status == KWESTIA_STATUS.OCZEKUJACA){
                    if(newKwestia.isAnswerPositive==true){
@@ -151,10 +151,10 @@ Meteor.startup(function(){
                             var kwestia=Kwestia.findOne({_id:kwestiaId});
                             if(kwestia){
                                 if(kwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-                                    moveKwestiaToGlosowana(kwestia);
+                                    moveIssueAsAvote(kwestia);
                                 else {
                                     var zr = ImplemTeamDraft.findOne({_id: arrayKwestie[0].idZespolRealizacyjny});
-                                    moveKwestiaToGlosowana(kwestia);
+                                    moveIssueAsAvote(kwestia);
                                 }
                             }
                         });
@@ -199,17 +199,16 @@ Meteor.startup(function(){
                 });
         });
     };
-    moveKwestiaToGlosowana=function(newKwestia,ZRDraft,ifUpdateZR){
+    moveIssueAsAvote=function(newKwestia,ZRDraft,ifUpdateZR){
         if(kwestiaAllowedToGlosowana()) {
             var czasGlosowania = Parametr.findOne({}).voteDuration;
-            //console.log("ZMIANA_PARAMS");
             var final = moment(new Date()).add(czasGlosowania, "hours").format();
             var start = new Date();
             Meteor.call('updStatDateVotingIssueFinal', newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,function(error){
                 if(error)
                     console.log(error.reason);
             });
-            addPowiadomienieKwestiaGlosowanaMethod(newKwestia._id);
+            addNotificationIssueVoteMethod(newKwestia._id);
             Meteor.call("sendEmailStartedVoting",newKwestia._id, getUserLanguage(), function(error){
                 if(error){
                     var emailError = {
@@ -373,7 +372,7 @@ addPowiadomienieAplikacjaObsRespondMethod=function(idKwestia,dataWprowadzenia,ty
     });
 };
 
-addPowiadomienieKwestiaGlosowanaMethod=function(idKwestia){
+addNotificationIssueVoteMethod=function(idKwestia){
     var users=Users.find({'profile.userType':USERTYPE.CZLONEK});
     var kwestia=Kwestia.findOne({_id:idKwestia});
     users.forEach(function(user){
