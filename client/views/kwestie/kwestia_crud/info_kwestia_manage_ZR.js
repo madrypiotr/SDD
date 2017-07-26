@@ -72,7 +72,8 @@ Template.ZRTemplate.helpers({
         }
         return data;
     },
-    getZRCzlonkowieKosz:function(zespol){
+    getZRMembersTrashCan:function(zespol){
+// getZRCzlonkowieTrashCan only once here. Check if you need it?	
         var data="";
         _.each(zespol.czlonkowie,function(czlonek){
            data+=czlonek+",";
@@ -99,7 +100,7 @@ Template.ZRTemplate.events({
         zespolId=this.idZR;
         var idUser=getZRData(0,this.idZR,"ZRDraft");
         if(idUser==Meteor.userId()){
-            rezygnujZRAlert(getZRData(0,zespolId,"ZRDraft"),this.idKwestia);
+            unsubscribeITAlert(getZRData(0,zespolId,"ZRDraft"),this.idKwestia);
         }
         else {
             var z = ImplemTeamDraft.findOne({_id: zespolId});
@@ -123,8 +124,8 @@ Template.ZRTemplate.events({
 
         zespolId=this.idZR;
         var idUser=checkIfInZR(zespolId,Meteor.userId());
-        if(idUser==Meteor.userId()) {//to znaczy,że już jestem w zespole i mogę zrezygnować
-            rezygnujZRAlert(checkIfInZR(zespolId,Meteor.userId()),this.idKwestia);
+        if(idUser==Meteor.userId()) {// That means I'm already in the band and I can give up
+            unsubscribeITAlert(checkIfInZR(zespolId,Meteor.userId()),this.idKwestia);
         }
         else {
             var z = ImplemTeamDraft.findOne({_id: zespolId});
@@ -148,7 +149,7 @@ Template.ZRTemplate.events({
         zespolId=this.idZR;
         var idUser=checkIfInZR(zespolId,Meteor.userId());
         if(idUser==Meteor.userId()) {
-            rezygnujZRAlert(checkIfInZR(zespolId,Meteor.userId()),this.idKwestia);
+            unsubscribeITAlert(checkIfInZR(zespolId,Meteor.userId()),this.idKwestia);
         }
         else {
             var z = ImplemTeamDraft.findOne({_id: zespolId});

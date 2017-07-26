@@ -230,7 +230,7 @@ checkIfInZR = function(idZR, idMember) {
 			return _.contains(z.zespol, idMember) ? idMember : null;
 		}
 	},
-	rezygnujZRAlert = function(idUserZR, idKwestia) {
+	unsubscribeITAlert = function(idUserZR, idKwestia) {
 		bootbox.dialog({
 			title: TAPi18n.__('txv.YOU_ARE_A_MEMBER_OF_THIS_WORKING_GROUP'),
 			message: TAPi18n.__('txv.DO_YOU_WANT_TO_BE_OR_OUTPUT'),
