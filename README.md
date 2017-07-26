@@ -41,9 +41,7 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 However, our application is similar to your home in the raw state.
 We still have to do finishing work and usability.**
 
-##### Important but simple - in SDD the basic objects are Issues (added by users). Then the issues pass (or do not pass) the Deliberation / Voting / Execution path
-
-The above listed operations will be implemented in five main panels (see illustration).
+#### Important but simple - in SDD the basic objects are Issues (added by users). Then the issues pass the Deliberation / Voting / Execution path. The above listed operations will be implemented in five main panels (see illustration).
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panels.jpg) 
 
 #### **So ... what these panels do:**
