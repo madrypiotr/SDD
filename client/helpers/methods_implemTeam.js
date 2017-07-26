@@ -14,7 +14,7 @@ isUserCountInImplemTeamNotification = function(id, zespolTab, numberOfMembers) {
 	return false;
 };
 
-addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numberOfMembers, zespolId) {
+addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numberOfMembers, teamId) {
 	// 
 	if (teamToUpdate.length == 2) {
 		// I check if we have such a band with another member going
@@ -67,7 +67,7 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numb
 		else text = TAPi18n.__('txv.MEMBERS');
 		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
 		teamToUpdate.push(idUser);
-		Meteor.call('updateCzlonkowieZR', zespolId, teamToUpdate, function(error) {
+		Meteor.call('updateCzlonkowieZR', teamId, teamToUpdate, function(error) {
 			if (error) {
 				if (typeof Errors === "undefined") Log.error(TAPi18n.__('txv.ERROR') + error.reason);
 				else {
@@ -124,7 +124,7 @@ isUserInZRNotification = function(idZespolu) {
 	return false;
 };
 
-addMemberToImplemTeamNotificationNew = function(idUser, teamToUpdate, numberOfMembers, zespolId) {
+addMemberToImplemTeamNotificationNew = function(idUser, teamToUpdate, numberOfMembers, teamId) {
 	if (teamToUpdate.length == 2) {
 		// I check if we have such a team with another member going, we are looking in the Implementation Team
 		teamToUpdate.push(idUser);
@@ -171,7 +171,7 @@ addMemberToImplemTeamNotificationNew = function(idUser, teamToUpdate, numberOfMe
 		else text = TAPi18n.__('txv.MEMBERS');
 		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
 		teamToUpdate.push(idUser);
-		Meteor.call('updateCzlonkowieZRDraft', zespolId, teamToUpdate, function(error) {
+		Meteor.call('updateCzlonkowieZRDraft', teamId, teamToUpdate, function(error) {
 			if (error) {
 				if (typeof Errors === "undefined") Log.error(TAPi18n.__('txv.ERROR') + error.reason);
 				else {
@@ -212,7 +212,7 @@ getZRData = function(number, idZR, ZRType) {
 		_id: idZR
 	});
 	if (z) {
-		zespolId = z._id;
+		teamId = z._id;
 		var zespol = z.zespol;
 		if (zespol) {
 			var id = zespol[number];
@@ -221,7 +221,7 @@ getZRData = function(number, idZR, ZRType) {
 	}
 };
 
-checkIfInZR = function(idZR, idMember) {
+checkIfInIT = function(idZR, idMember) {
 	// Decision on participation or exit from the Implementation Team
 		var z = ImplemTeamDraft.findOne({
 			_id: idZR
@@ -240,7 +240,7 @@ checkIfInZR = function(idZR, idMember) {
 					className: "btn-success successGiveUp",
 					callback: function() {
 						$('.successGiveUp').css("visibility", "hidden");
-						rezygnujZRFunction(idUserZR, idKwestia);
+						unsubscribeITFunction(idUserZR, idKwestia);
 					}
 				},
 				main: {
@@ -251,7 +251,7 @@ checkIfInZR = function(idZR, idMember) {
 		});
 	};
 
-rezygnujZRFunction = function(idUserZR, idKwestia) {
+unsubscribeITFunction = function(idUserZR, idKwestia) {
 	// Abandonment of functions in the implementation team
 	var kwestia = Kwestia.findOne({
 		_id: idKwestia
