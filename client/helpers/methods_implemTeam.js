@@ -14,11 +14,11 @@ isUserCountInImplemTeamNotification = function(id, zespolTab, numberOfMembers) {
 	return false;
 };
 
-addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, numberOfMembers, zespolId) {
+addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numberOfMembers, zespolId) {
 	// 
-	if (zespolToUpdate.length == 2) {
+	if (teamToUpdate.length == 2) {
 		// I check if we have such a band with another member going
-		zespolToUpdate.push(idUser);
+		teamToUpdate.push(idUser);
 		var kwestie = Kwestia.find({
 			$where: function() {
 				return (this.status == KWESTIA_STATUS.GLOSOWANA || this.status == KWESTIA_STATUS.ARCHIWALNA);
@@ -35,7 +35,7 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, nu
 				var i = 0;
 				_.each(zespol.zespol, function(zespolItem) {
 					// for each current item from the current team
-					if (_.contains(zespolToUpdate, zespolItem)) {
+					if (_.contains(teamToUpdate, zespolItem)) {
 						// if the database contains an array from the Team
 						i++;
 					}
@@ -66,8 +66,8 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, nu
 		if (numberOfMembers == 0) text = TAPi18n.__('txv.MEMBER');
 		else text = TAPi18n.__('txv.MEMBERS');
 		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
-		zespolToUpdate.push(idUser);
-		Meteor.call('updateCzlonkowieZR', zespolId, zespolToUpdate, function(error) {
+		teamToUpdate.push(idUser);
+		Meteor.call('updateCzlonkowieZR', zespolId, teamToUpdate, function(error) {
 			if (error) {
 				if (typeof Errors === "undefined") Log.error(TAPi18n.__('txv.ERROR') + error.reason);
 				else {
@@ -124,10 +124,10 @@ isUserInZRNotification = function(idZespolu) {
 	return false;
 };
 
-addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate, numberOfMembers, zespolId) {
-	if (zespolToUpdate.length == 2) {
+addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, teamToUpdate, numberOfMembers, zespolId) {
+	if (teamToUpdate.length == 2) {
 		// I check if we have such a team with another member going, we are looking in the Implementation Team
-		zespolToUpdate.push(idUser);
+		teamToUpdate.push(idUser);
 		var flag = false;
 		var arrayZespolyDouble = [];
 		var zespoly = ZespolRealizacyjny.find({
@@ -138,7 +138,7 @@ addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate,
 				var i = 0;
 				_.each(zespol.zespol, function(zespolItem) {
 					// for each current item from the current team
-					if (_.contains(zespolToUpdate, zespolItem)) {
+					if (_.contains(teamToUpdate, zespolItem)) {
 						// if the database contains an array from the Team
 						i++;
 					}
@@ -170,8 +170,8 @@ addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate,
 		if (numberOfMembers == 0 || numberOfMembers == 2) text = TAPi18n.__('txv.MEMBER');
 		else text = TAPi18n.__('txv.MEMBERS');
 		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
-		zespolToUpdate.push(idUser);
-		Meteor.call('updateCzlonkowieZRDraft', zespolId, zespolToUpdate, function(error) {
+		teamToUpdate.push(idUser);
+		Meteor.call('updateCzlonkowieZRDraft', zespolId, teamToUpdate, function(error) {
 			if (error) {
 				if (typeof Errors === "undefined") Log.error(TAPi18n.__('txv.ERROR') + error.reason);
 				else {

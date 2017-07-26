@@ -103,7 +103,7 @@ Template.ZRTemplate.events({
         }
         else {
             var z = ImplemTeamDraft.findOne({_id: zespolId});
-            var zespolToUpdate = z.zespol.slice();
+            var teamToUpdate = z.zespol.slice();
             if (z.zespol.length > 0) {
                 GlobalNotification.error({
                     title: TAPi18n.__('txv.ERROR'),
@@ -113,7 +113,7 @@ Template.ZRTemplate.events({
                 return false;
             }
             else {
-                if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), zespolToUpdate, 2, zespolId) == false) {
+                if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), teamToUpdate, 2, zespolId) == false) {
                     bladNotification();
                 }
             }
@@ -129,13 +129,13 @@ Template.ZRTemplate.events({
         else {
             var z = ImplemTeamDraft.findOne({_id: zespolId});
 
-            var zespolToUpdate = z.zespol.slice();
+            var teamToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 
-            if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), zespolToUpdate) == false) {
-                if (isUserCountInImplemTeamNotification(Meteor.userId(), zespolToUpdate, 2) == false) {
+            if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), teamToUpdate) == false) {
+                if (isUserCountInImplemTeamNotification(Meteor.userId(), teamToUpdate, 2) == false) {
 
-                    if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), zespolToUpdate, liczba, zespolId) == false) {
+                    if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), teamToUpdate, liczba, zespolId) == false) {
                         bladNotification();
                     }
                 }
@@ -153,12 +153,12 @@ Template.ZRTemplate.events({
         else {
             var z = ImplemTeamDraft.findOne({_id: zespolId});
 
-            var zespolToUpdate = z.zespol.slice();
+            var teamToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 
-            if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), zespolToUpdate) == false) {//jeżeli nie jest w zespole
-                if (isUserCountInImplemTeamNotification(Meteor.userId(), zespolToUpdate, 2) == false) {
-                    if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), zespolToUpdate, liczba, zespolId) == false) {
+            if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), teamToUpdate) == false) {//jeżeli nie jest w zespole
+                if (isUserCountInImplemTeamNotification(Meteor.userId(), teamToUpdate, 2) == false) {
+                    if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), teamToUpdate, liczba, zespolId) == false) {
                         bladNotification();
                     }
                 }
