@@ -1,8 +1,8 @@
 //## Methods for adding members to Implementing Teams and creating I.T.
 
-isUserCountInImplemTeamNotification = function(id, zespolTab, numberOfMembers) {
+isUserCountInImplemTeamNotification = function(id, c, numberOfMembers) {
 	// 
-	if (zespolTab.length == 3) {
+	if (teamTab.length == 3) {
 		var komunikat = TAPi18n.__('txv.ITS_ALREADY') + numberOfMembers + TAPi18n.__('txv.MEMBERS_OF_IMPL_TEAM');
 		GlobalNotification.error({
 			title: TAPi18n.__('txv.ERROR'),
@@ -14,8 +14,8 @@ isUserCountInImplemTeamNotification = function(id, zespolTab, numberOfMembers) {
 	return false;
 };
 
-addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numberOfMembers, teamId) {
-	// 
+addMemberToImplemTeamNotification = function(idUser, teamToUpdate, numberOfMembers, teamId) {
+	// addMemberToImplemTeamNotification only once here. Check if you need it?
 	if (teamToUpdate.length == 2) {
 		// I check if we have such a band with another member going
 		teamToUpdate.push(idUser);
@@ -25,7 +25,7 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numb
 			}
 		});
 		var flag = false;
-		var arrayZespolyDouble = [];
+		var arrayTeamsDouble = [];
 		kwestie.forEach(function(kwestia) {
 			// we find Teams
 			var zespol = ZespolRealizacyjny.findOne({
@@ -33,22 +33,22 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numb
 			});
 			if (zespol) {
 				var i = 0;
-				_.each(zespol.zespol, function(zespolItem) {
+				_.each(zespol.zespol, function(teamItem) {
 					// for each current item from the current team
-					if (_.contains(teamToUpdate, zespolItem)) {
+					if (_.contains(teamToUpdate, teamItem)) {
 						// if the database contains an array from the Team
 						i++;
 					}
 				});
 				if (i == zespol.zespol.length) {
-					arrayZespolyDouble.push(zespol._id);
+					arrayTeamsDouble.push(zespol._id);
 					flag = true;
 					// It may happen that there will be several teams with the same composition, so let's put them on the board
 				}
 			}
 		});
 		if (flag == true) {
-			Session.setPersistent("zespolRealizacyjnyDouble", arrayZespolyDouble);
+			Session.setPersistent("zespolRealizacyjnyDouble", arrayTeamsDouble);
 			$("#decyzjaModalId").modal("show");
 		} else {
 			// The third has been added to the Team of Executives. We already have a set
@@ -85,9 +85,9 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numb
 	}
 };
 
-isUserInImplemTeamNotification = function(id, zespolTab) {
+isUserInImplemTeamNotification = function(id, teamTab) {
 	// information about adding to the Team
-	if (_.contains(zespolTab, id)) {
+	if (_.contains(teamTab, id)) {
 		GlobalNotification.error({
 			title: TAPi18n.__('txv.ERROR'),
 			content: TAPi18n.__('txv.YOU_ARE_ALREADY_IN_THE_IMP_TEAM'),
@@ -129,29 +129,29 @@ addMemberToImplemTeamNotificationNew = function(idUser, teamToUpdate, numberOfMe
 		// I check if we have such a team with another member going, we are looking in the Implementation Team
 		teamToUpdate.push(idUser);
 		var flag = false;
-		var arrayZespolyDouble = [];
+		var arrayTeamsDouble = [];
 		var zespoly = ZespolRealizacyjny.find({
 			czyAktywny: true
 		});
 		if (zespoly) {
 			zespoly.forEach(function(zespol) {
 				var i = 0;
-				_.each(zespol.zespol, function(zespolItem) {
+				_.each(zespol.zespol, function(teamItem) {
 					// for each current item from the current team
-					if (_.contains(teamToUpdate, zespolItem)) {
+					if (_.contains(teamToUpdate, teamItem)) {
 						// if the database contains an array from the Team
 						i++;
 					}
 				});
 				if (i == zespol.zespol.length) {
-					arrayZespolyDouble.push(zespol._id);
+					arrayTeamsDouble.push(zespol._id);
 					flag = true;
 				}
 			});
 		}
 		if (flag == true) {
 			// They are so, so we display
-			Session.setPersistent("zespolRealizacyjnyDouble", arrayZespolyDouble);
+			Session.setPersistent("zespolRealizacyjnyDouble", arrayTeamsDouble);
 			$("#decyzjaModalId").modal("show");
 		}
 		// There is no teak in the base, so we add a draft.to finish
