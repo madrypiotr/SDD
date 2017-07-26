@@ -73,7 +73,7 @@ jQuery.validator.addMethod("checkExistsNazwaKwestii", function(value, element) {
 }, TAPi18n.__('txv.THIS_ISSUE_ALREADY_EXISTS'));
 
 jQuery.validator.addMethod("checkExistsNazwaZespoluRealizacyjnego", function(value, element) {
-	var zespoly = ZespolRealizacyjny.find({});
+	var zespoly = aImplemTeam.find({});
 	var found = null;
 	zespoly.forEach(function(item) {
 		if (_.isEqual(item.nazwa.toLowerCase().trim(), value.toLowerCase().trim())) {

@@ -8,11 +8,11 @@ Template.informacjeKwestia.helpers({
     },
     myselfInZR:function(){
         var zespol=null;
-        zespol = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
+        zespol = aImplemTeam.findOne({_id: this.idaImplemTeam});
         if (!zespol)
-            zespol = ImplemTeamDraft.findOne({_id: this.idZespolRealizacyjny});
+            zespol = ImplemTeamDraft.findOne({_id: this.idaImplemTeam});
         if(zespol.idZR)
-            zespol=ZespolRealizacyjny.findOne({_id: zespol.idZR});
+            zespol=aImplemTeam.findOne({_id: zespol.idZR});
         return _.contains(zespol.zespol,Meteor.userId()) ? true : false;
     }
 });
@@ -212,22 +212,22 @@ Template.issueDetails.helpers({
             return zespol.length >= 3 ? true : false;
         }
         else
-            return getZRCount(this.idZespolRealizacyjny,this._id) >=3 ? true : false;
+            return getZRCount(this.idaImplemTeam,this._id) >=3 ? true : false;
     },
     ZRText:function(){
         var count=null;
         if(this.zespol)
             count = this.zespol.czlonkowie.length;
         else
-            count=getZRCount(this.idZespolRealizacyjny,null);
+            count=getZRCount(this.idaImplemTeam,null);
         var result=3-count;
         return (result > 1) ? result + TAPi18n.__('txv.MEMBERS') : result + TAPi18n.__('txv.MEMBER');
     },
     helperObserver:function(){
         if(this.status == KWESTIA_STATUS.OCZEKUJACA || this.status == KWESTIA_STATUS.GLOSOWANA ||
             this.status == KWESTIA_STATUS.REALIZOWANA || this.status == KWESTIA_STATUS.ZREALIZOWANA){
-            $("#listZespolRealizacyjny").modal("hide");
-            $("#listZespolRealizacyjnyDouble").modal("hide");
+            $("#listaImplemTeam").modal("hide");
+            $("#listaImplemTeamDouble").modal("hide");
             $("#addNazwa").modal("hide");
             $("#decyzjaModalId").modal("hide");
             setTimeout(function(){
@@ -243,11 +243,11 @@ Template.issueManageZR.helpers({
             return zespol.nazwa;
         else {
             var zespol = null;
-            zespol = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
+            zespol = aImplemTeam.findOne({_id: this.idaImplemTeam});
             if (!zespol)
-                zespol = ImplemTeamDraft.findOne({_id: this.idZespolRealizacyjny});
+                zespol = ImplemTeamDraft.findOne({_id: this.idaImplemTeam});
             if (zespol.idZR)
-                zespol = ZespolRealizacyjny.findOne({_id: zespol.idZR});
+                zespol = aImplemTeam.findOne({_id: zespol.idZR});
             return zespol.nazwa;
         }
     },
@@ -270,7 +270,7 @@ Template.issueManageZR.helpers({
         };
     },
     ZRList:function(){
-        var zespol = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
+        var zespol = aImplemTeam.findOne({_id: this.idaImplemTeam});
         if(zespol){
             var users=Users.find({_id:{$in:zespol.zespol}});
             return users;
@@ -288,7 +288,7 @@ Template.zrOptions.events({
     'click #giveUpMembership':function(e){
         e.preventDefault();
         var idZR=document.getElementById("idZR").value;
-        var zr=ZespolRealizacyjny.findOne({_id:idZR});
+        var zr=aImplemTeam.findOne({_id:idZR});
         if(zr._id=="jjXKur4qC5ZGPQkgN"){
             bootbox.alert(TAPi18n.__('txv.NO_EXIT_INFO1'));
         }
@@ -304,12 +304,12 @@ Template.zrOptions.events({
 });
 
 getZRCount=function(idZR,idIssue){
-    var zespol = ZespolRealizacyjny.findOne({_id: idZR});
+    var zespol = aImplemTeam.findOne({_id: idZR});
     if (!zespol) {
         zespol = ImplemTeamDraft.findOne({_id: idZR});
         if(zespol) {
             if (zespol.idZR) {
-                var z = ZespolRealizacyjny.findOne({_id: zespol.idZR});
+                var z = aImplemTeam.findOne({_id: zespol.idZR});
                 if (z.kwestie.length > 0 && z.czyAktywny == true && idIssue != null) {
                     var issue = Kwestia.findOne({_id: idIssue});
                     if (issue.status == KWESTIA_STATUS.GLOSOWANA)

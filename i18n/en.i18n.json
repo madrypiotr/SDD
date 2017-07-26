@@ -542,13 +542,13 @@
 	"deImCreatingAnewTeamImplementation":"I create new Execution Team",
 	"deIacceptAnIssueForMyTeam":"I accept the Issue to my Team"
   },
-  "listZespolRealizacyjnyModalInner":{
+  "listaImplemTeamModalInner":{
 	"lzrImplementation teams":"Execution Teams"
   },
   "zespolOptionsTemplate":{
 	"zotPleaseMentionImplTeam":"Create ET"
   },
-  "listZespolRealizacyjnyDoubleModalInner":{
+  "listaImplemTeamDoubleModalInner":{
 	"izdSelectTheAppropriateImplTeamForTheIssue":"Point proper ET for this Issue. The Issue shall be accepted for execution provided that you are Member of the Team. So, look for Your Execution Team or go back to create new Team.",
 	"izdResign":"Resign "
   },

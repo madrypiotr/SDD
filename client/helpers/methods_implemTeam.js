@@ -1,12 +1,12 @@
 //## Methods for adding members to Implementing Teams and creating I.T.
 
-isUserCountInImplemTeamNotification = function(id, zespolTab, numberOfMembers) {
+isUserCountInImplemTeamNotification = function(id, teamTab, numberOfMembers) {
 	// 
-	if (zespolTab.length == 3) {
-		var komunikat = TAPi18n.__('txv.ITS_ALREADY') + numberOfMembers + TAPi18n.__('txv.MEMBERS_OF_IMPL_TEAM');
+	if (teamTab.length == 3) {
+		var astatement = TAPi18n.__('txv.ITS_ALREADY') + numberOfMembers + TAPi18n.__('txv.MEMBERS_OF_IMPL_TEAM');
 		GlobalNotification.error({
 			title: TAPi18n.__('txv.ERROR'),
-			content: komunikat,
+			content: astatement,
 			duration: 10
 		});
 		return true;
@@ -14,7 +14,7 @@ isUserCountInImplemTeamNotification = function(id, zespolTab, numberOfMembers) {
 	return false;
 };
 
-addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, numberOfMembers, zespolId) {
+addMemberToImplemTeamNotification = function(idUser, zespolToUpdate, numberOfMembers, zespolId) {
 	// 
 	if (zespolToUpdate.length == 2) {
 		// I check if we have such a band with another member going
@@ -28,14 +28,14 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, nu
 		var arrayZespolyDouble = [];
 		kwestie.forEach(function(kwestia) {
 			// we find Teams
-			var zespol = ZespolRealizacyjny.findOne({
-				_id: kwestia.idZespolRealizacyjny
+			var zespol = aImplemTeam.findOne({
+				_id: kwestia.idaImplemTeam
 			});
 			if (zespol) {
 				var i = 0;
-				_.each(zespol.zespol, function(zespolItem) {
+				_.each(zespol.zespol, function(teamItem) {
 					// for each current item from the current team
-					if (_.contains(zespolToUpdate, zespolItem)) {
+					if (_.contains(zespolToUpdate, teamItem)) {
 						// if the database contains an array from the Team
 						i++;
 					}
@@ -52,11 +52,11 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, nu
 			$("#decyzjaModalId").modal("show");
 		} else {
 			// The third has been added to the Team of Executives. We already have a set
-			komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_WE_HAVE_ALREADY_SET');
+			astatement = TAPi18n.__('txv.ADDED_TO_THE_IT_WE_HAVE_ALREADY_SET');
 			$("#addNazwa").modal("show");
 			GlobalNotification.success({
 				title: TAPi18n.__('txv.SUCCESS'),
-				content: komunikat,
+				content: astatement,
 				duration: 10
 			});
 			return true;
@@ -65,7 +65,7 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, nu
 		var text = null;
 		if (numberOfMembers == 0) text = TAPi18n.__('txv.MEMBER');
 		else text = TAPi18n.__('txv.MEMBERS');
-		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
+		var astatement = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
 		zespolToUpdate.push(idUser);
 		Meteor.call('updateCzlonkowieZR', zespolId, zespolToUpdate, function(error) {
 			if (error) {
@@ -76,7 +76,7 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, nu
 			} else {
 				GlobalNotification.success({
 					title: TAPi18n.__('txv.SUCCESS'),
-					content: komunikat,
+					content: astatement,
 					duration: 10
 				});
 				return true;
@@ -85,9 +85,9 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, zespolToUpdate, nu
 	}
 };
 
-isUserInZespolRealizacyjnyNotification = function(id, zespolTab) {
+isUserInaImplemTeamNotification = function(id, teamTab) {
 	// information about adding to the Team
-	if (_.contains(zespolTab, id)) {
+	if (_.contains(teamTab, id)) {
 		GlobalNotification.error({
 			title: TAPi18n.__('txv.ERROR'),
 			content: TAPi18n.__('txv.YOU_ARE_ALREADY_IN_THE_IMP_TEAM'),
@@ -108,7 +108,7 @@ bladNotification = function() {
 
 isUserInZRNotification = function(idZespolu) {
 	// Examination of decision-making power
-	var zespol = ZespolRealizacyjny.findOne({
+	var zespol = aImplemTeam.findOne({
 		_id: idZespolu
 	});
 	if (zespol) {
@@ -124,21 +124,21 @@ isUserInZRNotification = function(idZespolu) {
 	return false;
 };
 
-addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate, numberOfMembers, zespolId) {
+addMemberToImplemTeamNotificationNew = function(idUser, zespolToUpdate, numberOfMembers, zespolId) {
 	if (zespolToUpdate.length == 2) {
 		// I check if we have such a team with another member going, we are looking in the Implementation Team
 		zespolToUpdate.push(idUser);
 		var flag = false;
 		var arrayZespolyDouble = [];
-		var zespoly = ZespolRealizacyjny.find({
+		var zespoly = aImplemTeam.find({
 			czyAktywny: true
 		});
 		if (zespoly) {
 			zespoly.forEach(function(zespol) {
 				var i = 0;
-				_.each(zespol.zespol, function(zespolItem) {
+				_.each(zespol.zespol, function(teamItem) {
 					// for each current item from the current team
-					if (_.contains(zespolToUpdate, zespolItem)) {
+					if (_.contains(zespolToUpdate, teamItem)) {
 						// if the database contains an array from the Team
 						i++;
 					}
@@ -160,7 +160,7 @@ addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate,
 			// excluded:
 			//GlobalNotification.success({
 			//    title: 'Sukces',
-			//    content: komunikat,
+			//    content: astatement,
 			//    duration: 10 // duration the notification should stay in seconds
 			//});
 			return true;
@@ -169,7 +169,7 @@ addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate,
 		var text = null;
 		if (numberOfMembers == 0 || numberOfMembers == 2) text = TAPi18n.__('txv.MEMBER');
 		else text = TAPi18n.__('txv.MEMBERS');
-		var komunikat = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
+		var astatement = TAPi18n.__('txv.ADDED_TO_THE_IT_NEED_MORE') + numberOfMembers + text;
 		zespolToUpdate.push(idUser);
 		Meteor.call('updateCzlonkowieZRDraft', zespolId, zespolToUpdate, function(error) {
 			if (error) {
@@ -180,7 +180,7 @@ addCzlonekToZespolRealizacyjnyNotificationNew = function(idUser, zespolToUpdate,
 			} else {
 				GlobalNotification.success({
 					title: TAPi18n.__('txv.SUCCESS'),
-					content: komunikat,
+					content: astatement,
 					duration: 10
 				});
 				return true;
@@ -208,7 +208,7 @@ getZRData = function(number, idZR, ZRType) {
 	if (ZRType == "ZRDraft") z = ImplemTeamDraft.findOne({
 		_id: idZR
 	});
-	else z = ZespolRealizacyjny.findOne({
+	else z = aImplemTeam.findOne({
 		_id: idZR
 	});
 	if (z) {
@@ -258,7 +258,7 @@ rezygnujZRFunction = function(idUserZR, idKwestia) {
 	});
 	if (kwestia) {
 		var zespol = ImplemTeamDraft.findOne({
-			_id: kwestia.idZespolRealizacyjny
+			_id: kwestia.idaImplemTeam
 		});
 		if (zespol) {
 			var zespolR = zespol.zespol.slice();

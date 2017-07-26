@@ -7,7 +7,7 @@ Template.ZRTemplate.helpers({
     getZRName:function(idZR,status){
         var zespolR=null;
         if(status==KWESTIA_STATUS.REALIZOWANA)
-            zespolR = ZespolRealizacyjny.findOne({_id: idZR});
+            zespolR = aImplemTeam.findOne({_id: idZR});
         else
             zespolR= ImplemTeamDraft.findOne({_id:idZR});
 
@@ -41,7 +41,7 @@ Template.ZRTemplate.helpers({
         return "disabled";
     },
     isInZRFoo:function(idZr){
-        var zrDraft=ZespolRealizacyjny.findOne({_id:idZr});
+        var zrDraft=aImplemTeam.findOne({_id:idZr});
         if(zrDraft){
             return _.contains(zrDraft.zespol,Meteor.userId()) ? true :false;
         }
@@ -61,7 +61,7 @@ Template.ZRTemplate.helpers({
             zespol = ImplemTeamDraft.findOne({_id: idZR});
         }
         else {
-            zespol = ZespolRealizacyjny.findOne({_id: idZR});
+            zespol = aImplemTeam.findOne({_id: idZR});
         }
         var data=[];
         if(zespol){
@@ -95,7 +95,7 @@ Template.ZRTemplate.helpers({
 });
 
 Template.ZRTemplate.events({
-    'click #czlonek1': function () {
+    'click #member1': function () {
         zespolId=this.idZR;
         var idUser=getZRData(0,this.idZR,"ZRDraft");
         if(idUser==Meteor.userId()){
@@ -113,7 +113,7 @@ Template.ZRTemplate.events({
                 return false;
             }
             else {
-                if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), zespolToUpdate, 2, zespolId) == false) {
+                if (addMemberToImplemTeamNotificationNew(Meteor.userId(), zespolToUpdate, 2, zespolId) == false) {
                     bladNotification();
                 }
             }
@@ -132,10 +132,10 @@ Template.ZRTemplate.events({
             var zespolToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 
-            if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), zespolToUpdate) == false) {
+            if (isUserInaImplemTeamNotification(Meteor.userId(), zespolToUpdate) == false) {
                 if (isUserCountInImplemTeamNotification(Meteor.userId(), zespolToUpdate, 2) == false) {
 
-                    if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), zespolToUpdate, liczba, zespolId) == false) {
+                    if (addMemberToImplemTeamNotificationNew(Meteor.userId(), zespolToUpdate, liczba, zespolId) == false) {
                         bladNotification();
                     }
                 }
@@ -156,9 +156,9 @@ Template.ZRTemplate.events({
             var zespolToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 
-            if (isUserInZespolRealizacyjnyNotification(Meteor.userId(), zespolToUpdate) == false) {//jeżeli nie jest w zespole
+            if (isUserInaImplemTeamNotification(Meteor.userId(), zespolToUpdate) == false) {//jeżeli nie jest w zespole
                 if (isUserCountInImplemTeamNotification(Meteor.userId(), zespolToUpdate, 2) == false) {
-                    if (addCzlonekToZespolRealizacyjnyNotificationNew(Meteor.userId(), zespolToUpdate, liczba, zespolId) == false) {
+                    if (addMemberToImplemTeamNotificationNew(Meteor.userId(), zespolToUpdate, liczba, zespolId) == false) {
                         bladNotification();
                     }
                 }
@@ -166,6 +166,6 @@ Template.ZRTemplate.events({
         }
     },
     'click #listaZR': function(){
-        $("#listZespolRealizacyjny").modal("show");
+        $("#listaImplemTeam").modal("show");
     }
 });

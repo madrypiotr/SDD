@@ -13,8 +13,8 @@ Template.listKwestia.rendered = function () {
                     }
                 }
                 var zrCondition=true;
-                if(this.idZespolRealizacyjny){
-                    var zrDraft=ImplemTeamDraft.findOne({_id:this.idZespolRealizacyjny});
+                if(this.idaImplemTeam){
+                    var zrDraft=ImplemTeamDraft.findOne({_id:this.idaImplemTeam});
                     if(zrDraft){
                         if(zrDraft.zespol.length>=3)
                             zrCondition=true;

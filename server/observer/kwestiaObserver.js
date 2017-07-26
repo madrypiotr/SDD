@@ -40,12 +40,12 @@ Meteor.startup(function(){
             var usersCount = newKwestia.glosujacy.length;
             var ZRDraft=null;
             var zespolCount=null;
-            if(newKwestia.idZespolRealizacyjny) {
-                ZRDraft = ImplemTeamDraft.findOne({_id: newKwestia.idZespolRealizacyjny});
+            if(newKwestia.idaImplemTeam) {
+                ZRDraft = ImplemTeamDraft.findOne({_id: newKwestia.idaImplemTeam});
                 if(ZRDraft)
                     zespolCount = ZRDraft.zespol.length;
                 else {
-                    ZRDraft = ZespolRealizacyjny.findOne({_id: newKwestia.idZespolRealizacyjny});
+                    ZRDraft = aImplemTeam.findOne({_id: newKwestia.idaImplemTeam});
                     if(ZRDraft)
                         zespolCount = ZRDraft.zespol.length;
                     else {
@@ -74,7 +74,7 @@ Meteor.startup(function(){
             if(newKwestia.status == KWESTIA_STATUS.REALIZOWANA && newKwestia.wartoscPriorytetuWRealizacji < ((-1)*newKwestia.wartoscPriorytetu) && newKwestia.czyAktywny==true){
                 Meteor.call('removeIssueSetReason', newKwestia._id,KWESTIA_ACTION.NEGATIVE_PRIORITY,function(error) {
                     if(!error) {
-                        if (newKwestia.idZespolRealizacyjny) {
+                        if (newKwestia.idaImplemTeam) {
                             manageZR(newKwestia);
                         }
                     }
@@ -119,10 +119,10 @@ Meteor.startup(function(){
                             else condtion=liczenieKworumZwykle();
                         }
                         if(kwestia.glosujacy.length>=condtion) {
-                            if (kwestia.idZespolRealizacyjny) {
-                                var zespol = ZespolRealizacyjny.findOne({_id: kwestia.idZespolRealizacyjny});
+                            if (kwestia.idaImplemTeam) {
+                                var zespol = aImplemTeam.findOne({_id: kwestia.idaImplemTeam});
                                 if (!zespol) {
-                                    zespol = ImplemTeamDraft.findOne({_id: kwestia.idZespolRealizacyjny});
+                                    zespol = ImplemTeamDraft.findOne({_id: kwestia.idaImplemTeam});
                                 }
                                 if (zespol.zespol.length >= 3)
                                     arrayKwestie.push(kwestia);
@@ -153,7 +153,7 @@ Meteor.startup(function(){
                                 if(kwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
                                     moveKwestiaToGlosowana(kwestia);
                                 else {
-                                    var zr = ImplemTeamDraft.findOne({_id: arrayKwestie[0].idZespolRealizacyjny});
+                                    var zr = ImplemTeamDraft.findOne({_id: arrayKwestie[0].idaImplemTeam});
                                     moveKwestiaToGlosowana(kwestia);
                                 }
                             }
@@ -309,12 +309,12 @@ Meteor.startup(function(){
         });
     };
     manageZR=function(newKwestia){
-        var zespolRealizacyjny = ZespolRealizacyjny.findOne({_id: newKwestia.idZespolRealizacyjny});
+        var zespolRealizacyjny = aImplemTeam.findOne({_id: newKwestia.idaImplemTeam});
         if (zespolRealizacyjny.kwestie.length > 0) {
             var kwestie = _.reject(zespolRealizacyjny.kwestie, function (kwestiaId) {
                 return kwestiaId == newKwestia._id
             });
-            if(kwestie.length==0 && zespolRealizacyjny._id!=ZespolRealizacyjny.findOne({_id:"jjXKur4qC5ZGPQkgN"})._id){
+            if(kwestie.length==0 && zespolRealizacyjny._id!=aImplemTeam.findOne({_id:"jjXKur4qC5ZGPQkgN"})._id){
                 Meteor.call("updateKwestieZRChangeActivity", zespolRealizacyjny._id, kwestie,false, function (error) {
                     if (error)
                         console.log(error.reason);
@@ -332,8 +332,8 @@ Meteor.startup(function(){
             }
         }
         else {
-            if(zespolRealizacyjny._id!=ZespolRealizacyjny.findOne({_id:"jjXKur4qC5ZGPQkgN"})._id){
-                Meteor.call('removeZespolRealizacyjny', zespolRealizacyjny._id, function (error) {
+            if(zespolRealizacyjny._id!=aImplemTeam.findOne({_id:"jjXKur4qC5ZGPQkgN"})._id){
+                Meteor.call('removeaImplemTeam', zespolRealizacyjny._id, function (error) {
                     if (error)
                         console.log(error.reason);
                     else

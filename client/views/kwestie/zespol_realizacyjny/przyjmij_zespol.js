@@ -1,4 +1,4 @@
-Template.listZespolRealizacyjnyDoubleModalInner.helpers({
+Template.listaImplemTeamDoubleModalInner.helpers({
     'settings': function () {
         return {
             rowsPerPage: 10,
@@ -17,7 +17,7 @@ Template.listZespolRealizacyjnyDoubleModalInner.helpers({
         var val=Session.get("zespolRealizacyjnyDouble");
         if(val){
 
-            var zesp = ZespolRealizacyjny.find({_id: {$in:val}});
+            var zesp = aImplemTeam.find({_id: {$in:val}});
             if (zesp){
 
                 return zesp;
@@ -47,7 +47,7 @@ Template.zespolDoubleTemplate.helpers({
     }
 });
 
-Template.listZespolRealizacyjnyDoubleModalInner.events({
+Template.listaImplemTeamDoubleModalInner.events({
     'click #powrotButton':function(){
         $("#decyzjaModalId").modal("show");
     },

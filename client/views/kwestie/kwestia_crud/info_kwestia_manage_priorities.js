@@ -177,8 +177,8 @@ managePriorityKwestiaDelibGlosowana = function (ratingKwestiaId, kwestia, object
                         throwError(error.reason);
                     }
                 } else {
-                    var komunikat = TAPi18n.__('txv.GIVING_PRIORITY') + ratingValue;
-                    Notifications.success("", komunikat, {timeout: 3000});
+                    var astatement = TAPi18n.__('txv.GIVING_PRIORITY') + ratingValue;
+                    Notifications.success("", astatement, {timeout: 3000});
 
         }
     });

@@ -1,18 +1,18 @@
-<template name="listZespolRealizacyjnyDoubleModal">
-    <div id="listZespolRealizacyjnyDouble" class="modal fade" tabindex="-1" data-width="2960"  style="display:none;">
+<template name="listaImplemTeamDoubleModal">
+    <div id="listaImplemTeamDouble" class="modal fade" tabindex="-1" data-width="2960"  style="display:none;">
         <div class="modal-dialog">
             <div class="modal-content">
-                {{> listZespolRealizacyjnyDoubleModalInner}}
+                {{> listaImplemTeamDoubleModalInner}}
             </div>
         </div>
     </div>
 </template>
 
-<template name="listZespolRealizacyjnyDoubleModalInner">
+<template name="listaImplemTeamDoubleModalInner">
     <div class="modal-header">
         <h4>
 <!--Wybierz Zespół Realizacyjny-->
-{{_ 'listZespolRealizacyjnyDoubleModalInner.izdSelectTheAppropriateImplTeamForTheIssue'}}</h4>
+{{_ 'listaImplemTeamDoubleModalInner.izdSelectTheAppropriateImplTeamForTheIssue'}}</h4>
     </div>
 
     <div class="modal-body" id="modalBody">
@@ -35,7 +35,7 @@
  <!--Powrót-->
 <input type="submit" data-dismiss="modal" class="btn btn-default" id="powrotButton" value="{{_ 'glob.Return'}}"/>
  <!--Rezygnuj-->
-<input type="submit" data-dismiss="modal" class="btn btn-danger" id="anulujButton" value="{{_ 'listZespolRealizacyjnyDoubleModalInner.izdResign'}}"/>
+<input type="submit" data-dismiss="modal" class="btn btn-danger" id="anulujButton" value="{{_ 'listaImplemTeamDoubleModalInner.izdResign'}}"/>
             </div>
         </div>
     </div>

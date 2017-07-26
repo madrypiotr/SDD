@@ -542,13 +542,13 @@
 	"deImCreatingAnewTeamImplementation":"Je crée une nouvelle Equipe de Réalisation",
 	"deIacceptAnIssueForMyTeam":"J'accepte la Question pour ma Equipe"
   },
-  "listZespolRealizacyjnyModalInner":{
+  "listaImplemTeamModalInner":{
 	"lzrImplementation teams":"Equipes de Réalisation"
   },
   "zespolOptionsTemplate":{
 	"zotPleaseMentionImplTeam":"Formez une ER"
   },
-  "listZespolRealizacyjnyDoubleModalInner":{
+  "listaImplemTeamDoubleModalInner":{
 	"izdSelectTheAppropriateImplTeamForTheIssue":"Indiquez l'ER adaptée à cette Question. La Question sera acceptée por la réalisation à condition, que vous êtes le Membre de l'Equipe. Cherchez donc votre Equipe de Réalisation ou revenez pour créer une nouvelle Equipe.",
 	"izdResign":"Résignez"
   },

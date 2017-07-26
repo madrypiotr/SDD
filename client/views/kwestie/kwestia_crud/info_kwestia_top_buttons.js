@@ -22,7 +22,7 @@ Template.kwestiaTopButtons.helpers({
         return typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ? true : false;
     },
     isInZR:function(idZR){
-        var zr=ZespolRealizacyjny.findOne({_id:idZR});
+        var zr=aImplemTeam.findOne({_id:idZR});
         return _.contains(zr.zespol,Meteor.userId()) ? true : false;
     },
     isZrealizowanaChangeParamsGlosowana:function(typ,status){

@@ -234,11 +234,11 @@ Meteor.publish('language', function (id) {
 //ZESPOL REALIZACYJNY
 
 Meteor.publish('zespolyRealizacyjne', function(){
-    return ZespolRealizacyjny.find({});
+    return aImplemTeam.find({});
 });
 
 Meteor.publish('zespolRealizacyjny', function(id){
-    return ZespolRealizacyjny.find({_id:id});
+    return aImplemTeam.find({_id:id});
 });
 
 Meteor.publish('zespolyRealizacyjneDraft', function(){

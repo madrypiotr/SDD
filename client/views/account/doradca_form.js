@@ -141,7 +141,7 @@ addUserDraftDoradca=function(newUser){
 };
 
 addKwestiaOsobowaDoradca=function(idUserDraft,newUser){
-    var ZR=ZespolRealizacyjny.findOne({_id:"jjXKur4qC5ZGPQkgN"});
+    var ZR=aImplemTeam.findOne({_id:"jjXKur4qC5ZGPQkgN"});
     var newZR=[{
         nazwa:ZR.nazwa,
         idZR:ZR._id,
@@ -171,7 +171,7 @@ addKwestiaOsobowaDoradca=function(idUserDraft,newUser){
                     wartoscPriorytetuWRealizacji: 0,
                     idTemat: Temat.findOne({})._id,
                     idRodzaj: Rodzaj.findOne({})._id,
-                    idZespolRealizacyjny: ret,
+                    idaImplemTeam: ret,
                     dataGlosowania: null,
                     krotkaTresc: TAPi18n.__('txv.APPLY_SYSTEM') + newUser[0].userType,
                     szczegolowaTresc: daneAplikanta,

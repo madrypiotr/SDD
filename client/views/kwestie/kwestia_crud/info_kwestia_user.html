@@ -17,7 +17,7 @@
 	{{> issueDetails}}
     </div>
     <div role="tabpanel" class="tab-pane" id="manageZRIssue"><br />
-	{{> issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
+	{{> issueManageZR idaImplemTeam=idaImplemTeam}}
 		<div class="footer">
 		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.ImplemTeam"}} </div>
 			<div id="container">
@@ -37,7 +37,7 @@
         {{else}}
             {{>issueDetails}}
         {{/if}}
-            {{>zrModalCurrentIssueMyResolutions idZespolRealizacyjny=idZespolRealizacyjny }}
+            {{>zrModalCurrentIssueMyResolutions idaImplemTeam=idaImplemTeam }}
     {{else}}
         {{>issueDetails}}
     {{/if}}
@@ -132,7 +132,7 @@
             idParent=idParent
             idKwestia=_id
             czyAktywny=czyAktywny
-            idZespolRealizacyjny=idZespolRealizacyjny
+            idaImplemTeam=idaImplemTeam
             }}
         </div>
 
@@ -165,7 +165,7 @@
             {{#unless isIssueArchiwalna}}
             {{#unless isGlobalParamChange}}
                 {{>ZRTemplate
-                idZR=idZespolRealizacyjny
+                idZR=idaImplemTeam
                 status=status
                 idKwestia=_id
                 czyAktywny=czyAktywny
@@ -203,9 +203,9 @@
     {{> GlobalNotifications}}
     {{#unless helperObserver}}
         {{> addNazwaModal}}
-        {{> listZespolRealizacyjnyModal}}
+        {{> listaImplemTeamModal}}
         {{>decyzjaModal}}
-        {{>listZespolRealizacyjnyDoubleModal}}
+        {{>listaImplemTeamDoubleModal}}
     {{/unless}}
 
 <!-- pageInfo in footer -->
@@ -256,8 +256,8 @@
 </template>
 
 <template name="issueManageZR">
-    <input type="hidden" id="idZR" value="{{idZespolRealizacyjny}}"/>
-    <legend>{{getZRName idZespolRealizacyjny zespol}}</legend>
+    <input type="hidden" id="idZR" value="{{idaImplemTeam}}"/>
+    <legend>{{getZRName idaImplemTeam zespol}}</legend>
     <br/>
     <div class="row">
         <div class="col-md-12">
@@ -274,7 +274,7 @@
 
 
 <template name="zrOptions">
-    {{idZespolRealizacyjny}}
+    {{idaImplemTeam}}
     <div >
         {{#if currentUser _id}}
             

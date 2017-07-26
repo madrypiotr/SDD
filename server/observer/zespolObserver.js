@@ -26,7 +26,7 @@ Meteor.startup(function(){
     zespoly.observe({
         changedAt: function(newZespol, oldZespol, atIndex) {
             var kworum = liczenieKworumZwykle();
-            var kwestia = Kwestia.findOne({czyAktywny: true, idZespolRealizacyjny: newZespol._id});
+            var kwestia = Kwestia.findOne({czyAktywny: true, idaImplemTeam: newZespol._id});
             if (kwestia != null) {
                 if(kwestia.wartoscPriorytetu > 0 && kwestia.glosujacy.length >= kworum && newZespol.zespol.length >= 3 && kwestia.status != KWESTIA_STATUS.REALIZOWANA){
                     if(kwestia.status == KWESTIA_STATUS.DELIBEROWANA){
