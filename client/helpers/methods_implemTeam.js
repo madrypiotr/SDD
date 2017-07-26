@@ -1,8 +1,8 @@
-//## Methods for adding members to Implementing Teams and creating I.T.
+//## Methods for adding members to Implementing Teams and creating IT
 
-isUserCountInImplemTeamNotification = function(id, zespolTab, numberOfMembers) {
+isUserCountInImplemTeamNotification = function(id, teamTab, numberOfMembers) {
 	// 
-	if (zespolTab.length == 3) {
+	if (teamTab.length == 3) {
 		var komunikat = TAPi18n.__('txv.ITS_ALREADY') + numberOfMembers + TAPi18n.__('txv.MEMBERS_OF_IMPL_TEAM');
 		GlobalNotification.error({
 			title: TAPi18n.__('txv.ERROR'),
@@ -85,9 +85,9 @@ addCzlonekToZespolRealizacyjnyNotification = function(idUser, teamToUpdate, numb
 	}
 };
 
-isUserInImplemTeamNotification = function(id, zespolTab) {
+isUserInImplemTeamNotification = function(id, teamTab) {
 	// information about adding to the Team
-	if (_.contains(zespolTab, id)) {
+	if (_.contains(teamTab, id)) {
 		GlobalNotification.error({
 			title: TAPi18n.__('txv.ERROR'),
 			content: TAPi18n.__('txv.YOU_ARE_ALREADY_IN_THE_IMP_TEAM'),

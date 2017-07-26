@@ -57,7 +57,7 @@ Template.ZRTemplate.helpers({
     getZRCzlonkowie:function(idZR,status){
         var zespol=null;
         var text=null;
-        if(status==KWESTIA_STATUS.GLOSOWANA || status==KWESTIA_STATUS.OSOBOWA || status==KWESTIA_STATUS.OCZEKUJACA) {
+        if(status==KWESTIA_STATUS.GLOSOWANA || status==KWESTIA_STATUS.OSOBOWA || status==KWESTIA_STATUS.OCZEKUJACA || status==KWESTIA_STATUS.STATUSOWA) {
             zespol = ImplemTeamDraft.findOne({_id: idZR});
         }
         else {
@@ -120,11 +120,11 @@ Template.ZRTemplate.events({
             }
         }
     },
-    'click #czlonek2': function () {
+    'click #czlonek2': function () { 
 
         teamId=this.idZR;
         var idUser=checkIfInIT(teamId,Meteor.userId());
-        if(idUser==Meteor.userId()) {// That means I'm already in the band and I can give up
+        if(idUser==Meteor.userId()) { // That means I'm already in the band and I can give up
             unsubscribeITAlert(checkIfInIT(teamId,Meteor.userId()),this.idKwestia);
         }
         else {
