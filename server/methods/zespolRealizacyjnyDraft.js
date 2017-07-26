@@ -1,10 +1,10 @@
 Meteor.methods({
-    addImplemTeamDraft: function (newZespol) {
+    addImplemTeamDraft: function (newTeam) {
 
         var id = ImplemTeamDraft.insert({
-            nazwa: newZespol[0].nazwa,
-            zespol:newZespol[0].zespol,
-            idZR:newZespol[0].idZR
+            nazwa: newTeam[0].nazwa,
+            zespol:newTeam[0].zespol,
+            idZR:newTeam[0].idZR
         });
         return id;
     },

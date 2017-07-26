@@ -35,7 +35,7 @@ Template.addNazwaModal.events({
 
         var idKwestia=this._id;
         var nazwa = document.getElementById('nazwaZR').value;
-        var zespoly = ZespolRealizacyjny.find({czyAktywny:true});
+        var aTeams = ZespolRealizacyjny.find({czyAktywny:true});
         if (nazwa.toLowerCase().trim() =="") {
             $('#nazwaZR').css("visibility", "visible");
             GlobalNotification.error({
@@ -47,7 +47,7 @@ Template.addNazwaModal.events({
         else {
             var found = false;
             var text = TAPi18n.__('txv.IMPLEMENTATION_TEAM_FOR') + nazwa;
-            zespoly.forEach(function(zespol){
+            aTeams.forEach(function(zespol){
                 if (_.isEqual(zespol.nazwa.toLowerCase().trim(), text.toLowerCase().trim()))
                     found = true;
             });
@@ -67,11 +67,11 @@ Template.addNazwaModal.events({
                     if (zespol) {
                         var tablicaZR = zespol.zespol.slice();
                         tablicaZR.push(Meteor.userId());
-                        var newZespol={
+                        var newTeam={
                             nazwa:text,
                             zespol:tablicaZR
                         };
-                        Meteor.call('updateImplemTeamDraft', kwestia.idZespolRealizacyjny, newZespol, function (error, ret) {
+                        Meteor.call('updateImplemTeamDraft', kwestia.idZespolRealizacyjny, newTeam, function (error, ret) {
                             if (error) {
                                 if (typeof Errors === "undefined")
                                     Log.error(TAPi18n.__('txv.ERROR') + error.reason);

@@ -130,11 +130,11 @@ addMemberToImplemTeamNotificationNew = function(idUser, teamToUpdate, numberOfMe
 		teamToUpdate.push(idUser);
 		var flag = false;
 		var arrayTeamsDouble = [];
-		var zespoly = ZespolRealizacyjny.find({
+		var aTeams = ZespolRealizacyjny.find({
 			czyAktywny: true
 		});
-		if (zespoly) {
-			zespoly.forEach(function(zespol) {
+		if (aTeams) {
+			aTeams.forEach(function(zespol) {
 				var i = 0;
 				_.each(zespol.zespol, function(teamItem) {
 					// for each current item from the current team
