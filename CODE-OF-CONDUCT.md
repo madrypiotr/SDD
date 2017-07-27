@@ -41,6 +41,7 @@ Project keepers who do not follow Code of Conduct in good faith may receive repe
 
 ---
 
+[View in clearer version (SVG)](http://www.karolbunsch.pl/SDD_TIMELINE.svg)
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.jpg) 
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 

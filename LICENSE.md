@@ -1000,6 +1000,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 END OF TERMS AND CONDITIONS
 ```
 
+[View in clearer version (SVG)](http://www.karolbunsch.pl/SDD_TIMELINE.svg)
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.jpg) 
 
 Go to [README] | [CHANGELOG] | [CONTRIBUTING] | [CODE OF CONDUCT] 
