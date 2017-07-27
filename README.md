@@ -48,7 +48,7 @@ We still have to do finishing work and usability.**
 
 
 ---
-[View SDD TIMELINE](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg)
+### View SDD TIMELINE - [SVG](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg)
 
 Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
