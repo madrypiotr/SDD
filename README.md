@@ -49,6 +49,8 @@ We still have to do finishing work and usability.**
 
 ---
 
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.jpg) 
+
 Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
 ---

@@ -41,6 +41,8 @@ Project keepers who do not follow Code of Conduct in good faith may receive repe
 
 ---
 
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.jpg) 
+
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 
 
 ---

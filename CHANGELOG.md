@@ -43,14 +43,14 @@ Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 ### [0.1.0] – 2017-02-25 **Added**
 * THE FIRST OPERATION OF THE WORKING VERSION.
 
-
-
 ---
 > All notable changes to this project will be documented in this file.
 > The format is based on [Keep a Changelog](http://keepachangelog.com/)
 > and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ---
+
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.jpg) 
 
 Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 

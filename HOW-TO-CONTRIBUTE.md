@@ -97,6 +97,8 @@ Template.discussionPostForm.helpers({
 
 ---
 
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.jpg) 
+
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 
 
 ---
