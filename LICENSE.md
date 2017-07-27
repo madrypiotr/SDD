@@ -1000,6 +1000,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 END OF TERMS AND CONDITIONS
 ```
 
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE_part.jpg)
 ### See all TIMELINE - [SVG](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg)
 
 Go to [README] | [CHANGELOG] | [CONTRIBUTING] | [CODE OF CONDUCT] 

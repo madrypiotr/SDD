@@ -90,6 +90,7 @@ Włodzimierz Zydorczak,
 
 **If someone inadvertently omitted, please let us know.**
 
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE_part.jpg)
 ### See all TIMELINE - [SVG](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg)
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT] 
