@@ -48,7 +48,7 @@ We still have to do finishing work and usability.**
 
 
 ---
-[View in clearer version (SVG)](http://www.karolbunsch.pl/SDD_TIMELINE.svg)
+[View in clearer version (SVG)](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg)
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.jpg) 
 
 Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
