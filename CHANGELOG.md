@@ -50,7 +50,7 @@ Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 
 ---
 
-![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.jpg) 
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg) 
 
 Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
