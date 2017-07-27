@@ -46,6 +46,16 @@ We still have to do finishing work and usability.**
 
 #### **So ... what these panels do:**
 
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panel_issues.jpg) 
+
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panel_voting.jpg) 
+
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panel_exec.jpg) 
+
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panel_arch.jpg) 
+
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panel_set.jpg) 
+
 
 ---
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE_part.jpg)
