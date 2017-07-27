@@ -90,8 +90,7 @@ Włodzimierz Zydorczak,
 
 **If someone inadvertently omitted, please let us know.**
 
-[View in clearer version (SVG)](http://www.karolbunsch.pl/SDD_TIMELINE.svg)
-![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.jpg) 
+[View SDD TIMELINE](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg)
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT] 
 
