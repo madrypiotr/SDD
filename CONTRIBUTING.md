@@ -93,8 +93,8 @@ Włodzimierz Zydorczak,
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE_part.jpg)
 ### See all TIMELINE - [SVG](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg)
 
+---
 Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT] 
-
 ---
 ###### (c) 2013-2017, PM & Partners. All rights reserved.
 
