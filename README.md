@@ -46,7 +46,7 @@ We still have to do finishing work and usability.**
 
 #### **So ... what these panels do:**
 panel | a description of the action |
-|--------------|--------------------------------------------------------------------------------------|
+|-----------------------|--------------------------------------------------------------------------------------|
 | ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panel_issues.jpg) | Here you will get every idea, proposal, problem to solve. We call it the Issue. Here you will get every idea, proposal, problem to solve. We call it the Issue. It has many statuses On startup it is set to active as "deliberate". Issues receive priority points from users (-5 to +5). They are on the list arranged according to the values of the sum of priorities. Issues with the highest priority go to the next panel - Voting. |
 | ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panel_voting.jpg) | txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt  | 
 | ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/panel_exec.jpg) | txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt txt  |  
