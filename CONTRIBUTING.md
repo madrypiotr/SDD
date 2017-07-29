@@ -27,6 +27,10 @@ Marzena Smoleń (OneBI),
 Bartłomiej Szewczyk (OneBI), 
 Michał Wanat (WanWeb), 
 
+* **Translators:** 
+Renek Książkiewicz (English), 
+Jacek Lesinski (French). 
+
 * **Supporting donations:** 
 Tomasz Butrym, 
 Zbigniew Drobniak, 
