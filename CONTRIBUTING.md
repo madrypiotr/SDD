@@ -16,6 +16,7 @@ proSDD.
 # People who are grateful for the development of this system.
 ---
 * **Developers:** 
+Tomasz (Comandeer) Jakut
 Konrad Komada, 
 Damian Kwaśny (OneBI), 
 Maciej Łabędzki, 
