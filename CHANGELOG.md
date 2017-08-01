@@ -7,8 +7,17 @@ Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 # SDD changelog
 
 ---
-### [0.3.5] – 2017-- **Unreleased**
+### [0.3.6] – 2017-- **Unreleased**
 >###### 
+---
+### [0.3.5] – 2017-08-01 **Added**
+* README,
+* CONTRIBUTING
+* HOW-TO-CONTRIBUTE
+* CODE OF CONDUCT
+* CHANGELOG
+* LICENSE
+>###### Add and add to the repository files explaining the application.
 ---
 ### [0.3.4] – 2017-07-15 **Removed**
 * Resignation from the rankings
