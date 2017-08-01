@@ -17,7 +17,7 @@ Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 * CODE OF CONDUCT
 * CHANGELOG
 * LICENSE
->###### Add and add to the repository files explaining the application.
+>###### Adding files that explain the application.
 ---
 ### [0.3.4] – 2017-07-15 **Removed**
 * Resignation from the rankings
