@@ -105,22 +105,9 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 ---
 ###### ( c ) 2013-2017, PM & Partners. All rights reserved.
 
-[SDD]: http://sdd.ha.pl
-[SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
-[Download the SDD source code]: https://github.com/madrypiotr/SDD
-[Install the METEOR]: https://www.meteor.com/install
-[METEOR]: https://github.com/meteor/meteor
-[MongoDB]: https://github.com/mongodb
-[NodeJS]: https://github.com/nodejs/node/blob/master/LICENSE
-[HTML5]: https://www.w3.org/2011/03/html-license-options.html
-[jQuery]: https://github.com/jquery/jquery/blob/master/LICENSE.txt
-[Bootstrap]: https://github.com/twbs/bootstrap
 [README]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
-[How to contribute]: https://github.com/madrypiotr/SDD/blob/master/README.md
-[WanWeb]: http://ha.pl/#contact
-[OneBI]: http://www.onebi.eu
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
 [Issues]: https://github.com/madrypiotr/SDD/issues

@@ -16,21 +16,21 @@ proSDD.
 # People who are grateful for the development of this system.
 ---
 * **Developers:** 
-Tomasz (Comandeer) Jakut
+Tomasz Jakut (**Comandeer**), 
 Konrad Komada, 
 Damian Kwaśny (OneBI), 
 Maciej Łabędzki, 
 Konrad Mazurkiewicz (OneBI), 
-Piotr Mądry (project manager), 
+Piotr Mądry (**project manager**), 
 Filip Rembiałkowski (OneBI), 
 Karolina Salamon (OneBI), 
 Marzena Smoleń (OneBI), 
 Bartłomiej Szewczyk (OneBI), 
-Michał Wanat (WanWeb), 
+Michał Wanat (**WanWeb**), 
 
 * **Translators:** 
-Renek Książkiewicz (English), 
-Jacek Lesinski (French). 
+Renek Książkiewicz (**English**), 
+Jacek Lesinski (**French**). 
 
 * **Supporting donations:** 
 Tomasz Butrym, 
@@ -103,16 +103,6 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT]
 ---
 ###### (c) 2013-2017, PM & Partners. All rights reserved.
 
-[SDD]: http://sdd.ha.pl
-[SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
-[Download the SDD source code]: https://github.com/madrypiotr/SDD
-[Install the METEOR]: https://www.meteor.com/install
-[METEOR]: https://github.com/meteor/meteor
-[MongoDB]: https://github.com/mongodb
-[NodeJS]: https://github.com/nodejs/node/blob/master/LICENSE
-[HTML5]: https://www.w3.org/2011/03/html-license-options.html
-[jQuery]: https://github.com/jquery/jquery/blob/master/LICENSE.txt
-[Bootstrap]: https://github.com/twbs/bootstrap
 [README]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
