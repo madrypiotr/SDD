@@ -1,17 +1,17 @@
-Template.activateAccount.rendered=function(){
-    var currentRoute=Router.current().params;
-    var userD=UsersDraft.findOne({linkAktywacyjny:currentRoute.linkAktywacyjny});
-    if(userD){
-        var clickedLinkCount=userD.licznikKlikniec+1;
-        Meteor.call("updateLicznikKlikniec",userD._id,clickedLinkCount,function(error){
-            if(!error){
-                var userDraft=UsersDraft.findOne({linkAktywacyjny:currentRoute.linkAktywacyjny,czyAktywny:true});
-                if(userDraft) {
-                    Meteor.call("serverGenerateLogin",
+Template.activateAccount.rendered=function () {
+    var currentRoute=Router.current ().params;
+    var userD=UsersDraft.findOne ( {linkAktywacyjny:currentRoute.linkAktywacyjny } );
+    if ( userD ) {
+        var clickedLinkCount=userD.licznikKlikniec + 1;
+        Meteor.call ( "updateLicznikKlikniec",userD._id,clickedLinkCount,function ( error ) {
+            if ( !error ) {
+                var userDraft=UsersDraft.findOne ( {linkAktywacyjny:currentRoute.linkAktywacyjny,czyAktywny: true } );
+                if ( userDraft ) {
+                    Meteor.call ( "serverGenerateLogin",
                         userDraft.profile.firstName,
                         userDraft.profile.lastName,
-                        function(err, ret){
-                        if(!err){
+                        function ( err, ret ) {
+                        if ( !err ) {
                             var newUser = [
                                 {
                                     email: userDraft.email,
@@ -28,72 +28,72 @@ Template.activateAccount.rendered=function(){
                                     pesel:userDraft.profile.pesel
                                 }];
                             newUser[0].login = ret;
-                            newUser[0].fullName=newUser[0].firstName+" "+newUser[0].lastName;
-                            newUser[0].password=CryptoJS.MD5(newUser[0].login).toString();
+                            newUser[0].fullName=newUser[0].firstName + " " + newUser[0].lastName;
+                            newUser[0].password=CryptoJS.MD5 ( newUser[0].login ).toString ();
                             newUser[0].confirm_password=newUser[0].password;
 
-                            Meteor.call('addUser', newUser, function (error,ret) {
-                                if (error) {
-                                    throwError(error.reason);
+                            Meteor.call ( 'addUser', newUser, function ( error,ret ) {
+                                if ( error ) {
+                                    throwError ( error.reason );
                                 }
                                 else {
                                     var idUser=ret;
-                                    Meteor.call("removeUserDraftAddNewIdUser", userDraft._id,idUser, function (error) {
-                                        if (error)
-                                            throwError(error.reason);
+                                    Meteor.call ( "removeUserDraftAddNewIdUser", userDraft._id,idUser, function ( error ) {
+                                        if ( error )
+                                            throwError ( error.reason );
                                         else{
-                                            Meteor.call("sendFirstLoginData",idUser,newUser[0].password,function(error){
-                                                if(error){
-                                                    bootbox.alert(TAPi18n.__('txv.ALERT_LOG1') + TAPi18n.__('txv.ALERT_LOG2') + TAPi18n.__('txv.ALERT_LOG3'));
+                                            Meteor.call ( "sendFirstLoginData",idUser,newUser[0].password,function ( error ) {
+                                                if ( error ) {
+                                                    bootbox.alert ( TAPi18n.__ ( 'txv.ALERT_LOG1' ) + TAPi18n.__ ( 'txv.ALERT_LOG2' ) + TAPi18n.__ ( 'txv.ALERT_LOG3' ) );
                                                     var emailError = {
                                                         idUserDraft: userDraft._id,
                                                         type: NOTIFICATION_TYPE.FIRST_LOGIN_DATA
                                                     };
-                                                    Meteor.call("addEmailError", emailError);
+                                                    Meteor.call ( "addEmailError", emailError );
                                                 }
 
-                                            })
+                                            } )
                                         }
-                                    });
+                                    } );
                                 }
-                            });
+                            } );
                         }else{
-                            throwError(err.reason);
+                            throwError ( err.reason );
                         }
-                    });
+                    } );
                 }
             }
             else{
-                throwError(error.reason);
+                throwError ( error.reason );
             }
-        });
+        } );
     }
 
 };
-Template.activateAccount.helpers({
-    activatedAccountRightNow:function(){
-        var currentRoute=Router.current().params;
-        var userDraft=UsersDraft.findOne({linkAktywacyjny:currentRoute.linkAktywacyjny});
-        if(userDraft)
+Template.activateAccount.helpers ( {
+    activatedAccountRightNow: function () {
+        var currentRoute=Router.current ().params;
+        var userDraft=UsersDraft.findOne ( {linkAktywacyjny:currentRoute.linkAktywacyjny } );
+        if ( userDraft )
             return userDraft.licznikKlikniec==1 ? true : false;
         return true;
     },
-    notActivatedAccount:function(){
-        var currentRoute=Router.current().params;
-        var userDraft=UsersDraft.findOne({linkAktywacyjny:currentRoute.linkAktywacyjny});
-        if(userDraft)
+    notActivatedAccount: function () {
+        var currentRoute=Router.current ().params;
+        var userDraft=UsersDraft.findOne ( {linkAktywacyjny:currentRoute.linkAktywacyjny } );
+        if ( userDraft )
             return userDraft.czyAktywny==true && userDraft.licznikKlikniec==0 ? true : false;
         return true;
     },
-    link:function(){
-        return Meteor.absoluteUrl()+'account/login';
+    link: function () {
+        return Meteor.absoluteUrl () + 'account/login';
     },
-    notFound: function(){
-        var currentRoute=Router.current().params;
-        if(UsersDraft.findOne({linkAktywacyjny:currentRoute.linkAktywacyjny})){
+    notFound: function () {
+        var currentRoute=Router.current ().params;
+        if ( UsersDraft.findOne ( {linkAktywacyjny:currentRoute.linkAktywacyjny } ) ) {
             return false;
         }else {
             return true;
         }
     }
-});
+ } );

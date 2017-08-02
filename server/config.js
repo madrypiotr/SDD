@@ -1,16 +1,16 @@
-Accounts.config({
+Accounts.config ( {
     forbidClientAccountCreation: true,
     loginExpirationInDays: null
-});
+ } );
 
-Users.deny({
-    insert: function(){
+Users.deny ( {
+    insert: function () {
         return true;
     },
     update: function () {
         return true;
     },
-    remove: function(){
+    remove: function () {
         return true;
     }
-});
+ } );

@@ -16,49 +16,49 @@ Add the notifications helper to your layout template, somehwere in the body
 Then show notification use it like this:
 
     // types Notifications.info, Notifications.warning, Notifications.success, Notifications.error
-    GlobalNotification.info({
+    GlobalNotification.info ( {
         title: 'My Title',
         content: 'My Text',
         duration: 2 // duration the notification should stay in seconds
-    });
+    } );
 
 You can also just pass a string, then it will simply show that text:
 
-    GlobalNotification.warning('My Text');
+    GlobalNotification.warning ( 'My Text' );
 
 Additionally you can localize your message if you have the `tap:i18n` package add to your app by just passing the localization string:
 
-    GlobalNotification.error({
+    GlobalNotification.error ( {
         title: 'i18n:my.localized.title',
         content: 'i18n:my.localized.text'
-    });
+    } );
 
 Hide Notifications
 ==================
 
 The `GlobalNotification` function returns the ID of the notification, which you can use to hide this specific notification programatically:
 
-    var myNotificationId = GlobalNotification.warning('My Text');
+    var myNotificationId = GlobalNotification.warning ( 'My Text' );
     // ...
-    GlobalNotification.hide(myNotificationId);
+    GlobalNotification.hide ( myNotificationId );
 
 To hide all notifications call:
 
-    GlobalNotifications.hideAll();
+    GlobalNotifications.hideAll ();
 
 *Note:* You can use `GlobalNotification` or `GlobalNotifications`, they are interchangeable and for your convienience.
 
 You can also pass the `closeable: false` option, to prevent that the user can close the notification.
 Though if you don't pass a `duration` as well the notification will never disappear, until you hide it programatically!
 
-    var myNotificationId = GlobalNotification.info({
+    var myNotificationId = GlobalNotification.info ( {
         content: 'Loading...',
         closeable: false
-    });
+    } );
 
     // do something
 
-    GlobalNotification.hide(myNotificationId);
+    GlobalNotification.hide ( myNotificationId );
 
 Order of appearance
 ===================
@@ -81,19 +81,19 @@ If the `ok` or `cancel` functions returns `true` the notification will hide on c
 When you pass any ok or cancel function the notification will not hide when clicked, except you pass explicitly `closeable: true`.
 This allows you to control the disappearance.
 
-    GlobalNotification.warning({
+    GlobalNotification.warning ( {
         content: 'You really want to delete this',
-        ok: function(){
+        ok: function () {
             // do something
             return true;
         },
         okText: 'Delete all', // default is "OK"
-        cancel: function(){
+        cancel: function () {
             // do something
             return true;
         },
         cancelText: 'Do nothing' // default is "Cancel"
-    });
+    } );
 
 
 Styling
@@ -173,11 +173,11 @@ The `type` class is either "info", "warning", "error" or "success".
          transition: transform @animationSpeed linear, transform 0.4s 0.2s ease;
 
         &.animate {
-            -webkit-transform: translateX(1000px);
-            -moz-transform: translateX(1000px);
-            -ms-transform: translateX(1000px);
-            -o-transform: translateX(1000px);
-            transform: translateX(1000px);
+            -webkit-transform: translateX ( 1000px );
+            -moz-transform: translateX ( 1000px );
+            -ms-transform: translateX ( 1000px );
+            -o-transform: translateX ( 1000px );
+            transform: translateX ( 1000px );
         }
 
         h1 {

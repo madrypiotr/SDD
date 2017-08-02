@@ -1,5 +1,5 @@
-Template.menu.helpers({
-    isAdminUser: function() {
-        return IsAdminUser();
+Template.menu.helpers ( {
+    isAdminUser: function () {
+        return IsAdminUser ();
     }
-});
+ } );

@@ -1,7 +1,7 @@
-//## Local (client-only) collection
+//## Local ( client-only ) collection
 
-Errors = new Mongo.Collection(null);
+Errors = new Mongo.Collection ( null );
 
-throwError = function(message) {
-  Errors.insert({message: message})
+throwError = function ( message ) {
+  Errors.insert ( {message: message } )
 }
