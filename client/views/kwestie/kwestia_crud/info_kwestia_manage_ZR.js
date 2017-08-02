@@ -32,7 +32,7 @@ Template.ZRTemplate.helpers ( {
         return getCzlonekFullName ( 2,idZR,"ZRDraft" );
     },
     isActualUser: function ( index,idZR ) {
-        var userID=getZRData ( index,idZR,"ZRDraft" );
+        var userID=getImplTeamData ( index,idZR,"ZRDraft" );
         if ( userID ) {
             if ( userID!=Meteor.userId () )
                 return "disabled";
@@ -98,9 +98,9 @@ Template.ZRTemplate.helpers ( {
 Template.ZRTemplate.events ( {
     'click #czlonek1': function () {
         teamId=this.idZR;
-        var idUser=getZRData ( 0, this.idZR,"ZRDraft" );
+        var idUser=getImplTeamData ( 0, this.idZR,"ZRDraft" );
         if ( idUser==Meteor.userId () ) {
-            unsubscribeITAlert ( getZRData ( 0,teamId,"ZRDraft" ), this.idKwestia );
+            unsubscribeITAlert ( getImplTeamData ( 0,teamId,"ZRDraft" ), this.idKwestia );
         }
         else {
             var z = ImplemTeamDraft.findOne ( { _id: teamId } );

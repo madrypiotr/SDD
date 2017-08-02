@@ -191,7 +191,7 @@ addMemberToImplemTeamNotificationNew = function ( idUser, teamToUpdate, numberOf
 
 getCzlonekFullName = function ( number, idZR, ZRType ) {
 	// Team Member data
-	var userID = getZRData ( number, idZR, ZRType );
+	var userID = getImplTeamData ( number, idZR, ZRType );
 	if ( userID ) {
 		var user = Users.findOne ( {
 			_id: userID
@@ -202,7 +202,7 @@ getCzlonekFullName = function ( number, idZR, ZRType ) {
 	}
 };
 
-getZRData = function ( number, idZR, ZRType ) {
+getImplTeamData = function ( number, idZR, ZRType ) {
 	// Recognizing the status of the Implementation team
 	var z = null;
 	if ( ZRType == "ZRDraft" ) z = ImplemTeamDraft.findOne ( {
