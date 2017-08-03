@@ -1,4 +1,4 @@
-![] ( https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg ) 
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg) 
 
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
@@ -16,7 +16,7 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 
 ### Code of this app ...
 * it is in the final phase of documentation development,
-* there are no implemented tests ![] ( https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/help-wanted.jpg ) 
+* there are no implemented tests ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/help-wanted.jpg) 
 * Other needs - see [Issues]
 
 ### The Issue starts its life ( template )
@@ -97,8 +97,8 @@ Template.discussionPostForm.helpers ( {
 
 ---
 
-![] ( https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE_part.jpg )
-### See all TIMELINE - [SVG] ( https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg )
+![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE_part.jpg)
+### See all TIMELINE - [SVG] ( https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/SDD_TIMELINE.svg)
 
 ---
 Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 
