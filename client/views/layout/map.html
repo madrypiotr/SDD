@@ -8,8 +8,14 @@
 				{{#if currentUser}}
 				{{#if isZwyczajnyLogged}}
 -->
-			<p class="fontSizeMore">M A P A</p>
-			<br><br><br>
+
+            <p class="fontSizeMore">M A P A</p>
+
+            <div class="main-map-container">
+                {{> googleMap name="mainMap" options=mapOptions}}
+            </div>
+
+			<br><br>
 			<p>Tu użytkownik zobaczy mapę instancji 
 			<br>(organizacji używających poszczególne SDD) 
 			<br> rozlokowanych na podstawie danych adresowych 
