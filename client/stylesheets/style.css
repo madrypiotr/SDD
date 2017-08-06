@@ -652,3 +652,9 @@ body #addRRModal .modal-dialog{
 	font-size: 11px;
 	margin: 10px;
 }
+
+.main-map-container {
+    width: 60%;
+    height: 300px;
+    margin: 0 auto;
+}
