@@ -6,15 +6,15 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT]
 
 # SUPPORT:
 ---
-* **Trainers:**
-Tomasz Jakut (**[Comandeer]**).
-
 * **programming companies:** 
-[OneBI],
-[WanWeb].
+**[OneBI]**,
+**[WanWeb]**.
 
 * **Supporting organizations:** 
-proSDD. 
+**proSDD**. 
+
+* **Trainers:**
+Tomasz Jakut (**[Comandeer]**).
 
 # People who are grateful for the development of this system.
 ---
