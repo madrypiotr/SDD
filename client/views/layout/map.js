@@ -1,9 +1,7 @@
-Template.map.onRendered(function () {
-    GoogleMaps.load();
-    GoogleMaps.ready('mainMap', function (map) {
-        console.log('ready');
-    });
-});
+// Template.map.onRendered(function () {
+//     GoogleMaps.ready('mainMap', function (map) {
+//     });
+// });
 
 Template.map.helpers({
     isAdminUser: function () {
