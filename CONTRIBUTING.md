@@ -6,17 +6,19 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT]
 
 # SUPPORT:
 ---
+* **Trainers:**
+Tomasz Jakut (**[Comandeer]**).
+
 * **programming companies:** 
-[OneBI] ,
+[OneBI],
 [WanWeb].
 
-* **supporting organizations:** 
+* **Supporting organizations:** 
 proSDD. 
 
 # People who are grateful for the development of this system.
 ---
 * **Developers:** 
-Tomasz Jakut (**Comandeer**), 
 Konrad Komada, 
 Damian Kwaśny (OneBI), 
 Maciej Łabędzki, 
@@ -110,4 +112,5 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT]
 [WanWeb]: http://ha.pl/#contact
 [OneBI]: http://www.onebi.eu
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
+[Comandeer]: http://helion.pl/ksiazki/javascript-programowanie-zaawansowane-tomasz-comandeer-jakut,jascpz.htm
 
