@@ -73,7 +73,7 @@ Template.map.onRendered(function () {
 });
 
 var _getInfoContent = function (parametr) {
-    let content = '<div class="parametrInfo">';
+    var content = '<div class="parametrInfo">';
     content += '<div class="parametrRow">';
     content += '<strong>' + parametr.nazwaOrganizacji + '</strong><br />';
     content += '<a href="#" class="btn btn-primary btn-xs js-param-open" data-id="' + parametr._id + '">';
@@ -84,7 +84,7 @@ var _getInfoContent = function (parametr) {
 };
 
 var _getUserInfoContent = function (user) {
-    let content = '<div class="parametrInfo">';
+    var content = '<div class="parametrInfo">';
     content += '<div class="parametrRow">';
     content += '<strong>' + user.profile.firstName + ' ' + user.profile.lastName + '</strong><br />';
     content += '</div>';
