@@ -21,6 +21,7 @@ iron:router
 jeremy:selectize
 jparker:crypto-md5
 maazalik:highcharts
+matb33:collection-hooks
 meteor-accounts-admin-ui-bootstrap-3
 meteor-platform
 meteorhacks:ssr
@@ -37,3 +38,5 @@ tsega:bootstrap3-datetimepicker
 twbs:bootstrap
 u2622:persistent-session
 underscore
+universe:utilities
+webstudiopro:curl
