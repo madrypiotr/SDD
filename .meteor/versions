@@ -55,6 +55,7 @@ livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
 maazalik:highcharts@0.4.0
+matb33:collection-hooks@0.8.1
 meteor@1.1.6
 meteor-accounts-admin-ui-bootstrap-3@0.2.7
 meteor-platform@1.2.2
@@ -99,6 +100,8 @@ twbs:bootstrap@3.3.5
 u2622:persistent-session@0.4.1
 ui@1.0.6
 underscore@1.0.3
+universe:utilities@2.2.2
 url@1.0.4
 webapp@1.2.0
 webapp-hashing@1.0.3
+webstudiopro:curl@0.0.1
