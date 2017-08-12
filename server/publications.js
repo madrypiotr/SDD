@@ -46,6 +46,17 @@ Meteor.publish ( 'usersTypeAndNames', function () {
     } } );
  } );
 
+Meteor.publish('usersMap', function () {
+    return Users.find({
+        'profile.location': {$exists: true}
+    }, {
+        fields: {
+            'profile.fullName': 1,
+            'profile.location': 1
+        }
+    });
+});
+
 Meteor.publish ( 'usersDraft', function () {
     return UsersDraft.find ( { } );
  } );
