@@ -75,8 +75,8 @@ Template.map.onRendered(function () {
 var _getInfoContent = function (parametr) {
     var content = '<div class="parametrInfo">';
     content += '<div class="parametrRow">';
-    content += '<strong>' + parametr.nazwaOrganizacji + '</strong><br />';
-    content += '<a href="#" class="btn btn-primary btn-xs js-param-open" data-id="' + parametr._id + '">';
+    content += '<strong>' + parametr.nazwaOrganizacji + '</strong><br /><br />';
+    content += '<a href="#" class="btn btn-default btn-xs js-param-open" data-id="' + parametr._id + '">';
     content += 'Otwórz';
     content += '</a>';
     content += '</div>';

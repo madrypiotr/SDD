@@ -22,11 +22,17 @@ Meteor.users.after.update(function (userId, doc, fieldNames) {
     }
 });
 
-var updateParametrLocation = function (_id, doc) {
-    var city = doc.terytCity;
-    var address = doc.terytAdres;
+Accounts.onCreateUser(function (options, user) {
+    updateUserLocation(user._id, user);
+    return user;
+});
 
-    getLocation(city, address, function (location) {
+var updateParametrLocation = function (_id, doc) {
+    var city    = doc.terytCity;
+    var address = doc.terytAdres;
+    var zip     = doc.terytCODE;
+
+    getLocation(city, address, zip, function (location) {
         Parametr.direct.update(_id, {
             $set: {
                 terytLocation: location
@@ -36,10 +42,11 @@ var updateParametrLocation = function (_id, doc) {
 };
 
 var updateUserLocation = function (userId, doc) {
-    var city = doc.profile && doc.profile.city;
+    var city    = doc.profile && doc.profile.city;
     var address = doc.profile && doc.profile.address;
+    var zip     = doc.profile && doc.profile.zip;
 
-    getLocation(city, address, function (location) {
+    getLocation(city, address, zip, function (location) {
         Meteor.users.direct.update(userId, {
             $set: {
                 'profile.location': location
@@ -48,12 +55,12 @@ var updateUserLocation = function (userId, doc) {
     });
 };
 
-var getLocation = function (city, address, callback) {
-    if (!city || !address) {
+var getLocation = function (city, address, zip, callback) {
+    if (!zip) {
         return;
     }
 
-    var search = encodeURIComponent(city + ', ' + address);
+    var search = encodeURIComponent(zip); //encodeURIComponent(city + ', ' + address);
     var options = {url: 'https://maps.google.com/maps/api/geocode/json?address=' + search + '&key=' + gmapKey + '&language=pl', include: false};
 
     Curl.request(options, function (err, parts) {
