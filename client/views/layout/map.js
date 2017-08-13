@@ -41,7 +41,10 @@ Template.map.onRendered(function () {
                     markers.push(marker);
                 });
             } else {
-                Meteor.users.find({'profile.location': {$exists: true}}).forEach(function (user) {
+                Meteor.users.find({
+                    'profile.location': {$exists: true},
+                    'profile.fullName': {$exists: true}
+                }).forEach(function (user) {
                     var location = user.profile && user.profile.location;
                     if (!location || !location.lat || !location.lng) {
                         return;
@@ -86,7 +89,7 @@ var _getInfoContent = function (parametr) {
 var _getUserInfoContent = function (user) {
     var content = '<div class="parametrInfo">';
     content += '<div class="parametrRow">';
-    content += '<strong>' + user.profile.firstName + ' ' + user.profile.lastName + '</strong><br />';
+    content += '<strong>' + user.profile.fullName + '</strong><br />';
     content += '</div>';
     return content;
 };
