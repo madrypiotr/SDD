@@ -23,6 +23,10 @@ Meteor.users.after.update(function (userId, doc, fieldNames) {
 });
 
 Accounts.onCreateUser(function (options, user) {
+    if (options.profile) {
+        user.profile = options.profile;
+    }
+
     updateUserLocation(user._id, user);
     return user;
 });
