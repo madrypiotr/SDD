@@ -47,12 +47,11 @@ Meteor.publish ( 'usersTypeAndNames', function () {
  } );
 
 Meteor.publish('usersMap', function () {
-    return Users.find({
-        'profile.location': {$exists: true}
-    }, {
+    return Users.find({}, {
         fields: {
             'profile.fullName': 1,
-            'profile.location': 1
+            'profile.location': 1,
+            'profile.userType': 1
         }
     });
 });
