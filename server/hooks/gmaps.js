@@ -60,7 +60,7 @@ var getLocation = function (city, address, zip, callback) {
         return;
     }
 
-    var search = encodeURIComponent(zip); //encodeURIComponent(city + ', ' + address);
+    var search = encodeURIComponent('Polska,' + zip); //encodeURIComponent(city + ', ' + address);
     var options = {url: 'https://maps.google.com/maps/api/geocode/json?address=' + search + '&key=' + gmapKey + '&language=pl', include: false};
 
     Curl.request(options, function (err, parts) {
