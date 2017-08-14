@@ -959,6 +959,7 @@
 	"WRONG_FORMAT_PID": "Niepoprawny format Numeru PESEL.",
 	"WRONG_NUMBER_PID": "Nieprawidłowy Numer PESEL",
 	"WRONG_FORMAT": "Niepoprawny format.",
+	"WRONG_ZIP_CODE": "Niepoprawny kod pocztowy.",
 	"THE_FIELD_IS_REQUIRED": "Pole jest wymagane",
 	"FILL_IN_THE_FIELD": "Uzupełnij pole ",
 	"PLEASE_ENTER_A_VALID_EMAIL_ADDRESS": "Proszę wpisać prawidłowy adres e-mail.",

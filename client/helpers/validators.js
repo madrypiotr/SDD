@@ -151,10 +151,14 @@ jQuery.validator.addMethod ( "peselValidation2", function ( value, element ) {
 	return this.optional ( element ) || found == false;
 }, TAPi18n.__ ( 'txv.WRONG_NUMBER_PID' ) );
 
-jQuery.validator.addMethod ( "kodPocztowyValidation", function ( value, element ) {
-	var filter = /^[0-9]{2}-[0-9]{3}$/;
-	return this.optional ( element ) || filter.test ( value );
-}, TAPi18n.__ ( 'txv.WRONG_FORMAT' ) );
+jQuery.validator.addMethod('zipCodeValidation1', function (value, element) {
+    var filter = /^[0-9]{2}-[0-9]{3}$/;
+    return this.optional(element) || filter.test(value);
+}, TAPi18n.__('txv.WRONG_FORMAT'));
+
+jQuery.validator.addMethod('zipCodeValidation2', function (value, element) {
+    return Etc.validZipCodes.indexOf(value) !== -1;
+}, TAPi18n.__('txv.WRONG_ZIP_CODE'));
 
 jQuery.validator.addMethod ( "isNotEmptyValue", function ( value, element ) {
 	return value == 0 || value == "" ? false : true;

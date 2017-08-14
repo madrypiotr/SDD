@@ -16,8 +16,9 @@ Template.czlonekZwyczajnyForm.rendered = function () {
                 peselValidation: true,
                 peselValidation2: true
             },
-            ZipCode:{
-                kodPocztowyValidation: true
+            ZipCode: {
+                zipCodeValidation1: true,
+                zipCodeValidation2: true
             },
             language:{
                 isNotEmptyValue: true

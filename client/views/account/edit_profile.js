@@ -1,8 +1,9 @@
 Template.profileEdit.rendered = function () {
     $("#profileForm").validate({
         rules: {
-            zipcode:{
-                kodPocztowyValidation:true
+            zipcode: {
+                zipCodeValidation1: true,
+                zipCodeValidation2: true
             }
         },
         messages: {
