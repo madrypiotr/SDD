@@ -59,110 +59,114 @@ validationPlacementError = function ( error, element ) {
 	}
 };
 
-jQuery.validator.addMethod ( "checkExistsNazwaKwestii", function ( value, element ) {
-	var kwestie = Kwestia.find ( {
-		czyAktywny: true
-	 } );
-	var found = null;
-	kwestie.forEach ( function ( item ) {
-		if ( _.isEqual ( item.kwestiaNazwa.toLowerCase ().trim (), value.toLowerCase ().trim () ) ) {
-			found = true;
-		}
-	 } );
-	return this.optional ( element ) || found == null;
-}, TAPi18n.__ ( 'txv.THIS_ISSUE_ALREADY_EXISTS' ) );
+Meteor.startup(function () {
+    jQuery.validator.addMethod('checkExistsNazwaKwestii', function (value, element) {
+        var kwestie = Kwestia.find({
+            czyAktywny: true
+        });
+        var found = null;
+        kwestie.forEach(function (item) {
+            if (_.isEqual(item.kwestiaNazwa.toLowerCase().trim(), value.toLowerCase().trim())) {
+                found = true;
+            }
+        });
+        return this.optional(element) || found == null;
+    }, TAPi18n.__('txv.THIS_ISSUE_ALREADY_EXISTS'));
 
-jQuery.validator.addMethod ( "checkExistsNazwaZespoluRealizacyjnego", function ( value, element ) {
-	var zespoly = ZespolRealizacyjny.find ( { } );
-	var found = null;
-	zespoly.forEach ( function ( item ) {
-		if ( _.isEqual ( item.nazwa.toLowerCase ().trim (), value.toLowerCase ().trim () ) ) {
-			found = true;
-		}
-	 } );
-	return this.optional ( element ) || found == null;
-}, TAPi18n.__ ( 'txv.THE_IMPL_TEAM_OF_THE_SAME_NAME_ALREADY_EXISTS' ) );
+    jQuery.validator.addMethod('checkExistsNazwaZespoluRealizacyjnego', function (value, element) {
+        var zespoly = ZespolRealizacyjny.find({});
+        var found = null;
+        zespoly.forEach(function (item) {
+            if (_.isEqual(item.nazwa.toLowerCase().trim(), value.toLowerCase().trim())) {
+                found = true;
+            }
+        });
+        return this.optional(element) || found == null;
+    }, TAPi18n.__('txv.THE_IMPL_TEAM_OF_THE_SAME_NAME_ALREADY_EXISTS'));
 
-jQuery.validator.addMethod ( "checkExistsAnyEmail", function ( value, element ) {
-	var found = null;
-	found = checkExistsUser ( value, null, null );
-	return this.optional ( element ) || found == null;
-}, TAPi18n.__ ( 'txv.THERE_ARE_ALREADY_IN_THE_SYSTEM_YOU_ADDRESS_AN_EMAIL' ) );
+    jQuery.validator.addMethod('checkExistsAnyEmail', function (value, element) {
+        var found = null;
+        found = checkExistsUser(value, null, null);
+        return this.optional(element) || found == null;
+    }, TAPi18n.__('txv.THERE_ARE_ALREADY_IN_THE_SYSTEM_YOU_ADDRESS_AN_EMAIL'));
 
-jQuery.validator.addMethod ( "checkExistsEmailZwyczajny", function ( value, element ) {
-	var found = null;
-	var users = Users.find ( {
-		'profile.userType': {
-			$in: [USERTYPE.CZLONEK]
-		}
-	 } );
-	users.forEach ( function ( user ) {
-		if ( user.emails[0].address == value ) found = true;
-	 } );
-	return this.optional ( element ) || found == null;
-}, TAPi18n.__ ( 'txv.THERE_IS_ALREADY_A_SYSTEM_USER_WITH_THE_GIVEN_EMAIL_ADDRESS' ) );
+    jQuery.validator.addMethod('checkExistsEmailZwyczajny', function (value, element) {
+        var found = null;
+        var users = Users.find({
+            'profile.userType': {
+                $in: [USERTYPE.CZLONEK]
+            }
+        });
+        users.forEach(function (user) {
+            if (user.emails[0].address == value) found = true;
+        });
+        return this.optional(element) || found == null;
+    }, TAPi18n.__('txv.THERE_IS_ALREADY_A_SYSTEM_USER_WITH_THE_GIVEN_EMAIL_ADDRESS'));
 
-jQuery.validator.addMethod ( "checkExistsEmail", function ( value, element, param ) {
-	var found = null;
-	if ( !Meteor.userId () ) {
-		found = checkExistsUser ( value, param, null );
-	}
-	return this.optional ( element ) || found == null;
-}, TAPi18n.__ ( 'txv.THERE_ARE_ALREADY_IN_THE_SYSTEM_PROVIDED_THE_USER_FOR_WHICH_YOURE_TRYING' ) );
+    jQuery.validator.addMethod('checkExistsEmail', function (value, element, param) {
+        var found = null;
+        if (!Meteor.userId()) {
+            found = checkExistsUser(value, param, null);
+        }
+        return this.optional(element) || found == null;
+    }, TAPi18n.__('txv.THERE_ARE_ALREADY_IN_THE_SYSTEM_PROVIDED_THE_USER_FOR_WHICH_YOURE_TRYING'));
 
-jQuery.validator.addMethod ( "checkExistsEmail2", function ( value, element, param ) {
-	var found = null;
-	return this.optional ( element ) || found == null;
-}, TAPi18n.__ ( 'txv.LONGER_EXISTS_ON_THE_SPECIFIED_USER' ) );
+    jQuery.validator.addMethod('checkExistsEmail2', function (value, element, param) {
+        var found = null;
+        return this.optional(element) || found == null;
+    }, TAPi18n.__('txv.LONGER_EXISTS_ON_THE_SPECIFIED_USER'));
 
-jQuery.validator.addMethod ( "checkExistsEmailDraft", function ( value, element ) {
-	var usersDraft = UsersDraft.find ( {
-		$where: function () {
-			return ( ( ( this.email == value ) || ( this.email.toLowerCase () == value.toLowerCase () ) ) && this.czyAktywny == true );
-		}
-	 } );
-	var found = null;
-	if ( usersDraft.count () > 0 ) {
-		found = true;
-	}
-	return this.optional ( element ) || found == null;
-}, TAPi18n.__ ( 'txv.IT_HAS_ALREADY_SUBMITTED_A_REQUEST_TO_THE_SPECIFIED_EMAIL' ) );
+    jQuery.validator.addMethod('checkExistsEmailDraft', function (value, element) {
+        var usersDraft = UsersDraft.find({
+            $where: function () {
+                return ( ( ( this.email == value ) || ( this.email.toLowerCase() == value.toLowerCase() ) ) && this.czyAktywny == true );
+            }
+        });
+        var found = null;
+        if (usersDraft.count() > 0) {
+            found = true;
+        }
+        return this.optional(element) || found == null;
+    }, TAPi18n.__('txv.IT_HAS_ALREADY_SUBMITTED_A_REQUEST_TO_THE_SPECIFIED_EMAIL'));
 
-jQuery.validator.addMethod ( "exactlength", function ( value, element, param ) {
-	return this.optional ( element ) || value.length == param;
-}, TAPi18n.__ ( 'txv.ENTER_EXACTLY' ) + TAPi18n.__ ( 'txv.CHARACTERS' ) );
+    jQuery.validator.addMethod('exactlength', function (value, element, param) {
+        return this.optional(element) || value.length == param;
+    }, TAPi18n.__('txv.ENTER_EXACTLY') + TAPi18n.__('txv.CHARACTERS'));
 
-jQuery.validator.addMethod ( "peselValidation", function ( value, element ) {
-	var filter = /^[0-9]{11}$/;
-	return this.optional ( element ) || filter.test ( value );
-}, TAPi18n.__ ( 'txv.WRONG_FORMAT_PID' ) );
+    jQuery.validator.addMethod('peselValidation', function (value, element) {
+        var filter = /^[0-9]{11}$/;
+        return this.optional(element) || filter.test(value);
+    }, TAPi18n.__('txv.WRONG_FORMAT_PID'));
 
-jQuery.validator.addMethod ( "peselValidation2", function ( value, element ) {
-	var found = null;
-	var wagi = [9, 7, 3, 1, 9, 7, 3, 1, 9, 7];
-	var suma = 0;
-	for ( var i = 0; i < wagi.length; i++ ) {
-		suma += ( parseInt ( value.substring ( i, i + 1 ), 10 ) * wagi[i] );
-	}
-	suma = suma % 10;
-	var cyfraKontr = parseInt ( value.substring ( 10, 11 ), 10 );
-	if ( suma == cyfraKontr ) found = false;
-	else found == null;
-	return this.optional ( element ) || found == false;
-}, TAPi18n.__ ( 'txv.WRONG_NUMBER_PID' ) );
+    jQuery.validator.addMethod('peselValidation2', function (value, element) {
+        var found = null;
+        var wagi = [9, 7, 3, 1, 9, 7, 3, 1, 9, 7];
+        var suma = 0;
+        for (var i = 0; i < wagi.length; i++) {
+            suma += ( parseInt(value.substring(i, i + 1), 10) * wagi[i] );
+        }
+        suma = suma % 10;
+        var cyfraKontr = parseInt(value.substring(10, 11), 10);
+        if (suma == cyfraKontr) found = false;
+        else found == null;
+        return this.optional(element) || found == false;
+    }, TAPi18n.__('txv.WRONG_NUMBER_PID'));
 
-jQuery.validator.addMethod('zipCodeValidation1', function (value, element) {
-    var filter = /^[0-9]{2}-[0-9]{3}$/;
-    return this.optional(element) || filter.test(value);
-}, TAPi18n.__('txv.WRONG_FORMAT'));
+    jQuery.validator.addMethod('zipCodeValidation1', function (value, element) {
+        var filter = /^[0-9]{2}-[0-9]{3}$/;
+        return this.optional(element) || filter.test(value);
+    }, TAPi18n.__('txv.WRONG_FORMAT'));
 
-jQuery.validator.addMethod('zipCodeValidation2', function (value, element) {
-    return Etc.validZipCodes.indexOf(value) !== -1;
-}, TAPi18n.__('txv.WRONG_ZIP_CODE'));
 
-jQuery.validator.addMethod ( "isNotEmptyValue", function ( value, element ) {
-	return value == 0 || value == "" ? false : true;
-}, TAPi18n.__ ( 'txv.THE_FIELD_IS_REQUIRED' ) );
+    jQuery.validator.addMethod('zipCodeValidation2', function (value, element) {
+        return Etc.validZipCodes.indexOf(value) !== -1;
+    }, TAPi18n.__('txv.WRONG_ZIP_CODE'));
+
+
+    jQuery.validator.addMethod('isNotEmptyValue', function (value, element) {
+        return value == 0 || value == '' ? false : true;
+    }, TAPi18n.__('txv.THE_FIELD_IS_REQUIRED'));
+});
 
 //NOT USED!
 trimInput = function ( value ) {
