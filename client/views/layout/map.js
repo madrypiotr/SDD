@@ -109,14 +109,14 @@ Template.map.helpers({
         if (GoogleMaps.loaded()) {
             return {
                 center: new google.maps.LatLng(51.9852126, 19.2408041),
-                fullscreenControl: false,
+                fullscreenControl: true,
                 mapTypeControl: false,
                 rotateControl: false,
                 scaleControl: false,
                 streetViewControl: false,
                 zoom: 5,
                 zoomControl: true,
-                // scrollwheel: false,
+				scrollwheel: true,
                 styles: [{
                     stylers: [
                         {lightness: 20},
