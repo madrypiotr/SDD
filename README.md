@@ -78,4 +78,4 @@ Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
 [How to contribute]: https://github.com/madrypiotr/SDD/blob/master/HOW-TO-CONTRIBUTE.md
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
-[Documentation is here]: https://github.com/madrypiotr/SDD/blob/master/public/README.md.html
+[Documentation is here]: http://sdd.ha.pl/doc/README.md.html
