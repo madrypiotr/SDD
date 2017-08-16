@@ -16,6 +16,7 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 ## Installation
 * [Install the METEOR] 
 * [Download the SDD source code] 
+* [Documentation is here] 
 * Because this is a development draft, further development should be known to developers of these components.
 
 ### [How to contribute] to the development of this project?
@@ -77,4 +78,4 @@ Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
 [How to contribute]: https://github.com/madrypiotr/SDD/blob/master/HOW-TO-CONTRIBUTE.md
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
-
+[Documentation is here]: https://github.com/madrypiotr/SDD/blob/master/jsdoc/README.md.html
