@@ -223,8 +223,8 @@ Router.map ( <span class="hljs-function"><span class="hljs-keyword">function</sp
         }
     } );
 
-    <span class="hljs-keyword">this</span>.route ( <span class="hljs-string">'czlonek_zwyczajny_form'</span>, {
-        <span class="hljs-attr">path</span>: <span class="hljs-string">'/czlonek_zwyczajny_form/'</span>,
+    <span class="hljs-keyword">this</span>.route ( <span class="hljs-string">'ordinary_member_form'</span>, {
+        <span class="hljs-attr">path</span>: <span class="hljs-string">'/ordinary_member_form/'</span>,
         <span class="hljs-attr">template</span>: <span class="hljs-string">'czlonekZwyczajnyForm'</span>,
         <span class="hljs-attr">data</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
             <span class="hljs-keyword">return</span> Users.findOne ( { <span class="hljs-attr">_id</span>:Meteor.userId () } );
