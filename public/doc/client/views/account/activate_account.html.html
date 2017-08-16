@@ -43,7 +43,7 @@
           <div class="pilwrap">
   <a class="pilcrow" href="#section-1" id="section-1"></a>
 </div>
-<p>test</p>
+<p>Activate your account</p>
 
         </td>
         <td class="code highlight">
@@ -61,7 +61,7 @@
           <div class="pilwrap">
   <a class="pilcrow" href="#section-2" id="section-2"></a>
 </div>
-<p>Trwa aktywowanie konta</p>
+<p>txv: The account is being activated</p>
 
         </td>
         <td class="code highlight">
@@ -77,7 +77,7 @@
           <div class="pilwrap">
   <a class="pilcrow" href="#section-3" id="section-3"></a>
 </div>
-<p>Jeżeli zbyt długo czekasz na reakcję systemu, spróbuj odświeżyć przeglądarkę lub spróbuj aktywować konto później</p>
+<p>txv: If you wait too long for the System response try to refresh the browser or try to activate the account later</p>
 
         </td>
         <td class="code highlight">
@@ -88,41 +88,137 @@
 		{{#if notFound}}
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-				<span class="hljs-comment">&lt;!--Uwaga!--&gt;</span>
-				{{_ "activateAccount.activUwaga"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>txv: Information.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				{{_ "activateAccount.acInformation"}}
 			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-				<span class="hljs-comment">&lt;!--Wystąpił błąd. Spróbuj ponownie--&gt;</span>
-				{{_ "activateAccount.acAnErrorOccuredTryAgain"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>txv: Error. Try again</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				{{_ "activateAccount.acAnErrorOccuredTryAgain"}}
 			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		{{else}}
 			{{#if activatedAccountRightNow}}
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-success padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-					<span class="hljs-comment">&lt;!--Dziękujemy za aktywację konta!--&gt;</span>
-					{{_ "activateAccount.acThankYouForActivatingYourAccount"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>txv: Thank you for activating the account!</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">					{{_ "activateAccount.acThankYouForActivatingYourAccount"}}
 				<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-					<span class="hljs-comment">&lt;!--Na podany przez Ciebie email w Aplikacji zostanie wysłany login i hasło.--&gt;</span>
-					{{_ "activateAccount.acYouWillBeSentLoginAndPass"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>txv: The login and password will be sent to e-mail address you have given in Application.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">					{{_ "activateAccount.acYouWillBeSentLoginAndPass"}}
 				<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 			{{else}}
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-					<span class="hljs-comment">&lt;!--Informacja.--&gt;</span>
-					{{_ "activateAccount.acInformation"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>txv: Information.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">					{{_ "activateAccount.acInformation"}}
 				<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-					<span class="hljs-comment">&lt;!--Twoje konto zostało już aktywowane. Przejdź --&gt;</span>
-					{{_ "activateAccount.acYourAccHasAlreadyBeenAct"}} 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p>txv: Your account has been already activated. Go</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">					{{_ "activateAccount.acYourAccHasAlreadyBeenAct"}} 
 					<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{link}}"</span>&gt;</span>
-						<span class="hljs-comment">&lt;!--tutaj--&gt;</span>
-						{{_ "activateAccount.acHere"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p>txv: here</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">						{{_ "activateAccount.acHere"}}
 					<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-					<span class="hljs-comment">&lt;!-- aby, się zalogować.--&gt;</span>
-					{{_ "activateAccount.acToLogin"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p>txv: to log in.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">					{{_ "activateAccount.acToLogin"}}
 				<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 			{{/if}}

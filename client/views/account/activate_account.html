@@ -1,5 +1,5 @@
 <!--
-test
+Activate your account
 -->
 <template name="activateAccount">
     {{#if notActivatedAccount}}
@@ -7,13 +7,13 @@ test
     <div class="col-md-12 bg-warning padding-15" style="text-align: center ">
         <p>
             <!--
-			Trwa aktywowanie konta
+			txv: The account is being activated
 			-->
             {{_ "activateAccount.acItTakesActivateAccount"}}
         </p>
         <p>
             <!--
-			Jeżeli zbyt długo czekasz na reakcję systemu, spróbuj odświeżyć przeglądarkę lub spróbuj aktywować konto później
+			txv: If you wait too long for the System response try to refresh the browser or try to activate the account later
 			-->
             {{_ "activateAccount.acIfYouWaitTooLong"}}
         </p>
@@ -22,11 +22,15 @@ test
 		{{#if notFound}}
 		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 			<p>
-				<!--Uwaga!-->
-				{{_ "activateAccount.activUwaga"}}
+				<!--
+				txv: Information.
+				-->
+				{{_ "activateAccount.acInformation"}}
 			</p>
 			<p>
-				<!--Wystąpił błąd. Spróbuj ponownie-->
+				<!--
+				txv: Error. Try again
+				-->
 				{{_ "activateAccount.acAnErrorOccuredTryAgain"}}
 			</p>
 		</div>
@@ -34,28 +38,40 @@ test
 			{{#if activatedAccountRightNow}}
 			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 				<p>
-					<!--Dziękujemy za aktywację konta!-->
+					<!--
+					txv: Thank you for activating the account!
+					-->
 					{{_ "activateAccount.acThankYouForActivatingYourAccount"}}
 				</p>
 				<p>
-					<!--Na podany przez Ciebie email w Aplikacji zostanie wysłany login i hasło.-->
+					<!--
+					txv: The login and password will be sent to e-mail address you have given in Application.
+					-->
 					{{_ "activateAccount.acYouWillBeSentLoginAndPass"}}
 				</p>
 			</div>
 			{{else}}
 			<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 				<p>
-					<!--Informacja.-->
+					<!--
+					txv: Information.
+					-->
 					{{_ "activateAccount.acInformation"}}
 				</p>
 				<p>
-					<!--Twoje konto zostało już aktywowane. Przejdź -->
+					<!--
+					txv: Your account has been already activated. Go 
+					-->
 					{{_ "activateAccount.acYourAccHasAlreadyBeenAct"}} 
 					<a href="{{link}}">
-						<!--tutaj-->
+						<!--
+						txv: here
+						-->
 						{{_ "activateAccount.acHere"}}
 					</a>
-					<!-- aby, się zalogować.-->
+					<!-- 
+					txv: to log in.
+					-->
 					{{_ "activateAccount.acToLogin"}}
 				</p>
 			</div>
