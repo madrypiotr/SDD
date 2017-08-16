@@ -1,0 +1,3544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>bootstrap.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../../doc-style.css" />
+  <script src="../../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../../";
+    var thisFile = "packages\\meteor-bootstrap-3\\meteor-bootstrap-3\\bootstrap-3\\js\\bootstrap.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+      <div class="heading h1">
+        <a href="#bootstrap-transition.js-v3.2.0-http-getbootstrap.comjavascripttransitions">========================================================================
+Bootstrap: transition.js v3.2.0
+http://getbootstrap.com/javascript/#transitions</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#css-transition-support-shoutout-http-www.modernizr.com">CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-alert.js-v3.2.0-http-getbootstrap.comjavascriptalerts">========================================================================
+Bootstrap: alert.js v3.2.0
+http://getbootstrap.com/javascript/#alerts</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-1">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#alert-class-definition">ALERT CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#alert-plugin-definition">ALERT PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#alert-no-conflict">ALERT NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#alert-data-api">ALERT DATA-API</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-button.js-v3.2.0-http-getbootstrap.comjavascriptbuttons">========================================================================
+Bootstrap: button.js v3.2.0
+http://getbootstrap.com/javascript/#buttons</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-2">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#button-public-class-definition">BUTTON PUBLIC CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#button-plugin-definition">BUTTON PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#button-no-conflict">BUTTON NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#button-data-api">BUTTON DATA-API</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-carousel.js-v3.2.0-http-getbootstrap.comjavascriptcarousel">========================================================================
+Bootstrap: carousel.js v3.2.0
+http://getbootstrap.com/javascript/#carousel</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-3">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#carousel-class-definition">CAROUSEL CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#carousel-plugin-definition">CAROUSEL PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#carousel-no-conflict">CAROUSEL NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#carousel-data-api">CAROUSEL DATA-API</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-collapse.js-v3.2.0-http-getbootstrap.comjavascriptcollapse">========================================================================
+Bootstrap: collapse.js v3.2.0
+http://getbootstrap.com/javascript/#collapse</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-4">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#collapse-public-class-definition">COLLAPSE PUBLIC CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#collapse-plugin-definition">COLLAPSE PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#collapse-no-conflict">COLLAPSE NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#collapse-data-api">COLLAPSE DATA-API</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-dropdown.js-v3.2.0-http-getbootstrap.comjavascriptdropdowns">========================================================================
+Bootstrap: dropdown.js v3.2.0
+http://getbootstrap.com/javascript/#dropdowns</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-5">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#dropdown-class-definition">DROPDOWN CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#dropdown-plugin-definition">DROPDOWN PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#dropdown-no-conflict">DROPDOWN NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#apply-to-standard-dropdown-elements">APPLY TO STANDARD DROPDOWN ELEMENTS</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-modal.js-v3.2.0-http-getbootstrap.comjavascriptmodals">========================================================================
+Bootstrap: modal.js v3.2.0
+http://getbootstrap.com/javascript/#modals</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-6">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#modal-class-definition">MODAL CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#modal-plugin-definition">MODAL PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#modal-no-conflict">MODAL NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#modal-data-api">MODAL DATA-API</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-tooltip.js-v3.2.0-http-getbootstrap.comjavascripttooltip-inspired-by-the-original-jquery.tipsy-by-jason-frame">========================================================================
+Bootstrap: tooltip.js v3.2.0
+http://getbootstrap.com/javascript/#tooltip
+Inspired by the original jQuery.tipsy by Jason Frame</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-7">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#tooltip-public-class-definition">TOOLTIP PUBLIC CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#tooltip-plugin-definition">TOOLTIP PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#tooltip-no-conflict">TOOLTIP NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-popover.js-v3.2.0-http-getbootstrap.comjavascriptpopovers">========================================================================
+Bootstrap: popover.js v3.2.0
+http://getbootstrap.com/javascript/#popovers</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-8">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#popover-public-class-definition">POPOVER PUBLIC CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#note-popover-extends-tooltip.js">NOTE: POPOVER EXTENDS tooltip.js</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#popover-plugin-definition">POPOVER PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#popover-no-conflict">POPOVER NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-scrollspy.js-v3.2.0-http-getbootstrap.comjavascriptscrollspy">========================================================================
+Bootstrap: scrollspy.js v3.2.0
+http://getbootstrap.com/javascript/#scrollspy</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-9">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#scrollspy-class-definition">SCROLLSPY CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#scrollspy-plugin-definition">SCROLLSPY PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#scrollspy-no-conflict">SCROLLSPY NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#scrollspy-data-api">SCROLLSPY DATA-API</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-tab.js-v3.2.0-http-getbootstrap.comjavascripttabs">========================================================================
+Bootstrap: tab.js v3.2.0
+http://getbootstrap.com/javascript/#tabs</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-10">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#tab-class-definition">TAB CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#tab-plugin-definition">TAB PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#tab-no-conflict">TAB NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#tab-data-api">TAB DATA-API</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#bootstrap-affix.js-v3.2.0-http-getbootstrap.comjavascriptaffix">========================================================================
+Bootstrap: affix.js v3.2.0
+http://getbootstrap.com/javascript/#affix</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-11">Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#affix-class-definition">AFFIX CLASS DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#affix-plugin-definition">AFFIX PLUGIN DEFINITION</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#affix-no-conflict">AFFIX NO CONFLICT</a>
+      </div>
+
+      <div class="heading h1">
+        <a href="#affix-data-api">AFFIX DATA-API</a>
+      </div>
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>bootstrap.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+<div class="dox">
+<div class="summary">
+<p>!
+Bootstrap v3.2.0 (http://getbootstrap.com)
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)</p>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> jQuery === <span class="hljs-string">'undefined'</span>) {
+  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Bootstrap\'s JavaScript requires jQuery'</span>)
+}
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{
+  <span class="hljs-keyword">var</span> version = $.fn.jquery.split(<span class="hljs-string">' '</span>)[<span class="hljs-number">0</span>].split(<span class="hljs-string">'.'</span>)
+  <span class="hljs-keyword">if</span> ((version[<span class="hljs-number">0</span>] &lt; <span class="hljs-number">2</span> &amp;&amp; version[<span class="hljs-number">1</span>] &lt; <span class="hljs-number">9</span>) || (version[<span class="hljs-number">0</span>] == <span class="hljs-number">1</span> &amp;&amp; version[<span class="hljs-number">1</span>] == <span class="hljs-number">9</span> &amp;&amp; version[<span class="hljs-number">2</span>] &lt; <span class="hljs-number">1</span>)) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher'</span>)
+  }
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-transition.js-v3.2.0-http-getbootstrap.comjavascripttransitions">
+  <h1>
+    <a href="#bootstrap-transition.js-v3.2.0-http-getbootstrap.comjavascripttransitions" name="bootstrap-transition.js-v3.2.0-http-getbootstrap.comjavascripttransitions" class="pilcrow"></a>
+========================================================================
+Bootstrap: transition.js v3.2.0
+http://getbootstrap.com/javascript/#transitions
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="css-transition-support-shoutout-http-www.modernizr.com">
+  <h1>
+    <a href="#css-transition-support-shoutout-http-www.modernizr.com" name="css-transition-support-shoutout-http-www.modernizr.com" class="pilcrow"></a>
+CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">transitionEnd</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'bootstrap'</span>)
+
+    <span class="hljs-keyword">var</span> transEndEventNames = {
+      <span class="hljs-attr">WebkitTransition</span> : <span class="hljs-string">'webkitTransitionEnd'</span>,
+      <span class="hljs-attr">MozTransition</span>    : <span class="hljs-string">'transitionend'</span>,
+      <span class="hljs-attr">OTransition</span>      : <span class="hljs-string">'oTransitionEnd otransitionend'</span>,
+      <span class="hljs-attr">transition</span>       : <span class="hljs-string">'transitionend'</span>
+    }
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> transEndEventNames) {
+      <span class="hljs-keyword">if</span> (el.style[name] !== <span class="hljs-literal">undefined</span>) {
+        <span class="hljs-keyword">return</span> { <span class="hljs-attr">end</span>: transEndEventNames[name] }
+      }
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span> <span class="hljs-comment">// explicit for ie8 (  ._.)</span>
+  }
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>http://blog.alexmaccaw.com/css-transitions</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">  $.fn.emulateTransitionEnd = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">duration</span>) </span>{
+    <span class="hljs-keyword">var</span> called = <span class="hljs-literal">false</span>
+    <span class="hljs-keyword">var</span> $el = <span class="hljs-keyword">this</span>
+    $(<span class="hljs-keyword">this</span>).one(<span class="hljs-string">'bsTransitionEnd'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ called = <span class="hljs-literal">true</span> })
+    <span class="hljs-keyword">var</span> callback = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">if</span> (!called) $($el).trigger($.support.transition.end) }
+    setTimeout(callback, duration)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+  $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.support.transition = transitionEnd()
+
+    <span class="hljs-keyword">if</span> (!$.support.transition) <span class="hljs-keyword">return</span>
+
+    $.event.special.bsTransitionEnd = {
+      <span class="hljs-attr">bindType</span>: $.support.transition.end,
+      <span class="hljs-attr">delegateType</span>: $.support.transition.end,
+      <span class="hljs-attr">handle</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-keyword">if</span> ($(e.target).is(<span class="hljs-keyword">this</span>)) <span class="hljs-keyword">return</span> e.handleObj.handler.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>)
+      }
+    }
+  })
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-alert.js-v3.2.0-http-getbootstrap.comjavascriptalerts">
+  <h1>
+    <a href="#bootstrap-alert.js-v3.2.0-http-getbootstrap.comjavascriptalerts" name="bootstrap-alert.js-v3.2.0-http-getbootstrap.comjavascriptalerts" class="pilcrow"></a>
+========================================================================
+Bootstrap: alert.js v3.2.0
+http://getbootstrap.com/javascript/#alerts
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-1">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-1" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-1" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="alert-class-definition">
+  <h1>
+    <a href="#alert-class-definition" name="alert-class-definition" class="pilcrow"></a>
+ALERT CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> dismiss = <span class="hljs-string">'[data-dismiss="alert"]'</span>
+  <span class="hljs-keyword">var</span> Alert   = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el</span>) </span>{
+    $(el).on(<span class="hljs-string">'click'</span>, dismiss, <span class="hljs-keyword">this</span>.close)
+  }
+
+  Alert.VERSION = <span class="hljs-string">'3.2.0'</span>
+
+  Alert.TRANSITION_DURATION = <span class="hljs-number">150</span>
+
+  Alert.prototype.close = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>    = $(<span class="hljs-keyword">this</span>)
+    <span class="hljs-keyword">var</span> selector = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'data-target'</span>)
+
+    <span class="hljs-keyword">if</span> (!selector) {
+      selector = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'href'</span>)
+      selector = selector &amp;&amp; selector.replace(<span class="hljs-regexp">/.*(?=#[^\s]*$)/</span>, <span class="hljs-string">''</span>) <span class="hljs-comment">// strip for ie7</span>
+    }
+
+    <span class="hljs-keyword">var</span> $parent = $(selector)
+
+    <span class="hljs-keyword">if</span> (e) e.preventDefault()
+
+    <span class="hljs-keyword">if</span> (!$parent.length) {
+      $parent = $<span class="hljs-keyword">this</span>.closest(<span class="hljs-string">'.alert'</span>)
+    }
+
+    $parent.trigger(e = $.Event(<span class="hljs-string">'close.bs.alert'</span>))
+
+    <span class="hljs-keyword">if</span> (e.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+    $parent.removeClass(<span class="hljs-string">'in'</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeElement</span>(<span class="hljs-params"></span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>detach from parent, fire event then clean up data</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      $parent.detach().trigger(<span class="hljs-string">'closed.bs.alert'</span>).remove()
+    }
+
+    $.support.transition &amp;&amp; $parent.hasClass(<span class="hljs-string">'fade'</span>) ?
+      $parent
+        .one(<span class="hljs-string">'bsTransitionEnd'</span>, removeElement)
+        .emulateTransitionEnd(Alert.TRANSITION_DURATION) :
+      removeElement()
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="alert-plugin-definition">
+  <h1>
+    <a href="#alert-plugin-definition" name="alert-plugin-definition" class="pilcrow"></a>
+ALERT PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span> = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data  = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.alert'</span>)
+
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.alert'</span>, (data = <span class="hljs-keyword">new</span> Alert(<span class="hljs-keyword">this</span>)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span>) data[option].call($<span class="hljs-keyword">this</span>)
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.alert
+
+  $.fn.alert             = Plugin
+  $.fn.alert.Constructor = Alert
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="alert-no-conflict">
+  <h1>
+    <a href="#alert-no-conflict" name="alert-no-conflict" class="pilcrow"></a>
+ALERT NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.alert.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.alert = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="alert-data-api">
+  <h1>
+    <a href="#alert-data-api" name="alert-data-api" class="pilcrow"></a>
+ALERT DATA-API
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'click.bs.alert.data-api'</span>, dismiss, Alert.prototype.close)
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-button.js-v3.2.0-http-getbootstrap.comjavascriptbuttons">
+  <h1>
+    <a href="#bootstrap-button.js-v3.2.0-http-getbootstrap.comjavascriptbuttons" name="bootstrap-button.js-v3.2.0-http-getbootstrap.comjavascriptbuttons" class="pilcrow"></a>
+========================================================================
+Bootstrap: button.js v3.2.0
+http://getbootstrap.com/javascript/#buttons
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-2">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-2" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-2" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="button-public-class-definition">
+  <h1>
+    <a href="#button-public-class-definition" name="button-public-class-definition" class="pilcrow"></a>
+BUTTON PUBLIC CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> Button = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element, options</span>) </span>{
+    <span class="hljs-keyword">this</span>.$element  = $(element)
+    <span class="hljs-keyword">this</span>.options   = $.extend({}, Button.DEFAULTS, options)
+    <span class="hljs-keyword">this</span>.isLoading = <span class="hljs-literal">false</span>
+  }
+
+  Button.VERSION  = <span class="hljs-string">'3.2.0'</span>
+
+  Button.DEFAULTS = {
+    <span class="hljs-attr">loadingText</span>: <span class="hljs-string">'loading...'</span>
+  }
+
+  Button.prototype.setState = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">state</span>) </span>{
+    <span class="hljs-keyword">var</span> d    = <span class="hljs-string">'disabled'</span>
+    <span class="hljs-keyword">var</span> $el  = <span class="hljs-keyword">this</span>.$element
+    <span class="hljs-keyword">var</span> val  = $el.is(<span class="hljs-string">'input'</span>) ? <span class="hljs-string">'val'</span> : <span class="hljs-string">'html'</span>
+    <span class="hljs-keyword">var</span> data = $el.data()
+
+    state = state + <span class="hljs-string">'Text'</span>
+
+    <span class="hljs-keyword">if</span> (data.resetText == <span class="hljs-literal">null</span>) $el.data(<span class="hljs-string">'resetText'</span>, $el[val]())
+
+    $el[val](data[state] == <span class="hljs-literal">null</span> ? <span class="hljs-keyword">this</span>.options[state] : data[state])
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p>push to event loop to allow forms to submit</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    setTimeout($.proxy(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">if</span> (state == <span class="hljs-string">'loadingText'</span>) {
+        <span class="hljs-keyword">this</span>.isLoading = <span class="hljs-literal">true</span>
+        $el.addClass(d).attr(d, d)
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isLoading) {
+        <span class="hljs-keyword">this</span>.isLoading = <span class="hljs-literal">false</span>
+        $el.removeClass(d).removeAttr(d)
+      }
+    }, <span class="hljs-keyword">this</span>), <span class="hljs-number">0</span>)
+  }
+
+  Button.prototype.toggle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> changed = <span class="hljs-literal">true</span>
+    <span class="hljs-keyword">var</span> $parent = <span class="hljs-keyword">this</span>.$element.closest(<span class="hljs-string">'[data-toggle="buttons"]'</span>)
+
+    <span class="hljs-keyword">if</span> ($parent.length) {
+      <span class="hljs-keyword">var</span> $input = <span class="hljs-keyword">this</span>.$element.find(<span class="hljs-string">'input'</span>)
+      <span class="hljs-keyword">if</span> ($input.prop(<span class="hljs-string">'type'</span>) == <span class="hljs-string">'radio'</span>) {
+        <span class="hljs-keyword">if</span> ($input.prop(<span class="hljs-string">'checked'</span>) &amp;&amp; <span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'active'</span>)) changed = <span class="hljs-literal">false</span>
+        <span class="hljs-keyword">else</span> $parent.find(<span class="hljs-string">'.active'</span>).removeClass(<span class="hljs-string">'active'</span>)
+      }
+      <span class="hljs-keyword">if</span> (changed) $input.prop(<span class="hljs-string">'checked'</span>, !<span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'active'</span>)).trigger(<span class="hljs-string">'change'</span>)
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">this</span>.$element.attr(<span class="hljs-string">'aria-pressed'</span>, !<span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'active'</span>))
+    }
+
+    <span class="hljs-keyword">if</span> (changed) <span class="hljs-keyword">this</span>.$element.toggleClass(<span class="hljs-string">'active'</span>)
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="button-plugin-definition">
+  <h1>
+    <a href="#button-plugin-definition" name="button-plugin-definition" class="pilcrow"></a>
+BUTTON PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data    = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.button'</span>)
+      <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'object'</span> &amp;&amp; option
+
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.button'</span>, (data = <span class="hljs-keyword">new</span> Button(<span class="hljs-keyword">this</span>, options)))
+
+      <span class="hljs-keyword">if</span> (option == <span class="hljs-string">'toggle'</span>) data.toggle()
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (option) data.setState(option)
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.button
+
+  $.fn.button             = Plugin
+  $.fn.button.Constructor = Button
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="button-no-conflict">
+  <h1>
+    <a href="#button-no-conflict" name="button-no-conflict" class="pilcrow"></a>
+BUTTON NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.button.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.button = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="button-data-api">
+  <h1>
+    <a href="#button-data-api" name="button-data-api" class="pilcrow"></a>
+BUTTON DATA-API
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $(<span class="hljs-built_in">document</span>)
+    .on(<span class="hljs-string">'click.bs.button.data-api'</span>, <span class="hljs-string">'[data-toggle^="button"]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+      <span class="hljs-keyword">var</span> $btn = $(e.target)
+      <span class="hljs-keyword">if</span> (!$btn.hasClass(<span class="hljs-string">'btn'</span>)) $btn = $btn.closest(<span class="hljs-string">'.btn'</span>)
+      Plugin.call($btn, <span class="hljs-string">'toggle'</span>)
+      e.preventDefault()
+    })
+    .on(<span class="hljs-string">'focus.bs.button.data-api blur.bs.button.data-api'</span>, <span class="hljs-string">'[data-toggle^="button"]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+      $(e.target).closest(<span class="hljs-string">'.btn'</span>).toggleClass(<span class="hljs-string">'focus'</span>, e.type == <span class="hljs-string">'focus'</span>)
+    })
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-carousel.js-v3.2.0-http-getbootstrap.comjavascriptcarousel">
+  <h1>
+    <a href="#bootstrap-carousel.js-v3.2.0-http-getbootstrap.comjavascriptcarousel" name="bootstrap-carousel.js-v3.2.0-http-getbootstrap.comjavascriptcarousel" class="pilcrow"></a>
+========================================================================
+Bootstrap: carousel.js v3.2.0
+http://getbootstrap.com/javascript/#carousel
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-3">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-3" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-3" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="carousel-class-definition">
+  <h1>
+    <a href="#carousel-class-definition" name="carousel-class-definition" class="pilcrow"></a>
+CAROUSEL CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> Carousel = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element, options</span>) </span>{
+    <span class="hljs-keyword">this</span>.$element    = $(element)
+    <span class="hljs-keyword">this</span>.$indicators = <span class="hljs-keyword">this</span>.$element.find(<span class="hljs-string">'.carousel-indicators'</span>)
+    <span class="hljs-keyword">this</span>.options     = options
+    <span class="hljs-keyword">this</span>.paused      =
+    <span class="hljs-keyword">this</span>.sliding     =
+    <span class="hljs-keyword">this</span>.interval    =
+    <span class="hljs-keyword">this</span>.$active     =
+    <span class="hljs-keyword">this</span>.$items      = <span class="hljs-literal">null</span>
+
+    <span class="hljs-keyword">this</span>.options.keyboard &amp;&amp; <span class="hljs-keyword">this</span>.$element.on(<span class="hljs-string">'keydown.bs.carousel'</span>, $.proxy(<span class="hljs-keyword">this</span>.keydown, <span class="hljs-keyword">this</span>))
+
+    <span class="hljs-keyword">this</span>.options.pause == <span class="hljs-string">'hover'</span> &amp;&amp; !(<span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>.documentElement) &amp;&amp; <span class="hljs-keyword">this</span>.$element
+      .on(<span class="hljs-string">'mouseenter.bs.carousel'</span>, $.proxy(<span class="hljs-keyword">this</span>.pause, <span class="hljs-keyword">this</span>))
+      .on(<span class="hljs-string">'mouseleave.bs.carousel'</span>, $.proxy(<span class="hljs-keyword">this</span>.cycle, <span class="hljs-keyword">this</span>))
+  }
+
+  Carousel.VERSION  = <span class="hljs-string">'3.2.0'</span>
+
+  Carousel.TRANSITION_DURATION = <span class="hljs-number">600</span>
+
+  Carousel.DEFAULTS = {
+    <span class="hljs-attr">interval</span>: <span class="hljs-number">5000</span>,
+    <span class="hljs-attr">pause</span>: <span class="hljs-string">'hover'</span>,
+    <span class="hljs-attr">wrap</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">keyboard</span>: <span class="hljs-literal">true</span>
+  }
+
+  Carousel.prototype.keydown = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">switch</span> (e.which) {
+      <span class="hljs-keyword">case</span> <span class="hljs-number">37</span>: <span class="hljs-keyword">this</span>.prev(); <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">case</span> <span class="hljs-number">39</span>: <span class="hljs-keyword">this</span>.next(); <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">default</span>: <span class="hljs-keyword">return</span>
+    }
+
+    e.preventDefault()
+  }
+
+  Carousel.prototype.cycle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    e || (<span class="hljs-keyword">this</span>.paused = <span class="hljs-literal">false</span>)
+
+    <span class="hljs-keyword">this</span>.interval &amp;&amp; clearInterval(<span class="hljs-keyword">this</span>.interval)
+
+    <span class="hljs-keyword">this</span>.options.interval
+      &amp;&amp; !<span class="hljs-keyword">this</span>.paused
+      &amp;&amp; (<span class="hljs-keyword">this</span>.interval = setInterval($.proxy(<span class="hljs-keyword">this</span>.next, <span class="hljs-keyword">this</span>), <span class="hljs-keyword">this</span>.options.interval))
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+  Carousel.prototype.getItemIndex = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">item</span>) </span>{
+    <span class="hljs-keyword">this</span>.$items = item.parent().children(<span class="hljs-string">'.item'</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$items.index(item || <span class="hljs-keyword">this</span>.$active)
+  }
+
+  Carousel.prototype.getItemForDirection = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">direction, active</span>) </span>{
+    <span class="hljs-keyword">var</span> delta = direction == <span class="hljs-string">'prev'</span> ? <span class="hljs-number">-1</span> : <span class="hljs-number">1</span>
+    <span class="hljs-keyword">var</span> activeIndex = <span class="hljs-keyword">this</span>.getItemIndex(active)
+    <span class="hljs-keyword">var</span> itemIndex = (activeIndex + delta) % <span class="hljs-keyword">this</span>.$items.length
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$items.eq(itemIndex)
+  }
+
+  Carousel.prototype.to = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pos</span>) </span>{
+    <span class="hljs-keyword">var</span> that        = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">var</span> activeIndex = <span class="hljs-keyword">this</span>.getItemIndex(<span class="hljs-keyword">this</span>.$active = <span class="hljs-keyword">this</span>.$element.find(<span class="hljs-string">'.item.active'</span>))
+
+    <span class="hljs-keyword">if</span> (pos &gt; (<span class="hljs-keyword">this</span>.$items.length - <span class="hljs-number">1</span>) || pos &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.sliding)       <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$element.one(<span class="hljs-string">'slid.bs.carousel'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ that.to(pos) }) <span class="hljs-comment">// yes, "slid"</span>
+    <span class="hljs-keyword">if</span> (activeIndex == pos) <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.pause().cycle()
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.slide(pos &gt; activeIndex ? <span class="hljs-string">'next'</span> : <span class="hljs-string">'prev'</span>, <span class="hljs-keyword">this</span>.$items.eq(pos))
+  }
+
+  Carousel.prototype.pause = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    e || (<span class="hljs-keyword">this</span>.paused = <span class="hljs-literal">true</span>)
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.$element.find(<span class="hljs-string">'.next, .prev'</span>).length &amp;&amp; $.support.transition) {
+      <span class="hljs-keyword">this</span>.$element.trigger($.support.transition.end)
+      <span class="hljs-keyword">this</span>.cycle(<span class="hljs-literal">true</span>)
+    }
+
+    <span class="hljs-keyword">this</span>.interval = clearInterval(<span class="hljs-keyword">this</span>.interval)
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+  Carousel.prototype.next = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.sliding) <span class="hljs-keyword">return</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.slide(<span class="hljs-string">'next'</span>)
+  }
+
+  Carousel.prototype.prev = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.sliding) <span class="hljs-keyword">return</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.slide(<span class="hljs-string">'prev'</span>)
+  }
+
+  Carousel.prototype.slide = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">type, next</span>) </span>{
+    <span class="hljs-keyword">var</span> $active   = <span class="hljs-keyword">this</span>.$element.find(<span class="hljs-string">'.item.active'</span>)
+    <span class="hljs-keyword">var</span> $next     = next || <span class="hljs-keyword">this</span>.getItemForDirection(type, $active)
+    <span class="hljs-keyword">var</span> isCycling = <span class="hljs-keyword">this</span>.interval
+    <span class="hljs-keyword">var</span> direction = type == <span class="hljs-string">'next'</span> ? <span class="hljs-string">'left'</span> : <span class="hljs-string">'right'</span>
+    <span class="hljs-keyword">var</span> fallback  = type == <span class="hljs-string">'next'</span> ? <span class="hljs-string">'first'</span> : <span class="hljs-string">'last'</span>
+    <span class="hljs-keyword">var</span> that      = <span class="hljs-keyword">this</span>
+
+    <span class="hljs-keyword">if</span> (!$next.length) {
+      <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.options.wrap) <span class="hljs-keyword">return</span>
+      $next = <span class="hljs-keyword">this</span>.$element.find(<span class="hljs-string">'.item'</span>)[fallback]()
+    }
+
+    <span class="hljs-keyword">if</span> ($next.hasClass(<span class="hljs-string">'active'</span>)) <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.sliding = <span class="hljs-literal">false</span>)
+
+    <span class="hljs-keyword">var</span> relatedTarget = $next[<span class="hljs-number">0</span>]
+    <span class="hljs-keyword">var</span> slideEvent = $.Event(<span class="hljs-string">'slide.bs.carousel'</span>, {
+      <span class="hljs-attr">relatedTarget</span>: relatedTarget,
+      <span class="hljs-attr">direction</span>: direction
+    })
+    <span class="hljs-keyword">this</span>.$element.trigger(slideEvent)
+    <span class="hljs-keyword">if</span> (slideEvent.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">this</span>.sliding = <span class="hljs-literal">true</span>
+
+    isCycling &amp;&amp; <span class="hljs-keyword">this</span>.pause()
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.$indicators.length) {
+      <span class="hljs-keyword">this</span>.$indicators.find(<span class="hljs-string">'.active'</span>).removeClass(<span class="hljs-string">'active'</span>)
+      <span class="hljs-keyword">var</span> $nextIndicator = $(<span class="hljs-keyword">this</span>.$indicators.children()[<span class="hljs-keyword">this</span>.getItemIndex($next)])
+      $nextIndicator &amp;&amp; $nextIndicator.addClass(<span class="hljs-string">'active'</span>)
+    }
+
+    <span class="hljs-keyword">var</span> slidEvent = $.Event(<span class="hljs-string">'slid.bs.carousel'</span>, { <span class="hljs-attr">relatedTarget</span>: relatedTarget, <span class="hljs-attr">direction</span>: direction }) <span class="hljs-comment">// yes, "slid"</span>
+    <span class="hljs-keyword">if</span> ($.support.transition &amp;&amp; <span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'slide'</span>)) {
+      $next.addClass(type)
+      $next[<span class="hljs-number">0</span>].offsetWidth <span class="hljs-comment">// force reflow</span>
+      $active.addClass(direction)
+      $next.addClass(direction)
+      $active
+        .one(<span class="hljs-string">'bsTransitionEnd'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          $next.removeClass([type, direction].join(<span class="hljs-string">' '</span>)).addClass(<span class="hljs-string">'active'</span>)
+          $active.removeClass([<span class="hljs-string">'active'</span>, direction].join(<span class="hljs-string">' '</span>))
+          that.sliding = <span class="hljs-literal">false</span>
+          setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            that.$element.trigger(slidEvent)
+          }, <span class="hljs-number">0</span>)
+        })
+        .emulateTransitionEnd(Carousel.TRANSITION_DURATION)
+    } <span class="hljs-keyword">else</span> {
+      $active.removeClass(<span class="hljs-string">'active'</span>)
+      $next.addClass(<span class="hljs-string">'active'</span>)
+      <span class="hljs-keyword">this</span>.sliding = <span class="hljs-literal">false</span>
+      <span class="hljs-keyword">this</span>.$element.trigger(slidEvent)
+    }
+
+    isCycling &amp;&amp; <span class="hljs-keyword">this</span>.cycle()
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="carousel-plugin-definition">
+  <h1>
+    <a href="#carousel-plugin-definition" name="carousel-plugin-definition" class="pilcrow"></a>
+CAROUSEL PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data    = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.carousel'</span>)
+      <span class="hljs-keyword">var</span> options = $.extend({}, Carousel.DEFAULTS, $<span class="hljs-keyword">this</span>.data(), <span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'object'</span> &amp;&amp; option)
+      <span class="hljs-keyword">var</span> action  = <span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span> ? option : options.slide
+
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.carousel'</span>, (data = <span class="hljs-keyword">new</span> Carousel(<span class="hljs-keyword">this</span>, options)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'number'</span>) data.to(option)
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (action) data[action]()
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (options.interval) data.pause().cycle()
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.carousel
+
+  $.fn.carousel             = Plugin
+  $.fn.carousel.Constructor = Carousel
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="carousel-no-conflict">
+  <h1>
+    <a href="#carousel-no-conflict" name="carousel-no-conflict" class="pilcrow"></a>
+CAROUSEL NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.carousel.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.carousel = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="carousel-data-api">
+  <h1>
+    <a href="#carousel-data-api" name="carousel-data-api" class="pilcrow"></a>
+CAROUSEL DATA-API
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'click.bs.carousel.data-api'</span>, <span class="hljs-string">'[data-slide], [data-slide-to]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">var</span> href
+    <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+    <span class="hljs-keyword">var</span> $target = $($<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'data-target'</span>) || (href = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'href'</span>)) &amp;&amp; href.replace(<span class="hljs-regexp">/.*(?=#[^\s]+$)/</span>, <span class="hljs-string">''</span>)) <span class="hljs-comment">// strip for ie7</span>
+    <span class="hljs-keyword">if</span> (!$target.hasClass(<span class="hljs-string">'carousel'</span>)) <span class="hljs-keyword">return</span>
+    <span class="hljs-keyword">var</span> options = $.extend({}, $target.data(), $<span class="hljs-keyword">this</span>.data())
+    <span class="hljs-keyword">var</span> slideIndex = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'data-slide-to'</span>)
+    <span class="hljs-keyword">if</span> (slideIndex) options.interval = <span class="hljs-literal">false</span>
+
+    Plugin.call($target, options)
+
+    <span class="hljs-keyword">if</span> (slideIndex) {
+      $target.data(<span class="hljs-string">'bs.carousel'</span>).to(slideIndex)
+    }
+
+    e.preventDefault()
+  })
+
+  $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">'load'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'[data-ride="carousel"]'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $carousel = $(<span class="hljs-keyword">this</span>)
+      Plugin.call($carousel, $carousel.data())
+    })
+  })
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-collapse.js-v3.2.0-http-getbootstrap.comjavascriptcollapse">
+  <h1>
+    <a href="#bootstrap-collapse.js-v3.2.0-http-getbootstrap.comjavascriptcollapse" name="bootstrap-collapse.js-v3.2.0-http-getbootstrap.comjavascriptcollapse" class="pilcrow"></a>
+========================================================================
+Bootstrap: collapse.js v3.2.0
+http://getbootstrap.com/javascript/#collapse
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-4">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-4" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-4" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="collapse-public-class-definition">
+  <h1>
+    <a href="#collapse-public-class-definition" name="collapse-public-class-definition" class="pilcrow"></a>
+COLLAPSE PUBLIC CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> Collapse = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element, options</span>) </span>{
+    <span class="hljs-keyword">this</span>.$element      = $(element)
+    <span class="hljs-keyword">this</span>.options       = $.extend({}, Collapse.DEFAULTS, options)
+    <span class="hljs-keyword">this</span>.transitioning = <span class="hljs-literal">null</span>
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.parent) <span class="hljs-keyword">this</span>.$parent = $(<span class="hljs-keyword">this</span>.options.parent)
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.toggle) <span class="hljs-keyword">this</span>.toggle()
+  }
+
+  Collapse.VERSION  = <span class="hljs-string">'3.2.0'</span>
+
+  Collapse.TRANSITION_DURATION = <span class="hljs-number">350</span>
+
+  Collapse.DEFAULTS = {
+    <span class="hljs-attr">toggle</span>: <span class="hljs-literal">true</span>
+  }
+
+  Collapse.prototype.dimension = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> hasWidth = <span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'width'</span>)
+    <span class="hljs-keyword">return</span> hasWidth ? <span class="hljs-string">'width'</span> : <span class="hljs-string">'height'</span>
+  }
+
+  Collapse.prototype.show = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.transitioning || <span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'in'</span>)) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> activesData
+    <span class="hljs-keyword">var</span> actives = <span class="hljs-keyword">this</span>.$parent &amp;&amp; <span class="hljs-keyword">this</span>.$parent.find(<span class="hljs-string">'&gt; .panel'</span>).children(<span class="hljs-string">'.in, .collapsing'</span>)
+
+    <span class="hljs-keyword">if</span> (actives &amp;&amp; actives.length) {
+      activesData = actives.data(<span class="hljs-string">'bs.collapse'</span>)
+      <span class="hljs-keyword">if</span> (activesData &amp;&amp; activesData.transitioning) <span class="hljs-keyword">return</span>
+    }
+
+    <span class="hljs-keyword">var</span> startEvent = $.Event(<span class="hljs-string">'show.bs.collapse'</span>)
+    <span class="hljs-keyword">this</span>.$element.trigger(startEvent)
+    <span class="hljs-keyword">if</span> (startEvent.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">if</span> (actives &amp;&amp; actives.length) {
+      Plugin.call(actives, <span class="hljs-string">'hide'</span>)
+      activesData || actives.data(<span class="hljs-string">'bs.collapse'</span>, <span class="hljs-literal">null</span>)
+    }
+
+    <span class="hljs-keyword">var</span> dimension = <span class="hljs-keyword">this</span>.dimension()
+
+    <span class="hljs-keyword">this</span>.$element
+      .removeClass(<span class="hljs-string">'collapse'</span>)
+      .addClass(<span class="hljs-string">'collapsing'</span>)[dimension](<span class="hljs-number">0</span>)
+      .attr(<span class="hljs-string">'aria-expanded'</span>, <span class="hljs-literal">true</span>)
+
+    <span class="hljs-keyword">this</span>.transitioning = <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">var</span> complete = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">this</span>.$element
+        .removeClass(<span class="hljs-string">'collapsing'</span>)
+        .addClass(<span class="hljs-string">'collapse in'</span>)[dimension](<span class="hljs-string">''</span>)
+      <span class="hljs-keyword">this</span>.transitioning = <span class="hljs-number">0</span>
+      <span class="hljs-keyword">this</span>.$element
+        .trigger(<span class="hljs-string">'shown.bs.collapse'</span>)
+    }
+
+    <span class="hljs-keyword">if</span> (!$.support.transition) <span class="hljs-keyword">return</span> complete.call(<span class="hljs-keyword">this</span>)
+
+    <span class="hljs-keyword">var</span> scrollSize = $.camelCase([<span class="hljs-string">'scroll'</span>, dimension].join(<span class="hljs-string">'-'</span>))
+
+    <span class="hljs-keyword">this</span>.$element
+      .one(<span class="hljs-string">'bsTransitionEnd'</span>, $.proxy(complete, <span class="hljs-keyword">this</span>))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](<span class="hljs-keyword">this</span>.$element[<span class="hljs-number">0</span>][scrollSize])
+  }
+
+  Collapse.prototype.hide = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.transitioning || !<span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'in'</span>)) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> startEvent = $.Event(<span class="hljs-string">'hide.bs.collapse'</span>)
+    <span class="hljs-keyword">this</span>.$element.trigger(startEvent)
+    <span class="hljs-keyword">if</span> (startEvent.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> dimension = <span class="hljs-keyword">this</span>.dimension()
+
+    <span class="hljs-keyword">this</span>.$element[dimension](<span class="hljs-keyword">this</span>.$element[dimension]())[<span class="hljs-number">0</span>].offsetHeight
+
+    <span class="hljs-keyword">this</span>.$element
+      .addClass(<span class="hljs-string">'collapsing'</span>)
+      .removeClass(<span class="hljs-string">'collapse in'</span>)
+      .attr(<span class="hljs-string">'aria-expanded'</span>, <span class="hljs-literal">false</span>)
+
+    <span class="hljs-keyword">this</span>.transitioning = <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">var</span> complete = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">this</span>.transitioning = <span class="hljs-number">0</span>
+      <span class="hljs-keyword">this</span>.$element
+        .removeClass(<span class="hljs-string">'collapsing'</span>)
+        .addClass(<span class="hljs-string">'collapse'</span>)
+        .trigger(<span class="hljs-string">'hidden.bs.collapse'</span>)
+    }
+
+    <span class="hljs-keyword">if</span> (!$.support.transition) <span class="hljs-keyword">return</span> complete.call(<span class="hljs-keyword">this</span>)
+
+    <span class="hljs-keyword">this</span>.$element
+      [dimension](<span class="hljs-number">0</span>)
+      .one(<span class="hljs-string">'bsTransitionEnd'</span>, $.proxy(complete, <span class="hljs-keyword">this</span>))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
+  }
+
+  Collapse.prototype.toggle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>[<span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'in'</span>) ? <span class="hljs-string">'hide'</span> : <span class="hljs-string">'show'</span>]()
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="collapse-plugin-definition">
+  <h1>
+    <a href="#collapse-plugin-definition" name="collapse-plugin-definition" class="pilcrow"></a>
+COLLAPSE PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data    = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.collapse'</span>)
+      <span class="hljs-keyword">var</span> options = $.extend({}, Collapse.DEFAULTS, $<span class="hljs-keyword">this</span>.data(), <span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'object'</span> &amp;&amp; option)
+
+      <span class="hljs-keyword">if</span> (!data &amp;&amp; options.toggle &amp;&amp; option == <span class="hljs-string">'show'</span>) options.toggle = <span class="hljs-literal">false</span>
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.collapse'</span>, (data = <span class="hljs-keyword">new</span> Collapse(<span class="hljs-keyword">this</span>, options)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span>) data[option]()
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.collapse
+
+  $.fn.collapse             = Plugin
+  $.fn.collapse.Constructor = Collapse
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="collapse-no-conflict">
+  <h1>
+    <a href="#collapse-no-conflict" name="collapse-no-conflict" class="pilcrow"></a>
+COLLAPSE NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.collapse.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.collapse = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="collapse-data-api">
+  <h1>
+    <a href="#collapse-data-api" name="collapse-data-api" class="pilcrow"></a>
+COLLAPSE DATA-API
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'click.bs.collapse.data-api'</span>, <span class="hljs-string">'[data-toggle="collapse"]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">var</span> href
+    <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+    <span class="hljs-keyword">var</span> target  = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'data-target'</span>)
+        || e.preventDefault()
+        || (href = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'href'</span>)) &amp;&amp; href.replace(<span class="hljs-regexp">/.*(?=#[^\s]+$)/</span>, <span class="hljs-string">''</span>) <span class="hljs-comment">// strip for ie7</span>
+    <span class="hljs-keyword">var</span> $target = $(target)
+    <span class="hljs-keyword">var</span> data    = $target.data(<span class="hljs-string">'bs.collapse'</span>)
+    <span class="hljs-keyword">var</span> option  = data ? <span class="hljs-string">'toggle'</span> : $<span class="hljs-keyword">this</span>.data()
+    <span class="hljs-keyword">var</span> parent  = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'data-parent'</span>)
+    <span class="hljs-keyword">var</span> $parent = parent &amp;&amp; $(parent)
+
+    <span class="hljs-keyword">if</span> (!data || !data.transitioning) {
+      <span class="hljs-keyword">if</span> ($parent) $parent.find(<span class="hljs-string">'[data-toggle="collapse"][data-parent="'</span> + parent + <span class="hljs-string">'"]'</span>).not($<span class="hljs-keyword">this</span>).addClass(<span class="hljs-string">'collapsed'</span>).attr(<span class="hljs-string">'aria-expanded'</span>, <span class="hljs-literal">false</span>)
+      <span class="hljs-keyword">var</span> isCollapsed = $target.hasClass(<span class="hljs-string">'in'</span>)
+      $<span class="hljs-keyword">this</span>.toggleClass(<span class="hljs-string">'collapsed'</span>, isCollapsed).attr(<span class="hljs-string">'aria-expanded'</span>, !isCollapsed)
+    }
+
+    Plugin.call($target, option)
+  })
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-dropdown.js-v3.2.0-http-getbootstrap.comjavascriptdropdowns">
+  <h1>
+    <a href="#bootstrap-dropdown.js-v3.2.0-http-getbootstrap.comjavascriptdropdowns" name="bootstrap-dropdown.js-v3.2.0-http-getbootstrap.comjavascriptdropdowns" class="pilcrow"></a>
+========================================================================
+Bootstrap: dropdown.js v3.2.0
+http://getbootstrap.com/javascript/#dropdowns
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-5">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-5" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-5" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="dropdown-class-definition">
+  <h1>
+    <a href="#dropdown-class-definition" name="dropdown-class-definition" class="pilcrow"></a>
+DROPDOWN CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> backdrop = <span class="hljs-string">'.dropdown-backdrop'</span>
+  <span class="hljs-keyword">var</span> toggle   = <span class="hljs-string">'[data-toggle="dropdown"]'</span>
+  <span class="hljs-keyword">var</span> Dropdown = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+    $(element).on(<span class="hljs-string">'click.bs.dropdown'</span>, <span class="hljs-keyword">this</span>.toggle)
+  }
+
+  Dropdown.VERSION = <span class="hljs-string">'3.2.0'</span>
+
+  Dropdown.prototype.toggle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span> = $(<span class="hljs-keyword">this</span>)
+
+    <span class="hljs-keyword">if</span> ($<span class="hljs-keyword">this</span>.is(<span class="hljs-string">'.disabled, :disabled'</span>)) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> $parent  = getParent($<span class="hljs-keyword">this</span>)
+    <span class="hljs-keyword">var</span> isActive = $parent.hasClass(<span class="hljs-string">'open'</span>)
+
+    clearMenus()
+
+    <span class="hljs-keyword">if</span> (!isActive) {
+      <span class="hljs-keyword">if</span> (<span class="hljs-string">'ontouchstart'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>.documentElement &amp;&amp; !$parent.closest(<span class="hljs-string">'.navbar-nav'</span>).length) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-29" id="section-29"></a>
+</div>
+<p>if mobile we use a backdrop because click events don't delegate</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">        $(<span class="hljs-string">'&lt;div class="dropdown-backdrop"/&gt;'</span>).insertAfter($(<span class="hljs-keyword">this</span>)).on(<span class="hljs-string">'click'</span>, clearMenus)
+      }
+
+      <span class="hljs-keyword">var</span> relatedTarget = { <span class="hljs-attr">relatedTarget</span>: <span class="hljs-keyword">this</span> }
+      $parent.trigger(e = $.Event(<span class="hljs-string">'show.bs.dropdown'</span>, relatedTarget))
+
+      <span class="hljs-keyword">if</span> (e.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+      $<span class="hljs-keyword">this</span>
+        .trigger(<span class="hljs-string">'focus'</span>)
+        .attr(<span class="hljs-string">'aria-expanded'</span>, <span class="hljs-string">'true'</span>)
+
+      $parent
+        .toggleClass(<span class="hljs-string">'open'</span>)
+        .trigger(<span class="hljs-string">'shown.bs.dropdown'</span>, relatedTarget)
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+  }
+
+  Dropdown.prototype.keydown = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">if</span> (!<span class="hljs-regexp">/(38|40|27|32)/</span>.test(e.which)) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span> = $(<span class="hljs-keyword">this</span>)
+
+    e.preventDefault()
+    e.stopPropagation()
+
+    <span class="hljs-keyword">if</span> ($<span class="hljs-keyword">this</span>.is(<span class="hljs-string">'.disabled, :disabled'</span>)) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> $parent  = getParent($<span class="hljs-keyword">this</span>)
+    <span class="hljs-keyword">var</span> isActive = $parent.hasClass(<span class="hljs-string">'open'</span>)
+
+    <span class="hljs-keyword">if</span> ((!isActive &amp;&amp; e.which != <span class="hljs-number">27</span>) || (isActive &amp;&amp; e.which == <span class="hljs-number">27</span>)) {
+      <span class="hljs-keyword">if</span> (e.which == <span class="hljs-number">27</span>) $parent.find(toggle).trigger(<span class="hljs-string">'focus'</span>)
+      <span class="hljs-keyword">return</span> $<span class="hljs-keyword">this</span>.trigger(<span class="hljs-string">'click'</span>)
+    }
+
+    <span class="hljs-keyword">var</span> desc = <span class="hljs-string">' li:not(.divider):visible a'</span>
+    <span class="hljs-keyword">var</span> $items = $parent.find(<span class="hljs-string">'[role="menu"]'</span> + desc + <span class="hljs-string">', [role="listbox"]'</span> + desc)
+
+    <span class="hljs-keyword">if</span> (!$items.length) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> index = $items.index(e.target)
+
+    <span class="hljs-keyword">if</span> (e.which == <span class="hljs-number">38</span> &amp;&amp; index &gt; <span class="hljs-number">0</span>)                 index--                        <span class="hljs-comment">// up</span>
+    <span class="hljs-keyword">if</span> (e.which == <span class="hljs-number">40</span> &amp;&amp; index &lt; $items.length - <span class="hljs-number">1</span>) index++                        <span class="hljs-comment">// down</span>
+    <span class="hljs-keyword">if</span> (!~index)                                      index = <span class="hljs-number">0</span>
+
+    $items.eq(index).trigger(<span class="hljs-string">'focus'</span>)
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">clearMenus</span>(<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">if</span> (e &amp;&amp; e.which === <span class="hljs-number">3</span>) <span class="hljs-keyword">return</span>
+    $(backdrop).remove()
+    $(toggle).each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>         = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> $parent       = getParent($<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> relatedTarget = { <span class="hljs-attr">relatedTarget</span>: <span class="hljs-keyword">this</span> }
+
+      <span class="hljs-keyword">if</span> (!$parent.hasClass(<span class="hljs-string">'open'</span>)) <span class="hljs-keyword">return</span>
+
+      $parent.trigger(e = $.Event(<span class="hljs-string">'hide.bs.dropdown'</span>, relatedTarget))
+
+      <span class="hljs-keyword">if</span> (e.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+      $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'aria-expanded'</span>, <span class="hljs-string">'false'</span>)
+      $parent.removeClass(<span class="hljs-string">'open'</span>).trigger(<span class="hljs-string">'hidden.bs.dropdown'</span>, relatedTarget)
+    })
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getParent</span>(<span class="hljs-params">$this</span>) </span>{
+    <span class="hljs-keyword">var</span> selector = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'data-target'</span>)
+
+    <span class="hljs-keyword">if</span> (!selector) {
+      selector = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'href'</span>)
+      selector = selector &amp;&amp; <span class="hljs-regexp">/#[A-Za-z]/</span>.test(selector) &amp;&amp; selector.replace(<span class="hljs-regexp">/.*(?=#[^\s]*$)/</span>, <span class="hljs-string">''</span>) <span class="hljs-comment">// strip for ie7</span>
+    }
+
+    <span class="hljs-keyword">var</span> $parent = selector &amp;&amp; $(selector)
+
+    <span class="hljs-keyword">return</span> $parent &amp;&amp; $parent.length ? $parent : $<span class="hljs-keyword">this</span>.parent()
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="dropdown-plugin-definition">
+  <h1>
+    <a href="#dropdown-plugin-definition" name="dropdown-plugin-definition" class="pilcrow"></a>
+DROPDOWN PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span> = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data  = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.dropdown'</span>)
+
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.dropdown'</span>, (data = <span class="hljs-keyword">new</span> Dropdown(<span class="hljs-keyword">this</span>)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span>) data[option].call($<span class="hljs-keyword">this</span>)
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.dropdown
+
+  $.fn.dropdown             = Plugin
+  $.fn.dropdown.Constructor = Dropdown
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="dropdown-no-conflict">
+  <h1>
+    <a href="#dropdown-no-conflict" name="dropdown-no-conflict" class="pilcrow"></a>
+DROPDOWN NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.dropdown.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.dropdown = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="apply-to-standard-dropdown-elements">
+  <h1>
+    <a href="#apply-to-standard-dropdown-elements" name="apply-to-standard-dropdown-elements" class="pilcrow"></a>
+APPLY TO STANDARD DROPDOWN ELEMENTS
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $(<span class="hljs-built_in">document</span>)
+    .on(<span class="hljs-string">'click.bs.dropdown.data-api'</span>, clearMenus)
+    .on(<span class="hljs-string">'click.bs.dropdown.data-api'</span>, <span class="hljs-string">'.dropdown form'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{ e.stopPropagation() })
+    .on(<span class="hljs-string">'click.bs.dropdown.data-api'</span>, toggle, Dropdown.prototype.toggle)
+    .on(<span class="hljs-string">'keydown.bs.dropdown.data-api'</span>, toggle + <span class="hljs-string">', [role="menu"], [role="listbox"]'</span>, Dropdown.prototype.keydown)
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-modal.js-v3.2.0-http-getbootstrap.comjavascriptmodals">
+  <h1>
+    <a href="#bootstrap-modal.js-v3.2.0-http-getbootstrap.comjavascriptmodals" name="bootstrap-modal.js-v3.2.0-http-getbootstrap.comjavascriptmodals" class="pilcrow"></a>
+========================================================================
+Bootstrap: modal.js v3.2.0
+http://getbootstrap.com/javascript/#modals
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-6">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-6" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-6" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="modal-class-definition">
+  <h1>
+    <a href="#modal-class-definition" name="modal-class-definition" class="pilcrow"></a>
+MODAL CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> Modal = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element, options</span>) </span>{
+    <span class="hljs-keyword">this</span>.options        = options
+    <span class="hljs-keyword">this</span>.$body          = $(<span class="hljs-built_in">document</span>.body)
+    <span class="hljs-keyword">this</span>.$element       = $(element)
+    <span class="hljs-keyword">this</span>.$backdrop      =
+    <span class="hljs-keyword">this</span>.isShown        = <span class="hljs-literal">null</span>
+    <span class="hljs-keyword">this</span>.scrollbarWidth = <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.remote) {
+      <span class="hljs-keyword">this</span>.$element
+        .find(<span class="hljs-string">'.modal-content'</span>)
+        .load(<span class="hljs-keyword">this</span>.options.remote, $.proxy(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          <span class="hljs-keyword">this</span>.$element.trigger(<span class="hljs-string">'loaded.bs.modal'</span>)
+        }, <span class="hljs-keyword">this</span>))
+    }
+  }
+
+  Modal.VERSION  = <span class="hljs-string">'3.2.0'</span>
+
+  Modal.TRANSITION_DURATION = <span class="hljs-number">300</span>
+  Modal.BACKDROP_TRANSITION_DURATION = <span class="hljs-number">150</span>
+
+  Modal.DEFAULTS = {
+    <span class="hljs-attr">backdrop</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">keyboard</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>
+  }
+
+  Modal.prototype.toggle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">_relatedTarget</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.isShown ? <span class="hljs-keyword">this</span>.hide() : <span class="hljs-keyword">this</span>.show(_relatedTarget)
+  }
+
+  Modal.prototype.show = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">_relatedTarget</span>) </span>{
+    <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">var</span> e    = $.Event(<span class="hljs-string">'show.bs.modal'</span>, { <span class="hljs-attr">relatedTarget</span>: _relatedTarget })
+
+    <span class="hljs-keyword">this</span>.$element.trigger(e)
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isShown || e.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">this</span>.isShown = <span class="hljs-literal">true</span>
+
+    <span class="hljs-keyword">this</span>.checkScrollbar()
+    <span class="hljs-keyword">this</span>.$body.addClass(<span class="hljs-string">'modal-open'</span>)
+
+    <span class="hljs-keyword">this</span>.setScrollbar()
+    <span class="hljs-keyword">this</span>.escape()
+
+    <span class="hljs-keyword">this</span>.$element.on(<span class="hljs-string">'click.dismiss.bs.modal'</span>, <span class="hljs-string">'[data-dismiss="modal"]'</span>, $.proxy(<span class="hljs-keyword">this</span>.hide, <span class="hljs-keyword">this</span>))
+
+    <span class="hljs-keyword">this</span>.backdrop(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> transition = $.support.transition &amp;&amp; that.$element.hasClass(<span class="hljs-string">'fade'</span>)
+
+      <span class="hljs-keyword">if</span> (!that.$element.parent().length) {
+        that.$element.appendTo(that.$body) <span class="hljs-comment">// don't move modals dom position</span>
+      }
+
+      that.$element
+        .show()
+        .scrollTop(<span class="hljs-number">0</span>)
+
+      <span class="hljs-keyword">if</span> (transition) {
+        that.$element[<span class="hljs-number">0</span>].offsetWidth <span class="hljs-comment">// force reflow</span>
+      }
+
+      that.$element
+        .addClass(<span class="hljs-string">'in'</span>)
+        .attr(<span class="hljs-string">'aria-hidden'</span>, <span class="hljs-literal">false</span>)
+
+      that.enforceFocus()
+
+      <span class="hljs-keyword">var</span> e = $.Event(<span class="hljs-string">'shown.bs.modal'</span>, { <span class="hljs-attr">relatedTarget</span>: _relatedTarget })
+
+      transition ?
+        that.$element.find(<span class="hljs-string">'.modal-dialog'</span>) <span class="hljs-comment">// wait for modal to slide in</span>
+          .one(<span class="hljs-string">'bsTransitionEnd'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            that.$element.trigger(<span class="hljs-string">'focus'</span>).trigger(e)
+          })
+          .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
+        that.$element.trigger(<span class="hljs-string">'focus'</span>).trigger(e)
+    })
+  }
+
+  Modal.prototype.hide = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">if</span> (e) e.preventDefault()
+
+    e = $.Event(<span class="hljs-string">'hide.bs.modal'</span>)
+
+    <span class="hljs-keyword">this</span>.$element.trigger(e)
+
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isShown || e.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">this</span>.isShown = <span class="hljs-literal">false</span>
+
+    <span class="hljs-keyword">this</span>.escape()
+
+    $(<span class="hljs-built_in">document</span>).off(<span class="hljs-string">'focusin.bs.modal'</span>)
+
+    <span class="hljs-keyword">this</span>.$element
+      .removeClass(<span class="hljs-string">'in'</span>)
+      .attr(<span class="hljs-string">'aria-hidden'</span>, <span class="hljs-literal">true</span>)
+      .off(<span class="hljs-string">'click.dismiss.bs.modal'</span>)
+
+    $.support.transition &amp;&amp; <span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'fade'</span>) ?
+      <span class="hljs-keyword">this</span>.$element
+        .one(<span class="hljs-string">'bsTransitionEnd'</span>, $.proxy(<span class="hljs-keyword">this</span>.hideModal, <span class="hljs-keyword">this</span>))
+        .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
+      <span class="hljs-keyword">this</span>.hideModal()
+  }
+
+  Modal.prototype.enforceFocus = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-built_in">document</span>)
+      .off(<span class="hljs-string">'focusin.bs.modal'</span>) <span class="hljs-comment">// guard against infinite focus loop</span>
+      .on(<span class="hljs-string">'focusin.bs.modal'</span>, $.proxy(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.$element[<span class="hljs-number">0</span>] !== e.target &amp;&amp; !<span class="hljs-keyword">this</span>.$element.has(e.target).length) {
+          <span class="hljs-keyword">this</span>.$element.trigger(<span class="hljs-string">'focus'</span>)
+        }
+      }, <span class="hljs-keyword">this</span>))
+  }
+
+  Modal.prototype.escape = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isShown &amp;&amp; <span class="hljs-keyword">this</span>.options.keyboard) {
+      <span class="hljs-keyword">this</span>.$element.on(<span class="hljs-string">'keydown.dismiss.bs.modal'</span>, $.proxy(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        e.which == <span class="hljs-number">27</span> &amp;&amp; <span class="hljs-keyword">this</span>.hide()
+      }, <span class="hljs-keyword">this</span>))
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isShown) {
+      <span class="hljs-keyword">this</span>.$element.off(<span class="hljs-string">'keydown.dismiss.bs.modal'</span>)
+    }
+  }
+
+  Modal.prototype.hideModal = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">this</span>.$element.hide()
+    <span class="hljs-keyword">this</span>.backdrop(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      that.$body.removeClass(<span class="hljs-string">'modal-open'</span>)
+      that.resetScrollbar()
+      that.$element.trigger(<span class="hljs-string">'hidden.bs.modal'</span>)
+    })
+  }
+
+  Modal.prototype.removeBackdrop = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.$backdrop &amp;&amp; <span class="hljs-keyword">this</span>.$backdrop.remove()
+    <span class="hljs-keyword">this</span>.$backdrop = <span class="hljs-literal">null</span>
+  }
+
+  Modal.prototype.backdrop = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+    <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">var</span> animate = <span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'fade'</span>) ? <span class="hljs-string">'fade'</span> : <span class="hljs-string">''</span>
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isShown &amp;&amp; <span class="hljs-keyword">this</span>.options.backdrop) {
+      <span class="hljs-keyword">var</span> doAnimate = $.support.transition &amp;&amp; animate
+
+      <span class="hljs-keyword">this</span>.$backdrop = $(<span class="hljs-string">'&lt;div class="modal-backdrop '</span> + animate + <span class="hljs-string">'" /&gt;'</span>)
+        .prependTo(<span class="hljs-keyword">this</span>.$element)
+        .on(<span class="hljs-string">'click.dismiss.bs.modal'</span>, $.proxy(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+          <span class="hljs-keyword">if</span> (e.target !== e.currentTarget) <span class="hljs-keyword">return</span>
+          <span class="hljs-keyword">this</span>.options.backdrop == <span class="hljs-string">'static'</span>
+            ? <span class="hljs-keyword">this</span>.$element[<span class="hljs-number">0</span>].focus.call(<span class="hljs-keyword">this</span>.$element[<span class="hljs-number">0</span>])
+            : <span class="hljs-keyword">this</span>.hide.call(<span class="hljs-keyword">this</span>)
+        }, <span class="hljs-keyword">this</span>))
+
+      <span class="hljs-keyword">if</span> (doAnimate) <span class="hljs-keyword">this</span>.$backdrop[<span class="hljs-number">0</span>].offsetWidth <span class="hljs-comment">// force reflow</span>
+
+      <span class="hljs-keyword">this</span>.$backdrop.addClass(<span class="hljs-string">'in'</span>)
+
+      <span class="hljs-keyword">if</span> (!callback) <span class="hljs-keyword">return</span>
+
+      doAnimate ?
+        <span class="hljs-keyword">this</span>.$backdrop
+          .one(<span class="hljs-string">'bsTransitionEnd'</span>, callback)
+          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
+        callback()
+
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.isShown &amp;&amp; <span class="hljs-keyword">this</span>.$backdrop) {
+      <span class="hljs-keyword">this</span>.$backdrop.removeClass(<span class="hljs-string">'in'</span>)
+
+      <span class="hljs-keyword">var</span> callbackRemove = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        that.removeBackdrop()
+        callback &amp;&amp; callback()
+      }
+      $.support.transition &amp;&amp; <span class="hljs-keyword">this</span>.$element.hasClass(<span class="hljs-string">'fade'</span>) ?
+        <span class="hljs-keyword">this</span>.$backdrop
+          .one(<span class="hljs-string">'bsTransitionEnd'</span>, callbackRemove)
+          .emulateTransitionEnd(Modal.BACKDROP_TRANSITION_DURATION) :
+        callbackRemove()
+
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (callback) {
+      callback()
+    }
+  }
+
+  Modal.prototype.checkScrollbar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.scrollbarWidth = <span class="hljs-keyword">this</span>.measureScrollbar()
+  }
+
+  Modal.prototype.setScrollbar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> bodyPad = <span class="hljs-built_in">parseInt</span>((<span class="hljs-keyword">this</span>.$body.css(<span class="hljs-string">'padding-right'</span>) || <span class="hljs-number">0</span>), <span class="hljs-number">10</span>)
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.scrollbarWidth) <span class="hljs-keyword">this</span>.$body.css(<span class="hljs-string">'padding-right'</span>, bodyPad + <span class="hljs-keyword">this</span>.scrollbarWidth)
+  }
+
+  Modal.prototype.resetScrollbar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.$body.css(<span class="hljs-string">'padding-right'</span>, <span class="hljs-string">''</span>)
+  }
+
+  Modal.prototype.measureScrollbar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-comment">// thx walsh</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.body.clientWidth &gt;= <span class="hljs-built_in">window</span>.innerWidth) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+    <span class="hljs-keyword">var</span> scrollDiv = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>)
+    scrollDiv.className = <span class="hljs-string">'modal-scrollbar-measure'</span>
+    <span class="hljs-keyword">this</span>.$body.append(scrollDiv)
+    <span class="hljs-keyword">var</span> scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
+    <span class="hljs-keyword">this</span>.$body[<span class="hljs-number">0</span>].removeChild(scrollDiv)
+    <span class="hljs-keyword">return</span> scrollbarWidth
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="modal-plugin-definition">
+  <h1>
+    <a href="#modal-plugin-definition" name="modal-plugin-definition" class="pilcrow"></a>
+MODAL PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option, _relatedTarget</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data    = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.modal'</span>)
+      <span class="hljs-keyword">var</span> options = $.extend({}, Modal.DEFAULTS, $<span class="hljs-keyword">this</span>.data(), <span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'object'</span> &amp;&amp; option)
+
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.modal'</span>, (data = <span class="hljs-keyword">new</span> Modal(<span class="hljs-keyword">this</span>, options)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span>) data[option](_relatedTarget)
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (options.show) data.show(_relatedTarget)
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.modal
+
+  $.fn.modal             = Plugin
+  $.fn.modal.Constructor = Modal
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="modal-no-conflict">
+  <h1>
+    <a href="#modal-no-conflict" name="modal-no-conflict" class="pilcrow"></a>
+MODAL NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.modal.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.modal = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="modal-data-api">
+  <h1>
+    <a href="#modal-data-api" name="modal-data-api" class="pilcrow"></a>
+MODAL DATA-API
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'click.bs.modal.data-api'</span>, <span class="hljs-string">'[data-toggle="modal"]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+    <span class="hljs-keyword">var</span> href    = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'href'</span>)
+    <span class="hljs-keyword">var</span> $target = $($<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'data-target'</span>) || (href &amp;&amp; href.replace(<span class="hljs-regexp">/.*(?=#[^\s]+$)/</span>, <span class="hljs-string">''</span>))) <span class="hljs-comment">// strip for ie7</span>
+    <span class="hljs-keyword">var</span> option  = $target.data(<span class="hljs-string">'bs.modal'</span>) ? <span class="hljs-string">'toggle'</span> : $.extend({ <span class="hljs-attr">remote</span>: !<span class="hljs-regexp">/#/</span>.test(href) &amp;&amp; href }, $target.data(), $<span class="hljs-keyword">this</span>.data())
+
+    <span class="hljs-keyword">if</span> ($<span class="hljs-keyword">this</span>.is(<span class="hljs-string">'a'</span>)) e.preventDefault()
+
+    $target.one(<span class="hljs-string">'show.bs.modal'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">showEvent</span>) </span>{
+      <span class="hljs-keyword">if</span> (showEvent.isDefaultPrevented()) <span class="hljs-keyword">return</span> <span class="hljs-comment">// only register focus restorer if modal will actually get shown</span>
+      $target.one(<span class="hljs-string">'hidden.bs.modal'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        $<span class="hljs-keyword">this</span>.is(<span class="hljs-string">':visible'</span>) &amp;&amp; $<span class="hljs-keyword">this</span>.trigger(<span class="hljs-string">'focus'</span>)
+      })
+    })
+    Plugin.call($target, option, <span class="hljs-keyword">this</span>)
+  })
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-tooltip.js-v3.2.0-http-getbootstrap.comjavascripttooltip-inspired-by-the-original-jquery.tipsy-by-jason-frame">
+  <h1>
+    <a href="#bootstrap-tooltip.js-v3.2.0-http-getbootstrap.comjavascripttooltip-inspired-by-the-original-jquery.tipsy-by-jason-frame" name="bootstrap-tooltip.js-v3.2.0-http-getbootstrap.comjavascripttooltip-inspired-by-the-original-jquery.tipsy-by-jason-frame" class="pilcrow"></a>
+========================================================================
+Bootstrap: tooltip.js v3.2.0
+http://getbootstrap.com/javascript/#tooltip
+Inspired by the original jQuery.tipsy by Jason Frame
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-7">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-7" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-7" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="tooltip-public-class-definition">
+  <h1>
+    <a href="#tooltip-public-class-definition" name="tooltip-public-class-definition" class="pilcrow"></a>
+TOOLTIP PUBLIC CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> Tooltip = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element, options</span>) </span>{
+    <span class="hljs-keyword">this</span>.type       =
+    <span class="hljs-keyword">this</span>.options    =
+    <span class="hljs-keyword">this</span>.enabled    =
+    <span class="hljs-keyword">this</span>.timeout    =
+    <span class="hljs-keyword">this</span>.hoverState =
+    <span class="hljs-keyword">this</span>.$element   = <span class="hljs-literal">null</span>
+
+    <span class="hljs-keyword">this</span>.init(<span class="hljs-string">'tooltip'</span>, element, options)
+  }
+
+  Tooltip.VERSION  = <span class="hljs-string">'3.2.0'</span>
+
+  Tooltip.TRANSITION_DURATION = <span class="hljs-number">150</span>
+
+  Tooltip.DEFAULTS = {
+    <span class="hljs-attr">animation</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">placement</span>: <span class="hljs-string">'top'</span>,
+    <span class="hljs-attr">selector</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div class="tooltip" role="tooltip"&gt;&lt;div class="tooltip-arrow"&gt;&lt;/div&gt;&lt;div class="tooltip-inner"&gt;&lt;/div&gt;&lt;/div&gt;'</span>,
+    <span class="hljs-attr">trigger</span>: <span class="hljs-string">'hover focus'</span>,
+    <span class="hljs-attr">title</span>: <span class="hljs-string">''</span>,
+    <span class="hljs-attr">delay</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">html</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">container</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">viewport</span>: {
+      <span class="hljs-attr">selector</span>: <span class="hljs-string">'body'</span>,
+      <span class="hljs-attr">padding</span>: <span class="hljs-number">0</span>
+    }
+  }
+
+  Tooltip.prototype.init = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">type, element, options</span>) </span>{
+    <span class="hljs-keyword">this</span>.enabled   = <span class="hljs-literal">true</span>
+    <span class="hljs-keyword">this</span>.type      = type
+    <span class="hljs-keyword">this</span>.$element  = $(element)
+    <span class="hljs-keyword">this</span>.options   = <span class="hljs-keyword">this</span>.getOptions(options)
+    <span class="hljs-keyword">this</span>.$viewport = <span class="hljs-keyword">this</span>.options.viewport &amp;&amp; $(<span class="hljs-keyword">this</span>.options.viewport.selector || <span class="hljs-keyword">this</span>.options.viewport)
+
+    <span class="hljs-keyword">var</span> triggers = <span class="hljs-keyword">this</span>.options.trigger.split(<span class="hljs-string">' '</span>)
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = triggers.length; i--;) {
+      <span class="hljs-keyword">var</span> trigger = triggers[i]
+
+      <span class="hljs-keyword">if</span> (trigger == <span class="hljs-string">'click'</span>) {
+        <span class="hljs-keyword">this</span>.$element.on(<span class="hljs-string">'click.'</span> + <span class="hljs-keyword">this</span>.type, <span class="hljs-keyword">this</span>.options.selector, $.proxy(<span class="hljs-keyword">this</span>.toggle, <span class="hljs-keyword">this</span>))
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (trigger != <span class="hljs-string">'manual'</span>) {
+        <span class="hljs-keyword">var</span> eventIn  = trigger == <span class="hljs-string">'hover'</span> ? <span class="hljs-string">'mouseenter'</span> : <span class="hljs-string">'focusin'</span>
+        <span class="hljs-keyword">var</span> eventOut = trigger == <span class="hljs-string">'hover'</span> ? <span class="hljs-string">'mouseleave'</span> : <span class="hljs-string">'focusout'</span>
+
+        <span class="hljs-keyword">this</span>.$element.on(eventIn  + <span class="hljs-string">'.'</span> + <span class="hljs-keyword">this</span>.type, <span class="hljs-keyword">this</span>.options.selector, $.proxy(<span class="hljs-keyword">this</span>.enter, <span class="hljs-keyword">this</span>))
+        <span class="hljs-keyword">this</span>.$element.on(eventOut + <span class="hljs-string">'.'</span> + <span class="hljs-keyword">this</span>.type, <span class="hljs-keyword">this</span>.options.selector, $.proxy(<span class="hljs-keyword">this</span>.leave, <span class="hljs-keyword">this</span>))
+      }
+    }
+
+    <span class="hljs-keyword">this</span>.options.selector ?
+      (<span class="hljs-keyword">this</span>._options = $.extend({}, <span class="hljs-keyword">this</span>.options, { <span class="hljs-attr">trigger</span>: <span class="hljs-string">'manual'</span>, <span class="hljs-attr">selector</span>: <span class="hljs-string">''</span> })) :
+      <span class="hljs-keyword">this</span>.fixTitle()
+  }
+
+  Tooltip.prototype.getDefaults = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> Tooltip.DEFAULTS
+  }
+
+  Tooltip.prototype.getOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) </span>{
+    options = $.extend({}, <span class="hljs-keyword">this</span>.getDefaults(), <span class="hljs-keyword">this</span>.$element.data(), options)
+
+    <span class="hljs-keyword">if</span> (options.delay &amp;&amp; <span class="hljs-keyword">typeof</span> options.delay == <span class="hljs-string">'number'</span>) {
+      options.delay = {
+        <span class="hljs-attr">show</span>: options.delay,
+        <span class="hljs-attr">hide</span>: options.delay
+      }
+    }
+
+    <span class="hljs-keyword">return</span> options
+  }
+
+  Tooltip.prototype.getDelegateOptions = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> options  = {}
+    <span class="hljs-keyword">var</span> defaults = <span class="hljs-keyword">this</span>.getDefaults()
+
+    <span class="hljs-keyword">this</span>._options &amp;&amp; $.each(<span class="hljs-keyword">this</span>._options, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key, value</span>) </span>{
+      <span class="hljs-keyword">if</span> (defaults[key] != value) options[key] = value
+    })
+
+    <span class="hljs-keyword">return</span> options
+  }
+
+  Tooltip.prototype.enter = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) </span>{
+    <span class="hljs-keyword">var</span> self = obj <span class="hljs-keyword">instanceof</span> <span class="hljs-keyword">this</span>.constructor ?
+      obj : $(obj.currentTarget).data(<span class="hljs-string">'bs.'</span> + <span class="hljs-keyword">this</span>.type)
+
+    <span class="hljs-keyword">if</span> (self &amp;&amp; self.$tip &amp;&amp; self.$tip.is(<span class="hljs-string">':visible'</span>)) {
+      self.hoverState = <span class="hljs-string">'in'</span>
+      <span class="hljs-keyword">return</span>
+    }
+
+    <span class="hljs-keyword">if</span> (!self) {
+      self = <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.constructor(obj.currentTarget, <span class="hljs-keyword">this</span>.getDelegateOptions())
+      $(obj.currentTarget).data(<span class="hljs-string">'bs.'</span> + <span class="hljs-keyword">this</span>.type, self)
+    }
+
+    clearTimeout(self.timeout)
+
+    self.hoverState = <span class="hljs-string">'in'</span>
+
+    <span class="hljs-keyword">if</span> (!self.options.delay || !self.options.delay.show) <span class="hljs-keyword">return</span> self.show()
+
+    self.timeout = setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">if</span> (self.hoverState == <span class="hljs-string">'in'</span>) self.show()
+    }, self.options.delay.show)
+  }
+
+  Tooltip.prototype.leave = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj</span>) </span>{
+    <span class="hljs-keyword">var</span> self = obj <span class="hljs-keyword">instanceof</span> <span class="hljs-keyword">this</span>.constructor ?
+      obj : $(obj.currentTarget).data(<span class="hljs-string">'bs.'</span> + <span class="hljs-keyword">this</span>.type)
+
+    <span class="hljs-keyword">if</span> (!self) {
+      self = <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.constructor(obj.currentTarget, <span class="hljs-keyword">this</span>.getDelegateOptions())
+      $(obj.currentTarget).data(<span class="hljs-string">'bs.'</span> + <span class="hljs-keyword">this</span>.type, self)
+    }
+
+    clearTimeout(self.timeout)
+
+    self.hoverState = <span class="hljs-string">'out'</span>
+
+    <span class="hljs-keyword">if</span> (!self.options.delay || !self.options.delay.hide) <span class="hljs-keyword">return</span> self.hide()
+
+    self.timeout = setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">if</span> (self.hoverState == <span class="hljs-string">'out'</span>) self.hide()
+    }, self.options.delay.hide)
+  }
+
+  Tooltip.prototype.show = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> e = $.Event(<span class="hljs-string">'show.bs.'</span> + <span class="hljs-keyword">this</span>.type)
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.hasContent() &amp;&amp; <span class="hljs-keyword">this</span>.enabled) {
+      <span class="hljs-keyword">this</span>.$element.trigger(e)
+
+      <span class="hljs-keyword">var</span> inDom = $.contains(<span class="hljs-keyword">this</span>.$element[<span class="hljs-number">0</span>].ownerDocument.documentElement, <span class="hljs-keyword">this</span>.$element[<span class="hljs-number">0</span>])
+      <span class="hljs-keyword">if</span> (e.isDefaultPrevented() || !inDom) <span class="hljs-keyword">return</span>
+      <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>
+
+      <span class="hljs-keyword">var</span> $tip = <span class="hljs-keyword">this</span>.tip()
+
+      <span class="hljs-keyword">var</span> tipId = <span class="hljs-keyword">this</span>.getUID(<span class="hljs-keyword">this</span>.type)
+
+      <span class="hljs-keyword">this</span>.setContent()
+      $tip.attr(<span class="hljs-string">'id'</span>, tipId)
+      <span class="hljs-keyword">this</span>.$element.attr(<span class="hljs-string">'aria-describedby'</span>, tipId)
+
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.options.animation) $tip.addClass(<span class="hljs-string">'fade'</span>)
+
+      <span class="hljs-keyword">var</span> placement = <span class="hljs-keyword">typeof</span> <span class="hljs-keyword">this</span>.options.placement == <span class="hljs-string">'function'</span> ?
+        <span class="hljs-keyword">this</span>.options.placement.call(<span class="hljs-keyword">this</span>, $tip[<span class="hljs-number">0</span>], <span class="hljs-keyword">this</span>.$element[<span class="hljs-number">0</span>]) :
+        <span class="hljs-keyword">this</span>.options.placement
+
+      <span class="hljs-keyword">var</span> autoToken = <span class="hljs-regexp">/\s?auto?\s?/i</span>
+      <span class="hljs-keyword">var</span> autoPlace = autoToken.test(placement)
+      <span class="hljs-keyword">if</span> (autoPlace) placement = placement.replace(autoToken, <span class="hljs-string">''</span>) || <span class="hljs-string">'top'</span>
+
+      $tip
+        .detach()
+        .css({ <span class="hljs-attr">top</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">left</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">display</span>: <span class="hljs-string">'block'</span> })
+        .addClass(placement)
+        .data(<span class="hljs-string">'bs.'</span> + <span class="hljs-keyword">this</span>.type, <span class="hljs-keyword">this</span>)
+
+      <span class="hljs-keyword">this</span>.options.container ? $tip.appendTo(<span class="hljs-keyword">this</span>.options.container) : $tip.insertAfter(<span class="hljs-keyword">this</span>.$element)
+
+      <span class="hljs-keyword">var</span> pos          = <span class="hljs-keyword">this</span>.getPosition()
+      <span class="hljs-keyword">var</span> actualWidth  = $tip[<span class="hljs-number">0</span>].offsetWidth
+      <span class="hljs-keyword">var</span> actualHeight = $tip[<span class="hljs-number">0</span>].offsetHeight
+
+      <span class="hljs-keyword">if</span> (autoPlace) {
+        <span class="hljs-keyword">var</span> orgPlacement = placement
+        <span class="hljs-keyword">var</span> $container   = <span class="hljs-keyword">this</span>.options.container ? $(<span class="hljs-keyword">this</span>.options.container) : <span class="hljs-keyword">this</span>.$element.parent()
+        <span class="hljs-keyword">var</span> containerDim = <span class="hljs-keyword">this</span>.getPosition($container)
+
+        placement = placement == <span class="hljs-string">'bottom'</span> &amp;&amp; pos.bottom + actualHeight &gt; containerDim.bottom ? <span class="hljs-string">'top'</span>    :
+                    placement == <span class="hljs-string">'top'</span>    &amp;&amp; pos.top    - actualHeight &lt; containerDim.top    ? <span class="hljs-string">'bottom'</span> :
+                    placement == <span class="hljs-string">'right'</span>  &amp;&amp; pos.right  + actualWidth  &gt; containerDim.width  ? <span class="hljs-string">'left'</span>   :
+                    placement == <span class="hljs-string">'left'</span>   &amp;&amp; pos.left   - actualWidth  &lt; containerDim.left   ? <span class="hljs-string">'right'</span>  :
+                    placement
+
+        $tip
+          .removeClass(orgPlacement)
+          .addClass(placement)
+      }
+
+      <span class="hljs-keyword">var</span> calculatedOffset = <span class="hljs-keyword">this</span>.getCalculatedOffset(placement, pos, actualWidth, actualHeight)
+
+      <span class="hljs-keyword">this</span>.applyPlacement(calculatedOffset, placement)
+
+      <span class="hljs-keyword">var</span> complete = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        that.$element.trigger(<span class="hljs-string">'shown.bs.'</span> + that.type)
+        that.hoverState = <span class="hljs-literal">null</span>
+      }
+
+      $.support.transition &amp;&amp; <span class="hljs-keyword">this</span>.$tip.hasClass(<span class="hljs-string">'fade'</span>) ?
+        $tip
+          .one(<span class="hljs-string">'bsTransitionEnd'</span>, complete)
+          .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
+        complete()
+    }
+  }
+
+  Tooltip.prototype.applyPlacement = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">offset, placement</span>) </span>{
+    <span class="hljs-keyword">var</span> $tip   = <span class="hljs-keyword">this</span>.tip()
+    <span class="hljs-keyword">var</span> width  = $tip[<span class="hljs-number">0</span>].offsetWidth
+    <span class="hljs-keyword">var</span> height = $tip[<span class="hljs-number">0</span>].offsetHeight
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-40" id="section-40"></a>
+</div>
+<p>manually read margins because getBoundingClientRect includes difference</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">var</span> marginTop = <span class="hljs-built_in">parseInt</span>($tip.css(<span class="hljs-string">'margin-top'</span>), <span class="hljs-number">10</span>)
+    <span class="hljs-keyword">var</span> marginLeft = <span class="hljs-built_in">parseInt</span>($tip.css(<span class="hljs-string">'margin-left'</span>), <span class="hljs-number">10</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-41" id="section-41"></a>
+</div>
+<p>we must check for NaN for ie 8/9</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(marginTop))  marginTop  = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">isNaN</span>(marginLeft)) marginLeft = <span class="hljs-number">0</span>
+
+    offset.top  = offset.top  + marginTop
+    offset.left = offset.left + marginLeft
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-42" id="section-42"></a>
+</div>
+<p>$.fn.offset doesn't round pixel values
+so we use setOffset directly with our own function B-0</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    $.offset.setOffset($tip[<span class="hljs-number">0</span>], $.extend({
+      <span class="hljs-attr">using</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">props</span>) </span>{
+        $tip.css({
+          <span class="hljs-attr">top</span>: <span class="hljs-built_in">Math</span>.round(props.top),
+          <span class="hljs-attr">left</span>: <span class="hljs-built_in">Math</span>.round(props.left)
+        })
+      }
+    }, offset), <span class="hljs-number">0</span>)
+
+    $tip.addClass(<span class="hljs-string">'in'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-43" id="section-43"></a>
+</div>
+<p>check to see if placing tip in new offset caused the tip to resize itself</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">var</span> actualWidth  = $tip[<span class="hljs-number">0</span>].offsetWidth
+    <span class="hljs-keyword">var</span> actualHeight = $tip[<span class="hljs-number">0</span>].offsetHeight
+
+    <span class="hljs-keyword">if</span> (placement == <span class="hljs-string">'top'</span> &amp;&amp; actualHeight != height) {
+      offset.top = offset.top + height - actualHeight
+    }
+
+    <span class="hljs-keyword">var</span> delta = <span class="hljs-keyword">this</span>.getViewportAdjustedDelta(placement, offset, actualWidth, actualHeight)
+
+    <span class="hljs-keyword">if</span> (delta.left) offset.left += delta.left
+    <span class="hljs-keyword">else</span> offset.top += delta.top
+
+    <span class="hljs-keyword">var</span> isVertical          = <span class="hljs-regexp">/top|bottom/</span>.test(placement)
+    <span class="hljs-keyword">var</span> arrowDelta          = isVertical ? delta.left * <span class="hljs-number">2</span> - width + actualWidth : delta.top * <span class="hljs-number">2</span> - height + actualHeight
+    <span class="hljs-keyword">var</span> arrowOffsetPosition = isVertical ? <span class="hljs-string">'offsetWidth'</span> : <span class="hljs-string">'offsetHeight'</span>
+
+    $tip.offset(offset)
+    <span class="hljs-keyword">this</span>.replaceArrow(arrowDelta, $tip[<span class="hljs-number">0</span>][arrowOffsetPosition], isVertical)
+  }
+
+  Tooltip.prototype.replaceArrow = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">delta, dimension, isHorizontal</span>) </span>{
+    <span class="hljs-keyword">this</span>.arrow()
+      .css(isHorizontal ? <span class="hljs-string">'left'</span> : <span class="hljs-string">'top'</span>, <span class="hljs-number">50</span> * (<span class="hljs-number">1</span> - delta / dimension) + <span class="hljs-string">'%'</span>)
+      .css(isHorizontal ? <span class="hljs-string">'top'</span> : <span class="hljs-string">'left'</span>, <span class="hljs-string">''</span>)
+  }
+
+  Tooltip.prototype.setContent = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> $tip  = <span class="hljs-keyword">this</span>.tip()
+    <span class="hljs-keyword">var</span> title = <span class="hljs-keyword">this</span>.getTitle()
+
+    $tip.find(<span class="hljs-string">'.tooltip-inner'</span>)[<span class="hljs-keyword">this</span>.options.html ? <span class="hljs-string">'html'</span> : <span class="hljs-string">'text'</span>](title)
+    $tip.removeClass(<span class="hljs-string">'fade in top bottom left right'</span>)
+  }
+
+  Tooltip.prototype.hide = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">callback</span>) </span>{
+    <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">var</span> $tip = <span class="hljs-keyword">this</span>.tip()
+    <span class="hljs-keyword">var</span> e    = $.Event(<span class="hljs-string">'hide.bs.'</span> + <span class="hljs-keyword">this</span>.type)
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">complete</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">if</span> (that.hoverState != <span class="hljs-string">'in'</span>) $tip.detach()
+      that.$element
+        .removeAttr(<span class="hljs-string">'aria-describedby'</span>)
+        .trigger(<span class="hljs-string">'hidden.bs.'</span> + that.type)
+      callback &amp;&amp; callback()
+    }
+
+    <span class="hljs-keyword">this</span>.$element.trigger(e)
+
+    <span class="hljs-keyword">if</span> (e.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+    $tip.removeClass(<span class="hljs-string">'in'</span>)
+
+    $.support.transition &amp;&amp; <span class="hljs-keyword">this</span>.$tip.hasClass(<span class="hljs-string">'fade'</span>) ?
+      $tip
+        .one(<span class="hljs-string">'bsTransitionEnd'</span>, complete)
+        .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
+      complete()
+
+    <span class="hljs-keyword">this</span>.hoverState = <span class="hljs-literal">null</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+  Tooltip.prototype.fixTitle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> $e = <span class="hljs-keyword">this</span>.$element
+    <span class="hljs-keyword">if</span> ($e.attr(<span class="hljs-string">'title'</span>) || <span class="hljs-keyword">typeof</span> ($e.attr(<span class="hljs-string">'data-original-title'</span>)) != <span class="hljs-string">'string'</span>) {
+      $e.attr(<span class="hljs-string">'data-original-title'</span>, $e.attr(<span class="hljs-string">'title'</span>) || <span class="hljs-string">''</span>).attr(<span class="hljs-string">'title'</span>, <span class="hljs-string">''</span>)
+    }
+  }
+
+  Tooltip.prototype.hasContent = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getTitle()
+  }
+
+  Tooltip.prototype.getPosition = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$element</span>) </span>{
+    $element   = $element || <span class="hljs-keyword">this</span>.$element
+
+    <span class="hljs-keyword">var</span> el     = $element[<span class="hljs-number">0</span>]
+    <span class="hljs-keyword">var</span> isBody = el.tagName == <span class="hljs-string">'BODY'</span>
+
+    <span class="hljs-keyword">var</span> elRect    = el.getBoundingClientRect()
+    <span class="hljs-keyword">if</span> (elRect.width == <span class="hljs-literal">null</span>) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-44" id="section-44"></a>
+</div>
+<p>width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">      elRect = $.extend({}, elRect, { <span class="hljs-attr">width</span>: elRect.right - elRect.left, <span class="hljs-attr">height</span>: elRect.bottom - elRect.top })
+    }
+    <span class="hljs-keyword">var</span> elOffset  = isBody ? { <span class="hljs-attr">top</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">left</span>: <span class="hljs-number">0</span> } : $element.offset()
+    <span class="hljs-keyword">var</span> scroll    = { <span class="hljs-attr">scroll</span>: isBody ? <span class="hljs-built_in">document</span>.documentElement.scrollTop || <span class="hljs-built_in">document</span>.body.scrollTop : $element.scrollTop() }
+    <span class="hljs-keyword">var</span> outerDims = isBody ? { <span class="hljs-attr">width</span>: $(<span class="hljs-built_in">window</span>).width(), <span class="hljs-attr">height</span>: $(<span class="hljs-built_in">window</span>).height() } : <span class="hljs-literal">null</span>
+
+    <span class="hljs-keyword">return</span> $.extend({}, elRect, scroll, outerDims, elOffset)
+  }
+
+  Tooltip.prototype.getCalculatedOffset = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">placement, pos, actualWidth, actualHeight</span>) </span>{
+    <span class="hljs-keyword">return</span> placement == <span class="hljs-string">'bottom'</span> ? { <span class="hljs-attr">top</span>: pos.top + pos.height,   <span class="hljs-attr">left</span>: pos.left + pos.width / <span class="hljs-number">2</span> - actualWidth / <span class="hljs-number">2</span>  } :
+           placement == <span class="hljs-string">'top'</span>    ? { <span class="hljs-attr">top</span>: pos.top - actualHeight, <span class="hljs-attr">left</span>: pos.left + pos.width / <span class="hljs-number">2</span> - actualWidth / <span class="hljs-number">2</span>  } :
+           placement == <span class="hljs-string">'left'</span>   ? { <span class="hljs-attr">top</span>: pos.top + pos.height / <span class="hljs-number">2</span> - actualHeight / <span class="hljs-number">2</span>, <span class="hljs-attr">left</span>: pos.left - actualWidth } :
+        <span class="hljs-comment">/* placement == 'right' */</span> { <span class="hljs-attr">top</span>: pos.top + pos.height / <span class="hljs-number">2</span> - actualHeight / <span class="hljs-number">2</span>, <span class="hljs-attr">left</span>: pos.left + pos.width   }
+
+  }
+
+  Tooltip.prototype.getViewportAdjustedDelta = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">placement, pos, actualWidth, actualHeight</span>) </span>{
+    <span class="hljs-keyword">var</span> delta = { <span class="hljs-attr">top</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">left</span>: <span class="hljs-number">0</span> }
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.$viewport) <span class="hljs-keyword">return</span> delta
+
+    <span class="hljs-keyword">var</span> viewportPadding = <span class="hljs-keyword">this</span>.options.viewport &amp;&amp; <span class="hljs-keyword">this</span>.options.viewport.padding || <span class="hljs-number">0</span>
+    <span class="hljs-keyword">var</span> viewportDimensions = <span class="hljs-keyword">this</span>.getPosition(<span class="hljs-keyword">this</span>.$viewport)
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/right|left/</span>.test(placement)) {
+      <span class="hljs-keyword">var</span> topEdgeOffset    = pos.top - viewportPadding - viewportDimensions.scroll
+      <span class="hljs-keyword">var</span> bottomEdgeOffset = pos.top + viewportPadding - viewportDimensions.scroll + actualHeight
+      <span class="hljs-keyword">if</span> (topEdgeOffset &lt; viewportDimensions.top) { <span class="hljs-comment">// top overflow</span>
+        delta.top = viewportDimensions.top - topEdgeOffset
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (bottomEdgeOffset &gt; viewportDimensions.top + viewportDimensions.height) { <span class="hljs-comment">// bottom overflow</span>
+        delta.top = viewportDimensions.top + viewportDimensions.height - bottomEdgeOffset
+      }
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">var</span> leftEdgeOffset  = pos.left - viewportPadding
+      <span class="hljs-keyword">var</span> rightEdgeOffset = pos.left + viewportPadding + actualWidth
+      <span class="hljs-keyword">if</span> (leftEdgeOffset &lt; viewportDimensions.left) { <span class="hljs-comment">// left overflow</span>
+        delta.left = viewportDimensions.left - leftEdgeOffset
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (rightEdgeOffset &gt; viewportDimensions.width) { <span class="hljs-comment">// right overflow</span>
+        delta.left = viewportDimensions.left + viewportDimensions.width - rightEdgeOffset
+      }
+    }
+
+    <span class="hljs-keyword">return</span> delta
+  }
+
+  Tooltip.prototype.getTitle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> title
+    <span class="hljs-keyword">var</span> $e = <span class="hljs-keyword">this</span>.$element
+    <span class="hljs-keyword">var</span> o  = <span class="hljs-keyword">this</span>.options
+
+    title = $e.attr(<span class="hljs-string">'data-original-title'</span>)
+      || (<span class="hljs-keyword">typeof</span> o.title == <span class="hljs-string">'function'</span> ? o.title.call($e[<span class="hljs-number">0</span>]) :  o.title)
+
+    <span class="hljs-keyword">return</span> title
+  }
+
+  Tooltip.prototype.getUID = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">prefix</span>) </span>{
+    <span class="hljs-keyword">do</span> prefix += ~~(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">1000000</span>)
+    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">document</span>.getElementById(prefix))
+    <span class="hljs-keyword">return</span> prefix
+  }
+
+  Tooltip.prototype.tip = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.$tip = <span class="hljs-keyword">this</span>.$tip || $(<span class="hljs-keyword">this</span>.options.template))
+  }
+
+  Tooltip.prototype.arrow = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.$arrow = <span class="hljs-keyword">this</span>.$arrow || <span class="hljs-keyword">this</span>.tip().find(<span class="hljs-string">'.tooltip-arrow'</span>))
+  }
+
+  Tooltip.prototype.enable = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.enabled = <span class="hljs-literal">true</span>
+  }
+
+  Tooltip.prototype.disable = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.enabled = <span class="hljs-literal">false</span>
+  }
+
+  Tooltip.prototype.toggleEnabled = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.enabled = !<span class="hljs-keyword">this</span>.enabled
+  }
+
+  Tooltip.prototype.toggle = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>
+    <span class="hljs-keyword">if</span> (e) {
+      self = $(e.currentTarget).data(<span class="hljs-string">'bs.'</span> + <span class="hljs-keyword">this</span>.type)
+      <span class="hljs-keyword">if</span> (!self) {
+        self = <span class="hljs-keyword">new</span> <span class="hljs-keyword">this</span>.constructor(e.currentTarget, <span class="hljs-keyword">this</span>.getDelegateOptions())
+        $(e.currentTarget).data(<span class="hljs-string">'bs.'</span> + <span class="hljs-keyword">this</span>.type, self)
+      }
+    }
+
+    self.tip().hasClass(<span class="hljs-string">'in'</span>) ? self.leave(self) : self.enter(self)
+  }
+
+  Tooltip.prototype.destroy = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>
+    clearTimeout(<span class="hljs-keyword">this</span>.timeout)
+    <span class="hljs-keyword">this</span>.hide(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      that.$element.off(<span class="hljs-string">'.'</span> + that.type).removeData(<span class="hljs-string">'bs.'</span> + that.type)
+    })
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="tooltip-plugin-definition">
+  <h1>
+    <a href="#tooltip-plugin-definition" name="tooltip-plugin-definition" class="pilcrow"></a>
+TOOLTIP PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data    = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.tooltip'</span>)
+      <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'object'</span> &amp;&amp; option
+
+      <span class="hljs-keyword">if</span> (!data &amp;&amp; option == <span class="hljs-string">'destroy'</span>) <span class="hljs-keyword">return</span>
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.tooltip'</span>, (data = <span class="hljs-keyword">new</span> Tooltip(<span class="hljs-keyword">this</span>, options)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span>) data[option]()
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.tooltip
+
+  $.fn.tooltip             = Plugin
+  $.fn.tooltip.Constructor = Tooltip
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="tooltip-no-conflict">
+  <h1>
+    <a href="#tooltip-no-conflict" name="tooltip-no-conflict" class="pilcrow"></a>
+TOOLTIP NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.tooltip.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.tooltip = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-popover.js-v3.2.0-http-getbootstrap.comjavascriptpopovers">
+  <h1>
+    <a href="#bootstrap-popover.js-v3.2.0-http-getbootstrap.comjavascriptpopovers" name="bootstrap-popover.js-v3.2.0-http-getbootstrap.comjavascriptpopovers" class="pilcrow"></a>
+========================================================================
+Bootstrap: popover.js v3.2.0
+http://getbootstrap.com/javascript/#popovers
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-8">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-8" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-8" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="popover-public-class-definition">
+  <h1>
+    <a href="#popover-public-class-definition" name="popover-public-class-definition" class="pilcrow"></a>
+POPOVER PUBLIC CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> Popover = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element, options</span>) </span>{
+    <span class="hljs-keyword">this</span>.init(<span class="hljs-string">'popover'</span>, element, options)
+  }
+
+  <span class="hljs-keyword">if</span> (!$.fn.tooltip) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Popover requires tooltip.js'</span>)
+
+  Popover.VERSION  = <span class="hljs-string">'3.2.0'</span>
+
+  Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
+    <span class="hljs-attr">placement</span>: <span class="hljs-string">'right'</span>,
+    <span class="hljs-attr">trigger</span>: <span class="hljs-string">'click'</span>,
+    <span class="hljs-attr">content</span>: <span class="hljs-string">''</span>,
+    <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;div class="popover" role="tooltip"&gt;&lt;div class="arrow"&gt;&lt;/div&gt;&lt;h3 class="popover-title"&gt;&lt;/h3&gt;&lt;div class="popover-content"&gt;&lt;/div&gt;&lt;/div&gt;'</span>
+  })
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="note-popover-extends-tooltip.js">
+  <h1>
+    <a href="#note-popover-extends-tooltip.js" name="note-popover-extends-tooltip.js" class="pilcrow"></a>
+NOTE: POPOVER EXTENDS tooltip.js
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)
+
+  Popover.prototype.constructor = Popover
+
+  Popover.prototype.getDefaults = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> Popover.DEFAULTS
+  }
+
+  Popover.prototype.setContent = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> $tip    = <span class="hljs-keyword">this</span>.tip()
+    <span class="hljs-keyword">var</span> title   = <span class="hljs-keyword">this</span>.getTitle()
+    <span class="hljs-keyword">var</span> content = <span class="hljs-keyword">this</span>.getContent()
+
+    $tip.find(<span class="hljs-string">'.popover-title'</span>)[<span class="hljs-keyword">this</span>.options.html ? <span class="hljs-string">'html'</span> : <span class="hljs-string">'text'</span>](title)
+    $tip.find(<span class="hljs-string">'.popover-content'</span>).children().detach().end()[ <span class="hljs-comment">// we use append for html objects to maintain js events</span>
+      <span class="hljs-keyword">this</span>.options.html ? (<span class="hljs-keyword">typeof</span> content == <span class="hljs-string">'string'</span> ? <span class="hljs-string">'html'</span> : <span class="hljs-string">'append'</span>) : <span class="hljs-string">'text'</span>
+    ](content)
+
+    $tip.removeClass(<span class="hljs-string">'fade top bottom left right in'</span>)
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-50" id="section-50"></a>
+</div>
+<p>IE8 doesn't accept hiding via the <code>:empty</code> pseudo selector, we have to do
+this manually by checking the contents.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">if</span> (!$tip.find(<span class="hljs-string">'.popover-title'</span>).html()) $tip.find(<span class="hljs-string">'.popover-title'</span>).hide()
+  }
+
+  Popover.prototype.hasContent = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getTitle() || <span class="hljs-keyword">this</span>.getContent()
+  }
+
+  Popover.prototype.getContent = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> $e = <span class="hljs-keyword">this</span>.$element
+    <span class="hljs-keyword">var</span> o  = <span class="hljs-keyword">this</span>.options
+
+    <span class="hljs-keyword">return</span> $e.attr(<span class="hljs-string">'data-content'</span>)
+      || (<span class="hljs-keyword">typeof</span> o.content == <span class="hljs-string">'function'</span> ?
+            o.content.call($e[<span class="hljs-number">0</span>]) :
+            o.content)
+  }
+
+  Popover.prototype.arrow = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.$arrow = <span class="hljs-keyword">this</span>.$arrow || <span class="hljs-keyword">this</span>.tip().find(<span class="hljs-string">'.arrow'</span>))
+  }
+
+  Popover.prototype.tip = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.$tip) <span class="hljs-keyword">this</span>.$tip = $(<span class="hljs-keyword">this</span>.options.template)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$tip
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="popover-plugin-definition">
+  <h1>
+    <a href="#popover-plugin-definition" name="popover-plugin-definition" class="pilcrow"></a>
+POPOVER PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data    = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.popover'</span>)
+      <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'object'</span> &amp;&amp; option
+
+      <span class="hljs-keyword">if</span> (!data &amp;&amp; option == <span class="hljs-string">'destroy'</span>) <span class="hljs-keyword">return</span>
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.popover'</span>, (data = <span class="hljs-keyword">new</span> Popover(<span class="hljs-keyword">this</span>, options)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span>) data[option]()
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.popover
+
+  $.fn.popover             = Plugin
+  $.fn.popover.Constructor = Popover
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="popover-no-conflict">
+  <h1>
+    <a href="#popover-no-conflict" name="popover-no-conflict" class="pilcrow"></a>
+POPOVER NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.popover.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.popover = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-scrollspy.js-v3.2.0-http-getbootstrap.comjavascriptscrollspy">
+  <h1>
+    <a href="#bootstrap-scrollspy.js-v3.2.0-http-getbootstrap.comjavascriptscrollspy" name="bootstrap-scrollspy.js-v3.2.0-http-getbootstrap.comjavascriptscrollspy" class="pilcrow"></a>
+========================================================================
+Bootstrap: scrollspy.js v3.2.0
+http://getbootstrap.com/javascript/#scrollspy
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-9">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-9" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-9" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="scrollspy-class-definition">
+  <h1>
+    <a href="#scrollspy-class-definition" name="scrollspy-class-definition" class="pilcrow"></a>
+SCROLLSPY CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ScrollSpy</span>(<span class="hljs-params">element, options</span>) </span>{
+    <span class="hljs-keyword">var</span> process  = $.proxy(<span class="hljs-keyword">this</span>.process, <span class="hljs-keyword">this</span>)
+
+    <span class="hljs-keyword">this</span>.$body          = $(<span class="hljs-string">'body'</span>)
+    <span class="hljs-keyword">this</span>.$scrollElement = $(element).is(<span class="hljs-string">'body'</span>) ? $(<span class="hljs-built_in">window</span>) : $(element)
+    <span class="hljs-keyword">this</span>.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
+    <span class="hljs-keyword">this</span>.selector       = (<span class="hljs-keyword">this</span>.options.target || <span class="hljs-string">''</span>) + <span class="hljs-string">' .nav li &gt; a'</span>
+    <span class="hljs-keyword">this</span>.offsets        = []
+    <span class="hljs-keyword">this</span>.targets        = []
+    <span class="hljs-keyword">this</span>.activeTarget   = <span class="hljs-literal">null</span>
+    <span class="hljs-keyword">this</span>.scrollHeight   = <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">this</span>.$scrollElement.on(<span class="hljs-string">'scroll.bs.scrollspy'</span>, process)
+    <span class="hljs-keyword">this</span>.refresh()
+    <span class="hljs-keyword">this</span>.process()
+  }
+
+  ScrollSpy.VERSION  = <span class="hljs-string">'3.2.0'</span>
+
+  ScrollSpy.DEFAULTS = {
+    <span class="hljs-attr">offset</span>: <span class="hljs-number">10</span>
+  }
+
+  ScrollSpy.prototype.getScrollHeight = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$scrollElement[<span class="hljs-number">0</span>].scrollHeight || <span class="hljs-built_in">Math</span>.max(<span class="hljs-keyword">this</span>.$body[<span class="hljs-number">0</span>].scrollHeight, <span class="hljs-built_in">document</span>.documentElement.scrollHeight)
+  }
+
+  ScrollSpy.prototype.refresh = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> offsetMethod = <span class="hljs-string">'offset'</span>
+    <span class="hljs-keyword">var</span> offsetBase   = <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">if</span> (!$.isWindow(<span class="hljs-keyword">this</span>.$scrollElement[<span class="hljs-number">0</span>])) {
+      offsetMethod = <span class="hljs-string">'position'</span>
+      offsetBase   = <span class="hljs-keyword">this</span>.$scrollElement.scrollTop()
+    }
+
+    <span class="hljs-keyword">this</span>.offsets = []
+    <span class="hljs-keyword">this</span>.targets = []
+    <span class="hljs-keyword">this</span>.scrollHeight = <span class="hljs-keyword">this</span>.getScrollHeight()
+
+    <span class="hljs-keyword">var</span> self     = <span class="hljs-keyword">this</span>
+
+    <span class="hljs-keyword">this</span>.$body
+      .find(<span class="hljs-keyword">this</span>.selector)
+      .map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> $el   = $(<span class="hljs-keyword">this</span>)
+        <span class="hljs-keyword">var</span> href  = $el.data(<span class="hljs-string">'target'</span>) || $el.attr(<span class="hljs-string">'href'</span>)
+        <span class="hljs-keyword">var</span> $href = <span class="hljs-regexp">/^#./</span>.test(href) &amp;&amp; $(href)
+
+        <span class="hljs-keyword">return</span> ($href
+          &amp;&amp; $href.length
+          &amp;&amp; $href.is(<span class="hljs-string">':visible'</span>)
+          &amp;&amp; $el.is(<span class="hljs-string">':visible'</span>)
+          &amp;&amp; [[$href[offsetMethod]().top + offsetBase, href]]) || <span class="hljs-literal">null</span>
+      })
+      .sort(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>{ <span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>] - b[<span class="hljs-number">0</span>] })
+      .each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        self.offsets.push(<span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>])
+        self.targets.push(<span class="hljs-keyword">this</span>[<span class="hljs-number">1</span>])
+      })
+  }
+
+  ScrollSpy.prototype.process = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> scrollTop    = <span class="hljs-keyword">this</span>.$scrollElement.scrollTop() + <span class="hljs-keyword">this</span>.options.offset
+    <span class="hljs-keyword">var</span> scrollHeight = <span class="hljs-keyword">this</span>.getScrollHeight()
+    <span class="hljs-keyword">var</span> maxScroll    = <span class="hljs-keyword">this</span>.options.offset + scrollHeight - <span class="hljs-keyword">this</span>.$scrollElement.height()
+    <span class="hljs-keyword">var</span> offsets      = <span class="hljs-keyword">this</span>.offsets
+    <span class="hljs-keyword">var</span> targets      = <span class="hljs-keyword">this</span>.targets
+    <span class="hljs-keyword">var</span> activeTarget = <span class="hljs-keyword">this</span>.activeTarget
+    <span class="hljs-keyword">var</span> i
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.scrollHeight != scrollHeight) {
+      <span class="hljs-keyword">this</span>.refresh()
+    }
+
+    <span class="hljs-keyword">if</span> (scrollTop &gt;= maxScroll) {
+      <span class="hljs-keyword">return</span> activeTarget != (i = targets[targets.length - <span class="hljs-number">1</span>]) &amp;&amp; <span class="hljs-keyword">this</span>.activate(i)
+    }
+
+    <span class="hljs-keyword">if</span> (activeTarget &amp;&amp; scrollTop &lt;= offsets[<span class="hljs-number">0</span>]) {
+      <span class="hljs-keyword">return</span> activeTarget != (i = targets[<span class="hljs-number">0</span>]) &amp;&amp; <span class="hljs-keyword">this</span>.activate(i)
+    }
+
+    <span class="hljs-keyword">for</span> (i = offsets.length; i--;) {
+      activeTarget != targets[i]
+        &amp;&amp; scrollTop &gt;= offsets[i]
+        &amp;&amp; (!offsets[i + <span class="hljs-number">1</span>] || scrollTop &lt;= offsets[i + <span class="hljs-number">1</span>])
+        &amp;&amp; <span class="hljs-keyword">this</span>.activate(targets[i])
+    }
+  }
+
+  ScrollSpy.prototype.activate = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">target</span>) </span>{
+    <span class="hljs-keyword">this</span>.activeTarget = target
+
+    $(<span class="hljs-keyword">this</span>.selector)
+      .parentsUntil(<span class="hljs-keyword">this</span>.options.target, <span class="hljs-string">'.active'</span>)
+      .removeClass(<span class="hljs-string">'active'</span>)
+
+    <span class="hljs-keyword">var</span> selector = <span class="hljs-keyword">this</span>.selector +
+        <span class="hljs-string">'[data-target="'</span> + target + <span class="hljs-string">'"],'</span> +
+        <span class="hljs-keyword">this</span>.selector + <span class="hljs-string">'[href="'</span> + target + <span class="hljs-string">'"]'</span>
+
+    <span class="hljs-keyword">var</span> active = $(selector)
+      .parents(<span class="hljs-string">'li'</span>)
+      .addClass(<span class="hljs-string">'active'</span>)
+
+    <span class="hljs-keyword">if</span> (active.parent(<span class="hljs-string">'.dropdown-menu'</span>).length) {
+      active = active
+        .closest(<span class="hljs-string">'li.dropdown'</span>)
+        .addClass(<span class="hljs-string">'active'</span>)
+    }
+
+    active.trigger(<span class="hljs-string">'activate.bs.scrollspy'</span>)
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="scrollspy-plugin-definition">
+  <h1>
+    <a href="#scrollspy-plugin-definition" name="scrollspy-plugin-definition" class="pilcrow"></a>
+SCROLLSPY PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data    = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.scrollspy'</span>)
+      <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'object'</span> &amp;&amp; option
+
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.scrollspy'</span>, (data = <span class="hljs-keyword">new</span> ScrollSpy(<span class="hljs-keyword">this</span>, options)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span>) data[option]()
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.scrollspy
+
+  $.fn.scrollspy             = Plugin
+  $.fn.scrollspy.Constructor = ScrollSpy
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="scrollspy-no-conflict">
+  <h1>
+    <a href="#scrollspy-no-conflict" name="scrollspy-no-conflict" class="pilcrow"></a>
+SCROLLSPY NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.scrollspy.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.scrollspy = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="scrollspy-data-api">
+  <h1>
+    <a href="#scrollspy-data-api" name="scrollspy-data-api" class="pilcrow"></a>
+SCROLLSPY DATA-API
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">'load.bs.scrollspy.data-api'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'[data-spy="scroll"]'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $spy = $(<span class="hljs-keyword">this</span>)
+      Plugin.call($spy, $spy.data())
+    })
+  })
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-tab.js-v3.2.0-http-getbootstrap.comjavascripttabs">
+  <h1>
+    <a href="#bootstrap-tab.js-v3.2.0-http-getbootstrap.comjavascripttabs" name="bootstrap-tab.js-v3.2.0-http-getbootstrap.comjavascripttabs" class="pilcrow"></a>
+========================================================================
+Bootstrap: tab.js v3.2.0
+http://getbootstrap.com/javascript/#tabs
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-10">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-10" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-10" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="tab-class-definition">
+  <h1>
+    <a href="#tab-class-definition" name="tab-class-definition" class="pilcrow"></a>
+TAB CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> Tab = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element</span>) </span>{
+    <span class="hljs-keyword">this</span>.element = $(element)
+  }
+
+  Tab.VERSION = <span class="hljs-string">'3.2.0'</span>
+
+  Tab.TRANSITION_DURATION = <span class="hljs-number">150</span>
+
+  Tab.prototype.show = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>    = <span class="hljs-keyword">this</span>.element
+    <span class="hljs-keyword">var</span> $ul      = $<span class="hljs-keyword">this</span>.closest(<span class="hljs-string">'ul:not(.dropdown-menu)'</span>)
+    <span class="hljs-keyword">var</span> selector = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'target'</span>)
+
+    <span class="hljs-keyword">if</span> (!selector) {
+      selector = $<span class="hljs-keyword">this</span>.attr(<span class="hljs-string">'href'</span>)
+      selector = selector &amp;&amp; selector.replace(<span class="hljs-regexp">/.*(?=#[^\s]*$)/</span>, <span class="hljs-string">''</span>) <span class="hljs-comment">// strip for ie7</span>
+    }
+
+    <span class="hljs-keyword">if</span> ($<span class="hljs-keyword">this</span>.parent(<span class="hljs-string">'li'</span>).hasClass(<span class="hljs-string">'active'</span>)) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> $previous = $ul.find(<span class="hljs-string">'.active:last a'</span>)
+    <span class="hljs-keyword">var</span> hideEvent = $.Event(<span class="hljs-string">'hide.bs.tab'</span>, {
+      <span class="hljs-attr">relatedTarget</span>: $<span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>]
+    })
+    <span class="hljs-keyword">var</span> showEvent = $.Event(<span class="hljs-string">'show.bs.tab'</span>, {
+      <span class="hljs-attr">relatedTarget</span>: $previous[<span class="hljs-number">0</span>]
+    })
+
+    $previous.trigger(hideEvent)
+    $<span class="hljs-keyword">this</span>.trigger(showEvent)
+
+    <span class="hljs-keyword">if</span> (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> $target = $(selector)
+
+    <span class="hljs-keyword">this</span>.activate($<span class="hljs-keyword">this</span>.closest(<span class="hljs-string">'li'</span>), $ul)
+    <span class="hljs-keyword">this</span>.activate($target, $target.parent(), <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      $previous.trigger({
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'hidden.bs.tab'</span>,
+        <span class="hljs-attr">relatedTarget</span>: $<span class="hljs-keyword">this</span>[<span class="hljs-number">0</span>]
+      })
+      $<span class="hljs-keyword">this</span>.trigger({
+        <span class="hljs-attr">type</span>: <span class="hljs-string">'shown.bs.tab'</span>,
+        <span class="hljs-attr">relatedTarget</span>: $previous[<span class="hljs-number">0</span>]
+      })
+    })
+  }
+
+  Tab.prototype.activate = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element, container, callback</span>) </span>{
+    <span class="hljs-keyword">var</span> $active    = container.find(<span class="hljs-string">'&gt; .active'</span>)
+    <span class="hljs-keyword">var</span> transition = callback
+      &amp;&amp; $.support.transition
+      &amp;&amp; (($active.length &amp;&amp; $active.hasClass(<span class="hljs-string">'fade'</span>)) || !!container.find(<span class="hljs-string">'&gt; .fade'</span>).length)
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">next</span>(<span class="hljs-params"></span>) </span>{
+      $active
+        .removeClass(<span class="hljs-string">'active'</span>)
+        .find(<span class="hljs-string">'&gt; .dropdown-menu &gt; .active'</span>)
+        .removeClass(<span class="hljs-string">'active'</span>)
+
+      element.addClass(<span class="hljs-string">'active'</span>)
+
+      <span class="hljs-keyword">if</span> (transition) {
+        element[<span class="hljs-number">0</span>].offsetWidth <span class="hljs-comment">// reflow for transition</span>
+        element.addClass(<span class="hljs-string">'in'</span>)
+      } <span class="hljs-keyword">else</span> {
+        element.removeClass(<span class="hljs-string">'fade'</span>)
+      }
+
+      <span class="hljs-keyword">if</span> (element.parent(<span class="hljs-string">'.dropdown-menu'</span>)) {
+        element.closest(<span class="hljs-string">'li.dropdown'</span>).addClass(<span class="hljs-string">'active'</span>)
+      }
+
+      callback &amp;&amp; callback()
+    }
+
+    $active.length &amp;&amp; transition ?
+      $active
+        .one(<span class="hljs-string">'bsTransitionEnd'</span>, next)
+        .emulateTransitionEnd(Tab.TRANSITION_DURATION) :
+      next()
+
+    $active.removeClass(<span class="hljs-string">'in'</span>)
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="tab-plugin-definition">
+  <h1>
+    <a href="#tab-plugin-definition" name="tab-plugin-definition" class="pilcrow"></a>
+TAB PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span> = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data  = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.tab'</span>)
+
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.tab'</span>, (data = <span class="hljs-keyword">new</span> Tab(<span class="hljs-keyword">this</span>)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span>) data[option]()
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.tab
+
+  $.fn.tab             = Plugin
+  $.fn.tab.Constructor = Tab
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="tab-no-conflict">
+  <h1>
+    <a href="#tab-no-conflict" name="tab-no-conflict" class="pilcrow"></a>
+TAB NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.tab.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.tab = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="tab-data-api">
+  <h1>
+    <a href="#tab-data-api" name="tab-data-api" class="pilcrow"></a>
+TAB DATA-API
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $(<span class="hljs-built_in">document</span>).on(<span class="hljs-string">'click.bs.tab.data-api'</span>, <span class="hljs-string">'[data-toggle="tab"], [data-toggle="pill"]'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+    e.preventDefault()
+    Plugin.call($(<span class="hljs-keyword">this</span>), <span class="hljs-string">'show'</span>)
+  })
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="bootstrap-affix.js-v3.2.0-http-getbootstrap.comjavascriptaffix">
+  <h1>
+    <a href="#bootstrap-affix.js-v3.2.0-http-getbootstrap.comjavascriptaffix" name="bootstrap-affix.js-v3.2.0-http-getbootstrap.comjavascriptaffix" class="pilcrow"></a>
+========================================================================
+Bootstrap: affix.js v3.2.0
+http://getbootstrap.com/javascript/#affix
+  </h1>
+</div>
+<div class="pilwrap" id="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-11">
+  <h1>
+    <a href="#copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-11" name="copyright-2011-2014-twitter-inc.licensed-under-mit-https-github.comtwbsbootstrapblobmasterlicense-11" class="pilcrow"></a>
+Copyright 2011-2014 Twitter, Inc.
+Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  </h1>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+
++<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">$</span>) </span>{<span class="hljs-meta">
+  'use strict'</span>;
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="affix-class-definition">
+  <h1>
+    <a href="#affix-class-definition" name="affix-class-definition" class="pilcrow"></a>
+AFFIX CLASS DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-keyword">var</span> Affix = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">element, options</span>) </span>{
+    <span class="hljs-keyword">this</span>.options = $.extend({}, Affix.DEFAULTS, options)
+
+    <span class="hljs-keyword">this</span>.$target = $(<span class="hljs-keyword">this</span>.options.target)
+      .on(<span class="hljs-string">'scroll.bs.affix.data-api'</span>, $.proxy(<span class="hljs-keyword">this</span>.checkPosition, <span class="hljs-keyword">this</span>))
+      .on(<span class="hljs-string">'click.bs.affix.data-api'</span>,  $.proxy(<span class="hljs-keyword">this</span>.checkPositionWithEventLoop, <span class="hljs-keyword">this</span>))
+
+    <span class="hljs-keyword">this</span>.$element     = $(element)
+    <span class="hljs-keyword">this</span>.affixed      =
+    <span class="hljs-keyword">this</span>.unpin        =
+    <span class="hljs-keyword">this</span>.pinnedOffset = <span class="hljs-literal">null</span>
+
+    <span class="hljs-keyword">this</span>.checkPosition()
+  }
+
+  Affix.VERSION  = <span class="hljs-string">'3.2.0'</span>
+
+  Affix.RESET    = <span class="hljs-string">'affix affix-top affix-bottom'</span>
+
+  Affix.DEFAULTS = {
+    <span class="hljs-attr">offset</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-attr">target</span>: <span class="hljs-built_in">window</span>
+  }
+
+  Affix.prototype.getState = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">scrollHeight, height, offsetTop, offsetBottom</span>) </span>{
+    <span class="hljs-keyword">var</span> scrollTop    = <span class="hljs-keyword">this</span>.$target.scrollTop()
+    <span class="hljs-keyword">var</span> position     = <span class="hljs-keyword">this</span>.$element.offset()
+    <span class="hljs-keyword">var</span> targetHeight = <span class="hljs-keyword">this</span>.$target.height()
+
+    <span class="hljs-keyword">if</span> (offsetTop != <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-keyword">this</span>.affixed == <span class="hljs-string">'top'</span>) <span class="hljs-keyword">return</span> scrollTop &lt; offsetTop ? <span class="hljs-string">'top'</span> : <span class="hljs-literal">false</span>
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.affixed == <span class="hljs-string">'bottom'</span>) {
+      <span class="hljs-keyword">if</span> (offsetTop != <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> (scrollTop + <span class="hljs-keyword">this</span>.unpin &lt;= position.top) ? <span class="hljs-literal">false</span> : <span class="hljs-string">'bottom'</span>
+      <span class="hljs-keyword">return</span> (scrollTop + targetHeight &lt;= scrollHeight - offsetBottom) ? <span class="hljs-literal">false</span> : <span class="hljs-string">'bottom'</span>
+    }
+
+    <span class="hljs-keyword">var</span> initializing   = <span class="hljs-keyword">this</span>.affixed == <span class="hljs-literal">null</span>
+    <span class="hljs-keyword">var</span> colliderTop    = initializing ? scrollTop : position.top
+    <span class="hljs-keyword">var</span> colliderHeight = initializing ? targetHeight : height
+
+    <span class="hljs-keyword">if</span> (offsetTop != <span class="hljs-literal">null</span> &amp;&amp; colliderTop &lt;= offsetTop) <span class="hljs-keyword">return</span> <span class="hljs-string">'top'</span>
+    <span class="hljs-keyword">if</span> (offsetBottom != <span class="hljs-literal">null</span> &amp;&amp; (colliderTop + colliderHeight &gt;= scrollHeight - offsetBottom)) <span class="hljs-keyword">return</span> <span class="hljs-string">'bottom'</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+  }
+
+  Affix.prototype.getPinnedOffset = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.pinnedOffset) <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.pinnedOffset
+    <span class="hljs-keyword">this</span>.$element.removeClass(Affix.RESET).addClass(<span class="hljs-string">'affix'</span>)
+    <span class="hljs-keyword">var</span> scrollTop = <span class="hljs-keyword">this</span>.$target.scrollTop()
+    <span class="hljs-keyword">var</span> position  = <span class="hljs-keyword">this</span>.$element.offset()
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">this</span>.pinnedOffset = position.top - scrollTop)
+  }
+
+  Affix.prototype.checkPositionWithEventLoop = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    setTimeout($.proxy(<span class="hljs-keyword">this</span>.checkPosition, <span class="hljs-keyword">this</span>), <span class="hljs-number">1</span>)
+  }
+
+  Affix.prototype.checkPosition = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.$element.is(<span class="hljs-string">':visible'</span>)) <span class="hljs-keyword">return</span>
+
+    <span class="hljs-keyword">var</span> height       = <span class="hljs-keyword">this</span>.$element.height()
+    <span class="hljs-keyword">var</span> offset       = <span class="hljs-keyword">this</span>.options.offset
+    <span class="hljs-keyword">var</span> offsetTop    = offset.top
+    <span class="hljs-keyword">var</span> offsetBottom = offset.bottom
+    <span class="hljs-keyword">var</span> scrollHeight = $(<span class="hljs-string">'body'</span>).height()
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> offset != <span class="hljs-string">'object'</span>)         offsetBottom = offsetTop = offset
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> offsetTop == <span class="hljs-string">'function'</span>)    offsetTop    = offset.top(<span class="hljs-keyword">this</span>.$element)
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> offsetBottom == <span class="hljs-string">'function'</span>) offsetBottom = offset.bottom(<span class="hljs-keyword">this</span>.$element)
+
+    <span class="hljs-keyword">var</span> affix = <span class="hljs-keyword">this</span>.getState(scrollHeight, height, offsetTop, offsetBottom)
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.affixed != affix) {
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.unpin != <span class="hljs-literal">null</span>) <span class="hljs-keyword">this</span>.$element.css(<span class="hljs-string">'top'</span>, <span class="hljs-string">''</span>)
+
+      <span class="hljs-keyword">var</span> affixType = <span class="hljs-string">'affix'</span> + (affix ? <span class="hljs-string">'-'</span> + affix : <span class="hljs-string">''</span>)
+      <span class="hljs-keyword">var</span> e         = $.Event(affixType + <span class="hljs-string">'.bs.affix'</span>)
+
+      <span class="hljs-keyword">this</span>.$element.trigger(e)
+
+      <span class="hljs-keyword">if</span> (e.isDefaultPrevented()) <span class="hljs-keyword">return</span>
+
+      <span class="hljs-keyword">this</span>.affixed = affix
+      <span class="hljs-keyword">this</span>.unpin = affix == <span class="hljs-string">'bottom'</span> ? <span class="hljs-keyword">this</span>.getPinnedOffset() : <span class="hljs-literal">null</span>
+
+      <span class="hljs-keyword">this</span>.$element
+        .removeClass(Affix.RESET)
+        .addClass(affixType)
+        .trigger(affixType.replace(<span class="hljs-string">'affix'</span>, <span class="hljs-string">'affixed'</span>) + <span class="hljs-string">'.bs.affix'</span>)
+    }
+
+    <span class="hljs-keyword">if</span> (affix == <span class="hljs-string">'bottom'</span>) {
+      <span class="hljs-keyword">this</span>.$element.offset({
+        <span class="hljs-attr">top</span>: scrollHeight - height - offsetBottom
+      })
+    }
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="affix-plugin-definition">
+  <h1>
+    <a href="#affix-plugin-definition" name="affix-plugin-definition" class="pilcrow"></a>
+AFFIX PLUGIN DEFINITION
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Plugin</span>(<span class="hljs-params">option</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $<span class="hljs-keyword">this</span>   = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data    = $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.affix'</span>)
+      <span class="hljs-keyword">var</span> options = <span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'object'</span> &amp;&amp; option
+
+      <span class="hljs-keyword">if</span> (!data) $<span class="hljs-keyword">this</span>.data(<span class="hljs-string">'bs.affix'</span>, (data = <span class="hljs-keyword">new</span> Affix(<span class="hljs-keyword">this</span>, options)))
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> option == <span class="hljs-string">'string'</span>) data[option]()
+    })
+  }
+
+  <span class="hljs-keyword">var</span> old = $.fn.affix
+
+  $.fn.affix             = Plugin
+  $.fn.affix.Constructor = Affix
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="affix-no-conflict">
+  <h1>
+    <a href="#affix-no-conflict" name="affix-no-conflict" class="pilcrow"></a>
+AFFIX NO CONFLICT
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $.fn.affix.noConflict = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $.fn.affix = old
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>
+  }
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="affix-data-api">
+  <h1>
+    <a href="#affix-data-api" name="affix-data-api" class="pilcrow"></a>
+AFFIX DATA-API
+  </h1>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+  $(<span class="hljs-built_in">window</span>).on(<span class="hljs-string">'load'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'[data-spy="affix"]'</span>).each(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> $spy = $(<span class="hljs-keyword">this</span>)
+      <span class="hljs-keyword">var</span> data = $spy.data()
+
+      data.offset = data.offset || {}
+
+      <span class="hljs-keyword">if</span> (data.offsetBottom != <span class="hljs-literal">null</span>) data.offset.bottom = data.offsetBottom
+      <span class="hljs-keyword">if</span> (data.offsetTop    != <span class="hljs-literal">null</span>) data.offset.top    = data.offsetTop
+
+      Plugin.call($spy, data)
+    })
+  })
+
+}(jQuery);
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

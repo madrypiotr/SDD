@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>info_kwestia_user.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\kwestia_crud\\info_kwestia_user.html";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>info_kwestia_user.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"informacjeKwestia"</span>&gt;</span>
+	{{#if isIssueRealizowana}}
+        {{#if myselfInZR}}
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav nav-tabs"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"issueInfoDetails"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#issueInfoo"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"issueInfoo"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>
+<span class="hljs-comment">&lt;!--Szczegóły Kwestii--&gt;</span>
+{{_ "informacjeKwestia.ikDetailsIssue"}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#manageZRIssue"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"manageZRIssue"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>
+<span class="hljs-comment">&lt;!--Zespół Realizacyjny--&gt;</span>
+{{_ "informacjeKwestia.ikZespReal"}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-content"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-pane active"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"issueInfoo"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+	{{&gt; issueDetails}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-pane"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"manageZRIssue"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+	{{&gt; issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer"</span>&gt;</span>
+		  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"button"</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> &amp;nbsp;  {{_ "more.ImplemTeam"}} <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer_center"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.ImplemTeamA"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.ImplemTeamB"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.ImplemTeamC"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.ImplemTeamD"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>{{_ "more.ImplemTeamE"}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        {{else}}
+            {{&gt;issueDetails}}
+        {{/if}}
+            {{&gt;zrModalCurrentIssueMyResolutions idZespolRealizacyjny=idZespolRealizacyjny }}
+    {{else}}
+        {{&gt;issueDetails}}
+    {{/if}}
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"issueDetails"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span>
+       {{#if kwestiaInKosz}}
+        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"color-red"</span>&gt;</span>{{_ "issueDetails.iDeTheIssueOfInactiveItIsLocatedInAtrashCan"}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+{{/if}}
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
+<span class="hljs-comment">&lt;!--Kwestia--&gt;</span>
+{{_ "issueDetails.iDeIssue"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{kwestiaNazwa}}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>,<span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span> {{status}} 
+<span class="hljs-comment">&lt;!--od--&gt;</span>
+{{_ "issueDetails.iDeFrom"}} {{date}}, 
+<span class="hljs-comment">&lt;!--Temat--&gt;</span>
+{{_ "glob.Subject"}}: {{tematNazwa.nazwaTemat}}, 
+<span class="hljs-comment">&lt;!--Rodzaj--&gt;</span>
+{{_ "glob.Type"}} {{rodzajNazwa.nazwaRodzaj}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>	
+                {{#if anyEmailProblem}}
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-6 bg-danger padding-10"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-comment">&lt;!--Uwaga!--&gt;</span>
+{{_ "issueDetails.iDeWarning"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{emailProblemNotification}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                {{/if}}
+                {{#unless isRealizowana}}
+                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-6 bg-info padding-10"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
+<span class="hljs-comment">&lt;!--Obecnych--&gt;</span>
+{{_ "issueDetails.iDePresent"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> {{glosujacyCount}}, 
+<span class="hljs-comment">&lt;!--a więc--&gt;</span>
+{{_ "issueDetails.iDePAndSo"}}  
+                        {{#if kworumComplete}}
+                            <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
+<span class="hljs-comment">&lt;!--kworum--&gt;</span>
+{{_ "issueDetails.iDeQuorum"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> 
+<span class="hljs-comment">&lt;!--spełnione--&gt;</span>
+{{_ "issueDetails.iDeFulfilled"}}.<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+                        {{else}}
+                            <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span> 
+<span class="hljs-comment">&lt;!--brak--&gt;</span>
+{{_ "issueDetails.iDeLack"}} {{textKworum}} 
+<span class="hljs-comment">&lt;!--dla uzyskania kworum--&gt;</span>
+{{_ "issueDetails.iDetoObtainAquorum"}}.<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+                        {{/if}}
+                        {{#unless isGlobalParamChange}}
+                            {{#if ZRComplete}}
+<span class="hljs-comment">&lt;!--Zespół Realizacyjny skompletowany--&gt;</span>
+{{_ "issueDetails.iDeTheImplementationTeamCompleted"}}.
+                            {{else}}
+                                <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span> 
+<span class="hljs-comment">&lt;!--Brak jeszcze--&gt;</span>
+{{_ "issueDetails.iDeStillMissing"}} {{ZRText}} 
+<span class="hljs-comment">&lt;!--Zespołu Realizacyjnego--&gt;</span>
+{{_ "issueDetails.iDeTheImplementationTeam"}}.<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+                            {{/if}}
+                        {{/unless}}
+                        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+                        {{#if kwestiaInKosz}}
+                            <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
+<span class="hljs-comment">&lt;!--Powód odrzucenia kwestii--&gt;</span>
+{{_ "issueDetails.iDeTheReasonForTheRejectionIssue"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> {{reason}} <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+                        {{/if}}
+                        {{#if isNotAdminOrDoradca}}
+                            {{#if mojPriorytetZero}}
+                                <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+<span class="hljs-comment">&lt;!--Wstrzymałeś się od głosu nadając tej Kwestii priorytet--&gt;</span>
+{{_ "issueDetails.iDeYouHavePausedFromGivingPriorityTo"}} <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+                            {{else}}
+                                {{#if mojPiorytet}}
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+<span class="hljs-comment">&lt;!--Nadałeś tej Kwestii priorytet--&gt;</span>
+{{_ "issueDetails.iDeYouGaveTheIssueApriority"}}: <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>{{mojPiorytet}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+                                {{else}}
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+<span class="hljs-comment">&lt;!--Nie nadałeś jeszcze tej Kwestii priorytetu--&gt;</span>
+{{_ "issueDetails.iDeNotYetYouGaveThisIssueApriority"}}
+                                {{/if}}
+                            {{/if}}
+                        {{/if}}
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                {{/unless}}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-comment">&lt;!--{{thisKwestia}}--&gt;</span>
+            {{&gt; kwestiaTopButtons
+            status=status
+            typ=typ
+            idParent=idParent
+            idKwestia=_id
+            czyAktywny=czyAktywny
+            idZespolRealizacyjny=idZespolRealizacyjny
+            }}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table table-bordered manageTable"</span>&gt;</span>
+            {{#if isRealizowana}}
+                <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> 
+<span class="hljs-comment">&lt;!--Priorytet w głosowaniu--&gt;</span>
+{{_ "issueDetails.iDePriorityVote"}}: &amp;nbsp;{{wartoscPriorytetuG}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+            {{/if}}
+            <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+                {{&gt;managePriorities
+                priorytet=wartoscPriorytetu
+                priorytetRealizacja=wartoscPriorytetuWRealizacji
+                idKwestia=_id
+                idParent=idParent
+                glosujacy=glosujacy
+                status=status
+                czyAktywny=czyAktywny
+                }}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+        {{&gt;kwestiaDetails
+        krotkaTresc=krotkaTresc
+        szczegolowaTresc=szczegolowaTresc
+        status=status
+        typ=typ
+        }}
+        {{#if currentUser}}
+            {{#unless isIssueArchiwalna}}
+            {{#unless isGlobalParamChange}}
+                {{&gt;ZRTemplate
+                idZR=idZespolRealizacyjny
+                status=status
+                idKwestia=_id
+                czyAktywny=czyAktywny
+                zespol=zespol
+                typ=typ
+                }}
+            {{/unless}}
+            {{/unless}}
+        {{/if}}
+        {{#if ifHasOpcje}}
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+                {{&gt; opcjeList
+                actualKwestiaId=_id
+                idParent=idParent
+                }}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        {{/if}}
+        {{#if currentUser}}
+            <span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dyskusja"</span>&gt;</span>
+<span class="hljs-comment">&lt;!--Dyskusja Kwestii--&gt;</span>
+{{_ "issueDetails.iDeTalkIssue"}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
+                    {{&gt; discussionMain
+                    _id =_id
+                    status=status
+                    czyAktywny=czyAktywny}}
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        {{/if}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    {{&gt; notifications}}
+
+    {{&gt; GlobalNotifications}}
+    {{#unless helperObserver}}
+        {{&gt; addNazwaModal}}
+        {{&gt; listZespolRealizacyjnyModal}}
+        {{&gt;decyzjaModal}}
+        {{&gt;listZespolRealizacyjnyDoubleModal}}
+    {{/unless}}
+
+<span class="hljs-comment">&lt;!-- pageInfo in footer --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"button"</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> &amp;nbsp;
+	{{#if isDeliberowana}} {{_ "more.DeliberIssueDetails"}} {{/if}}
+            {{#unless kwestiaInKosz}}
+	{{#if isGlosowana}} {{_ "more.VotingDetails"}} {{/if}}
+			{{/unless}}
+	{{#if isRealizowana}} {{_ "more.ImplemIssueDetails"}} {{/if}}
+	{{#if isZrealizowana}} SZCZEGÓŁY KWESTII ZREALIZOWANEJ {{/if}}
+	{{#if kwestiaInKosz}} {{_ "more.TheIssueInTheTrashCan"}} {{/if}}
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer_center"</span>&gt;</span>
+		{{#if isDeliberowana}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.DeliberIssueDetailsA"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.DeliberIssueDetailsB"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.DeliberIssueDetailsC"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+		{{/if}}
+		{{#if  isRealizowana}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.ImplemIssueDetailsA"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.ImplemIssueDetailsB"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.ImplemIssueDetailsC"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>{{_ "more.ImplemIssueDetailsD"}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+		{{/if}}
+		{{#if  isZrealizowana}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.A"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.B"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.C"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+		{{/if}}
+				{{#unless kwestiaInKosz}}
+		{{#if isGlosowana}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.VotingB"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.VotingC"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.VotingE"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+		{{/if}}
+				{{/unless}}
+		{{#if kwestiaInKosz}}
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.TheIssueInTheTrashCanA"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.TheIssueInTheTrashCanB"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ "more.TheIssueInTheTrashCanC"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+		{{/if}}
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"issueManageZR"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"idZR"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{idZespolRealizacyjny}}"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>{{getZRName idZespolRealizacyjny zespol}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
+            {{&gt; reactiveTable
+                class = "table table-bordered table-hover"
+                fields = settings.fields
+                settings = settings
+                collection = ZRList
+            }}
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"zrOptions"</span>&gt;</span>
+    {{idZespolRealizacyjny}}
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> &gt;</span>
+        {{#if currentUser _id}}
+            
+<span class="hljs-comment">&lt;!--Rezygnacja z udziału w Zespole Realizacyjnym--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'zrOptions.zrCancellOfParticipationInTheTeamImplem'}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"giveUpMembership"</span>&gt;</span>
+ <span class="hljs-comment">&lt;!--Rezygnuj--&gt;</span>
+{{_ "zrOptions.zrResign"}} <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-outdent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        {{else}}
+            
+<span class="hljs-comment">&lt;!--Napisz wiadomość do członka ZR--&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'zrOptions.zrWriteAmessageToMemberIT'}}"</span>
+               <span class="hljs-attr">href</span>=<span class="hljs-string">"{{pathFor 'sendMessage' _id}}"</span>&gt;</span>
+ <span class="hljs-comment">&lt;!--Napisz wiadomość--&gt;</span>
+{{_ "zrOptions.zrWriteAmessage"}} <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-pencil"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        {{/if}}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

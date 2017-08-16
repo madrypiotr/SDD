@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>list_languages.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\admin\\jezyki\\list_languages.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>list_languages.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.listLanguages.helpers({
+    <span class="hljs-string">'settings'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">rowsPerPage</span>: <span class="hljs-number">10</span>,
+            <span class="hljs-attr">showFilter</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">showNavigation</span>: <span class="hljs-string">'always'</span>,
+            <span class="hljs-attr">showColumnToggles</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">enableRegex</span>: <span class="hljs-literal">false</span>,
+            <span class="hljs-attr">fields</span>: [
+                {<span class="hljs-attr">key</span>: <span class="hljs-string">'languageName'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.NAME'</span>), <span class="hljs-attr">tmpl</span>: Template.nameLanguage},
+                {<span class="hljs-attr">key</span>: <span class="hljs-string">'shortName'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.SHORT_NAME'</span>), <span class="hljs-attr">tmpl</span>: Template.shortNameLanguage},
+                {<span class="hljs-attr">key</span>: <span class="hljs-string">'_id'</span>, <span class="hljs-attr">label</span>: TAPi18n.__(<span class="hljs-string">'txv.OPTIONS'</span>), <span class="hljs-attr">tmpl</span>: Template.languageOptions, <span class="hljs-attr">headerClass</span>: <span class="hljs-string">"col-md-3"</span>}
+            ]
+        };
+    },
+    <span class="hljs-attr">languages</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Languages.find({}).fetch();
+    },
+    <span class="hljs-attr">languageCount</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Languages.find().count();
+    }
+});
+
+
+Template.languageOptions.helpers({
+    <span class="hljs-string">'isLangEnabled'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">id</span>) </span>{
+        <span class="hljs-keyword">var</span> item = Languages.findOne({<span class="hljs-attr">_id</span>: id}).isEnabled;
+        <span class="hljs-keyword">return</span> !!item ? item : <span class="hljs-literal">false</span>;
+    }
+});
+
+Template.languageOptions.events({
+    <span class="hljs-string">'click #launchLang'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-keyword">var</span> id = $(e.target).attr(<span class="hljs-string">"name"</span>);
+
+        <span class="hljs-keyword">var</span> lang = {
+            <span class="hljs-attr">isEnabled</span>: <span class="hljs-literal">true</span>
+        }
+        Meteor.call(<span class="hljs-string">'updateLanguageEnabled'</span>, id, lang, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                    Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                <span class="hljs-keyword">else</span> {
+                    throwError(error.reason);
+                }
+            }
+            <span class="hljs-keyword">else</span> {
+                Router.go(<span class="hljs-string">'listLanguages'</span>);
+            }
+        });
+    },
+    <span class="hljs-string">'click #hideLang'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-keyword">var</span> id = $(e.target).attr(<span class="hljs-string">"name"</span>);
+
+        <span class="hljs-keyword">var</span> lang = {
+            <span class="hljs-attr">isEnabled</span>: <span class="hljs-literal">false</span>
+        }
+        Meteor.call(<span class="hljs-string">'updateLanguageEnabled'</span>, id, lang, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+            <span class="hljs-keyword">if</span> (error) {
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span>)
+                    Log.error(TAPi18n.__(<span class="hljs-string">'txv.ERROR'</span>) + error.reason);
+                <span class="hljs-keyword">else</span> {
+                    throwError(error.reason);
+                }
+            }
+            <span class="hljs-keyword">else</span> {
+                Router.go(<span class="hljs-string">'listLanguages'</span>);
+            }
+        });
+    }
+});
+
+Template.listLanguages.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'[data-toggle="tooltip"]'</span>).tooltip();
+};
+
+Template.languageOptions.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'[data-toggle="tooltip"]'</span>).tooltip();
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

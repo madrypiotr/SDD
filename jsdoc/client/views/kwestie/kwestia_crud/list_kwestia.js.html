@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>list_kwestia.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\kwestia_crud\\list_kwestia.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>list_kwestia.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+Template.listKwestia.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> self = Template.instance ();
+    <span class="hljs-keyword">this</span>.autorun ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> kwestie = Kwestia.find ( {
+            <span class="hljs-attr">$where</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">var</span> typKworum=liczenieKworumZwykle ();
+                <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.idRodzaj ) {
+                    <span class="hljs-keyword">var</span> rodzaj=Rodzaj.findOne ( { <span class="hljs-attr">_id</span>:<span class="hljs-keyword">this</span>.idRodzaj } );
+                    <span class="hljs-keyword">if</span> ( rodzaj ) {
+                        <span class="hljs-keyword">if</span> ( rodzaj.nazwaRodzaj.trim () == <span class="hljs-string">"Statutowe"</span> )
+                            typKworum = liczenieKworumStatutowe ();
+                    }
+                }
+                <span class="hljs-keyword">var</span> zrCondition=<span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.idZespolRealizacyjny ) {
+                    <span class="hljs-keyword">var</span> zrDraft=ImplemTeamDraft.findOne ( { <span class="hljs-attr">_id</span>:<span class="hljs-keyword">this</span>.idZespolRealizacyjny } );
+                    <span class="hljs-keyword">if</span> ( zrDraft ) {
+                        <span class="hljs-keyword">if</span> ( zrDraft.zespol.length&gt;=<span class="hljs-number">3</span> )
+                            zrCondition=<span class="hljs-literal">true</span>;
+                        <span class="hljs-keyword">else</span>
+                            zrCondition=<span class="hljs-literal">false</span>;
+                    }
+                    <span class="hljs-keyword">else</span>
+                        zrCondition=<span class="hljs-literal">false</span>;
+                }
+                <span class="hljs-keyword">return</span> ( ( <span class="hljs-keyword">this</span>.czyAktywny == <span class="hljs-literal">true</span> ) &amp;&amp;
+                ( <span class="hljs-keyword">this</span>.wartoscPriorytetu &gt; <span class="hljs-number">0</span> ) &amp;&amp;
+                ( <span class="hljs-keyword">this</span>.glosujacy.length&gt;=typKworum ) &amp;&amp; zrCondition==<span class="hljs-literal">true</span>
+                &amp;&amp; ( <span class="hljs-keyword">this</span>.status == KWESTIA_STATUS.DELIBEROWANA || <span class="hljs-keyword">this</span>.status == KWESTIA_STATUS.ADMINISTROWANA || <span class="hljs-keyword">this</span>.status == KWESTIA_STATUS.OSOBOWA ) );
+            }
+        }, {<span class="hljs-attr">sort</span>: {<span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-number">-1</span>,<span class="hljs-attr">dataWprowadzenia</span>:<span class="hljs-number">1</span>} } );<span class="hljs-comment">//, limit: 3 } );</span>
+        <span class="hljs-keyword">var</span> tab = [];
+        <span class="hljs-keyword">if</span> ( kwestie.count ()&lt;=<span class="hljs-number">3</span> ) {
+            kwestie.forEach ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item </span>) </span>{
+                tab.push ( item._id );
+            } );
+        }
+        <span class="hljs-keyword">else</span> {
+            tab=setInQueueToVoteMethod ( kwestie );
+        }
+        self.liczbaKwestiRV.set ( tab );
+    } );
+};
+
+Template.listKwestia.created = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.liczbaKwestiRV = <span class="hljs-keyword">new</span> ReactiveVar ();
+    <span class="hljs-keyword">this</span>.choosenSortRV = <span class="hljs-keyword">new</span> ReactiveVar ();
+    <span class="hljs-keyword">this</span>.choosenSortRV.set ( <span class="hljs-number">0</span> );
+};
+
+Template.listKwestia.events ( {
+    <span class="hljs-string">'click #addKwestiaButton'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> kwestiaCanBeInserted=kwestiaIsAllowedToInsert ();
+        <span class="hljs-keyword">if</span> ( kwestiaCanBeInserted==<span class="hljs-literal">true</span> ) {
+            <span class="hljs-keyword">if</span> ( !!Session.get ( <span class="hljs-string">"kwestiaPreview"</span> ) )
+                Session.set ( <span class="hljs-string">"kwestiaPreview"</span>, <span class="hljs-literal">null</span> );
+            Router.go ( <span class="hljs-string">"addKwestia"</span> );
+        }
+        <span class="hljs-keyword">else</span>
+            notificationPauseWarning ( <span class="hljs-string">"kwestii"</span>,kwestiaCanBeInserted );
+    },
+    <span class="hljs-string">"change #customFilterSelect"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> event, template </span>) </span>{
+        <span class="hljs-keyword">var</span> input = $ ( event.target ).val ();
+        <span class="hljs-keyword">var</span> self = Template.instance ();
+        <span class="hljs-keyword">if</span> ( !!input &amp;&amp; input==<span class="hljs-number">0</span> )
+            self.choosenSortRV.set ( <span class="hljs-number">0</span> );
+         <span class="hljs-keyword">else</span>
+            self.choosenSortRV.set ( <span class="hljs-number">1</span> );
+    }
+ } );
+
+Template.listKwestia.helpers ( {
+    <span class="hljs-string">'isDataSortEnabled'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> self = Template.instance ();
+        <span class="hljs-keyword">var</span> sort = self.choosenSortRV.get ();
+        <span class="hljs-keyword">return</span> sort==<span class="hljs-number">0</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-string">'getFilterFields'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">'kwestiaNazwa'</span>];
+    },
+    <span class="hljs-string">'settings'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> self = Template.instance ();
+        <span class="hljs-keyword">var</span> sort = self.choosenSortRV.get ();
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">currentPage</span>:Template.instance ().currentPage,
+            <span class="hljs-attr">rowsPerPage</span>: <span class="hljs-number">20</span>,
+            <span class="hljs-attr">showNavigationRowsPerPage</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">showNavigation</span>: <span class="hljs-string">'always'</span>,
+            <span class="hljs-attr">showColumnToggles</span>: <span class="hljs-literal">false</span>, 
+            <span class="hljs-attr">enableRegex</span>: <span class="hljs-literal">false</span>, 
+            <span class="hljs-attr">noDataTemplate</span>:Template.noData,
+            <span class="hljs-attr">filters</span>:[<span class="hljs-string">'customFilter'</span>],
+            <span class="hljs-attr">fields</span>: [
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'dataWprowadzenia'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'txv.DATA'</span> ), <span class="hljs-attr">tmpl</span>: Template.dataUtwKwestia ,<span class="hljs-attr">sortOrder</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">sortDirection</span>:<span class="hljs-string">'descending'</span> },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'kwestiaNazwa'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.NameIssue'</span> ), <span class="hljs-attr">tmpl</span>: Template.nazwaKwestiLink },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'wartoscPriorytetu'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Priority'</span> ), <span class="hljs-attr">tmpl</span>: Template.priorytetKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'idTemat'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Subject'</span> ), <span class="hljs-attr">tmpl</span>: Template.tematKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'idRodzaj'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Type'</span> ), <span class="hljs-attr">tmpl</span>: Template.rodzajKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'Kworum'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'txv.QUORUM'</span> ), <span class="hljs-attr">tmpl</span>: Template.kworumNumber}
+            ],
+            <span class="hljs-attr">rowClass</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item </span>) </span>{
+                tab = self.liczbaKwestiRV.get ();
+                <span class="hljs-keyword">if</span> ( _.contains ( tab, item._id ) ) {
+                    <span class="hljs-keyword">return</span> <span class="hljs-string">'priorityClass'</span>;
+                }
+            }
+        };
+    },
+    <span class="hljs-string">'settings2'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> self = Template.instance ();
+        <span class="hljs-keyword">var</span> sort = self.choosenSortRV.get ();
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">rowsPerPage</span>: <span class="hljs-number">20</span>,
+            <span class="hljs-attr">showNavigation</span>: <span class="hljs-string">'always'</span>,
+            <span class="hljs-attr">showColumnToggles</span>: <span class="hljs-literal">false</span>, 
+            <span class="hljs-attr">enableRegex</span>: <span class="hljs-literal">false</span>, 
+            <span class="hljs-attr">noDataTemplate</span>: Template.noData,
+            <span class="hljs-attr">filters</span>: [<span class="hljs-string">'customFilter'</span>],
+            <span class="hljs-attr">fields</span>: [
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'dataWprowadzenia'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'txv.DATA'</span> ), <span class="hljs-attr">tmpl</span>: Template.dataUtwKwestia ,<span class="hljs-attr">sortOrder</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">sortDirection</span>:<span class="hljs-string">'descending'</span> },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'kwestiaNazwa'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.NameIssue'</span> ), <span class="hljs-attr">tmpl</span>: Template.nazwaKwestiLink },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'wartoscPriorytetu'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Priority'</span> ), <span class="hljs-attr">tmpl</span>: Template.priorytetKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'idTemat'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Subject'</span> ), <span class="hljs-attr">tmpl</span>: Template.tematKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'idRodzaj'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Type'</span> ), <span class="hljs-attr">tmpl</span>: Template.rodzajKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'Kworum'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'txv.QUORUM'</span> ), <span class="hljs-attr">tmpl</span>: Template.kworumNumber}
+            ],
+            <span class="hljs-attr">rowClass</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item </span>) </span>{
+                tab = self.liczbaKwestiRV.get ();
+                <span class="hljs-keyword">if</span> ( _.contains ( tab, item._id ) ) {
+                    <span class="hljs-keyword">return</span> <span class="hljs-string">'priorityClass'</span>;
+                }
+            }
+        };
+    },
+    <span class="hljs-attr">KwestiaList</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> kwestie = Kwestia.find ( {
+            <span class="hljs-attr">$where</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">return</span> ( ( <span class="hljs-keyword">this</span>.czyAktywny == <span class="hljs-literal">true</span> )&amp;&amp;
+                ( ( <span class="hljs-keyword">this</span>.status == KWESTIA_STATUS.DELIBEROWANA )  ||
+                ( <span class="hljs-keyword">this</span>.status == KWESTIA_STATUS.ADMINISTROWANA ) ||
+                ( <span class="hljs-keyword">this</span>.status == KWESTIA_STATUS.OSOBOWA ) ||
+                ( <span class="hljs-keyword">this</span>.status == KWESTIA_STATUS.OCZEKUJACA ) ) );
+            }
+        } );
+
+        <span class="hljs-keyword">if</span> ( kwestie )
+            <span class="hljs-keyword">return</span> kwestie;
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+    },
+    <span class="hljs-attr">isAdminUser</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> IsAdminUser ();
+    }
+ } );
+
+Template.dataUtwKwestia.helpers ( {
+    <span class="hljs-attr">date</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">this</span>.dataWprowadzenia;
+        <span class="hljs-keyword">if</span> ( d ) <span class="hljs-keyword">return</span> moment ( d ).format ( <span class="hljs-string">"DD-MM-YYYY HH:mm:ss"</span> );
+    }
+ } );
+Template.id.helpers ( {
+    <span class="hljs-attr">id</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._id;
+    }
+ } );
+
+Template.priorytetKwestia.helpers ( {
+    <span class="hljs-attr">priorytet</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> p = <span class="hljs-keyword">this</span>.wartoscPriorytetu;
+        <span class="hljs-keyword">if</span> ( p ) {
+            <span class="hljs-keyword">if</span> ( p &gt; <span class="hljs-number">0</span> ) p = <span class="hljs-string">" + "</span> + p;
+            <span class="hljs-keyword">return</span> p ;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">0</span> ;
+    },
+    <span class="hljs-attr">myGlos</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> glosy = <span class="hljs-keyword">this</span>.glosujacy.slice ();
+        <span class="hljs-keyword">var</span> myGlos;
+        _.each ( glosy, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> glos </span>) </span>{
+            <span class="hljs-keyword">if</span> ( glos.idUser == Meteor.userId () ) {
+                myGlos = glos.value;
+            }
+        } );
+        <span class="hljs-keyword">if</span> ( myGlos ) {
+            <span class="hljs-keyword">if</span> ( myGlos &gt; <span class="hljs-number">0</span> ) myGlos = <span class="hljs-string">" + "</span> + myGlos;
+        }
+        <span class="hljs-keyword">else</span>
+            myGlos = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">" ( "</span> + myGlos + <span class="hljs-string">" )"</span>;
+    },
+    <span class="hljs-attr">nadanyPriorytet</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> ( Meteor.userId () )
+            <span class="hljs-keyword">return</span> _.contains ( _.pluck ( <span class="hljs-keyword">this</span>.glosujacy,<span class="hljs-string">'idUser'</span> ), Meteor.userId () ) ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    }
+ } );
+
+Template.listKwestiaColumnLabel.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    $ ( <span class="hljs-string">'[data-toggle="tooltip"]'</span> ).tooltip ();
+};
+
+Template.listKwestia.helpers ( {
+    <span class="hljs-attr">isZwyczajnyLogged</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> ( IsAdminUser () )
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> Meteor.user ().profile.userType == USERTYPE.CZLONEK ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+        }
+    }
+ } );
+
+Template.kworumNumber.helpers ( {
+    <span class="hljs-string">'getKworum'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">" /"</span> + liczenieKworumZwykle ();
+    },
+    <span class="hljs-string">'getUsersCount'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> usersCount = <span class="hljs-keyword">this</span>.glosujacy.length;
+        <span class="hljs-keyword">return</span> usersCount.toString ();
+    }
+ } );
+kwestiaIsAllowedToInsert=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> myKwestie=Kwestia.find ( {<span class="hljs-attr">idUser</span>:Meteor.userId () },{<span class="hljs-attr">sort</span>:{<span class="hljs-attr">dataWprowadzenia</span>:<span class="hljs-number">1</span>} } );
+    <span class="hljs-keyword">if</span> ( myKwestie.count ()&gt;<span class="hljs-number">0</span> ) {
+        <span class="hljs-keyword">var</span> array=[];
+        myKwestie.forEach ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> kwestia </span>) </span>{
+            array.push ( kwestia );
+        } );
+        array= ( _.sortBy ( array,<span class="hljs-string">'dataWprowadzenia'</span> ) ).reverse ();
+        <span class="hljs-keyword">var</span> lastAddedIssueTime= ( _.first ( array ) ).dataWprowadzenia;
+        <span class="hljs-keyword">var</span> params=Parametr.findOne ();
+        <span class="hljs-keyword">if</span> ( params ) {
+            <span class="hljs-keyword">return</span> checkTimePause ( params.addIssuePause, lastAddedIssueTime );
+        }
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+
+checkTimePause=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> typePause,lastAddedTime </span>) </span>{
+    <span class="hljs-keyword">var</span> newTimeToAdd=moment ( lastAddedTime ).add ( typePause,<span class="hljs-string">"minutes"</span> ).format ();
+    <span class="hljs-keyword">if</span> ( newTimeToAdd &gt; moment ( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> () ).format () ) {
+        <span class="hljs-keyword">var</span> ms = moment ( newTimeToAdd,<span class="hljs-string">"DD/MM/YYYY HH:mm:ss"</span> ).diff ( moment ( <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> (),<span class="hljs-string">"DD/MM/YYYY HH:mm:ss"</span> ) );
+        <span class="hljs-keyword">var</span> s = moment.utc ( ms ).format ( <span class="hljs-string">"mm:ss"</span> );
+        <span class="hljs-keyword">var</span> timeString = s.substring ( <span class="hljs-number">0</span>, s.indexOf ( <span class="hljs-string">":"</span> ) ) + TAPi18n.__ ( <span class="hljs-string">'txv.MIN'</span> ) + s.substring ( s.indexOf ( <span class="hljs-string">":"</span> ) + <span class="hljs-number">1</span>, s.length ) + TAPi18n.__ ( <span class="hljs-string">'txv.SEC'</span> );
+        <span class="hljs-keyword">return</span> timeString ;
+    }
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+
+Template.nazwaKwestiLink.helpers ( {
+    <span class="hljs-string">'issueName'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.kwestiaNazwa.length&gt;<span class="hljs-number">60</span> ) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.kwestiaNazwa.substr ( <span class="hljs-number">0</span>,<span class="hljs-number">60</span> ) + <span class="hljs-string">"..."</span>;
+        }<span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.kwestiaNazwa
+        }
+    }
+ } );
+
+Template.tematKwestia.helpers ( {
+    <span class="hljs-string">'topicName'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ) {
+            <span class="hljs-keyword">return</span> TAPi18n.__ ( <span class="hljs-string">'txv.BELONGS_TO_THE_SYSTEM'</span> );
+        }
+        <span class="hljs-keyword">var</span> topic = Temat.findOne ( { <span class="hljs-attr">_id</span>: <span class="hljs-keyword">this</span>.idTemat } ).nazwaTemat;
+        <span class="hljs-keyword">if</span> ( topic.length&gt;<span class="hljs-number">20</span> ) {
+            <span class="hljs-keyword">return</span> topic.substr ( <span class="hljs-number">0</span>,<span class="hljs-number">20</span> ) + <span class="hljs-string">"..."</span>;
+        }<span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">return</span> topic
+        }
+    }
+ } );
+Template.rodzajKwestia.helpers ( {
+    <span class="hljs-string">'typeName'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ) {
+            <span class="hljs-keyword">return</span> TAPi18n.__ ( <span class="hljs-string">'txv.TECHNICAL'</span> );
+        }
+        <span class="hljs-keyword">var</span> type = Rodzaj.findOne ( { <span class="hljs-attr">_id</span>: <span class="hljs-keyword">this</span>.idRodzaj } ).nazwaRodzaj;
+        <span class="hljs-keyword">if</span> ( type.length&gt;<span class="hljs-number">20</span> ) {
+            <span class="hljs-keyword">return</span> type.substr ( <span class="hljs-number">0</span>,<span class="hljs-number">20</span> ) + <span class="hljs-string">"..."</span>;
+        }<span class="hljs-keyword">else</span>{
+            <span class="hljs-keyword">return</span> type
+        }
+    }
+ } );
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>
