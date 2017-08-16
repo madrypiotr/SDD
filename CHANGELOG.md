@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg) 
 
-Go to [The documentation of the code is here] | [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
+[The documentation of the SDD code is here] or Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
 ## [How to contribute] to the development of this project?
 
@@ -82,4 +82,4 @@ Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
 [How to contribute]: https://github.com/madrypiotr/SDD/blob/master/HOW-TO-CONTRIBUTE.md
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
-[The documentation of the code is here]: http://sdd.ha.pl/doc/README.md.html
+[The documentation of the SDD code is here]: http://sdd.ha.pl/doc/README.md.html

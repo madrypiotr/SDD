@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg) 
 
-Go to [The documentation of the code is here] | [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
+[The documentation of the SDD code is here] or Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
 ### It is great to see you here! If you want to help, you may wish to review our plans below.
 ##### We are very glad that you are here! Because time is precious to everyone - we explain briefly and specifically.
@@ -111,4 +111,4 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
 [Issues]: https://github.com/madrypiotr/SDD/issues
-[The documentation of the code is here]: http://sdd.ha.pl/doc/README.md.html
+[The documentation of the SDD code is here]: http://sdd.ha.pl/doc/README.md.html

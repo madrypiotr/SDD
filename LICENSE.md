@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg) 
 
-Go to [The documentation of the code is here] | [README] | [CHANGELOG] | [CONTRIBUTING] | [CODE OF CONDUCT] 
+[The documentation of the SDD code is here] or Go to [README] | [CHANGELOG] | [CONTRIBUTING] | [CODE OF CONDUCT] 
 
 # Software License Agreement
 
@@ -1021,5 +1021,5 @@ Go to [README] | [CHANGELOG] | [CONTRIBUTING] | [CODE OF CONDUCT]
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
-[The documentation of the code is here]: http://sdd.ha.pl/doc/README.md.html
+[The documentation of the SDD code is here]: http://sdd.ha.pl/doc/README.md.html
 
