@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg) 
 
-Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 
+Go to [The documentation of the code is here] | [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] 
 
 ---
 
@@ -53,4 +53,4 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING]
 [LICENSE]: https://github.com/madrypiotr/SDD/blob/master/LICENSE.md
 [CHANGELOG]: https://github.com/madrypiotr/SDD/blob/master/CHANGELOG.md
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
-
+[The documentation of the code is here]: http://sdd.ha.pl/doc/README.md.html

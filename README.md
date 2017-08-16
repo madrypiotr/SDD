@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg) 
 
-Go to  [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT] 
+Go to  [The documentation of the code is here] | [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 
 ## About SDD
 **This system is designed to make it possible for everyone in the community to influence it. The principle of equal access to the conclusion, reconciliation and vote of ideas, proposals and projects is equal. There will be no admin system that can arbitrarily change anything, correct parameters, add users, restrict their rights, or delete. Any individual parameters and global settings, mode or mode of operation of the System are determined only by decision of all members. This procedure applies both to the startup of the System configuration and to changes made during further use.**
@@ -16,7 +16,7 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 ## Installation
 * [Install the METEOR] 
 * [Download the SDD source code] 
-* [Documentation is here] 
+* [The documentation of the code is here] 
 * Because this is a development draft, further development should be known to developers of these components.
 
 ### [How to contribute] to the development of this project?
@@ -78,4 +78,4 @@ Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 [CONTRIBUTING]: https://github.com/madrypiotr/SDD/blob/master/CONTRIBUTING.md
 [How to contribute]: https://github.com/madrypiotr/SDD/blob/master/HOW-TO-CONTRIBUTE.md
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
-[Documentation is here]: http://sdd.ha.pl/doc/README.md.html
+[The documentation of the code is here]: http://sdd.ha.pl/doc/README.md.html

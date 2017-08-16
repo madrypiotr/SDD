@@ -1,6 +1,6 @@
 ![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg) 
 
-Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT] 
+Go to [The documentation of the code is here] | [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT] 
 
 ## [How to contribute] to the development of this project?
 
@@ -113,4 +113,4 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT]
 [OneBI]: http://www.onebi.eu
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
 [Comandeer]: http://helion.pl/ksiazki/javascript-programowanie-zaawansowane-tomasz-comandeer-jakut,jascpz.htm
-
+[The documentation of the code is here]: http://sdd.ha.pl/doc/README.md.html
