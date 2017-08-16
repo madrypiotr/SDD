@@ -16,7 +16,7 @@ Applied technologies: [METEOR], [MongoDB], [HTML5], [NodeJS], [jQuery], [Bootstr
 ## Installation
 * [Install the METEOR] 
 * [Download the SDD source code] 
-* [The documentation of the SDD code is here] <a href="example.com" target="_blank">New Tab</a>
+* [The documentation of the SDD code is here]
 * Because this is a development draft, further development should be known to developers of these components.
 
 ### [How to contribute] to the development of this project?
