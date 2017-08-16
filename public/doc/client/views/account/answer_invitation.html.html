@@ -67,10 +67,6 @@ Template for new user adoption (Application)
         </td>
         <td class="code highlight">
           <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"answerInvitation"</span>&gt;</span>
-    {{#if userNotAnswered}}
-		{{#if timeExpired}}
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
 </pre>
         </td>
       </tr>
@@ -83,8 +79,23 @@ Template for new user adoption (Application)
 In case of failure ...
   </h2>
 </div>
-<pre><code>			txv: Przepraszamy,
-</code></pre>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">    {{#if userNotAnswered}}
+		{{#if timeExpired}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>txv: Przepraszamy,</p>
 
         </td>
         <td class="code highlight">
@@ -99,7 +110,6 @@ In case of failure ...
 				{{_ 'answerInvitation.ansPassed'}}
 			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-		{{else}}
 </pre>
         </td>
       </tr>
@@ -115,7 +125,8 @@ In case of success ...
 
         </td>
         <td class="code highlight">
-          <pre class="html">		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span>
+          <pre class="html">		{{else}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-success padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
 					<span class="hljs-comment">&lt;!--					txv: Witaj					--&gt;</span>
@@ -145,7 +156,6 @@ In case of success ...
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		{{/if}}
 		{{else}}
-		{{#if answerPositive}}
 </pre>
         </td>
       </tr>
@@ -161,7 +171,8 @@ In the case of a positive answer ...
 
         </td>
         <td class="code highlight">
-          <pre class="html">		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-success padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
+          <pre class="html">		{{#if answerPositive}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-success padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
 				<span class="hljs-comment">&lt;!--				txv: Już potwierdziłeś chęć aplikowania do naszej organizacji				--&gt;</span>
 				{{_ 'answerInvitation.ansAlreadyYouHaveConfirmed'}} {{organizationName}}.
@@ -178,7 +189,6 @@ In the case of a positive answer ...
 			{{/with}}
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		{{/if}}
-		{{#if answerNegative}}
 </pre>
         </td>
       </tr>
@@ -194,7 +204,8 @@ In case of resignation ...
 
         </td>
         <td class="code highlight">
-          <pre class="html">		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-info padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
+          <pre class="html">		{{#if answerNegative}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-info padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
 				<span class="hljs-comment">&lt;!--				txv: Przepraszamy,				--&gt;</span>
 				{{_ 'answerInvitation.ansSorry'}}
@@ -208,7 +219,6 @@ In case of resignation ...
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		{{/if}}
 		{{#if answeredNow}}
-		{{#if ansPos}}
 </pre>
         </td>
       </tr>
@@ -224,7 +234,8 @@ In case of acceptance ...
 
         </td>
         <td class="code highlight">
-          <pre class="html">		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-info padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
+          <pre class="html">		{{#if ansPos}}
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-info padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
 				<span class="hljs-comment">&lt;!--				txv: Dziękujemy za potwierdzenie chęci przynależenia do naszej organizacji				--&gt;</span>
 				{{_ 'answerInvitation.ansDziekuj'}} {{organizationName}}!

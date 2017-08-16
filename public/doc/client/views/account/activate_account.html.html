@@ -22,8 +22,20 @@
     <div id="tree"></div>
     <div id="headings">
 
-      <div class="heading h2">
+      <div class="heading h1">
         <a href="#user-account-activation-template-registration">User Account Activation Template (Registration)</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#in-the-case-of-an-inactive-account">In the case of an inactive account ...</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#in-the-event-of-an-error">In the event of an error ...</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#in-case-of-success">In case of success ...</a>
       </div>
 
     </div>
@@ -38,16 +50,31 @@
       <tr>
         <td class="docs">
           <div class="pilwrap" id="user-account-activation-template-registration">
-  <h2>
+  <h1>
     <a href="#user-account-activation-template-registration" name="user-account-activation-template-registration" class="pilcrow"></a>
 User Account Activation Template (Registration)
-  </h2>
+  </h1>
 </div>
 
         </td>
         <td class="code highlight">
           <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"activateAccount"</span>&gt;</span>
-    {{#if notActivatedAccount}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="in-the-case-of-an-inactive-account">
+  <h2>
+    <a href="#in-the-case-of-an-inactive-account" name="in-the-case-of-an-inactive-account" class="pilcrow"></a>
+In the case of an inactive account ...
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">    {{#if notActivatedAccount}}
     {{&gt; spinner}}
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
@@ -58,7 +85,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-2" id="section-2"></a>
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
 </div>
 <p>txv: The account is being activated</p>
 
@@ -74,7 +101,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-3" id="section-3"></a>
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
 </div>
 <p>txv: If you wait too long for the System response try to refresh the browser or try to activate the account later</p>
 
@@ -84,7 +111,22 @@ User Account Activation Template (Registration)
         <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     {{else}}
-		{{#if notFound}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="in-the-event-of-an-error">
+  <h2>
+    <a href="#in-the-event-of-an-error" name="in-the-event-of-an-error" class="pilcrow"></a>
+In the event of an error ...
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">		{{#if notFound}}
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
 </pre>
@@ -94,7 +136,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-4" id="section-4"></a>
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
 </div>
 <p>txv: Information.</p>
 
@@ -110,7 +152,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-5" id="section-5"></a>
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
 </div>
 <p>txv: Error. Try again</p>
 
@@ -120,7 +162,22 @@ User Account Activation Template (Registration)
 			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		{{else}}
-			{{#if activatedAccountRightNow}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="in-case-of-success">
+  <h2>
+    <a href="#in-case-of-success" name="in-case-of-success" class="pilcrow"></a>
+In case of success ...
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">			{{#if activatedAccountRightNow}}
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-success padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
 </pre>
@@ -130,7 +187,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-6" id="section-6"></a>
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
 </div>
 <p>txv: Thank you for activating the account!</p>
 
@@ -146,7 +203,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-7" id="section-7"></a>
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
 </div>
 <p>txv: The login and password will be sent to e-mail address you have given in Application.</p>
 
@@ -165,7 +222,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-8" id="section-8"></a>
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
 </div>
 <p>txv: Information.</p>
 
@@ -181,7 +238,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-9" id="section-9"></a>
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
 </div>
 <p>txv: Your account has been already activated. Go</p>
 
@@ -196,7 +253,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-10" id="section-10"></a>
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
 </div>
 <p>txv: here</p>
 
@@ -211,7 +268,7 @@ User Account Activation Template (Registration)
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-11" id="section-11"></a>
+  <a class="pilcrow" href="#section-14" id="section-14"></a>
 </div>
 <p>txv: to log in.</p>
 

@@ -2,12 +2,14 @@
 # Template for new user adoption (Application)
 -->
 <template name="answerInvitation">
+<!--
+## In case of failure ...
+-->
     {{#if userNotAnswered}}
 		{{#if timeExpired}}
 		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 			<p>
-<!--
-## In case of failure ...
+				<!--
 				txv: Przepraszamy,				-->
 				{{_ 'answerInvitation.ansSorry'}},
 			</p>
@@ -20,10 +22,10 @@
 				{{_ 'answerInvitation.ansPassed'}}
 			</p>
 		</div>
-		{{else}}
 <!--
 ## In case of success ...
 -->
+		{{else}}
 		<div class="main">
 			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 				<p>
@@ -54,10 +56,10 @@
 		</div>
 		{{/if}}
 		{{else}}
-		{{#if answerPositive}}
 <!--
 ## In the case of a positive answer ...
 -->
+		{{#if answerPositive}}
 		<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 			<p>
 				<!--				txv: Już potwierdziłeś chęć aplikowania do naszej organizacji				-->
@@ -75,10 +77,10 @@
 			{{/with}}
 		</div>
 		{{/if}}
-		{{#if answerNegative}}
 <!--
 ## In case of resignation ...
 -->
+		{{#if answerNegative}}
 		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
 			<p>
 				<!--				txv: Przepraszamy,				-->
@@ -93,10 +95,10 @@
 		</div>
 		{{/if}}
 		{{#if answeredNow}}
-		{{#if ansPos}}
 <!--
 ## In case of acceptance ...
 -->
+		{{#if ansPos}}
 		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
 			<p>
 				<!--				txv: Dziękujemy za potwierdzenie chęci przynależenia do naszej organizacji				-->

@@ -1,7 +1,10 @@
 <!--
-## User Account Activation Template (Registration)
+# User Account Activation Template (Registration)
 -->
 <template name="activateAccount">
+<!--
+## In the case of an inactive account ...
+-->
     {{#if notActivatedAccount}}
     {{> spinner}}
     <div class="col-md-12 bg-warning padding-15" style="text-align: center ">
@@ -19,6 +22,9 @@
         </p>
     </div>
     {{else}}
+<!--
+## In the event of an error ...
+-->
 		{{#if notFound}}
 		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 			<p>
@@ -35,6 +41,9 @@
 			</p>
 		</div>
 		{{else}}
+<!--
+## In case of success ...
+-->
 			{{#if activatedAccountRightNow}}
 			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 				<p>
