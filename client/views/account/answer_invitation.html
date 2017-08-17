@@ -1,9 +1,9 @@
 <!--
-# Template for new user adoption (Application)
+## Template for new user adoption (Application)
 -->
 <template name="answerInvitation">
 <!--
-## In case of failure ...
+### In case of failure ...
 -->
     {{#if userNotAnswered}}
 		{{#if timeExpired}}
@@ -30,7 +30,7 @@
 			</p>
 		</div>
 <!--
-## In case of success ...
+### In case of success ...
 -->
 		{{else}}
 		<div class="main">
@@ -76,7 +76,7 @@
 		{{/if}}
 		{{else}}
 <!--
-## In the case of a positive answer ...
+### In the case of a positive answer ...
 -->
 		{{#if answerPositive}}
 		<div class="col-md-12 bg-success padding-15" style="text-align: center ">
@@ -103,7 +103,7 @@
 		</div>
 		{{/if}}
 <!--
-## In case of resignation ...
+### In case of resignation ...
 -->
 		{{#if answerNegative}}
 		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
@@ -127,7 +127,7 @@
 		{{/if}}
 		{{#if answeredNow}}
 <!--
-## In case of acceptance ...
+### In case of acceptance ...
 -->
 		{{#if ansPos}}
 		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
