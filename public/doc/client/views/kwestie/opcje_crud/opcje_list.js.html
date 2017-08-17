@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>opcje_list.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\kwestie\\opcje_crud\\opcje_list.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>opcje_list.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.opcjeList.helpers ( {
+    <span class="hljs-attr">OpcjeList</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> k = Kwestia.find ( {<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">idParent</span>: <span class="hljs-keyword">this</span>.idParent } );
+        <span class="hljs-keyword">return</span> k ? k : <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-string">'settings'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">rowsPerPage</span>: <span class="hljs-number">10</span>,
+            <span class="hljs-attr">showFilter</span>: <span class="hljs-literal">false</span>, 
+            <span class="hljs-attr">showNavigation</span>: <span class="hljs-string">'never'</span>,
+            <span class="hljs-attr">showColumnToggles</span>: <span class="hljs-literal">false</span>, 
+            <span class="hljs-attr">enableRegex</span>: <span class="hljs-literal">false</span>, 
+            <span class="hljs-attr">fields</span>: [
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'dataWprowadzenia'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'txv.DATE_OF_INTRO'</span> ), <span class="hljs-attr">tmpl</span>: Template.dataUtwKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'kwestiaNazwa'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.NameIssue'</span> ), <span class="hljs-attr">tmpl</span>: Template.opcjeNazwaKwestiLink },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'wartoscPriorytetu'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'txv.VAL_OF_PRIORITY'</span> ), <span class="hljs-attr">tmpl</span>: Template.priorytetKwestia,<span class="hljs-attr">sortOrder</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">sortDirection</span>:<span class="hljs-string">'descending'</span> },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'idTemat'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Subject'</span> ), <span class="hljs-attr">tmpl</span>: Template.tematKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'idRodzaj'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Type'</span> ), <span class="hljs-attr">tmpl</span>: Template.rodzajKwestia },
+                { <span class="hljs-attr">key</span>: <span class="hljs-string">'status'</span>, <span class="hljs-attr">label</span>: TAPi18n.__ ( <span class="hljs-string">'txv.STATUS'</span> ), <span class="hljs-attr">tmpl</span>: Template.statusKwestia }
+            ],
+            <span class="hljs-attr">rowClass</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item </span>) </span>{
+                <span class="hljs-keyword">if</span> ( item.status == KWESTIA_STATUS.ARCHIWALNA ) {
+                    <span class="hljs-keyword">return</span> <span class="hljs-string">'danger'</span>;
+                }
+            }
+        };
+    }
+ } );
+Template.opcjeNazwaKwestiLink.helpers ( {
+    <span class="hljs-attr">isArchiwalna</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.status == KWESTIA_STATUS.ARCHIWALNA ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">isKwestiaMain</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Template.instance ().data._id==Session.get ( <span class="hljs-string">"idKwestia"</span> ) ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    }
+ } );
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

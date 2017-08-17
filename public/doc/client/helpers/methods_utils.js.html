@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>methods_utils.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "client\\helpers\\methods_utils.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+      <div class="heading h2">
+        <a href="#various-auxiliary-methods">Various auxiliary methods</a>
+      </div>
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="various-auxiliary-methods">
+  <h2>
+    <a href="#various-auxiliary-methods" name="various-auxiliary-methods" class="pilcrow"></a>
+Various auxiliary methods
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+getNazwaOrganizacji = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>ask for the name of the organization that uses this system</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">return</span> Parametr.findOne () ? Parametr.findOne ().nazwaOrganizacji : TAPi18n.__ ( <span class="hljs-string">'txv.ORG_NAME'</span> );
+};
+
+notificationPauseWarning = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> text, timeLeft </span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>an alert indicating the necessary pause before you can perform the same operation again</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	GlobalNotification.warning ( {
+		<span class="hljs-attr">title</span>: TAPi18n.__ ( <span class="hljs-string">'txv.SORRY'</span> ),
+		<span class="hljs-attr">content</span>: TAPi18n.__ ( <span class="hljs-string">'txv.THERE_IS_A_LIMIT_FREQUENCY_OF_ADDING'</span> ) + text + TAPi18n.__ ( <span class="hljs-string">'txv.NEXT_OF_THIS_TYPE_OF_ACTION_POSSIBLE_FOR'</span> ) + timeLeft,
+		<span class="hljs-attr">duration</span>: <span class="hljs-number">5</span>
+	 } );
+};
+
+recognizeSexMethod = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> userData </span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>gender identification based on PESEL number</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> welcomeGender = <span class="hljs-literal">null</span>;
+	<span class="hljs-keyword">if</span> ( userData.profile.pesel ) {
+		<span class="hljs-keyword">if</span> ( userData.profile.pesel != <span class="hljs-string">""</span> ) {
+			<span class="hljs-keyword">var</span> pesel = userData.profile.pesel.substring ( <span class="hljs-number">9</span>, <span class="hljs-number">10</span> );
+			<span class="hljs-keyword">if</span> ( _.contains ( [<span class="hljs-string">'1'</span>, <span class="hljs-string">'3'</span>, <span class="hljs-string">'5'</span>, <span class="hljs-string">'7'</span>, <span class="hljs-string">'9'</span>], pesel ) ) welcomeGender = TAPi18n.__ ( <span class="hljs-string">'txv.HONORABLE'</span> );
+			<span class="hljs-keyword">else</span> welcomeGender = TAPi18n.__ ( <span class="hljs-string">'txv.DEAR'</span> )
+		} <span class="hljs-keyword">else</span> welcomeGender = TAPi18n.__ ( <span class="hljs-string">'txv.MR_MRS'</span> );
+	} <span class="hljs-keyword">else</span> welcomeGender = TAPi18n.__ ( <span class="hljs-string">'txv.MR_MRS'</span> );
+	<span class="hljs-keyword">return</span> welcomeGender;
+};
+
+isInTab = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item, tab </span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>Checking the array</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> flag = <span class="hljs-literal">false</span>;
+	tab.forEach ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> a </span>) </span>{
+		<span class="hljs-keyword">if</span> ( a == item ) flag = <span class="hljs-literal">true</span>;
+	 } );
+	<span class="hljs-keyword">return</span> flag;
+};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>This function is probably not used. Make sure it is potentially useful</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">getUrlPathArray = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">var</span> pathArray = <span class="hljs-built_in">window</span>.location.pathname.split ( <span class="hljs-string">'/'</span> );
+	<span class="hljs-keyword">if</span> ( pathArray ) {
+		<span class="hljs-keyword">return</span> pathArray;
+	}
+};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>This function is probably not used. Make sure it is potentially useful</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">getTabOfUrlParams = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">var</span> tab = [];
+	<span class="hljs-keyword">var</span> params = Router.current ().params;
+	<span class="hljs-keyword">for</span> ( <span class="hljs-keyword">var</span> item <span class="hljs-keyword">in</span> params ) {
+		<span class="hljs-keyword">if</span> ( !_.isEmpty ( params[item] ) ) tab.push ( params[item] );
+	}
+	<span class="hljs-keyword">return</span> tab;
+};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>This function is probably not used. Make sure it is potentially useful</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">renderTmpForBootbox = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> template, data </span>) </span>{
+	<span class="hljs-keyword">var</span> node = <span class="hljs-built_in">document</span>.createElement ( <span class="hljs-string">"div"</span> );
+	<span class="hljs-built_in">document</span>.body.appendChild ( node );
+	UI.renderWithData ( template, data, node );
+	<span class="hljs-keyword">return</span> node;
+};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p>This function is probably not used. Make sure it is potentially useful</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">getLocalDate = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> date </span>) </span>{
+	<span class="hljs-keyword">var</span> dt = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> ( date );
+	<span class="hljs-keyword">var</span> minutes = dt.getTimezoneOffset ();
+	dt = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> ( dt.getTime () + minutes * <span class="hljs-number">60000</span> );
+	<span class="hljs-keyword">return</span> dt;
+};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p>This function is probably not used. Make sure it is potentially useful</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">stringContains = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> inputString, stringToFind </span>) </span>{
+	<span class="hljs-keyword">return</span> ( inputString.indexOf ( stringToFind ) != <span class="hljs-number">-1</span> );
+};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p>This function is probably not used. Make sure it is potentially useful</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">setParamInfo = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> paramName, initialValue, newValue </span>) </span>{
+	<span class="hljs-keyword">var</span> item = {
+		<span class="hljs-attr">paramName</span>: paramName,
+		<span class="hljs-attr">initialValue</span>: initialValue,
+		<span class="hljs-attr">newValue</span>: newValue
+	}
+	<span class="hljs-keyword">return</span> item;
+};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p>This function is probably not used. Make sure it is potentially useful</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">setValueIfEmptyField = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> field, value </span>) </span>{
+	<span class="hljs-keyword">if</span> ( _.isEmpty ( field ) ) {
+		<span class="hljs-keyword">return</span> value;
+	}
+	<span class="hljs-keyword">return</span> field;
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

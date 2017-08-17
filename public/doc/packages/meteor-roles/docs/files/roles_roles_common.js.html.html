@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>roles_roles_common.js.html</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "packages\\meteor-roles\\docs\\files\\roles_roles_common.js.html";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>roles_roles_common.js.html</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>roles/roles_common.js - The meteor-roles API<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../assets/vendor/prettify/prettify-min.css"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../assets/css/main.css"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"site_styles"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"shortcut icon"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"image/png"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../assets/favicon.png"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"yui3-skin-sam"</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"doc"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hd"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"yui3-g header"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"yui3-u-3-4"</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../assets/css/logo.png"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"The meteor-roles API"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+            
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"yui3-u-1-4 version"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>API Docs for: v1.2.12<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bd"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"yui3-g"</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"yui3-u-1-4"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"docs-sidebar"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sidebar apidocs"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-list"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"off-left"</span>&gt;</span>APIs<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-tabview"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tabview"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tabs"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#api-classes"</span>&gt;</span>Classes<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#api-modules"</span>&gt;</span>Modules<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-tabview-filter"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-filter"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Type to filter APIs"</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-tabview-panel"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-classes"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"apis classes"</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../classes/Roles.html"</span>&gt;</span>Roles<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../classes/Roles                                                                                                    // 22.html"</span>&gt;</span>Roles                                                                                                    // 22<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../classes/Roles                                                                                            // 22.html"</span>&gt;</span>Roles                                                                                            // 22<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../classes/UIHelpers.html"</span>&gt;</span>UIHelpers<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../classes/UIHelpers                                                                                                // 42
+/                                                                                                              // 43
+ isInRole: function (role, group) {                                                                               // 44
+   var user = Meteor.user(),                                                                                      // 45
+       comma = (role || &amp;#x27;&amp;#x27;).indexOf(&amp;#x27;,&amp;#x27;),                                                                         // 46
+       roles                                                                                                      // 47
+                                                                                                                  // 48
+   if (!user) return false                                                                                        // 49
+   if (!Match.test(role, String)) return false                                                                    // 50
+                                                                                                                  // 51
+   if (comma !== -1) {                                                                                            // 52
+     roles = _.reduce(role.split(&amp;#x27;,&amp;#x27;), function (memo, r) {                                                       // 53
+       if (!r || !r.trim()) {                                                                                     // 54
+         return memo                                                                                              // 55
+       }                                                                                                          // 56
+       memo.push(r.trim())                                                                                        // 57
+       return memo                                                                                                // 58
+     }, [])                                                                                                       // 59
+   } else {                                                                                                       // 60
+     roles = [role]                                                                                               // 61
+   }                                                                                                              // 62
+                                                                                                                  // 63
+   if (Match.test(group, String)) {                                                                               // 64
+     return Roles.userIsInRole(user, roles, group)                                                                // 65
+   }                                                                                                              // 66
+                                                                                                                  // 67
+   return Roles.userIsInRole(user, roles)                                                                         // 68
+ }                                                                                                                // 69
+}                                                                                                                  // 70
+                                                                                                                  // 71
+if (Package.ui) {                                                                                                  // 72
+ _.each(Roles._uiHelpers, function (func, name) {                                                                 // 73
+   Package.ui.UI.registerHelper(name, func)                                                                       // 74
+ })                                                                                                               // 75
+} else if (Package.handlebars) {                                                                                   // 76
+ _.each(Roles._uiHelpers, function (func, name) {                                                                 // 77
+   Package.handlebars.Handlebars.registerHelper(name, func)                                                       // 78
+ })                                                                                                               // 79
+} else {                                                                                                           // 80
+ console.log &amp;amp;&amp;amp; console.log(&amp;#x27;WARNING: Roles template helpers not registered. Handlebars or UI package not found&amp;#x27;) // 81
+}                                                                                                                  // 82
+                                                                                                                  // 83
+}());                                                                                                              // 84
+                                                                                                                  // 85
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);.html"</span>&gt;</span>UIHelpers                                                                                                // 42
+/                                                                                                              // 43
+ isInRole: function (role, group) {                                                                               // 44
+   var user = Meteor.user(),                                                                                      // 45
+       comma = (role || &amp;#x27;&amp;#x27;).indexOf(&amp;#x27;,&amp;#x27;),                                                                         // 46
+       roles                                                                                                      // 47
+                                                                                                                  // 48
+   if (!user) return false                                                                                        // 49
+   if (!Match.test(role, String)) return false                                                                    // 50
+                                                                                                                  // 51
+   if (comma !== -1) {                                                                                            // 52
+     roles = _.reduce(role.split(&amp;#x27;,&amp;#x27;), function (memo, r) {                                                       // 53
+       if (!r || !r.trim()) {                                                                                     // 54
+         return memo                                                                                              // 55
+       }                                                                                                          // 56
+       memo.push(r.trim())                                                                                        // 57
+       return memo                                                                                                // 58
+     }, [])                                                                                                       // 59
+   } else {                                                                                                       // 60
+     roles = [role]                                                                                               // 61
+   }                                                                                                              // 62
+                                                                                                                  // 63
+   if (Match.test(group, String)) {                                                                               // 64
+     return Roles.userIsInRole(user, roles, group)                                                                // 65
+   }                                                                                                              // 66
+                                                                                                                  // 67
+   return Roles.userIsInRole(user, roles)                                                                         // 68
+ }                                                                                                                // 69
+}                                                                                                                  // 70
+                                                                                                                  // 71
+if (Package.ui) {                                                                                                  // 72
+ _.each(Roles._uiHelpers, function (func, name) {                                                                 // 73
+   Package.ui.UI.registerHelper(name, func)                                                                       // 74
+ })                                                                                                               // 75
+} else if (Package.handlebars) {                                                                                   // 76
+ _.each(Roles._uiHelpers, function (func, name) {                                                                 // 77
+   Package.handlebars.Handlebars.registerHelper(name, func)                                                       // 78
+ })                                                                                                               // 79
+} else {                                                                                                           // 80
+ console.log &amp;amp;&amp;amp; console.log(&amp;#x27;WARNING: Roles template helpers not registered. Handlebars or UI package not found&amp;#x27;) // 81
+}                                                                                                                  // 82
+                                                                                                                  // 83
+}());                                                                                                              // 84
+                                                                                                                  // 85
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-modules"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"apis modules"</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../modules/Roles.html"</span>&gt;</span>Roles<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../modules/Roles                                                                                                   __ 6
+_                                                                                                                __ 7
+                                                                                                                  __ 8
+_**                                                                                                                __ 9
+Roles collection documents consist only of an id and a role name.                                               __ 10
+  ex: { _id:&amp;lt;uuid&amp;gt;, name: &amp;quot;admin&amp;quot; }                                                                             __ 11
+_                                                                                                                __ 12
+if (!Meteor.roles) {                                                                                               __ 13
+ Meteor.roles = new Meteor.Collection(&amp;quot;roles&amp;quot;)                                                                    __ 14
+}                                                                                                                  __ 15
+                                                                                                                  __ 16
+_**                                                                                                                __ 17
+Role-based authorization compatible with built-in Meteor accounts package.                                      __ 18
+                                                                                                                __ 19
+Stores user&amp;#x27;s current roles in a &amp;#x27;roles&amp;#x27; field on the user object.                                              __ 20
+                                                                                                                __ 21.html"</span>&gt;</span>Roles                                                                                                   // 6
+/                                                                                                                // 7
+                                                                                                                  // 8
+/**                                                                                                                // 9
+Roles collection documents consist only of an id and a role name.                                               // 10
+  ex: { _id:&amp;lt;uuid&amp;gt;, name: &amp;quot;admin&amp;quot; }                                                                             // 11
+/                                                                                                                // 12
+if (!Meteor.roles) {                                                                                               // 13
+ Meteor.roles = new Meteor.Collection(&amp;quot;roles&amp;quot;)                                                                    // 14
+}                                                                                                                  // 15
+                                                                                                                  // 16
+/**                                                                                                                // 17
+Role-based authorization compatible with built-in Meteor accounts package.                                      // 18
+                                                                                                                // 19
+Stores user&amp;#x27;s current roles in a &amp;#x27;roles&amp;#x27; field on the user object.                                              // 20
+                                                                                                                // 21<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../modules/Roles                                                                                           __ 6
+_                                                                                                        __ 7
+                                                                                                          __ 8
+_**                                                                                                        __ 9
+Roles collection documents consist only of an id and a role name.                                       __ 10
+  ex: { _id:&amp;lt;uuid&amp;gt;, name: &amp;quot;admin&amp;quot; }                                                                     __ 11
+_                                                                                                        __ 12
+if (!Meteor.roles) {                                                                                       __ 13
+ Meteor.roles = new Meteor.Collection(&amp;quot;roles&amp;quot;)                                                            __ 14
+}                                                                                                          __ 15
+                                                                                                          __ 16
+_**                                                                                                        __ 17
+Role-based authorization compatible with built-in Meteor accounts package.                              __ 18
+                                                                                                        __ 19
+Stores user&amp;#x27;s current roles in a &amp;#x27;roles&amp;#x27; field on the user object.                                      __ 20
+                                                                                                        __ 21.html"</span>&gt;</span>Roles                                                                                           // 6
+/                                                                                                        // 7
+                                                                                                          // 8
+/**                                                                                                        // 9
+Roles collection documents consist only of an id and a role name.                                       // 10
+  ex: { _id:&amp;lt;uuid&amp;gt;, name: &amp;quot;admin&amp;quot; }                                                                     // 11
+/                                                                                                        // 12
+if (!Meteor.roles) {                                                                                       // 13
+ Meteor.roles = new Meteor.Collection(&amp;quot;roles&amp;quot;)                                                            // 14
+}                                                                                                          // 15
+                                                                                                          // 16
+/**                                                                                                        // 17
+Role-based authorization compatible with built-in Meteor accounts package.                              // 18
+                                                                                                        // 19
+Stores user&amp;#x27;s current roles in a &amp;#x27;roles&amp;#x27; field on the user object.                                      // 20
+                                                                                                        // 21<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../modules/UIHelpers.html"</span>&gt;</span>UIHelpers<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../modules/UIHelpers                                                                                               __ 10
+_                                                                                                                __ 11
+                                                                                                                  __ 12
+____________________________________________________________                                                       __ 13
+__ UI helpers                                                                                                      __ 14
+__                                                                                                                 __ 15
+__ Use a semi-private variable rather than declaring UI                                                            __ 16
+__ helpers directly so that we can unit test the helpers.                                                          __ 17
+__ XXX For some reason, the UI helpers are not registered                                                          __ 18
+__ before the tests run.                                                                                           __ 19
+__                                                                                                                 __ 20
+Roles._uiHelpers = {                                                                                               __ 21
+                                                                                                                  __ 22
+ _**                                                                                                              __ 23
+UI helper to check if current user is in at least one                                                         __ 24
+of the target roles.  For use in client-side templates.                                                       __ 25
+                                                                                                              __ 26.html"</span>&gt;</span>UIHelpers                                                                                               // 10
+/                                                                                                                // 11
+                                                                                                                  // 12
+////////////////////////////////////////////////////////////                                                       // 13
+// UI helpers                                                                                                      // 14
+//                                                                                                                 // 15
+// Use a semi-private variable rather than declaring UI                                                            // 16
+// helpers directly so that we can unit test the helpers.                                                          // 17
+// XXX For some reason, the UI helpers are not registered                                                          // 18
+// before the tests run.                                                                                           // 19
+//                                                                                                                 // 20
+Roles._uiHelpers = {                                                                                               // 21
+                                                                                                                  // 22
+ /**                                                                                                              // 23
+UI helper to check if current user is in at least one                                                         // 24
+of the target roles.  For use in client-side templates.                                                       // 25
+                                                                                                              // 26<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+            
+            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"yui3-u-3-4"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-options"</span>&gt;</span>
+        Show:
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"api-show-inherited"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-show-inherited"</span> <span class="hljs-attr">checked</span>&gt;</span>
+            Inherited
+        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"api-show-protected"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-show-protected"</span>&gt;</span>
+            Protected
+        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"api-show-private"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-show-private"</span>&gt;</span>
+            Private
+        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"api-show-deprecated"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"api-show-deprecated"</span>&gt;</span>
+            Deprecated
+        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"apidocs"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"docs-main"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"content"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file-heading"</span>&gt;</span>File: roles/roles_common.js<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"file"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">pre</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"code prettyprint linenums"</span>&gt;</span>
+;(function () {
+
+/**
+ * Provides functions related to user authorization. Compatible with built-in Meteor accounts packages.
+ *
+ * @module Roles
+ */
+
+/**
+ * Roles collection documents consist only of an id and a role name.
+ *   ex: { _id:&amp;lt;uuid&amp;gt;, name: &amp;quot;admin&amp;quot; }
+ */
+if (!Meteor.roles) {
+  Meteor.roles = new Meteor.Collection(&amp;quot;roles&amp;quot;)
+}
+
+/**
+ * Role-based authorization compatible with built-in Meteor accounts package.
+ *
+ * Stores user&amp;#x27;s current roles in a &amp;#x27;roles&amp;#x27; field on the user object.
+ *
+ * @class Roles
+ * @constructor
+ */
+if (&amp;#x27;undefined&amp;#x27; === typeof Roles) {
+  Roles = {}
+}
+
+&amp;quot;use strict&amp;quot;;
+
+var mixingGroupAndNonGroupErrorMsg = &amp;quot;Roles error: Can&amp;#x27;t mix grouped and non-grouped roles for same user&amp;quot;;
+
+_.extend(Roles, {
+
+  /**
+   * Constant used to reference the special &amp;#x27;global&amp;#x27; group that 
+   * can be used to apply blanket permissions across all groups.
+   *
+   * @example
+   *     Roles.addUsersToRoles(user, &amp;#x27;admin&amp;#x27;, Roles.GLOBAL_GROUP)
+   *     Roles.userIsInRole(user, &amp;#x27;admin&amp;#x27;) // =&amp;gt; true
+   *
+   *     Roles.setUserRoles(user, &amp;#x27;support-staff&amp;#x27;, Roles.GLOBAL_GROUP)
+   *     Roles.userIsInRole(user, &amp;#x27;support-staff&amp;#x27;) // =&amp;gt; true
+   *     Roles.userIsInRole(user, &amp;#x27;admin&amp;#x27;) // =&amp;gt; false
+   *
+   * @property GLOBAL_GROUP
+   * @type String
+   * @static
+   * @final
+   */
+  GLOBAL_GROUP: &amp;#x27;__global_roles__&amp;#x27;,
+
+
+  /**
+   * Create a new role. Whitespace will be trimmed.
+   *
+   * @method createRole
+   * @param {String} role Name of role
+   * @return {String} id of new role
+   */
+  createRole: function (role) {
+    var id,
+        match
+
+    if (!role
+        || &amp;#x27;string&amp;#x27; !== typeof role
+        || role.trim().length === 0) {
+      return
+    }
+
+    try {
+      id = Meteor.roles.insert({&amp;#x27;name&amp;#x27;: role.trim()})
+      return id
+    } catch (e) {
+      // (from Meteor accounts-base package, insertUserDoc func)
+      // XXX string parsing sucks, maybe
+      // https://jira.mongodb.org/browse/SERVER-3069 will get fixed one day
+      if (e.name !== &amp;#x27;MongoError&amp;#x27;) throw e
+      match = e.err.match(/^E11000 duplicate key error index: ([^ ]+)/)
+      if (!match) throw e
+      if (match[1].indexOf(&amp;#x27;$name&amp;#x27;) !== -1)
+        throw new Meteor.Error(403, &amp;quot;Role already exists.&amp;quot;)
+      throw e
+    }
+  },
+
+  /**
+   * Delete an existing role.  Will throw &amp;quot;Role in use&amp;quot; error if any users
+   * are currently assigned to the target role.
+   *
+   * @method deleteRole
+   * @param {String} role Name of role
+   */
+  deleteRole: function (role) {
+    if (!role) return
+
+    var foundExistingUser = Meteor.users.findOne(
+                              {roles: {$in: [role]}},
+                              {fields: {_id: 1}})
+
+    if (foundExistingUser) {
+      throw new Meteor.Error(403, &amp;#x27;Role in use&amp;#x27;)
+    }
+
+    var thisRole = Meteor.roles.findOne({name: role})
+    if (thisRole) {
+      Meteor.roles.remove({_id: thisRole._id})
+    }
+  },
+
+  /**
+   * Add users to roles. Will create roles as needed.
+   *
+   * NOTE: Mixing grouped and non-grouped roles for the same user
+   *       is not supported and will throw an error.
+   *
+   * Makes 2 calls to database:
+   *  1. retrieve list of all existing roles
+   *  2. update users&amp;#x27; roles
+   *
+   * @example
+   *     Roles.addUsersToRoles(userId, &amp;#x27;admin&amp;#x27;)
+   *     Roles.addUsersToRoles(userId, [&amp;#x27;view-secrets&amp;#x27;], &amp;#x27;example.com&amp;#x27;)
+   *     Roles.addUsersToRoles([user1, user2], [&amp;#x27;user&amp;#x27;,&amp;#x27;editor&amp;#x27;])
+   *     Roles.addUsersToRoles([user1, user2], [&amp;#x27;glorious-admin&amp;#x27;, &amp;#x27;perform-action&amp;#x27;], &amp;#x27;example.org&amp;#x27;)
+   *     Roles.addUsersToRoles(userId, &amp;#x27;admin&amp;#x27;, Roles.GLOBAL_GROUP)
+   *
+   * @method addUsersToRoles
+   * @param {Array|String} users User id(s) or object(s) with an _id field
+   * @param {Array|String} roles Name(s) of roles/permissions to add users to
+   * @param {String} [group] Optional group name. If supplied, roles will be
+   *                         specific to that group.  
+   *                         Group names can not start with &amp;#x27;$&amp;#x27; or numbers.
+   *                         Periods in names &amp;#x27;.&amp;#x27; are automatically converted
+   *                         to underscores.
+   *                         The special group Roles.GLOBAL_GROUP provides 
+   *                         a convenient way to assign blanket roles/permissions
+   *                         across all groups.  The roles/permissions in the 
+   *                         Roles.GLOBAL_GROUP group will be automatically 
+   *                         included in checks for any group.
+   */
+  addUsersToRoles: function (users, roles, group) {
+    // use Template pattern to update user roles
+    Roles._updateUserRoles(users, roles, group, Roles._update_$addToSet_fn)
+  },
+
+  /**
+   * Set a users roles/permissions.
+   *
+   * @example
+   *     Roles.setUserRoles(userId, &amp;#x27;admin&amp;#x27;)
+   *     Roles.setUserRoles(userId, [&amp;#x27;view-secrets&amp;#x27;], &amp;#x27;example.com&amp;#x27;)
+   *     Roles.setUserRoles([user1, user2], [&amp;#x27;user&amp;#x27;,&amp;#x27;editor&amp;#x27;])
+   *     Roles.setUserRoles([user1, user2], [&amp;#x27;glorious-admin&amp;#x27;, &amp;#x27;perform-action&amp;#x27;], &amp;#x27;example.org&amp;#x27;)
+   *     Roles.setUserRoles(userId, &amp;#x27;admin&amp;#x27;, Roles.GLOBAL_GROUP)
+   *
+   * @method setUserRoles
+   * @param {Array|String} users User id(s) or object(s) with an _id field
+   * @param {Array|String} roles Name(s) of roles/permissions to add users to
+   * @param {String} [group] Optional group name. If supplied, roles will be
+   *                         specific to that group.  
+   *                         Group names can not start with &amp;#x27;$&amp;#x27;.
+   *                         Periods in names &amp;#x27;.&amp;#x27; are automatically converted
+   *                         to underscores.
+   *                         The special group Roles.GLOBAL_GROUP provides 
+   *                         a convenient way to assign blanket roles/permissions
+   *                         across all groups.  The roles/permissions in the 
+   *                         Roles.GLOBAL_GROUP group will be automatically 
+   *                         included in checks for any group.
+   */
+  setUserRoles: function (users, roles, group) {
+    // use Template pattern to update user roles
+    Roles._updateUserRoles(users, roles, group, Roles._update_$set_fn)
+  },
+
+  /**
+   * Remove users from roles
+   *
+   * @example
+   *     Roles.removeUsersFromRoles(users.bob, &amp;#x27;admin&amp;#x27;)
+   *     Roles.removeUsersFromRoles([users.bob, users.joe], [&amp;#x27;editor&amp;#x27;])
+   *     Roles.removeUsersFromRoles([users.bob, users.joe], [&amp;#x27;editor&amp;#x27;, &amp;#x27;user&amp;#x27;])
+   *     Roles.removeUsersFromRoles(users.eve, [&amp;#x27;user&amp;#x27;], &amp;#x27;group1&amp;#x27;)
+   *
+   * @method removeUsersFromRoles
+   * @param {Array|String} users User id(s) or object(s) with an _id field
+   * @param {Array|String} roles Name(s) of roles to add users to
+   * @param {String} [group] Optional. Group name. If supplied, only that
+   *                         group will have roles removed.
+   */
+  removeUsersFromRoles: function (users, roles, group) {
+    var update
+
+    if (!users) throw new Error (&amp;quot;Missing &amp;#x27;users&amp;#x27; param&amp;quot;)
+    if (!roles) throw new Error (&amp;quot;Missing &amp;#x27;roles&amp;#x27; param&amp;quot;)
+    if (group) {
+      if (&amp;#x27;string&amp;#x27; !== typeof group)
+        throw new Error (&amp;quot;Roles error: Invalid parameter &amp;#x27;group&amp;#x27;. Expected &amp;#x27;string&amp;#x27; type&amp;quot;)
+      if (&amp;#x27;$&amp;#x27; === group[0])
+        throw new Error (&amp;quot;Roles error: groups can not start with &amp;#x27;$&amp;#x27;&amp;quot;)
+
+      // convert any periods to underscores
+      group = group.replace(/\./g, &amp;#x27;_&amp;#x27;)
+    }
+
+    // ensure arrays
+    if (!_.isArray(users)) users = [users]
+    if (!_.isArray(roles)) roles = [roles]
+
+    // ensure users is an array of user ids
+    users = _.reduce(users, function (memo, user) {
+      var _id
+      if (&amp;#x27;string&amp;#x27; === typeof user) {
+        memo.push(user)
+      } else if (&amp;#x27;object&amp;#x27; === typeof user) {
+        _id = user._id
+        if (&amp;#x27;string&amp;#x27; === typeof _id) {
+          memo.push(_id)
+        }
+      }
+      return memo
+    }, [])
+
+    // update all users, remove from roles set
+    
+    if (group) {
+      update = {$pullAll: {}}
+      update.$pullAll[&amp;#x27;roles.&amp;#x27;+group] = roles
+    } else {
+      update = {$pullAll: {roles: roles}}
+    }
+
+    try {
+      if (Meteor.isClient) {
+        // Iterate over each user to fulfill Meteor&amp;#x27;s &amp;#x27;one update per ID&amp;#x27; policy
+        _.each(users, function (user) {
+          Meteor.users.update({_id:user}, update)
+        })
+      } else {
+        // On the server we can leverage MongoDB&amp;#x27;s $in operator for performance
+        Meteor.users.update({_id:{$in:users}}, update, {multi: true})
+      }
+    }
+    catch (ex) {
+      var removeNonGroupedRoleFromGroupMsg = &amp;#x27;Cannot apply $pull/$pullAll modifier to non-array&amp;#x27; 
+
+      if (ex.name === &amp;#x27;MongoError&amp;#x27; &amp;amp;&amp;amp;
+          ex.err === removeNonGroupedRoleFromGroupMsg) {
+        throw new Error (mixingGroupAndNonGroupErrorMsg)
+      }
+
+      throw ex
+    }
+  },
+
+  /**
+   * Check if user has specified permissions/roles
+   *
+   * @example
+   *     // non-group usage
+   *     Roles.userIsInRole(user, &amp;#x27;admin&amp;#x27;)
+   *     Roles.userIsInRole(user, [&amp;#x27;admin&amp;#x27;,&amp;#x27;editor&amp;#x27;])
+   *     Roles.userIsInRole(userId, &amp;#x27;admin&amp;#x27;)
+   *     Roles.userIsInRole(userId, [&amp;#x27;admin&amp;#x27;,&amp;#x27;editor&amp;#x27;])
+   *
+   *     // per-group usage
+   *     Roles.userIsInRole(user,   [&amp;#x27;admin&amp;#x27;,&amp;#x27;editor&amp;#x27;], &amp;#x27;group1&amp;#x27;)
+   *     Roles.userIsInRole(userId, [&amp;#x27;admin&amp;#x27;,&amp;#x27;editor&amp;#x27;], &amp;#x27;group1&amp;#x27;)
+   *     Roles.userIsInRole(userId, [&amp;#x27;admin&amp;#x27;,&amp;#x27;editor&amp;#x27;], Roles.GLOBAL_GROUP)
+   *
+   *     // this format can also be used as short-hand for Roles.GLOBAL_GROUP
+   *     Roles.userIsInRole(user, &amp;#x27;admin&amp;#x27;)
+   *    
+   * @method userIsInRole
+   * @param {String|Object} user User Id or actual user object
+   * @param {String|Array} roles Name of role/permission or Array of 
+   *                            roles/permissions to check against.  If array, 
+   *                            will return true if user is in _any_ role.
+   * @param {String} [group] Optional. Name of group.  If supplied, limits check
+   *                         to just that group.
+   *                         The user&amp;#x27;s Roles.GLOBAL_GROUP will always be checked
+   *                         whether group is specified or not.  
+   * @return {Boolean} true if user is in _any_ of the target roles
+   */
+  userIsInRole: function (user, roles, group) {
+    var id,
+        userRoles,
+        query,
+        groupQuery,
+        found = false
+
+    // ensure array to simplify code
+    if (!_.isArray(roles)) {
+      roles = [roles]
+    }
+
+    if (!user) return false
+    if (group) {
+      if (&amp;#x27;string&amp;#x27; !== typeof group) return false
+      if (&amp;#x27;$&amp;#x27; === group[0]) return false
+
+      // convert any periods to underscores
+      group = group.replace(/\./g, &amp;#x27;_&amp;#x27;)
+    }
+    
+    if (&amp;#x27;object&amp;#x27; === typeof user) {
+      userRoles = user.roles
+      if (_.isArray(userRoles)) {
+        return _.some(roles, function (role) {
+          return _.contains(userRoles, role)
+        })
+      } else if (&amp;#x27;object&amp;#x27; === typeof userRoles) {
+        // roles field is dictionary of groups
+        found = _.isArray(userRoles[group]) &amp;amp;&amp;amp; _.some(roles, function (role) {
+          return _.contains(userRoles[group], role)
+        })
+        if (!found) {
+          // not found in regular group or group not specified.  
+          // check Roles.GLOBAL_GROUP, if it exists
+          found = _.isArray(userRoles[Roles.GLOBAL_GROUP]) &amp;amp;&amp;amp; _.some(roles, function (role) {
+            return _.contains(userRoles[Roles.GLOBAL_GROUP], role)
+          })
+        }
+        return found
+      }
+
+      // missing roles field, try going direct via id
+      id = user._id
+    } else if (&amp;#x27;string&amp;#x27; === typeof user) {
+      id = user
+    }
+
+    if (!id) return false
+
+
+    query = {_id: id, $or: []}
+
+    // always check Roles.GLOBAL_GROUP
+    groupQuery = {}
+    groupQuery[&amp;#x27;roles.&amp;#x27;+Roles.GLOBAL_GROUP] = {$in: roles}
+    query.$or.push(groupQuery)
+
+    if (group) {
+      // structure of query, when group specified including Roles.GLOBAL_GROUP 
+      //   {_id: id, 
+      //    $or: [
+      //      {&amp;#x27;roles.group1&amp;#x27;:{$in: [&amp;#x27;admin&amp;#x27;]}},
+      //      {&amp;#x27;roles.__global_roles__&amp;#x27;:{$in: [&amp;#x27;admin&amp;#x27;]}}
+      //    ]}
+      groupQuery = {}
+      groupQuery[&amp;#x27;roles.&amp;#x27;+group] = {$in: roles}
+      query.$or.push(groupQuery)
+    } else {
+      // structure of query, where group not specified. includes 
+      // Roles.GLOBAL_GROUP 
+      //   {_id: id, 
+      //    $or: [
+      //      {roles: {$in: [&amp;#x27;admin&amp;#x27;]}},
+      //      {&amp;#x27;roles.__global_roles__&amp;#x27;: {$in: [&amp;#x27;admin&amp;#x27;]}}
+      //    ]}
+      query.$or.push({roles: {$in: roles}})
+    }
+
+    found = Meteor.users.findOne(query, {fields: {_id: 1}})
+    return found ? true : false
+  },
+
+  /**
+   * Retrieve users roles
+   *
+   * @method getRolesForUser
+   * @param {String|Object} user User Id or actual user object
+   * @param {String} [group] Optional name of group to restrict roles to.
+   *                         User&amp;#x27;s Roles.GLOBAL_GROUP will also be included.
+   * @return {Array} Array of user&amp;#x27;s roles, unsorted.
+   */
+  getRolesForUser: function (user, group) {
+    if (!user) return []
+    if (group) {
+      if (&amp;#x27;string&amp;#x27; !== typeof group) return []
+      if (&amp;#x27;$&amp;#x27; === group[0]) return []
+
+      // convert any periods to underscores
+      group = group.replace(/\./g, &amp;#x27;_&amp;#x27;)
+    }
+
+    if (&amp;#x27;string&amp;#x27; === typeof user) {
+      user = Meteor.users.findOne(
+               {_id: user},
+               {fields: {roles: 1}})
+
+    } else if (&amp;#x27;object&amp;#x27; !== typeof user) {
+      // invalid user object
+      return []
+    }
+
+    if (!user || !user.roles) return []
+
+    if (group) {
+      return _.union(user.roles[group] || [], user.roles[Roles.GLOBAL_GROUP] || [])
+    }
+
+    if (_.isArray(user.roles))
+      return user.roles
+
+    // using groups but group not specified. return global group, if exists
+    return user.roles[Roles.GLOBAL_GROUP] || []
+  },
+
+  /**
+   * Retrieve set of all existing roles
+   *
+   * @method getAllRoles
+   * @return {Cursor} cursor of existing roles
+   */
+  getAllRoles: function () {
+    return Meteor.roles.find({}, {sort: {name: 1}})
+  },
+
+  /**
+   * Retrieve all users who are in target role.  
+   *
+   * NOTE: This is an expensive query; it performs a full collection scan
+   * on the users collection since there is no index set on the &amp;#x27;roles&amp;#x27; field.  
+   * This is by design as most queries will specify an _id so the _id index is 
+   * used automatically.
+   *
+   * @method getUsersInRole
+   * @param {Array|String} role Name of role/permission.  If array, users 
+   *                            returned will have at least one of the roles
+   *                            specified but need not have _all_ roles.
+   * @param {String} [group] Optional name of group to restrict roles to.
+   *                         User&amp;#x27;s Roles.GLOBAL_GROUP will also be checked.
+   * @return {Cursor} cursor of users in role
+   */
+  getUsersInRole: function (role, group) {
+    var query,
+        roles = role,
+        groupQuery
+
+    // ensure array to simplify query logic
+    if (!_.isArray(roles)) roles = [roles]
+    
+    if (group) {
+      if (&amp;#x27;string&amp;#x27; !== typeof group)
+        throw new Error (&amp;quot;Roles error: Invalid parameter &amp;#x27;group&amp;#x27;. Expected &amp;#x27;string&amp;#x27; type&amp;quot;)
+      if (&amp;#x27;$&amp;#x27; === group[0])
+        throw new Error (&amp;quot;Roles error: groups can not start with &amp;#x27;$&amp;#x27;&amp;quot;)
+
+      // convert any periods to underscores
+      group = group.replace(/\./g, &amp;#x27;_&amp;#x27;)
+    }
+
+    query = {$or: []}
+
+    // always check Roles.GLOBAL_GROUP
+    groupQuery = {}
+    groupQuery[&amp;#x27;roles.&amp;#x27;+Roles.GLOBAL_GROUP] = {$in: roles}
+    query.$or.push(groupQuery)
+
+    if (group) {
+      // structure of query, when group specified including Roles.GLOBAL_GROUP 
+      //   {
+      //    $or: [
+      //      {&amp;#x27;roles.group1&amp;#x27;:{$in: [&amp;#x27;admin&amp;#x27;]}},
+      //      {&amp;#x27;roles.__global_roles__&amp;#x27;:{$in: [&amp;#x27;admin&amp;#x27;]}}
+      //    ]}
+      groupQuery = {}
+      groupQuery[&amp;#x27;roles.&amp;#x27;+group] = {$in: roles}
+      query.$or.push(groupQuery)
+    } else {
+      // structure of query, where group not specified. includes 
+      // Roles.GLOBAL_GROUP 
+      //   {
+      //    $or: [
+      //      {roles: {$in: [&amp;#x27;admin&amp;#x27;]}},
+      //      {&amp;#x27;roles.__global_roles__&amp;#x27;: {$in: [&amp;#x27;admin&amp;#x27;]}}
+      //    ]}
+      query.$or.push({roles: {$in: roles}})
+    }
+
+    return Meteor.users.find(query)
+  },  // end getUsersInRole 
+  
+  /**
+   * Retrieve users groups, if any
+   *
+   * @method getGroupsForUser
+   * @param {String|Object} user User Id or actual user object
+   * @param {String} [role] Optional name of roles to restrict groups to.
+   *
+   * @return {Array} Array of user&amp;#x27;s groups, unsorted. Roles.GLOBAL_GROUP will be omitted
+   */
+  getGroupsForUser: function (user, role) {
+    var userGroups = [];
+    
+    if (!user) return []
+    if (role) {
+      if (&amp;#x27;string&amp;#x27; !== typeof role) return []
+      if (&amp;#x27;$&amp;#x27; === role[0]) return []
+
+      // convert any periods to underscores
+      role = role.replace(&amp;#x27;.&amp;#x27;, &amp;#x27;_&amp;#x27;)
+    }
+
+    if (&amp;#x27;string&amp;#x27; === typeof user) {
+      user = Meteor.users.findOne(
+               {_id: user},
+               {fields: {roles: 1}})
+    
+    }else if (&amp;#x27;object&amp;#x27; !== typeof user) {
+      // invalid user object
+      return []
+    }
+
+    //User has no roles or is not using groups
+    if (!user || !user.roles || _.isArray(user.roles)) return []
+
+    if (role) {
+      _.each(user.roles, function(groupRoles, groupName) {
+        if (_.contains(groupRoles, role) &amp;amp;&amp;amp; groupName !== Roles.GLOBAL_GROUP) {
+          userGroups.push(groupName);
+        }
+      });
+      return userGroups;
+    }else {
+      return _.without(_.keys(user.roles), Roles.GLOBAL_GROUP);
+    }
+
+  }, //End getGroupsForUser
+
+
+  /**
+   * Private function &amp;#x27;template&amp;#x27; that uses $set to construct an update object
+   * for MongoDB.  Passed to _updateUserRoles
+   *
+   * @method _update_$set_fn 
+   * @protected
+   * @param {Array} roles
+   * @param {String} [group]
+   * @return {Object} update object for use in MongoDB update command
+   */
+  _update_$set_fn: function  (roles, group) {
+    var update = {}
+
+    if (group) {
+      // roles is a key/value dict object
+      update.$set = {}
+      update.$set[&amp;#x27;roles.&amp;#x27; + group] = roles
+    } else {
+      // roles is an array of strings
+      update.$set = {roles: roles}
+    }
+
+    return update
+  },  // end _update_$set_fn 
+
+  /**
+   * Private function &amp;#x27;template&amp;#x27; that uses $addToSet to construct an update 
+   * object for MongoDB.  Passed to _updateUserRoles
+   *
+   * @method _update_$addToSet_fn  
+   * @protected
+   * @param {Array} roles
+   * @param {String} [group]
+   * @return {Object} update object for use in MongoDB update command
+   */
+  _update_$addToSet_fn: function (roles, group) {
+    var update = {}
+
+    if (group) {
+      // roles is a key/value dict object
+      update.$addToSet = {}
+      update.$addToSet[&amp;#x27;roles.&amp;#x27; + group] = {$each: roles}
+    } else {
+      // roles is an array of strings
+      update.$addToSet = {roles: {$each: roles}}
+    }
+
+    return update
+  },  // end _update_$addToSet_fn 
+
+
+  /**
+   * Internal function that users the Template pattern to adds or sets roles 
+   * for users.
+   *
+   * @method _updateUserRoles
+   * @protected
+   * @param {Array|String} users user id(s) or object(s) with an _id field
+   * @param {Array|String} roles name(s) of roles/permissions to add users to
+   * @param {String} group Group name. If not null or undefined, roles will be
+   *                         specific to that group.  
+   *                         Group names can not start with &amp;#x27;$&amp;#x27;.
+   *                         Periods in names &amp;#x27;.&amp;#x27; are automatically converted
+   *                         to underscores.
+   *                         The special group Roles.GLOBAL_GROUP provides 
+   *                         a convenient way to assign blanket roles/permissions
+   *                         across all groups.  The roles/permissions in the 
+   *                         Roles.GLOBAL_GROUP group will be automatically 
+   *                         included in checks for any group.
+   * @param {Function} updateFactory Func which returns an update object that
+   *                         will be passed to Mongo.
+   *   @param {Array} roles
+   *   @param {String} [group]
+   */
+  _updateUserRoles: function (users, roles, group, updateFactory) {
+    if (!users) throw new Error (&amp;quot;Missing &amp;#x27;users&amp;#x27; param&amp;quot;)
+    if (!roles) throw new Error (&amp;quot;Missing &amp;#x27;roles&amp;#x27; param&amp;quot;)
+    if (group) {
+      if (&amp;#x27;string&amp;#x27; !== typeof group)
+        throw new Error (&amp;quot;Roles error: Invalid parameter &amp;#x27;group&amp;#x27;. Expected &amp;#x27;string&amp;#x27; type&amp;quot;)
+      if (&amp;#x27;$&amp;#x27; === group[0])
+        throw new Error (&amp;quot;Roles error: groups can not start with &amp;#x27;$&amp;#x27;&amp;quot;)
+
+      // convert any periods to underscores
+      group = group.replace(/\./g, &amp;#x27;_&amp;#x27;)
+    }
+
+    var existingRoles,
+        query,
+        update
+
+    // ensure arrays to simplify code
+    if (!_.isArray(users)) users = [users]
+    if (!_.isArray(roles)) roles = [roles]
+
+    // remove invalid roles
+    roles = _.reduce(roles, function (memo, role) {
+      if (role
+          &amp;amp;&amp;amp; &amp;#x27;string&amp;#x27; === typeof role
+          &amp;amp;&amp;amp; role.trim().length &amp;gt; 0) {
+        memo.push(role.trim())
+      }
+      return memo
+    }, [])
+
+    // empty roles array is ok, since it might be a $set operation to clear roles
+    //if (roles.length === 0) return
+
+    // ensure all roles exist in &amp;#x27;roles&amp;#x27; collection
+    existingRoles = _.reduce(Meteor.roles.find({}).fetch(), function (memo, role) {
+      memo[role.name] = true
+      return memo
+    }, {})
+    _.each(roles, function (role) {
+      if (!existingRoles[role]) {
+        Roles.createRole(role)
+      }
+    })
+
+    // ensure users is an array of user ids
+    users = _.reduce(users, function (memo, user) {
+      var _id
+      if (&amp;#x27;string&amp;#x27; === typeof user) {
+        memo.push(user)
+      } else if (&amp;#x27;object&amp;#x27; === typeof user) {
+        _id = user._id
+        if (&amp;#x27;string&amp;#x27; === typeof _id) {
+          memo.push(_id)
+        }
+      }
+      return memo
+    }, [])
+    
+    // update all users
+    update = updateFactory(roles, group)
+    
+    try {
+      if (Meteor.isClient) {
+        // On client, iterate over each user to fulfill Meteor&amp;#x27;s 
+        // &amp;#x27;one update per ID&amp;#x27; policy
+        _.each(users, function (user) {
+          Meteor.users.update({_id: user}, update)
+        })
+      } else {
+        // On the server we can use MongoDB&amp;#x27;s $in operator for 
+        // better performance
+        Meteor.users.update(
+          {_id: {$in: users}},
+          update,
+          {multi: true})
+      }
+    }
+    catch (ex) {
+      var addNonGroupToGroupedRolesMsg = &amp;#x27;Cannot apply $addToSet modifier to non-array&amp;#x27;,
+          addGrouped2NonGroupedMsg = &amp;quot;can&amp;#x27;t append to array using string field name&amp;quot;
+
+      if (ex.name === &amp;#x27;MongoError&amp;#x27; &amp;amp;&amp;amp;
+          (ex.err === addNonGroupToGroupedRolesMsg ||
+           ex.err.substring(0, 45) === addGrouped2NonGroupedMsg)) {
+        throw new Error (mixingGroupAndNonGroupErrorMsg)
+      }
+
+      throw ex
+    }
+  }  // end _updateUserRoles
+
+})  // end _.extend(Roles ...)
+
+}());
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../assets/vendor/prettify/prettify-min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined">prettyPrint();</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../assets/js/yui-prettify.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../api.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../assets/js/api-filter.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../assets/js/api-list.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../assets/js/api-search.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"../assets/js/apidocs.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

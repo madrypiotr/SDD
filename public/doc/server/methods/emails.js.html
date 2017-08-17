@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>emails.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "server\\methods\\emails.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>emails.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+<p>pobiera pliki .html z folderu private</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">SSR.compileTemplate ( <span class="hljs-string">'email_act'</span>,Assets.getText ( <span class="hljs-string">'email_act.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_added_issue'</span>,Assets.getText ( <span class="hljs-string">'email_added_issue.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_new_message'</span>,Assets.getText ( <span class="hljs-string">'email_new_message.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_lobbing_issue'</span>,Assets.getText ( <span class="hljs-string">'email_lobbing_issue.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_started_voting'</span>,Assets.getText ( <span class="hljs-string">'email_started_voting.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_application_confirmation'</span>,Assets.getText ( <span class="hljs-string">'email_application_confirmation.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_application_rejected'</span>,Assets.getText ( <span class="hljs-string">'email_application_rejected.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_application_accepted'</span>,Assets.getText ( <span class="hljs-string">'email_application_accepted.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_application_accepted_existing_user'</span>,Assets.getText ( <span class="hljs-string">'email_application_accepted_existing_user.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_login_data'</span>,Assets.getText ( <span class="hljs-string">'email_login_data.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_no_realization_report'</span>,Assets.getText ( <span class="hljs-string">'email_no_realization_report.html'</span> ) );
+SSR.compileTemplate ( <span class="hljs-string">'email_reset_password'</span>,Assets.getText ( <span class="hljs-string">'email_reset_password.html'</span> ) );
+
+Template.email_started_voting.helpers ( {
+    <span class="hljs-attr">nadanoPriorytet</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> kwestiaId,userId </span>) </span>{
+        <span class="hljs-keyword">var</span> kwestia = Kwestia.findOne ( { <span class="hljs-attr">_id</span>:kwestiaId } );
+
+        <span class="hljs-keyword">if</span> ( kwestia ) {
+            <span class="hljs-keyword">var</span> glosujacy = _.pluck ( kwestia.glosujacy, <span class="hljs-string">'idUser'</span> );
+            <span class="hljs-keyword">return</span> ( _.contains ( glosujacy, userId ) ) ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">mojPriorytet</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> kwestiaId,userId </span>) </span>{
+        <span class="hljs-keyword">var</span> kwestia = Kwestia.findOne ( { <span class="hljs-attr">_id</span>:kwestiaId } );
+        <span class="hljs-keyword">var</span> myObj= _.reject ( kwestia.glosujacy,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> obj </span>) </span>{<span class="hljs-keyword">return</span> obj.idUser!=userId } );
+        <span class="hljs-keyword">return</span> myObj[<span class="hljs-number">0</span>] ? myObj[<span class="hljs-number">0</span>].value : <span class="hljs-literal">null</span>;
+    }
+ } );
+Template.email_no_realization_report.helpers ( {
+    <span class="hljs-attr">czlonekZR</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> idZespolRealizacyjny </span>) </span>{
+        <span class="hljs-keyword">var</span> zr=ZespolRealizacyjny.findOne ( { <span class="hljs-attr">_id</span>:idZespolRealizacyjny } );
+        <span class="hljs-keyword">var</span> array=[];
+        _.each ( zr.zespol,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> czlonekId </span>) </span>{
+            <span class="hljs-keyword">var</span> user=Users.findOne ( { <span class="hljs-attr">_id</span>:czlonekId } );
+            <span class="hljs-keyword">var</span> obj={
+                 <span class="hljs-attr">fullName</span>:user.profile.fullName,
+                 <span class="hljs-attr">url</span>:Meteor.absoluteUrl () + <span class="hljs-string">"new_message/"</span> + czlonekId
+            };
+            array.push ( obj );
+        } );
+        <span class="hljs-keyword">return</span> array;
+    }
+ } );
+
+Meteor.methods ( {
+    <span class="hljs-attr">registerAddKwestiaNotification</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> prop </span>) </span>{
+        <span class="hljs-keyword">if</span> ( !prop.users ) {
+            <span class="hljs-keyword">var</span> allUsers = Users.find ( { } ).fetch ();
+            prop.users = allUsers;
+        }
+    },
+    <span class="hljs-attr">sendEmail</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> to, from, subject, text </span>) </span>{
+        <span class="hljs-keyword">this</span>.unblock ();
+        Email.send ( {
+            <span class="hljs-attr">to</span>: to,
+            <span class="hljs-attr">from</span>: <span class="hljs-keyword">from</span>,
+            <span class="hljs-attr">subject</span>: subject,
+            <span class="hljs-attr">text</span>: text
+        } );
+    },
+    <span class="hljs-attr">sendDirectMessageToUser</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> receiverId,senderName, subject, text </span>) </span>{
+        <span class="hljs-keyword">this</span>.unblock ();
+        <span class="hljs-keyword">var</span> parametr = Parametr.findOne ( { } );
+        <span class="hljs-keyword">var</span> receiver=Users.findOne ( { <span class="hljs-attr">_id</span>:receiverId } );
+        <span class="hljs-keyword">var</span> html = SSR.render ( <span class="hljs-string">'email_new_message'</span>,{
+            <span class="hljs-attr">ogranisation</span>:parametr.nazwaOrganizacji,
+            <span class="hljs-attr">welcomeGender</span>:recognizeSex ( receiver ),
+            <span class="hljs-attr">fullName</span>:receiver.profile.fullName,
+            <span class="hljs-attr">text</span>:text,
+            <span class="hljs-attr">sender</span>:senderName
+        } );
+        Email.send ( {
+            <span class="hljs-attr">to</span>: receiver.emails[<span class="hljs-number">0</span>].address,
+            <span class="hljs-attr">from</span>: senderName,
+            <span class="hljs-attr">subject</span>: subject,
+            <span class="hljs-attr">html</span>: html
+        } );
+    },
+    <span class="hljs-attr">sendEmailForAll</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> from, subject, text </span>) </span>{
+        <span class="hljs-keyword">var</span> users= Users.find ();
+        <span class="hljs-keyword">this</span>.unblock ();
+        _.each ( users,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item </span>) </span>{
+            Email.send ( {
+                <span class="hljs-attr">to</span>: item.emails[<span class="hljs-number">0</span>].address,
+                <span class="hljs-attr">from</span>: <span class="hljs-keyword">from</span>,
+                <span class="hljs-attr">subject</span>: subject,
+                <span class="hljs-attr">text</span>: text
+            } );
+        } );
+    },
+    <span class="hljs-attr">sendEmailAddedIssue</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> idKwestia, lang </span>) </span>{
+        <span class="hljs-keyword">this</span>.unblock ();
+        <span class="hljs-keyword">var</span> parametr = Parametr.findOne ( { } );
+        <span class="hljs-keyword">var</span> kwestiaItem = Kwestia.findOne ( { <span class="hljs-attr">_id</span>:idKwestia } );
+        <span class="hljs-keyword">var</span> rodzaj = Rodzaj.findOne ( { <span class="hljs-attr">_id</span>:kwestiaItem.idRodzaj } );
+        <span class="hljs-keyword">var</span> temat = Temat.findOne ( { <span class="hljs-attr">_id</span>:kwestiaItem.idTemat } );
+        <span class="hljs-keyword">if</span> ( !rodzaj )
+            rodzaj=TAPi18n.__ ( <span class="hljs-string">'txv.BELONGS_TO_THE_SYSTEM'</span>, <span class="hljs-literal">null</span>, lang );
+        <span class="hljs-keyword">else</span>
+            rodzaj=rodzaj.nazwaRodzaj;
+        <span class="hljs-keyword">if</span> ( !temat )
+            temat=TAPi18n.__ ( <span class="hljs-string">'txv.TECHNICAL'</span>, <span class="hljs-literal">null</span>, lang );
+		
+        <span class="hljs-keyword">else</span> temat=temat.nazwaTemat;
+
+        Users.find ( { } ).forEach ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item </span>) </span>{
+            <span class="hljs-keyword">if</span> ( !Roles.userIsInRole ( item, [<span class="hljs-string">'admin'</span>] ) &amp;&amp; item.profile.userType==USERTYPE.CZLONEK ) {
+                <span class="hljs-keyword">var</span> html = SSR.render ( <span class="hljs-string">'email_added_issue'</span>,{
+                    <span class="hljs-attr">welcomeGender</span>:recognizeSex ( item ),
+                    <span class="hljs-attr">userData</span>:item.profile.fullName,
+                    <span class="hljs-attr">organizacja</span>: parametr.nazwaOrganizacji,
+                    <span class="hljs-attr">krotkaTresc</span>: kwestiaItem.krotkaTresc,
+                    <span class="hljs-attr">nazwaKwestii</span>: kwestiaItem.kwestiaNazwa,
+                    <span class="hljs-attr">idKwestii</span>:kwestiaItem._id,
+                    <span class="hljs-attr">idUser</span>: item._id,
+                    <span class="hljs-attr">rodzaj</span>: rodzaj,
+                    <span class="hljs-attr">temat</span>: temat,
+                    <span class="hljs-attr">url</span>:Meteor.absoluteUrl () + <span class="hljs-string">"issue_info/"</span> + kwestiaItem._id,
+                    <span class="hljs-attr">urlLogin</span>:Meteor.absoluteUrl () + <span class="hljs-string">"account/login"</span>,
+
+                    <span class="hljs-attr">globDoNotAnswerThat</span>: TAPi18n.__ ( <span class="hljs-string">'glob.DoNotAnswerThat'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globIntroducedAnewIssue</span>: TAPi18n.__ ( <span class="hljs-string">'glob.IntroducedAnewIssue'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globLinkToThisIssue</span>: TAPi18n.__ ( <span class="hljs-string">'glob.LinkToThisIssue'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globLogIn</span>: TAPi18n.__ ( <span class="hljs-string">'glob.LogIn'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globLoginToTheSystem</span>: TAPi18n.__ ( <span class="hljs-string">'glob.LoginToTheSystem'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globOn</span>: TAPi18n.__ ( <span class="hljs-string">'glob.On'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globShortSystemName</span>: TAPi18n.__ ( <span class="hljs-string">'glob.ShortSystemName'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globSubject</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Subject'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globThisIsAnAutomaticInformationSystem</span>: TAPi18n.__ ( <span class="hljs-string">'glob.ThisIsAnAutomaticInformationSystem'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globToTheSystem</span>: TAPi18n.__ ( <span class="hljs-string">'glob.ToTheSystem'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globType</span>: TAPi18n.__ ( <span class="hljs-string">'glob.Type'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">globWelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize</span>: TAPi18n.__ ( <span class="hljs-string">'glob.WelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize'</span>, <span class="hljs-literal">null</span>, lang )
+            } );
+                Email.send ( {
+                    <span class="hljs-attr">to</span>: item.emails[<span class="hljs-number">0</span>].address,
+                    <span class="hljs-attr">from</span>: TAPi18n.__ ( <span class="hljs-string">'txv.SYSTEM_NAME'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">subject</span>: TAPi18n.__ ( <span class="hljs-string">'txv.ADD_NEW_ISSUE'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">html</span>: html
+                } );
+            }
+        } );
+    },
+    <span class="hljs-attr">sendEmailAct</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> idKwestia, lang </span>) </span>{
+        <span class="hljs-keyword">this</span>.unblock ();
+        <span class="hljs-keyword">var</span> parametr = Parametr.findOne ( { } );
+        <span class="hljs-keyword">var</span> kwestiaItem = Kwestia.findOne ( { <span class="hljs-attr">_id</span>:idKwestia } );
+        <span class="hljs-keyword">var</span> rodzaj = Rodzaj.findOne ( { <span class="hljs-attr">_id</span>:kwestiaItem.idRodzaj } );
+        <span class="hljs-keyword">var</span> temat = Temat.findOne ( { <span class="hljs-attr">_id</span>:kwestiaItem.idTemat } );
+        Users.find ( { } ).forEach ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item, lang </span>) </span>{
+            <span class="hljs-keyword">if</span> ( !Roles.userIsInRole ( item, [<span class="hljs-string">'admin'</span>] ) ) {
+                <span class="hljs-keyword">var</span> html = SSR.render ( <span class="hljs-string">'email_act'</span>,{
+                    <span class="hljs-attr">welcomeGender</span>:recognizeSex ( item ),
+                    <span class="hljs-attr">username</span>:item.username,
+                    <span class="hljs-attr">organizacja</span>: parametr.nazwaOrganizacji,
+                    <span class="hljs-attr">szczegolyKwestii</span>: kwestiaItem.szczegolowaTresc,
+                    <span class="hljs-attr">nazwaKwestii</span>: kwestiaItem.kwestiaNazwa,
+                    <span class="hljs-attr">idKwestii</span>:kwestiaItem._id,
+                    <span class="hljs-attr">rodzaj</span>: rodzaj.nazwaRodzaj,
+                    <span class="hljs-attr">temat</span>: temat.nazwaTemat,
+                    <span class="hljs-attr">userType</span>: item.profile.userType
+                } );
+                Email.send ( {
+                    <span class="hljs-attr">to</span>: item.emails[<span class="hljs-number">0</span>].address,
+                    <span class="hljs-attr">from</span>: TAPi18n.__ ( <span class="hljs-string">'txv.SYSTEM_NAME'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">subject</span>: TAPi18n.__ ( <span class="hljs-string">'txv.PASS_A_RESOLUTION'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">html</span>: html
+                } );
+            }
+        } );
+    },
+    <span class="hljs-attr">sendEmailNoRealizationReport</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> idKwestia, lang </span>) </span>{
+        <span class="hljs-keyword">this</span>.unblock ();
+        <span class="hljs-keyword">var</span> parametr = Parametr.findOne ( { } );
+        <span class="hljs-keyword">var</span> kwestiaItem = Kwestia.findOne ( { <span class="hljs-attr">_id</span>:idKwestia } );
+        <span class="hljs-keyword">var</span> rodzaj = Rodzaj.findOne ( { <span class="hljs-attr">_id</span>:kwestiaItem.idRodzaj } );
+        <span class="hljs-keyword">var</span> temat = Temat.findOne ( { <span class="hljs-attr">_id</span>:kwestiaItem.idTemat } );
+        <span class="hljs-keyword">if</span> ( !rodzaj )
+            rodzaj=TAPi18n.__ ( <span class="hljs-string">'txv.BELONGS_TO_THE_SYSTEM'</span>, <span class="hljs-literal">null</span>, lang );
+        <span class="hljs-keyword">else</span>
+            rodzaj=rodzaj.nazwaRodzaj;
+        <span class="hljs-keyword">if</span> ( !temat )
+            temat=TAPi18n.__ ( <span class="hljs-string">'txv.TECHNICAL'</span>, <span class="hljs-literal">null</span>, lang );
+        <span class="hljs-keyword">else</span> temat=temat.nazwaTemat;
+
+        Users.find ( { } ).forEach ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item, lang </span>) </span>{
+
+            <span class="hljs-keyword">if</span> ( !Roles.userIsInRole ( item, [<span class="hljs-string">'admin'</span>] ) &amp;&amp; item.profile.userType==USERTYPE.CZLONEK ) {
+                <span class="hljs-keyword">var</span> html = SSR.render ( <span class="hljs-string">'email_no_realization_report'</span>,{
+                    <span class="hljs-attr">welcomeGender</span>:recognizeSex ( item ),
+                    <span class="hljs-attr">userData</span>:item.profile.fullName,
+                    <span class="hljs-attr">organizacja</span>: parametr.nazwaOrganizacji,
+                    <span class="hljs-attr">krotkaTresc</span>: kwestiaItem.krotkaTresc,
+                    <span class="hljs-attr">nazwaKwestii</span>: kwestiaItem.kwestiaNazwa,
+                    <span class="hljs-attr">idZespolRealizacyjny</span>:kwestiaItem.idZespolRealizacyjny,
+                    <span class="hljs-attr">rodzaj</span>: rodzaj,
+                    <span class="hljs-attr">temat</span>: temat,
+                    <span class="hljs-attr">url</span>:Meteor.absoluteUrl () + <span class="hljs-string">"issue_info/"</span> + kwestiaItem._id,
+                    <span class="hljs-attr">urlLogin</span>:Meteor.absoluteUrl () + <span class="hljs-string">"account/login"</span><span class="hljs-comment">//</span>
+                } );
+                Email.send ( {
+                    <span class="hljs-attr">to</span>: item.emails[<span class="hljs-number">0</span>].address,
+                    <span class="hljs-attr">from</span>: TAPi18n.__ ( <span class="hljs-string">'txv.SYSTEM_NAME'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">subject</span>: TAPi18n.__ ( <span class="hljs-string">'txv.NO_CURRENT_REPORT'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">html</span>: html
+                } );
+            }
+        } );
+    },
+    <span class="hljs-attr">sendEmailLobbingIssue</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> idKwestia,uzasadnienie,idAuthor, lang </span>) </span>{
+        <span class="hljs-keyword">this</span>.unblock ();
+        <span class="hljs-keyword">var</span> parametr = Parametr.findOne ( { } );
+        <span class="hljs-keyword">var</span> kwestiaItem = Kwestia.findOne ( { <span class="hljs-attr">_id</span>:idKwestia } );
+        <span class="hljs-keyword">var</span> htmlText=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">var</span> rodzaj=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">var</span> temat=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">var</span> url=Meteor.absoluteUrl () + <span class="hljs-string">"issue_info/"</span> + kwestiaItem._id;
+        <span class="hljs-keyword">if</span> ( kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ) {
+            rodzaj=TAPi18n.__ ( <span class="hljs-string">'txv.TECHNICAL'</span>, <span class="hljs-literal">null</span>, lang );
+            temat=TAPi18n.__ ( <span class="hljs-string">'txv.BELONGS_TO_THE_SYSTEM'</span>, <span class="hljs-literal">null</span>, lang );
+        }
+        <span class="hljs-keyword">else</span>{
+            rodzaj = Rodzaj.findOne ( { <span class="hljs-attr">_id</span>:kwestiaItem.idRodzaj } ).nazwaRodzaj;
+            temat = Temat.findOne ( { <span class="hljs-attr">_id</span>:kwestiaItem.idTemat } ).nazwaTemat;
+        }
+
+        <span class="hljs-keyword">var</span> author=Users.findOne ( { <span class="hljs-attr">_id</span>:idAuthor } );
+        Users.find ( { } ).forEach ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item, lang </span>) </span>{
+            <span class="hljs-keyword">if</span> ( !Roles.userIsInRole ( item, [<span class="hljs-string">'admin'</span>] ) &amp;&amp; item.profile.userType==USERTYPE.CZLONEK ) {
+                <span class="hljs-keyword">var</span> html = SSR.render ( <span class="hljs-string">'email_lobbing_issue'</span>,{
+                    <span class="hljs-attr">welcomeGender</span>:recognizeSex ( item ),
+                    <span class="hljs-attr">username</span>:item.username,
+                    <span class="hljs-attr">organizacja</span>: parametr.nazwaOrganizacji,
+                    <span class="hljs-attr">krotkaTresc</span>:kwestiaItem.krotkaTresc,
+                    <span class="hljs-attr">nazwaKwestii</span>: kwestiaItem.kwestiaNazwa,
+                    <span class="hljs-attr">rodzaj</span>: rodzaj,
+                    <span class="hljs-attr">temat</span>: temat,
+                    <span class="hljs-attr">userType</span>: item.profile.userType,
+                    <span class="hljs-attr">uzasadnienie</span>: uzasadnienie,
+                    <span class="hljs-attr">email</span>: item.emails[<span class="hljs-number">0</span>].address,
+                    <span class="hljs-attr">fullName</span>:item.profile.fullName,
+                    <span class="hljs-attr">imie</span>: author.profile.firstName,
+                    <span class="hljs-attr">nazwisko</span>: author.profile.lastName,
+                    <span class="hljs-attr">url</span>:url
+
+                } );
+                Email.send ( {
+                    <span class="hljs-attr">to</span>: item.emails[<span class="hljs-number">0</span>].address,
+                    <span class="hljs-attr">from</span>: author.profile.firstName + <span class="hljs-string">" "</span> + author.profile.lastName,
+                    <span class="hljs-attr">subject</span>: TAPi18n.__ ( <span class="hljs-string">'txv.SUPPORT_MY_ISSUE'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">html</span>: html
+                } );
+            }
+        } );
+    },
+    <span class="hljs-attr">sendEmailStartedVoting</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> idKwestia, lang </span>) </span>{
+        <span class="hljs-keyword">this</span>.unblock ();
+        <span class="hljs-keyword">var</span> parametr = Parametr.findOne ( { } );
+        <span class="hljs-keyword">var</span> kwestiaItem = Kwestia.findOne ( { <span class="hljs-attr">_id</span>:idKwestia } );
+        <span class="hljs-keyword">var</span> temat=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">var</span> rodzaj=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> ( kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ) {
+            temat=TAPi18n.__ ( <span class="hljs-string">'txv.BELONGS_TO_THE_SYSTEM'</span>, <span class="hljs-literal">null</span>, lang );
+            rodzaj=TAPi18n.__ ( <span class="hljs-string">'txv.TECHNICAL'</span>, <span class="hljs-literal">null</span>, lang );
+        }
+        <span class="hljs-keyword">else</span> {
+            rodzaj = Rodzaj.findOne ( { <span class="hljs-attr">_id</span>: kwestiaItem.idRodzaj } ).nazwaRodzaj;
+            temat = Temat.findOne ( { <span class="hljs-attr">_id</span>: kwestiaItem.idTemat } ).nazwaTemat;
+        }
+        <span class="hljs-keyword">var</span> urlLogin=Meteor.absoluteUrl () + <span class="hljs-string">"account/login"</span>;
+        <span class="hljs-keyword">var</span> url=Meteor.absoluteUrl () + <span class="hljs-string">'issue_info/'</span> + kwestiaItem._id;
+        <span class="hljs-keyword">var</span> kworum=<span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">if</span> ( rodzaj==<span class="hljs-string">"Statutowe"</span> )
+            kworum=liczenieKworumStatutowe ();
+        <span class="hljs-keyword">else</span>
+            kworum=liczenieKworumZwykle ();
+        Users.find ( { } ).forEach ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> item, lang </span>) </span>{
+            <span class="hljs-keyword">if</span> ( !Roles.userIsInRole ( item, [<span class="hljs-string">'admin'</span>] ) &amp;&amp; item.profile.userType==USERTYPE.CZLONEK ) {
+                <span class="hljs-keyword">var</span> html = SSR.render ( <span class="hljs-string">'email_started_voting'</span>,{
+                    <span class="hljs-attr">welcomeGender</span>:recognizeSex ( item ),
+                    <span class="hljs-attr">username</span>:item.profile.fullName,
+                    <span class="hljs-attr">organizacja</span>: parametr.nazwaOrganizacji,
+                    <span class="hljs-attr">szczegolyKwestii</span>: kwestiaItem.krotkaTresc,
+                    <span class="hljs-attr">nazwaKwestii</span>: kwestiaItem.kwestiaNazwa,
+                    <span class="hljs-attr">idKwestii</span>:kwestiaItem._id,
+                    <span class="hljs-attr">dataGlosowania</span>:moment ( kwestiaItem.dataGlosowania ).format ( <span class="hljs-string">"DD-MM-YYYY, HH:mm"</span> ),
+                    <span class="hljs-attr">rodzaj</span>: rodzaj,
+                    <span class="hljs-attr">idUser</span>:item._id,
+                    <span class="hljs-attr">temat</span>: temat,
+                    <span class="hljs-attr">wartoscPriorytetu</span>:kwestiaItem.wartoscPriorytetu,
+                    <span class="hljs-attr">glosujacy</span>:kwestiaItem.glosujacy.length,
+                    <span class="hljs-attr">kworum</span>: kworum,
+                    <span class="hljs-attr">urlLogin</span>:urlLogin,
+                    <span class="hljs-attr">url</span>:url
+                } );
+                Email.send ( {
+                    <span class="hljs-attr">to</span>: item.emails[<span class="hljs-number">0</span>].address,
+                    <span class="hljs-attr">from</span>: TAPi18n.__ ( <span class="hljs-string">'txv.SYSTEM_NAME'</span>, <span class="hljs-literal">null</span>, lang ),
+                    <span class="hljs-attr">subject</span>: BEGAN_VOTING_ISSUE,
+                    <span class="hljs-attr">html</span>: html
+                } );
+            }
+        } );
+    },
+    <span class="hljs-attr">sendApplicationConfirmation</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> idUser, lang </span>) </span>{
+        <span class="hljs-keyword">var</span> userData = UsersDraft.findOne ( { <span class="hljs-attr">_id</span>: idUser } );
+        <span class="hljs-keyword">var</span> data=applicationEmail ( userData,<span class="hljs-string">"confirm"</span>,<span class="hljs-literal">null</span> );
+        Email.send ( {
+            <span class="hljs-attr">to</span>: data.to,
+            <span class="hljs-attr">from</span>: data.to,
+            <span class="hljs-attr">subject</span>: TAPi18n.__ ( <span class="hljs-string">'txv.CONFIRM_OF_RECE'</span>, <span class="hljs-literal">null</span>, lang ) + data.userType,
+            <span class="hljs-attr">html</span>: data.html
+        } );
+    },
+    <span class="hljs-attr">sendApplicationRejected</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> userData, lang </span>) </span>{
+        <span class="hljs-keyword">var</span> data=applicationEmail ( userData,<span class="hljs-string">"reject"</span>,<span class="hljs-literal">null</span> );
+
+        Email.send ( {
+            <span class="hljs-attr">to</span>: data.to,
+            <span class="hljs-attr">from</span>: data.to,
+            <span class="hljs-attr">subject</span>: TAPi18n.__ ( <span class="hljs-string">'txv.REJECT_OF_APLIC'</span>, <span class="hljs-literal">null</span>, lang ) + data.userType,
+            <span class="hljs-attr">html</span>: data.html
+        } );
+    },
+    <span class="hljs-attr">sendApplicationAccepted</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> userData,text, lang </span>) </span>{
+        <span class="hljs-keyword">var</span> data=applicationEmail ( userData,text,<span class="hljs-literal">null</span> );
+        Email.send ( {
+            <span class="hljs-attr">to</span>: data.to,
+            <span class="hljs-attr">from</span>: data.to,
+            <span class="hljs-attr">subject</span>: TAPi18n.__ ( <span class="hljs-string">'txv.POSITIVE_CONSIDER'</span>, <span class="hljs-literal">null</span>, lang ) + data.userType,
+            <span class="hljs-attr">html</span>: data.html
+        } );
+    },
+    <span class="hljs-attr">sendFirstLoginData</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> idUser,pass, lang </span>) </span>{
+
+        <span class="hljs-keyword">var</span> userData = Users.findOne ( { <span class="hljs-attr">_id</span>:idUser } );
+        <span class="hljs-keyword">var</span> data=applicationEmail ( userData,<span class="hljs-string">"loginData"</span>,pass );
+        Email.send ( {
+            <span class="hljs-attr">to</span>: data.to,
+            <span class="hljs-attr">from</span>: data.to,
+            <span class="hljs-attr">subject</span>: TAPi18n.__ ( <span class="hljs-string">'txv.DATA_LOGGING'</span>, <span class="hljs-literal">null</span>, lang ) + Parametr.findOne ().nazwaOrganizacji,
+            <span class="hljs-attr">html</span>: data.html
+        } );
+    },
+    <span class="hljs-attr">sendResetPasswordEmail</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> email, pass </span>) </span>{
+        <span class="hljs-keyword">var</span> users = Users.find ();
+        users.forEach ( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> user </span>) </span>{
+            _.each ( user.emails, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> em, lang </span>) </span>{
+                <span class="hljs-keyword">if</span> ( _.isEqual ( em.address.toLowerCase (), email.toLowerCase () ) ) {
+                    <span class="hljs-keyword">var</span> userData = user;
+                    <span class="hljs-keyword">var</span> data=applicationEmail ( userData, <span class="hljs-string">"resetPassword"</span>, pass );
+                    Email.send ( {
+                        <span class="hljs-attr">to</span>: data.to,
+                        <span class="hljs-attr">from</span>: data.to,
+                        <span class="hljs-attr">subject</span>: TAPi18n.__ ( <span class="hljs-string">'txv.RESET_ACCES_PASS'</span>, <span class="hljs-literal">null</span>, lang ) + Parametr.findOne ().nazwaOrganizacji,
+                        <span class="hljs-attr">html</span>: data.html
+                    } );
+                }
+            } );
+        } );
+    }
+ } );
+recognizeSex=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> userData, lang </span>) </span>{
+    <span class="hljs-keyword">var</span> welcomeGender=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">if</span> ( userData.profile.pesel ) {
+        <span class="hljs-keyword">if</span> ( userData.profile.pesel!=<span class="hljs-string">""</span> ) {
+            <span class="hljs-keyword">var</span> pesel = userData.profile.pesel.substring ( <span class="hljs-number">9</span>, <span class="hljs-number">10</span> );
+            <span class="hljs-keyword">if</span> ( _.contains ( [<span class="hljs-string">'1'</span>, <span class="hljs-string">'3'</span>, <span class="hljs-string">'5'</span>, <span class="hljs-string">'7'</span>, <span class="hljs-string">'9'</span>], pesel ) )
+                welcomeGender = TAPi18n.__ ( <span class="hljs-string">'txv.HONORABLE'</span>, <span class="hljs-literal">null</span>, lang );
+            <span class="hljs-keyword">else</span> welcomeGender = DEAR
+        }
+        <span class="hljs-keyword">else</span>
+            welcomeGender=TAPi18n.__ ( <span class="hljs-string">'txv.MR_MRS'</span>, <span class="hljs-literal">null</span>, lang );
+    }
+    <span class="hljs-keyword">else</span>
+        welcomeGender=TAPi18n.__ ( <span class="hljs-string">'txv.MR_MRS'</span>, <span class="hljs-literal">null</span>, lang );
+
+    <span class="hljs-keyword">return</span> welcomeGender;
+};
+applicationEmail=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> userData,emailTypeText,passw, lang </span>) </span>{
+    <span class="hljs-keyword">var</span> urlLogin=Meteor.absoluteUrl () + <span class="hljs-string">"account/login"</span>;
+    <span class="hljs-keyword">var</span> welcomeGender=recognizeSex ( userData );
+
+    <span class="hljs-keyword">var</span> userTypeData = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">switch</span> ( userData.profile.userType ) {
+        <span class="hljs-keyword">case</span> USERTYPE.CZLONEK: userTypeData=TAPi18n.__ ( <span class="hljs-string">'txv.ORD_MEMBER'</span>, <span class="hljs-literal">null</span>, lang );<span class="hljs-keyword">break</span>;
+        <span class="hljs-keyword">case</span> USERTYPE.DORADCA: userTypeData=TAPi18n.__ ( <span class="hljs-string">'txv.COUNSELOR'</span>, <span class="hljs-literal">null</span>, lang );<span class="hljs-keyword">break</span>;
+    }
+    <span class="hljs-keyword">var</span> url=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">var</span> login=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">var</span> pass=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">var</span> to=userData.email;
+    <span class="hljs-keyword">var</span> textGender=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">var</span> urlResetPassword = <span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">if</span> ( emailTypeText==<span class="hljs-string">"reject"</span> ) {
+        emailTypeText = <span class="hljs-string">'email_application_rejected'</span>;
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( emailTypeText == <span class="hljs-string">"acceptNew"</span> ) {
+        emailTypeText = <span class="hljs-string">'email_application_accepted'</span>;
+        <span class="hljs-keyword">if</span> ( userData.linkAktywacyjny )
+            url = Meteor.absoluteUrl () + <span class="hljs-string">"account/activate_account/"</span> + userData.linkAktywacyjny;
+        <span class="hljs-keyword">if</span> ( welcomeGender == TAPi18n.__ ( <span class="hljs-string">'txv.HONORABLE'</span>, <span class="hljs-literal">null</span>, lang ) )
+            textGender = TAPi18n.__ ( <span class="hljs-string">'txv.H_COULD'</span>, <span class="hljs-literal">null</span>, lang );
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( welcomeGender == TAPi18n.__ ( <span class="hljs-string">'txv.DEAR'</span>, <span class="hljs-literal">null</span>, lang ) )
+            textGender = TAPi18n.__ ( <span class="hljs-string">'txv.D_COULD'</span>, <span class="hljs-literal">null</span>, lang );
+        <span class="hljs-keyword">else</span>
+            textGender = TAPi18n.__ ( <span class="hljs-string">'txv.HD_COULD'</span>, <span class="hljs-literal">null</span>, lang );
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( emailTypeText==<span class="hljs-string">"acceptExisting"</span> ) {
+        emailTypeText = <span class="hljs-string">'email_application_accepted_existing_user'</span>;
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( emailTypeText==<span class="hljs-string">"loginData"</span> ) {
+        emailTypeText = <span class="hljs-string">'email_login_data'</span>;
+        login=userData.username;
+        pass=passw;
+        to=userData.emails[<span class="hljs-number">0</span>].address
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( emailTypeText == <span class="hljs-string">"resetPassword"</span> ) {
+        emailTypeText = <span class="hljs-string">'email_reset_password'</span>;
+        login=userData.username;
+        pass=passw;
+        to=userData.emails[<span class="hljs-number">0</span>].address;
+
+        <span class="hljs-keyword">var</span> token = Random.secret ();
+        <span class="hljs-keyword">var</span> when = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> ();
+        <span class="hljs-keyword">var</span> tokenRecord = {
+            <span class="hljs-attr">token</span>: token,
+            <span class="hljs-attr">email</span>: userData.emails[<span class="hljs-number">0</span>].address,
+            <span class="hljs-attr">when</span>: when
+        };
+        urlResetPassword = Meteor.absoluteUrl () + <span class="hljs-string">"account/reset_password/"</span> + token;
+        Meteor.users.update ( userData._id, {<span class="hljs-attr">$set</span>: {
+            <span class="hljs-string">"services.password.reset"</span>: tokenRecord
+        } } );
+    }
+    <span class="hljs-keyword">else</span>{
+       emailTypeText = <span class="hljs-string">'email_application_confirmation'</span>;
+        <span class="hljs-keyword">var</span> kwestia=Kwestia.findOne ( {<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,<span class="hljs-attr">idUser</span>:userData._id } );
+        url=Meteor.absoluteUrl () + <span class="hljs-string">"issue_info/"</span> + kwestia._id;
+    }
+    <span class="hljs-keyword">var</span> userName=<span class="hljs-literal">null</span>;
+    <span class="hljs-keyword">if</span> ( userData.profile.firstName!=<span class="hljs-literal">null</span> &amp;&amp; userData.profile.firstName.trim ()!= <span class="hljs-string">''</span> )
+        userName=userData.profile.firstName + <span class="hljs-string">" "</span> + userData.profile.lastName;
+    <span class="hljs-keyword">else</span>
+        userName=userData.email;
+    <span class="hljs-keyword">var</span> html = SSR.render ( emailTypeText,{
+        <span class="hljs-attr">username</span>:userName,
+        <span class="hljs-attr">organizacja</span>: Parametr.findOne ().nazwaOrganizacji,
+        <span class="hljs-attr">userTypeData</span>:userTypeData,
+        <span class="hljs-attr">url</span>:url,
+        <span class="hljs-attr">urlLogin</span>:urlLogin,
+        <span class="hljs-attr">welcomeType</span>:welcomeGender,
+        <span class="hljs-attr">login</span>:login,
+        <span class="hljs-attr">password</span>:pass,
+        <span class="hljs-attr">textGender</span>:textGender,
+        <span class="hljs-attr">urlResetPassword</span>: urlResetPassword
+    } );
+    <span class="hljs-keyword">var</span> obj={
+        <span class="hljs-attr">to</span>:to,
+        <span class="hljs-attr">from</span>: TAPi18n.__ ( <span class="hljs-string">'txv.SYSTEM_NAME'</span>, <span class="hljs-literal">null</span>, lang ) + Parametr.findOne ().nazwaOrganizacji,
+        <span class="hljs-attr">html</span>:html,
+        <span class="hljs-attr">userType</span>:userTypeData
+    };
+    <span class="hljs-keyword">return</span> obj;
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

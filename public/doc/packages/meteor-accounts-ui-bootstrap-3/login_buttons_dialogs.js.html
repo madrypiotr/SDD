@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>login_buttons_dialogs.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "packages\\meteor-accounts-ui-bootstrap-3\\login_buttons_dialogs.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>login_buttons_dialogs.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>for convenience</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> loginButtonsSession = Accounts._loginButtonsSession;
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>populate the session so that the appropriate dialogs are
+displayed by reading variables set by accounts-urls, which parses
+special URLs. since accounts-ui depends on accounts-urls, we are
+guaranteed to have these set at this point.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+	<span class="hljs-keyword">if</span> (Accounts._resetPasswordToken) {
+		loginButtonsSession.set(<span class="hljs-string">'resetPasswordToken'</span>, Accounts._resetPasswordToken);
+	}
+
+	<span class="hljs-keyword">if</span> (Accounts._enrollAccountToken) {
+		loginButtonsSession.set(<span class="hljs-string">'enrollAccountToken'</span>, Accounts._enrollAccountToken);
+	}
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>Needs to be in Meteor.startup because of a package loading order
+issue. We can't be sure that accounts-password is loaded earlier
+than accounts-ui so Accounts.verifyEmail might not be defined.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	Meteor.startup(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">if</span> (Accounts._verifyEmailToken) {
+			Accounts.verifyEmail(Accounts._verifyEmailToken, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
+				Accounts._enableAutoLogin();
+				<span class="hljs-keyword">if</span> (!error)
+					loginButtonsSession.set(<span class="hljs-string">'justVerifiedEmail'</span>, <span class="hljs-literal">true</span>);
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>XXX show something if there was an error.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			});
+		}
+	});
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p>resetPasswordDialog template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	Template._resetPasswordDialog.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">var</span> $modal = $(<span class="hljs-keyword">this</span>.find(<span class="hljs-string">'#login-buttons-reset-password-modal'</span>));
+		$modal.modal();
+	}
+
+	Template._resetPasswordDialog.events({
+		<span class="hljs-string">'click #login-buttons-reset-password-button'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+			event.stopPropagation();
+			resetPassword();
+		},
+		<span class="hljs-string">'keypress #reset-password-new-password'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+			<span class="hljs-keyword">if</span> (event.keyCode === <span class="hljs-number">13</span>)
+				resetPassword();
+		},
+		<span class="hljs-string">'click #login-buttons-cancel-reset-password'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+			event.stopPropagation();
+			loginButtonsSession.set(<span class="hljs-string">'resetPasswordToken'</span>, <span class="hljs-literal">null</span>);
+			Accounts._enableAutoLogin();
+			$(<span class="hljs-string">'#login-buttons-reset-password-modal'</span>).modal(<span class="hljs-string">"hide"</span>);
+		}
+	});
+
+	<span class="hljs-keyword">var</span> resetPassword = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		loginButtonsSession.resetMessages();
+		<span class="hljs-keyword">var</span> newPassword = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'reset-password-new-password'</span>).value;
+		<span class="hljs-keyword">if</span> (!Accounts._loginButtons.validatePassword(newPassword))
+			<span class="hljs-keyword">return</span>;
+
+		Accounts.resetPassword(
+			loginButtonsSession.get(<span class="hljs-string">'resetPasswordToken'</span>), newPassword,
+			<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+				<span class="hljs-keyword">if</span> (error) {
+					loginButtonsSession.errorMessage(error.reason || <span class="hljs-string">"Unknown error"</span>);
+				} <span class="hljs-keyword">else</span> {
+					loginButtonsSession.set(<span class="hljs-string">'resetPasswordToken'</span>, <span class="hljs-literal">null</span>);
+					Accounts._enableAutoLogin();
+					$(<span class="hljs-string">'#login-buttons-reset-password-modal'</span>).modal(<span class="hljs-string">"hide"</span>);
+				}
+			});
+	};
+
+	Template._resetPasswordDialog.inResetPasswordFlow = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> loginButtonsSession.get(<span class="hljs-string">'resetPasswordToken'</span>);
+	};
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p>enrollAccountDialog template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+	Template._enrollAccountDialog.events({
+		<span class="hljs-string">'click #login-buttons-enroll-account-button'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+			enrollAccount();
+		},
+		<span class="hljs-string">'keypress #enroll-account-password'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+			<span class="hljs-keyword">if</span> (event.keyCode === <span class="hljs-number">13</span>)
+				enrollAccount();
+		},
+		<span class="hljs-string">'click #login-buttons-cancel-enroll-account-button'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+			loginButtonsSession.set(<span class="hljs-string">'enrollAccountToken'</span>, <span class="hljs-literal">null</span>);
+			Accounts._enableAutoLogin();
+			$modal.modal(<span class="hljs-string">"hide"</span>);
+		}
+	});
+
+	Template._enrollAccountDialog.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+		$modal = $(<span class="hljs-keyword">this</span>.find(<span class="hljs-string">'#login-buttons-enroll-account-modal'</span>));
+		$modal.modal();
+	};
+
+	<span class="hljs-keyword">var</span> enrollAccount = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		loginButtonsSession.resetMessages();
+		<span class="hljs-keyword">var</span> password = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'enroll-account-password'</span>).value;
+		<span class="hljs-keyword">if</span> (!Accounts._loginButtons.validatePassword(password))
+			<span class="hljs-keyword">return</span>;
+
+		Accounts.resetPassword(
+			loginButtonsSession.get(<span class="hljs-string">'enrollAccountToken'</span>), password,
+			<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error</span>) </span>{
+				<span class="hljs-keyword">if</span> (error) {
+					loginButtonsSession.errorMessage(error.reason || <span class="hljs-string">"Unknown error"</span>);
+				} <span class="hljs-keyword">else</span> {
+					loginButtonsSession.set(<span class="hljs-string">'enrollAccountToken'</span>, <span class="hljs-literal">null</span>);
+					Accounts._enableAutoLogin();
+					$modal.modal(<span class="hljs-string">"hide"</span>);
+				}
+			});
+	};
+
+	Template._enrollAccountDialog.inEnrollAccountFlow = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> loginButtonsSession.get(<span class="hljs-string">'enrollAccountToken'</span>);
+	};
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p>justVerifiedEmailDialog template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+	Template._justVerifiedEmailDialog.events({
+		<span class="hljs-string">'click #just-verified-dismiss-button'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+			loginButtonsSession.set(<span class="hljs-string">'justVerifiedEmail'</span>, <span class="hljs-literal">false</span>);
+		}
+	});
+
+	Template._justVerifiedEmailDialog.visible = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">if</span> (loginButtonsSession.get(<span class="hljs-string">'justVerifiedEmail'</span>)){
+			setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{$(<span class="hljs-string">'#login-buttons-email-address-verified-modal'</span>).modal()}, <span class="hljs-number">500</span>)
+		}
+		<span class="hljs-keyword">return</span> loginButtonsSession.get(<span class="hljs-string">'justVerifiedEmail'</span>);
+	};
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p>loginButtonsMessagesDialog template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p>Template._loginButtonsMessagesDialog.rendered = function() {
+var $modal = $(this.find('#configure-login-service-dialog-modal'));
+$modal.modal();
+}</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+	Template._loginButtonsMessagesDialog.events({
+		<span class="hljs-string">'click #messages-dialog-dismiss-button'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+			loginButtonsSession.resetMessages();
+		}
+	});
+
+	Template._loginButtonsMessagesDialog.visible = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">var</span> hasMessage = loginButtonsSession.get(<span class="hljs-string">'infoMessage'</span>) || loginButtonsSession.get(<span class="hljs-string">'errorMessage'</span>);
+		<span class="hljs-keyword">return</span> !Accounts._loginButtons.dropdown() &amp;&amp; hasMessage;
+	};
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p>configureLoginServiceDialog template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+	Template._configureLoginServiceDialog.events({
+		<span class="hljs-string">'click .configure-login-service-dismiss-button'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+			event.stopPropagation();
+			loginButtonsSession.set(<span class="hljs-string">'configureLoginServiceDialogVisible'</span>, <span class="hljs-literal">false</span>);
+			$(<span class="hljs-string">'#configure-login-service-dialog-modal'</span>).modal(<span class="hljs-string">'hide'</span>);
+		},
+		<span class="hljs-string">'click #configure-login-service-dialog-save-configuration'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+			<span class="hljs-keyword">if</span> (loginButtonsSession.get(<span class="hljs-string">'configureLoginServiceDialogVisible'</span>) &amp;&amp;
+					! loginButtonsSession.get(<span class="hljs-string">'configureLoginServiceDialogSaveDisabled'</span>)) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p>Prepare the configuration document for this login service</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				<span class="hljs-keyword">var</span> serviceName = loginButtonsSession.get(<span class="hljs-string">'configureLoginServiceDialogServiceName'</span>);
+				<span class="hljs-keyword">var</span> configuration = {
+					<span class="hljs-attr">service</span>: serviceName
+				};
+				_.each(configurationFields(), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">field</span>) </span>{
+					configuration[field.property] = <span class="hljs-built_in">document</span>.getElementById(
+						<span class="hljs-string">'configure-login-service-dialog-'</span> + field.property).value
+						.replace(<span class="hljs-regexp">/^\s*|\s*$/g</span>, <span class="hljs-string">""</span>); <span class="hljs-comment">// trim;</span>
+				});
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p>Configure this login service</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				Meteor.call(<span class="hljs-string">"configureLoginService"</span>, configuration, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, result</span>) </span>{
+					<span class="hljs-keyword">if</span> (error)
+						Meteor._debug(<span class="hljs-string">"Error configuring login service "</span> + serviceName, error);
+					<span class="hljs-keyword">else</span>
+						loginButtonsSession.set(<span class="hljs-string">'configureLoginServiceDialogVisible'</span>, <span class="hljs-literal">false</span>);
+						$(<span class="hljs-string">'#configure-login-service-dialog-modal'</span>).modal(<span class="hljs-string">'hide'</span>);
+				});
+			}
+		},
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14"></a>
+</div>
+<p>IE8 doesn't support the 'input' event, so we'll run this on the keyup as
+well. (Keeping the 'input' event means that this also fires when you use
+the mouse to change the contents of the field, eg 'Cut' menu item.)</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">		<span class="hljs-string">'input, keyup input'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15"></a>
+</div>
+<p>if the event fired on one of the configuration input fields,
+check whether we should enable the 'save configuration' button</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			<span class="hljs-keyword">if</span> (event.target.id.indexOf(<span class="hljs-string">'configure-login-service-dialog'</span>) === <span class="hljs-number">0</span>)
+				updateSaveDisabled();
+		}
+	});
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16"></a>
+</div>
+<p>check whether the 'save configuration' button should be enabled.
+this is a really strange way to implement this and a Forms
+Abstraction would make all of this reactive, and simpler.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> updateSaveDisabled = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">var</span> anyFieldEmpty = _.any(configurationFields(), <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">field</span>) </span>{
+			<span class="hljs-keyword">return</span> <span class="hljs-built_in">document</span>.getElementById(
+				<span class="hljs-string">'configure-login-service-dialog-'</span> + field.property).value === <span class="hljs-string">''</span>;
+		});
+
+		loginButtonsSession.set(<span class="hljs-string">'configureLoginServiceDialogSaveDisabled'</span>, anyFieldEmpty);
+	};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17"></a>
+</div>
+<p>Returns the appropriate template for this login service.  This
+template should be defined in the service's package</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> configureLoginServiceDialogTemplateForService = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">var</span> serviceName = loginButtonsSession.get(<span class="hljs-string">'configureLoginServiceDialogServiceName'</span>);
+		<span class="hljs-keyword">return</span> Template[<span class="hljs-string">'configureLoginServiceDialogFor'</span> + capitalize(serviceName)];
+	};
+
+	<span class="hljs-keyword">var</span> configurationFields = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">var</span> template = configureLoginServiceDialogTemplateForService();
+		<span class="hljs-keyword">return</span> template.fields();
+	};
+
+	Template._configureLoginServiceDialog.configurationFields = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> configurationFields();
+	};
+
+	Template._configureLoginServiceDialog.visible = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> loginButtonsSession.get(<span class="hljs-string">'configureLoginServiceDialogVisible'</span>);
+	};
+
+	Template._configureLoginServiceDialog.configurationSteps = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-18" id="section-18"></a>
+</div>
+<p>renders the appropriate template</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">		<span class="hljs-keyword">return</span> configureLoginServiceDialogTemplateForService();
+	};
+
+	Template._configureLoginServiceDialog.saveDisabled = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> loginButtonsSession.get(<span class="hljs-string">'configureLoginServiceDialogSaveDisabled'</span>);
+	};
+
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-19" id="section-19"></a>
+</div>
+<p>XXX from http://epeli.github.com/underscore.string/lib/underscore.string.js</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> capitalize = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">str</span>)</span>{
+		str = str == <span class="hljs-literal">null</span> ? <span class="hljs-string">''</span> : <span class="hljs-built_in">String</span>(str);
+		<span class="hljs-keyword">return</span> str.charAt(<span class="hljs-number">0</span>).toUpperCase() + str.slice(<span class="hljs-number">1</span>);
+	};
+
+}) ();
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>
