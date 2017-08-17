@@ -1,12 +1,19 @@
 <!--
+``client\views\account\``czlonek_zwyczajny_form.html
 ## Template for the registration form of an Ordinary Member
 -->
 <template name="czlonekZwyczajnyForm">
     <div class="main">
         <legend>
+				<!--
+				txv: Applying for Ordinary Member in organization
+				-->
 {{_ 'czlonekZwyczajnyForm.cZwApplyingAmemberOfTheOrdinary'}} {{nazwaOrganizacji}}</legend>
         {{#if currentUser}}
             <p class="col-md-12 bg-danger padding-15">
+				<!--
+				txv: Fill in missing fields in application.
+				-->
 {{_ 'czlonekZwyczajnyForm.cZwFillInTheMissingFieldsInTheApplication'}}
             </p>
             <br/>
@@ -16,6 +23,9 @@
                 <form class="form-horizontal" id="userForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
+				<!--
+				txv: Email
+				-->
 {{_ 'glob.Email'}}: </label>
 
                         <div class="col-xs-9">
@@ -25,6 +35,9 @@
                         </div>
                     </div>
                     <div class="form-group">
+				<!--
+				txv: First name
+				-->
 <label class="control-label col-xs-3" for="firstName">{{_ 'glob.Fname'}}: </label>
 
                         <div class="col-xs-9">
@@ -34,6 +47,9 @@
                         </div>
                     </div>
                     <div class="form-group">
+				<!--
+				txv: Last name
+				-->
 <label class="control-label col-xs-3" for="lastName">{{_ 'glob.Lname'}}: </label>
 
                         <div class="col-xs-9">
@@ -42,6 +58,9 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="phoneNumber">
+				<!--
+				txv: Personal ID
+				-->
 {{_ 'glob.PID'}}: </label>
 
                         <div class="col-xs-9">
@@ -50,6 +69,9 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="postalAddress">
+				<!--
+				txv: Address
+				-->
 {{_ 'glob.Adress'}}: </label>
 
                         <div class="col-xs-9">
@@ -58,6 +80,9 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
+				<!--
+				txv: Postal Code
+				-->
 {{_ 'glob.PostalC'}}: </label>
                         <div class="col-xs-9">
 <input class="form-control" type="text" name="ZipCode" id="ZipCode" placeholder="{{_ 'glob.PostalC'}}" required/>
@@ -65,6 +90,9 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
+				<!--
+				txv: City
+				-->
 {{_ 'glob.City'}}: </label>
                         <div class="col-xs-9">
 <input name="city" type="text" class="form-control" id="city" placeholder="{{_ 'glob.City'}}" value={{profile.city}} required {{isNotEmpty}}>
@@ -72,19 +100,31 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="uwagiStatus">
-{{_ 'czlonekZwyczajnyForm.cZwAdditional'}}: </label>
+				<!--
+				txv: Additional
+				-->
+{{_ 'czlonekZwyczajnyForm.'}}: </label>
 
                         <div class="col-xs-9">
+				<!--
+				txv: Write some words about yourself and motivation of your application...
+				-->
 <textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'czlonekZwyczajnyForm.cZwWriteAfewWordsToUsAboutYourself'}}"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
+				<!--
+				txv: Language of the User 
+				-->
 {{_ 'czlonekZwyczajnyForm.cZwLanguageUser'}}: </label>
 
                         <div class="col-xs-9">
                             <select name="language" id="language" class="form-control" required>
                                 <option value="0">
+				<!--
+				txv: Choose the language 
+				-->
 {{_ 'czlonekZwyczajnyForm.cZwChooseLanguage'}}</option>
                                 {{#each getLanguages}}
                                     <option value="{{shortName}}">{{languageName}}</option>
@@ -97,7 +137,13 @@
                             <div class="input-group">
                                 <input type="checkbox" name="statutConfirmation"  required/>
                                 <span id="statutConfirmationSpan">
+				<!--
+				txv: I confirm knowledge of 
+				-->
 {{_ 'czlonekZwyczajnyForm.cZwIconfirmKnowledge'}} <a id="statutBootbox">
+				<!--
+				txv: the Regulations
+				-->
 {{_ 'czlonekZwyczajnyForm.cZwOfTheRules'}}</a> </span>
                             </div>
                         </div>
@@ -112,6 +158,9 @@
             </div>
         </div>
     </div>
+<!--
+### footer page info
+-->
 <div class="footer">
   <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;   {{_ "more.AplyMemb"}}  </div>
 	<div id="container">

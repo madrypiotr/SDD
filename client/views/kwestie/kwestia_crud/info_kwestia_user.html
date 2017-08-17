@@ -18,6 +18,9 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="manageZRIssue"><br />
 	{{> issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
+<!--
+### footer page info
+-->
 		<div class="footer">
 		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.ImplemTeam"}} </div>
 			<div id="container">
@@ -207,9 +210,9 @@
         {{>decyzjaModal}}
         {{>listZespolRealizacyjnyDoubleModal}}
     {{/unless}}
-
-<!-- pageInfo in footer -->
-
+<!--
+### footer page info
+-->
 <div class="footer">
 	<div id="button"> <i class="fa fa-info-circle"></i> &nbsp;
 	{{#if isDeliberowana}} {{_ "more.DeliberIssueDetails"}} {{/if}}
