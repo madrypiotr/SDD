@@ -1,14 +1,22 @@
+<!--
+``client\views\account\``edit_profile.html
+## Template
+-->
 <template name="profileEdit">
     <div class="main">
         <legend>
-<!--Edytuj profil-->
+				<!--
+				txv: 
+				-->
 {{_ 'profileEdit.prfToAccessCompleteTheRequiredFields'}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" id="profileForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputImię">
-<!--Imię-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.Fname'}}:</label>
 
                         <div class="col-xs-9">
@@ -18,7 +26,9 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputNazwisko">
-<!--Nazwisko-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.Lname'}}:</label>
 
                         <div class="col-xs-9">
@@ -37,7 +47,9 @@
                     {{#if userZwyczajny}}
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputAdres">
-<!--Adres-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.Adress'}}:</label>
 
                             <div class="col-xs-9">
@@ -47,7 +59,9 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputZipcode">
-<!--Kod pocztowy-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.PostalC'}}:</label>
 
                             <div class="col-xs-9">
@@ -57,7 +71,9 @@
                     {{/if}}
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputMiasto">
-<!--Miasto-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.City'}}: </label>
                         <div class="col-xs-9">
                             <input name="city" class="form-control" id="city" value="{{profile.city}}" required>
@@ -67,10 +83,11 @@
 
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
-<!--Zapisz-->
+				<!--
+				txv: 
+				-->
 <input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
                             <a href="{{pathFor 'manage_account'}}" class="btn btn-default">
-<!--Anuluj-->
 {{_ 'glob.Cancel'}}</a>
                         </div>
                     </div>

@@ -1,50 +1,64 @@
+<!--
+``client\views\account\``doradca_form.html
+## Template
+-->
 <template name="advisorForm">
     <div class="main">
         <legend>
-<!--Applying for an advisor in an organization-->
+				<!--
+				txv: Applying for an advisor in an organization
+				-->
 {{_ 'advisorForm.dorApplyingAdvisorInTheOrganization'}} {{nazwaOrganizacji}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" id="advisorFormApp">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
+				<!--
+				txv: 
+				-->
 <!--e-mail-->
 {{_ 'glob.Email'}}: </label>
 
                         <div class="col-xs-9">
-<!--e-mail-->
 <input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.Email'}}"
                                    required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="firstName">
+				<!--
+				txv: 
+				-->
 <!--Imię-->
 {{_ 'glob.Fname'}}: </label>
 
                         <div class="col-xs-9">
-<!--Imię-->
 <input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.Fname'}}"
                                    required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="lastName">
+				<!--
+				txv: 
+				-->
 <!--Nazwisko-->
 {{_ 'glob.Lname'}}: </label>
 
                         <div class="col-xs-9">
-<!--Nazwisko-->
 <input name="lastName" type="text" class="form-control" id="lastName"
                                    placeholder="{{_ 'glob.Lname'}}" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="city">
-<!--Nazwisko-->
 {{_ 'glob.Lname'}}: </label>
 
                         <div class="col-xs-9">
+				<!--
+				txv: 
+				-->
 <!--Miasto-->
 <input name="city" type="text" class="form-control" id="city"
                          placeholder="{{_ 'glob.City'}}" required>
@@ -52,10 +66,16 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="uwagiStatus">
+				<!--
+				txv: 
+				-->
 <!--Dodatkowe-->
 {{_ 'advisorForm.dorAdditional'}}: </label>
 
                         <div class="col-xs-9">
+				<!--
+				txv: 
+				-->
 <!--Napisz parę słów do nas, o sobie i powodach Twojego wniosku...-->
 <textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'advisorForm.dorWriteAfewWordsAboutYourself'}}"></textarea>
                         </div>
@@ -64,9 +84,11 @@
 
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
+				<!--
+				txv: 
+				-->
 <!--Aplikuję do doradztwa-->
 <input type="submit" class="btn btn-primary" value="{{_ 'advisorForm.dorIapplyCounseling'}}" id="submitButton">
-<!--Anuluj-->
 <input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
                         </div>
                     </div>

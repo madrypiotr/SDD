@@ -1,28 +1,36 @@
+<!--
+``client\views\account\``login_form_top.html
+## Template
+-->
 <template name="loginFormTop">
     <form class="form-inline" role="form">
         <div class="form-group">
             <label class="sr-only" for="inputLogin">
-<!--Login-->
+				<!--
+				txv: 
+				-->
 {{_ 'loginFormTop.lftLogin'}}</label>
-            
-<!--Login-->
 <input name="login" type="text" class="form-control" id="inputLogin" placeholder="{{_ 'loginFormTop.lftLogin'}}">
         </div>
         <div class="form-group">
             <label class="sr-only" for="inputPassword">
-<!--Hasło-->
+				<!--
+				txv: 
+				-->
 {{_ 'loginFormTop.lftPassword'}}</label>
-            
-<!--Hasło-->
 <input name="password" type="password" class="form-control" id="inputPassword" placeholder="{{_ 'loginFormTop.lftPassword'}}">
         </div>
         <div class="checkbox">
             <label><input type="checkbox"> 
-<!--Zapamiętaj mnie-->
+				<!--
+				txv: 
+				-->
 {{_ 'loginFormTop.lftRememberMe'}} </label>
         </div>
         <button type="submit" class="btn btn-primary">
-<!--Zaloguj się-->
+				<!--
+				txv: 
+				-->
 {{_ 'loginFormTop.lftSignIn'}}</button>
     </form>
 </template>

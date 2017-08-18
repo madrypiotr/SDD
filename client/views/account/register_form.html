@@ -1,7 +1,13 @@
+<!--
+``client\views\account\``reset_password.html
+## Template
+-->
 <template name="registerForm">
     <div class="main">
         <legend>
-<!--Utwórz konto-->
+				<!--
+				txv: 
+				-->
 {{_ 'registerForm.rFoCreateAnAccount'}}</legend>
         {{#if  lessThanFiveUsers}}
             <div class="row">
@@ -9,111 +15,127 @@
                     <form class="form-horizontal" id="userForm">
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputEmail">
-<!--e-mail-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.Email'}}: </label>
 
                             <div class="col-xs-9">
-<!--e-mail-->
 <input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.Email'}}" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="firstName">
-<!--Imię-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.Fname'}}: </label>
 
                             <div class="col-xs-9">
-<!--Imię-->
 <input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.Fname'}}" required >
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="lastName">
-<!--Nazwisko-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.Lname'}}: </label>
-
                             <div class="col-xs-9">
-<!--Nazwisko-->
 <input name="lastName" type="text" class="form-control" id="lastName" placeholder="{{_ 'glob.Lname'}}"  required >
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputPassword">
-<!--Hasło-->
+				<!--
+				txv: 
+				-->
 {{_ 'registerForm.rFoPassword'}}: </label>
 
                             <div class="col-xs-9">
-<!--Hasło-->
 <input name="password" type="password" class="form-control" id="inputPassword"
                                        placeholder="{{_ 'registerForm.rFoPassword'}}" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="confirmPassword">
-<!--Potwierdź hasło-->
+				<!--
+				txv: 
+				-->
 {{_ 'registerForm.rFoConfirmPassword'}}: </label>
 
                             <div class="col-xs-9">
-<!--Potwierdź hasło-->
 <input name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="{{_ 'registerForm.rFoConfirmPassword'}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="phoneNumber">
-<!--PESEL-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.PID'}}: </label>
 
                             <div class="col-xs-9">
-<!--PESEL-->
 <input name="pesel" type="text" class="form-control" id="pesel" placeholder="{{_ 'glob.PID'}}"  required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="postalAddress">
-<!--Adres-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.Adress'}}: </label>
                             <div class="col-xs-9">
-<!--Adres-->
 <textarea name="address" rows="3" class="form-control" id="postalAddress" placeholder="{{_ 'glob.Adress'}}"  required></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3">
-<!--Kod pocztowy-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.PostalC'}}: </label>
                             <div class="col-xs-9">
-<!--Kod pocztowy-->
 <input class="form-control" type="text" name="ZipCode" id="ZipCode" placeholder="{{_ 'glob.PostalC'}}" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3">
-<!--Miasto-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.City'}}: </label>
                             <div class="col-xs-9">
-<!--Miasto-->
 <input name="city" type="text" class="form-control" id="city" placeholder="{{_ 'glob.City'}}"  required >
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="uwagiStatus">
-<!--Dodatkowe-->
+				<!--
+				txv: 
+				-->
 {{_ 'registerForm.rFoAdditional'}}: </label>
 
                             <div class="col-xs-9">
-<!--Uwagi...-->
+				<!--
+				txv: 
+				-->
 <textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'registerForm.rFoComments'}}"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3">
-<!--Język użytkownika-->
+				<!--
+				txv: 
+				-->
 {{_ 'registerForm.rFoLanguageUser'}}: </label>
 
                             <div class="col-xs-9">
                                 <select name="language" id="language" class="form-control" required>
                                     <option value="0">
-<!--Wybierz język-->
+				<!--
+				txv: 
+				-->
 {{_ 'registerForm.rFoChooseLanguage'}}</option>
                                     {{#each getLanguages}}
                                         <option value="{{shortName}}">{{languageName}}</option>
@@ -126,18 +148,23 @@
                                 <div class="input-group">
                                     <input type="checkbox" name="statutConfirmation"  {{isSelected 'kobieta'}} required/>
                                     <span id="statutConfirmationSpan">
-<!--Potwierdzam znajomość-->
+				<!--
+				txv: 
+				-->
 {{_ 'registerForm.rFoIconfirmKnowledge'}} <a id="statutBootbox">
-<!--Regulaminu-->
+				<!--
+				txv: 
+				-->
 {{_ 'registerForm.rFoRegulations'}}</a> </span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-offset-3 col-xs-9">
-<!--Zapisz-->
+				<!--
+				txv: 
+				-->
 <input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}" id="submitRegistration">
-<!--Anuluj-->
 <input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
                             </div>
                         </div>
@@ -145,8 +172,9 @@
                 </div>
             </div>
         {{else}}
-            
-<!--Rejestracja nie możliwa z powodu osiągnięcia limitu osób, które mogą się zarejestrować samodzielnie. Aby aplikować kliknij dołącz.-->
+				<!--
+				txv: 
+				-->
 {{_ 'registerForm.rFoRegistrationIsNotPossible'}}
         {{/if}}
     </div>

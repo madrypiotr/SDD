@@ -1,55 +1,71 @@
+<!--
+``client\views\account\``manage_account.html
+## Template
+-->
 <template name="manageAccount">
     <div class="main">
         <legend>
-<!--Twój profil-->
+				<!--
+				txv: 
+				-->
 {{_ 'manageAccount.mAcYourProfile'}}</legend>
 
         <div class="pull-right">
             <a href="{{pathFor 'profile_edit'}}" class="btn btn-primary">
                 <span class="glyphicon glyphicon-pencil"></span> 
-<!--Edytuj profil-->
 {{_ 'manageAccount.mAcEditProfile'}}</a>
         </div>
-
         <div class="clearfix"></div>
         <hr/>
         <table class="table table-bordered manageTable">
             <tr>
                 <td><span class="glyphicon glyphicon-user"></span><strong> 
-<!--Login-->
+				<!--
+				txv: 
+				-->
 {{_ 'manageAccount.mAcLogin'}}</strong></td>
                 <td>{{username}}</td>
             </tr>
             <tr>
                 <td><span class="glyphicon glyphicon-envelope"></span><strong> 
-<!--e-mail-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.Email'}}</strong></td>
                 <td>{{test emails}}</td>
             </tr>
             <tr>
                 <td><span class="glyphicon glyphicon-info-sign"></span><strong> 
-<!--Imię i Nazwisko-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.FandLname'}}</strong></td>
                 <td>{{profile.fullName}}</td>
             </tr>
             {{#if profile.pesel}}
                 <tr>
                     <td><span class="fa fa-envelope"></span><strong> 
-<!--PESEL-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.PID'}}</strong></td>
                     <td>{{profile.pesel}}</td>
                 </tr>
             {{/if}}
             <tr>
                 <td><span class="glyphicon glyphicon-book"></span><strong> 
-<!--Rola w systemie-->
+				<!--
+				txv: 
+				-->
 {{_ 'manageAccount.mAcTheRoleOfTheSystem'}}</strong></td>
                 <td>{{profile.userType}}
                 </td>
             </tr>
             <tr>
                 <td><span class="glyphicon glyphicon-map-marker"></span><strong> 
-<!--Adres-->
+				<!--
+				txv: 
+				-->
 {{_ 'glob.Adress'}}</strong></td>
                 <td>{{profile.address}}, {{profile.zip}} {{profile.city}}</td>
             </tr>
