@@ -11,21 +11,21 @@
 		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 			<p>
 				<!--
-				txv: Sorry 
+				``txv`` Sorry 
 				-->
 				{{_ 'answerInvitation.ansSorry'}}
 			</p>
 			<p >
 				<!--
-				txv: The time to accept invitation as 
+				``txv`` The time to accept invitation as 
 				-->
 				{{_ 'answerInvitation.ansTimeAcceptanceOfTheIinvitationAs'}} {{position}} 
 				<!--
-				txv:  in our organization 
+				``txv``  in our organization 
 				-->
 				{{_ 'answerInvitation.ansIinOurOrganization'}} {{organizationName}} 
 				<!--
-				txv:  has ended.
+				``txv``  has ended.
 				-->
 				{{_ 'answerInvitation.ansPassed'}}
 			</p>
@@ -38,25 +38,25 @@
 			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 				<p>
 				<!--
-				txv: Welcome
+				``txv`` Welcome
 				-->
 					{{_ 'answerInvitation.ansHello'}} {{fullName}}!
 				</p>
 				<br>
 				<p>
 				<!--
-				txv: You have been invited to apply as 
+				``txv`` You have been invited to apply as 
 				-->
 					{{_ 'answerInvitation.ansYouAreInvitedToApplyAs'}} {{position}} 
 				<!--
-				txv:  in our organization 
+				``txv``  in our organization 
 				-->
 					{{_ 'answerInvitation.ansIinOurOrganization'}} {{organizationName}}.
 				</p>
 				<br>
 				<p>
 				<!--
-				txv: You have been invited to apply as?
+				``txv`` You have been invited to apply as?
 				-->
 					{{_ 'answerInvitation.ansDoYouWantToApply'}}
 				</p>
@@ -65,11 +65,11 @@
 			&nbsp;
 			<div style="text-align: center ">
 				<!--
-				txv: I want to apply
+				``txv`` I want to apply
 				-->
 				<input type="submit" class="btn btn-primary" value="{{_ 'answerInvitation.ansIWantToApply'}}" id="apply">
 				<!--
-				txv:  No, thanks
+				``txv``  No, thanks
 				-->
 				<input type="reset" class="btn btn-default" value="{{_ 'answerInvitation.ansNoThanks'}}" id="refuse">
 			</div>
@@ -83,19 +83,19 @@
 		<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 			<p>
 				<!--
-				txv: You have confirmed allready the intention to apply to our organization
+				``txv`` You have confirmed allready the intention to apply to our organization
 				-->
 				{{_ 'answerInvitation.ansAlreadyYouHaveConfirmed'}} {{organizationName}}.
 			</p>
 			{{#with actualKwestia}}
 			<p>
 				<!--
-				txv: To see detailes of the Issue click 
+				``txv`` To see detailes of the Issue click 
 				-->
 				{{_ 'answerInvitation.ansToSeeMoreDetailsClick'}} 
 				<a href="{{pathFor 'informacjeKwestia'}}">
 				<!--
-				txv:   here
+				``txv``   here
 				-->
 					{{_ 'answerInvitation.ansHere'}}
 				</a>
@@ -110,17 +110,17 @@
 		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
 			<p>
 				<!--
-				txv: Sorry,
+				``txv`` Sorry,
 				-->
 				{{_ 'answerInvitation.ansSorry'}}
 			</p>
 			<p>
 				<!--
-				txv: You have rejected invitation to apply as 
+				``txv`` You have rejected invitation to apply as 
 				-->
 				{{_ 'answerInvitation.ansYouRejectedAnInvitationToApplyAs'}} {{position}} 
 				<!--
-				txv:  in our organization 
+				``txv``  in our organization 
 				-->
 				{{_ 'answerInvitation.ansIinOurOrganization'}} {{organizationName}}.
 			</p>
@@ -134,14 +134,14 @@
 		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
 			<p>
 				<!--
-				txv: Thank you for confirming the will to join our organization
+				``txv`` Thank you for confirming the will to join our organization
 				-->
 				{{_ 'answerInvitation.ansDziekuj'}} {{organizationName}}!
 			</p>
 			{{#if isGuest}}
 			<p>
 				<!--
-				txv: In next message you will receive data to log in.
+				``txv`` In next message you will receive data to log in.
 				-->
 				{{_ 'answerInvitation.ansTheNextMessYouWillReceiveYourLoginDetails'}}
 			</p>
@@ -149,12 +149,12 @@
 			{{#with actualKwestia}}
 			<p>
 				<!--
-				txv: You may follow the Issue
+				``txv`` You may follow the Issue
 				-->
 				{{_ 'answerInvitation.ansYouCanKeepAbreastOfIssue'}} 
 				<a href="{{pathFor 'informacjeKwestia'}}">
 				<!--
-				txv:   here
+				``txv``   here
 				-->
 					{{_ 'answerInvitation.ansHere'}}
 				</a>
@@ -165,13 +165,13 @@
 		<div class="col-md-12 bg-info padding-15" style="text-align: center ">
 			<p>
 				<!--
-				txv: Thank you for your answers.
+				``txv`` Thank you for your answers.
 				-->
 				{{_ 'answerInvitation.ansThankYouForAnswering'}}
 			</p>
 			<p>
 				<!--
-				txv: The System
+				``txv`` The System
 				-->
 				{{_ 'answerInvitation.ansSystem'}} {{organizationName}}
 			</p>

@@ -1,62 +1,52 @@
 <!--
 ``client\views\account\``activate_account.html
-## User Account Registration Activation Template
--->
+## User Account Registration Activation Template -->
 <template name="activateAccount">
 <!--
-### In the case of an inactive account ...
--->
+### In the case of an inactive account ... -->
     {{#if notActivatedAccount}}
     {{> spinner}}
     <div class="col-md-12 bg-warning padding-15" style="text-align: center ">
         <p>
-            <!--
-			txv: The account is being activated
-			-->
+            <!-- 
+			``txv`` The account is being activated -->
             {{_ "activateAccount.acItTakesActivateAccount"}}
         </p>
         <p>
-            <!--
-			txv: If you wait too long for the System response try to refresh the browser or try to activate the account later
-			-->
+            <!-- 
+			``txv`` If you wait too long for the System response try to refresh the browser or try to activate the account later -->
             {{_ "activateAccount.acIfYouWaitTooLong"}}
         </p>
     </div>
 <!--
-### In the event of an error ...
--->
+### In the event of an error ... -->
     {{else}}
 		{{#if notFound}}
 		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 			<p>
 				<!--
-				txv: Information.
-				-->
+				``txv`` Information. -->
 				{{_ "activateAccount.acInformation"}}
 			</p>
 			<p>
 				<!--
-				txv: Error. Try again
-				-->
+				``txv`` Error. Try again -->
 				{{_ "activateAccount.acAnErrorOccuredTryAgain"}}
 			</p>
 		</div>
 <!--
-### In case of success ...
--->
+### In case of success ... -->
 		{{else}}
 			{{#if activatedAccountRightNow}}
 			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 				<p>
 					<!--
-					txv: Thank you for activating the account!
-					-->
+					``txv`` Thank you for activating the account! -->
 					{{_ "activateAccount.acThankYouForActivatingYourAccount"}}
 				</p>
 				<p>
 					<!--
-					txv: The login and password will be sent to e-mail address you have given in Application.
-					-->
+					``txv`` The login and password will be sent to e-mail address you have given in Application. -->
 					{{_ "activateAccount.acYouWillBeSentLoginAndPass"}}
 				</p>
 			</div>
@@ -64,24 +54,20 @@
 			<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 				<p>
 					<!--
-					txv: Information.
-					-->
+					``txv`` Information. -->
 					{{_ "activateAccount.acInformation"}}
 				</p>
 				<p>
 					<!--
-					txv: Your account has been already activated. Go 
-					-->
+					``txv`` Your account has been already activated. Go -->
 					{{_ "activateAccount.acYourAccHasAlreadyBeenAct"}} 
 					<a href="{{link}}">
 						<!--
-						txv: here
-						-->
+						``txv`` here -->
 						{{_ "activateAccount.acHere"}}
 					</a>
 					<!-- 
-					txv: to log in.
-					-->
+					``txv`` to log in. -->
 					{{_ "activateAccount.acToLogin"}}
 				</p>
 			</div>

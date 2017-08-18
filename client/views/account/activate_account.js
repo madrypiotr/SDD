@@ -1,11 +1,21 @@
+/*
+``client\views\account\``activate_account.js
+## Rendering the template activateAccount */
+
+
+
+
 Template.activateAccount.rendered=function () {
     var currentRoute=Router.current ().params;
     var userD=UsersDraft.findOne ( {linkAktywacyjny:currentRoute.linkAktywacyjny } );
+	// In case it is draft user ...
     if ( userD ) {
         var clickedLinkCount=userD.licznikKlikniec + 1;
         Meteor.call ( "updateLicznikKlikniec",userD._id,clickedLinkCount,function ( error ) {
-            if ( !error ) {
+		// In case there is no error ...
+		if ( !error ) {
                 var userDraft=UsersDraft.findOne ( {linkAktywacyjny:currentRoute.linkAktywacyjny,czyAktywny: true } );
+				// In case it is draft user ... 
                 if ( userDraft ) {
                     Meteor.call ( "serverGenerateLogin",
                         userDraft.profile.firstName,
@@ -70,6 +80,9 @@ Template.activateAccount.rendered=function () {
     }
 
 };
+/*
+### Account Activation Template helper
+*/
 Template.activateAccount.helpers ( {
     activatedAccountRightNow: function () {
         var currentRoute=Router.current ().params;

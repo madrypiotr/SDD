@@ -22,6 +22,14 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#rendering-the-template-activateaccount">Rendering the template activateAccount</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#account-activation-template-helper">Account Activation Template helper</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -30,31 +38,77 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>activate_account.js</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <div class="dox">
+<div class="summary">
+<p><code>client\views\account\</code>activate_account.js</p>
+<div class="pilwrap" id="rendering-the-template-activateaccount">
+  <h2>
+    <a href="#rendering-the-template-activateaccount" name="rendering-the-template-activateaccount" class="pilcrow"></a>
+Rendering the template activateAccount
+  </h2>
+</div>
+</div>
+<div class="body">
+</div>
 </div>
 
         </td>
         <td class="code highlight">
-          <pre class="javascript">Template.activateAccount.rendered=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          <pre class="javascript">
+
+
+
+Template.activateAccount.rendered=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> currentRoute=Router.current ().params;
     <span class="hljs-keyword">var</span> userD=UsersDraft.findOne ( {<span class="hljs-attr">linkAktywacyjny</span>:currentRoute.linkAktywacyjny } );
-    <span class="hljs-keyword">if</span> ( userD ) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>In case it is draft user ...</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    <span class="hljs-keyword">if</span> ( userD ) {
         <span class="hljs-keyword">var</span> clickedLinkCount=userD.licznikKlikniec + <span class="hljs-number">1</span>;
         Meteor.call ( <span class="hljs-string">"updateLicznikKlikniec"</span>,userD._id,clickedLinkCount,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error </span>) </span>{
-            <span class="hljs-keyword">if</span> ( !error ) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>In case there is no error ...</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">		<span class="hljs-keyword">if</span> ( !error ) {
                 <span class="hljs-keyword">var</span> userDraft=UsersDraft.findOne ( {<span class="hljs-attr">linkAktywacyjny</span>:currentRoute.linkAktywacyjny,<span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span> } );
-                <span class="hljs-keyword">if</span> ( userDraft ) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>In case it is draft user ...</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                <span class="hljs-keyword">if</span> ( userDraft ) {
                     Meteor.call ( <span class="hljs-string">"serverGenerateLogin"</span>,
                         userDraft.profile.firstName,
                         userDraft.profile.lastName,
@@ -118,7 +172,28 @@
     }
 
 };
-Template.activateAccount.helpers ( {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="dox">
+<div class="summary">
+<div class="pilwrap" id="account-activation-template-helper">
+  <h3>
+    <a href="#account-activation-template-helper" name="account-activation-template-helper" class="pilcrow"></a>
+Account Activation Template helper
+  </h3>
+</div>
+</div>
+<div class="body">
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.activateAccount.helpers ( {
     <span class="hljs-attr">activatedAccountRightNow</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
         <span class="hljs-keyword">var</span> currentRoute=Router.current ().params;
         <span class="hljs-keyword">var</span> userDraft=UsersDraft.findOne ( {<span class="hljs-attr">linkAktywacyjny</span>:currentRoute.linkAktywacyjny } );
