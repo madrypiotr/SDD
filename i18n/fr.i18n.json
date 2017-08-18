@@ -371,12 +371,6 @@
 	"lfoSignIn":"Connectez-vous",
 	"lfoIforgotMyPassword":"Mot de passe oublié"
   },
-    "loginFormTop":{
-	"lftLogin":"S'identifier",
-	"lftPassword":"Mot de passe",
-	"lftRememberMe":"Mémorisez moi",
-	"lftSignIn":"Connectez-vous"
-  },
   "manageAccount":{
 	"mAcYourProfile":"Votre profil",
 	"mAcEditProfile":"Éditez profil",

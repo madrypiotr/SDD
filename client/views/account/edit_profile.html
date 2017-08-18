@@ -1,12 +1,12 @@
 <!--
 ``client\views\account\``edit_profile.html
-## Template
+## Template for editing user account profile
 -->
 <template name="profileEdit">
     <div class="main">
         <legend>
 				<!--
-				txv: 
+				txv: Edit profile
 				-->
 {{_ 'profileEdit.prfToAccessCompleteTheRequiredFields'}}</legend>
         <div class="row">
@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputImię">
 				<!--
-				txv: 
+				txv: First name
 				-->
 {{_ 'glob.Fname'}}:</label>
 
@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputNazwisko">
 				<!--
-				txv: 
+				txv: Last name
 				-->
 {{_ 'glob.Lname'}}:</label>
 
@@ -36,19 +36,14 @@
                                    required>
                         </div>
                     </div>
-                    <!--<div class="form-group">-->
-                        <!--<label class="control-label col-xs-3" for="inputEmail">Email:</label>-->
-
-                        <!--<div class="col-xs-9">-->
-                            <!--<input name="email" type="email" class="form-control" id="inputEmail" value="{{email}}"-->
-                                   <!--required>-->
-                        <!--</div>-->
-                    <!--</div>-->
+<!--
+### Where logged on Ordinary User ...
+-->
                     {{#if userZwyczajny}}
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputAdres">
 				<!--
-				txv: 
+				txv: Address
 				-->
 {{_ 'glob.Address'}}:</label>
 
@@ -60,7 +55,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputZipcode">
 				<!--
-				txv: 
+				txv: Postal Code
 				-->
 {{_ 'glob.PostalC'}}:</label>
 
@@ -72,7 +67,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputMiasto">
 				<!--
-				txv: 
+				txv: City
 				-->
 {{_ 'glob.City'}}: </label>
                         <div class="col-xs-9">
@@ -84,7 +79,7 @@
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
 				<!--
-				txv: 
+				txv: Save
 				-->
 <input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
                             <a href="{{pathFor 'manage_account'}}" class="btn btn-default">

@@ -1,15 +1,14 @@
 <!--
 ``client\views\account\``manage_account.html
-## Template
+## Account Management Template
 -->
 <template name="manageAccount">
     <div class="main">
         <legend>
 				<!--
-				txv: 
+				txv: Your profile
 				-->
 {{_ 'manageAccount.mAcYourProfile'}}</legend>
-
         <div class="pull-right">
             <a href="{{pathFor 'profile_edit'}}" class="btn btn-primary">
                 <span class="glyphicon glyphicon-pencil"></span> 
@@ -21,7 +20,7 @@
             <tr>
                 <td><span class="glyphicon glyphicon-user"></span><strong> 
 				<!--
-				txv: 
+				txv: Login
 				-->
 {{_ 'manageAccount.mAcLogin'}}</strong></td>
                 <td>{{username}}</td>
@@ -29,7 +28,7 @@
             <tr>
                 <td><span class="glyphicon glyphicon-envelope"></span><strong> 
 				<!--
-				txv: 
+				txv: e-mail
 				-->
 {{_ 'glob.Email'}}</strong></td>
                 <td>{{test emails}}</td>
@@ -37,16 +36,19 @@
             <tr>
                 <td><span class="glyphicon glyphicon-info-sign"></span><strong> 
 				<!--
-				txv: 
+				txv: Name and Surname
 				-->
 {{_ 'glob.FandLname'}}</strong></td>
                 <td>{{profile.fullName}}</td>
             </tr>
+<!--
+### Where the User has a PID in the profile ...
+-->
             {{#if profile.pesel}}
                 <tr>
                     <td><span class="fa fa-envelope"></span><strong> 
 				<!--
-				txv: 
+				txv: Personal ID
 				-->
 {{_ 'glob.PID'}}</strong></td>
                     <td>{{profile.pesel}}</td>
@@ -55,7 +57,7 @@
             <tr>
                 <td><span class="glyphicon glyphicon-book"></span><strong> 
 				<!--
-				txv: 
+				txv: Position in the System
 				-->
 {{_ 'manageAccount.mAcTheRoleOfTheSystem'}}</strong></td>
                 <td>{{profile.userType}}
@@ -64,7 +66,7 @@
             <tr>
                 <td><span class="glyphicon glyphicon-map-marker"></span><strong> 
 				<!--
-				txv: 
+				txv: Address
 				-->
 {{_ 'glob.Address'}}</strong></td>
                 <td>{{profile.address}}, {{profile.zip}} {{profile.city}}</td>

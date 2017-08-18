@@ -1,6 +1,6 @@
 <!--
 ``client\views\account\``doradca_form.html
-## Template
+## Template for the registration form of an Advisor
 -->
 <template name="advisorForm">
     <div class="main">
@@ -15,11 +15,9 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="inputEmail">
 				<!--
-				txv: 
+				txv: e-mail
 				-->
-<!--e-mail-->
 {{_ 'glob.Email'}}: </label>
-
                         <div class="col-xs-9">
 <input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.Email'}}"
                                    required>
@@ -28,11 +26,9 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="firstName">
 				<!--
-				txv: 
+				txv: First name
 				-->
-<!--Imię-->
 {{_ 'glob.Fname'}}: </label>
-
                         <div class="col-xs-9">
 <input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.Fname'}}"
                                    required>
@@ -41,11 +37,9 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="lastName">
 				<!--
-				txv: 
+				txv: Last name
 				-->
-<!--Nazwisko-->
 {{_ 'glob.Lname'}}: </label>
-
                         <div class="col-xs-9">
 <input name="lastName" type="text" class="form-control" id="lastName"
                                    placeholder="{{_ 'glob.Lname'}}" required>
@@ -57,9 +51,8 @@
 
                         <div class="col-xs-9">
 				<!--
-				txv: 
+				txv: City
 				-->
-<!--Miasto-->
 <input name="city" type="text" class="form-control" id="city"
                          placeholder="{{_ 'glob.City'}}" required>
                         </div>
@@ -67,27 +60,23 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="uwagiStatus">
 				<!--
-				txv: 
+				txv: Additional
 				-->
-<!--Dodatkowe-->
 {{_ 'advisorForm.dorAdditional'}}: </label>
 
                         <div class="col-xs-9">
 				<!--
-				txv: 
+				txv: Write some words about you and motivation of your application...
 				-->
-<!--Napisz parę słów do nas, o sobie i powodach Twojego wniosku...-->
 <textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'advisorForm.dorWriteAfewWordsAboutYourself'}}"></textarea>
                         </div>
                     </div>
                     <br/>
-
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
 				<!--
-				txv: 
+				txv: I apply for advise
 				-->
-<!--Aplikuję do doradztwa-->
 <input type="submit" class="btn btn-primary" value="{{_ 'advisorForm.dorIapplyCounseling'}}" id="submitButton">
 <input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
                         </div>

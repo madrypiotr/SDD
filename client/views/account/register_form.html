@@ -1,14 +1,17 @@
 <!--
-``client\views\account\``reset_password.html
-## Template
+``client\views\account\``register_form.html
+## User Account Creation Template
 -->
 <template name="registerForm">
     <div class="main">
         <legend>
 				<!--
-				txv: 
+				txv: Create account
 				-->
 {{_ 'registerForm.rFoCreateAnAccount'}}</legend>
+<!--
+### If less than five users are registered ...
+-->
         {{#if  lessThanFiveUsers}}
             <div class="row">
                 <div class="col col-md-10">
@@ -16,7 +19,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputEmail">
 				<!--
-				txv: 
+				txv: Email
 				-->
 {{_ 'glob.Email'}}: </label>
 
@@ -27,7 +30,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="firstName">
 				<!--
-				txv: 
+				txv: First name
 				-->
 {{_ 'glob.Fname'}}: </label>
 
@@ -38,7 +41,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="lastName">
 				<!--
-				txv: 
+				txv: Last name
 				-->
 {{_ 'glob.Lname'}}: </label>
                             <div class="col-xs-9">
@@ -48,7 +51,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputPassword">
 				<!--
-				txv: 
+				txv: Password
 				-->
 {{_ 'registerForm.rFoPassword'}}: </label>
 
@@ -60,7 +63,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="confirmPassword">
 				<!--
-				txv: 
+				txv: ConfirmPassword
 				-->
 {{_ 'registerForm.rFoConfirmPassword'}}: </label>
 
@@ -71,7 +74,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="phoneNumber">
 				<!--
-				txv: 
+				txv: Personal ID
 				-->
 {{_ 'glob.PID'}}: </label>
 
@@ -82,7 +85,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="postalAddress">
 				<!--
-				txv: 
+				txv: Address
 				-->
 {{_ 'glob.Address'}}: </label>
                             <div class="col-xs-9">
@@ -92,7 +95,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3">
 				<!--
-				txv: 
+				txv: Postal Code
 				-->
 {{_ 'glob.PostalC'}}: </label>
                             <div class="col-xs-9">
@@ -102,7 +105,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3">
 				<!--
-				txv: 
+				txv: City
 				-->
 {{_ 'glob.City'}}: </label>
                             <div class="col-xs-9">
@@ -112,13 +115,13 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="uwagiStatus">
 				<!--
-				txv: 
+				txv: Additional
 				-->
 {{_ 'registerForm.rFoAdditional'}}: </label>
 
                             <div class="col-xs-9">
 				<!--
-				txv: 
+				txv: remarks...
 				-->
 <textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'registerForm.rFoComments'}}"></textarea>
                             </div>
@@ -126,7 +129,7 @@
                         <div class="form-group">
                             <label class="control-label col-xs-3">
 				<!--
-				txv: 
+				txv: Language of the User
 				-->
 {{_ 'registerForm.rFoLanguageUser'}}: </label>
 
@@ -134,7 +137,7 @@
                                 <select name="language" id="language" class="form-control" required>
                                     <option value="0">
 				<!--
-				txv: 
+				txv: Choose the language 
 				-->
 {{_ 'registerForm.rFoChooseLanguage'}}</option>
                                     {{#each getLanguages}}
@@ -149,11 +152,11 @@
                                     <input type="checkbox" name="statutConfirmation"  {{isSelected 'kobieta'}} required/>
                                     <span id="statutConfirmationSpan">
 				<!--
-				txv: 
+				txv: I confirm knowledge of 
 				-->
 {{_ 'registerForm.rFoIconfirmKnowledge'}} <a id="statutBootbox">
 				<!--
-				txv: 
+				txv: the Regulations
 				-->
 {{_ 'registerForm.rFoRegulations'}}</a> </span>
                                 </div>
@@ -162,7 +165,7 @@
                         <div class="form-group">
                             <div class="col-xs-offset-3 col-xs-9">
 				<!--
-				txv: 
+				txv: Save
 				-->
 <input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}" id="submitRegistration">
 <input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
@@ -173,7 +176,7 @@
             </div>
         {{else}}
 				<!--
-				txv: 
+				txv: Registration not possible due to reaching limit of persons that may register individually. To apply click join.
 				-->
 {{_ 'registerForm.rFoRegistrationIsNotPossible'}}
         {{/if}}

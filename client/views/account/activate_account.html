@@ -22,10 +22,10 @@
             {{_ "activateAccount.acIfYouWaitTooLong"}}
         </p>
     </div>
-    {{else}}
 <!--
 ### In the event of an error ...
 -->
+    {{else}}
 		{{#if notFound}}
 		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
 			<p>
@@ -41,10 +41,10 @@
 				{{_ "activateAccount.acAnErrorOccuredTryAgain"}}
 			</p>
 		</div>
-		{{else}}
 <!--
 ### In case of success ...
 -->
+		{{else}}
 			{{#if activatedAccountRightNow}}
 			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
 				<p>

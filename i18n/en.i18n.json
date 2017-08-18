@@ -371,12 +371,6 @@
 	"lfoSignIn":"Log in",
 	"lfoIforgotMyPassword":"I forgot my password"
   },
-    "loginFormTop":{
-	"lftLogin":"Login",
-	"lftPassword":"Password",
-	"lftRememberMe":"Remember me",
-	"lftSignIn":"Log in"
-  },
   "manageAccount":{
 	"mAcYourProfile":"Your profile",
 	"mAcEditProfile":"Edit profile",
@@ -401,7 +395,7 @@
   "resetPassword":{
 	"resResetPassword":"Reset password",
 	"resAnewPassword":"New password",
-	"resConfirmPassword":"New password"
+	"resConfirmPassword":"Confirm new password"
   },
   "infoAccountModalInner":{
 	"imiDetailsProfile":"Detailles of the profile",
