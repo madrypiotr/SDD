@@ -22,7 +22,7 @@
 	"Lname":"Family name",
 	"FandLname":"Name and Surname",
 	"PID":"Personal ID",
-	"Adress":"Address",
+	"Address":"Address",
 	"PostalC":"Postal Code",
 	"City":"City",
 	"InTheSystem":" in system ",

@@ -22,7 +22,7 @@
 	"Lname":"Nom ",
 	"FandLname":"Prénom et Nom",
 	"PID":"PESEL",
-	"Adress":"Adresse",
+	"Address":"Adresse",
 	"PostalC":"Code postale",
 	"City":"Ville",
 	"InTheSystem":" dans le système ",
