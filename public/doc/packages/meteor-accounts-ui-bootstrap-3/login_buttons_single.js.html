@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>login_buttons_single.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "packages\\meteor-accounts-ui-bootstrap-3\\login_buttons_single.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>login_buttons_single.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>for convenience</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> loginButtonsSession = Accounts._loginButtonsSession;
+
+	Template._loginButtonsLoggedOutSingleLoginButton.events({
+		<span class="hljs-string">'click .login-button'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+			<span class="hljs-keyword">var</span> serviceName = <span class="hljs-keyword">this</span>.name;
+			loginButtonsSession.resetMessages();
+			<span class="hljs-keyword">var</span> callback = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
+				<span class="hljs-keyword">if</span> (!err) {
+					loginButtonsSession.closeDropdown();
+				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (err <span class="hljs-keyword">instanceof</span> Accounts.LoginCancelledError) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>do nothing</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">				} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (err <span class="hljs-keyword">instanceof</span> Accounts.ConfigError) {
+					loginButtonsSession.configureService(serviceName);
+				} <span class="hljs-keyword">else</span> {
+					loginButtonsSession.errorMessage(err.reason || <span class="hljs-string">"Unknown error"</span>);
+				}
+			};
+
+			<span class="hljs-keyword">var</span> loginWithService = Meteor[<span class="hljs-string">"loginWith"</span> + capitalize(serviceName)];
+
+			<span class="hljs-keyword">var</span> options = {}; <span class="hljs-comment">// use default scope unless specified</span>
+			<span class="hljs-keyword">if</span> (Accounts.ui._options.requestPermissions[serviceName])
+				options.requestPermissions = Accounts.ui._options.requestPermissions[serviceName];
+
+			loginWithService(options, callback);
+		}
+	});
+
+	Template._loginButtonsLoggedOutSingleLoginButton.configured = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">return</span> !!Accounts.loginServiceConfiguration.findOne({<span class="hljs-attr">service</span>: <span class="hljs-keyword">this</span>.name});
+	};
+
+	Template._loginButtonsLoggedOutSingleLoginButton.capitalizedName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+		<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.name === <span class="hljs-string">'github'</span>)
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>XXX we should allow service packages to set their capitalized name</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">			<span class="hljs-keyword">return</span> <span class="hljs-string">'GitHub'</span>;
+		<span class="hljs-keyword">else</span>
+			<span class="hljs-keyword">return</span> capitalize(<span class="hljs-keyword">this</span>.name);
+	};
+
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>XXX from http://epeli.github.com/underscore.string/lib/underscore.string.js</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> capitalize = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">str</span>)</span>{
+		str = str == <span class="hljs-literal">null</span> ? <span class="hljs-string">''</span> : <span class="hljs-built_in">String</span>(str);
+		<span class="hljs-keyword">return</span> str.charAt(<span class="hljs-number">0</span>).toUpperCase() + str.slice(<span class="hljs-number">1</span>);
+	};
+}) ();
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

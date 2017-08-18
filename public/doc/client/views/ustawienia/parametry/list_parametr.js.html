@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>list_parametr.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../../doc-style.css" />
+  <script src="../../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../../";
+    var thisFile = "client\\views\\ustawienia\\parametry\\list_parametr.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>list_parametr.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Template.listParametr.helpers ( {
+    <span class="hljs-attr">isUserCzlonek</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Meteor.user ().profile.userType == USERTYPE.CZLONEK ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    },
+    <span class="hljs-attr">noKwestiaParameters</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> kwestie=Kwestia.find ( {<span class="hljs-attr">typ</span>:KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE, <span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">status</span>:{<span class="hljs-attr">$nin</span>:[KWESTIA_STATUS.ZREALIZOWANA,KWESTIA_STATUS.ARCHIWALNA]} } );
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>status:{$in:[KWESTIA_STATUS.ADMINISTROWANA,KWESTIA_STATUS.GLOSOWANA]} } );</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">        <span class="hljs-keyword">return</span> kwestie.count ()&gt;<span class="hljs-number">0</span> ? <span class="hljs-literal">false</span> : <span class="hljs-literal">true</span>;
+    }
+ } );
+Template.listParametr.events ( {
+   <span class="hljs-string">'click #parametersClick'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+       e.preventDefault ();
+       <span class="hljs-keyword">var</span> kwestia=Kwestia.findOne ( {<span class="hljs-attr">typ</span>:KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE,
+           <span class="hljs-attr">czyAktywny</span>: <span class="hljs-literal">true</span>,<span class="hljs-attr">status</span>:{<span class="hljs-attr">$nin</span>:[KWESTIA_STATUS.ZREALIZOWANA]} } );
+       <span class="hljs-keyword">if</span> ( kwestia ) {
+           <span class="hljs-keyword">var</span> path=<span class="hljs-literal">null</span>;
+           path=<span class="hljs-string">"/issue_info/"</span> + kwestia._id;
+           Router.go ( path );
+       }
+   },
+    <span class="hljs-string">'click #editOrganisationName'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"nazwaOrganizacji"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.ORG_NAME'</span> ), <span class="hljs-keyword">this</span>.nazwaOrganizacji );
+    },
+    <span class="hljs-string">'click #editTeritory'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"terytorium"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.TERITORY'</span> ), <span class="hljs-keyword">this</span>.terytorium );
+    },
+    <span class="hljs-string">'click #editTeritAdres'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"terytAdres"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.TERITADR'</span> ), <span class="hljs-keyword">this</span>.terytAdres );
+    },
+    <span class="hljs-string">'click #editTeritCODE'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"terytCODE"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.TERITCOD'</span> ), <span class="hljs-keyword">this</span>.terytCODE );
+    },
+    <span class="hljs-string">'click #editTeritCity'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"terytCity"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.TERITCITY'</span> ), <span class="hljs-keyword">this</span>.terytCity );
+    },
+    <span class="hljs-string">'click #editContacts'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"kontakty"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.CONTACTS'</span> ), <span class="hljs-keyword">this</span>.kontakty );
+    },
+    <span class="hljs-string">'click #editStatute'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"regulamin"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.STATUT'</span> ), <span class="hljs-keyword">this</span>.regulamin );
+    },
+    <span class="hljs-string">'click #editVoteDuration'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"voteDuration"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.VOTE_TIME'</span> ), <span class="hljs-keyword">this</span>.voteDuration );
+    },
+    <span class="hljs-string">'click #editIssueWaiting'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"czasWyczekiwaniaKwestiiSpec"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.WAITING_TIME'</span> ), <span class="hljs-keyword">this</span>.czasWyczekiwaniaKwestiiSpecjalnej );
+    },
+    <span class="hljs-string">'click #editVoteQuantity'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"voteQuantity"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.MAX_ISSUE_IN_VOTING'</span> ), <span class="hljs-keyword">this</span>.voteQuantity );
+    },
+    <span class="hljs-string">'click #editIssuePause'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"addIssuePause"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.FREQ_ADD_ISSUE'</span> ), <span class="hljs-keyword">this</span>.addIssuePause );
+    },
+    <span class="hljs-string">'click #editCommentPause'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"addCommentPause"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.FREQ_ADD_COMM'</span> ), <span class="hljs-keyword">this</span>.addCommentPause );
+    },
+    <span class="hljs-string">'click #editReferencePause'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"addReferencePause"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.FREQ_ADD_REFER'</span> ), <span class="hljs-keyword">this</span>.addReferencePause );
+
+    },
+    <span class="hljs-string">'click #editRRDuration'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        editParameter ( <span class="hljs-string">"okresSkladaniaRR"</span>, TAPi18n.__ ( <span class="hljs-string">'txv.FREQ_ADD_REPPO'</span> ), <span class="hljs-keyword">this</span>.addReferencePause );
+    }
+ } );
+editParameter=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> name,parameterName,value </span>) </span>{
+    <span class="hljs-keyword">var</span> obj={
+        <span class="hljs-attr">name</span>:name,
+        <span class="hljs-attr">title</span>:parameterName,
+        <span class="hljs-attr">value</span>:value
+    };
+    Session.setPersistent ( <span class="hljs-string">"chosenParameterSession"</span>,obj );
+    $ ( <span class="hljs-string">"#editParametrMod"</span> ).modal ( <span class="hljs-string">"show"</span> );
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

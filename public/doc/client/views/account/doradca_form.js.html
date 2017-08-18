@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>doradca_form.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../../doc-style.css" />
+  <script src="../../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../../";
+    var thisFile = "client\\views\\account\\doradca_form.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+      <div class="heading h2">
+        <a href="#support-for-a-member-who-has-the-status-of-advisor">Support for a Member who has the status of Advisor</a>
+      </div>
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="support-for-a-member-who-has-the-status-of-advisor">
+  <h2>
+    <a href="#support-for-a-member-who-has-the-status-of-advisor" name="support-for-a-member-who-has-the-status-of-advisor" class="pilcrow"></a>
+Support for a Member who has the status of Advisor
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">
+Template.advisorForm.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">document</span>.getElementById ( <span class="hljs-string">"submitButton"</span> ).disabled = <span class="hljs-literal">false</span>;
+    $ ( <span class="hljs-string">'#dataUrodzeniaDatePicker'</span> ).datetimepicker ( {
+        <span class="hljs-attr">sideBySide</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">format</span>: <span class="hljs-string">'DD/MM/YYYY'</span>
+    } );
+    $ ( <span class="hljs-string">"#advisorFormApp"</span> ).validate ( {
+        <span class="hljs-attr">rules</span>: {
+            <span class="hljs-attr">email</span>: {
+                <span class="hljs-attr">email</span>: <span class="hljs-literal">true</span>
+            }
+        },
+        <span class="hljs-attr">messages</span>: {
+            <span class="hljs-attr">email</span>: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage (),
+                <span class="hljs-attr">email</span>: validEmailMessage ()
+            },
+            <span class="hljs-attr">firstName</span>: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage ()
+            },
+            <span class="hljs-attr">lastName</span>: {
+                <span class="hljs-attr">required</span>: fieldEmptyMessage ()
+            },
+            <span class="hljs-attr">phone</span>:{
+                <span class="hljs-attr">required</span>:fieldEmptyMessage ()
+            },
+            <span class="hljs-attr">city</span>:{
+                <span class="hljs-attr">required</span>:fieldEmptyMessage ()
+            }
+        },
+        <span class="hljs-attr">highlight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> element </span>) </span>{
+            highlightFunction ( element );
+        },
+        <span class="hljs-attr">unhighlight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> element </span>) </span>{
+            unhighlightFunction ( element );
+        },
+        <span class="hljs-attr">errorElement</span>: <span class="hljs-string">'span'</span>,
+        <span class="hljs-attr">errorClass</span>: <span class="hljs-string">'help-block'</span>,
+        <span class="hljs-attr">errorPlacement</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error, element </span>) </span>{
+            validationPlacementError ( error, element );
+        }
+    } )
+};
+
+Template.advisorForm.events ( {
+    <span class="hljs-string">'submit form'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> e </span>) </span>{
+        e.preventDefault ();
+        <span class="hljs-keyword">if</span> ( $ ( <span class="hljs-string">'#advisorFormApp'</span> ).valid () ) {
+            <span class="hljs-built_in">document</span>.getElementById ( <span class="hljs-string">"submitButton"</span> ).disabled = <span class="hljs-literal">true</span>;
+            <span class="hljs-keyword">var</span> email=$ ( e.target ).find ( <span class="hljs-string">'[name=email]'</span> ).val ();
+            Meteor.call ( <span class="hljs-string">'serverCheckExistsUser'</span>, email, USERTYPE.DORADCA, <span class="hljs-literal">null</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error, ret </span>) </span>{
+            <span class="hljs-keyword">if</span> ( error ) {
+                throwError ( error.reason );
+            }
+            <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">if</span> ( ret == <span class="hljs-literal">false</span> ) {
+                    Meteor.call ( <span class="hljs-string">'serverCheckExistsUser'</span>, email, USERTYPE.CZLONEK, <span class="hljs-literal">null</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error, ret </span>) </span>{
+                        <span class="hljs-keyword">if</span> ( error ) {
+                            throwError ( error.reason );
+                        }
+                        <span class="hljs-keyword">else</span> {
+                            <span class="hljs-keyword">if</span> ( ret==<span class="hljs-literal">false</span> ) {
+                                Meteor.call ( <span class="hljs-string">"serverCheckExistsUserDraft"</span>,email, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error, ret </span>) </span>{
+                                    <span class="hljs-keyword">if</span> ( error ) {
+                                        throwError ( error.reason );
+                                    }
+                                    <span class="hljs-keyword">else</span> {
+                                        <span class="hljs-keyword">if</span> ( ret==<span class="hljs-literal">false</span> ) {
+                                            <span class="hljs-keyword">var</span> firstName = $ ( e.target ).find ( <span class="hljs-string">'[name=firstName]'</span> ).val ();
+                                            <span class="hljs-keyword">var</span> lastName = $ ( e.target ).find ( <span class="hljs-string">'[name=lastName]'</span> ).val ();
+
+                                            Meteor.call ( <span class="hljs-string">"serverGenerateLogin"</span>, firstName, lastName, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> err, ret </span>) </span>{
+                                                <span class="hljs-keyword">if</span> ( !err ) {
+
+                                                    <span class="hljs-keyword">var</span> idUser = <span class="hljs-literal">null</span>;
+                                                    <span class="hljs-keyword">if</span> ( Meteor.userId () )
+                                                        idUser = Meteor.userId ();
+                                                    <span class="hljs-keyword">var</span> newUser = [
+                                                        {
+                                                            <span class="hljs-attr">email</span>: $ ( e.target ).find ( <span class="hljs-string">'[name=email]'</span> ).val (),
+                                                            <span class="hljs-attr">login</span>: <span class="hljs-string">""</span>,
+                                                            <span class="hljs-attr">firstName</span>: firstName,
+                                                            <span class="hljs-attr">lastName</span>: lastName,
+                                                            <span class="hljs-attr">role</span>: <span class="hljs-string">'user'</span>,
+                                                            <span class="hljs-attr">city</span>: $ ( e.target ).find ( <span class="hljs-string">'[name=city]'</span> ).val (),
+                                                            <span class="hljs-attr">userType</span>: USERTYPE.DORADCA,
+                                                            <span class="hljs-attr">isExpectant</span>: <span class="hljs-literal">false</span>, 
+                                                            <span class="hljs-attr">uwagi</span>: $ ( e.target ).find ( <span class="hljs-string">'[name=uwagi]'</span> ).val (),
+                                                            <span class="hljs-attr">pesel</span>: <span class="hljs-string">""</span>
+                                                        }];
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>generating a login for the user</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                                                    newUser[<span class="hljs-number">0</span>].login = ret; <span class="hljs-comment">//generateLogin ( newUser[0].firstName, newUser[0].lastName );</span>
+
+                                                    addUserDraftDoradca ( newUser );
+                                                }<span class="hljs-keyword">else</span>{
+                                                    throwError ( err.reason )
+                                                }
+                                            } );
+                                        }
+                                        <span class="hljs-keyword">else</span>{
+                                            throwError ( TAPi18n.__ ( <span class="hljs-string">'txv.ACCESS_EXIST'</span> ) );
+                                            <span class="hljs-built_in">document</span>.getElementById ( <span class="hljs-string">"submitButton"</span> ).disabled = <span class="hljs-literal">false</span>;
+                                            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                                        }
+                                    }
+                                } );
+                            }
+                            <span class="hljs-keyword">else</span>{
+                                throwError ( TAPi18n.__ ( <span class="hljs-string">'txv.USER_EXIST'</span> ) );
+                                <span class="hljs-built_in">document</span>.getElementById ( <span class="hljs-string">"submitButton"</span> ).disabled = <span class="hljs-literal">false</span>;
+                                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                            }
+                        }
+                    } );
+                }
+                <span class="hljs-keyword">else</span>{
+                    throwError ( TAPi18n.__ ( <span class="hljs-string">'txv.ACCESS_EXIST'</span> ) );
+                    <span class="hljs-built_in">document</span>.getElementById ( <span class="hljs-string">"submitButton"</span> ).disabled = <span class="hljs-literal">false</span>;
+                    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+                }
+            }
+        } );
+    }
+    },
+    <span class="hljs-string">'reset form'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        Router.go ( <span class="hljs-string">'home'</span> );
+    }
+ } );
+
+addUserDraftDoradca=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> newUser </span>) </span>{
+    Meteor.call ( <span class="hljs-string">'addUserDraft'</span>, newUser, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error, ret </span>) </span>{
+        <span class="hljs-keyword">if</span> ( error ) {
+            throwError ( error.reason );
+        }
+        <span class="hljs-keyword">else</span> {
+            addKwestiaOsobowaDoradca ( ret, newUser );
+        }
+    } );
+};
+
+addKwestiaOsobowaDoradca=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> idUserDraft,newUser </span>) </span>{
+    <span class="hljs-keyword">var</span> ZR=ZespolRealizacyjny.findOne ( { <span class="hljs-attr">_id</span>:<span class="hljs-string">"jjXKur4qC5ZGPQkgN"</span> } );
+    <span class="hljs-keyword">var</span> newZR=[{
+        <span class="hljs-attr">nazwa</span>:ZR.nazwa,
+        <span class="hljs-attr">idZR</span>:ZR._id,
+        <span class="hljs-attr">zespol</span>:ZR.zespol
+    }];
+    Meteor.call ( <span class="hljs-string">'addImplemTeamDraft'</span>, newZR, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error,ret </span>) </span>{
+        <span class="hljs-keyword">if</span> ( error ) {
+            throwError ( error.reason );
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">var</span> uwagi = <span class="hljs-string">""</span>;
+            <span class="hljs-keyword">if</span> ( newUser[<span class="hljs-number">0</span>].uwagi != <span class="hljs-literal">null</span> )
+                uwagi = newUser[<span class="hljs-number">0</span>].uwagi;
+
+            <span class="hljs-keyword">var</span> daneAplikanta = {
+                <span class="hljs-attr">fullName</span>: newUser[<span class="hljs-number">0</span>].firstName + <span class="hljs-string">" "</span> + newUser[<span class="hljs-number">0</span>].lastName,
+                <span class="hljs-attr">email</span>: newUser[<span class="hljs-number">0</span>].email,
+                <span class="hljs-attr">city</span>: newUser[<span class="hljs-number">0</span>].city,
+                <span class="hljs-attr">uwagi</span>: uwagi
+            };
+            <span class="hljs-keyword">var</span> newKwestia = [
+                {
+                    <span class="hljs-attr">idUser</span>: idUserDraft,
+                    <span class="hljs-attr">dataWprowadzenia</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span> (),
+                    <span class="hljs-attr">kwestiaNazwa</span>: TAPi18n.__ ( <span class="hljs-string">'txv.APPLYING'</span> ) + newUser[<span class="hljs-number">0</span>].firstName + <span class="hljs-string">" "</span> + newUser[<span class="hljs-number">0</span>].lastName,
+                    <span class="hljs-attr">wartoscPriorytetu</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">wartoscPriorytetuWRealizacji</span>: <span class="hljs-number">0</span>,
+                    <span class="hljs-attr">idTemat</span>: Temat.findOne ( { } )._id,
+                    <span class="hljs-attr">idRodzaj</span>: Rodzaj.findOne ( { } )._id,
+                    <span class="hljs-attr">idZespolRealizacyjny</span>: ret,
+                    <span class="hljs-attr">dataGlosowania</span>: <span class="hljs-literal">null</span>,
+                    <span class="hljs-attr">krotkaTresc</span>: TAPi18n.__ ( <span class="hljs-string">'txv.APPLY_SYSTEM'</span> ) + newUser[<span class="hljs-number">0</span>].userType,
+                    <span class="hljs-attr">szczegolowaTresc</span>: daneAplikanta,
+                    <span class="hljs-attr">isOption</span>: <span class="hljs-literal">false</span>, 
+                    <span class="hljs-attr">status</span>: KWESTIA_STATUS.OSOBOWA,
+                    <span class="hljs-attr">typ</span>: KWESTIA_TYPE.ACCESS_DORADCA
+                }];
+            Meteor.call ( <span class="hljs-string">'addKwestiaOsobowa'</span>, newKwestia, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error, ret </span>) </span>{
+                <span class="hljs-keyword">if</span> ( error ) {
+                    <span class="hljs-keyword">if</span> ( <span class="hljs-keyword">typeof</span> Errors === <span class="hljs-string">"undefined"</span> )
+                        Log.error ( TAPi18n.__ ( <span class="hljs-string">'txv.ERROR'</span> ) + error.reason );
+                    <span class="hljs-keyword">else</span> {
+                        throwError ( error.reason );
+                    }
+                }
+                <span class="hljs-keyword">else</span> {
+                    <span class="hljs-keyword">if</span> ( Meteor.userId () )
+                        Router.go ( <span class="hljs-string">"administracjaUserMain"</span> );
+                    <span class="hljs-keyword">else</span>
+                        Router.go ( <span class="hljs-string">"home"</span> );
+                    addPowiadomienieAplikacjaIssueFunction ( ret,newKwestia[<span class="hljs-number">0</span>].dataWprowadzenia );
+                    przyjecieWnioskuConfirmation ( Parametr.findOne ().czasWyczekiwaniaKwestiiSpecjalnej, daneAplikanta.email, <span class="hljs-string">"doradztwo"</span> );
+                    Meteor.call ( <span class="hljs-string">"sendApplicationConfirmation"</span>, idUserDraft,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error </span>) </span>{
+                        <span class="hljs-keyword">if</span> ( !error ) {
+                            Meteor.call ( <span class="hljs-string">"sendEmailAddedIssue"</span>, ret, getUserLanguage (), <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> error </span>) </span>{
+                                <span class="hljs-keyword">if</span> ( error ) {
+                                    <span class="hljs-keyword">var</span> emailError = {
+                                        <span class="hljs-attr">idIssue</span>: ret,
+                                        <span class="hljs-attr">type</span>: NOTIFICATION_TYPE.NEW_ISSUE
+                                    };
+                                    Meteor.call ( <span class="hljs-string">"addEmailError"</span>, emailError );
+                                }
+                            } );
+                        }<span class="hljs-keyword">else</span>{
+                            <span class="hljs-keyword">var</span> emailError = {
+                                <span class="hljs-attr">idIssue</span>: ret,
+                                <span class="hljs-attr">idUserDraft</span>: idUserDraft,
+                                <span class="hljs-attr">type</span>: NOTIFICATION_TYPE.APPLICATION_CONFIRMATION
+                            };
+                            Meteor.call ( <span class="hljs-string">"addEmailError"</span>, emailError );
+                        }
+
+                    } );
+                }
+            } );
+        }
+    } );
+};
+
+Template.advisorForm.helpers ( {
+    <span class="hljs-attr">nazwaOrganizacji</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> Parametr.findOne () ? Parametr.findOne ().nazwaOrganizacji :<span class="hljs-string">"SDD"</span>;
+    }
+ } );
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

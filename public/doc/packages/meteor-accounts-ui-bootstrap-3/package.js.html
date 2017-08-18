@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>package.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="../../doc-style.css" />
+  <script src="../../doc-filelist.js"></script>
+  <script>
+    var relativeDir = "../../";
+    var thisFile = "packages\\meteor-accounts-ui-bootstrap-3\\package.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="../../doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>package.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">Package.describe({
+  <span class="hljs-attr">summary</span>: <span class="hljs-string">"Bootstrap styled version of login widgets"</span>,
+  <span class="hljs-attr">version</span>: <span class="hljs-string">"0.3.10"</span>,
+  <span class="hljs-attr">git</span>: <span class="hljs-string">"https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git"</span>
+});
+
+Package.on_use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">api</span>) </span>{
+  api.versionsFrom(<span class="hljs-string">"METEOR@0.9.0"</span>);
+  api.use([<span class="hljs-string">'session'</span>, <span class="hljs-string">'handlebars'</span>, <span class="hljs-string">'stylus'</span>, <span class="hljs-string">'accounts-base'</span>, <span class="hljs-string">'underscore'</span>, <span class="hljs-string">'templating'</span>], <span class="hljs-string">'client'</span>);
+
+  api.add_files([
+    <span class="hljs-string">'accounts_ui.js'</span>,
+
+    <span class="hljs-string">'login_buttons.html'</span>,
+    <span class="hljs-string">'login_buttons_single.html'</span>,
+    <span class="hljs-string">'login_buttons_dropdown.html'</span>,
+    <span class="hljs-string">'login_buttons_dialogs.html'</span>,
+
+    <span class="hljs-string">'login_buttons_session.js'</span>,
+
+    <span class="hljs-string">'login_buttons.js'</span>,
+    <span class="hljs-string">'login_buttons_single.js'</span>,
+    <span class="hljs-string">'login_buttons_dropdown.js'</span>,
+    <span class="hljs-string">'login_buttons_dialogs.js'</span>,
+    <span class="hljs-string">'accounts_ui.styl'</span>
+  ], <span class="hljs-string">'client'</span>);
+});
+
+Package.on_test(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">api</span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p>api.use('meteor-accounts-ui-bootstrap');
+api.use('tinytest');
+api.add_files('accounts_ui_tests.js', 'client');</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">});
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>
