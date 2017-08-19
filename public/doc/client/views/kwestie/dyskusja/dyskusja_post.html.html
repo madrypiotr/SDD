@@ -57,129 +57,7 @@ Comment Template for Discussion Issue
         <td class="code highlight">
           <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"discussionPostItem"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel panel-default noborder"</span>&gt;</span>
-        {{#if isDoArchiwum}}
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-heading doArchiwumClass"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heading{{idPost}}"</span>
-                 <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #ffeeaa"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-title"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pull-left"</span>&gt;</span>
-                                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
-                                    {{&gt; discussionRating
-                                    idPost=idPost
-                                    wartoscPriorytetu=wartoscPriorytetu
-                                    userFullName=userFullName
-                                    addDate=addDate
-                                    }}
-                                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pull-right"</span>&gt;</span>
-                                <span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>
-                                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs btn-default pull-right"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span>
-                                <span class="hljs-attr">data-parent</span>=<span class="hljs-string">"#accordion{{idPost}}"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#{{idPost}}"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>
-                                <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"{{idPost}}"</span>&gt;</span>
-                                {{getAnswersCount idPost}} 
-</pre>
-        </td>
-      </tr>
-    
-      <tr>
-        <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-2" id="section-2"></a>
-</div>
-<p><code>txv</code> references</p>
 
-        </td>
-        <td class="code highlight">
-          <pre class="html">								{{_ 'discussionPostItem.dPiReferences'}}&amp;nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">i</span>
-                                <span class="hljs-attr">class</span>=<span class="hljs-string">"glyphicon glyphicon-triangle-bottom"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
-                                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                                <span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
-                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
-						
-                            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-wraping"</span>&gt;</span>
-                                {{getText wiadomosc idPost}}
-                                {{#if textTooLong wiadomosc}}
-                                    <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
-                                        {{#if isInTab idPost}}
-                                            [ <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zwinText"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span>&gt;</span>
-</pre>
-        </td>
-      </tr>
-    
-      <tr>
-        <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-3" id="section-3"></a>
-</div>
-<p><code>txv</code> less</p>
-
-        </td>
-        <td class="code highlight">
-          <pre class="html">										{{_ 'discussionPostItem.dPiLess'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> ]
-                                        {{else}}
-                                            [ <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"rozwinText"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span>&gt;</span>
-</pre>
-        </td>
-      </tr>
-    
-      <tr>
-        <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-4" id="section-4"></a>
-</div>
-<p><code>txv</code> more</p>
-
-        </td>
-        <td class="code highlight">
-          <pre class="html">											{{_ 'discussionPostItem.dPiMore'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> ]
-                                        {{/if}}
-                                    <span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
-                                {{/if}}
-                            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-							
-                            <span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>
-</pre>
-        </td>
-      </tr>
-    
-      <tr>
-        <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-5" id="section-5"></a>
-</div>
-<p><code>txv</code> Substantiation</p>
-
-        </td>
-        <td class="code highlight">
-          <pre class="html">							{{_ 'discussionPostItem.dPiExplainThis'}}: <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>{{uzasadnienie}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
-                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-collapse collapse in"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"heading{{idPost}}"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-body"</span>&gt;</span>
-                    {{#each getAnswers idPost}}
-                        {{&gt; discussionAnswerItem
-                        wiadomosc = wiadomosc
-                        userFullName = userFullName
-                        wartoscPriorytetu = wartoscPriorytetu
-                        idPost = _id
-                        }}
-                    {{/each}}
-                    {{&gt; discussionAnswerForm
-                        idKwestia=idKwestia
-                        idPost=idPost
-                    }}
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        {{else}}
             {{#if isDoKosza}}
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-heading doKoszaClass"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heading{{idPost}}"</span>
                      <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #ffcccc"</span>&gt;</span>
@@ -208,7 +86,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-6" id="section-6"></a>
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
 </div>
 <p><code>txv</code> References</p>
 
@@ -237,7 +115,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-7" id="section-7"></a>
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
 </div>
 <p><code>txv</code> less</p>
 
@@ -253,7 +131,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-8" id="section-8"></a>
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
 </div>
 <p><code>txv</code> more</p>
 
@@ -273,7 +151,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-9" id="section-9"></a>
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
 </div>
 <p><code>txv</code> Substantiation</p>
 
@@ -302,129 +180,9 @@ Comment Template for Discussion Issue
                         }}
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            {{else}}
-                {{#if isDoWK}}
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-heading doWKClass"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heading{{idPost}}"</span>
-                         <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: #C3EEA5"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-title"</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-                                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
-                                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pull-left"</span>&gt;</span>
-                                        {{&gt; discussionRating
-                                        idPost=idPost
-                                        wartoscPriorytetu=wartoscPriorytetu
-                                        userFullName=userFullName
-                                        addDate=addDate}}
-                                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pull-right"</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>
-                                            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs btn-default pull-right"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"collapse"</span>
-                                               <span class="hljs-attr">data-parent</span>=<span class="hljs-string">"#accordion{{idPost}}"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#{{idPost}}"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span>
-                                               <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"{{idPost}}"</span>&gt;</span>
-                                                {{getAnswersCount idPost}} 
-</pre>
-        </td>
-      </tr>
-    
-      <tr>
-        <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-10" id="section-10"></a>
-</div>
-<p><code>txv</code> References</p>
-
-        </td>
-        <td class="code highlight">
-          <pre class="html">													{{_ 'discussionPostItem.dPiReferences'}}&amp;nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">i</span>
-                                                    <span class="hljs-attr">class</span>=<span class="hljs-string">"glyphicon glyphicon-triangle-bottom"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
-                                            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span>
-                                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
-                                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
-								
-                                    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"text-wraping"</span>&gt;</span>
-                                        {{getText wiadomosc idPost}}
-                                        {{#if textTooLong wiadomosc}}
-                                            <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
-                                                {{#if isInTab idPost}}
-                                                    [ <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zwinText"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span>&gt;</span>
-</pre>
-        </td>
-      </tr>
-    
-      <tr>
-        <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-11" id="section-11"></a>
-</div>
-<p><code>txv</code> less</p>
-
-        </td>
-        <td class="code highlight">
-          <pre class="html">													{{_ 'discussionPostItem.dPiLess'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> ]
-                                                {{else}}
-                                                    [ <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"rozwinText"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idPost}}"</span>&gt;</span>
-</pre>
-        </td>
-      </tr>
-    
-      <tr>
-        <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-12" id="section-12"></a>
-</div>
-<p><code>txv</code> more</p>
-
-        </td>
-        <td class="code highlight">
-          <pre class="html">													{{_ 'discussionPostItem.dPiMore'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> ]
-                                                {{/if}}
-                                            <span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
-                                        {{/if}}
-                                    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-									
-                                    <span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>
-</pre>
-        </td>
-      </tr>
-    
-      <tr>
-        <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-13" id="section-13"></a>
-</div>
-<p><code>txv</code> Substantiation</p>
-
-        </td>
-        <td class="code highlight">
-          <pre class="html">									{{_ 'discussionPostItem.dPiExplainThis'}}: <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>{{uzasadnienie}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
-                                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"clearfix"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                        <span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"{{idPost}}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-collapse collapse in"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span>
-                         <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"heading{{idPost}}"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-body"</span>&gt;</span>
-                            {{#each getAnswers idPost}}
-                                {{&gt; discussionAnswerItem
-                                wiadomosc = wiadomosc
-                                userFullName = userFullName
-                                wartoscPriorytetu = wartoscPriorytetu
-                                idPost = _id
-                                }}
-                            {{/each}}
-                            {{&gt; discussionAnswerForm
-                            idKwestia=idKwestia
-                            idPost=idPost
-                            }}
-                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 {{else}}
-                    {{#if isRaportRealizacyjny}}
+
+				{{#if isRaportRealizacyjny}}
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-heading doRealizationRaportClass{{this.idRaport}}"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heading{{idPost}}"</span>
                     <span class="hljs-attr">style</span>=<span class="hljs-string">"background-color: lightgreen"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-title"</span>&gt;</span>
@@ -453,7 +211,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-14" id="section-14"></a>
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
 </div>
 <p><code>txv</code></p>
 
@@ -477,7 +235,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-15" id="section-15"></a>
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
 </div>
 <p><code>txv</code></p>
 
@@ -499,7 +257,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-16" id="section-16"></a>
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
 </div>
 <p><code>txv</code> less</p>
 
@@ -515,7 +273,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-17" id="section-17"></a>
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
 </div>
 <p><code>txv</code> more</p>
 
@@ -534,7 +292,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-18" id="section-18"></a>
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
 </div>
 <p><code>txv</code></p>
 
@@ -565,6 +323,7 @@ Comment Template for Discussion Issue
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 {{else}}
+				
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-heading"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heading{{idPost}}"</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"panel-title"</span>&gt;</span>
                             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
@@ -590,7 +349,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-19" id="section-19"></a>
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
 </div>
 <p><code>txv</code> References</p>
 
@@ -619,7 +378,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-20" id="section-20"></a>
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
 </div>
 <p><code>txv</code> less</p>
 
@@ -635,7 +394,7 @@ Comment Template for Discussion Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-21" id="section-21"></a>
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
 </div>
 <p><code>txv</code> more</p>
 
@@ -669,8 +428,6 @@ Comment Template for Discussion Issue
                             }}
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                {{/if}}
-            {{/if}}
             {{/if}}
         {{/if}}
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -702,7 +459,7 @@ Template for the discussion form reference
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-23" id="section-23"></a>
+  <a class="pilcrow" href="#section-15" id="section-15"></a>
 </div>
 <p><code>txv</code>Reference to comment</p>
 
@@ -719,7 +476,7 @@ Template for the discussion form reference
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-24" id="section-24"></a>
+  <a class="pilcrow" href="#section-16" id="section-16"></a>
 </div>
 <p><code>txv</code> Add a reference</p>
 
@@ -733,7 +490,7 @@ Template for the discussion form reference
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-25" id="section-25"></a>
+  <a class="pilcrow" href="#section-17" id="section-17"></a>
 </div>
 <p><code>txv</code> Note: references can not be deleted or changed</p>
 
@@ -787,7 +544,7 @@ Response template for comment
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-27" id="section-27"></a>
+  <a class="pilcrow" href="#section-19" id="section-19"></a>
 </div>
 <p><code>txv</code> less</p>
 
@@ -803,7 +560,7 @@ Response template for comment
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-28" id="section-28"></a>
+  <a class="pilcrow" href="#section-20" id="section-20"></a>
 </div>
 <p><code>txv</code> more</p>
 
