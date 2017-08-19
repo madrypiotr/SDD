@@ -1,3 +1,6 @@
+<!--
+``client\views\kwestie\kwestia_crud\``add_type_modal.html
+## Template for Modal for naming of Type -->
 <template name="addTypeModal">
     <div id="addTypeModalId" class="modal fade" tabindex="-1" data-width="760"  style="display:none;">
         <div class="modal-dialog">
@@ -11,13 +14,13 @@
 <template name="addTypeModalInner">
     <div class="modal-header">
         <h4>
-<!--Dodaj typ dla tematu-->
+<!--
+``txv`` Add a type for the Subject -->
 {{_ "addTypeModalInner.AddTypeToTheSubject"}}: {{topicName}}</h4>
     </div>
     <div class="modal-body" id="modalBody">
         <div class="row">
             <div class="col-md-12">
- <!--Rodzaj-->
 <input class="form-control" name="typeName" maxlength="85" id="typeName"
 				placeholder="{{_ 'glob.Type'}}" required>
             </div>
@@ -27,9 +30,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="pull-right">
-<!--Dodaj-->
 <input type="button" class="btn btn-success" id="addTypeModalBtn" value="{{_ 'glob.Add'}}"/>
-<!--Powrót-->
 <input type="button" data-dismiss="modal" class="btn btn-default" value="{{_ 'glob.Return'}}"/>
                 </div>
             </div>

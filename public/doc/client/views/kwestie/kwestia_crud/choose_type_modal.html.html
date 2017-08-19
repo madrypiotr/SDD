@@ -22,6 +22,18 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#template-for-modal-for-choose-of-type">Template for Modal for choose of Type</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#template-for-modal-for-choose-of-type-inner">Template for Modal for choose of Type (inner)</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#template-name-of-type">Template name of Type</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -30,18 +42,15 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>choose_type_modal.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\kwestia_crud\</code>choose_type_modal.html</p>
+<div class="pilwrap" id="template-for-modal-for-choose-of-type">
+  <h2>
+    <a href="#template-for-modal-for-choose-of-type" name="template-for-modal-for-choose-of-type" class="pilcrow"></a>
+Template for Modal for choose of Type
+  </h2>
 </div>
 
         </td>
@@ -55,12 +64,25 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="template-for-modal-for-choose-of-type-inner">
+  <h2>
+    <a href="#template-for-modal-for-choose-of-type-inner" name="template-for-modal-for-choose-of-type-inner" class="pilcrow"></a>
+Template for Modal for choose of Type (inner)
+  </h2>
+</div>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"chooseTypeModalInner"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"chooseTypeModalInner"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Rodzaj--&gt;</span>
-{{_ "glob.Type"}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+		{{_ "glob.Type"}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"modalBody"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
@@ -78,20 +100,45 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pull-right"</span>&gt;</span>
-                    <span class="hljs-comment">&lt;!--&lt;input type="button" data-dismiss="modal" class="btn btn-success" value="Wybierz"/&gt;--&gt;</span>
-<span class="hljs-comment">&lt;!--Powrót--&gt;</span>
+                    <span class="hljs-comment">&lt;!--&lt;input type="button" data-dismiss="modal" class="btn btn-success" value="{{_ 'glob.Select'}}"/&gt;--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'glob.Return'}}"</span>/&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"typeName"</span>&gt;</span> 
+</pre>
+        </td>
+      </tr>
     
-<span class="hljs-comment">&lt;!--Wybierz--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-success pull-right"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"chosenTypeBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'glob.Select'}}"</span>/&gt;</span>
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="template-name-of-type">
+  <h2>
+    <a href="#template-name-of-type" name="template-name-of-type" class="pilcrow"></a>
+Template name of Type
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"typeName"</span>&gt;</span> 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>txv</code> Choose</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-success pull-right"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"chosenTypeBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'glob.Select'}}"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
 </pre>
         </td>
       </tr>

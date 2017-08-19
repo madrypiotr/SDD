@@ -1,6 +1,6 @@
 <!--
 ``client\views\kwestie\kwestia_crud\``add_kwestia.html
-##  -->
+## Template for adding the Issue -->
 <template name="addKwestiaForm">
 	<div class="main">
 		<div class="row">
@@ -10,8 +10,7 @@
 						<small>
 							<legend>
 								<!--
-								``txv``  -->
-								<!--Dodaj Kwestię-->
+								``txv`` Add Issue -->
 								{{_ "addKwestiaForm.akfAddIssue"}}
 							</legend>
 						</small>
@@ -19,8 +18,7 @@
 							<a data-toggle="modal" href="#addKwestia">
 								<small class="fontSizeSmall">
 									<!--
-									``txv``  -->
-									<!--Sprawdź istniejące...-->
+									``txv`` Check existing -->
 									{{_ "dym.CheckExisting"}}
 									<sub class="fa fa-external-link"></sub>
 								</small>
@@ -45,18 +43,16 @@
 					<div class="form-group" id="kwestiaNazwaGroup">
 						<label class="control-label col-xs-3" for="inputEmail">
 							<!--
-							``Balloon``  -->
+							``Balloon`` Add Name Issue -->
 							<section class="dymek">
 								<!--
-								``txv``  -->
-								<!--Nazwa Kwestii-->
+								``txv`` Name Issue -->
 								{{_ "glob.NameIssue"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addNameKw">
 										<small class="fontSizeSmall">
 											<!--
-											``txv``  -->
-											<!--Jak nazwać?-->
+											``txv`` How to name? -->
 											{{_ "dym.HowToName"}}
 											<sub class="fa fa-external-link"></sub>
 										</small>
@@ -78,18 +74,15 @@
 							</section>
 						</label>
 						<div class="col-xs-9">
-							<!--
-							``txv``  -->
-							<!--Nazwa Kwestii-->
 							<input class="form-control" name="kwestiaNazwa" maxlength="85" id="kwestiaNazwa" placeholder="{{_ 'glob.NameIssue'}}" value="{{kwestiaNazwa}}" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="sugerowanyTemat">
 							<!--
-							``Balloon`` Topic -->
+							``Balloon`` Subject -->
 							<section class="dymek">
-								{{_ "glob.Subject"}}:
+								{{_ "glob."}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addTemat" class="fa fa-info-circle">
 									<small class="fontSizeSmall">
@@ -118,20 +111,17 @@
 						</label>
 						<div class="col-xs-9">
 							<!--
-							``txv``  -->
-							<!--Wybierz istniejący-->
+							``txv`` Choose existing -->
 							<input type="button" class="btn btn-primary" id="chooseTopicBtn" value="{{_ 'addKwestiaForm.akfChooseExisting'}}">
 							<!--
-							``txv``  -->
-							<!--Wprowadź nowy-->
+							``txv`` Enter The New -->
 							<input type="button" class="btn btn-default" id="addTopicBtn" value="{{_ 'addKwestiaForm.akfEnterTheNew'}}">
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-offset-3 col-xs-9">
 							<!--
-							``txv``  -->
-							<!--Wybierz lub wprowadź Temat-->
+							``txv`` Select or enter the Subject -->
 							<input class="form-control" name="sugerowanyTemat" id="sugerowanyTemat" placeholder="{{_ 'addKwestiaForm.akfSelectOrEnterTheSubject'}}" value="{{topic}}" required>
 						</div>
 					</div>
@@ -169,20 +159,17 @@
 						</label>
 						<div class="col-xs-9">
 							<!--
-							``txv``  -->
-							<!--Wybierz istniejący-->
+							``txv`` Choose existing -->
 							<input type="button" class="btn btn-primary" id="chooseTypeBtn" value="{{_ 'addKwestiaForm.akfChooseExisting'}}">
 							<!--
-							``txv``  -->
-							<!--Wprowadź nowy-->
+							``txv`` Enter The New -->
 							<input type="button" class="btn btn-default" id="addTypeBtn" value="{{_ 'addKwestiaForm.akfEnterTheNew'}}">
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-offset-3 col-xs-9">
 							<!--
-							``txv``  -->
-							<!--Wybierz lub wprowadź Rodzaj-->
+							``txv`` Select or enter the Type -->
 							<input class="form-control" name="sugerowanyRodzaj" id="sugerowanyRodzaj" placeholder="{{_ 'addKwestiaForm.akfSelectOrEnterTheType'}}" value="{{type}}" required>
 						</div>
 					</div>
@@ -190,9 +177,8 @@
 						<label class="control-label col-xs-3" for="tresc">
 							<section class="dymek">
 								<!--
-								``txv``  -->
-								<!--Krótka treść Kwestii-->
-								{{_ "addKwestiaForm.akfShortContentIssue"}}:
+								``txv`` Short content Issue -->
+								{{_ "addKwestiaForm.akf"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addKrTr">
 									<small class="fontSizeSmall">{{_ "dym.Prompt"}}
@@ -221,8 +207,7 @@
 						</label>
 						<div class="col-xs-9">
 							<!--
-							``txv``  -->
-							<!--Krótka treść-->
+							``txv`` Short content -->
 							<textarea class="form-control" rows="3" name="krotkaTresc" maxlength="410" id="krotkaTresc" placeholder="{{_ 'addKwestiaForm.akfShortContent'}}" required>{{krotkaTresc}}</textarea>
 						</div>
 					</div>
@@ -230,8 +215,7 @@
 						<label class="control-label col-xs-3" for="inputEmail">
 							<section class="dymek">
 							<!--
-							``txv``  -->
-								<!--Opis z uzasadnieniem-->
+							``txv`` Description with justification -->
 								{{_ "glob.DescrWithTheReasons"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addUzasadn">
@@ -261,16 +245,14 @@
 						</label>
 						<div class="col-xs-9">
 							<!--
-							``txv``  -->
-							<!--Opis z uzasadnieniem-->
+							``txv`` Description with justification -->
 							<textarea class="form-control" rows="6" name="szczegolowaTresc" maxlength="1010" id="szczegolowaTresc" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required>{{szczegolowaTresc}}</textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-offset-3 col-xs-9">
 							<!--
-							``txv``  -->
-							<!--Dodaj tę Kwestię-->
+							``txv`` Add this Issue -->
 							<input type="submit" class="btn btn-primary" value="{{_ 'addKwestiaForm.akfAddThisIssue'}}" id="submitAddKwestia">
 							<input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
 						</div>

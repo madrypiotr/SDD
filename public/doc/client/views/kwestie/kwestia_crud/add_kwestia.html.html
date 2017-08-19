@@ -22,6 +22,10 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#template-for-adding-the-issue">Template for adding the Issue</a>
+      </div>
+
       <div class="heading h3">
         <a href="#footer-page-info">footer page info</a>
       </div>
@@ -34,18 +38,15 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>add_kwestia.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\kwestia_crud\</code>add_kwestia.html</p>
+<div class="pilwrap" id="template-for-adding-the-issue">
+  <h2>
+    <a href="#template-for-adding-the-issue" name="template-for-adding-the-issue" class="pilcrow"></a>
+Template for adding the Issue
+  </h2>
 </div>
 
         </td>
@@ -58,13 +59,39 @@
 					<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
 							<span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>
-								<span class="hljs-comment">&lt;!--Dodaj Kwestię--&gt;</span>{{_ "addKwestiaForm.akfAddIssue"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p><code>txv</code> Add Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">								{{_ "addKwestiaForm.akfAddIssue"}}
 							<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
 							<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#addKwestia"</span>&gt;</span>
 								<span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fontSizeSmall"</span>&gt;</span>
-									<span class="hljs-comment">&lt;!--Sprawdź istniejące...--&gt;</span>{{_ "dym.CheckExisting"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> Check existing</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">									{{_ "dym.CheckExisting"}}
 									<span class="hljs-tag">&lt;<span class="hljs-name">sub</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>
 								<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
 							<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
@@ -87,13 +114,51 @@
 					<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"kwestiaNazwaGroup"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
-								<span class="hljs-comment">&lt;!--Nazwa Kwestii--&gt;</span>
-								{{_ "glob.NameIssue"}}:
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>Balloon</code> Add Name Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p><code>txv</code> Name Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">								{{_ "glob.NameIssue"}}:
 								<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#addNameKw"</span>&gt;</span>
 										<span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fontSizeSmall"</span>&gt;</span>
-											<span class="hljs-comment">&lt;!--Jak nazwać?--&gt;</span>{{_ "dym.HowToName"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p><code>txv</code> How to name?</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">											{{_ "dym.HowToName"}}
 											<span class="hljs-tag">&lt;<span class="hljs-name">sub</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>
 										<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
 									<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
@@ -114,18 +179,28 @@
 							<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Nazwa Kwestii--&gt;</span>
 							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"kwestiaNazwa"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"85"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"kwestiaNazwa"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'glob.NameIssue'}}"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{kwestiaNazwa}}"</span> <span class="hljs-attr">required</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
-						<span class="hljs-comment">&lt;!--Temat--&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"sugerowanyTemat"</span>&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
-								{{_ "glob.Subject"}}:
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p><code>Balloon</code> Subject</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+								{{_ "glob."}}:
 								<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#addTemat"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span>
-									<span class="hljs-comment">&lt;!--info i zachęta w dymku--&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fontSizeSmall"</span>&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">sub</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>
 									<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
@@ -151,26 +226,73 @@
 							<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Wybierz istniejący--&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"chooseTopicBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfChooseExisting'}}"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Wprowadź nowy--&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addTopicBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfEnterTheNew'}}"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p><code>txv</code> Choose existing</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"chooseTopicBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfChooseExisting'}}"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p><code>txv</code> Enter The New</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addTopicBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfEnterTheNew'}}"</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-offset-3 col-xs-9"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Wybierz lub wprowadź Temat--&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sugerowanyTemat"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sugerowanyTemat"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfSelectOrEnterTheSubject'}}"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{topic}}"</span> <span class="hljs-attr">required</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p><code>txv</code> Select or enter the Subject</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sugerowanyTemat"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sugerowanyTemat"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfSelectOrEnterTheSubject'}}"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{topic}}"</span> <span class="hljs-attr">required</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"sugerowanyRodzaj"</span>&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
-								<span class="hljs-comment">&lt;!--Rodzaj--&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p><code>Balloon</code> Type</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
 								{{_ "glob.Type"}}:
 								<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#addRodzaj"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span>
-									<span class="hljs-comment">&lt;!--info i zachęta w dymku--&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fontSizeSmall"</span>&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">sub</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span>
 									<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
@@ -196,23 +318,71 @@
 							<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Wybierz istniejący--&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"chooseTypeBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfChooseExisting'}}"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Wprowadź nowy--&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addTypeBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfEnterTheNew'}}"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p><code>txv</code> Choose existing</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"chooseTypeBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfChooseExisting'}}"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p><code>txv</code> Enter The New</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addTypeBtn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfEnterTheNew'}}"</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-offset-3 col-xs-9"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Wybierz lub wprowadź Rodzaj--&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sugerowanyRodzaj"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sugerowanyRodzaj"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfSelectOrEnterTheType'}}"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{type}}"</span> <span class="hljs-attr">required</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14"></a>
+</div>
+<p><code>txv</code> Select or enter the Type</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"sugerowanyRodzaj"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sugerowanyRodzaj"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfSelectOrEnterTheType'}}"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{type}}"</span> <span class="hljs-attr">required</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"krotkaTrescGroup"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"tresc"</span>&gt;</span>
 							<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
-								<span class="hljs-comment">&lt;!--Krótka treść Kwestii--&gt;</span>
-								{{_ "addKwestiaForm.akfShortContentIssue"}}:
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15"></a>
+</div>
+<p><code>txv</code> Short content Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">								{{_ "addKwestiaForm.akf"}}:
 								<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#addKrTr"</span>&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fontSizeSmall"</span>&gt;</span>{{_ "dym.Prompt"}}
@@ -240,15 +410,39 @@
 							<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Krótka treść--&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"krotkaTresc"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"410"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"krotkaTresc"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfShortContent'}}"</span> <span class="hljs-attr">required</span>&gt;</span>{{krotkaTresc}}<span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16"></a>
+</div>
+<p><code>txv</code> Short content</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">"3"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"krotkaTresc"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"410"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"krotkaTresc"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfShortContent'}}"</span> <span class="hljs-attr">required</span>&gt;</span>{{krotkaTresc}}<span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"szczegolowaTrescGroup"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span>
 							<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
-								<span class="hljs-comment">&lt;!--Opis z uzasadnieniem--&gt;</span>
-								{{_ "glob.DescrWithTheReasons"}}:
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17"></a>
+</div>
+<p><code>txv</code> Description with justification</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">								{{_ "glob.DescrWithTheReasons"}}:
 								<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#addUzasadn"</span>&gt;</span>
 									<span class="hljs-tag">&lt;<span class="hljs-name">small</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fontSizeSmall"</span>&gt;</span>{{_ "dym.AfewTips"}}
@@ -276,15 +470,38 @@
 							<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Opis z uzasadnieniem--&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">"6"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"szczegolowaTresc"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"1010"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"szczegolowaTresc"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'glob.DescrWithTheReasons'}}"</span> <span class="hljs-attr">required</span>&gt;</span>{{szczegolowaTresc}}<span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-18" id="section-18"></a>
+</div>
+<p><code>txv</code> Description with justification</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">"6"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"szczegolowaTresc"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"1010"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"szczegolowaTresc"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'glob.DescrWithTheReasons'}}"</span> <span class="hljs-attr">required</span>&gt;</span>{{szczegolowaTresc}}<span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-offset-3 col-xs-9"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Dodaj tę Kwestię--&gt;</span>
-							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfAddThisIssue'}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"submitAddKwestia"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Anuluj--&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-19" id="section-19"></a>
+</div>
+<p><code>txv</code> Add this Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'addKwestiaForm.akfAddThisIssue'}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"submitAddKwestia"</span>&gt;</span>
 							<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'glob.Cancel'}}"</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
