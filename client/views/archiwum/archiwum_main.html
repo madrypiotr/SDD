@@ -1,14 +1,18 @@
+<!--
+``client\views\archiwum\``archiwum_main.html
+## Archive Template (Trash and Hibernate) -->
 <template name="archiwum">
-    <!--{{#if currentUser}}-->
 	<div class="main">
 		<ul class="nav nav-tabs" role="tablist">
+			<!--
+			### Issues in the trash -->
 			<li role="presentation" class="active"><a href="#kosz" aria-controls="kosz" role="tab" data-toggle="tab">
-<!--Kosz-->
+				<!--
+				### Balloon for trash -->
 				<section class="dymek">
 					<i class="fa fa-trash ">&nbsp;&nbsp;&nbsp;</i> 
 						<ul align="left">
 							<a data-toggle="modal" href="#PodmenuKosz" class="fa fa-info-circle">
-							<!--info i zachęta w dymku-->
 							</a>
 						</ul>
 					<div class="modal fade" id="PodmenuKosz" role="dialog">
@@ -21,9 +25,10 @@
 									</p>
 								</div>
 								<div class="modal-body" align="left">
-								<small><p>{{_ 'dym.TrashCanA'}}</p>
-								<p>{{_ 'dym.TrashCanB'}}</p>
-								</small>
+									<small>
+									<p>{{_ 'dym.TrashCanA'}}</p>
+									<p>{{_ 'dym.TrashCanB'}}</p>
+									</small>
 								</div>
 							</div>
 						</div>
@@ -31,45 +36,50 @@
 				</section>
 			{{_ 'archiwum.archTrashCan'}}</a>
 			</li>
-
-<!--Hibernowane-->
+			<!--
+			### Hibernate issues -->
 			<li role="presentation"><a href="#hibernowane" aria-controls="hibernowane" role="tab" data-toggle="tab">
+				<!--
+				### Balloon for hibernate -->
 				<section class="dymek">
 					<i class="fa fa-hourglass-half ">&nbsp;&nbsp;&nbsp;</i> 
 					<ul align="left">
-			<a data-toggle="modal" href="#PodmenuHibernowane" class="fa fa-info-circle">
-			<!--info i zachęta w dymku-->
-			</a>
-			</ul>
-			<div class="modal fade" id="PodmenuHibernowane" role="dialog">
-			<div class="modal-dialog">
-			<div class="modal-content">
-			<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal">&times;</button>
-			<p class="modal-title" align="left">
-			{{_ 'archiwum.arcHibernating'}}
-			</p>
-			</div>
-			<div class="modal-body" align="left">
-			<small>
-			<p>{{_ 'dym.HibernatingA'}}</p>
-			<p>{{_ 'dym.HibernatingB'}}</p>
-			<p>{{_ 'dym.HibernatingC'}}</p>
-			</small>
-			</div>
-			</div>
-			</div>
-			</div>
-			</section>
+					<a data-toggle="modal" href="#PodmenuHibernowane" class="fa fa-info-circle">
+					</a>
+					</ul>
+					<div class="modal fade" id="PodmenuHibernowane" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<p class="modal-title" align="left">
+								{{_ 'archiwum.arcHibernating'}}
+								</p>
+								</div>
+								<div class="modal-body" align="left">
+									<small>
+									<p>{{_ 'dym.HibernatingA'}}</p>
+									<p>{{_ 'dym.HibernatingB'}}</p>
+									<p>{{_ 'dym.HibernatingC'}}</p>
+									</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 {{_ 'archiwum.arcHibernating'}}</a></li>
 		</ul>
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="kosz">
-                        {{> kosz}}
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="hibernowane">
-                        {{> hibernowaneList}}
-                    </div>
-                </div>
-        </div>
+			<div class="tab-content">
+				<!--
+				### Trash contents -->
+				<div role="tabpanel" class="tab-pane active" id="kosz">
+					{{> kosz}}
+				</div>
+				<!--
+				### Hibernate content -->
+				<div role="tabpanel" class="tab-pane" id="hibernowane">
+					{{> hibernowaneList}}
+				</div>
+			</div>
+     </div>
 </template>

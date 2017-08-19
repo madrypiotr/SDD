@@ -22,8 +22,24 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#hibernate-list-issue-template">Hibernate List Issue Template</a>
+      </div>
+
       <div class="heading h3">
         <a href="#footer-page-info">footer page info</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#hibernate-issue-name-link-template">Hibernate Issue Name Link Template</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#hibernate-issue-topic-link-template">Hibernate Issue Topic link Template</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#hibernate-issue-type-link-template">Hibernate Issue Type link Template</a>
       </div>
 
     </div>
@@ -34,18 +50,15 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>hibernowane.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\archiwum\hibernowane\</code>hibernowane.html</p>
+<div class="pilwrap" id="hibernate-list-issue-template">
+  <h2>
+    <a href="#hibernate-list-issue-template" name="hibernate-list-issue-template" class="pilcrow"></a>
+Hibernate List Issue Template
+  </h2>
 </div>
 
         </td>
@@ -89,18 +102,58 @@ footer page info
 	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="hibernate-issue-name-link-template">
+  <h2>
+    <a href="#hibernate-issue-name-link-template" name="hibernate-issue-name-link-template" class="pilcrow"></a>
+Hibernate Issue Name Link Template
+  </h2>
+</div>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nazwaKwestiiHibernowaneLink"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nazwaKwestiiHibernowaneLink"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ pathFor 'informacjeKwestia'}}"</span>&gt;</span>{{this.kwestiaNazwa}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="hibernate-issue-topic-link-template">
+  <h2>
+    <a href="#hibernate-issue-topic-link-template" name="hibernate-issue-topic-link-template" class="pilcrow"></a>
+Hibernate Issue Topic link Template
+  </h2>
+</div>
 
-
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"tematKwestiiHibernowane"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"tematKwestiiHibernowane"</span>&gt;</span>
     {{getTemat idTemat}}
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="hibernate-issue-type-link-template">
+  <h2>
+    <a href="#hibernate-issue-type-link-template" name="hibernate-issue-type-link-template" class="pilcrow"></a>
+Hibernate Issue Type link Template
+  </h2>
+</div>
 
-
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"rodzajKwestiiHibernowane"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"rodzajKwestiiHibernowane"</span>&gt;</span>
     {{getRodzaj idRodzaj}}
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 </pre>

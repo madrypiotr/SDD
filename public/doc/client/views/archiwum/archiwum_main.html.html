@@ -22,6 +22,34 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#archive-template-trash-and-hibernate">Archive Template (Trash and Hibernate)</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#issues-in-the-trash">Issues in the trash</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#balloon-for-trash">Balloon for trash</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#hibernate-issues">Hibernate issues</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#balloon-for-hibernate">Balloon for hibernate</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#trash-contents">Trash contents</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#hibernate-content">Hibernate content</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -30,33 +58,57 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>archiwum_main.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\archiwum\</code>archiwum_main.html</p>
+<div class="pilwrap" id="archive-template-trash-and-hibernate">
+  <h2>
+    <a href="#archive-template-trash-and-hibernate" name="archive-template-trash-and-hibernate" class="pilcrow"></a>
+Archive Template (Trash and Hibernate)
+  </h2>
 </div>
 
         </td>
         <td class="code highlight">
           <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"archiwum"</span>&gt;</span>
-    <span class="hljs-comment">&lt;!--{{#if currentUser}}--&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav nav-tabs"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#kosz"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"kosz"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Kosz--&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="issues-in-the-trash">
+  <h3>
+    <a href="#issues-in-the-trash" name="issues-in-the-trash" class="pilcrow"></a>
+Issues in the trash
+  </h3>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">			<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#kosz"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"kosz"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="balloon-for-trash">
+  <h3>
+    <a href="#balloon-for-trash" name="balloon-for-trash" class="pilcrow"></a>
+Balloon for trash
+  </h3>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-trash "</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> 
 						<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
 							<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#PodmenuKosz"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--info i zachęta w dymku--&gt;</span>
 							<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal fade"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"PodmenuKosz"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"dialog"</span>&gt;</span>
@@ -69,9 +121,10 @@
 									<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 								<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 								<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
-								<span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.TrashCanA'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-								<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.TrashCanB'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-								<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+									<span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
+									<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.TrashCanA'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+									<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.TrashCanB'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+									<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
 								<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 							<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -79,47 +132,104 @@
 				<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 			{{_ 'archiwum.archTrashCan'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="hibernate-issues">
+  <h3>
+    <a href="#hibernate-issues" name="hibernate-issues" class="pilcrow"></a>
+Hibernate issues
+  </h3>
+</div>
 
-<span class="hljs-comment">&lt;!--Hibernowane--&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#hibernowane"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"hibernowane"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html">			<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#hibernowane"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"hibernowane"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="balloon-for-hibernate">
+  <h3>
+    <a href="#balloon-for-hibernate" name="balloon-for-hibernate" class="pilcrow"></a>
+Balloon for hibernate
+  </h3>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-hourglass-half "</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> 
 					<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#PodmenuHibernowane"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span>
-			<span class="hljs-comment">&lt;!--info i zachęta w dymku--&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal fade"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"PodmenuHibernowane"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"dialog"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-dialog"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-content"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-title"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
-			{{_ 'archiwum.arcHibernating'}}
-			<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.HibernatingA'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.HibernatingB'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.HibernatingC'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#PodmenuHibernowane"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal fade"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"PodmenuHibernowane"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"dialog"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-dialog"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-content"</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-title"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
+								{{_ 'archiwum.arcHibernating'}}
+								<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+								<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
+									<span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
+									<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.HibernatingA'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+									<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.HibernatingB'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+									<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'dym.HibernatingC'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+									<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+								<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+							<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 {{_ 'archiwum.arcHibernating'}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-content"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-pane active"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"kosz"</span>&gt;</span>
-                        {{&gt; kosz}}
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-pane"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hibernowane"</span>&gt;</span>
-                        {{&gt; hibernowaneList}}
-                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-content"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="trash-contents">
+  <h3>
+    <a href="#trash-contents" name="trash-contents" class="pilcrow"></a>
+Trash contents
+  </h3>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-pane active"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"kosz"</span>&gt;</span>
+					{{&gt; kosz}}
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="hibernate-content">
+  <h3>
+    <a href="#hibernate-content" name="hibernate-content" class="pilcrow"></a>
+Hibernate content
+  </h3>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-pane"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hibernowane"</span>&gt;</span>
+					{{&gt; hibernowaneList}}
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 </pre>
         </td>

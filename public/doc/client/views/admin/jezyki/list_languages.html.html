@@ -22,12 +22,28 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#language-list-template">Language list template</a>
+      </div>
+
       <div class="heading h3">
         <a href="#footer-page-info">footer page info</a>
       </div>
 
+      <div class="heading h2">
+        <a href="#template-for-setting-language-options">Template for setting language options</a>
+      </div>
+
       <div class="heading h3">
-        <a href="#">...</a>
+        <a href="#in-case-the-language-is-available">In case the language is available ...</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#language-name-template">Language name template</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#abbreviated-language-template">Abbreviated Language Template</a>
       </div>
 
     </div>
@@ -38,18 +54,15 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>list_languages.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\admin\jezyki\</code>list_languages.html</p>
+<div class="pilwrap" id="language-list-template">
+  <h2>
+    <a href="#language-list-template" name="language-list-template" class="pilcrow"></a>
+Language list template
+  </h2>
 </div>
 
         </td>
@@ -58,15 +71,39 @@
     {{#if currentUser}}
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Lista języków--&gt;</span>
-{{_ "listLanguages.listOfLanguages"}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p><code>txv</code> Language list</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "listLanguages.listOfLanguages"}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col-md-6"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group"</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{pathFor 'addLanguage'}}"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>
                             <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-plus"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> 
-<span class="hljs-comment">&lt;!--Dodaj--&gt;</span>
-{{_ "glob.Add"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> Add language</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "glob.Add"}}
                         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -110,9 +147,22 @@ footer page info
 	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="template-for-setting-language-options">
+  <h2>
+    <a href="#template-for-setting-language-options" name="template-for-setting-language-options" class="pilcrow"></a>
+Template for setting language options
+  </h2>
+</div>
 
-<span class="hljs-comment">&lt;!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI - OPCJE --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"languageOptions"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"languageOptions"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pull-right"</span>&gt;</span>
 </pre>
         </td>
@@ -120,46 +170,104 @@ footer page info
     
       <tr>
         <td class="docs">
-          <div class="pilwrap" id="">
+          <div class="pilwrap" id="in-case-the-language-is-available">
   <h3>
-    <a href="#" name="" class="pilcrow"></a>
-...
+    <a href="#in-case-the-language-is-available" name="in-case-the-language-is-available" class="pilcrow"></a>
+In case the language is available ...
   </h3>
 </div>
 
         </td>
         <td class="code highlight">
           <pre class="html">        {{#if isLangEnabled _id}}
-            
-<span class="hljs-comment">&lt;!--Wyłącz--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hideLang"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'languageOptions.loOff'}}"</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p><code>txv</code> Turn off the language</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hideLang"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'languageOptions.loOff'}}"</span>
                     <span class="hljs-attr">name</span>=<span class="hljs-string">"{{_id}}"</span>&gt;</span>
                  <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-toggle-on"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{_id}}"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         {{else}}
-<span class="hljs-comment">&lt;!--Włącz--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"launchLang"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'languageOptions.loOn'}}"</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p><code>txv</code> Turn on the language</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"launchLang"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'languageOptions.loOn'}}"</span>
                     <span class="hljs-attr">name</span>=<span class="hljs-string">"{{_id}}"</span>&gt;</span>
- <span class="hljs-comment">&lt;!--Włącz--&gt;</span>
 {{_ "languageOptions.loOn"}} <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-toggle-off"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{_id}}"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
         {{/if}}
-        
-<span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'languageOptions.EdytujJezy'}}"</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p><code>txv</code> Edit language</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'languageOptions.EdytujJezy'}}"</span>
            <span class="hljs-attr">href</span>=<span class="hljs-string">"{{ pathFor 'editLanguage' _id}}"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Edytuj--&gt;</span>
 {{_ "glob.Edit"}} <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-edit"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="language-name-template">
+  <h2>
+    <a href="#language-name-template" name="language-name-template" class="pilcrow"></a>
+Language name template
+  </h2>
+</div>
 
-<span class="hljs-comment">&lt;!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nameLanguage"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nameLanguage"</span>&gt;</span>
     {{languageName}}
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="abbreviated-language-template">
+  <h2>
+    <a href="#abbreviated-language-template" name="abbreviated-language-template" class="pilcrow"></a>
+Abbreviated Language Template
+  </h2>
+</div>
 
-<span class="hljs-comment">&lt;!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"shortNameLanguage"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"shortNameLanguage"</span>&gt;</span>
     {{shortName}}
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 </pre>

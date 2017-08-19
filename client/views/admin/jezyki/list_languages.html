@@ -1,15 +1,20 @@
+<!--
+``client\views\admin\jezyki\``list_languages.html
+## Language list template -->
 <template name="listLanguages">
     {{#if currentUser}}
         <div class="main">
             <legend>
-<!--Lista języków-->
+				<!--
+				``txv`` Language list -->
 {{_ "listLanguages.listOfLanguages"}}</legend>
             <div class="row">
                 <div class="col col-md-6">
                     <div class="input-group">
                         <a href="{{pathFor 'addLanguage'}}" class="btn btn-primary">
                             <i class="fa fa-plus"></i> 
-<!--Dodaj-->
+<!--
+``txv`` Add language -->
 {{_ "glob.Add"}}
                         </a>
                     </div>
@@ -42,43 +47,41 @@
 	</div>
 </div>
 </template>
-
-<!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI - OPCJE -->
+<!--
+## Template for setting language options -->
 <template name="languageOptions">
     <div class="pull-right">
 <!--
-###  ...
--->
+### In case the language is available ... -->
         {{#if isLangEnabled _id}}
-            
-<!--Wyłącz-->
+				<!--
+				``txv`` Turn off the language -->
 <button class="btn btn-default btn-xs" id="hideLang" data-toggle="tooltip" title="{{_ 'languageOptions.loOff'}}"
                     name="{{_id}}">
                  <i class="fa fa-toggle-on" name="{{_id}}"></i>
             </button>
         {{else}}
-<!--Włącz-->
+				<!--
+				``txv`` Turn on the language -->
 <button class="btn btn-default btn-xs" id="launchLang" data-toggle="tooltip" title="{{_ 'languageOptions.loOn'}}"
                     name="{{_id}}">
- <!--Włącz-->
 {{_ "languageOptions.loOn"}} <i class="fa fa-toggle-off" name="{{_id}}"></i>
             </button>
         {{/if}}
-        
-<!--Edytuj-->
+				<!--
+				``txv`` Edit language -->
 <a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'languageOptions.EdytujJezy'}}"
            href="{{ pathFor 'editLanguage' _id}}">
-<!--Edytuj-->
 {{_ "glob.Edit"}} <i class="fa fa-edit"></i></a>
     </div>
 </template>
-
-<!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI -->
+<!--
+## Language name template -->
 <template name="nameLanguage">
     {{languageName}}
 </template>
-
-<!-- SDD - Szablon | Panel ADMINISTRACJA - JĘZYKI -->
+<!--
+## Abbreviated Language Template -->
 <template name="shortNameLanguage">
     {{shortName}}
 </template>

@@ -1,38 +1,43 @@
+<!--
+``client\views\admin\jezyki\``add_language.html
+## Template for adding a language -->
 <template name="addLanguage">
     <div class="main">
         <legend>
-<!--Dodaj język-->
+<!--
+``txv`` Add language -->
 {{_ "addLanguage.AddLangua"}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" id="languageForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="languageName">
-<!--Nazwa języka: -->
+<!--
+``txv`` Name of the language -->
 {{_ "addLanguage.LanguageName"}}</label>
-
                         <div class="col-xs-9">
-<!--Nazwa (np. polski, angielski itp.)-->
+<!--
+``txv`` Name (eg polish, english, etc.) -->
 <input name="languageName" type="text" class="form-control" id="languageName" placeholder="{{_ 'addLanguage.NameForExampleEnglish'}}" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="languageShortName">
-<!--Skrót: -->
+<!--
+``txv`` Abbreviation -->
 {{_ "addLanguage.Abbreviation"}}</label>
-
                         <div class="col-xs-9">
-<!--Skrót (np. pl, en, itp...)-->
+<!--
+``txv`` Abbreviation (eg pl, en, etc ...) -->
 <input name="languageShortName" type="text" class="form-control" id="languageShortName" placeholder="{{_ 'addLanguage.ShortcutForExample_en'}}" required>
                         </div>
                     </div>
                     <br/>
-
                     <div class="form-group">
-                        <div class="col-xs-offset-3 col-xs-9">
-<!--Zapisz-->
+						<div class="col-xs-offset-3 col-xs-9">
+<!--
+``txv`` Save -->
 <input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
-<!--Anuluj-->
 <input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
                         </div>
                     </div>

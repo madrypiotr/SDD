@@ -1,3 +1,6 @@
+<!--
+``client\views\archiwum\hibernowane\``hibernowane.html
+## Hibernate List Issue Template -->
 <template name="hibernowaneList">
     <div class="main">
         <div class="row">
@@ -25,17 +28,18 @@
 	</div>
 </div>
 </template>
-
+<!--
+## Hibernate Issue Name Link Template -->
 <template name="nazwaKwestiiHibernowaneLink">
     <a href="{{ pathFor 'informacjeKwestia'}}">{{this.kwestiaNazwa}}</a>
 </template>
-
-
+<!--
+## Hibernate Issue Topic link Template -->
 <template name="tematKwestiiHibernowane">
     {{getTemat idTemat}}
 </template>
-
-
+<!--
+## Hibernate Issue Type link Template -->
 <template name="rodzajKwestiiHibernowane">
     {{getRodzaj idRodzaj}}
 </template>

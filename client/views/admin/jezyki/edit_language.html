@@ -1,28 +1,35 @@
+<!--
+``client\views\admin\jezyki\``edit_language.html
+## Language editing template -->
 <template name="editLanguage">
     <div class="main">
         <legend>
-<!--Edytuj język-->
+<!--
+``txv`` Editing language -->
 {{_ "editLanguage.edEditLanguage"}}</legend>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" id="languageEditForm">
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="languageName">
-<!--Nazwa języka: -->
+<!--
+``txv`` Name of the language -->
 {{_ "editLanguage.edLanguageName"}}</label>
 
                         <div class="col-xs-9">
-<!--Nazwa (np. polski, angielski itp.)-->
+<!--
+``txv`` Name (eg polish, english, etc.) -->
 <input name="languageName" type="text" class="form-control" id="languageName" placeholder="{{_ 'editLanguage.edNameOfTheLanForExamEnglish'}}" value="{{languageName}}" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3" for="languageShortName">
-<!--Skrót: -->
+<!--
+``txv`` Abbreviation -->
 {{_ "editLanguage.edAbbreviation"}}</label>
-
                         <div class="col-xs-9">
-<!--Skrót (np. pl, en, itp...)-->
+<!--
+``txv`` Abbreviation (eg pl, en, etc ...) -->
 <input name="languageShortName" type="text" class="form-control" id="languageShortName" placeholder="{{_ 'editLanguage.edShortcutForExample_en'}}" value="{{shortName}}" required>
                         </div>
                     </div>
@@ -30,9 +37,9 @@
 
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
-<!--Zapisz-->
+<!--
+``txv`` Save -->
 <input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
-<!--Anuluj-->
 <input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
                         </div>
                     </div>
