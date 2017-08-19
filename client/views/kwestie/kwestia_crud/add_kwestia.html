@@ -1,3 +1,6 @@
+<!--
+``client\views\kwestie\kwestia_crud\``add_kwestia.html
+##  -->
 <template name="addKwestiaForm">
 	<div class="main">
 		<div class="row">
@@ -6,13 +9,19 @@
 					<section class="dymek">
 						<small>
 							<legend>
-								<!--Dodaj Kwestię-->{{_ "addKwestiaForm.akfAddIssue"}}
+								<!--
+								``txv``  -->
+								<!--Dodaj Kwestię-->
+								{{_ "addKwestiaForm.akfAddIssue"}}
 							</legend>
 						</small>
 						<ul>
 							<a data-toggle="modal" href="#addKwestia">
 								<small class="fontSizeSmall">
-									<!--Sprawdź istniejące...-->{{_ "dym.CheckExisting"}}
+									<!--
+									``txv``  -->
+									<!--Sprawdź istniejące...-->
+									{{_ "dym.CheckExisting"}}
 									<sub class="fa fa-external-link"></sub>
 								</small>
 							</a>
@@ -35,13 +44,20 @@
 					</section>
 					<div class="form-group" id="kwestiaNazwaGroup">
 						<label class="control-label col-xs-3" for="inputEmail">
+							<!--
+							``Balloon``  -->
 							<section class="dymek">
+								<!--
+								``txv``  -->
 								<!--Nazwa Kwestii-->
 								{{_ "glob.NameIssue"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addNameKw">
 										<small class="fontSizeSmall">
-											<!--Jak nazwać?-->{{_ "dym.HowToName"}}
+											<!--
+											``txv``  -->
+											<!--Jak nazwać?-->
+											{{_ "dym.HowToName"}}
 											<sub class="fa fa-external-link"></sub>
 										</small>
 									</a>
@@ -62,18 +78,20 @@
 							</section>
 						</label>
 						<div class="col-xs-9">
+							<!--
+							``txv``  -->
 							<!--Nazwa Kwestii-->
 							<input class="form-control" name="kwestiaNazwa" maxlength="85" id="kwestiaNazwa" placeholder="{{_ 'glob.NameIssue'}}" value="{{kwestiaNazwa}}" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<!--Temat-->
 						<label class="control-label col-xs-3" for="sugerowanyTemat">
+							<!--
+							``Balloon`` Topic -->
 							<section class="dymek">
 								{{_ "glob.Subject"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addTemat" class="fa fa-info-circle">
-									<!--info i zachęta w dymku-->
 									<small class="fontSizeSmall">
 									<sub class="fa fa-external-link"></sub>
 									</small>
@@ -99,26 +117,32 @@
 							</section>
 						</label>
 						<div class="col-xs-9">
+							<!--
+							``txv``  -->
 							<!--Wybierz istniejący-->
 							<input type="button" class="btn btn-primary" id="chooseTopicBtn" value="{{_ 'addKwestiaForm.akfChooseExisting'}}">
+							<!--
+							``txv``  -->
 							<!--Wprowadź nowy-->
 							<input type="button" class="btn btn-default" id="addTopicBtn" value="{{_ 'addKwestiaForm.akfEnterTheNew'}}">
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-offset-3 col-xs-9">
+							<!--
+							``txv``  -->
 							<!--Wybierz lub wprowadź Temat-->
 							<input class="form-control" name="sugerowanyTemat" id="sugerowanyTemat" placeholder="{{_ 'addKwestiaForm.akfSelectOrEnterTheSubject'}}" value="{{topic}}" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-xs-3" for="sugerowanyRodzaj">
+							<!--
+							``Balloon`` Type -->
 							<section class="dymek">
-								<!--Rodzaj-->
 								{{_ "glob.Type"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addRodzaj" class="fa fa-info-circle">
-									<!--info i zachęta w dymku-->
 									<small class="fontSizeSmall">
 									<sub class="fa fa-external-link"></sub>
 									</small>
@@ -144,14 +168,20 @@
 							</section>
 						</label>
 						<div class="col-xs-9">
+							<!--
+							``txv``  -->
 							<!--Wybierz istniejący-->
 							<input type="button" class="btn btn-primary" id="chooseTypeBtn" value="{{_ 'addKwestiaForm.akfChooseExisting'}}">
+							<!--
+							``txv``  -->
 							<!--Wprowadź nowy-->
 							<input type="button" class="btn btn-default" id="addTypeBtn" value="{{_ 'addKwestiaForm.akfEnterTheNew'}}">
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-offset-3 col-xs-9">
+							<!--
+							``txv``  -->
 							<!--Wybierz lub wprowadź Rodzaj-->
 							<input class="form-control" name="sugerowanyRodzaj" id="sugerowanyRodzaj" placeholder="{{_ 'addKwestiaForm.akfSelectOrEnterTheType'}}" value="{{type}}" required>
 						</div>
@@ -159,6 +189,8 @@
 					<div class="form-group" id="krotkaTrescGroup">
 						<label class="control-label col-xs-3" for="tresc">
 							<section class="dymek">
+								<!--
+								``txv``  -->
 								<!--Krótka treść Kwestii-->
 								{{_ "addKwestiaForm.akfShortContentIssue"}}:
 								<ul align="left">
@@ -188,6 +220,8 @@
 							</section>
 						</label>
 						<div class="col-xs-9">
+							<!--
+							``txv``  -->
 							<!--Krótka treść-->
 							<textarea class="form-control" rows="3" name="krotkaTresc" maxlength="410" id="krotkaTresc" placeholder="{{_ 'addKwestiaForm.akfShortContent'}}" required>{{krotkaTresc}}</textarea>
 						</div>
@@ -195,6 +229,8 @@
 					<div class="form-group" id="szczegolowaTrescGroup">
 						<label class="control-label col-xs-3" for="inputEmail">
 							<section class="dymek">
+							<!--
+							``txv``  -->
 								<!--Opis z uzasadnieniem-->
 								{{_ "glob.DescrWithTheReasons"}}:
 								<ul align="left">
@@ -224,15 +260,18 @@
 							</section>
 						</label>
 						<div class="col-xs-9">
+							<!--
+							``txv``  -->
 							<!--Opis z uzasadnieniem-->
 							<textarea class="form-control" rows="6" name="szczegolowaTresc" maxlength="1010" id="szczegolowaTresc" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required>{{szczegolowaTresc}}</textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-offset-3 col-xs-9">
+							<!--
+							``txv``  -->
 							<!--Dodaj tę Kwestię-->
 							<input type="submit" class="btn btn-primary" value="{{_ 'addKwestiaForm.akfAddThisIssue'}}" id="submitAddKwestia">
-							<!--Anuluj-->
 							<input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
 						</div>
 					</div>
