@@ -1,6 +1,6 @@
 <!--
 ``client\views\kwestie\dyskusja\``dyskusja_post.html
-##  -->
+## Comment Template for Discussion Issue -->
 <template name="discussionPostItem">
     <div class="panel panel-default noborder">
         {{#if isDoArchiwum}}
@@ -25,8 +25,9 @@
                                 data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
                                 aria-controls="{{idPost}}">
                                 {{getAnswersCount idPost}} 
-<!--odniesień-->
-{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
+								<!--
+								``txv`` references -->
+								{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
                                 class="glyphicon glyphicon-triangle-bottom"></i>
                                 </a>
                                 </h6>
@@ -35,26 +36,30 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
+						
                             <p class="text-wraping">
                                 {{getText wiadomosc idPost}}
-
                                 {{#if textTooLong wiadomosc}}
                                     <small>
                                         {{#if isInTab idPost}}
                                             [ <a id="zwinText" name="{{idPost}}">
-<!--mniej-->
-{{_ 'discussionPostItem.dPiLess'}}</a> ]
+										<!--
+										``txv`` less -->
+										{{_ 'discussionPostItem.dPiLess'}}</a> ]
                                         {{else}}
                                             [ <a id="rozwinText" name="{{idPost}}">
-<!--więcej-->
-{{_ 'discussionPostItem.dPiMore'}}</a> ]
+											<!--
+											``txv`` more -->
+											{{_ 'discussionPostItem.dPiMore'}}</a> ]
                                         {{/if}}
                                     </small>
                                 {{/if}}
                             </p>
+							
                             <h5>
-<!--Uzasadnienie-->
-{{_ 'discussionPostItem.dPiExplainThis'}}: <small>{{uzasadnienie}}</small></h5>
+							<!--
+							``txv`` Substantiation -->
+							{{_ 'discussionPostItem.dPiExplainThis'}}: <small>{{uzasadnienie}}</small></h5>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -98,8 +103,9 @@
                                            data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
                                            aria-controls="{{idPost}}">
                                             {{getAnswersCount idPost}} 
-<!--odniesień-->
-{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
+												<!--
+												``txv`` References -->
+												{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
                                                 class="glyphicon glyphicon-triangle-bottom"></i>
                                         </a>
                                     </h6>
@@ -108,28 +114,32 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
+							
                                 <p class="text-wraping">
                                     {{getText wiadomosc idPost}}
                                     {{#if textTooLong wiadomosc}}
                                         <small>
                                             {{#if isInTab idPost}}
                                                 [ <a id="zwinText" name="{{idPost}}">
-<!--mniej-->
-{{_ 'discussionPostItem.dPiLess'}}</a> ]
+												<!--
+												``txv`` less -->
+												{{_ 'discussionPostItem.dPiLess'}}</a> ]
                                             {{else}}
                                                 [ <a id="rozwinText" name="{{idPost}}">
-<!--więcej-->
-{{_ 'discussionPostItem.dPiMore'}}</a> ]
+												<!--
+												``txv`` more -->
+												{{_ 'discussionPostItem.dPiMore'}}</a> ]
                                             {{/if}}
                                         </small>
                                     {{/if}}
                                 </p>
+								
                                 <h5>
-<!--Uzasadnienie-->
-{{_ 'discussionPostItem.dPiExplainThis'}}: <small>{{uzasadnienie}}</small></h5>
+								<!--
+								``txv`` Substantiation -->
+								{{_ 'discussionPostItem.dPiExplainThis'}}: <small>{{uzasadnienie}}</small></h5>
                             </div>
                         </div>
-
                         <div class="clearfix"></div>
                     </h4>
                 </div>
@@ -170,8 +180,9 @@
                                                data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
                                                aria-controls="{{idPost}}">
                                                 {{getAnswersCount idPost}} 
-<!--odniesień-->
-{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
+													<!--
+													``txv`` References -->
+													{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
                                                     class="glyphicon glyphicon-triangle-bottom"></i>
                                             </a>
                                         </h6>
@@ -180,25 +191,30 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
+								
                                     <p class="text-wraping">
                                         {{getText wiadomosc idPost}}
                                         {{#if textTooLong wiadomosc}}
                                             <small>
                                                 {{#if isInTab idPost}}
                                                     [ <a id="zwinText" name="{{idPost}}">
-<!--mniej-->
-{{_ 'discussionPostItem.dPiLess'}}</a> ]
+													<!--
+													``txv`` less -->
+													{{_ 'discussionPostItem.dPiLess'}}</a> ]
                                                 {{else}}
                                                     [ <a id="rozwinText" name="{{idPost}}">
-<!--więcej-->
-{{_ 'discussionPostItem.dPiMore'}}</a> ]
+													<!--
+													``txv`` more -->
+													{{_ 'discussionPostItem.dPiMore'}}</a> ]
                                                 {{/if}}
                                             </small>
                                         {{/if}}
                                     </p>
+									
                                     <h5>
-<!--Uzasadnienie-->
-{{_ 'discussionPostItem.dPiExplainThis'}}: <small>{{uzasadnienie}}</small></h5>
+									<!--
+									``txv`` Substantiation -->
+									{{_ 'discussionPostItem.dPiExplainThis'}}: <small>{{uzasadnienie}}</small></h5>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
@@ -244,8 +260,10 @@
                                data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
                                aria-controls="{{idPost}}">
                                 {{getAnswersCount idPost}} 
-<!--odniesień-->
-{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
+									<!--
+									``txv``  -->
+									<!-- References -->
+									{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
                                     class="glyphicon glyphicon-triangle-bottom"></i>
                             </a>
                         </h6>
@@ -255,8 +273,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h4>
-<!--Raport Realizacyjny-->
-{{_ 'discussionPostItem.dPiTheImplemReport'}}</h4>
+							<!--
+							``txv``  -->
+							<!--Raport Realizacyjny-->
+							{{_ 'discussionPostItem.dPiTheImplemReport'}}</h4>
                             <br/>
                             <p class="text-wraping">
                                 Temat:{{getText wiadomosc idPost}}
@@ -264,19 +284,24 @@
                                     <small>
                                         {{#if isInTab idPost}}
                                             [ <a id="zwinText" name="{{idPost}}">
-<!--mniej-->
-{{_ 'discussionPostItem.dPiLess'}}</a> ]
+											<!--
+											``txv`` less -->
+											{{_ 'discussionPostItem.dPiLess'}}</a> ]
                                         {{else}}
                                             [ <a id="rozwinText" name="{{idPost}}">
-<!--więcej-->
-{{_ 'discussionPostItem.dPiMore'}}</a> ]
+											<!--
+											``txv`` more -->
+											{{_ 'discussionPostItem.dPiMore'}}</a> ]
                                         {{/if}}
                                     </small>
                                 {{/if}}
                             </p>
                             <h5><b>
-<!--Opis-->
-{{_ 'discussionPostItem.dPiDescription'}}:</b></h5> <small>{{uzasadnienie}}</small>
+							<!--
+							``txv``  -->
+							<!--Opis-->
+							{{_ 'discussionPostItem.dPiDescription'}}:</b></h5> 
+							<small>{{uzasadnienie}}</small>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -317,8 +342,9 @@
                                                data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="false"
                                                aria-controls="{{idPost}}">
                                                 {{getAnswersCount idPost}} 
-<!--odniesień-->
-{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
+													<!--
+													``txv`` References -->
+													{{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
                                                     class="glyphicon glyphicon-triangle-bottom"></i>
                                             </a>
                                         </h6>
@@ -327,22 +353,26 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
+								
                                     <p class="text-wraping">
                                         {{getText wiadomosc idPost}}
                                         {{#if textTooLong wiadomosc}}
                                             <small>
                                                 {{#if isInTab idPost}}
                                                     [ <a id="zwinText" name="{{idPost}}">
-<!--mniej-->
-{{_ 'discussionPostItem.dPiLess'}}</a> ]
+													<!--
+													``txv`` less -->
+													{{_ 'discussionPostItem.dPiLess'}}</a> ]
                                                 {{else}}
                                                     [ <a id="rozwinText" name="{{idPost}}">
-<!--więcej-->
-{{_ 'discussionPostItem.dPiMore'}}</a> ]
+													<!--
+													``txv`` more -->
+													{{_ 'discussionPostItem.dPiMore'}}</a> ]
                                                 {{/if}}
                                             </small>
                                         {{/if}}
                                     </p>
+									
                                 </div>
                             </div>
                             <div class="clearfix"></div>
@@ -372,20 +402,23 @@
     </div>
 </template>
 <!--
-##  -->
+## Template for the discussion form reference -->
 <template name="discussionAnswerForm">
     <form id="dyskusjaAnswerForm" class="form-horizontal">
         <div class="form-group">
             {{#if hasUserRights}}
                 <div class="col-xs-7">
-<!--odniesienie do komentarza ...-->
+<!--
+``txv``Reference to comment  -->
 <textarea id="answer_message" name="answer_message{{idPost}}" type="text" class="form-control" placeholder="{{_ 'discussionAnswerForm.dAfaReferenceToAComment'}}" required></textarea>
                 </div>
             <input id="idKwestiaAnswer" name="idKwestiaAnswer" type="hidden" value="{{idKwestia}}">
             <input id="idPost" name="idPost" type="hidden" value="{{idPost}}">
-<!--Dodaj odniesieni-->
+<!--
+``txv`` Add a reference -->
 <input type="submit" for="dyskusjaAnswerForm" class="btn btn-sm btn-default" value="{{_ 'discussionAnswerForm.dAfAddReference'}}"> <br> <small>
-<!--Uwaga: odniesienia nie można usuwać ani zmieniać-->
+<!--
+``txv`` Note: references can not be deleted or changed -->
 {{_ 'discussionAnswerForm.dAfTheReferenceCanNotBeDelOrChanged'}}</small>
             {{/if}}
         </div>
@@ -393,7 +426,7 @@
     {{> GlobalNotifications}}
 </template>
 <!--
-##  -->
+## Response template for comment -->
 <template name="discussionAnswerItem">
     <div class="row">
         <div class="col-md-12">
@@ -414,12 +447,14 @@
                     <small>
                         {{#if isAnswerInTab idPost}}
                             [ <a id="zwinTextAnswer" name="{{idPost}}">
-<!--mniej-->
-{{_ 'discussionAnswerItem.dAiLess'}}</a> ]
+							<!--
+							``txv`` less -->
+							{{_ 'discussionAnswerItem.dAiLess'}}</a> ]
                         {{else}}
                             [ <a id="rozwinTextAnswer" name="{{idPost}}">
-<!--więcej-->
-{{_ 'discussionAnswerItem.dAiMore'}}</a> ]
+							<!--
+							``txv`` more -->
+							{{_ 'discussionAnswerItem.dAiMore'}}</a> ]
                         {{/if}}
                     </small>
                 {{/if}}

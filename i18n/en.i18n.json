@@ -266,8 +266,8 @@
   "discussionPostItem":{
 	"dPiReferences":"references",
 	"dPiLess":"less",
-	"dPiMore":"more or",
-	"dPiExplainThis":"Justification",
+	"dPiMore":"more",
+	"dPiExplainThis":"Substantiation",
 	"dPiTheImplemReport":"Execution Report",
 	"dPiDescription":"Description"
   },

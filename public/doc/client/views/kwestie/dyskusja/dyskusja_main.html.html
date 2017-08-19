@@ -22,6 +22,18 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#main-discussion-thread-of-the-issue">Main discussion thread of the Issue</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#template-for-the-discussion-form">Template for the discussion form</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#comment-priority-template">Comment priority template</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -33,11 +45,13 @@
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\dyskusja\</code>dyskusja_main.html</p>
+<div class="pilwrap" id="main-discussion-thread-of-the-issue">
+  <h2>
+    <a href="#main-discussion-thread-of-the-issue" name="main-discussion-thread-of-the-issue" class="pilcrow"></a>
+Main discussion thread of the Issue
+  </h2>
 </div>
-<p><code>client\views\kwestie\dyskusja\</code>dyskusja_main.html</p>
-<h2></h2>
 
         </td>
         <td class="code highlight">
@@ -73,10 +87,12 @@
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-2" id="section-2"></a>
+          <div class="pilwrap" id="template-for-the-discussion-form">
+  <h2>
+    <a href="#template-for-the-discussion-form" name="template-for-the-discussion-form" class="pilcrow"></a>
+Template for the discussion form
+  </h2>
 </div>
-<h2></h2>
 
         </td>
         <td class="code highlight">
@@ -85,15 +101,51 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
             {{#if HasUserRights status czyAktywny}}
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
-                <span class="hljs-comment">&lt;!--wpisz komentarz ...--&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span>  <span class="hljs-attr">required</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'discussionPostForm.diEnterAcomment'}}"</span>  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> Enter comment ...</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">                <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span>  <span class="hljs-attr">required</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'discussionPostForm.diEnterAcomment'}}"</span>  &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"idKwestia"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"idKwestia"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{idKwestia}}"</span>&gt;</span>
-            <span class="hljs-comment">&lt;!--Dodaj komentarz--&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"warnCommNotChange"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"dyskusjaForm"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'discussionPostForm.diAddAcomment'}}"</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span> 
-                <span class="hljs-comment">&lt;!--Uwaga: komentarza nie można usuwać ani zmieniać--&gt;</span>
-                {{_ "discussionPostForm.diCommentCanNotBeDeletedOrChanged"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>txv</code> Add comment</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"dyskusjaForm"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'discussionPostForm.diAddAcomment'}}"</span>&gt;</span>  <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span> 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p><code>txv</code> Attention: the comment may not be removed nor changed.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">                {{_ "discussionPostForm.diCommentCanNotBeDeletedOrChanged"}}
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             {{/if}}
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -105,24 +157,65 @@
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-3" id="section-3"></a>
+          <div class="pilwrap" id="comment-priority-template">
+  <h2>
+    <a href="#comment-priority-template" name="comment-priority-template" class="pilcrow"></a>
+Comment priority template
+  </h2>
 </div>
-<h2></h2>
 
         </td>
         <td class="code highlight">
           <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"discussionRating"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p><code>Balloon</code> priority of this statement</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
-                    <span class="hljs-comment">&lt;!--Priorytet tej wypowiedzi--&gt;</span>{{_ "discussionRating.drThePriorityOfThisStatement"}}:
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p><code>txv</code> The priority of this statement</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">					{{_ "discussionRating.drThePriorityOfThisStatement"}}:
                 <span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#discusMain"</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-question-circle"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span> 
-                            {{_ "dym.ThisPrioritySorts"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p><code>txv</code> This priority sorts out expressions...&quot;</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">                            {{_ "dym.ThisPrioritySorts"}}
                             <span class="hljs-tag">&lt;<span class="hljs-name">sub</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-external-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">sub</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
@@ -133,7 +226,20 @@
                             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
                                 <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"close"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span>&gt;</span>&amp;times;<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
                                 <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-title"</span>&gt;</span>
-                                    {{_ "dym.PriorInTheDiscus"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p><code>txv</code> Priority in discussions, comments and references</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">                                    {{_ "dym.PriorInTheDiscus"}}
                                 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
@@ -147,14 +253,51 @@
             <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">" label {{getLabelClass wartoscPriorytetu}}"</span>&gt;</span>{{wartoscPriorytetu}}<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>  
             <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
-                    <span class="hljs-comment">&lt;!--Nadaj priorytet tej treści--&gt;</span>
-                    {{_ "discussionRating.drGivePriorityToThisContent"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p><code>Balloon</code> Give your support or not</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">                <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p><code>txv</code> Give priority to this content</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">                    {{_ "discussionRating.drGivePriorityToThisContent"}}
                     <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>
                             <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span>
-                                <span class="hljs-comment">&lt;!--Udziel wsparcia lub nie--&gt;</span>
-                                {{_ "discussionRating.drGrantSupportOrNot"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p><code>txv</code> Give your support or not</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">                                {{_ "discussionRating.drGrantSupportOrNot"}}
                             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
@@ -194,12 +337,37 @@
                 <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             {{/unless}}
-            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14"></a>
+</div>
+<p><code>Balloon</code> Author of the content</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">b</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fontSize"</span>&gt;</span>{{userFullName}},<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-                        <span class="hljs-comment">&lt;!--Autor Treści--&gt;</span>
-                        {{_ "discussionRating.drAuthorContent"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15"></a>
+</div>
+<p><code>txv</code> Content author</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">                        {{_ "discussionRating.drAuthorContent"}}
                     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
@@ -210,6 +378,7 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"yourPath/animatedModal.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>		
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
 </pre>
         </td>
       </tr>

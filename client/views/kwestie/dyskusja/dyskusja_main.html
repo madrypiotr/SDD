@@ -1,6 +1,6 @@
 <!--
 ``client\views\kwestie\dyskusja\``dyskusja_main.html
-##  -->
+## Main discussion thread of the Issue -->
 <template name="discussionMain">
     <input type="hidden" value="{{raporty}}" id="reportsIds"/>
     <div class="row">
@@ -28,20 +28,23 @@
     }}
 </template>
 <!--
-##  -->
+## Template for the discussion form -->
 <template name="discussionPostForm">
     <form id="dyskusjaForm" class="form-horizontal">
         <div class="form-group">
             {{#if HasUserRights status czyAktywny}}
             <div class="col-xs-9">
-                <!--wpisz komentarz ...-->
+				<!--
+				``txv`` Enter comment ... -->
                 <textarea id="message" name="message" type="text" class="form-control"  required placeholder="{{_ 'discussionPostForm.diEnterAcomment'}}"  ></textarea>
             </div>
             <input id="idKwestia" name="idKwestia" type="hidden" value="{{idKwestia}}">
-            <!--Dodaj komentarz-->
 			<div class="warnCommNotChange">
+			<!--
+			``txv`` Add comment -->
             <input type="submit" for="dyskusjaForm" class="btn btn-primary" value="{{_ 'discussionPostForm.diAddAcomment'}}">  <br> 
-                <!--Uwaga: komentarza nie można usuwać ani zmieniać-->
+				<!--
+				``txv`` Attention: the comment may not be removed nor changed. -->
                 {{_ "discussionPostForm.diCommentCanNotBeDeletedOrChanged"}}
 			</div>
             {{/if}}
@@ -49,17 +52,23 @@
     </form>
 </template>
 <!--
-##  -->
+## Comment priority template -->
 <template name="discussionRating">
     <div>
         <form>
+			<!--
+			``Balloon`` priority of this statement -->
             <section class="dymek">
                 <small>
-                    <!--Priorytet tej wypowiedzi-->{{_ "discussionRating.drThePriorityOfThisStatement"}}:
+					<!--
+					``txv`` The priority of this statement -->
+					{{_ "discussionRating.drThePriorityOfThisStatement"}}:
                 </small>
                 <ul>
                     <a data-toggle="modal" href="#discusMain">
                         <p class="fa fa-question-circle"><small> 
+							<!--
+							``txv`` This priority sorts out expressions..." -->
                             {{_ "dym.ThisPrioritySorts"}}
                             <sub class="fa fa-external-link"></sub></small>
                         </p>
@@ -71,6 +80,8 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <p class="modal-title">
+									<!--
+									``txv`` Priority in discussions, comments and references -->
                                     {{_ "dym.PriorInTheDiscus"}}
                                 </p>
                             </div>
@@ -85,13 +96,17 @@
             </section>
             <i class=" label {{getLabelClass wartoscPriorytetu}}">{{wartoscPriorytetu}}</i>  
             <small>
+				<!--
+				``Balloon`` Give your support or not -->
                 <section class="dymek">
-                    <!--Nadaj priorytet tej treści-->
+					<!--
+					``txv`` Give priority to this content -->
                     {{_ "discussionRating.drGivePriorityToThisContent"}}
                     <ul>
                         <a href="#">
                             <li class="fa fa-info-circle">
-                                <!--Udziel wsparcia lub nie-->
+								<!--
+								``txv`` Give your support or not -->
                                 {{_ "discussionRating.drGrantSupportOrNot"}}
                             </li>
                         </a>
@@ -132,11 +147,14 @@
                 </button>
             </div>
             {{/unless}}
+			<!--
+			``Balloon`` Author of the content -->
             <section class="dymek">
                 <b class="fontSize">{{userFullName}},</b>
                 <ul>
                     <li>
-                        <!--Autor Treści-->
+						<!--
+						``txv`` Content author -->
                         {{_ "discussionRating.drAuthorContent"}}
                     </li>
                 </ul>
