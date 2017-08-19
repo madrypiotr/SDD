@@ -22,6 +22,14 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#template-of-the-justification-for-referring-the-issue-to-the-trash">Template of the justification for referring the issue to the trash</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#template-as-above-+-inner">Template as above + Inner</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -33,11 +41,13 @@
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\dyskusja\</code>uzasadnienie_kosz_modal.html</p>
+<div class="pilwrap" id="template-of-the-justification-for-referring-the-issue-to-the-trash">
+  <h2>
+    <a href="#template-of-the-justification-for-referring-the-issue-to-the-trash" name="template-of-the-justification-for-referring-the-issue-to-the-trash" class="pilcrow"></a>
+Template of the justification for referring the issue to the trash
+  </h2>
 </div>
-<p><code>client\views\kwestie\dyskusja\</code>uzasadnienie_kosz_modal.html</p>
-<h2></h2>
 
         </td>
         <td class="code highlight">
@@ -56,68 +66,203 @@
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-2" id="section-2"></a>
+          <div class="pilwrap" id="template-as-above-+-inner">
+  <h2>
+    <a href="#template-as-above-+-inner" name="template-as-above-+-inner" class="pilcrow"></a>
+Template as above + Inner
+  </h2>
 </div>
-<h2></h2>
 
         </td>
         <td class="code highlight">
           <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"uzasadnienieKoszModalInner"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--{{#with kwestiaInScope}}--&gt;</span>
+						<span class="hljs-comment">&lt;!--{{#with kwestiaInScope}}--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Uzasadnij propozycję--&gt;</span>
-{{_ 'uzasadnienieKoszModalInner.ukiExplainYourProposal'}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> Justify the proposal</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">		{{_ 'uzasadnienieKoszModalInner.ukiExplainYourProposal'}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Zamierzasz wnioskować o skierowanie tej--&gt;</span>
-{{_ 'uzasadnienieKoszModalInner.ukiYouIntendToApply'}} <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Kwestii do Kosza, --&gt;</span>
-{{_ 'uzasadnienieKoszModalInner.ukiIssueToTheTrash'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--gdzie odsyłane są Kwestie nieudane, błędne, bez szans na wdrożenie. Zostaną one ostatecznie zarchiwizowane (bez możliwości wznowienia).--&gt;</span>
-{{_ 'uzasadnienieKoszModalInner.ukiWhereSentBackIissuesFailed'}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>txv</code></p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				<span class="hljs-comment">&lt;!--Zamierzasz wnioskować o skierowanie tej--&gt;</span>
+				{{_ 'uzasadnienieKoszModalInner.ukiYouIntendToApply'}} <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p><code>txv</code></p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				<span class="hljs-comment">&lt;!--Kwestii do Kosza, --&gt;</span>
+				{{_ 'uzasadnienieKoszModalInner.ukiIssueToTheTrash'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p><code>txv</code></p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				<span class="hljs-comment">&lt;!--gdzie odsyłane są Kwestie nieudane, błędne, bez szans na wdrożenie. Zostaną one ostatecznie zarchiwizowane (bez możliwości wznowienia).--&gt;</span>
+				{{_ 'uzasadnienieKoszModalInner.ukiWhereSentBackIissuesFailed'}}
                 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 
                 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej "--&gt;</span>
-{{_ 'uzasadnienieKoszModalInner.ukiIfYourDecisionIsConsisten'}} <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--uzasadnienie--&gt;</span>
-{{_ 'uzasadnienieKoszModalInner.ukiBroaderJustification'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>.
-                <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p><code>txv</code></p>
 
+        </td>
+        <td class="code highlight">
+          <pre class="html">				<span class="hljs-comment">&lt;!--Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej "--&gt;</span>
+				{{_ 'uzasadnienieKoszModalInner.ukiIfYourDecisionIsConsisten'}} <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p><code>txv</code> substantiation</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				{{_ 'uzasadnienieKoszModalInner.ukiBroaderJustification'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>.
+                <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-comment">&lt;!--W przeciwnym wypadku naciśnij--&gt;</span>
-{{_ 'uzasadnienieKoszModalInner.ukiOtherwisePress'}} <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Powrót--&gt;</span>
-{{_ 'glob.Return'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>.
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p><code>txv</code> Otherwise press</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				{{_ 'uzasadnienieKoszModalInner.ukiOtherwisePress'}} <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p><code>txv</code> Return</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				{{_ 'glob.Return'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>.
                 <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
-
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
- <span class="hljs-comment">&lt;!--uzasadnienie--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">"4"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'uzasadnienieKoszModalInner.ukiBroaderJustification'}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"uzasadnienieKosz"</span>
-                          <span class="hljs-attr">name</span>=<span class="hljs-string">"uzasadnienieKosz"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p><code>txv</code> substantiation</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">			<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">"4"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'uzasadnienieKoszModalInner.ukiBroaderJustification'}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"uzasadnienieKosz"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"uzasadnienieKosz"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-footer"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
- <span class="hljs-comment">&lt;!--Anuluj--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"anulujButton"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'glob.Return'}}"</span>/&gt;</span>
- <span class="hljs-comment">&lt;!--Zatwierdź--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-danger"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'uzasadnienieKoszModalInner.ukiSubmit'}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zatwierdzPrzeniesDoKosza"</span>/&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p><code>txv</code> Return</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"anulujButton"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'glob.Return'}}"</span>/&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p><code>txv</code> Approve</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-danger"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'uzasadnienieKoszModalInner.ukiSubmit'}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zatwierdzPrzeniesDoKosza"</span>/&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-comment">&lt;!--{{/with}}--&gt;</span>
+						<span class="hljs-comment">&lt;!--{{/with}}--&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 </pre>
         </td>
