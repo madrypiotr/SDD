@@ -25,6 +25,10 @@
 	"Address":"Adresse",
 	"PostalC":"Code postale",
 	"City":"Ville",
+	"Map":"MAP",
+	"MapA":"Lorsque vous cliquez sur le tag",
+	"MapB":"Vous entrez dans la carte du SSD sélectionné",
+	"MapC":"avec le déploiement d'utilisateurs.",
 	"InTheSystem":" dans le système ",
 	"DescrWithTheReasons":"Descriptif avec la motivation",
 	"WeAreHappyToInformYouThatYourApplicationFor":"Nous sommes heureux de vous informer, que votre application ",
@@ -212,6 +216,7 @@
   },
   "addLanguage":{
 	"AddLangua":"Ajoutez une langue.",
+	"Label":"ADD LANGUAGE",
 	"LanguageName":"Nom de langue: ",
 	"NameForExampleEnglish":"Nom (ex. polonais, anglais etc.)",
 	"Abbreviation":"Abréviation: ",
@@ -219,6 +224,7 @@
   },
   "editLanguage":{
 	"edEditLanguage":"Éditez la langue",
+	"Label":"EDIT LANGUAGE",
 	"edLanguageName":"Nom de langue: ",
 	"edNameOfTheLanForExamEnglish":"Nom (ex. polonais, anglais etc.)",
 	"edAbbreviation":"Abréviation: ",
@@ -226,6 +232,7 @@
   },
   "listLanguages":{
 	"listOfLanguages":"Liste de langues",
+	"Label":"LIST OF LANGUAGES",
 	"polski": "polski",
 	"angielski": "angielski",
 	"niemiecki": "niemiecki",
@@ -381,6 +388,7 @@
 	"lBaMyProfile":"Mon profil"
   },
   "registerForm":{
+	"Label":"REGISTER FORM",
 	"rFoCreateAnAccount":"Créez un compte",
 	"rFoPassword":"Mot de passe",
 	"rFoConfirmPassword":"Confirmez le mot de passe",
@@ -751,6 +759,7 @@
 	"RepContB":"Vous pouvez entrer dans les détails de la Question et prendre part à la la discussion sur la réalisation.",
 	"RepContC":"Vous pouvez exprimer l'approbation en donnant haute priorité à la réalisation à cette Question, ou désapprobation, si vous n'êtes pas satisfait de la mise en œuvre.",
 	"RepContD":"Si vous avez des questions, contactez-vous avec les Membres de l'Équipe de Réalisation.",
+	"NotificationsA":"NOTIFICATION",
 	"NotificationsA":"Revenez ici pour vous assurer, si un événement n'a pas échappé à votre attention.",
 	"NotificationsB":"Fond rose signifie la notification qui n'a pas encore été lu.",
 	"NotificationsC":"Ces notifications ont également été envoyés à votre adresse e-mail.",

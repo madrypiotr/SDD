@@ -13,7 +13,7 @@
 {{_ "informacjeKwestia.ikDetailsIssue"}}</a></li>
                     <li role="presentation"><a href="#manageZRIssue" aria-controls="manageZRIssue" role="tab" data-toggle="tab">
 <!--
-``txv`` Deployment Team -->
+``txv`` Implementation Team -->
 {{_ "informacjeKwestia.ikZespReal"}}</a></li>
                 </ul>
 
@@ -24,7 +24,7 @@
     <div role="tabpanel" class="tab-pane" id="manageZRIssue"><br />
 	{{> issueManageZR idZespolRealizacyjny = idZespolRealizacyjny}}
 <!--
-### footer page info about Deployment Team -->
+### footer page info `` label `` IMPLEMENTATION TEAM -->
 		<div class="footer">
 		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.ImplemTeam"}} </div>
 			<div id="container">
@@ -239,7 +239,7 @@
         {{> listZespolRealizacyjnyDoubleModal}}
     {{/unless}}
 <!--
-### footer page info. Depending on the status ...
+### footer page info `` label `` . Depending on the status ...
 -->
 <div class="footer">
 	<div id="button"> <i class="fa fa-info-circle"></i> &nbsp;
@@ -296,7 +296,7 @@
 		</div>
 </template>
 <!--
-## Template for manage Deployment Team -->
+## Template for manage Implementation Team -->
 <template name="issueManageZR">
     <input type="hidden" id="idZR" value="{{idZespolRealizacyjny}}"/>
     <legend>{{getZRName idZespolRealizacyjny zespol}}</legend>
@@ -320,7 +320,7 @@
         {{#if currentUser _id}}
             
 <!--
-``txv`` Resignation of the participation in Deployment Team. -->
+``txv`` Resignation of the participation in Implementation Team. -->
 <a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'zrOptions.zrCancellOfParticipationInTheTeamImplem'}}" id="giveUpMembership">
 <!--
 ``txv`` Resign -->

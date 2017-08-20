@@ -25,6 +25,10 @@
 	"Address":"Adres",
 	"PostalC":"Kod pocztowy",
 	"City":"Miasto",
+	"Map":"MAPA",
+	"MapA":"Kiedy klikniesz na znacznik",
+	"MapB":"wejdziesz w mapę wybranego SDD",
+	"MapC":"z rozlokowaniem użytkowników.",
 	"InTheSystem":" w systemie ",
 	"DescrWithTheReasons":"Opis z uzasadnieniem",
 	"WeAreHappyToInformYouThatYourApplicationFor":"Z radością informujemy, że Twoja aplikacja na ",
@@ -212,6 +216,7 @@
   },
   "addLanguage":{
 	"AddLangua":"Dodaj język",
+	"Label":"DODANIE JĘZYKA",
 	"LanguageName":"Nazwa języka: ",
 	"NameForExampleEnglish":"Nazwa (np. polski, angielski itp.)",
 	"Abbreviation":"Skrót: ",
@@ -219,6 +224,7 @@
   },
   "editLanguage":{
 	"edEditLanguage":"Edytuj język",
+	"Label":"EDYCJA JĘZYKA",
 	"edLanguageName":"Nazwa języka: ",
 	"edNameOfTheLanForExamEnglish":"Nazwa (np. polski, angielski itp.)",
 	"edAbbreviation":"Skrót: ",
@@ -226,6 +232,7 @@
   },
   "listLanguages":{
 	"listOfLanguages": "Lista języków",
+	"Label":"WYKAZ JĘZYKÓW",
 	"polski": "polski",
 	"angielski": "angielski",
 	"niemiecki": "niemiecki",
@@ -381,6 +388,7 @@
 	"lBaMyProfile":"Mój profil"
   },
   "registerForm":{
+	"Label":"FORMULARZ REJESTRACYJNY",
 	"rFoCreateAnAccount":"Utwórz konto",
 	"rFoPassword":"Hasło",
 	"rFoConfirmPassword":"Potwierdź hasło",
@@ -751,6 +759,7 @@
 	"RepContB":"Możesz przejść do szczegółów Kwestii i wziąć udział w dyskusji realizacyjnej.",
 	"RepContC":"Możesz wyrazić aprobatę nadając wysoki priorytet realizacyjny tej Kwestii, lub dezaprobatę, jeśli realizacja Cię nie zadowala.",
 	"RepContD":"Jeśli masz jakieś pytania, kontaktuj się z Członkami Zespołu Realizacyjnego.",
+	"Notifications":"POWIADOMIENIA",
 	"NotificationsA":"Zaglądaj tu dla upewnienia się, czy nie umknęło Twojej uwadze jakieś zdarzenie.",
 	"NotificationsB":"Różowe tło oznacza powiadomienie, które nie zostało jeszcze przeczytane.",
 	"NotificationsC":"Powiadomienia te zostały również wysłane na Twój adres e-mail.",
