@@ -1,12 +1,16 @@
+<!--
+``client\views\kwestie\kwestia_crud\``info_kwestia_top_buttons.html
+## Template top buttons in the details of the issue -->
 <template name="kwestiaTopButtons">
     {{#if isArchiwalna status typ}}
         <div class="col-md-12">
         <div class="btn-toolbar pull-right" role="toolbar" aria-label="...">
             <div class="btn-group" role="group" aria-label="...">
+			<!--
+			### Back Button -->
             <button id="backToList" class="btn btn-primary">
                 <span class="fa fa-arrow-left"></span> 
-<!--Powrót-->
-{{_ "glob.Return"}}
+			{{_ "glob.Return"}}
             </button>
             </div>
         </div>
@@ -18,37 +22,40 @@
                     {{#with actualIssue idKwestia}}
                         <a href="{{pathFor 'listRaport'}}" type="button" class="btn pull-left" style="background-color: darkgrey" >
                             <span class="fa fa-list-alt"></span> 
-<!--Lista RR-->
-{{_ "kwestiaTopButtons.ktReportsOfImplementation"}}
+							<!--
+							### Button of the list of Implementation Reports -->
+							{{_ "kwestiaTopButtons.ktReportsOfImplementation"}}
                         </a>
                     {{/with}}
                 {{/unless}}
             {{/if}}
             <div class="btn-toolbar pull-right" role="toolbar" aria-label="...">
                 <div class="btn-group" role="group" aria-label="...">
-
+					<!--
+					### Back Button -->
                     <button id="backToList" class="btn btn-primary">
                         <span class="fa fa-arrow-left"></span> 
-<!--Powrót-->
-{{_ "glob.Return"}}
+						{{_ "glob.Return"}}
                     </button>
                     {{#if isRealizowanaNieaktywny status czyAktywny}}
                         {{#unless isGlobalParams typ}}
                             {{#if isInZR idZespolRealizacyjny}}
+								<!--
+								### Button to add Implementation Repport -->
                                 <button id="addRealizationReportClick" name="{{idKwestia}}" class="btn btn-success" {{hasUserRights idKwestia}}>
                                     <span class="fa fa-check-circle-o"></span>
-<!--Raport Realizacyjny-->
-{{_ "kwestiaTopButtons.ktSubmissionOfTheReport"}}
+									{{_ "kwestiaTopButtons.ktSubmissionOfTheReport"}}
                                 </button>
                             {{/if}}
                         {{/unless}}
                     {{/if}}
                     {{#unless isKwestiaAccessOrChangeParams typ status czyAktywny}}
                        {{#unless isRealizowanaNieaktywny status czyAktywny}}
+							<!--
+							## Button to add Issue-Option -->
                             <button id="addOptionButton" class="btn btn-primary" {{hasUserRights idKwestia}}>
                                 <span class="fa fa-plus"></span> 
-<!--Dodaj Opcję-->
-{{_ "kwestiaTopButtons.ktAddOption"}}
+								{{_ "kwestiaTopButtons.ktAddOption"}}
                             </button>
                         {{/unless}}
                     {{/unless}}
@@ -60,10 +67,11 @@
                     {{#unless isKwestiaAccessOrChangeParamsRealizacja typ status czyAktywny}}
                     {{/unless}}
                     {{#unless isKwestiaAccessOrChangeParamsRealizacja typ status czyAktywny}}
+						<!--
+						## Button eject Issue into the trash -->
                         <button id="doKosza" name="{{idKwestia}}" class="btn btn-danger" {{hasUserRights idKwestia}}>
                             <span class="fa fa-trash"></span> 
-<!--Do Kosza-->
-{{_ "informacjeKwestiaArchiwum.ikaToTheTrash"}}
+							{{_ "informacjeKwestiaArchiwum.ikaToTheTrash"}}
                         </button>
                     {{/unless}}
                 </div>

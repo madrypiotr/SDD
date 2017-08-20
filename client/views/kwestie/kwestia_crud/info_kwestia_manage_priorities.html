@@ -1,14 +1,18 @@
+<!--
+``client\views\kwestie\kwestia_crud\``info_kwestia_manage_priorities.html
+## Template for Managing Priority Issues -->
 <template name="managePriorities">
         <div class="row">
             <div class="col-md-2">
-                
     {{#if isRealizowana status}}
         <strong> 
-<!--Priorytet w realizacji-->
+<!--
+``txv`` Priority in execution -->
 {{_ "managePriorities.mpPriorityInTheImplem"}}: </strong>
     {{else}}
+<!--
+``Balloon`` Priorytet -->
 <section class="dymek"> 
-	<!--Priorytet-->
 	{{_ "managePriorities.mpPriority"}}<ul>
 	<a data-toggle="modal"  href="#PriorMain">
 	<li class="fa fa-info-circle"> 
@@ -54,7 +58,8 @@
                             <button id="priorytetButton" name="{{idKwestia}}" type="button"
                                     class="btn btn-xs btn-danger" value="-1" {{isSelected -1 idParent glosujacy status idKwestia}}>-1
                             </button>
-<!--Oznacza wstrzymanie się od głosu-->
+<!--
+``txv`` means abstention from voting -->
 <button id="priorytetButton" name="{{idKwestia}}" type="button"
                                     class="btn btn-xs btn-default" value="0"
                                     data-toggle="tooltip" data-placement="top"
@@ -81,5 +86,4 @@
                 </div>
             {{/unless}}
         </div>
-
 </template>

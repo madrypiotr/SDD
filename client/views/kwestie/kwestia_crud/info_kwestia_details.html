@@ -1,54 +1,71 @@
+<!--
+``client\views\kwestie\kwestia_crud\``info_kwestia_details.html
+## Template for information about the details of the issue -->
 <template name="kwestiaDetails">
     <div class="clearfix"></div>
         {{#if isOsobowa typ}}
-<!--Tytuł-->
+<!--
+``txv`` Subject -->
 {{_ "kwestiaDetails.KwdTitle"}}
                {{krotkaTresc}}
-<!--Dane aplikująego-->
+<!--
+``txv`` Applicant data -->
 {{_ "kwestiaDetails.KwdDataAplicator"}}
                 {{#if isHonorowyType typ}}
-<!--e-mail-->
+<!--
+``txv`` e-mail -->
 {{_ "glob.Email"}}: 
                         {{szczegolowaTresc.email}}
                 {{/if}}
                 {{#unless isHonorowyType typ}}
-<!--Imię i Nazwisko-->
+<!--
+``txv`` Name and surname -->
 {{_ "kwestiaDetails.KwdFnameLname"}}:
                     {{szczegolowaTresc.fullName}}
                 {{#if protectorZR}}
-<!--e-mail-->
+<!--
+``txv`` e-mail -->
 {{_ "glob.Email"}}: 
                         {{szczegolowaTresc.email}}
-<!--PESEL-->
+<!--
+``txv`` PID -->
 {{_ "glob.PID"}}:
                         {{szczegolowaTresc.pesel}}
-<!--Adres-->
+<!--
+``txv`` Address -->
 {{_ "glob.Address"}}: 
                         {{szczegolowaTresc.address}}
-<!--Kod pocztowy-->
+<!--
+``txv`` Postal Code -->
 {{_ "glob.PostalC"}}: 
                         {{szczegolowaTresc.zip}}
                 {{/if}}
-<!--Miasto-->
+<!--
+``txv`` City -->
 {{_ "glob.City"}}: 
                         {{szczegolowaTresc.city}}
                 {{/unless}}
-<!--Dodatkowe-->
+<!--
+``txv`` Additional -->
 {{_ "kwestiaDetails.KwdAdditional"}}
                 {{szczegolowaTresc.uwagi}}
         {{else}}
             {{#if isGlobalParamsChange typ}}
-<!--Parametr-->
+<!--
+``txv`` Paramter -->
 {{_ "kwestiaDetails.KwdParameter"}}: 
                     {{szczegolowaTresc.title}}
-<!--Wartość początkowa-->
+<!--
+``txv`` Initial value -->
 {{_ "kwestiaDetails.KwdInitialValue"}}:
                     {{szczegolowaTresc.oldValue}}
-<!--Proponowana wartość-->
+<!--
+``txv`` Proposed value -->
 {{_ "kwestiaDetails.KwdTheProposedValue"}}: 
                    {{szczegolowaTresc.newValue}}
             {{else}}
-<!--Krótka treść Kwestii-->
+<!--
+``txv`` Short description of the Issue -->
 Treść Kwestii: <strong>{{krotkaTresc}}. </strong> {{szczegolowaTresc}}
             {{/if}}
         {{/if}}

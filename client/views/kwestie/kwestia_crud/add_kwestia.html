@@ -6,6 +6,8 @@
 		<div class="row">
 			<div class="col col-md-10">
 				<form class="form-horizontal" id="kwestiaForm">
+							<!--
+							``Balloon`` Add Issue -->
 					<section class="dymek">
 						<small>
 							<legend>
@@ -175,10 +177,10 @@
 					</div>
 					<div class="form-group" id="krotkaTrescGroup">
 						<label class="control-label col-xs-3" for="tresc">
+							<!--
+							``Balloon`` Short content Issue -->
 							<section class="dymek">
-								<!--
-								``txv`` Short content Issue -->
-								{{_ "addKwestiaForm.akf"}}:
+								{{_ "addKwestiaForm.akfShortContentIssue"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addKrTr">
 									<small class="fontSizeSmall">{{_ "dym.Prompt"}}
@@ -213,9 +215,9 @@
 					</div>
 					<div class="form-group" id="szczegolowaTrescGroup">
 						<label class="control-label col-xs-3" for="inputEmail">
-							<section class="dymek">
 							<!--
-							``txv`` Description with justification -->
+							``Balloon`` Description with justification -->
+							<section class="dymek">
 								{{_ "glob.DescrWithTheReasons"}}:
 								<ul align="left">
 									<a data-toggle="modal" href="#addUzasadn">
@@ -244,8 +246,6 @@
 							</section>
 						</label>
 						<div class="col-xs-9">
-							<!--
-							``txv`` Description with justification -->
 							<textarea class="form-control" rows="6" name="szczegolowaTresc" maxlength="1010" id="szczegolowaTresc" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required>{{szczegolowaTresc}}</textarea>
 						</div>
 					</div>

@@ -22,6 +22,10 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#template-for-managing-priority-issues">Template for Managing Priority Issues</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -30,18 +34,15 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>info_kwestia_manage_priorities.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\kwestia_crud\</code>info_kwestia_manage_priorities.html</p>
+<div class="pilwrap" id="template-for-managing-priority-issues">
+  <h2>
+    <a href="#template-for-managing-priority-issues" name="template-for-managing-priority-issues" class="pilcrow"></a>
+Template for Managing Priority Issues
+  </h2>
 </div>
 
         </td>
@@ -49,14 +50,37 @@
           <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"managePriorities"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-2"</span>&gt;</span>
-                
     {{#if isRealizowana status}}
         <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span> 
-<span class="hljs-comment">&lt;!--Priorytet w realizacji--&gt;</span>
-{{_ "managePriorities.mpPriorityInTheImplem"}}: <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p><code>txv</code> Priority in execution</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "managePriorities.mpPriorityInTheImplem"}}: <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
     {{else}}
-<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span> 
-	<span class="hljs-comment">&lt;!--Priorytet--&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>Balloon</code> Priorytet</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span> 
 	{{_ "managePriorities.mpPriority"}}<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"modal"</span>  <span class="hljs-attr">href</span>=<span class="hljs-string">"#PriorMain"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span> 
@@ -102,8 +126,20 @@
                             <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"priorytetButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idKwestia}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>
                                     <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs btn-danger"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"-1"</span> {{<span class="hljs-attr">isSelected</span> <span class="hljs-attr">-1</span> <span class="hljs-attr">idParent</span> <span class="hljs-attr">glosujacy</span> <span class="hljs-attr">status</span> <span class="hljs-attr">idKwestia</span>}}&gt;</span>-1
                             <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Oznacza wstrzymanie się od głosu--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"priorytetButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idKwestia}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>txv</code> means abstention from voting</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"priorytetButton"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"{{idKwestia}}"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>
                                     <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-xs btn-default"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"0"</span>
                                     <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">data-placement</span>=<span class="hljs-string">"top"</span>
                                     <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'managePriorities.mpThisMeansAbstention'}}"</span> {{<span class="hljs-attr">isUserOrDoradcaLogged</span>}}&gt;</span>
@@ -129,8 +165,8 @@
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
             {{/unless}}
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
 </pre>
         </td>
       </tr>

@@ -22,8 +22,12 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#template-for-issues-list">Template for Issues list</a>
+      </div>
+
       <div class="heading h3">
-        <a href="#footer-page-info">footer page info</a>
+        <a href="#footer-page-infolabel-list-of-issues">footer page infolabel LIST OF ISSUES</a>
       </div>
 
     </div>
@@ -34,18 +38,15 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>list_kwestia.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\kwestia_crud\</code>list_kwestia.html</p>
+<div class="pilwrap" id="template-for-issues-list">
+  <h2>
+    <a href="#template-for-issues-list" name="template-for-issues-list" class="pilcrow"></a>
+Template for Issues list
+  </h2>
 </div>
 
         </td>
@@ -57,11 +58,37 @@
 				{{#if currentUser}}
 				{{#if isZwyczajnyLogged}}
 				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn-group"</span>&gt;</span>
-					<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p><code>Balloon</code> about adding the Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">					<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
 							<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addKwestiaButton"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>
 								<span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-plus"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
-								<span class="hljs-comment">&lt;!--Dodaj nową Kwestię--&gt;</span>{{_ 'listKwestia.liAddANewIssue'}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> Add new Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">								{{_ 'listKwestia.liAddANewIssue'}}
 							<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">align</span>=<span class="hljs-string">"left"</span>&gt;</span>
@@ -94,25 +121,48 @@
 				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 				{{/if}}
  		{{/if}}
-	<span class="hljs-comment">&lt;!--Szukanie Kwestii--&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pull-right col-lg-6 col-md-4 col-sm-6 col-xs-6"</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>Balloon</code> Search Issues</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">				<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"dymek"</span>&gt;</span>
 				{{_ "more.SearchIssues"}}
 					{{&gt; reactiveTableFilter
 					id="customFilter"
 					label="?"
 					fields=getFilterFields}}
-					<span class="hljs-comment">&lt;!--Wpisz frazę nazwy--&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
 						<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
-							{{_ 'listKwestia.liEnterThePhraseNameIssue'}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p><code>txv</code> Enter phrase of the Issue name</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							{{_ 'listKwestia.liEnterThePhraseNameIssue'}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 				<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
 				{{#if isDataSortEnabled}}
@@ -140,10 +190,10 @@
     
       <tr>
         <td class="docs">
-          <div class="pilwrap" id="footer-page-info">
+          <div class="pilwrap" id="footer-page-infolabel-list-of-issues">
   <h3>
-    <a href="#footer-page-info" name="footer-page-info" class="pilcrow"></a>
-footer page info
+    <a href="#footer-page-infolabel-list-of-issues" name="footer-page-infolabel-list-of-issues" class="pilcrow"></a>
+footer page info<code>label</code> LIST OF ISSUES
   </h3>
 </div>
 
@@ -231,8 +281,20 @@ footer page info
 
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"noData"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">""</span>&gt;</span>
-		<span class="hljs-comment">&lt;!--Brak danych do wyświetlania...--&gt;</span>
-		{{_ "noData.noNoDataToDisplay"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p><code>txv</code> No data to display</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">		{{_ "noData.noNoDataToDisplay"}}
 	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 </pre>

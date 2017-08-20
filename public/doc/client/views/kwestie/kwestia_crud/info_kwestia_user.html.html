@@ -22,12 +22,28 @@
     <div id="tree"></div>
     <div id="headings">
 
-      <div class="heading h3">
-        <a href="#footer-page-info">footer page info</a>
+      <div class="heading h2">
+        <a href="#information-about-the-issue-for-the-user">Information about the Issue for the User</a>
       </div>
 
       <div class="heading h3">
-        <a href="#footer-page-info-1">footer page info</a>
+        <a href="#footer-page-info-about-deployment-team">footer page info about Deployment Team</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#template-for-details-of-the-issue">Template for details of the issue</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#footer-page-info.depending-on-the-status">footer page info. Depending on the status ...</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#template-for-manage-deployment-team">Template for manage Deployment Team</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#templates-for-the-team-options">Templates for the  Team options</a>
       </div>
 
     </div>
@@ -38,18 +54,15 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>info_kwestia_user.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\kwestia_crud\</code>info_kwestia_user.html</p>
+<div class="pilwrap" id="information-about-the-issue-for-the-user">
+  <h2>
+    <a href="#information-about-the-issue-for-the-user" name="information-about-the-issue-for-the-user" class="pilcrow"></a>
+Information about the Issue for the User
+  </h2>
 </div>
 
         </td>
@@ -61,11 +74,35 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"nav nav-tabs"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tablist"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"active"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"issueInfoDetails"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#issueInfoo"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"issueInfoo"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Szczegóły Kwestii--&gt;</span>
-{{_ "informacjeKwestia.ikDetailsIssue"}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p><code>txv</code> Details of the Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "informacjeKwestia.ikDetailsIssue"}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#manageZRIssue"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"manageZRIssue"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tab"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tab"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Zespół Realizacyjny--&gt;</span>
-{{_ "informacjeKwestia.ikZespReal"}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> Deployment Team</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "informacjeKwestia.ikZespReal"}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-content"</span>&gt;</span>
@@ -73,17 +110,17 @@
 	{{&gt; issueDetails}}
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"tabpanel"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tab-pane"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"manageZRIssue"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
-	{{&gt; issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
+	{{&gt; issueManageZR idZespolRealizacyjny = idZespolRealizacyjny}}
 </pre>
         </td>
       </tr>
     
       <tr>
         <td class="docs">
-          <div class="pilwrap" id="footer-page-info">
+          <div class="pilwrap" id="footer-page-info-about-deployment-team">
   <h3>
-    <a href="#footer-page-info" name="footer-page-info" class="pilcrow"></a>
-footer page info
+    <a href="#footer-page-info-about-deployment-team" name="footer-page-info-about-deployment-team" class="pilcrow"></a>
+footer page info about Deployment Team
   </h3>
 </div>
 
@@ -106,15 +143,31 @@ footer page info
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         {{else}}
-            {{&gt;issueDetails}}
+            {{&gt; issueDetails}}
         {{/if}}
-            {{&gt;zrModalCurrentIssueMyResolutions idZespolRealizacyjny=idZespolRealizacyjny }}
+            {{&gt; zrModalCurrentIssueMyResolutions 
+			idZespolRealizacyjny = idZespolRealizacyjny }}
     {{else}}
-        {{&gt;issueDetails}}
+        {{&gt; issueDetails}}
     {{/if}}
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"issueDetails"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="template-for-details-of-the-issue">
+  <h2>
+    <a href="#template-for-details-of-the-issue" name="template-for-details-of-the-issue" class="pilcrow"></a>
+Template for details of the issue
+  </h2>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"issueDetails"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span>
        {{#if kwestiaInKosz}}
         <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"color-red"</span>&gt;</span>{{_ "issueDetails.iDeTheIssueOfInactiveItIsLocatedInAtrashCan"}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
@@ -122,74 +175,291 @@ footer page info
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Kwestia--&gt;</span>
-{{_ "issueDetails.iDeIssue"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{kwestiaNazwa}}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>,<span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span> {{status}} 
-<span class="hljs-comment">&lt;!--od--&gt;</span>
-{{_ "issueDetails.iDeFrom"}} {{date}}, 
-<span class="hljs-comment">&lt;!--Temat--&gt;</span>
-{{_ "glob.Subject"}}: {{tematNazwa.nazwaTemat}}, 
-<span class="hljs-comment">&lt;!--Rodzaj--&gt;</span>
-{{_ "glob.Type"}} {{rodzajNazwa.nazwaRodzaj}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>	
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p><code>txv</code> Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeIssue"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{kwestiaNazwa}}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>,<span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span> {{status}} 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p><code>txv</code> from date</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeFrom"}} {{date}}, 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p><code>txv</code> Subject</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "glob.Subject"}}: {{tematNazwa.nazwaTemat}}, 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p><code>txv</code> Type</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "glob.Type"}} {{rodzajNazwa.nazwaRodzaj}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>	
                 {{#if anyEmailProblem}}
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-6 bg-danger padding-10"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center "</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Uwaga!--&gt;</span>
-{{_ "issueDetails.iDeWarning"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-10" id="section-10"></a>
+</div>
+<p><code>txv</code> Attention!</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeWarning"}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{emailProblemNotification}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 {{/if}}
                 {{#unless isRealizowana}}
                     <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-6 bg-info padding-10"</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Obecnych--&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-11" id="section-11"></a>
+</div>
+<p><code>txv</code> Present</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-comment">&lt;!--Obecnych--&gt;</span>
 {{_ "issueDetails.iDePresent"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> {{glosujacyCount}}, 
-<span class="hljs-comment">&lt;!--a więc--&gt;</span>
-{{_ "issueDetails.iDePAndSo"}}  
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-12" id="section-12"></a>
+</div>
+<p><code>txv</code> and so</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDePAndSo"}}  
                         {{#if kworumComplete}}
                             <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--kworum--&gt;</span>
-{{_ "issueDetails.iDeQuorum"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> 
-<span class="hljs-comment">&lt;!--spełnione--&gt;</span>
-{{_ "issueDetails.iDeFulfilled"}}.<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-13" id="section-13"></a>
+</div>
+<p><code>txv</code> quorum</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeQuorum"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-14" id="section-14"></a>
+</div>
+<p><code>txv</code> fulfilled</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeFulfilled"}}.<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
                         {{else}}
                             <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span> 
-<span class="hljs-comment">&lt;!--brak--&gt;</span>
-{{_ "issueDetails.iDeLack"}} {{textKworum}} 
-<span class="hljs-comment">&lt;!--dla uzyskania kworum--&gt;</span>
-{{_ "issueDetails.iDetoObtainAquorum"}}.<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-15" id="section-15"></a>
+</div>
+<p><code>txv</code> lack</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeLack"}} {{textKworum}} 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-16" id="section-16"></a>
+</div>
+<p><code>txv</code> to reach a quorum</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDetoObtainAquorum"}}.<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
                         {{/if}}
                         {{#unless isGlobalParamChange}}
                             {{#if ZRComplete}}
-<span class="hljs-comment">&lt;!--Zespół Realizacyjny skompletowany--&gt;</span>
-{{_ "issueDetails.iDeTheImplementationTeamCompleted"}}.
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-17" id="section-17"></a>
+</div>
+<p><code>txv</code> Implementation Team completed</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeTheImplementationTeamCompleted"}}.
                             {{else}}
                                 <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span> 
-<span class="hljs-comment">&lt;!--Brak jeszcze--&gt;</span>
-{{_ "issueDetails.iDeStillMissing"}} {{ZRText}} 
-<span class="hljs-comment">&lt;!--Zespołu Realizacyjnego--&gt;</span>
-{{_ "issueDetails.iDeTheImplementationTeam"}}.<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-18" id="section-18"></a>
+</div>
+<p><code>txv</code> yet missing</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeStillMissing"}} {{ZRText}} 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-19" id="section-19"></a>
+</div>
+<p><code>txv</code> Implementation Team</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeTheImplementationTeam"}}.<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
                             {{/if}}
                         {{/unless}}
                         <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
                         {{#if kwestiaInKosz}}
                             <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Powód odrzucenia kwestii--&gt;</span>
-{{_ "issueDetails.iDeTheReasonForTheRejectionIssue"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> {{reason}} <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-20" id="section-20"></a>
+</div>
+<p><code>txv</code> Reason of rejecting the Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeTheReasonForTheRejectionIssue"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span> {{reason}} <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
                         {{/if}}
                         {{#if isNotAdminOrDoradca}}
                             {{#if mojPriorytetZero}}
                                 <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
-<span class="hljs-comment">&lt;!--Wstrzymałeś się od głosu nadając tej Kwestii priorytet--&gt;</span>
-{{_ "issueDetails.iDeYouHavePausedFromGivingPriorityTo"}} <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-21" id="section-21"></a>
+</div>
+<p><code>txv</code> You have abbstined from voting giving priority to the Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeYouHavePausedFromGivingPriorityTo"}} <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>0<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
                             {{else}}
                                 {{#if mojPiorytet}}
                                     <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
-<span class="hljs-comment">&lt;!--Nadałeś tej Kwestii priorytet--&gt;</span>
-{{_ "issueDetails.iDeYouGaveTheIssueApriority"}}: <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>{{mojPiorytet}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-22" id="section-22"></a>
+</div>
+<p><code>txv</code> You have given priority to this Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeYouGaveTheIssueApriority"}}: <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>{{mojPiorytet}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
                                 {{else}}
                                     <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
-<span class="hljs-comment">&lt;!--Nie nadałeś jeszcze tej Kwestii priorytetu--&gt;</span>
-{{_ "issueDetails.iDeNotYetYouGaveThisIssueApriority"}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-23" id="section-23"></a>
+</div>
+<p><code>txv</code> You have not given this Issue a priority.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeNotYetYouGaveThisIssueApriority"}}
                                 {{/if}}
                             {{/if}}
                         {{/if}}
@@ -211,8 +481,20 @@ footer page info
         <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table table-bordered manageTable"</span>&gt;</span>
             {{#if isRealizowana}}
                 <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span> 
-<span class="hljs-comment">&lt;!--Priorytet w głosowaniu--&gt;</span>
-{{_ "issueDetails.iDePriorityVote"}}: &amp;nbsp;{{wartoscPriorytetuG}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-24" id="section-24"></a>
+</div>
+<p><code>txv</code> Priority in voting</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDePriorityVote"}}: &amp;nbsp;{{wartoscPriorytetuG}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
             {{/if}}
             <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
                 {{&gt;managePriorities
@@ -256,8 +538,20 @@ footer page info
         {{/if}}
         {{#if currentUser}}
             <span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"dyskusja"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Dyskusja Kwestii--&gt;</span>
-{{_ "issueDetails.iDeTalkIssue"}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-25" id="section-25"></a>
+</div>
+<p><code>txv</code> Discussion on Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "issueDetails.iDeTalkIssue"}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
                     {{&gt; discussionMain
@@ -275,8 +569,8 @@ footer page info
     {{#unless helperObserver}}
         {{&gt; addNazwaModal}}
         {{&gt; listZespolRealizacyjnyModal}}
-        {{&gt;decyzjaModal}}
-        {{&gt;listZespolRealizacyjnyDoubleModal}}
+        {{&gt; decyzjaModal}}
+        {{&gt; listZespolRealizacyjnyDoubleModal}}
     {{/unless}}
 </pre>
         </td>
@@ -284,10 +578,10 @@ footer page info
     
       <tr>
         <td class="docs">
-          <div class="pilwrap" id="footer-page-info-1">
+          <div class="pilwrap" id="footer-page-info.depending-on-the-status">
   <h3>
-    <a href="#footer-page-info-1" name="footer-page-info-1" class="pilcrow"></a>
-footer page info
+    <a href="#footer-page-info.depending-on-the-status" name="footer-page-info.depending-on-the-status" class="pilcrow"></a>
+footer page info. Depending on the status ...
   </h3>
 </div>
 
@@ -295,13 +589,78 @@ footer page info
         <td class="code highlight">
           <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"button"</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-info-circle"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> &amp;nbsp;
-	{{#if isDeliberowana}} {{_ "more.DeliberIssueDetails"}} {{/if}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-27" id="section-27"></a>
+</div>
+<p>... deliberate <code>txv</code> DETAILS OF DELIBERATED ISSUE</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">	{{#if isDeliberowana}} {{_ "more.DeliberIssueDetails"}} {{/if}}
             {{#unless kwestiaInKosz}}
-	{{#if isGlosowana}} {{_ "more.VotingDetails"}} {{/if}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-28" id="section-28"></a>
+</div>
+<p>... voted on <code>txv</code> DETAILS OF VOTING ISSUE</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">	{{#if isGlosowana}} {{_ "more.VotingDetails"}} {{/if}}
 			{{/unless}}
-	{{#if isRealizowana}} {{_ "more.ImplemIssueDetails"}} {{/if}}
-	{{#if isZrealizowana}} SZCZEGÓŁY KWESTII ZREALIZOWANEJ {{/if}}
-	{{#if kwestiaInKosz}} {{_ "more.TheIssueInTheTrashCan"}} {{/if}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-29" id="section-29"></a>
+</div>
+<p>... implemented <code>txv</code> DETAILS OF THE IMPLEMENTED ISSUE</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">	{{#if isRealizowana}} {{_ "more.ImplemIssueDetails"}} {{/if}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-30" id="section-30"></a>
+</div>
+<p>... completed <code>txv</code> DETAILS OF THE COMPLETED ISSUE</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">	{{#if isZrealizowana}} {{_ "more.CompletedIssueDetails"}} {{/if}}
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-31" id="section-31"></a>
+</div>
+<p>... in trash <code>txv</code> DETAILS OF THE ISSUE WHICH IS IN TRASH</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">	{{#if kwestiaInKosz}} {{_ "more.TheIssueInTheTrashCan"}} {{/if}}
 	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"container"</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"footer_center"</span>&gt;</span>
@@ -337,8 +696,22 @@ footer page info
 	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="template-for-manage-deployment-team">
+  <h2>
+    <a href="#template-for-manage-deployment-team" name="template-for-manage-deployment-team" class="pilcrow"></a>
+Template for manage Deployment Team
+  </h2>
+</div>
 
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"issueManageZR"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"issueManageZR"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"idZR"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{idZespolRealizacyjny}}"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>{{getZRName idZespolRealizacyjny zespol}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
@@ -352,32 +725,90 @@ footer page info
             }}
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="templates-for-the-team-options">
+  <h2>
+    <a href="#templates-for-the-team-options" name="templates-for-the-team-options" class="pilcrow"></a>
+Templates for the  Team options
+  </h2>
+</div>
 
-
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"zrOptions"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"zrOptions"</span>&gt;</span>
     {{idZespolRealizacyjny}}
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> &gt;</span>
         {{#if currentUser _id}}
             
-<span class="hljs-comment">&lt;!--Rezygnacja z udziału w Zespole Realizacyjnym--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'zrOptions.zrCancellOfParticipationInTheTeamImplem'}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"giveUpMembership"</span>&gt;</span>
- <span class="hljs-comment">&lt;!--Rezygnuj--&gt;</span>
-{{_ "zrOptions.zrResign"}} <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-outdent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-34" id="section-34"></a>
+</div>
+<p><code>txv</code> Resignation of the participation in Deployment Team.</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'zrOptions.zrCancellOfParticipationInTheTeamImplem'}}"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"giveUpMembership"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-35" id="section-35"></a>
+</div>
+<p><code>txv</code> Resign</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "zrOptions.zrResign"}} <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-outdent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         {{else}}
-            
-<span class="hljs-comment">&lt;!--Napisz wiadomość do członka ZR--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'zrOptions.zrWriteAmessageToMemberIT'}}"</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-36" id="section-36"></a>
+</div>
+<p><code>txv</code> Compose message for Member of the DT</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default btn-xs"</span> <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"tooltip"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"{{_ 'zrOptions.zrWriteAmessageToMemberIT'}}"</span>
                <span class="hljs-attr">href</span>=<span class="hljs-string">"{{pathFor 'sendMessage' _id}}"</span>&gt;</span>
- <span class="hljs-comment">&lt;!--Napisz wiadomość--&gt;</span>
-{{_ "zrOptions.zrWriteAmessage"}} <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-pencil"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-37" id="section-37"></a>
+</div>
+<p><code>txv</code> Write message</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ "zrOptions.zrWriteAmessage"}} <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-pencil"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         {{/if}}
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
 
 </pre>
         </td>

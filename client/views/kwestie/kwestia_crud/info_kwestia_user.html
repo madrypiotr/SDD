@@ -1,3 +1,6 @@
+<!--
+``client\views\kwestie\kwestia_crud\``info_kwestia_user.html
+## Information about the Issue for the User -->
 <template name="informacjeKwestia">
 	{{#if isIssueRealizowana}}
         {{#if myselfInZR}}
@@ -5,10 +8,12 @@
             <div>
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active" id="issueInfoDetails"><a href="#issueInfoo" aria-controls="issueInfoo" role="tab" data-toggle="tab">
-<!--Szczegóły Kwestii-->
+<!--
+``txv`` Details of the Issue -->
 {{_ "informacjeKwestia.ikDetailsIssue"}}</a></li>
                     <li role="presentation"><a href="#manageZRIssue" aria-controls="manageZRIssue" role="tab" data-toggle="tab">
-<!--Zespół Realizacyjny-->
+<!--
+``txv`` Deployment Team -->
 {{_ "informacjeKwestia.ikZespReal"}}</a></li>
                 </ul>
 
@@ -17,10 +22,9 @@
 	{{> issueDetails}}
     </div>
     <div role="tabpanel" class="tab-pane" id="manageZRIssue"><br />
-	{{> issueManageZR idZespolRealizacyjny=idZespolRealizacyjny}}
+	{{> issueManageZR idZespolRealizacyjny = idZespolRealizacyjny}}
 <!--
-### footer page info
--->
+### footer page info about Deployment Team -->
 		<div class="footer">
 		  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.ImplemTeam"}} </div>
 			<div id="container">
@@ -38,14 +42,17 @@
 </div>
 </div>
         {{else}}
-            {{>issueDetails}}
+            {{> issueDetails}}
         {{/if}}
-            {{>zrModalCurrentIssueMyResolutions idZespolRealizacyjny=idZespolRealizacyjny }}
+            {{> zrModalCurrentIssueMyResolutions 
+			idZespolRealizacyjny = idZespolRealizacyjny }}
     {{else}}
-        {{>issueDetails}}
+        {{> issueDetails}}
     {{/if}}
 </template>
 
+<!--
+## Template for details of the issue -->
 <template name="issueDetails">
     <div class="main">
        {{#if kwestiaInKosz}}
@@ -54,18 +61,23 @@
         <div class="row">
             <div class="col-md-12">
                 <legend><small>
-<!--Kwestia-->
+<!--
+``txv`` Issue -->
 {{_ "issueDetails.iDeIssue"}}:</small> <strong>{{kwestiaNazwa}}</strong>,<small> {{status}} 
-<!--od-->
+<!--
+``txv`` from date -->
 {{_ "issueDetails.iDeFrom"}} {{date}}, 
-<!--Temat-->
+<!--
+``txv`` Subject -->
 {{_ "glob.Subject"}}: {{tematNazwa.nazwaTemat}}, 
-<!--Rodzaj-->
+<!--
+``txv`` Type -->
 {{_ "glob.Type"}} {{rodzajNazwa.nazwaRodzaj}}</small></legend>	
                 {{#if anyEmailProblem}}
                     <div class="col-md-6 bg-danger padding-10" style="text-align: center ">
                         <p>
-<!--Uwaga!-->
+<!--
+``txv`` Attention! -->
 {{_ "issueDetails.iDeWarning"}}</p>
                         <p>{{emailProblemNotification}}</p>
                     </div>
@@ -73,54 +85,68 @@
                 {{#unless isRealizowana}}
                     <p class="col-md-6 bg-info padding-10">
                         <b>
+<!--
+``txv`` Present -->
 <!--Obecnych-->
 {{_ "issueDetails.iDePresent"}}:</b> {{glosujacyCount}}, 
-<!--a więc-->
+<!--
+``txv`` and so -->
 {{_ "issueDetails.iDePAndSo"}}  
                         {{#if kworumComplete}}
                             <b>
-<!--kworum-->
+<!--
+``txv`` quorum  -->
 {{_ "issueDetails.iDeQuorum"}}:</b> 
-<!--spełnione-->
+<!--
+``txv`` fulfilled -->
 {{_ "issueDetails.iDeFulfilled"}}.<br/>
                         {{else}}
                             <b> 
-<!--brak-->
+<!--
+``txv`` lack -->
 {{_ "issueDetails.iDeLack"}} {{textKworum}} 
-<!--dla uzyskania kworum-->
+<!--
+``txv`` to reach a quorum -->
 {{_ "issueDetails.iDetoObtainAquorum"}}.</b><br/>
                         {{/if}}
                         {{#unless isGlobalParamChange}}
                             {{#if ZRComplete}}
-<!--Zespół Realizacyjny skompletowany-->
+<!--
+``txv`` Implementation Team completed -->
 {{_ "issueDetails.iDeTheImplementationTeamCompleted"}}.
                             {{else}}
                                 <b> 
-<!--Brak jeszcze-->
+<!--
+``txv`` yet missing -->
 {{_ "issueDetails.iDeStillMissing"}} {{ZRText}} 
-<!--Zespołu Realizacyjnego-->
+<!--
+``txv`` Implementation Team -->
 {{_ "issueDetails.iDeTheImplementationTeam"}}.</b>
                             {{/if}}
                         {{/unless}}
                         <br/>
                         {{#if kwestiaInKosz}}
                             <b>
-<!--Powód odrzucenia kwestii-->
+<!--
+``txv`` Reason of rejecting the Issue -->
 {{_ "issueDetails.iDeTheReasonForTheRejectionIssue"}}:</b> {{reason}} <br/>
                         {{/if}}
                         {{#if isNotAdminOrDoradca}}
                             {{#if mojPriorytetZero}}
                                 <br/>
-<!--Wstrzymałeś się od głosu nadając tej Kwestii priorytet-->
+<!--
+``txv`` You have abbstined from voting giving priority to the Issue -->
 {{_ "issueDetails.iDeYouHavePausedFromGivingPriorityTo"}} <b>0</b>
                             {{else}}
                                 {{#if mojPiorytet}}
                                     <br/>
-<!--Nadałeś tej Kwestii priorytet-->
+<!--
+``txv`` You have given priority to this Issue -->
 {{_ "issueDetails.iDeYouGaveTheIssueApriority"}}: <b>{{mojPiorytet}}</b>
                                 {{else}}
                                     <br/>
-<!--Nie nadałeś jeszcze tej Kwestii priorytetu-->
+<!--
+``txv`` You have not given this Issue a priority. -->
 {{_ "issueDetails.iDeNotYetYouGaveThisIssueApriority"}}
                                 {{/if}}
                             {{/if}}
@@ -143,7 +169,8 @@
         <table class="table table-bordered manageTable">
             {{#if isRealizowana}}
                 <td> 
-<!--Priorytet w głosowaniu-->
+<!--
+``txv`` Priority in voting -->
 {{_ "issueDetails.iDePriorityVote"}}: &nbsp;{{wartoscPriorytetuG}}</td>
             {{/if}}
             <tr>
@@ -188,7 +215,8 @@
         {{/if}}
         {{#if currentUser}}
             <legend id="dyskusja">
-<!--Dyskusja Kwestii-->
+<!--
+``txv`` Discussion on Issue -->
 {{_ "issueDetails.iDeTalkIssue"}}</legend>
             <div class="row">
                 <div class="col-md-12">
@@ -207,20 +235,30 @@
     {{#unless helperObserver}}
         {{> addNazwaModal}}
         {{> listZespolRealizacyjnyModal}}
-        {{>decyzjaModal}}
-        {{>listZespolRealizacyjnyDoubleModal}}
+        {{> decyzjaModal}}
+        {{> listZespolRealizacyjnyDoubleModal}}
     {{/unless}}
 <!--
-### footer page info
+### footer page info. Depending on the status ...
 -->
 <div class="footer">
 	<div id="button"> <i class="fa fa-info-circle"></i> &nbsp;
+<!--
+	... deliberate ``txv`` DETAILS OF DELIBERATED ISSUE -->
 	{{#if isDeliberowana}} {{_ "more.DeliberIssueDetails"}} {{/if}}
             {{#unless kwestiaInKosz}}
+<!--
+	... voted on ``txv`` DETAILS OF VOTING ISSUE -->
 	{{#if isGlosowana}} {{_ "more.VotingDetails"}} {{/if}}
 			{{/unless}}
+<!--
+	... implemented ``txv`` DETAILS OF THE IMPLEMENTED ISSUE -->
 	{{#if isRealizowana}} {{_ "more.ImplemIssueDetails"}} {{/if}}
-	{{#if isZrealizowana}} SZCZEGÓŁY KWESTII ZREALIZOWANEJ {{/if}}
+<!--
+	... completed ``txv`` DETAILS OF THE COMPLETED ISSUE -->
+	{{#if isZrealizowana}} {{_ "more.CompletedIssueDetails"}} {{/if}}
+<!--
+	... in trash ``txv`` DETAILS OF THE ISSUE WHICH IS IN TRASH -->
 	{{#if kwestiaInKosz}} {{_ "more.TheIssueInTheTrashCan"}} {{/if}}
 	</div>
 	<div id="container">
@@ -257,7 +295,8 @@
 	</div>
 		</div>
 </template>
-
+<!--
+## Template for manage Deployment Team -->
 <template name="issueManageZR">
     <input type="hidden" id="idZR" value="{{idZespolRealizacyjny}}"/>
     <legend>{{getZRName idZespolRealizacyjny zespol}}</legend>
@@ -272,29 +311,30 @@
             }}
         </div>
     </div>
-
 </template>
-
-
+<!--
+## Templates for the  Team options -->
 <template name="zrOptions">
     {{idZespolRealizacyjny}}
     <div >
         {{#if currentUser _id}}
             
-<!--Rezygnacja z udziału w Zespole Realizacyjnym-->
+<!--
+``txv`` Resignation of the participation in Deployment Team. -->
 <a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'zrOptions.zrCancellOfParticipationInTheTeamImplem'}}" id="giveUpMembership">
- <!--Rezygnuj-->
+<!--
+``txv`` Resign -->
 {{_ "zrOptions.zrResign"}} <i class="fa fa-outdent"></i>
             </a>
         {{else}}
-            
-<!--Napisz wiadomość do członka ZR-->
+<!--
+``txv`` Compose message for Member of the DT -->
 <a class="btn btn-default btn-xs" data-toggle="tooltip" title="{{_ 'zrOptions.zrWriteAmessageToMemberIT'}}"
                href="{{pathFor 'sendMessage' _id}}">
- <!--Napisz wiadomość-->
+ <!--
+``txv`` Write message -->
 {{_ "zrOptions.zrWriteAmessage"}} <i class="fa fa-pencil"></i>
             </a>
         {{/if}}
     </div>
 </template>
-

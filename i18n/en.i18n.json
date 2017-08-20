@@ -121,15 +121,15 @@
 		"DescSubject":"Topic that is field of functioning.",
 			"DescSubjectA":"Every community has its' own specific scope of topics. The System thus does not imply any set of descriptions which would not be mostly remain unused. We are creating pack of subjects from the beginning according to needs. Before you set the name check weather there is not Topic good for your case? Example of Topics are: organisation, finance, culture, politics, economy, health, entertainment, industries, transport, etc. Field ...best to describe Topic in just one word.",
 
-	  "CreatingTeamsRealiz":"Creation of Execution Teams",
-			"CreatingTeamsRealizA":"Before the Issue can be executed the creation of the Execution Team as one of the three conditions must happen (the other conditions are Quorum and Priority rank value).",
-			"CreatingTeamsRealizB":"To become Member of The Execution Team only clicking the [Join]. Your surname will appear. You may resign clicking again. The team is completed when three Members join.",
-			"CreatingTeamsRealizC":"Membership o Execution Team is voluntary administrative and control function. The Members are obliged to coordinate execution of the Resolution taken as outcome of  the Issue and to forward report on progress to the System.",
-			"CreatingTeamsRealizD":"Member of the ET forwards Execution Team Reports on progress or any difficulties in actions within the Issue execution. The frequency of the Progress Reports is set in [Global] parameters of the System.",
+	  "CreatingTeamsRealiz":"Creation of Implementation Teams",
+			"CreatingTeamsRealizA":"Before the Issue can be executed the creation of the Implementation Team as one of the three conditions must happen (the other conditions are Quorum and Priority rank value).",
+			"CreatingTeamsRealizB":"To become Member of The Implementation Team only clicking the [Join]. Your surname will appear. You may resign clicking again. The team is completed when three Members join.",
+			"CreatingTeamsRealizC":"Membership o Implementation Team is voluntary administrative and control function. The Members are obliged to coordinate execution of the Resolution taken as outcome of  the Issue and to forward report on progress to the System.",
+			"CreatingTeamsRealizD":"Member of the ET forwards Implementation Team Reports on progress or any difficulties in actions within the Issue execution. The frequency of the Progress Reports is set in [Global] parameters of the System.",
 			"CreatingTeamsRealizE":"Note, that person joining the ET as third Member plays particular role. He or she has to define (or choose) name for the Team. The System will prompt you to do so.",
 			
-	  "DoesNotDuplic":"Do not double the competences of the Execution Teams",
-			"DoesNotDuplicA":"Before you decide to create ET please find out if there is not any respective Execution Team running already.",
+	  "DoesNotDuplic":"Do not double the competences of the Implementation Teams",
+			"DoesNotDuplicA":"Before you decide to create ET please find out if there is not any respective Implementation Team running already.",
 			"DoesNotDuplicB":"That is ...",
 			"DoesNotDuplicC":"...before as third member you will hit [Join] so confirming the 3 persons composition of the ET first review the list of to date set teams so as to possibly render execution the Issue to any of the teams.",
 
@@ -147,18 +147,18 @@
 		"Issues":"ISSUES",
 		  "IssuesA":"An Issue can be proposed by each User. It is the Community who will decide how the proposed Issue will be perceived and if it will be start of good thing for everyone. The Issue is the problem to be solved, an idea, proposal, resolution draft which later on will be evaluated by the Community System Users.",
 		  "IssuesB":"When your Issue will gain sufficient support it will be passed for voting. Positive voting of the Issue end with taking Resolution and from now on the execution of the Issue (that is respective Resolution) stars.",
-		  "IssuesC":"The lifetime of an Issue can be unlimited or finalized in [Realized] or in [Thrash]. The third form of an Issue life may be constant aspiring for advancement that is remaining in discussion/debate. Lack of advancement may result from: no persons willing to engage within Execution Team, lack of support by Users (null or negative priority) or from lack of quorum.",
+		  "IssuesC":"The lifetime of an Issue can be unlimited or finalized in [Realized] or in [Thrash]. The third form of an Issue life may be constant aspiring for advancement that is remaining in discussion/debate. Lack of advancement may result from: no persons willing to engage within Implementation Team, lack of support by Users (null or negative priority) or from lack of quorum.",
 
 		"Voting":"VOTING",
 		  "VotingA":"Three highest ranked Issues are going to be voted. Information about it you will receive via e-mail. You do not have to check you e-mail account for the information on it and on many other events you will see here (bookmart Notifications)",
 		  "VotingB":"Before en Issue is voted three conditions must be fulfilled:",
 		  "VotingC":"1. sufficient support for the Issue by Users (high positive priority). At the time only 3 highest ranked Issues go for voting,",
 		  "VotingD":"2. there is quorum during voting,",
-		  "VotingE":"3. three persons ready to access into Execution Team.",
+		  "VotingE":"3. three persons ready to access into Implementation Team.",
 
-		"Implement":"Execution",
+		"Implement":"Implementation",
 		  "ImplementA":"You will see here Issues which passed successfully debate process and later voting.",
-		  "ImplementB":"In such case Resolution is taken and thus the execution starts guided by Execution Team.",
+		  "ImplementB":"In such case Resolution is taken and thus the execution starts guided by Implementation Team.",
 		  "ImplementC":"The execution of the Issue will last as long as Community will deem it for completed, passing it to Completed division, to Archive. If it will be regarded as faulty or in other way not for execution it may be send to Thrash bin.",
 
 		"INarchi":"ARCHIVE",
@@ -186,7 +186,7 @@
 	  "PriorityIssues":"Issue priority",
 		  "PriorityIssuesA":"Give the Issue priority reflecting the meaning you put to it. If you change your mind during discussion you may change the priority value any time.",
 		  "PriorityIssuesB":"The sum of priorities given by System Users is the most important factor deciding about the Issue life cycle.",
-		  "PriorityIssuesC":"The Issues by default are listed from highest ranked first. The Issues on top after fulfilling other conditions (quorum and completed Execution Team) are passed to execution.",
+		  "PriorityIssuesC":"The Issues by default are listed from highest ranked first. The Issues on top after fulfilling other conditions (quorum and completed Implementation Team) are passed to execution.",
 
 		"OnTheImplementOf":"Issues that have been positively verified in voting go to execution. This will be documented by generation of the Resolution by the System.",
 		"OnTheImplementOfA":"The example may be person Issue (membership of the user) which also is in execution as as the user is active in System.",
@@ -259,7 +259,7 @@
 	"ikaDiscussionOnTheIssue":"Discussing the Issue"
   },
   "addRealizationReportModalInner":{
-    "addNewReportTheImplem":"New Execution Report",
+    "addNewReportTheImplem":"New Implementation Report",
     "addRealTitle":"Title:",
     "addDescription":"Description"
   },
@@ -268,7 +268,7 @@
 	"dPiLess":"less",
 	"dPiMore":"more",
 	"dPiExplainThis":"Substantiation",
-	"dPiTheImplemReport":"Execution Report",
+	"dPiTheImplemReport":"Implementation Report",
 	"dPiDescription":"Description"
   },
   "discussionAnswerForm":{
@@ -459,24 +459,24 @@
 	"ctmChooseSubject":"Choose Subject"
   },
   "kwestiaDetails":{
-	"KwdTitle":"Title",
+	"KwdTitle":"Subject",
     "KwdDataAplicator":"Applicant data",
 	"KwdFnameLname":"Name and surname",
 	"KwdAdditional":"Additional",
-	"KwdParameter":"Parametr",
+	"KwdParameter":"Paramter",
     "KwdInitialValue":"Initial value",
 	"KwdTheProposedValue":"Proposed value",
     "KwdShortContentIssue":"Short description of the Issue"
   },
   "managePriorities":{
-	"mpPriorityInTheImplem":"Priority in execution",
+	"mpPriorityInTheImplem":"Priority in Implementation",
     "mpPriority":"Priorytet",
     "mpPrioInfo":"Info",
 	"mpThisMeansAbstention":" means abstention from voting"
   },
   "ZRTemplate":{
-	"zrTheImplementationTeam":"Execution Team",
-	"zrOnTheCreationOfImplTeam":"On creation of Execution Team",
+	"zrTheImplementationTeam":"Implementation Team",
+	"zrOnTheCreationOfImplTeam":"On creation of Implementation Team",
     "zrNameImplTeam":"Name of the Team",
 	"zrLack":"None",
 	"zrMemberNo":"Member ",
@@ -485,27 +485,27 @@
 	"zrWhyIsThisImportant":"Why this is important?"
   },
   "kwestiaTopButtons":{
-    "ktReportsOfImplementation":"Execution Reports",
+    "ktReportsOfImplementation":"Implementation Reports",
 	"ktSubmissionOfTheReport":"Adding Report",
 	"ktAddOption":"Add Option"
   },
   "informacjeKwestia":{
     "ikDetailsIssue":"Details of the Issue",
-	"ikZespReal":"Execution Team"
+	"ikZespReal":"Implementation Team"
   },
   "issueDetails":{
     "iDeIssue":"Issue",
 	"iDeFrom":"from",
 	"iDeWarning":"Attention!",
     "iDePresent":"Present",
-	"iDePAndSo":"that is ",
+	"iDePAndSo":" and so ",
 	"iDeQuorum":"quorum ",
-    "iDeFulfilled":"secured ",
-	"iDeLack":"lack ",
-	"iDetoObtainAquorum":"to secure quorum ",
-    "iDeTheImplementationTeamCompleted":"Execution Team completed",
-	"iDeStillMissing":"Yet missing ",
-    "iDeTheImplementationTeam":"Execution Team",
+    "iDeFulfilled":" fulfilled ",
+	"iDeLack":" lack ",
+	"iDetoObtainAquorum":" to reach a quorum ",
+    "iDeTheImplementationTeamCompleted":"Implementation Team completed",
+	"iDeStillMissing":" yet missing ",
+    "iDeTheImplementationTeam":" Implementation Team ",
 	"iDeTheIssueOfInactiveItIsLocatedInAtrashCan":"ATTENTION! The Issue not active (it is in the Trash Bin!)",
     "iDeTheReasonForTheRejectionIssue":"Reason of rejecting the Issue ",
     "iDeYouHavePausedFromGivingPriorityTo":"You have abbstined from voting giving priority to the Issue",
@@ -515,45 +515,45 @@
     "iDeTalkIssue":"Discussion on Issue "
   },
   "zrOptions":{
-	"zrCancellOfParticipationInTheTeamImplem":"Resignation of the participation in Execution Team. ",
+	"zrCancellOfParticipationInTheTeamImplem":"Resignation of the participation in Implementation Team. ",
     "zrResign":"Resign ",
 	"zrWriteAmessageToMemberIT":"Compose message for Member of the ET",
 	"zrWriteAmessage":"Write message"
   },
   "addNazwaModalInner":{
-	"aniPleaseNameTheImplementationTeam":"Give name to this Execution Team",
-	"aniTheImplementationTeamForThe":"Execution Team for ",
-	"aniNameTheImplementationTeam":"Name of the Execution Team ",
+	"aniPleaseNameTheImplementationTeam":"Give name to this Implementation Team",
+	"aniTheImplementationTeamForThe":"Implementation Team for ",
+	"aniNameTheImplementationTeam":"Name of the Implementation Team ",
 	"aniExplanation":"Explanation ",
-	"aniEnterOnlyTheContinuationOfTheName":"First part of the ET name, that is prefix (Execution Team for ) already exists, so add the further description of the name, e.g:",
+	"aniEnterOnlyTheContinuationOfTheName":"First part of the ET name, that is prefix (Implementation Team for ) already exists, so add the further description of the name, e.g:",
 	"aniEnterOnlyTheContinuationOfTheNameA":"Organizing the Competition, or ",
 	"aniEnterOnlyTheContinuationOfTheNameB":"Residential Area Fancing, or ",
 	"aniEnterOnlyTheContinuationOfTheNameC":"Finances Transparency, and so on... ",
 	"aniEnterOnlyTheContinuationOfTheNameD":"Give only final phrase according to Issue type."
   },
   "decyzjaModalInner":{
-	"deCreatingTheImplementationTeam":"Creation of the Execution Team",
-	"deImCreatingAnewTeamImplementation":"I create new Execution Team",
+	"deCreatingTheImplementationTeam":"Creation of the Implementation Team",
+	"deImCreatingAnewTeamImplementation":"I create new Implementation Team",
 	"deIacceptAnIssueForMyTeam":"I accept the Issue to my Team"
   },
   "listZespolRealizacyjnyModalInner":{
-	"lzrImplementation teams":"Execution Teams"
+	"lzrImplementation teams":"Implementation Teams"
   },
   "zespolOptionsTemplate":{
 	"zotPleaseMentionImplTeam":"Create ET"
   },
   "listZespolRealizacyjnyDoubleModalInner":{
-	"izdSelectTheAppropriateImplTeamForTheIssue":"Point proper ET for this Issue. The Issue shall be accepted for execution provided that you are Member of the Team. So, look for Your Execution Team or go back to create new Team.",
+	"izdSelectTheAppropriateImplTeamForTheIssue":"Point proper ET for this Issue. The Issue shall be accepted for execution provided that you are Member of the Team. So, look for Your Implementation Team or go back to create new Team.",
 	"izdResign":"Resign "
   },
   "zespolDoubleTemplateOptions":{
 	"izdMentionImplemTeam":"Create ET"
   },
   "zrModalCurrentIssueMyResolutionsInner":{
-	"zmrCancellationOfParticipationInTheImplemTeam":"Resignation from participation in Execution Team ",
+	"zmrCancellationOfParticipationInTheImplemTeam":"Resignation from participation in Implementation Team ",
 	"zmrThinkThisStep":"Think over this step! - The taken Resolution may not be executed!",
 	"zmrTheResolutionsWhoseImplementationIsCaring":"Resolutions that you take care of its' execution",
-	"zmrYouDoNeverthelessTeaveTheRealizationTeam":"Are you still decided to leave the Execution Team?",
+	"zmrYouDoNeverthelessTeaveTheRealizationTeam":"Are you still decided to leave the Implementation Team?",
 	"zmrYes":"Yes"
   },
   "previewKwestia":{
@@ -582,9 +582,9 @@
   },
   "notificationLackOfRealizationReport":{
 	"nlrSystemName":"SDD",
-	"nlrNoSystemReportTheImplemIssue":"Ther eis no Execution Report for this Issue in the System ",
+	"nlrNoSystemReportTheImplemIssue":"Ther eis no Implementation Report for this Issue in the System ",
 	"nlrOn":"concerning ",
-	"nlrTheImplementationTeam":"Execution Team",
+	"nlrTheImplementationTeam":"Implementation Team",
 	"nlrPost":"Write",
 	"nlrGoToTheDiscussionOfRealization":"Go to the execution discussion",
 	"nlrLinkToIssue":"Link to Issue"
@@ -593,7 +593,7 @@
 	"lraListOfReports":"Reports list."
   },
   "informacjeRaport":{
-	"inrTheImplementationReport":"Execution Report",
+	"inrTheImplementationReport":"Implementation Report",
 	"inrCreationDate":"Creation Date",
 	"inrapAuthor":"Author",
 	"inrapTitle":"Title",
@@ -615,7 +615,7 @@
   },
   "realizacjaTab2":{
 	"pinfoCompletedImplementation":"EXECUTED",
-	"pinfoCompletedImplemA":"Execution of the Issue lasts until Community deems it as executed sending it to this very section - Executed.",
+	"pinfoCompletedImplemA":"Implementation of the Issue lasts until Community deems it as executed sending it to this very section - Executed.",
 	"pinfoCompletedImplemB":"Executed Issues are also ones concerning global settings, occasional Issues, ones concerning one time events or completed procedures, clearly finalized, etc..."
   },
   "editParametrModalInner":{
@@ -643,8 +643,8 @@
 	"lipAddIssue":"Adding Issue",
 	"lipAddingCommentWithinAissue":"Adding comment withing given Issue",
 	"lipTheAdditionOfAreferWithinTheComm":"Adding refference within given comment",
-	"lipReportsOfImplementation":"Execution Reports",
-	"lipDeadlineForFilingTheReportsInDays":"Period for forwarding Execution Reports (in days)"
+	"lipReportsOfImplementation":"Implementation Reports",
+	"lipDeadlineForFilingTheReportsInDays":"Period for forwarding Implementation Reports (in days)"
   },
   "userEmailContact":{
 	"uecPost":"Write"
@@ -698,7 +698,7 @@
 	"listOfIssuesA":"Tutaj zobaczysz wykaz wszystkich Kwestii, które znajdują się aktualnie na etapie dyskusji i priorytetowania. Im większy priorytet posiada Kwestia, tym wyżej jest domyślnie ulokowana. Najwyżej ulokowana Kwestia przechodzi do głosowania. Możesz zmieniać sortowanie kliknięciem na nagłówek kolumny [Priorytet], aby zobaczyć odwrócony układ.",
 	"listOfIssuesB":"Aby zobaczyć szczegóły Kwestii - kliknij w jej nazwę. Wejście w szczegóły Kwestii jest równoznaczne z Twoją obecnością w dyskusji i głosowaniu, albowiem tam znajdują się: głosy w dyskusji nad nią, szczegółowy opis i możliwość nadania priorytetu, czyli głosowanie.",
 	"listOfIssuesC":"Widocznym przyciskiem, możesz dodać nową Kwestię. Aby znaleźć Kwestie najnowsze lub najstarsze - kliknij w nagłówek [Data]. Podobnie możesz sortować każdą interesującą Cię kolumnę. Masz do dyspozycji pole [Szukanie Kwestii], aby filtrować listę wg. nazw Kwestii. Na dole możesz dostosować listę względem ilości pozycji na stronie.",
-	"VotingDetails":"SZCZEGÓŁY KWESTII GŁOSOWANEJ",
+	"VotingDetails":"DETAILS OF VOTING ISSUE",
 	"VotingA":"Do głosowania wchodzi tyle Kwestii, ile zostanie określone w ustawieniach globalnych, gdzie ustawia się również czas głosowania.",
 	"VotingB":"W czasie przeznaczonym na głosowanie nie mozna już prowadzić dyskusji, a tylko głosować, czyli nadawać (lub zmieniać) swój priorytet dla tej Kwestii.",
 	"VotingC":"System poinformował Cię o fakcie głosowania oraz o terminie jego zakończenia. Dodatkową formą informacji jest powiadomienie tutaj w Systemie (patrz w menu), gdzie ilość nie odczytanych wiadomości wykazana jest na czerwonym tle.",
@@ -742,7 +742,7 @@
 	"AddIssueC":"będzie zawartością",
 	"AddIssueD":"przyszłej Uchwały",
 	"AddIssueE":"(podpowiedzi są nad nagłówkami)",
-	"Preview":"PODGLĄD",
+	"Preview":"PREVIEW",
 	"PreviewA":"Przed zapisem",
 	"PreviewB":"sprawdź poprawność",
 	"PreviewC":"wprowadzonych treści.",
@@ -758,7 +758,7 @@
 	"ArchiIssuesA":"Wykaz Kwestii odesłanych z różnych przyczyn do archiwum.",
 	"ArchiIssueDetails":"SZCZEGÓŁY KWESTII ARCHIWALNEJ",
 	"ArchiIssueDetailsA":"Można się tu zorietntować jaki był brzebieg procedowania Kwestii, zanim odesłano ją do archiwum.",
-	"DeliberIssueDetails":"SZCZEGÓŁY KWESTII DELIBEROWANEJ",
+	"DeliberIssueDetails":"DETAILS OF DELIBERATED ISSUE",
 	"DeliberIssueDetailsA":"Tutaj masz wszystkie szczegóły dotyczące tej Kwestii. Nazwa, opis, status, priorytet, stan wsparcia w postaci kworum, składu Zespołu Realizacyjnego i w końcu - przebieg dyskusji.",
 	"DeliberIssueDetailsB":"Wiekszość funkcji zrealizujesz jednym kliknięciem, dodając jedynie (co oczywiste) uzasadnienie propozycji. Przykłady: nadanie priorytetu, wniosek skierowania Kwestii do Archiwum lub do Kosza.",
 	"DeliberIssueDetailsC":"Jeśli w tej Kwestii nie odpowiada Ci jakiś element, rozwiązanie - nie musisz koniecznie tworzyć podobnej Kwestii od zera. Możesz kliknąć w [+Dodaj Opcję] i po niewielkiej zmianie nazwy Kwestii, skorygować odpowiednio istotne dla Ciebie fragmenty opisu. Twoja Kwestia-Opcja nie będzie w żaden sposób upośledzona, ani podległa wobec tej pierwotnej. Oczywiście zawsze warto nieco polobbować za swoją Opcją (Tak to jest w życiu).",
@@ -768,12 +768,13 @@
 	"ImplemTeamC":"Stąd możesz skontaktować się z Członkiem Zespołu, coś zasugerować, albo zapytać o szczegóły realizacji Kwestii.",
 	"ImplemTeamD":"Jeśli Ty jesteś Członkiem tego Zespołu, masz też możliwość zrezygnowania z udziału w nim.",
 	"ImplemTeamE":"Wejście do Zespołu, to była Twoja decyzja. Rezygnacja z opieki nad Kwestią, to jednak bardzo odpowiedzialna decyzja ...",
-	"ImplemIssueDetails":"SZCZEGÓŁY KWESTII REALIZOWANEJ",
+	"ImplemIssueDetails":"DETAILS OF THE IMPLEMENTED ISSUE",
+	"CompletedIssueDetails":"DETAILS OF THE COMPLETED ISSUE",
 	"ImplemIssueDetailsA":"Ta Kwestia znajduje się aktualnie w realizacji. Priorytetowanie jej odbywa się tu odrębnie, aby widoczny był stosunek do wsparcia podczas dyskusji i głosowania. Priorytet realizacyjny pokaże, czy Kwestia zyskuje na znaczeniu, czy może traci wagę.",
 	"ImplemIssueDetailsB":"Przebieg dyskusji realizacyjnej, raporty Zespołu Realizacyjnego, dyskusja - to wszystko pomoże Ci w podejmowaniu decyzji w kwestii Twojego wsparcia.",
 	"ImplemIssueDetailsC":"Jeśli przebieg realizacji Ci nie odpowiada, a Twoja pomoc w dyskusji lub kontaktach z Zespołem Realizacyjnym nie dają oczekiwanego rezultatu, możesz proponować zdjęcie Kwestii z realizacji (np. skierowanie jej do Kosza). Kwestia wypadnie też z realizacji z powodu spadku priorytetu, czyli dezaprobaty Użytkowników Systemu. ",
 	"ImplemIssueDetailsD":"Nie jest celowe utrzymywanie w sferze obowiazujących dokumentów czegoś, co wcześniej wydawało się obiecujace, a w praktyce nie jest do przyjęcia, nie możliwe do zrealizowania, albo wręcz szkodliwe, lub sprzeczne z obowiązującym już uregulowaniem wyższego rzędu.",
-  "TheIssueInTheTrashCan":"SZCZEGÓŁY KWESTII W KOSZU",
+  "TheIssueInTheTrashCan":"DETAILS OF THE ISSUE WHICH IS IN TRASH",
   "TheIssueInTheTrashCanA":"Do kosza kierowane są Kwestie zgodnie z wolą Ogółu, po zaakceptowaniu wniosku dowolnego Użytkownika.",
   "TheIssueInTheTrashCanB":"Odsyła się tu Kwestie nieudane, błędne, bez szans na wdrożenie.",
   "TheIssueInTheTrashCanC":"Są one ostatecznie zarchiwizowane dla celów dokumentacyjnych (bez możliwości wznowienia procedowania).",
@@ -784,7 +785,7 @@
 	"loginFormB":"Jeśli nie pamietasz hasła - naciśnij [Nie pamiętam hasła] i postępuj zgodnie z dalszymi instrukcjami.",
 	"forgottenPasswordA":"Podaj adres email, który posłużył Ci do rejestracji w systemie.",
 	"forgottenPasswordB":"Naciśnij [Resetuj hasło] i postępuj zgodnie z dalszymi instrukcjami.",
-	"SearchIssues":"Szukanie Kwestii"
+	"SearchIssues":"Search Issues"
   },
   "txv": {
 	"R": "e-r.",

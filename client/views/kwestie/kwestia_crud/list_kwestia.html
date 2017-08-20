@@ -1,3 +1,6 @@
+<!--
+``client\views\kwestie\kwestia_crud\``list_kwestia.html
+## Template for Issues list -->
 <template name="listKwestia">
 	<div class="main" >
 		<div class="row">
@@ -5,11 +8,15 @@
 				{{#if currentUser}}
 				{{#if isZwyczajnyLogged}}
 				<div class="btn-group">
+					<!--
+					``Balloon`` about adding the Issue -->
 					<section class="dymek">
 						<small>
 							<a id="addKwestiaButton" class="btn btn-primary">
 								<i class="fa fa-plus"></i>
-								<!--Dodaj nową Kwestię-->{{_ 'listKwestia.liAddANewIssue'}}
+								<!--
+								``txv`` Add new Issue -->
+								{{_ 'listKwestia.liAddANewIssue'}}
 							</a>
 						</small>
 						<ul align="left">
@@ -42,17 +49,19 @@
 				</div>
 				{{/if}}
  		{{/if}}
-	<!--Szukanie Kwestii-->
 			<div class="pull-right col-lg-6 col-md-4 col-sm-6 col-xs-6">
+				<!--
+				``Balloon`` Search Issues -->
 				<section class="dymek">
 				{{_ "more.SearchIssues"}}
 					{{> reactiveTableFilter
 					id="customFilter"
 					label="?"
 					fields=getFilterFields}}
-					<!--Wpisz frazę nazwy-->
 					<ul>
 						<li class="fa fa-info-circle"><small>
+							<!--
+							``txv`` Enter phrase of the Issue name -->
 							{{_ 'listKwestia.liEnterThePhraseNameIssue'}}</small>
 						</li>
 					</ul>
@@ -60,7 +69,6 @@
 			</div>
 		</div>
 	</div>
-
 		<div class="row">
 			<div class="col-md-12">
 				{{#if isDataSortEnabled}}
@@ -83,7 +91,7 @@
 	</div>
 	{{> GlobalNotifications}}
 <!--
-### footer page info
+### footer page info`` label `` LIST OF ISSUES
 -->
 <div class="footer">
   <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.listOfIssues"}} </div>
@@ -167,7 +175,8 @@
 
 <template name="noData">
 	<div class="">
-		<!--Brak danych do wyświetlania...-->
+		<!--
+		``txv`` No data to display -->
 		{{_ "noData.noNoDataToDisplay"}}
 	</div>
 </template>

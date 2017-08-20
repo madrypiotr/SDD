@@ -22,8 +22,12 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#preview-the-issue-before-adding">Preview the Issue before adding</a>
+      </div>
+
       <div class="heading h3">
-        <a href="#footer-page-info">footer page info</a>
+        <a href="#footer-page-info-label-preview">footer page info label PREVIEW</a>
       </div>
 
     </div>
@@ -34,68 +38,158 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>preview_kwestia.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\kwestia_crud\</code>preview_kwestia.html</p>
+<div class="pilwrap" id="preview-the-issue-before-adding">
+  <h2>
+    <a href="#preview-the-issue-before-adding" name="preview-the-issue-before-adding" class="pilcrow"></a>
+Preview the Issue before adding
+  </h2>
 </div>
 
         </td>
         <td class="code highlight">
           <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"previewKwestia"</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- podgląd Kwestii przed dodaniem --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Kwestia--&gt;</span>
-{{_ "previewKwestia.pKwIssue"}} <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{kwestiaNazwa}}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Temat--&gt;</span>
-{{_ "glob.Subject"}}: {{temat}}, 
-<span class="hljs-comment">&lt;!--Rodzaj--&gt;</span>
-{{_ "glob.Type"}}: {{rodzaj}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p><code>txv</code> Add new Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">		{{_ "previewKwestia.pKwIssue"}} <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{kwestiaNazwa}}<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">small</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> Subject</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">		{{_ "glob.Subject"}}: {{temat}}, 
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>txv</code> Type</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">		{{_ "glob.Type"}}: {{rodzaj}}<span class="hljs-tag">&lt;/<span class="hljs-name">small</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col col-md-10"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-horizontal"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"krotkaTrescGroup"</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-offset-1 col-xs-2"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Krótka treść--&gt;</span>
-{{_ "previewKwestia.pKwShortContent"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p><code>txv</code> Short text</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">						{{_ "previewKwestia.pKwShortContent"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
                             {{krotkaTresc}}
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"szczegolowaTrescGroup"</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-offset-1 col-xs-2"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Opis z uzasadnieniem--&gt;</span>
-{{_ "glob.DescrWithTheReasons"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p><code>txv</code> Description with justification</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">						{{_ "glob.DescrWithTheReasons"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
                             {{szczegolowaTresc}}
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-warning padding-15"</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p><code>txv</code> ATTENTION! Once entered application can not be withdrawn. Apply responsibly and check before introducing to the System</p>
 
-<span class="hljs-comment">&lt;!--UWAGA! Złożonego wniosku nie można wycofać. Wnioskuj odpowiedzialnie i sprawdź przed wprowadzeniem do systemu--&gt;</span>
-{{_ "previewKwestia.pKwSubmittedMpplicationMayNotBeWithdrawn"}}
-<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html">					{{_ "previewKwestia.pKwSubmittedMpplicationMayNotBeWithdrawn"}}
+					<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"formGroup"</span> &gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-offset-3 col-xs-9"</span>&gt;</span>
                             <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"{{pathFor "</span><span class="hljs-attr">addKwestia</span>"}}" <span class="hljs-attr">id</span>=<span class="hljs-string">"edit"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span>
                                <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Popraw--&gt;</span>
-{{_ "previewKwestia.pKwCorrect"}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-8" id="section-8"></a>
+</div>
+<p><code>txv</code> Make correction</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							{{_ "previewKwestia.pKwCorrect"}}<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
                             <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"save"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-primary"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Dodaj--&gt;</span>
-{{_ "glob.Add"}}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-9" id="section-9"></a>
+</div>
+<p><code>txv</code> Add this new Issue</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">							{{_ "glob.Add"}}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
                             <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"cancel"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Anuluj--&gt;</span>
-{{_ "glob.Cancel"}}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+							{{_ "glob.Cancel"}}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
@@ -108,10 +202,10 @@
     
       <tr>
         <td class="docs">
-          <div class="pilwrap" id="footer-page-info">
+          <div class="pilwrap" id="footer-page-info-label-preview">
   <h3>
-    <a href="#footer-page-info" name="footer-page-info" class="pilcrow"></a>
-footer page info
+    <a href="#footer-page-info-label-preview" name="footer-page-info-label-preview" class="pilcrow"></a>
+footer page info <code>label</code> PREVIEW
   </h3>
 </div>
 
