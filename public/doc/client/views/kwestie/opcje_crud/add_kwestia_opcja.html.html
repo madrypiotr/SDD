@@ -158,59 +158,7 @@ Template for adding the Issue
 									  <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Krótka treść"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{{krotkaTresc}}</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    {{#if isKwestiaOsobowa}}
-                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"daneAplikanta"</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"daneAplikantaGroup"</span>&gt;</span>
-							<span class="hljs-comment">&lt;!--Dane aplikującego--&gt;</span>
-							{{_ "addKwestiaOpcjaForm.aKwDataApplicator"}}
-							<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">"10"</span>&gt;</span>
-                                <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table table-bordered"</span>&gt;</span>
-                                    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{_ "addKwestiaOpcjaForm.aKwFnameAndLname"}}: <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{szczegolowaTresc.fullName}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                                    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-                                    {{#if protectorZR}}
-                                        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                                            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{_ "glob.Email"}}: <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{szczegolowaTresc.email}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                                            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{_ "glob.PID"}}: <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{szczegolowaTresc.pesel}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                                            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{_ "glob.Address"}}: <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{szczegolowaTresc.address}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                                            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{_ "glob.PostalC"}}: <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{szczegolowaTresc.zip}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-                                    {{/if}}
-                                        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
-                                            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>{{_ "glob.City"}}: <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>{{szczegolowaTresc.city}}<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
-                                        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
-                                <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
-                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"szczegolowaTrescGroup"</span>&gt;</span>
-                            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span>
-</pre>
-        </td>
-      </tr>
-    
-      <tr>
-        <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-7" id="section-7"></a>
-</div>
-<p><code>txv</code> Add Description with justification</p>
 
-        </td>
-        <td class="code highlight">
-          <pre class="html">{{_ "glob.DescrWithTheReasons"}}:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-
-                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-9"</span>&gt;</span>
-								<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"szczegolowaTrescUwagi"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"1500"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{{szczegolowaTresc.uwagi}}</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"szczegolowaTrescUwagi"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'glob.DescrWithTheReasons'}}"</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
-                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    {{else}}
                         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"szczegolowaTrescGroup"</span>&gt;</span>
                             <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"control-label col-xs-3"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"inputEmail"</span>&gt;</span>
 							{{_ "addKwestiaOpcjaForm.aKwDescriptionOfTheReasons"}}:
@@ -219,7 +167,7 @@ Template for adding the Issue
 								<span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"szczegolowaTresc"</span> <span class="hljs-attr">maxlength</span>=<span class="hljs-string">"1500"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">{{szczegolowaTresc}}</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"szczegolowaTresc"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'glob.DescrWithTheReasons'}}"</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
                             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                    {{/if}}
+
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
                         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-xs-offset-3 col-xs-9"</span>&gt;</span>
 </pre>
@@ -229,7 +177,7 @@ Template for adding the Issue
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-8" id="section-8"></a>
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
 </div>
 <p><code>txv</code> Add the Issue-Option</p>
 

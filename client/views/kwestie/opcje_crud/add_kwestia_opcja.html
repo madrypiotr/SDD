@@ -53,48 +53,7 @@
 									  placeholder="Krótka treść" value={{krotkaTresc}} required></textarea>
 						</div>
 					</div>
-                    {{#if isKwestiaOsobowa}}
-                        <div class="form-group" id="daneAplikanta">
-                            <label class="control-label col-xs-3" for="daneAplikantaGroup">
-							<!--Dane aplikującego-->
-							{{_ "addKwestiaOpcjaForm.aKwDataApplicator"}}
-							</label>
-                            <div class="col-xs-9" rows="10">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <td><strong>{{_ "addKwestiaOpcjaForm.aKwFnameAndLname"}}: </strong></td><td>{{szczegolowaTresc.fullName}}</td>
-                                    </tr>
-                                    {{#if protectorZR}}
-                                        <tr>
-                                            <td><strong>{{_ "glob.Email"}}: </strong></td><td>{{szczegolowaTresc.email}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>{{_ "glob.PID"}}: </strong></td><td>{{szczegolowaTresc.pesel}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>{{_ "glob.Address"}}: </strong></td><td>{{szczegolowaTresc.address}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>{{_ "glob.PostalC"}}: </strong></td><td>{{szczegolowaTresc.zip}}</td>
-                                        </tr>
-                                    {{/if}}
-                                        <tr>
-                                            <td><strong>{{_ "glob.City"}}: </strong></td><td>{{szczegolowaTresc.city}}</td>
-                                        </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="form-group" id="szczegolowaTrescGroup">
-                            <label class="control-label col-xs-3" for="inputEmail">
-<!--
-``txv`` Add Description with justification -->
-{{_ "glob.DescrWithTheReasons"}}:</label>
 
-                            <div class="col-xs-9">
-								<textarea class="form-control" name="szczegolowaTrescUwagi" maxlength="1500" value={{szczegolowaTresc.uwagi}} id="szczegolowaTrescUwagi" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required></textarea>
-                            </div>
-                        </div>
-                    {{else}}
                         <div class="form-group" id="szczegolowaTrescGroup">
                             <label class="control-label col-xs-3" for="inputEmail">
 							{{_ "addKwestiaOpcjaForm.aKwDescriptionOfTheReasons"}}:
@@ -103,7 +62,7 @@
 								<textarea class="form-control" name="szczegolowaTresc" maxlength="1500" value={{szczegolowaTresc}} id="szczegolowaTresc" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required></textarea>
                             </div>
                         </div>
-                    {{/if}}
+
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
 <!--
