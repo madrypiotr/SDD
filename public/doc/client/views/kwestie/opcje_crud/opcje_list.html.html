@@ -22,6 +22,10 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#template-for-issue-option-list">Template for Issue-Option list</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -30,18 +34,15 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>opcje_list.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\opcje_crud\</code>opcje_list.html</p>
+<div class="pilwrap" id="template-for-issue-option-list">
+  <h2>
+    <a href="#template-for-issue-option-list" name="template-for-issue-option-list" class="pilcrow"></a>
+Template for Issue-Option list
+  </h2>
 </div>
 
         </td>
@@ -50,8 +51,20 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
         {{#if OpcjeList}}
             <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Opcje Kwestii--&gt;</span>
-{{_ "opcjeList.aKwOptionsIssue"}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<p><code>txv</code> Issue-Option</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">			{{_ "opcjeList.aKwOptionsIssue"}}<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
             {{&gt; reactiveTable
             class = "table table-bordered table-hover"
             fields = settings.fields
@@ -65,7 +78,6 @@
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"statusKwestia"</span>&gt;</span>
     {{status}}
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
-
 
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"opcjeNazwaKwestiLink"</span>&gt;</span>
     {{#if isKwestiaMain actualKwestiaId}}

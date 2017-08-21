@@ -1,9 +1,13 @@
+<!--
+``client\views\kwestie\opcje_crud\``opcje_list.html
+## Template for Issue-Option list -->
 <template name="opcjeList">
     <div class="col-md-12">
         {{#if OpcjeList}}
             <legend>
-<!--Opcje Kwestii-->
-{{_ "opcjeList.aKwOptionsIssue"}}</legend>
+			<!--
+			``txv`` Issue-Option -->
+			{{_ "opcjeList.aKwOptionsIssue"}}</legend>
             {{> reactiveTable
             class = "table table-bordered table-hover"
             fields = settings.fields
@@ -17,7 +21,6 @@
 <template name="statusKwestia">
     {{status}}
 </template>
-
 
 <template name="opcjeNazwaKwestiLink">
     {{#if isKwestiaMain actualKwestiaId}}
