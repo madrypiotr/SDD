@@ -432,6 +432,7 @@
     "aKwAddingIssueOption":"Dodawanie Kwestii-Opcji",
     "aKwNameIssueOption":"Nazwa Kwestii Opcji:",
     "aKwShortContent":"Krótka treść",
+    "aKwDescriptionOfTheReasons":"Opis z uzasadnieniem",
 	"aKwDataApplicator":"Dane aplikującego"
   },
   "opcjeList":{

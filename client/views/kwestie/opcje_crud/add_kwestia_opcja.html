@@ -1,29 +1,33 @@
+<!--
+``client\views\kwestie\opcje_crud\``add_kwestia_opcja.html
+## Template for adding the Issue -->
 <template name="addKwestiaOpcjaForm">
     <div class="main">
         <strong>
-<!--Dodaj Kwestię Opcję-->
+<!--
+``txv`` Add the Issue-Option -->
 {{_ "addKwestiaOpcjaForm.aKwAddingIssueOption"}} 	</strong>
         <hr/>
         <div class="row">
             <div class="col col-md-10">
                 <form class="form-horizontal" id="kwestiaOpcjaForm">
                     <div class="form-group" id="kwestiaNazwaGroup">
-                        <label class="control-label col-xs-3"
-                               for="inputEmail">
-<!--Nazwa Kwestii Opcji:-->
-{{_ "addKwestiaOpcjaForm.aKwNameIssueOption"}}							  </label>
-
+                        <label class="control-label col-xs-3" for="inputEmail">
+						<!--
+						``txv`` Name of the Issue-Option -->
+						{{_ "addKwestiaOpcjaForm.aKwNameIssueOption"}}
+						</label>
                         <div class="col-xs-9">
                             <input class="form-control required" name="kwestiaNazwa" id="kwestiaNazwa"
                                    placeholder="{{_ 'glob.NameIssue'}}" value={{kwestiaNazwa}}>
                         </div>
                     </div>
                     <div class="form-group" id="tematyGroup">
-                        <label class="control-label col-xs-3"
-                               for="inputEmail">
-<!--Temat:-->
-{{_ "glob.Subject"}}:</label>
-
+                        <label class="control-label col-xs-3" for="inputEmail">
+						<!--
+						``txv`` Subject -->
+						{{_ "glob.Subject"}}:
+						</label>
                         <div class="col-xs-3">
                             <input type="text" readonly name="temat" id="temat" class="form-control"
                                    value="{{tematNazwa}}"/>
@@ -31,30 +35,30 @@
                     </div>
                     <div class="form-group" id="rodzajeGroup">
                         <label class="control-label col-xs-3" for="inputEmail">
-<!--Rodzaj-->
-{{_ "glob.Type"}}:</label>
-
+						<!--
+						``txv`` Type -->
+						{{_ "glob.Type"}}:
+						</label>
                         <div class="col-xs-3">
-                            <input type="text" readonly name="rodzaj" id="rodzaj" class="form-control"
-                                   value="{{rodzajNazwa}}"/>
+                            <input type="text" readonly name="rodzaj" id="rodzaj" class="form-control" value="{{rodzajNazwa}}"/>
                         </div>
                     </div>
-                    <div class="form-group" id="krotkaTrescGroup">
-                        <label class="control-label col-xs-3" for="inputEmail">
-<!--Krótka treść-->
-{{_ "addKwestiaOpcjaForm.aKwShortContent"}}:</label>
-
-                        <div class="col-xs-9">
-                            <textarea class="form-control" name="krotkaTresc" id="krotkaTresc" maxlength="500"
-                                      placeholder="Krótka treść" value={{krotkaTresc}} required></textarea>
-                        </div>
-                    </div>
+						<div class="form-group" id="krotkaTrescGroup">
+							<label class="control-label col-xs-3" for="inputEmail">
+							<!--
+							``txv`` Short content -->
+							{{_ "addKwestiaOpcjaForm.aKwShortContent"}}:</label>
+						<div class="col-xs-9">
+							<textarea class="form-control" name="krotkaTresc" id="krotkaTresc" maxlength="500"
+									  placeholder="Krótka treść" value={{krotkaTresc}} required></textarea>
+						</div>
+					</div>
                     {{#if isKwestiaOsobowa}}
                         <div class="form-group" id="daneAplikanta">
                             <label class="control-label col-xs-3" for="daneAplikantaGroup">
-<!--Dane aplikującego-->
-{{_ "addKwestiaOpcjaForm.aKwDataApplicator"}}</label>
-
+							<!--Dane aplikującego-->
+							{{_ "addKwestiaOpcjaForm.aKwDataApplicator"}}
+							</label>
                             <div class="col-xs-9" rows="10">
                                 <table class="table table-bordered">
                                     <tr>
@@ -82,31 +86,29 @@
                         </div>
                         <div class="form-group" id="szczegolowaTrescGroup">
                             <label class="control-label col-xs-3" for="inputEmail">
-<!--Opis z uzasadnieniem-->
+<!--
+``txv`` Add Description with justification -->
 {{_ "glob.DescrWithTheReasons"}}:</label>
 
                             <div class="col-xs-9">
-<!--Opis z uzasadnieniem-->
-<textarea class="form-control" name="szczegolowaTrescUwagi" maxlength="1500" value={{szczegolowaTresc.uwagi}} id="szczegolowaTrescUwagi" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required></textarea>
+								<textarea class="form-control" name="szczegolowaTrescUwagi" maxlength="1500" value={{szczegolowaTresc.uwagi}} id="szczegolowaTrescUwagi" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required></textarea>
                             </div>
                         </div>
                     {{else}}
                         <div class="form-group" id="szczegolowaTrescGroup">
                             <label class="control-label col-xs-3" for="inputEmail">
-<!--Opis z uzasadnieniem-->
-{{_ "addKwestiaOpcjaForm.aKwDescriptionOfTheReasons"}}:</label>
-
+							{{_ "addKwestiaOpcjaForm.aKwDescriptionOfTheReasons"}}:
+							</label>
                             <div class="col-xs-9">
-<!--Opis z uzasadnieniem-->
-<textarea class="form-control" name="szczegolowaTresc" maxlength="1500" value={{szczegolowaTresc}} id="szczegolowaTresc" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required></textarea>
+								<textarea class="form-control" name="szczegolowaTresc" maxlength="1500" value={{szczegolowaTresc}} id="szczegolowaTresc" placeholder="{{_ 'glob.DescrWithTheReasons'}}" required></textarea>
                             </div>
                         </div>
                     {{/if}}
                     <div class="form-group">
                         <div class="col-xs-offset-3 col-xs-9">
-<!--Dodaj Kwestię Opcję-->
+<!--
+``txv`` Add the Issue-Option -->
 <input type="submit" class="btn btn-primary" value="{{_ 'addKwestiaOpcjaForm.aKwAddingIssueOption'}}" id="submitAddKwestiaOpcja">
-<!--Anuluj-->
 <input id="anuluj" type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
                         </div>
                     </div>
@@ -114,6 +116,8 @@
             </div>
         </div>
     </div>
+<!--
+### footer page info `` label `` ADD THE ISSUE-OPTION -->
 <div class="footer">
   <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "more.AddIssueOpt"}} </div>
 	<div id="container">

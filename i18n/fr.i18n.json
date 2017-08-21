@@ -432,6 +432,7 @@
     "aKwAddingIssueOption":"Ajout de Question-Option",
     "aKwNameIssueOption":"Nom de la Question Option:",
     "aKwShortContent":"Texte bref",
+    "aKwDescriptionOfTheReasons":"Descriptif avec la motivation",
 	"aKwDataApplicator":"Données de l'applicant"
   },
   "opcjeList":{
