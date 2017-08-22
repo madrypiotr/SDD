@@ -22,6 +22,14 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#template-for-decision-to-continue-or-resign-from-participation-in-the-implementing-team-implementationteam">Template for decision to continue or resign from participation in the implementing team ImplementationTeam</a>
+      </div>
+
+      <div class="heading h2">
+        <a href="#template-for-decision-to-continue-or-resign...inner">Template for decision to continue or resign ... (inner^^^)</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -30,24 +38,20 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>zr_current_issue_my_resloutions_modal.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\zespol_realizacyjny\</code>zr_current_issue_my_resloutions_modal.html</p>
+<div class="pilwrap" id="template-for-decision-to-continue-or-resign-from-participation-in-the-implementing-team-implementationteam">
+  <h2>
+    <a href="#template-for-decision-to-continue-or-resign-from-participation-in-the-implementing-team-implementationteam" name="template-for-decision-to-continue-or-resign-from-participation-in-the-implementing-team-implementationteam" class="pilcrow"></a>
+Template for decision to continue or resign from participation in the implementing team ImplementationTeam
+  </h2>
 </div>
 
         </td>
         <td class="code highlight">
-          <pre class="html">
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"zrModalCurrentIssueMyResolutions"</span>&gt;</span>
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"zrModalCurrentIssueMyResolutions"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zrCurrentIssueMyResolutions"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal fade"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span> <span class="hljs-attr">data-width</span>=<span class="hljs-string">"760"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display:none;"</span>&gt;</span>
 
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-dialog"</span>&gt;</span>
@@ -57,26 +61,75 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="template-for-decision-to-continue-or-resign...inner">
+  <h2>
+    <a href="#template-for-decision-to-continue-or-resign...inner" name="template-for-decision-to-continue-or-resign...inner" class="pilcrow"></a>
+Template for decision to continue or resign ... (inner^^^)
+  </h2>
+</div>
 
-
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"zrModalCurrentIssueMyResolutionsInner"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"zrModalCurrentIssueMyResolutionsInner"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Rezygnacja z udziału w Zespole Realizacyjnym--&gt;</span>
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrCancellationOfParticipationInTheImplemTeam'}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> Resignation from participation in Implementation Team</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrCancellationOfParticipationInTheImplemTeam'}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-danger padding-15"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Przemyśl ten krok! Jego skutkiem może być nie zrealizowanie podjętej uchwały!--&gt;</span>
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrThinkThisStep'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>txv</code> Think over this step! - The taken Resolution may not be executed!</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrThinkThisStep'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
         &amp;nbsp;
         &amp;nbsp;
         <span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Uchwały, których realizacją się opiekujesz--&gt;</span>
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrTheResolutionsWhoseImplementationIsCaring'}}: <span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p><code>txv</code> Resolutions that you take care of its' execution</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrTheResolutionsWhoseImplementationIsCaring'}}: <span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
                 {{&gt; reactiveTable
@@ -92,15 +145,38 @@
         &amp;nbsp;
         <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 bg-danger padding-15"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"text-align: center"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Mimo wszystko opuszczasz Zespół Realizacyjny?--&gt;</span>
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYouDoNeverthelessTeaveTheRealizationTeam'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p><code>txv</code> Are you still decided to leave the Implementation Team?</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYouDoNeverthelessTeaveTheRealizationTeam'}}<span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
         &amp;nbsp;
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12 centered"</span>&gt;</span>
- <span class="hljs-comment">&lt;!--Tak--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-success"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"agreeButton"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYes'}}"</span>/&gt;</span>
- <span class="hljs-comment">&lt;!--Anuluj--&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p><code>txv</code> Yes</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-success"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"agreeButton"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYes'}}"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"reset"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-danger"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"anulujButton"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'glob.Cancel'}}"</span>/&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>

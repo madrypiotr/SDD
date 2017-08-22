@@ -1,4 +1,6 @@
-
+<!--
+``client\views\kwestie\zespol_realizacyjny\``zr_current_issue_my_resloutions_modal.html
+## Template for decision to continue or resign from participation in the implementing team ImplementationTeam -->
 <template name="zrModalCurrentIssueMyResolutions">
     <div id="zrCurrentIssueMyResolutions" class="modal fade" tabindex="-1" data-width="760" style="display:none;">
 
@@ -9,25 +11,28 @@
         </div>
     </div>
 </template>
-
-
+<!--
+## Template for decision to continue or resign ... (inner^^^) -->
 <template name="zrModalCurrentIssueMyResolutionsInner">
     <div class="modal-header">
         <h4>
-<!--Rezygnacja z udziału w Zespole Realizacyjnym-->
+<!--
+``txv`` Resignation from participation in Implementation Team -->
 {{_ 'zrModalCurrentIssueMyResolutionsInner.zmrCancellationOfParticipationInTheImplemTeam'}}</h4>
     </div>
     <div class="modal-body">
         <p class="col-md-12 bg-danger padding-15">
             <b>
-<!--Przemyśl ten krok! Jego skutkiem może być nie zrealizowanie podjętej uchwały!-->
+<!--
+``txv`` Think over this step! - The taken Resolution may not be executed! -->
 {{_ 'zrModalCurrentIssueMyResolutionsInner.zmrThinkThisStep'}}</b>
         </p>
         <br/>
         &nbsp;
         &nbsp;
         <h5><b>
-<!--Uchwały, których realizacją się opiekujesz-->
+<!--
+``txv`` Resolutions that you take care of its' execution -->
 {{_ 'zrModalCurrentIssueMyResolutionsInner.zmrTheResolutionsWhoseImplementationIsCaring'}}: </b></h5>
         <div class="row">
             <div class="col-md-12">
@@ -44,15 +49,16 @@
         &nbsp;
         <p class="col-md-12 bg-danger padding-15" style="text-align: center">
             <b>
-<!--Mimo wszystko opuszczasz Zespół Realizacyjny?-->
+<!--
+``txv`` Are you still decided to leave the Implementation Team? -->
 {{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYouDoNeverthelessTeaveTheRealizationTeam'}}</b>
         </p>
         &nbsp;
         <div class="row">
             <div class="col-md-12 centered">
- <!--Tak-->
+<!--
+``txv`` Yes -->
 <input type="submit" class="btn btn-success" id="agreeButton" value="{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYes'}}"/>
- <!--Anuluj-->
 <input type="reset" data-dismiss="modal" class="btn btn-danger" id="anulujButton" value="{{_ 'glob.Cancel'}}"/>
             </div>
         </div>

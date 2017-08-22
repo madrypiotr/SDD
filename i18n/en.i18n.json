@@ -129,13 +129,13 @@
 			"CreatingTeamsRealizA":"Before the Issue can be executed the creation of the Implementation Team as one of the three conditions must happen (the other conditions are Quorum and Priority rank value).",
 			"CreatingTeamsRealizB":"To become Member of The Implementation Team only clicking the [Join]. Your surname will appear. You may resign clicking again. The team is completed when three Members join.",
 			"CreatingTeamsRealizC":"Membership o Implementation Team is voluntary administrative and control function. The Members are obliged to coordinate execution of the Resolution taken as outcome of  the Issue and to forward report on progress to the System.",
-			"CreatingTeamsRealizD":"Member of the ET forwards Implementation Team Reports on progress or any difficulties in actions within the Issue execution. The frequency of the Progress Reports is set in [Global] parameters of the System.",
-			"CreatingTeamsRealizE":"Note, that person joining the ET as third Member plays particular role. He or she has to define (or choose) name for the Team. The System will prompt you to do so.",
+			"CreatingTeamsRealizD":"Member of the Implementation Team forwards Implementation Team Reports on progress or any difficulties in actions within the Issue execution. The frequency of the Progress Reports is set in [Global] parameters of the System.",
+			"CreatingTeamsRealizE":"Note, that person joining the Implementation Team as third Member plays particular role. He or she has to define (or choose) name for the Team. The System will prompt you to do so.",
 			
 	  "DoesNotDuplic":"Do not double the competences of the Implementation Teams",
-			"DoesNotDuplicA":"Before you decide to create ET please find out if there is not any respective Implementation Team running already.",
+			"DoesNotDuplicA":"Before you decide to create Implementation Team please find out if there is not any respective Implementation Team running already.",
 			"DoesNotDuplicB":"That is ...",
-			"DoesNotDuplicC":"...before as third member you will hit [Join] so confirming the 3 persons composition of the ET first review the list of to date set teams so as to possibly render execution the Issue to any of the teams.",
+			"DoesNotDuplicC":"...before as third member you will hit [Join] so confirming the 3 persons composition of the Implementation Team first review the list of to date set teams so as to possibly render execution the Issue to any of the teams.",
 
 		"DescrType":"Type that is specification of the topic",
 			"DescrTypeA":"The System does not imply any precise names but please select words adequate to the content so that we might later easily find Issues in respective fields. Before you give a name check if there is already a Sort adequate for the Topic of your Issue. Examples in Topic organisation are: meeting, conference, jamboree, event, lecture... In topic finance: payments, subsidies, dates, transparency, ...etc....Best to name a Sort with one word.",
@@ -490,7 +490,7 @@
 	"zrLack":"None",
 	"zrMemberNo":"Member ",
     "zrIjoin":"I join",
-	"zrCheckExistingImplTeam":"Check existing ET",
+	"zrCheckExistingImplTeam":"Check existing Implementation Team",
 	"zrWhyIsThisImportant":"Why this is important?"
   },
   "kwestiaTopButtons":{
@@ -526,7 +526,7 @@
   "zrOptions":{
 	"zrCancellOfParticipationInTheTeamImplem":"Resignation of the participation in Implementation Team. ",
     "zrResign":"Resign ",
-	"zrWriteAmessageToMemberIT":"Compose message for Member of the ET",
+	"zrWriteAmessageToMemberIT":"Compose message for Member of the Implementation Team",
 	"zrWriteAmessage":"Write message"
   },
   "addNazwaModalInner":{
@@ -534,7 +534,7 @@
 	"aniTheImplementationTeamForThe":"Implementation Team for ",
 	"aniNameTheImplementationTeam":"Name of the Implementation Team ",
 	"aniExplanation":"Explanation ",
-	"aniEnterOnlyTheContinuationOfTheName":"First part of the ET name, that is prefix (Implementation Team for ) already exists, so add the further description of the name, e.g:",
+	"aniEnterOnlyTheContinuationOfTheName":"First part of the Implementation Team name, that is prefix (Implementation Team for ) already exists, so add the further description of the name, e.g:",
 	"aniEnterOnlyTheContinuationOfTheNameA":"Organizing the Competition, or ",
 	"aniEnterOnlyTheContinuationOfTheNameB":"Residential Area Fancing, or ",
 	"aniEnterOnlyTheContinuationOfTheNameC":"Finances Transparency, and so on... ",
@@ -546,17 +546,17 @@
 	"deIacceptAnIssueForMyTeam":"I accept the Issue to my Team"
   },
   "listZespolRealizacyjnyModalInner":{
-	"lzrImplementation teams":"Implementation Teams"
+	"lzrImplementationTeams":"List of Implementation Teams"
   },
   "zespolOptionsTemplate":{
-	"zotPleaseMentionImplTeam":"Create ET"
+	"zotPleaseMentionImplTeam":"Create Implementation Team"
   },
   "listZespolRealizacyjnyDoubleModalInner":{
-	"izdSelectTheAppropriateImplTeamForTheIssue":"Point proper ET for this Issue. The Issue shall be accepted for execution provided that you are Member of the Team. So, look for Your Implementation Team or go back to create new Team.",
+	"izdSelectTheAppropriateImplTeamForTheIssue":"Point proper Implementation Team for this Issue. The Issue shall be accepted for execution provided that you are Member of the Team. So, look for Your Implementation Team or go back to create new Team.",
 	"izdResign":"Resign "
   },
   "zespolDoubleTemplateOptions":{
-	"izdMentionImplemTeam":"Create ET"
+	"izdMentionImplemTeam":"Adapt the existing Implementation Team to this Issue"
   },
   "zrModalCurrentIssueMyResolutionsInner":{
 	"zmrCancellationOfParticipationInTheImplemTeam":"Resignation from participation in Implementation Team ",

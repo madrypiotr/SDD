@@ -22,6 +22,14 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#template-for-modal-list-of-implementation-teams">Template for Modal List of Implementation Teams</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#template-for-modal-list...inner">Template for Modal List ... (inner^^^)</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -30,18 +38,15 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>list_zr.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\zespol_realizacyjny\</code>list_zr.html</p>
+<div class="pilwrap" id="template-for-modal-list-of-implementation-teams">
+  <h2>
+    <a href="#template-for-modal-list-of-implementation-teams" name="template-for-modal-list-of-implementation-teams" class="pilcrow"></a>
+Template for Modal List of Implementation Teams
+  </h2>
 </div>
 
         </td>
@@ -55,13 +60,38 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="template-for-modal-list...inner">
+  <h3>
+    <a href="#template-for-modal-list...inner" name="template-for-modal-list...inner" class="pilcrow"></a>
+Template for Modal List ... (inner^^^)
+  </h3>
+</div>
 
-
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"listZespolRealizacyjnyModalInner"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"listZespolRealizacyjnyModalInner"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Zespoły Realizacyjne--&gt;</span>
-{{_ 'listZespolRealizacyjnyModalInner.lzrImplementation teams'}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> List of Implementation Teams</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">		{{_ 'listZespolRealizacyjnyModalInner.lzrImplementationTeams'}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
@@ -78,23 +108,32 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-footer"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
- <span class="hljs-comment">&lt;!--Powrót--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"anulujButton"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'glob.Return'}}"</span>/&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">"modal"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"anulujButton"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"{{_ 'glob.Return'}}"</span>/&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
-
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"zespolTemplate"</span>&gt;</span>
     {{zespolR}}
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 
-
 <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"zespolOptionsTemplate"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-success"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"powolajZR"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Powołaj ZR--&gt;</span>
-{{_ 'zespolOptionsTemplate.zotPleaseMentionImplTeam'}}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>txv</code>Create Implementation Team</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ 'zespolOptionsTemplate.zotPleaseMentionImplTeam'}}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
 </pre>
         </td>

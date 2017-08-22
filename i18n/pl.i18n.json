@@ -546,7 +546,7 @@
 	"deIacceptAnIssueForMyTeam":"Przyjmę Kwestię do mojego Zespołu"
   },
   "listZespolRealizacyjnyModalInner":{
-	"lzrImplementation teams":"Zespoły Realizacyjne"
+	"lzrImplementationTeams":"Zespoły Realizacyjne"
   },
   "zespolOptionsTemplate":{
 	"zotPleaseMentionImplTeam":"Powołaj ZR"
@@ -556,7 +556,7 @@
 	"izdResign":"Rezygnuj"
   },
   "zespolDoubleTemplateOptions":{
-	"izdMentionImplemTeam":"Powołaj ZR"
+	"izdMentionImplemTeam":"Zaadaptuj istniejący Zespół Realizacyjny do tej Kwestii"
   },
   "zrModalCurrentIssueMyResolutionsInner":{
 	"zmrCancellationOfParticipationInTheImplemTeam":"Rezygnacja z udziału w Zespole Realizacyjnym",
