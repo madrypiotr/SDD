@@ -530,15 +530,15 @@
 	"zrWriteAmessage":"Napisz wiadomość"
   },
   "addNazwaModalInner":{
-	"aniPleaseNameTheImplementationTeam":"Nadaj nazwę temu Zespołowi Realizacyjnemu",
+	"pleaseNameTheIT":"Nadaj nazwę temu Zespołowi Realizacyjnemu",
 	"aniTheImplementationTeamForThe":"Zespół Realizacyjny ds.",
 	"aniNameTheImplementationTeam":"Nazwa Zespołu Realizacyjnego",
 	"aniExplanation":"Objaśnienie",
-	"aniEnterOnlyTheContinuationOfTheName":"Pierwsza część nazwy ZR, czyli prefiks (Zespół Realizacyjny ds.) już jest, a więc wprowadź jedynie ciąg dalszy nazwy, np.:",
-	"aniEnterOnlyTheContinuationOfTheNameA":"Rozpisania Konkursu, albo",
-	"aniEnterOnlyTheContinuationOfTheNameB":"Projektu Ogrodzenia Osiedla, lub",
-	"aniEnterOnlyTheContinuationOfTheNameC":"Jawności Finansów, itp... ",
-	"aniEnterOnlyTheContinuationOfTheNameD":"Podaj tylko zakończenie zgodne z charakterem rozpatrywanej Kwestii."
+	"OnlyTheContinue":"Pierwsza część nazwy ZR, czyli prefiks (Zespół Realizacyjny ds.) już jest, a więc wprowadź jedynie ciąg dalszy nazwy, np.:",
+	"OnlyTheContinueA":"Rozpisania Konkursu, albo",
+	"OnlyTheContinueB":"Projektu Ogrodzenia Osiedla, lub",
+	"OnlyTheContinueC":"Jawności Finansów, itp... ",
+	"OnlyTheContinueD":"Podaj tylko zakończenie zgodne z charakterem rozpatrywanej Kwestii."
   },
   "decyzjaModalInner":{
 	"deCreatingTheImplementationTeam":"Tworzenie Zespołu Realizacyjnego",

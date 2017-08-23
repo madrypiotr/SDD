@@ -22,6 +22,14 @@
     <div id="tree"></div>
     <div id="headings">
 
+      <div class="heading h2">
+        <a href="#template-for-modal-for-naming-the-implementation-team">Template for Modal for naming the Implementation Team</a>
+      </div>
+
+      <div class="heading h3">
+        <a href="#template-for-modal-for-naming...inner">Template for Modal for naming  ... (inner^^^)</a>
+      </div>
+
     </div>
   </div>
   <div id="sidebar-toggle"></div>
@@ -30,24 +38,20 @@
 <table cellpadding="0" cellspacing="0">
   <tbody>
     
-      <tr>
-        <td class="docs">
-          <h1>add_nazwa_zr.html</h1>
-        </td>
-        <td class="code highlight"></td>
-      </tr>
-    
     
       <tr>
         <td class="docs">
-          <div class="pilwrap">
-  <a class="pilcrow" href="#section-1" id="section-1"></a>
+          <p><code>client\views\kwestie\zespol_realizacyjny\</code>add_nazwa_zr.html</p>
+<div class="pilwrap" id="template-for-modal-for-naming-the-implementation-team">
+  <h2>
+    <a href="#template-for-modal-for-naming-the-implementation-team" name="template-for-modal-for-naming-the-implementation-team" class="pilcrow"></a>
+Template for Modal for naming the Implementation Team
+  </h2>
 </div>
 
         </td>
         <td class="code highlight">
-          <pre class="html">
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"addNazwaModal"</span>&gt;</span>
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"addNazwaModal"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"addNazwa"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal fade"</span> <span class="hljs-attr">data-keyboard</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">data-backdrop</span>=<span class="hljs-string">"static"</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">"-1"</span> <span class="hljs-attr">data-width</span>=<span class="hljs-string">"760"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display:none;"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-dialog"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-content"</span>&gt;</span>
@@ -57,22 +61,71 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     {{&gt; GlobalNotifications}}
 <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap" id="template-for-modal-for-naming...inner">
+  <h3>
+    <a href="#template-for-modal-for-naming...inner" name="template-for-modal-for-naming...inner" class="pilcrow"></a>
+Template for Modal for naming  ... (inner^^^)
+  </h3>
+</div>
 
-
-<span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"addNazwaModalInner"</span>&gt;</span>
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"addNazwaModalInner"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-header"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Nadaj nazwę temu Zespołowi Realizacyjnemu--&gt;</span>
-{{_ 'addNazwaModalInner.aniPleaseNameTheImplementationTeam'}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p><code>txv</code> Give name to this Implementation Team</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ 'addNazwaModalInner.pleaseNameTheIT'}}<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-body"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Zespół Realizacyjny ds.--&gt;</span>
-{{_ 'addNazwaModalInner.aniTheImplementationTeamForThe'}}<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
- <span class="hljs-comment">&lt;!--Nazwa Zespołu Realizacyjnego--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nazwaZR"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nazwaZR"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span>  <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'addNazwaModalInner.aniNameTheImplementationTeam'}}"</span>/&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p><code>txv</code> Implementation Team for</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ 'addNazwaModalInner.aniTheImplementationTeamForThe'}}<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p><code>txv</code> Name of the Implementation Team</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nazwaZR"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"nazwaZR"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-control"</span>  <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"{{_ 'addNazwaModalInner.aniNameTheImplementationTeam'}}"</span>/&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
@@ -80,13 +133,25 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">u</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Objaśnienie--&gt;</span>
-{{_ 'addNazwaModalInner.aniExplanation'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">u</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.aniEnterOnlyTheContinuationOfTheName'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.aniEnterOnlyTheContinuationOfTheNameA'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.aniEnterOnlyTheContinuationOfTheNameB'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.aniEnterOnlyTheContinuationOfTheNameC'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.aniEnterOnlyTheContinuationOfTheNameD'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<p><code>txv</code> Explanation</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">{{_ 'addNazwaModalInner.aniExplanation'}}:<span class="hljs-tag">&lt;/<span class="hljs-name">u</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.OnlyTheContinue'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.OnlyTheContinueA'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.OnlyTheContinueB'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.OnlyTheContinueC'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{{_ 'addNazwaModalInner.OnlyTheContinueD'}}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
@@ -94,10 +159,23 @@
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"modal-footer"</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-md-12"</span>&gt;</span>
-                <span class="hljs-comment">&lt;!--&lt;button class="btn btn-default" id="zapiszButton"&gt;Powrót&lt;/button&gt;--&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-success"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zapiszButton"</span>&gt;</span>
-<span class="hljs-comment">&lt;!--Zapisz--&gt;</span>
-{{_ 'glob.Save'}}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
+</div>
+<p><code>txv</code> Save</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="html">                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span> = <span class="hljs-string">"btn btn-success"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zapiszButton"</span>&gt;</span>
+				{{_ 'glob.Save'}}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span> = <span class="hljs-string">"btn btn-default"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"cancelButton"</span>&gt;</span>
+				{{_ 'glob.Cancel'}}<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>

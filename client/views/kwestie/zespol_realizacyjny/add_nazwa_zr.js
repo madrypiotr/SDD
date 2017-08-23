@@ -87,5 +87,8 @@ Template.addNazwaModal.events ( {
                 }
             }
         }
+    },
+	    'click #cancelButton': function ( e ) {
+        // (pm) jak i gdzie powróciæ?
     }
  } );

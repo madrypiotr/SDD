@@ -530,15 +530,15 @@
 	"zrWriteAmessage":"Write message"
   },
   "addNazwaModalInner":{
-	"aniPleaseNameTheImplementationTeam":"Give name to this Implementation Team",
+	"pleaseNameTheIT":"Give name to this Implementation Team",
 	"aniTheImplementationTeamForThe":"Implementation Team for ",
 	"aniNameTheImplementationTeam":"Name of the Implementation Team ",
 	"aniExplanation":"Explanation ",
-	"aniEnterOnlyTheContinuationOfTheName":"First part of the Implementation Team name, that is prefix (Implementation Team for ) already exists, so add the further description of the name, e.g:",
-	"aniEnterOnlyTheContinuationOfTheNameA":"Organizing the Competition, or ",
-	"aniEnterOnlyTheContinuationOfTheNameB":"Residential Area Fancing, or ",
-	"aniEnterOnlyTheContinuationOfTheNameC":"Finances Transparency, and so on... ",
-	"aniEnterOnlyTheContinuationOfTheNameD":"Give only final phrase according to Issue type."
+	"OnlyTheContinue":"First part of the Implementation Team name, that is prefix (Implementation Team for ) already exists, so add the further description of the name, e.g:",
+	"OnlyTheContinueA":"Organizing the Competition, or ",
+	"OnlyTheContinueB":"Residential Area Fancing, or ",
+	"OnlyTheContinueC":"Finances Transparency, and so on... ",
+	"OnlyTheContinueD":"Give only final phrase according to Issue type."
   },
   "decyzjaModalInner":{
 	"deCreatingTheImplementationTeam":"Creation of the Implementation Team",

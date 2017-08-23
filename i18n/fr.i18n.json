@@ -530,15 +530,15 @@
 	"zrWriteAmessage":"Ecrivez une nouvelle"
   },
   "addNazwaModalInner":{
-	"aniPleaseNameTheImplementationTeam":"Nommez cette Equipe de Réalisation",
+	"pleaseNameTheIT":"Nommez cette Equipe de Réalisation",
 	"aniTheImplementationTeamForThe":"Equipe de Réalisation de ",
 	"aniNameTheImplementationTeam":"Nom de l'Equipe de Réalisation",
 	"aniExplanation":"Notice",
-	"aniEnterOnlyTheContinuationOfTheName":"La premiere partie du nom de l'ER c.à.d. le préfixe (Equipe de Réalisation de) existe déjà, tapez donc seulement la suite du nom e.g.: ",
-	"aniEnterOnlyTheContinuationOfTheNameA":"Organisation d'un Concours, ou",
-	"aniEnterOnlyTheContinuationOfTheNameB":"Projet de la Cloture de Lotissement, ou",
-	"aniEnterOnlyTheContinuationOfTheNameC":"Transparence de Finances, etc... ",
-	"aniEnterOnlyTheContinuationOfTheNameD":"Ajoutez seulement la suite selon la nature de la Question débattue."
+	"OnlyTheContinue":"La premiere partie du nom de l'ER c.à.d. le préfixe (Equipe de Réalisation de) existe déjà, tapez donc seulement la suite du nom e.g.: ",
+	"OnlyTheContinueA":"Organisation d'un Concours, ou",
+	"OnlyTheContinueB":"Projet de la Cloture de Lotissement, ou",
+	"OnlyTheContinueC":"Transparence de Finances, etc... ",
+	"OnlyTheContinueD":"Ajoutez seulement la suite selon la nature de la Question débattue."
   },
   "decyzjaModalInner":{
 	"deCreatingTheImplementationTeam":"Formation de l'Equipe de Réalisation",
