@@ -85,7 +85,7 @@ Template.uzasadnienieKoszModal.events ( {
             }
         }
     },
-    'click #anulujButton': function ( e ) {
+    'click #cancelButton': function ( e ) {
         e.preventDefault ();
         document.getElementById ( 'uzasadnienieKosz' ).value = "";
         $ ( "#uzasadnijWyborKosz" ).modal ( "hide" );
