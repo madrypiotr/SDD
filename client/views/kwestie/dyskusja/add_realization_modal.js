@@ -33,7 +33,7 @@ Template.addRealizationReportModal.rendered=function () {
     } )
 };
 Template.addRealizationReportModal.events ( {
-    'click #anuluj': function ( e ) {
+    'click #cancelButton': function ( e ) {
         e.preventDefault ();
         document.getElementById ( "addRRForm" ).reset ();
     },

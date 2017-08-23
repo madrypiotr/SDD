@@ -148,7 +148,7 @@ Template.addKwestiaOpcjaForm.events ( {
             Router.go ( <span class="hljs-string">'previewKwestiaOpcja'</span> );
         },<span class="hljs-number">2000</span> );
     },
-    <span class="hljs-string">'click #anuluj'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-string">'click #cancelButton'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
         Session.setPersistent ( <span class="hljs-string">"actualKwestia"</span>, <span class="hljs-literal">null</span> );
         Router.go ( <span class="hljs-string">"informacjeKwestia"</span>, { <span class="hljs-attr">_id</span>: Session.get ( <span class="hljs-string">"idKwestia"</span> ) } );
     }

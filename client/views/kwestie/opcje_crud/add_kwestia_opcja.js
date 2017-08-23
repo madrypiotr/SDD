@@ -100,7 +100,7 @@ Template.addKwestiaOpcjaForm.events ( {
             Router.go ( 'previewKwestiaOpcja' );
         },2000 );
     },
-    'click #anuluj': function () {
+    'click #cancelButton': function () {
         Session.setPersistent ( "actualKwestia", null );
         Router.go ( "informacjeKwestia", { _id: Session.get ( "idKwestia" ) } );
     }
