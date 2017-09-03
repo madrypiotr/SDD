@@ -46,7 +46,7 @@
 
         </td>
         <td class="code highlight">
-          <pre class="javascript">Meteor.methods ( {
+          <pre class="javascript">﻿Meteor.methods ( {
     <span class="hljs-attr">addUser</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> newUser </span>) </span>{
         <span class="hljs-keyword">var</span> uID  =  Accounts.createUser ( {
             <span class="hljs-attr">username</span>: newUser[<span class="hljs-number">0</span>].login,
@@ -134,18 +134,57 @@ Users.update ( { _id:currentUserId}, {$set:{ 'profile.language': value} } );
             _.each ( user.emails, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> email </span>) </span>{
                 <span class="hljs-keyword">if</span> ( _.isEqual ( email.address.toLowerCase (), searchedEmail.toLowerCase () ) ) {
 
-                    <span class="hljs-keyword">if</span> ( userType1 ==<span class="hljs-literal">null</span> &amp;&amp; userType2==<span class="hljs-literal">null</span> )<span class="hljs-comment">//dla przeszukania czy wgl jest taki user w systemie</span>
-                        found=<span class="hljs-literal">true</span>;
+                    <span class="hljs-keyword">if</span> ( userType1 ==<span class="hljs-literal">null</span> &amp;&amp; userType2==<span class="hljs-literal">null</span> )
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>dla przeszukania czy wgl jest taki user w systemie</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                        found=<span class="hljs-literal">true</span>;
                     <span class="hljs-keyword">else</span> {
                         userType=user.profile.userType;
                         <span class="hljs-keyword">if</span> ( userType2 == <span class="hljs-literal">null</span> ) {
-                            <span class="hljs-keyword">if</span> ( userType == userType1 ) {<span class="hljs-comment">//dla przeszukania czy doradca/czlonek jest w systemie</span>
-                                found = <span class="hljs-literal">true</span>;
+                            <span class="hljs-keyword">if</span> ( userType == userType1 ) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>dla przeszukania czy doradca/czlonek jest w systemie</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                                found = <span class="hljs-literal">true</span>;
                             }
                         }
                         <span class="hljs-keyword">else</span> {
-                            <span class="hljs-keyword">if</span> ( userType == userType1 || userType == userType2 ) {<span class="hljs-comment">//dla przeszukania czy owy jest przynajmniej czlonkiem lub doradca</span>
-                                found = <span class="hljs-literal">true</span>;
+                            <span class="hljs-keyword">if</span> ( userType == userType1 || userType == userType2 ) {
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
+</div>
+<p>dla przeszukania czy owy jest przynajmniej czlonkiem lub doradca</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">                                found = <span class="hljs-literal">true</span>;
                             }
                         }
                     }
@@ -172,7 +211,49 @@ Users.update ( { _id:currentUserId}, {$set:{ 'profile.language': value} } );
         } );
         <span class="hljs-keyword">return</span>  array;
     },
-    <span class="hljs-attr">serverGenerateLogin</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> u_firstName, u_lastName </span>) </span>{
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
+</div>
+<div class="dox">
+<div class="summary">
+<p>Generate user login</p>
+</div>
+<div class="body">
+</div>
+<div class="details">
+<div class="dox_tag_title">Params</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">u_firstName</span>
+<span><ul>
+<li>Jego źródło ... jego rola w procedurze ... opis opis opis opis opis opis ...</li>
+</ul>
+</span>
+</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">u_lastName</span>
+<span><ul>
+<li>Jego źródło ... jego rola w procedurze opis opis opis ...</li>
+</ul>
+</span>
+</div>
+<div class="dox_tag_title">Returns</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name"></span>
+<span>userName - Jego źródło ... jego rola w procedurze opis opis opis ...
+</span>
+</div>
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    serverGenerateLogin: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> u_firstName, u_lastName </span>) </span>{
         <span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>;
         <span class="hljs-keyword">do</span> {
             <span class="hljs-keyword">if</span> ( i &lt;= u_firstName.length ) {

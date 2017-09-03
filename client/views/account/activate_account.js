@@ -10,17 +10,19 @@ Template.activateAccount.rendered = function () {
 	var userD = UsersDraft.findOne ({ linkAktywacyjny: currentRoute.linkAktywacyjny });
 	if ( userD ) {
 		var clickedLinkCount = userD.licznikKlikniec + 1;
-		Meteor.call ( "updateLicznikKlikniec", userD._id, clickedLinkCount, function ( error ) {
+		// leads to: ``server\methods\``usersDraft.js
+		Meteor.call ( "updateLicznikKlikniec", userD._id, clickedLinkCount, 
+		function ( error ) {
 			if ( !error ) {
 				var userDraft=UsersDraft.findOne ({ linkAktywacyjny: currentRoute.linkAktywacyjny, czyAktywny: true });
 				if ( userDraft ) {
-					Meteor.call ( "serverGenerateLogin", 
-					userDraft.profile.firstName, 
-					userDraft.profile.lastName, 
-					/**	Feature appointing a new user			
-					* @param err - 
-					* @param ret - 				
-				*/	function ( err, ret ) {
+					// leads to: ``server\methods\``users.js
+					Meteor.call ( "serverGenerateLogin", userDraft.profile.firstName, userDraft.profile.lastName, 
+					/**	Feature appointing a new user
+					* @param err - Jego źródło ... jego rola w procedurze ... opis opis opis ...
+					* @param ret - Jego źródło ... jego rola w procedurze opis opis opis opis opis opis ...
+					*/
+					function ( err, ret ) {
 						if ( !err ) {
 							var newUser = [{
 							email: userDraft.email,
@@ -49,7 +51,7 @@ Template.activateAccount.rendered = function () {
 										else {
 											Meteor.call ( "sendFirstLoginData", idUser, newUser[0].password, function ( error ) {
 												if ( error ) {
-													// txv: (notice that a link to the login failed because of a mail server error)
+													// ``txv`` (notice that a link to the login failed because of a mail server error)
 													bootbox.alert ( TAPi18n.__ ( 'txv.ALERT_LOG1' ) + TAPi18n.__ ( 'txv.ALERT_LOG2' ) + TAPi18n.__ ( 'txv.ALERT_LOG3' ) );
 													var emailError = {
 													idUserDraft: userDraft._id,

@@ -92,8 +92,44 @@
     <span class="hljs-attr">setActivationHashUserDraft</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> id,activationLink </span>) </span>{
         UsersDraft.update ( { <span class="hljs-attr">_id</span>:id },{<span class="hljs-attr">$set</span>:{<span class="hljs-attr">linkAktywacyjny</span>:activationLink} } );
     },
-    <span class="hljs-attr">updateLicznikKlikniec</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> id,counter </span>) </span>{
-        UsersDraft.update ( { <span class="hljs-attr">_id</span>:id },{<span class="hljs-attr">$set</span>:{<span class="hljs-attr">licznikKlikniec</span>:counter} } );
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-2" id="section-2"></a>
+</div>
+<div class="dox">
+<div class="summary">
+<p>Updating click count</p>
+</div>
+<div class="body">
+</div>
+<div class="details">
+<div class="dox_tag_title">Params</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">id</span>
+<span><ul>
+<li>Jego źródło ... jego rola w procedurze ... opis opis opis opis opis opis ...</li>
+</ul>
+</span>
+</div>
+<div class="dox_tag_detail">
+<span class="dox_tag_name">counter</span>
+<span><ul>
+<li>Jego źródło ... jego rola w procedurze opis opis opis ...</li>
+</ul>
+</span>
+</div>
+</div>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">    updateLicznikKlikniec: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"> id, counter </span>) </span>{
+        UsersDraft.update ( { <span class="hljs-attr">_id</span>: id },{<span class="hljs-attr">$set</span>: {<span class="hljs-attr">licznikKlikniec</span>: counter} } );
     },
  } );
 

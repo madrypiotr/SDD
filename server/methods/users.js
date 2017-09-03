@@ -1,4 +1,4 @@
-Meteor.methods ( {
+﻿Meteor.methods ( {
     addUser: function ( newUser ) {
         var uID  =  Accounts.createUser ( {
             username: newUser[0].login,
@@ -74,17 +74,20 @@ Meteor.methods ( {
             _.each ( user.emails, function ( email ) {
                 if ( _.isEqual ( email.address.toLowerCase (), searchedEmail.toLowerCase () ) ) {
 
-                    if ( userType1 ==null && userType2==null )//dla przeszukania czy wgl jest taki user w systemie
+                    if ( userType1 ==null && userType2==null )
+						//dla przeszukania czy wgl jest taki user w systemie
                         found=true;
                     else {
                         userType=user.profile.userType;
                         if ( userType2 == null ) {
-                            if ( userType == userType1 ) {//dla przeszukania czy doradca/czlonek jest w systemie
+                            if ( userType == userType1 ) {
+								//dla przeszukania czy doradca/czlonek jest w systemie
                                 found = true;
                             }
                         }
                         else {
-                            if ( userType == userType1 || userType == userType2 ) {//dla przeszukania czy owy jest przynajmniej czlonkiem lub doradca
+                            if ( userType == userType1 || userType == userType2 ) {
+								//dla przeszukania czy owy jest przynajmniej czlonkiem lub doradca
                                 found = true;
                             }
                         }
@@ -112,6 +115,11 @@ Meteor.methods ( {
         } );
         return  array;
     },
+	/**	Generate user login
+	* @param u_firstName - Jego źródło ... jego rola w procedurze ... opis opis opis opis opis opis ...
+	* @param u_lastName - Jego źródło ... jego rola w procedurze opis opis opis ...
+	* @return userName - Jego źródło ... jego rola w procedurze opis opis opis ...
+	*/
     serverGenerateLogin: function ( u_firstName, u_lastName ) {
         var i = 1;
         do {
