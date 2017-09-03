@@ -3,7 +3,8 @@
 ## User Account Registration Activation Template -->
 <template name="activateAccount">
 <!--
-### In the case of an inactive account ... -->
+### In the case of an inactive account ...
+see helper in: client\views\account\activate_account.js -->
     {{#if notActivatedAccount}}
     {{> spinner}}
     <div class="col-md-12 bg-warning padding-15" style="text-align: center ">
@@ -18,8 +19,9 @@
             {{_ "activateAccount.acIfYouWaitTooLong"}}
         </p>
     </div>
-<!--
-### In the event of an error ... -->
+	<!--
+	### In the event of an error ...
+		see helper in: client\views\account\activate_account.js -->
     {{else}}
 		{{#if notFound}}
 		<div class="col-md-12 bg-warning padding-15" style="text-align: center ">
@@ -34,8 +36,9 @@
 				{{_ "activateAccount.acAnErrorOccuredTryAgain"}}
 			</p>
 		</div>
-<!--
-### In case of success ... -->
+		<!--
+		### In case of success ... 
+			see helper in: client\views\account\activate_account.js -->
 		{{else}}
 			{{#if activatedAccountRightNow}}
 			<div class="col-md-12 bg-success padding-15" style="text-align: center ">
@@ -61,6 +64,8 @@
 					<!--
 					``txv`` Your account has been already activated. Go -->
 					{{_ "activateAccount.acYourAccHasAlreadyBeenAct"}} 
+					<!--
+					see helper in: client\views\account\activate_account.js -->
 					<a href="{{link}}">
 						<!--
 						``txv`` here -->

@@ -113,8 +113,7 @@ Router.map ( <span class="hljs-function"><span class="hljs-keyword">function</sp
           <div class="pilwrap">
   <a class="pilcrow" href="#section-2" id="section-2"></a>
 </div>
-<hr>
-<p>user - ACCOUNT</p>
+<p>use: <code>client\views\account\</code> activate_account.js</p>
 
         </td>
         <td class="code highlight">
@@ -129,6 +128,7 @@ Router.map ( <span class="hljs-function"><span class="hljs-keyword">function</sp
             <span class="hljs-keyword">this</span>.subscribe ( <span class="hljs-string">'userDraftByLinkAktywacyjny'</span>, <span class="hljs-keyword">this</span>.params.linkAktywacyjny );
         }
     } );
+
     <span class="hljs-keyword">this</span>.route ( <span class="hljs-string">'answer_invitation'</span>, {
         <span class="hljs-attr">path</span>: <span class="hljs-string">'/account/answer_invitation/:linkAktywacyjny'</span>,
         <span class="hljs-attr">template</span>: <span class="hljs-string">'answerInvitation'</span>,

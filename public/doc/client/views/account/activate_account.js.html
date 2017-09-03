@@ -62,10 +62,6 @@ Rendering the template activateAccount
 
 
 Template.activateAccount.rendered = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-	<span class="hljs-keyword">var</span> currentRoute = Router.current ().params;
-	<span class="hljs-keyword">var</span> userD = UsersDraft.findOne ({ <span class="hljs-attr">linkAktywacyjny</span>: currentRoute.linkAktywacyjny });
-	<span class="hljs-keyword">if</span> ( userD ) {
-		<span class="hljs-keyword">var</span> clickedLinkCount = userD.licznikKlikniec + <span class="hljs-number">1</span>;
 </pre>
         </td>
       </tr>
@@ -75,7 +71,37 @@ Template.activateAccount.rendered = <span class="hljs-function"><span class="hlj
           <div class="pilwrap">
   <a class="pilcrow" href="#section-2" id="section-2"></a>
 </div>
-<p>leads to: <code>server\methods\</code>usersDraft.js</p>
+<p>gets from: <code>lib\</code> router.js</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> currentRoute = Router.current ().params;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-3" id="section-3"></a>
+</div>
+<p>see publications: <code>server\</code> publications.js</p>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript">	<span class="hljs-keyword">var</span> userD = UsersDraft.findOne ({ <span class="hljs-attr">linkAktywacyjny</span>: currentRoute.linkAktywacyjny });
+	<span class="hljs-keyword">if</span> ( userD ) {
+		<span class="hljs-keyword">var</span> clickedLinkCount = userD.licznikKlikniec + <span class="hljs-number">1</span>;
+</pre>
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-4" id="section-4"></a>
+</div>
+<p>leads to: <code>server\methods\</code> usersDraft.js</p>
 
         </td>
         <td class="code highlight">
@@ -91,7 +117,7 @@ Template.activateAccount.rendered = <span class="hljs-function"><span class="hlj
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-3" id="section-3"></a>
+  <a class="pilcrow" href="#section-5" id="section-5"></a>
 </div>
 <p>leads to: <code>server\methods\</code>users.js</p>
 
@@ -105,7 +131,7 @@ Template.activateAccount.rendered = <span class="hljs-function"><span class="hlj
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-4" id="section-4"></a>
+  <a class="pilcrow" href="#section-6" id="section-6"></a>
 </div>
 <div class="dox">
 <div class="summary">
@@ -170,7 +196,7 @@ Template.activateAccount.rendered = <span class="hljs-function"><span class="hlj
       <tr>
         <td class="docs">
           <div class="pilwrap">
-  <a class="pilcrow" href="#section-5" id="section-5"></a>
+  <a class="pilcrow" href="#section-7" id="section-7"></a>
 </div>
 <p><code>txv</code> (notice that a link to the login failed because of a mail server error)</p>
 

@@ -6,17 +6,19 @@
 
 
 Template.activateAccount.rendered = function () {
+	// gets from: `` lib\ `` router.js
 	var currentRoute = Router.current ().params;
+	// see publications: `` server\ `` publications.js
 	var userD = UsersDraft.findOne ({ linkAktywacyjny: currentRoute.linkAktywacyjny });
 	if ( userD ) {
 		var clickedLinkCount = userD.licznikKlikniec + 1;
-		// leads to: ``server\methods\``usersDraft.js
+		// leads to: `` server\methods\ `` usersDraft.js
 		Meteor.call ( "updateLicznikKlikniec", userD._id, clickedLinkCount, 
 		function ( error ) {
 			if ( !error ) {
 				var userDraft=UsersDraft.findOne ({ linkAktywacyjny: currentRoute.linkAktywacyjny, czyAktywny: true });
 				if ( userDraft ) {
-					// leads to: ``server\methods\``users.js
+					// leads to: `` server\methods\``users.js
 					Meteor.call ( "serverGenerateLogin", userDraft.profile.firstName, userDraft.profile.lastName, 
 					/**	Feature appointing a new user
 					* @param err - Jego źródło ... jego rola w procedurze ... opis opis opis ...
