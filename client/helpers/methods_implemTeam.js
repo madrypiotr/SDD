@@ -23,7 +23,7 @@ addCzlonekToZespolRealizacyjnyNotification = function ( idUser, teamToUpdate, nu
 			$where: function () {
 				return ( this.status == KWESTIA_STATUS.GLOSOWANA || this.status == KWESTIA_STATUS.ARCHIWALNA );
 			}
-		 } );
+		});
 		var flag = false;
 		var arrayZespolyDouble = [];
 		kwestie.forEach ( function ( kwestia ) {
