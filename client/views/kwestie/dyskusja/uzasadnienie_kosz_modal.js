@@ -1,13 +1,13 @@
 Template.uzasadnienieKoszModal.rendered=function () {
-    document.getElementById ( "zatwierdzPrzeniesDoKosza" ).disabled = false;
+    document.getElementById ( 'zatwierdzPrzeniesDoKosza' ).disabled = false;
 };
 Template.uzasadnienieKoszModal.events ( {
     'click #zatwierdzPrzeniesDoKosza': function ( e ) {
         e.preventDefault ();
         var uzasadnienie = document.getElementById ( 'uzasadnienieKosz' ).value;
         if ( uzasadnienie ) {
-            if ( uzasadnienie.trim ()!="" ) {
-                document.getElementById ( "zatwierdzPrzeniesDoKosza" ).disabled = true;
+            if ( uzasadnienie.trim ()!='' ) {
+                document.getElementById ( 'zatwierdzPrzeniesDoKosza' ).disabled = true;
                 var message = TAPi18n.__ ( 'txv.MOVE_TO_TRASH' );
                 var idKwestia = this.idKwestia;
                 var idUser = Meteor.userId ();
@@ -44,7 +44,7 @@ Template.uzasadnienieKoszModal.events ( {
                     if ( !z ) {
                         Meteor.call ( 'addPost', post, function ( error, ret ) {
                             if ( error ) {
-                                if ( typeof Errors === "undefined" )
+                                if ( typeof Errors === 'undefined' )
                                     Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                                 else {
                                     throwError ( error.reason );
@@ -54,19 +54,19 @@ Template.uzasadnienieKoszModal.events ( {
                                 var postId=ret;
                                 var z2 = Posts.find ( {idKwestia: idKwestia, postType: POSTS_TYPES.KOSZ } );
                                 if ( z2.count ()<=1 ) {
-                                    document.getElementById ( "message" ).value = "";
-                                    $ ( "#uzasadnijWyborKosz" ).modal ( "hide" );
+                                    document.getElementById ( 'message' ).value = '';
+                                    $ ( '#uzasadnijWyborKosz' ).modal ( 'hide' );
                                     $ ( 'html, body' ).animate ( {
-                                        scrollTop: $ ( ".doKoszaClass" ).offset ().top
+                                        scrollTop: $ ( '.doKoszaClass' ).offset ().top
                                     }, 600 );
                                 }
                                 else{
-                                    document.getElementById ( "message" ).value = "";
-                                    $ ( "#uzasadnijWyborKosz" ).modal ( "hide" );
-                                    Meteor.call ( "removePost",postId,function ( error,ret ) {
+                                    document.getElementById ( 'message' ).value = '';
+                                    $ ( '#uzasadnijWyborKosz' ).modal ( 'hide' );
+                                    Meteor.call ( 'removePost',postId,function ( error,ret ) {
                                         if ( !error ) {
                                             $ ( 'html, body' ).animate ( {
-                                                scrollTop: $ ( ".uzasadnijWyborKosz" ).offset ().top
+                                                scrollTop: $ ( '.uzasadnijWyborKosz' ).offset ().top
                                             }, 600 );
                                         }
                                     } );
@@ -75,10 +75,10 @@ Template.uzasadnienieKoszModal.events ( {
                         } );
                     }
                     else{
-                        document.getElementById ( "message" ).value = "";
-                        $ ( "#uzasadnijWyborKosz" ).modal ( "hide" );
+                        document.getElementById ( 'message' ).value = '';
+                        $ ( '#uzasadnijWyborKosz' ).modal ( 'hide' );
                         $ ( 'html, body' ).animate ( {
-                            scrollTop: $ ( ".doKoszaClass" ).offset ().top
+                            scrollTop: $ ( '.doKoszaClass' ).offset ().top
                         }, 600 );
                     }
                 }
@@ -87,7 +87,7 @@ Template.uzasadnienieKoszModal.events ( {
     },
     'click #cancelButton': function ( e ) {
         e.preventDefault ();
-        document.getElementById ( 'uzasadnienieKosz' ).value = "";
-        $ ( "#uzasadnijWyborKosz" ).modal ( "hide" );
+        document.getElementById ( 'uzasadnienieKosz' ).value = '';
+        $ ( '#uzasadnijWyborKosz' ).modal ( 'hide' );
     }
- } );
+} );

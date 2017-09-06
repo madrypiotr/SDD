@@ -1,95 +1,95 @@
-;(function () {
+(function () {
 
-  "use strict";
+    'use strict';
 
 
-////////////////////////////////////////////////////////////////////
-// Routing
-//
+    ////////////////////////////////////////////////////////////////////
+    // Routing
+    //
 
-// override with meteor-routerFiles navigate method
-Meteor.navigateTo = function (path) {
-  Meteor.Router.to(path);
-};
+    // override with meteor-routerFiles navigate method
+    Meteor.navigateTo = function (path) {
+        Meteor.Router.to(path);
+    };
 
-function emailVerified (user) {
-  return _.some(user.emails, function (email) {
-    return email.verified;
-  });
-}
-
-Meteor.Router.add({
-  '/': function () {
-    var user;
-
-    if (Meteor.loggingIn()) {
-      console.log('home: loading');
-      return 'loading';
+    function emailVerified (user) {
+        return _.some(user.emails, function (email) {
+            return email.verified;
+        });
     }
 
-    user = Meteor.user();
-    if (!user) {
-      console.log('home: signin');
-      return 'signin';
-    }
+    Meteor.Router.add({
+        '/': function () {
+            var user;
 
-    if (!emailVerified(user)) {
-      console.log('home: awaiting-verification');
-      return 'awaiting-verification';
-    }
+            if (Meteor.loggingIn()) {
+                console.log('home: loading');
+                return 'loading';
+            }
 
-    console.log('home: user found');
-    console.log(user.roles);
+            user = Meteor.user();
+            if (!user) {
+                console.log('home: signin');
+                return 'signin';
+            }
 
-    // start on 'start' page
-    console.log('home: start');
-    return 'start';
-  },
-  '/signin': 'signin',
-  '/start': 'start',
-  '/secrets': 'secrets',
-  '/manage': 'manage',
-  '/signout': App.signout,
-  '*': 'not_found'
-});
+            if (!emailVerified(user)) {
+                console.log('home: awaiting-verification');
+                return 'awaiting-verification';
+            }
 
-Meteor.Router.filters({
-  checkLoggedIn: function (page) {
-    var user;
+            console.log('home: user found');
+            console.log(user.roles);
 
-    if (Meteor.loggingIn()) {
+            // start on 'start' page
+            console.log('home: start');
+            return 'start';
+        },
+        '/signin': 'signin',
+        '/start': 'start',
+        '/secrets': 'secrets',
+        '/manage': 'manage',
+        '/signout': App.signout,
+        '*': 'not_found'
+    });
 
-      console.log('filter: loading');
-      return 'loading';
+    Meteor.Router.filters({
+        checkLoggedIn: function (page) {
+            var user;
 
-    } else {
+            if (Meteor.loggingIn()) {
 
-      user = Meteor.user();
+                console.log('filter: loading');
+                return 'loading';
 
-      if (!user) {
+            } else {
 
-        console.log('filter: signin');
-        return 'signin';
+                user = Meteor.user();
 
-      }
+                if (!user) {
 
-      if (!emailVerified(user)) {
+                    console.log('filter: signin');
+                    return 'signin';
 
-        console.log('filter: awaiting-verification');
-        return 'awaiting-verification';
+                }
 
-      } 
+                if (!emailVerified(user)) {
 
-      console.log('filter: done');
-      return page;
+                    console.log('filter: awaiting-verification');
+                    return 'awaiting-verification';
 
-    }
-  }
-});
+                } 
 
-// make sure user has logged in for all appropriate routes
-Meteor.Router.filter('checkLoggedIn', {
-  except:['signin','loading','not-found']
-});
+                console.log('filter: done');
+                return page;
+
+            }
+        }
+    });
+
+    // make sure user has logged in for all appropriate routes
+    Meteor.Router.filter('checkLoggedIn', {
+        except:['signin','loading','not-found']
+    });
 
 }());

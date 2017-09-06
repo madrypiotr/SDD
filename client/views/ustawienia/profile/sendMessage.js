@@ -1,14 +1,14 @@
 Template.sendMessage.rendered=function () {
 };
 Template.sendMessage.helpers ( {
-   myData: function () {
-       return Meteor.user ().profile.firstName + " " + Meteor.user ().profile.lastName;
-   },
+    myData: function () {
+        return Meteor.user ().profile.firstName + ' ' + Meteor.user ().profile.lastName;
+    },
     receiverData: function () {
         var user=Users.findOne ( { _id:this._id } );
-        return user ? user.profile.firstName + " " + user.profile.lastName : null;
+        return user ? user.profile.firstName + ' ' + user.profile.lastName : null;
     }
- } );
+} );
 
 Template.sendMessage.events ( {
     'submit form': function ( e ) {
@@ -26,8 +26,8 @@ Template.sendMessage.events ( {
             }];
 
         var text=null;
-        if ( subject.trim ()==null || subject=="" ) {
-            if ( content.trim () == null || content == "" )
+        if ( subject.trim ()==null || subject=='' ) {
+            if ( content.trim () == null || content == '' )
                 text = TAPi18n.__ ( 'txv.SUBJECT_AND_CONTENT' );
             else text = TAPi18n.__ ( 'txv.SUBJECT2' );
             askToFillSubject ( text,newEmail );
@@ -39,27 +39,27 @@ Template.sendMessage.events ( {
     'reset form': function () {
         Router.go ( 'administracjaUserMain' );
     }
- } );
+} );
 
 sendMessage=function ( newEmail,idReceiver ) {
     Meteor.call ( 'sendMessageToUser', newEmail, function ( error, ret ) {
         if ( error ) {
-            if ( typeof Errors === "undefined" )
+            if ( typeof Errors === 'undefined' )
                 Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
             else
                 throwError ( error.reason );
         }
         else {
-            var from=Meteor.user ().profile.firstName + " " + Meteor.user ().profile.lastName;
+            var from=Meteor.user ().profile.firstName + ' ' + Meteor.user ().profile.lastName;
             addPowiadomienieFunction ( newEmail[0] );
-            Meteor.call ( "sendDirectMessageToUser", idReceiver, from, newEmail[0].subject, newEmail[0].content, function ( error ) {
+            Meteor.call ( 'sendDirectMessageToUser', idReceiver, from, newEmail[0].subject, newEmail[0].content, function ( error ) {
                 if ( error ) {
 
                     var emailError = {
                         idUser: Meteor.userId (),
                         type: NOTIFICATION_TYPE.MESSAGE_FROM_USER
                     };
-                    Meteor.call ( "addEmailError", emailError );
+                    Meteor.call ( 'addEmailError', emailError );
                 }
             } );
             Router.go ( 'administracjaUserMain' );
@@ -77,10 +77,10 @@ addPowiadomienieFunction=function ( content ) {
         czyAktywny: true,
         czyOdczytany: false
     };
-    Meteor.call ( "addPowiadomienie",newPowiadomienie,function ( error ) {
+    Meteor.call ( 'addPowiadomienie',newPowiadomienie,function ( error ) {
         if ( error )
             throwError ( error.reason );
-    } )
+    } );
 };
 askToFillSubject=function ( text,newEmail ) {
     var result=null;
@@ -91,17 +91,17 @@ askToFillSubject=function ( text,newEmail ) {
         buttons: {
             success: {
                 label: TAPi18n.__ ( 'txv.SEND' ),
-                className: "btn-success successAttention",
+                className: 'btn-success successAttention',
                 callback: function () {
-                    $ ( '.successAttention' ).css ( "visibility", "hidden" );
+                    $ ( '.successAttention' ).css ( 'visibility', 'hidden' );
                     sendMessage ( newEmail );
                 }
             },
             danger: {
                 label: TAPi18n.__ ( 'txv.CANCEL' ),
-                className: "btn-danger",
+                className: 'btn-danger',
                 callback: function () {
-                    $ ( '.successAttention' ).css ( "visibility", "visible" );
+                    $ ( '.successAttention' ).css ( 'visibility', 'visible' );
                 }
             }
         }

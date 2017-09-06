@@ -1,8 +1,8 @@
 Template.ZRTemplate.helpers ( {
     hasAccess: function () {
         if ( !Meteor.userId () )
-            return "disabled";
-        return Meteor.user ().profile.userType==USERTYPE.CZLONEK ? "" : "disabled";
+            return 'disabled';
+        return Meteor.user ().profile.userType==USERTYPE.CZLONEK ? '' : 'disabled';
     },
     getZRName: function ( idZR,status ) {
         var zespolR=null;
@@ -23,22 +23,22 @@ Template.ZRTemplate.helpers ( {
         status == KWESTIA_STATUS.REALIZOWANA || status == KWESTIA_STATUS.ZREALIZOWANA || status == KWESTIA_STATUS.ARCHIWALNA || czyAktywny==false ? true : false;
     },
     pierwszyCzlonekFullName: function ( idZR ) {
-        return getCzlonekFullName ( 0,idZR,"ZRDraft" );
+        return getCzlonekFullName ( 0,idZR,'ZRDraft' );
     },
     drugiCzlonekFullName: function ( idZR ) {
-        return getCzlonekFullName ( 1,idZR,"ZRDraft" );
+        return getCzlonekFullName ( 1,idZR,'ZRDraft' );
     },
     trzeciCzlonekFullName: function ( idZR ) {
-        return getCzlonekFullName ( 2,idZR,"ZRDraft" );
+        return getCzlonekFullName ( 2,idZR,'ZRDraft' );
     },
     isActualUser: function ( index,idZR ) {
-        var userID=getImplTeamData ( index,idZR,"ZRDraft" );
+        var userID=getImplTeamData ( index,idZR,'ZRDraft' );
         if ( userID ) {
             if ( userID!=Meteor.userId () )
-                return "disabled";
-            return this.status == KWESTIA_STATUS.GLOSOWANA ? "disabled" :"";
+                return 'disabled';
+            return this.status == KWESTIA_STATUS.GLOSOWANA ? 'disabled' :'';
         }
-        return "disabled";
+        return 'disabled';
     },
     isInZRFoo: function ( idZr ) {
         var zrDraft=ZespolRealizacyjny.findOne ( { _id:idZr } );
@@ -48,10 +48,10 @@ Template.ZRTemplate.helpers ( {
     },
     isInZR: function ( idZr ) {
         if ( Meteor.user ().profile.userType!==USERTYPE.CZLONEK )
-            return "disabled";
+            return 'disabled';
         var zrDraft=ImplemTeamDraft.findOne ( { _id:idZr } );
         if ( zrDraft ) {
-            return _.contains ( zrDraft.zespol, Meteor.userId () ) ? "disabled" :"";
+            return _.contains ( zrDraft.zespol, Meteor.userId () ) ? 'disabled' :'';
         }
     },
     getZRCzlonkowie: function ( idZR,status ) {
@@ -73,10 +73,10 @@ Template.ZRTemplate.helpers ( {
         return data;
     },
     getZRMembersTrashCan: function ( zespol ) {
-// getZRCzlonkowieTrashCan only once here. Check if you need it?	
-        var data="";
+        // getZRCzlonkowieTrashCan only once here. Check if you need it?	
+        var data='';
         _.each ( zespol.czlonkowie,function ( czlonek ) {
-           data +=czlonek + ",";
+            data +=czlonek + ',';
         } );
         return data;
     },
@@ -93,14 +93,14 @@ Template.ZRTemplate.helpers ( {
         } );
         return array;
     }
- } );
+} );
 
 Template.ZRTemplate.events ( {
     'click #czlonek1': function () {
         teamId=this.idZR;
-        var idUser=getImplTeamData ( 0, this.idZR,"ZRDraft" );
+        var idUser=getImplTeamData ( 0, this.idZR,'ZRDraft' );
         if ( idUser==Meteor.userId () ) {
-            unsubscribeITAlert ( getImplTeamData ( 0,teamId,"ZRDraft" ), this.idKwestia );
+            unsubscribeITAlert ( getImplTeamData ( 0,teamId,'ZRDraft' ), this.idKwestia );
         }
         else {
             var z = ImplemTeamDraft.findOne ( { _id: teamId } );
@@ -167,6 +167,6 @@ Template.ZRTemplate.events ( {
         }
     },
     'click #listaZR': function () {
-        $ ( "#listZespolRealizacyjny" ).modal ( "show" );
+        $ ( '#listZespolRealizacyjny' ).modal ( 'show' );
     }
- } );
+} );

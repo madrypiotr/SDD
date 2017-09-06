@@ -23,4 +23,4 @@ Meteor.methods ( {
         var id = ImplemTeamDraft.update ( id, {$set: {zespol: czlonkowie,nazwa:nazwa}}, {upsert: true } );
         return id;
     }
- } );
+} );

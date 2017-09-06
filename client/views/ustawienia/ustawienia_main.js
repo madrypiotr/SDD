@@ -22,10 +22,10 @@ Template.administracjaUserMain.helpers ( {
                 if ( userDraft ) {
                     if ( userDraft.profile.idUser ) {
                         if ( userDraft.profile.idUser==Meteor.userId () )
-                        condition=true;
+                            condition=true;
                     }
                 }
-                    return ( this.czyAktywny==true && condition==true && ( this.status!= KWESTIA_STATUS.ZREALIZOWANA && this.status!=KWESTIA_STATUS.REALIZOWANA ) ) ||
+                return ( this.czyAktywny==true && condition==true && ( this.status!= KWESTIA_STATUS.ZREALIZOWANA && this.status!=KWESTIA_STATUS.REALIZOWANA ) ) ||
 
                     ( ( ( this.czyAktywny == true ) && ( ( this.status == KWESTIA_STATUS.ADMINISTROWANA ) || ( this.idUser==Meteor.userId () ) )
                     || ( ( this.typ==KWESTIA_TYPE.ACCESS_DORADCA
@@ -64,7 +64,7 @@ Template.administracjaUserMain.helpers ( {
             else return true;
         }
     },
- } );
+} );
 
 Template.lobbujZaKwestia.helpers ( {
     IAmOwnerKwestiaGlosowanaOrDEliberowana: function () {
@@ -82,30 +82,30 @@ Template.lobbujZaKwestia.helpers ( {
         this.status == KWESTIA_STATUS.OSOBOWA ||
         this.status == KWESTIA_STATUS.ADMINISTROWANA ) ? true: false;
     }
- } );
+} );
 
 Template.lobbujZaKwestia.rendered=function () {
 
 };
 Template.lobbujZaKwestia.events ( {
-   'click #lobbujZaKwestia': function ( e ) {
-       e.preventDefault ();
-       var idKwestia=this._id;
-       var kwestia=Kwestia.findOne ( { _id:idKwestia } );
-       if ( kwestia.lobbowana ) {
-           if ( moment ( kwestia.lobbowana ).add ( 24,'hours' ).format () > moment ( new Date () ).format () ) {
-               GlobalNotification.warning ( {
-                   title: TAPi18n.__ ( 'txv.INFO' ),
-                   content: TAPi18n.__ ( 'txv.NOT_POSS_LESS24' ),
-                   duration: 4
-               } );
-           }
-           else bootboxEmail ( idKwestia );
-       }
-       else
-           bootboxEmail ( idKwestia );
-   }
- } );
+    'click #lobbujZaKwestia': function ( e ) {
+        e.preventDefault ();
+        var idKwestia=this._id;
+        var kwestia=Kwestia.findOne ( { _id:idKwestia } );
+        if ( kwestia.lobbowana ) {
+            if ( moment ( kwestia.lobbowana ).add ( 24,'hours' ).format () > moment ( new Date () ).format () ) {
+                GlobalNotification.warning ( {
+                    title: TAPi18n.__ ( 'txv.INFO' ),
+                    content: TAPi18n.__ ( 'txv.NOT_POSS_LESS24' ),
+                    duration: 4
+                } );
+            }
+            else bootboxEmail ( idKwestia );
+        }
+        else
+            bootboxEmail ( idKwestia );
+    }
+} );
 bootboxEmail=function ( idKwestia ) {
     var form=bootbox.dialog ( {
         message:
@@ -121,18 +121,18 @@ bootboxEmail=function ( idKwestia ) {
         closeButton: false, 
         buttons: {
             success: {
-                label: "Wyślij",
-                className: "btn-success successMessage",
+                label: 'Wyślij',
+                className: 'btn-success successMessage',
                 callback: function () {
-                    $ ( '.successMessage' ).css ( "visibility", "hidden" );
+                    $ ( '.successMessage' ).css ( 'visibility', 'hidden' );
                     sendEmailAndNotification ( idKwestia,$ ( '#emailText' ).val () );
                 }
             },
             danger: {
                 label: TAPi18n.__ ( 'txv.CANCEL' ),
-                className: "btn-danger",
+                className: 'btn-danger',
                 callback: function () {
-                    $ ( '.btn-success' ).css ( "visibility", "visible" );
+                    $ ( '.btn-success' ).css ( 'visibility', 'visible' );
                 }
             }
         }
@@ -148,16 +148,16 @@ sendEmailAndNotification=function ( idKwestia,emailText ) {
         bootboxEmail ( idKwestia );
     }
     else{
-        Meteor.call ( "updTheLobbTimeIssue",idKwestia,new Date (),function ( error ) {
+        Meteor.call ( 'updTheLobbTimeIssue',idKwestia,new Date (),function ( error ) {
             if ( !error ) {
                 addPowiadomienieLobbingIssueFunction ( idKwestia,emailText );
-                Meteor.call ( "sendEmailLobbingIssue", idKwestia,emailText, Meteor.userId (), getUserLanguage (), function ( error ) {
+                Meteor.call ( 'sendEmailLobbingIssue', idKwestia,emailText, Meteor.userId (), getUserLanguage (), function ( error ) {
                     if ( error ) {
                         var emailError = {
                             idIssue: idKwestia,
                             type: NOTIFICATION_TYPE.LOOBBING_MESSAGE
                         };
-                        Meteor.call ( "addEmailError", emailError );
+                        Meteor.call ( 'addEmailError', emailError );
                     }
                 } );
             }
@@ -177,17 +177,17 @@ addPowiadomienieLobbingIssueFunction=function ( idKwestia,uzasadnienie ) {
             idOdbiorca: user._id,
             idNadawca: Meteor.userId (),
             dataWprowadzenia: new Date (),
-            tytul: "",
+            tytul: '',
             powiadomienieTyp: NOTIFICATION_TYPE.LOOBBING_MESSAGE,
-            tresc: "",
+            tresc: '',
             uzasadnienie:uzasadnienie,
             idKwestia:idKwestia,
             czyAktywny: true,
             czyOdczytany: false
         };
-        Meteor.call ( "addPowiadomienie",newPowiadomienie,function ( error ) {
+        Meteor.call ( 'addPowiadomienie',newPowiadomienie,function ( error ) {
             if ( error )
                 throwError ( error.reason );
-        } )
+        } );
     } );
 };

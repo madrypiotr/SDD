@@ -8,7 +8,7 @@ Template.listRaport.events ( {
     'click .glyphicon-pencil': function ( event, template ) {
         Session.set ( 'raportInScope', this );
     }
- } );
+} );
 Template.listRaport.helpers ( {
     'settings': function () {
         return {
@@ -44,7 +44,7 @@ Template.listRaport.helpers ( {
     },
     kwestiaNazwa: function () {
         var issue=Kwestia.findOne ( { _id:Router.current ().params._id } );
-        return issue ? issue.kwestiaNazwa : "";
+        return issue ? issue.kwestiaNazwa : '';
     },
     raportCount: function () {
         return Raport.find ().count ();
@@ -52,17 +52,17 @@ Template.listRaport.helpers ( {
     isAdminUser: function () {
         return IsAdminUser ();
     }
- } );
+} );
 
 Template.dataUtworzenia.helpers ( {
-   dataUtworzenia: function () {
-       return moment ( this.dataUtworzenia ).format ( "DD-MM-YYYY, HH:mm" );
-   }
- } );
+    dataUtworzenia: function () {
+        return moment ( this.dataUtworzenia ).format ( 'DD-MM-YYYY, HH:mm' );
+    }
+} );
 
 Template.raportDetails.helpers ( {
     raport: function ( id ) {
         var report=Raport.findOne ( { _id:id } );
         return report? report : null;
     }
- } );
+} );

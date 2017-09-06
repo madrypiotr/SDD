@@ -18,40 +18,40 @@ Template.notificationList.helpers ( {
             ],
             rowClass: function ( item ) {
                 if ( item.czyOdczytany==false )
-                return "danger";
+                    return 'danger';
             }
         };
     }
- } );
+} );
 Template.dataWpr.helpers ( {
     date: function () {
         var d = this.dataWprowadzenia;
-        if ( d ) return moment ( d ).format ( "DD-MM-YYYY, HH:mm" );
+        if ( d ) return moment ( d ).format ( 'DD-MM-YYYY, HH:mm' );
     }
- } );
+} );
 Template.tematLink.helpers ( {
     notificationTitle: function () {
         var idNadawca=this.idNadawca;
         var idKwestia=this.idKwestia;
         return getTopicTypeNotification ( this.powiadomienieTyp,idNadawca,idKwestia );
     }
- } );
+} );
 
 getTopicTypeNotification=function ( powiadomienieTyp,idNadawca,idKwestia ) {
     switch ( powiadomienieTyp ) {
-        case NOTIFICATION_TYPE.MESSAGE_FROM_USER:{
-            var user = Users.findOne ( { _id: idNadawca } );
-            return powiadomienieTyp + " " + user.profile.fullName;break;
-        }
-        case NOTIFICATION_TYPE.NEW_ISSUE:{//sth wrong,when applies guest
-            var kwestia=Kwestia.findOne ( { _id:idKwestia } );
-            return powiadomienieTyp + ": " + kwestia.kwestiaNazwa;break;
-        }
-        case NOTIFICATION_TYPE.LOOBBING_MESSAGE:{
-            var user=Users.findOne ( { _id:idNadawca } );
-            if ( user )
-                return powiadomienieTyp + TAPi18n.__ ( 'txv.BY' ) + user.profile.fullName;break;
-        }
-        default : return powiadomienieTyp;
+    case NOTIFICATION_TYPE.MESSAGE_FROM_USER:{
+        var user = Users.findOne ( { _id: idNadawca } );
+        return powiadomienieTyp + ' ' + user.profile.fullName;break;
+    }
+    case NOTIFICATION_TYPE.NEW_ISSUE:{//sth wrong,when applies guest
+        var kwestia=Kwestia.findOne ( { _id:idKwestia } );
+        return powiadomienieTyp + ': ' + kwestia.kwestiaNazwa;break;
+    }
+    case NOTIFICATION_TYPE.LOOBBING_MESSAGE:{
+        var user=Users.findOne ( { _id:idNadawca } );
+        if ( user )
+            return powiadomienieTyp + TAPi18n.__ ( 'txv.BY' ) + user.profile.fullName;break;
+    }
+    default : return powiadomienieTyp;
     }
 };

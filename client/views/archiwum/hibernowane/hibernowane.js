@@ -66,7 +66,7 @@ Template.hibernowaneList.helpers({
 
 Template.hibernowaneList.rendered = function () {
     $('[data-toggle="tooltip"]').tooltip();
-}
+};
 
 Template.tematKwestiiHibernowane.helpers({
     'getTemat': function (id) {

@@ -1,5 +1,5 @@
 Template.profileEdit.rendered = function () {
-    $("#profileForm").validate({
+    $('#profileForm').validate({
         rules: {
             zipcode: {
                 zipCodeValidation1: true,
@@ -35,7 +35,7 @@ Template.profileEdit.rendered = function () {
                 error.insertAfter(element);
             }
         }
-    })
+    });
 };
 
 Template.profileEdit.helpers({
@@ -46,9 +46,9 @@ Template.profileEdit.helpers({
     isSelected: function (gender) {
         var gen = this.profile.gender;
         if (gen == gender)
-            return "checked";
+            return 'checked';
         else
-            return "";
+            return '';
     },
     userZwyczajny: function () {
         return this.profile.userType== USERTYPE.CZLONEK ? true : false;
@@ -63,7 +63,7 @@ Template.profileEdit.events({
         var userType = Users.findOne({_id: currentUserId}).profile.userType;
         if (isNotEmpty($(e.target).find('[name=name]').val(), 'imię') &&
             isNotEmpty($(e.target).find('[name=surname]').val(), 'nazwisko')) 
-            {
+        {
             var userProperties = {
                 profile: {
                     firstName: $(e.target).find('[name=name]').val(),
@@ -78,7 +78,7 @@ Template.profileEdit.events({
             Meteor.call('updateUser', currentUserId, userProperties, function (error) {
                 if (error) {
                     // optionally use a meteor errors package
-                    if (typeof Errors === "undefined")
+                    if (typeof Errors === 'undefined')
                         Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                     else {
                         if (error.error === 409)

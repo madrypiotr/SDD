@@ -1,13 +1,13 @@
 //## Reset password
 
 Template.resetPassword.rendered = function () {
-    $ ( "#resetPassword" ).validate ( {
+    $ ( '#resetPassword' ).validate ( {
         rules: {
             password: {
                 minlength: 6
             },
             confirmPassword: {
-                equalTo: "#password"
+                equalTo: '#password'
             }
         },
         messages: {
@@ -42,7 +42,7 @@ Template.resetPassword.events ( {
 
         if ( user ) {
             if ( user.services.password.reset.when.addHours ( 3 ) > new Date () ) {
-                console.log ( "true" );
+                console.log ( 'true' );
                 Accounts.resetPassword ( token,newPassword );
             }
             else{
@@ -52,4 +52,4 @@ Template.resetPassword.events ( {
             throwError ( TAPi18n.__ ( 'txv.TOKEN_HAS_EXPIRED' ) );
         }
     }
- } );
+} );

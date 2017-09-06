@@ -1,9 +1,9 @@
 Meteor.startup ( function () {
     var temat =
     {
-        "_id": "3TBYqrgpJiQQSDEbt",
-        "nazwaTemat": TAPi18n.__ ( 'txv.ORGANIZATIONAL' ),
-        "opis": TAPi18n.__ ( 'txv.INTERNAL_AFFAIRS' )
+        '_id': '3TBYqrgpJiQQSDEbt',
+        'nazwaTemat': TAPi18n.__ ( 'txv.ORGANIZATIONAL' ),
+        'opis': TAPi18n.__ ( 'txv.INTERNAL_AFFAIRS' )
     };
 
     if ( Temat.find ().count () == 0 ) {
@@ -14,4 +14,4 @@ Meteor.startup ( function () {
             opis: temat.opis
         } );
     }
- } );
+} );

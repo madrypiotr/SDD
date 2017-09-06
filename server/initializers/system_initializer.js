@@ -15,10 +15,10 @@ Meteor.startup ( function () {
         //    }
         // } );
         System.insert ( {
-            systemPrefix: "AA001"
+            systemPrefix: 'AA001'
         } );
     }
- } );
+} );
 
 //TO DO: This function is prepared for next system instances but need to be modified when it will be ready
 //generateSystemPrefix = function () {

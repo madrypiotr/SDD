@@ -2,16 +2,16 @@
  * Created by Bartłomiej Szewczyk on 2015-11-26.
  */
 Template.addTopicModalInner.rendered = function () {
-    document.getElementById ( "addTopicModalBtn" ).disabled = false;
+    document.getElementById ( 'addTopicModalBtn' ).disabled = false;
 };
 Template.addTopicModalInner.events ( {
     'click #addTopicModalBtn': function () {
-        document.getElementById ( "addTopicModalBtn" ).disabled = true;
+        document.getElementById ( 'addTopicModalBtn' ).disabled = true;
         Meteor.setTimeout ( function () {
-            document.getElementById ( "addTopicModalBtn" ).disabled = false;
+            document.getElementById ( 'addTopicModalBtn' ).disabled = false;
         }, 2000 );
 
-        var topicName = document.getElementById ( "topicName" ).value;
+        var topicName = document.getElementById ( 'topicName' ).value;
 
         var topicsCount = Temat.find ( {nazwaTemat: topicName } ).count ();
 
@@ -22,7 +22,7 @@ Template.addTopicModalInner.events ( {
                 duration: 4 // duration the notification should stay in seconds
             } );
         }else{
-            if ( topicName == "" || topicName == null ) {
+            if ( topicName == '' || topicName == null ) {
                 GlobalNotification.error ( {
                     title: TAPi18n.__ ( 'txv.WARNING' ),
                     content: TAPi18n.__ ( 'txv.FIELD_TOPIC_CNBE' ),
@@ -30,11 +30,11 @@ Template.addTopicModalInner.events ( {
                 } );
             }else {
 
-                document.getElementById ( "addTypeBtn" ).disabled = false;
-                Session.setPersistent ( "choosenTopic", topicName );
-                Session.setPersistent ( "choosenType", null );
-                $ ( "#addTopicModalId" ).modal ( "hide" );
+                document.getElementById ( 'addTypeBtn' ).disabled = false;
+                Session.setPersistent ( 'choosenTopic', topicName );
+                Session.setPersistent ( 'choosenType', null );
+                $ ( '#addTopicModalId' ).modal ( 'hide' );
             }
         }
     }
- } );
+} );

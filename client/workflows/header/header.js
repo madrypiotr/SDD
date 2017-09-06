@@ -1,15 +1,15 @@
 Template.header.created = function () {
     this.currentRouteNameRV = new ReactiveVar;
-}
+};
 
 Template.header.rendered = function () {
     var self = Template.instance ();
     this.autorun ( function () {
         var routeName = Router.current ().route.getName ();
         self.currentRouteNameRV.set ( routeName );
-        self.subscribe ( "pagesInfoByLang", self.currentRouteNameRV.get () );
+        self.subscribe ( 'pagesInfoByLang', self.currentRouteNameRV.get () );
     } );
-}
+};
 
 Template.header.helpers ( {
     'activeRouteClass': function ( /* route names */ ) {
@@ -17,7 +17,7 @@ Template.header.helpers ( {
         args.pop ();
 
         var active = _.any ( args, function ( name ) {
-            return Router.current () && Router.current ().route.getName () === name
+            return Router.current () && Router.current ().route.getName () === name;
         } );
 
         return active && 'active';
@@ -28,7 +28,7 @@ Template.header.helpers ( {
     isAdmin: function () {
         if ( Meteor.user () ) {
             if ( Meteor.user ().roles ) {
-                if ( Meteor.user ().roles == "admin" )
+                if ( Meteor.user ().roles == 'admin' )
                     return true;
                 else
                     return false;
@@ -55,7 +55,7 @@ Template.header.helpers ( {
     currentUser: function () {
         return Meteor.userId ()? true : false;
     }
- } );
+} );
 
 Template.language.events ( {
     'click .lang': function ( e ) {
@@ -70,7 +70,7 @@ Template.language.events ( {
 
             Meteor.call ( 'updateUserLanguage', Meteor.userId (), newUser, function ( error ) {
                 if ( error ) {
-                    if ( typeof Errors === "undefined" )
+                    if ( typeof Errors === 'undefined' )
                         Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                     else
                         throwError ( error.reason );
@@ -99,7 +99,7 @@ Template.language.events ( {
         else lang=defaultLang;
         var routeName = Router.current ().route.getName ();
         var item = PagesInfo.findOne ( {shortLanguageName: lang, routeName: routeName } );
-        var title = TAPi18n.__ ( "pageInfo." + lang + "." + routeName );
+        var title = TAPi18n.__ ( 'pageInfo.' + lang + '.' + routeName );
         bootbox.dialog ( {
             message: item.infoText ? item.infoText : TAPi18n.__ ( 'txv.NO_DESCR' ),
             title: title
@@ -107,9 +107,9 @@ Template.language.events ( {
     },
 	
     'click #organizationName': function () {
-        Router.go ( "home" );
+        Router.go ( 'home' );
     },
- } );
+} );
 
 Template.header.events ( {
     'change #notification-counter': function ( e ) {
@@ -120,7 +120,7 @@ Template.header.events ( {
         bootbox.confirm ( TAPi18n.__ ( 'txv.FUTURE_FUNCTION' ), function ( result ) {
         } );
     },
- } );
+} );
 
 Template.language.helpers ( {
     'getUserLang': function () {
@@ -144,9 +144,9 @@ Template.language.helpers ( {
             var nazwa = param.nazwaOrganizacji;
             var users=Users.find ( { 'profile.userType': USERTYPE.CZLONEK } ).count ();
             if ( nazwa ) {
-                return nazwa + "  " + users + TAPi18n.__ ( 'txv.PERSONS' );
+                return nazwa + '  ' + users + TAPi18n.__ ( 'txv.PERSONS' );
             }
-            return "none";
+            return 'none';
         }
     }
- } );
+} );

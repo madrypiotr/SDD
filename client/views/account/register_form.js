@@ -3,12 +3,12 @@
 Template.registerForm.rendered = function () {
     var users=Users.find ( { 'profile.userType': USERTYPE.CZLONEK } );
     if ( users.count ()>=5 )
-        document.getElementById ( "submitRegistration" ).disabled = false;
+        document.getElementById ( 'submitRegistration' ).disabled = false;
     $ ( '#dataUrodzeniaDatePicker' ).datetimepicker ( {
         sideBySide: true,
         format: 'DD/MM/YYYY'
     } );
-    $ ( "#userForm" ).validate ( {
+    $ ( '#userForm' ).validate ( {
         rules: {
             password: {
                 minlength: 6
@@ -17,7 +17,7 @@ Template.registerForm.rendered = function () {
                 email: true
             },
             confirmPassword: {
-                equalTo: "#inputPassword"
+                equalTo: '#inputPassword'
             },
             pesel:{
                 exactlength: 11,
@@ -81,19 +81,19 @@ Template.registerForm.rendered = function () {
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function ( error, element ) {
-            if ( element.attr ( "name" ) == "statutConfirmation" )
-                error.insertAfter ( document.getElementById ( "statutConfirmationSpan" ) );
+            if ( element.attr ( 'name' ) == 'statutConfirmation' )
+                error.insertAfter ( document.getElementById ( 'statutConfirmationSpan' ) );
             else
                 validationPlacementError ( error, element );
         }
-    } )
+    } );
 };
 
 Template.registerForm.events ( {
     'submit form': function ( e ) {
         e.preventDefault ();
         if ( $ ( '#userForm' ).valid () ) {
-            document.getElementById ( "submitRegistration" ).disabled = true;
+            document.getElementById ( 'submitRegistration' ).disabled = true;
             // supplement the temporary table with the form data
             var firstName = $ ( e.target ).find ( '[name=firstName]' ).val ();
             var lastName = $ ( e.target ).find ( '[name=lastName]' ).val ();
@@ -104,18 +104,18 @@ Template.registerForm.events ( {
                 }
                 else {
                     if ( ret == false ) {
-                        Meteor.call ( "serverCheckExistsUserDraft", email, function ( error, ret ) {
+                        Meteor.call ( 'serverCheckExistsUserDraft', email, function ( error, ret ) {
                             if ( error ) {
                                 throwError ( error.reason );
                             }
                             else {
                                 if ( ret == false ) {
-                                    Meteor.call ( "serverGenerateLogin", firstName, lastName, function ( err, ret ) {
+                                    Meteor.call ( 'serverGenerateLogin', firstName, lastName, function ( err, ret ) {
                                         if ( !err ) {
                                             var newUser = [
                                                 {
                                                     email: email,
-                                                    login: "",
+                                                    login: '',
                                                     firstName: firstName,
                                                     lastName: lastName,
                                                     password: $ ( e.target ).find ( '[name=password]' ).val (),
@@ -131,26 +131,26 @@ Template.registerForm.events ( {
                                                 }];
                                             // generating a login for the user
                                             newUser[0].login = ret;
-                                            newUser[0].fullName = newUser[0].firstName + " " + newUser[0].lastName;
+                                            newUser[0].fullName = newUser[0].firstName + ' ' + newUser[0].lastName;
                                             var users=Users.find ( { 'profile.userType': USERTYPE.CZLONEK } );
                                             if ( users.count ()<5 ) {
                                                 Meteor.call ( 'addUser', newUser, function ( error, ret ) {
                                                     if ( error ) {
                                                         // optionally use a meteor errors package
-                                                        if ( typeof Errors === "undefined" )
+                                                        if ( typeof Errors === 'undefined' )
                                                             Log.error ( 'Error: ' + error.reason );
                                                         else {
                                                             throwError ( error.reason );
                                                         }
                                                     }
                                                     else {
-														// if correct data
+                                                        // if correct data
                                                         var addedUser = ret;
                                                         Meteor.loginWithPassword ( newUser[0].login, newUser[0].password, function ( err ) {
                                                             if ( err ) {
                                                                 throwError ( TAPi18n.__ ( 'txv.INCOR_LOGIN_DET' ) );
                                                             } else {
-                                                                var zespol = ZespolRealizacyjny.findOne ( { _id: "jjXKur4qC5ZGPQkgN" } );
+                                                                var zespol = ZespolRealizacyjny.findOne ( { _id: 'jjXKur4qC5ZGPQkgN' } );
                                                                 if ( zespol ) {
                                                                     if ( zespol.zespol.length < 3 ) {
                                                                         var ZR = zespol.zespol.slice ();
@@ -160,7 +160,7 @@ Template.registerForm.events ( {
                                                                             Meteor.call ( 'updateCzlonkowieZRProtector', zespol._id, ZR, addedUser, function ( error, ret ) {
                                                                                 if ( error ) {
                                                                                     // optionally use a meteor errors package
-                                                                                    if ( typeof Errors === "undefined" )
+                                                                                    if ( typeof Errors === 'undefined' )
                                                                                         Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                                                                                     else {
                                                                                         throwError ( error.reason );
@@ -172,7 +172,7 @@ Template.registerForm.events ( {
                                                                             Meteor.call ( 'updateCzlonkowieZR', zespol._id, ZR, function ( error, ret ) {
                                                                                 if ( error ) {
                                                                                     // optionally use a meteor errors package
-                                                                                    if ( typeof Errors === "undefined" )
+                                                                                    if ( typeof Errors === 'undefined' )
                                                                                         Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                                                                                     else {
                                                                                         throwError ( error.reason );
@@ -191,7 +191,7 @@ Template.registerForm.events ( {
                                                                     buttons: {
                                                                         main: {
                                                                             label: TAPi18n.__ ( 'txv.OK' ),
-                                                                            className: "btn-primary"
+                                                                            className: 'btn-primary'
                                                                         }
                                                                     }
                                                                 } );
@@ -202,16 +202,16 @@ Template.registerForm.events ( {
                                                 } );
                                             }
                                             else{
-                                                bootbox.alert ( TAPi18n.__ ( 'txv.REG_NOT_POSS' ) )
+                                                bootbox.alert ( TAPi18n.__ ( 'txv.REG_NOT_POSS' ) );
                                             }
                                         } else {
-                                            throwError ( err.reason )
+                                            throwError ( err.reason );
                                         }
                                     } );
                                 }
                                 else {
                                     throwError ( TAPi18n.__ ( 'txv.ACCESS_EXIST' ) );
-                                    document.getElementById ( "submitRegistration" ).disabled = false;
+                                    document.getElementById ( 'submitRegistration' ).disabled = false;
                                     return false;
                                 }
                             }
@@ -219,7 +219,7 @@ Template.registerForm.events ( {
                     }
                     else {
                         throwError ( TAPi18n.__ ( 'txv.USER_EXIST' ) );
-                        document.getElementById ( "submitRegistration" ).disabled = false;
+                        document.getElementById ( 'submitRegistration' ).disabled = false;
                         return false;
                     }
                 }
@@ -236,12 +236,12 @@ Template.registerForm.events ( {
             buttons: {
                 main: {
                     label: TAPi18n.__ ( 'txv.OK' ),
-                    className: "btn-primary"
+                    className: 'btn-primary'
                 }
             }
         } );
     }
- } );
+} );
 
 Template.registerForm.helpers ( {
     'lessThanFiveUsers': function () {
@@ -257,4 +257,4 @@ Template.registerForm.helpers ( {
             };
         } );
     }
- } );
+} );

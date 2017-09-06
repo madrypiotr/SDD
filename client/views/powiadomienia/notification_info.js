@@ -1,7 +1,7 @@
 Template.notificationInfo.rendered=function () {
     var powiadomienie=Powiadomienie.findOne ( { _id:Template.instance ().data._id } );
     if ( powiadomienie.czyOdczytany==false && powiadomienie.powiadomienieTyp!=NOTIFICATION_TYPE.ISSUE_NO_PRIORITY )
-        Meteor.call ( "setOdczytanePowiadomienie",powiadomienie._id,true,function ( error ) {
+        Meteor.call ( 'setOdczytanePowiadomienie',powiadomienie._id,true,function ( error ) {
             if ( error )
                 throwError ( error.reason );
         } );
@@ -30,14 +30,14 @@ Template.notificationInfo.helpers ( {
     notificationTypeLackOfRealizationReport: function () {
         return this.powiadomienieTyp==NOTIFICATION_TYPE.LACK_OF_REALIZATION_REPORT ? true : false;
     }
- } );
+} );
 
 Template.notificationInfo.events ( {
-   'click #backToNotificationList': function ( e ) {
-       e.preventDefault ();
-       Router.go ( "notification_list" );
-   }
- } );
+    'click #backToNotificationList': function ( e ) {
+        e.preventDefault ();
+        Router.go ( 'notification_list' );
+    }
+} );
 Template.notificationNewMessage.helpers ( {
     powiadomienie: function ( idPowiadomienie ) {
         return getNotification ( idPowiadomienie );
@@ -58,7 +58,7 @@ Template.notificationNewMessage.helpers ( {
     organisationName: function () {
         return Parametr.findOne ().nazwaOrganizacji;
     }
- } );
+} );
 Template.notificationNewIssue.helpers ( {
     powiadomienie: function ( idPowiadomienie ) {
         return getNotification ( idPowiadomienie );
@@ -79,17 +79,17 @@ Template.notificationNewIssue.helpers ( {
         if ( this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE )
             return TAPi18n.__ ( 'txv.BELONGS_TO_THE_SYSTEM' );
         else
-        var temat=Temat.findOne ( { _id:this.idTemat } );
-        return temat? temat.nazwaTemat : "";
+            var temat=Temat.findOne ( { _id:this.idTemat } );
+        return temat? temat.nazwaTemat : '';
     },
     rodzaj: function () {
         if ( this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE )
             return TAPi18n.__ ( 'txv.TECHNICAL' );
         else
             var rodzaj=Rodzaj.findOne ( { _id:this.idRodzaj } );
-        return rodzaj? rodzaj.nazwaRodzaj : "";
+        return rodzaj? rodzaj.nazwaRodzaj : '';
     }
- } );
+} );
 
 Template.notificationLackOfRealizationReport.helpers ( {
     powiadomienie: function ( idPowiadomienie ) {
@@ -112,14 +112,14 @@ Template.notificationLackOfRealizationReport.helpers ( {
             return TAPi18n.__ ( 'txv.BELONGS_TO_THE_SYSTEM' );
         else
             var temat=Temat.findOne ( { _id:this.idTemat } );
-        return temat? temat.nazwaTemat : "";
+        return temat? temat.nazwaTemat : '';
     },
     rodzaj: function () {
         if ( this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE )
             return TAPi18n.__ ( 'txv.TECHNICAL' );
         else
             var rodzaj=Rodzaj.findOne ( { _id:this.idRodzaj } );
-        return rodzaj? rodzaj.nazwaRodzaj : "";
+        return rodzaj? rodzaj.nazwaRodzaj : '';
     },
     czlonekZR: function ( zespol ) {
         var array=[];
@@ -127,13 +127,13 @@ Template.notificationLackOfRealizationReport.helpers ( {
             var user=Users.findOne ( { _id:czlonekId } );
             var obj={
                 fullName:user.profile.fullName,
-                url:Meteor.absoluteUrl () + "new_message/" + czlonekId
+                url:Meteor.absoluteUrl () + 'new_message/' + czlonekId
             };
             array.push ( obj );
         } );
         return array;
     }
- } );
+} );
 
 Template.notificationApplicationAnswer.helpers ( {
     powiadomienie: function ( idPowiadomienie ) {
@@ -160,7 +160,7 @@ Template.notificationApplicationAnswer.helpers ( {
     userTypeData: function () {
         return this.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ? TAPi18n.__ ( 'txv.ORD_MEMBER' ) : TAPi18n.__ ( 'txv.HONORARY_MEMBER' );
     }
- } );
+} );
 
 Template.notificationLobbingMessage.helpers ( {
     powiadomienie: function ( idPowiadomienie ) {
@@ -187,16 +187,16 @@ Template.notificationLobbingMessage.helpers ( {
             return TAPi18n.__ ( 'txv.BELONGS_TO_THE_SYSTEM' );
         else
             var temat=Temat.findOne ( { _id:this.idTemat } );
-        return temat? temat.nazwaTemat : "";
+        return temat? temat.nazwaTemat : '';
     },
     rodzaj: function () {
         if ( this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE )
             return TAPi18n.__ ( 'txv.TECHNICAL' );
         else
             var rodzaj=Rodzaj.findOne ( { _id:this.idRodzaj } );
-        return rodzaj? rodzaj.nazwaRodzaj : "";
+        return rodzaj? rodzaj.nazwaRodzaj : '';
     }
- } );
+} );
 
 Template.notificationNoActivity.helpers ( {
     powiadomienie: function ( idPowiadomienie ) {
@@ -214,7 +214,7 @@ Template.notificationNoActivity.helpers ( {
     organisationName: function () {
         return Parametr.findOne ().nazwaOrganizacji;
     }
- } );
+} );
 
 Template.notificationVoteStarted.helpers ( {
     powiadomienie: function ( idPowiadomienie ) {
@@ -241,21 +241,21 @@ Template.notificationVoteStarted.helpers ( {
             return TAPi18n.__ ( 'txv.BELONGS_TO_THE_SYSTEM' );
         else
             var temat=Temat.findOne ( { _id:this.kwestia.idTemat } );
-        return temat? temat.nazwaTemat : "";
+        return temat? temat.nazwaTemat : '';
     },
     rodzaj: function () {
         if ( this.kwestia.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE )
             return TAPi18n.__ ( 'txv.TECHNICAL' );
         else
             var rodzaj=Rodzaj.findOne ( { _id:this.kwestia.idRodzaj } );
-        return rodzaj? rodzaj.nazwaRodzaj : "";
+        return rodzaj? rodzaj.nazwaRodzaj : '';
     },
     nadanoPriorytet: function ( idOdbiorca ) {
         var glosujacy= _.pluck ( this.kwestia.glosujacy,'idUser' );
         return _.contains ( glosujacy,idOdbiorca ) ? true : false;
     },
     mojPriorytet: function ( idOdbiorca ) {
-        var myObj= _.reject ( this.kwestia.glosujacy,function ( obj ) {return obj.idUser!=idOdbiorca } );
+        var myObj= _.reject ( this.kwestia.glosujacy,function ( obj ) {return obj.idUser!=idOdbiorca; } );
         return myObj[0] ? myObj[0].value : null;
     },
     dataGlosowania: function () {
@@ -269,13 +269,13 @@ Template.notificationVoteStarted.helpers ( {
             return liczenieKworumZwykle ();
         else {
             var rodzaj = Rodzaj.findOne ( { _id: this.kwestia.idRodzaj } );
-            return rodzaj.rodzajNazwa=="Statutowe" ? liczenieKworumStatutowe () : liczenieKworumZwykle ();
+            return rodzaj.rodzajNazwa=='Statutowe' ? liczenieKworumStatutowe () : liczenieKworumZwykle ();
         }
-        return rodzaj? rodzaj.nazwaRodzaj : "";
+        return rodzaj? rodzaj.nazwaRodzaj : '';
     }
- } );
+} );
 formatDate=function ( date ) {
-    return moment ( date ).format ( "DD-MM-YYYY, HH:mm" );
+    return moment ( date ).format ( 'DD-MM-YYYY, HH:mm' );
 };
 getNotification=function ( idPowiadomienie ) {
     return Powiadomienie.findOne ( { _id:idPowiadomienie } ) ? Powiadomienie.findOne ( { _id:idPowiadomienie } ) :null;

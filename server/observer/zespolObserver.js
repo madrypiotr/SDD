@@ -39,19 +39,19 @@ Meteor.startup ( function () {
     moveIssueAsAvote = function ( newKwestia,ZRDraft,ifUpdateZR ) {
         if ( kwestiaAllowedToGlosowana () ) {
             var czasGlosowania = Parametr.findOne ( { } ).voteDuration;
-            var final = moment ( new Date () ).add ( czasGlosowania, "hours" ).format ();
+            var final = moment ( new Date () ).add ( czasGlosowania, 'hours' ).format ();
             var start = new Date ();
             Meteor.call ( 'updStatDateVotingIssueFinal', newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,function ( error ) {
                 if ( error )
                     console.log ( error.reason );
             } );
-            Meteor.call ( "sendEmailStartedVoting",newKwestia._id, getUserLanguage (), function ( error ) {
+            Meteor.call ( 'sendEmailStartedVoting',newKwestia._id, getUserLanguage (), function ( error ) {
                 if ( error ) {
                     var emailError = {
                         idIssue: newKwestia._id,
                         type: NOTIFICATION_TYPE.VOTE_BEGINNING
                     };
-                    Meteor.call ( "addEmailError", emailError );
+                    Meteor.call ( 'addEmailError', emailError );
                 }
             } );
             addNotificationIssueVoteMethod ( newKwestia._id );
@@ -66,20 +66,20 @@ Meteor.startup ( function () {
                 idOdbiorca: user._id,
                 idNadawca: null,
                 dataWprowadzenia: new Date (),
-                tytul: "",
+                tytul: '',
                 powiadomienieTyp: NOTIFICATION_TYPE.VOTE_BEGINNING,
-                tresc: "",
+                tresc: '',
                 idKwestia:idKwestia,
                 kwestia:kwestia,
                 czyAktywny: true,
                 czyOdczytany: false
             };
-            Meteor.call ( "addPowiadomienie",newPowiadomienie,function ( error ) {
+            Meteor.call ( 'addPowiadomienie',newPowiadomienie,function ( error ) {
                 if ( error )
                     console.log ( error.reason );
             } );
         } );
     };
- } );
+} );
 
 

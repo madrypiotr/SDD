@@ -1,5 +1,5 @@
 Template.previewKwestiaOpcja.rendered=function () {
-    document.getElementById ( "save" ).disabled = false;
+    document.getElementById ( 'save' ).disabled = false;
 };
 Template.previewKwestiaOpcja.helpers ( {
     getTematName: function ( id ) {
@@ -13,24 +13,24 @@ Template.previewKwestiaOpcja.helpers ( {
     },
     protectorZR: function () {
         if ( !Meteor.userId () ) return false;
-        var zr=ZespolRealizacyjny.findOne ( { _id:"jjXKur4qC5ZGPQkgN" } );
+        var zr=ZespolRealizacyjny.findOne ( { _id:'jjXKur4qC5ZGPQkgN' } );
         if ( zr ) {
             if ( zr.protector )
                 return zr.protector==Meteor.userId () ? true : false;
         }
     }
- } );
+} );
 
 Template.previewKwestiaOpcja.events ( {
     'click #cancel': function () {
-        Session.set ( "actualKwestia",null );
-        Router.go ( "listKwestia" );
+        Session.set ( 'actualKwestia',null );
+        Router.go ( 'listKwestia' );
     },
     'click #save': function ( e ) {
         e.preventDefault ();
-        document.getElementById ( "save" ).disabled = true;
+        document.getElementById ( 'save' ).disabled = true;
 
-        var kwestia = Session.get ( "actualKwestia" );
+        var kwestia = Session.get ( 'actualKwestia' );
         var newKwestiaOpcja = [{
             idUser: Meteor.userId (),
             dataWprowadzenia: new Date (),
@@ -53,37 +53,37 @@ Template.previewKwestiaOpcja.events ( {
         }];
         var methodToCall=null;
         if ( kwestia.status == KWESTIA_STATUS.OSOBOWA )
-            methodToCall="addKwestiaOsobowaOpcja";
-        else methodToCall="addKwestiaOpcja";
+            methodToCall='addKwestiaOsobowaOpcja';
+        else methodToCall='addKwestiaOpcja';
         Meteor.call ( methodToCall, newKwestiaOpcja, function ( error, ret ) {
             if ( error ) {
-                if ( typeof Errors === "undefined" )
+                if ( typeof Errors === 'undefined' )
                     Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                 else {
                     throwError ( error.reason );
                 }
             }
             else {
-                Meteor.call ( "sendEmailAddedIssue", ret, getUserLanguage (), function ( error ) {
+                Meteor.call ( 'sendEmailAddedIssue', ret, getUserLanguage (), function ( error ) {
                     if ( error ) {
                         var emailError = {
                             idIssue: ret,
                             type: NOTIFICATION_TYPE.NEW_ISSUE
                         };
-                        Meteor.call ( "addEmailError", emailError );
+                        Meteor.call ( 'addEmailError', emailError );
                     }
                 } );
                 addPowiadomienieBasicOptionIssueFunction ( ret,newKwestiaOpcja[0].dataWprowadzenia );
-                var text="Nie odnotowaliśmy Twojej aktywności w następującej Kwestii:";
+                var text='Nie odnotowaliśmy Twojej aktywności w następującej Kwestii:';
                 addPowiadomienieIssueFunction ( ret,newKwestiaOpcja[0].dataWprowadzenia,NOTIFICATION_TYPE.ISSUE_NO_PRIORITY,text );
 
-                Session.set ( "kwestiaPreviewOpcja",null );
-                Session.set ( "actualKwestiaId",null );
+                Session.set ( 'kwestiaPreviewOpcja',null );
+                Session.set ( 'actualKwestiaId',null );
                 Router.go ( 'listKwestia' );
             }
         } );
     }
- } );
+} );
 
 addPowiadomienieBasicOptionIssueFunction=function ( idKwestia,dataWprowadzenia ) {
     var users=Users.find ( { 'profile.userType': USERTYPE.CZLONEK } );
@@ -92,17 +92,17 @@ addPowiadomienieBasicOptionIssueFunction=function ( idKwestia,dataWprowadzenia )
             idOdbiorca: user._id,
             idNadawca: null,
             dataWprowadzenia: dataWprowadzenia,
-            tytul: "",
+            tytul: '',
             powiadomienieTyp: NOTIFICATION_TYPE.NEW_ISSUE,
-            tresc: "",
+            tresc: '',
             idKwestia:idKwestia,
             czyAktywny: true,
             czyOdczytany: false
         };
-        Meteor.call ( "addPowiadomienie",newPowiadomienie,function ( error ) {
+        Meteor.call ( 'addPowiadomienie',newPowiadomienie,function ( error ) {
             if ( error )
                 throwError ( error.reason );
-        } )
+        } );
     } );
 
 };

@@ -1,4 +1,4 @@
-;
+
 (function () {
 
 
@@ -7,10 +7,10 @@
      *   ex: { _id:<uuid>, name: "admin" }
      */
     if (!Meteor.roles) {
-        Meteor.roles = new Meteor.Collection("roles")
+        Meteor.roles = new Meteor.Collection('roles');
 
         // Create default indexes for roles collection
-        Meteor.roles._ensureIndex('name', {unique: 1})
+        Meteor.roles._ensureIndex('name', {unique: 1});
     }
 
 
@@ -20,9 +20,9 @@
      */
     Meteor.publish(null, function () {
         var userId = this.userId,
-            fields = {roles: 1}
+            fields = {roles: 1};
 
-        return Meteor.users.find({_id: userId}, {fields: fields})
+        return Meteor.users.find({_id: userId}, {fields: fields});
     });
 
     Meteor.methods({
@@ -34,12 +34,12 @@
             Roles.deleteRole(roleName);
         },
         createSubRoles: function (data) {
-            Meteor.roles.update({name: data.roleName}, {$set: {'subRoles': []}}, {multi: true})
+            Meteor.roles.update({name: data.roleName}, {$set: {'subRoles': []}}, {multi: true});
             _.each(data.subRoles, function (subRoleName) {
                 Roles.addSubRoleToRole(data.roleName, subRoleName);
             });
         },
-        //funkcja do update'a roli w u¿ytkowniku
+        //funkcja do update'a roli w uï¿½ytkowniku
         createUserRoles: function (data) {
             Meteor.users.update({_id: data.id}, {$set: {'roles': data.roles}}, {multi: true});
         }

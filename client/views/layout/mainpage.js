@@ -5,7 +5,7 @@ Template.mainpage.helpers ( {
     isAdminUser: function () {
         return IsAdminUser ();
     }
- } );
+} );
 
 Template.mainpage.helpers ( {
     isZwyczajnyLogged: function () {
@@ -15,21 +15,21 @@ Template.mainpage.helpers ( {
             return Meteor.user ().profile.userType == USERTYPE.CZLONEK ? true : false;
         }
     }
- } );
+} );
 
 
 Template.mainpage.events ( {
     'click #addKwestiaButton': function () {
         var kwestiaCanBeInserted=kwestiaIsAllowedToInsert ();
         if ( kwestiaCanBeInserted==true ) {
-            if ( !!Session.get ( "kwestiaPreview" ) )
-                Session.set ( "kwestiaPreview", null );
-            Router.go ( "addKwestia" );
+            if ( Session.get ( 'kwestiaPreview' ) )
+                Session.set ( 'kwestiaPreview', null );
+            Router.go ( 'addKwestia' );
         }
         else
-            notificationPauseWarning ( "kwestii",kwestiaCanBeInserted );
+            notificationPauseWarning ( 'kwestii',kwestiaCanBeInserted );
     },
     'click #wievMap': function () {
-            Router.go ( "map" );
-	}
- } );
+        Router.go ( 'map' );
+    }
+} );

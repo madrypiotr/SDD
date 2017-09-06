@@ -1,12 +1,12 @@
 Template.error.rendered = function () {
-  var error = this.data;
-  Meteor.setTimeout ( function () {
-    Errors.remove ( error._id );
-  }, 3000 );
+    var error = this.data;
+    Meteor.setTimeout ( function () {
+        Errors.remove ( error._id );
+    }, 3000 );
 };
 
 Template.errors.helpers ( {
-  errors: function () {
-    return Errors.find ();
-  }
- } );
+    errors: function () {
+        return Errors.find ();
+    }
+} );

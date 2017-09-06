@@ -5,4 +5,4 @@ Template.layout.helpers ( {
     isAdminUser: function () {
         return IsAdminUser ();
     }
- } );
+} );

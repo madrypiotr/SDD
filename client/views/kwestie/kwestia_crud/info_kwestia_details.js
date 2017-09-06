@@ -1,7 +1,7 @@
 Template.kwestiaDetails.helpers ( {
     protectorZR: function () {
         if ( !Meteor.userId () ) return false;
-        var zr=ZespolRealizacyjny.findOne ( { _id:"jjXKur4qC5ZGPQkgN" } );
+        var zr=ZespolRealizacyjny.findOne ( { _id:'jjXKur4qC5ZGPQkgN' } );
         if ( zr ) {
             if ( zr.protector )
                 return zr.protector==Meteor.userId () ? true : false;
@@ -13,4 +13,4 @@ Template.kwestiaDetails.helpers ( {
     isGlobalParamsChange: function ( typ ) {
         return typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ? true : false;
     }
- } );
+} );

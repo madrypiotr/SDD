@@ -24,10 +24,10 @@ Template.email_started_voting.helpers ( {
     },
     mojPriorytet: function ( kwestiaId,userId ) {
         var kwestia = Kwestia.findOne ( { _id:kwestiaId } );
-        var myObj= _.reject ( kwestia.glosujacy,function ( obj ) {return obj.idUser!=userId } );
+        var myObj= _.reject ( kwestia.glosujacy,function ( obj ) {return obj.idUser!=userId; } );
         return myObj[0] ? myObj[0].value : null;
     }
- } );
+} );
 Template.email_no_realization_report.helpers ( {
     czlonekZR: function ( idZespolRealizacyjny ) {
         var zr=ZespolRealizacyjny.findOne ( { _id:idZespolRealizacyjny } );
@@ -35,14 +35,14 @@ Template.email_no_realization_report.helpers ( {
         _.each ( zr.zespol,function ( czlonekId ) {
             var user=Users.findOne ( { _id:czlonekId } );
             var obj={
-                 fullName:user.profile.fullName,
-                 url:Meteor.absoluteUrl () + "new_message/" + czlonekId
+                fullName:user.profile.fullName,
+                url:Meteor.absoluteUrl () + 'new_message/' + czlonekId
             };
             array.push ( obj );
         } );
         return array;
     }
- } );
+} );
 
 Meteor.methods ( {
     registerAddKwestiaNotification: function ( prop ) {
@@ -117,8 +117,8 @@ Meteor.methods ( {
                     idUser: item._id,
                     rodzaj: rodzaj,
                     temat: temat,
-                    url:Meteor.absoluteUrl () + "issue_info/" + kwestiaItem._id,
-                    urlLogin:Meteor.absoluteUrl () + "account/login",
+                    url:Meteor.absoluteUrl () + 'issue_info/' + kwestiaItem._id,
+                    urlLogin:Meteor.absoluteUrl () + 'account/login',
 
                     globDoNotAnswerThat: TAPi18n.__ ( 'glob.DoNotAnswerThat', null, lang ),
                     globIntroducedAnewIssue: TAPi18n.__ ( 'glob.IntroducedAnewIssue', null, lang ),
@@ -132,7 +132,7 @@ Meteor.methods ( {
                     globToTheSystem: TAPi18n.__ ( 'glob.ToTheSystem', null, lang ),
                     globType: TAPi18n.__ ( 'glob.Type', null, lang ),
                     globWelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize: TAPi18n.__ ( 'glob.WelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize', null, lang )
-            } );
+                } );
                 Email.send ( {
                     to: item.emails[0].address,
                     from: TAPi18n.__ ( 'txv.SYSTEM_NAME', null, lang ),
@@ -196,8 +196,8 @@ Meteor.methods ( {
                     idZespolRealizacyjny:kwestiaItem.idZespolRealizacyjny,
                     rodzaj: rodzaj,
                     temat: temat,
-                    url:Meteor.absoluteUrl () + "issue_info/" + kwestiaItem._id,
-                    urlLogin:Meteor.absoluteUrl () + "account/login"//
+                    url:Meteor.absoluteUrl () + 'issue_info/' + kwestiaItem._id,
+                    urlLogin:Meteor.absoluteUrl () + 'account/login'//
                 } );
                 Email.send ( {
                     to: item.emails[0].address,
@@ -215,7 +215,7 @@ Meteor.methods ( {
         var htmlText=null;
         var rodzaj=null;
         var temat=null;
-        var url=Meteor.absoluteUrl () + "issue_info/" + kwestiaItem._id;
+        var url=Meteor.absoluteUrl () + 'issue_info/' + kwestiaItem._id;
         if ( kwestiaItem.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ) {
             rodzaj=TAPi18n.__ ( 'txv.TECHNICAL', null, lang );
             temat=TAPi18n.__ ( 'txv.BELONGS_TO_THE_SYSTEM', null, lang );
@@ -247,7 +247,7 @@ Meteor.methods ( {
                 } );
                 Email.send ( {
                     to: item.emails[0].address,
-                    from: author.profile.firstName + " " + author.profile.lastName,
+                    from: author.profile.firstName + ' ' + author.profile.lastName,
                     subject: TAPi18n.__ ( 'txv.SUPPORT_MY_ISSUE', null, lang ),
                     html: html
                 } );
@@ -268,10 +268,10 @@ Meteor.methods ( {
             rodzaj = Rodzaj.findOne ( { _id: kwestiaItem.idRodzaj } ).nazwaRodzaj;
             temat = Temat.findOne ( { _id: kwestiaItem.idTemat } ).nazwaTemat;
         }
-        var urlLogin=Meteor.absoluteUrl () + "account/login";
+        var urlLogin=Meteor.absoluteUrl () + 'account/login';
         var url=Meteor.absoluteUrl () + 'issue_info/' + kwestiaItem._id;
         var kworum=null;
-        if ( rodzaj=="Statutowe" )
+        if ( rodzaj=='Statutowe' )
             kworum=liczenieKworumStatutowe ();
         else
             kworum=liczenieKworumZwykle ();
@@ -284,7 +284,7 @@ Meteor.methods ( {
                     szczegolyKwestii: kwestiaItem.krotkaTresc,
                     nazwaKwestii: kwestiaItem.kwestiaNazwa,
                     idKwestii:kwestiaItem._id,
-                    dataGlosowania:moment ( kwestiaItem.dataGlosowania ).format ( "DD-MM-YYYY, HH:mm" ),
+                    dataGlosowania:moment ( kwestiaItem.dataGlosowania ).format ( 'DD-MM-YYYY, HH:mm' ),
                     rodzaj: rodzaj,
                     idUser:item._id,
                     temat: temat,
@@ -305,7 +305,7 @@ Meteor.methods ( {
     },
     sendApplicationConfirmation: function ( idUser, lang ) {
         var userData = UsersDraft.findOne ( { _id: idUser } );
-        var data=applicationEmail ( userData,"confirm",null );
+        var data=applicationEmail ( userData,'confirm',null );
         Email.send ( {
             to: data.to,
             from: data.to,
@@ -314,7 +314,7 @@ Meteor.methods ( {
         } );
     },
     sendApplicationRejected: function ( userData, lang ) {
-        var data=applicationEmail ( userData,"reject",null );
+        var data=applicationEmail ( userData,'reject',null );
 
         Email.send ( {
             to: data.to,
@@ -335,7 +335,7 @@ Meteor.methods ( {
     sendFirstLoginData: function ( idUser,pass, lang ) {
 
         var userData = Users.findOne ( { _id:idUser } );
-        var data=applicationEmail ( userData,"loginData",pass );
+        var data=applicationEmail ( userData,'loginData',pass );
         Email.send ( {
             to: data.to,
             from: data.to,
@@ -349,7 +349,7 @@ Meteor.methods ( {
             _.each ( user.emails, function ( em, lang ) {
                 if ( _.isEqual ( em.address.toLowerCase (), email.toLowerCase () ) ) {
                     var userData = user;
-                    var data=applicationEmail ( userData, "resetPassword", pass );
+                    var data=applicationEmail ( userData, 'resetPassword', pass );
                     Email.send ( {
                         to: data.to,
                         from: data.to,
@@ -360,15 +360,15 @@ Meteor.methods ( {
             } );
         } );
     }
- } );
+} );
 recognizeSex=function ( userData, lang ) {
     var welcomeGender=null;
     if ( userData.profile.pesel ) {
-        if ( userData.profile.pesel!="" ) {
+        if ( userData.profile.pesel!='' ) {
             var pesel = userData.profile.pesel.substring ( 9, 10 );
             if ( _.contains ( ['1', '3', '5', '7', '9'], pesel ) )
                 welcomeGender = TAPi18n.__ ( 'txv.HONORABLE', null, lang );
-            else welcomeGender = DEAR
+            else welcomeGender = DEAR;
         }
         else
             welcomeGender=TAPi18n.__ ( 'txv.MR_MRS', null, lang );
@@ -379,13 +379,13 @@ recognizeSex=function ( userData, lang ) {
     return welcomeGender;
 };
 applicationEmail=function ( userData,emailTypeText,passw, lang ) {
-    var urlLogin=Meteor.absoluteUrl () + "account/login";
+    var urlLogin=Meteor.absoluteUrl () + 'account/login';
     var welcomeGender=recognizeSex ( userData );
 
     var userTypeData = null;
     switch ( userData.profile.userType ) {
-        case USERTYPE.CZLONEK: userTypeData=TAPi18n.__ ( 'txv.ORD_MEMBER', null, lang );break;
-        case USERTYPE.DORADCA: userTypeData=TAPi18n.__ ( 'txv.COUNSELOR', null, lang );break;
+    case USERTYPE.CZLONEK: userTypeData=TAPi18n.__ ( 'txv.ORD_MEMBER', null, lang );break;
+    case USERTYPE.DORADCA: userTypeData=TAPi18n.__ ( 'txv.COUNSELOR', null, lang );break;
     }
     var url=null;
     var login=null;
@@ -393,13 +393,13 @@ applicationEmail=function ( userData,emailTypeText,passw, lang ) {
     var to=userData.email;
     var textGender=null;
     var urlResetPassword = null;
-    if ( emailTypeText=="reject" ) {
+    if ( emailTypeText=='reject' ) {
         emailTypeText = 'email_application_rejected';
     }
-    else if ( emailTypeText == "acceptNew" ) {
+    else if ( emailTypeText == 'acceptNew' ) {
         emailTypeText = 'email_application_accepted';
         if ( userData.linkAktywacyjny )
-            url = Meteor.absoluteUrl () + "account/activate_account/" + userData.linkAktywacyjny;
+            url = Meteor.absoluteUrl () + 'account/activate_account/' + userData.linkAktywacyjny;
         if ( welcomeGender == TAPi18n.__ ( 'txv.HONORABLE', null, lang ) )
             textGender = TAPi18n.__ ( 'txv.H_COULD', null, lang );
         else if ( welcomeGender == TAPi18n.__ ( 'txv.DEAR', null, lang ) )
@@ -407,15 +407,15 @@ applicationEmail=function ( userData,emailTypeText,passw, lang ) {
         else
             textGender = TAPi18n.__ ( 'txv.HD_COULD', null, lang );
     }
-    else if ( emailTypeText=="acceptExisting" ) {
+    else if ( emailTypeText=='acceptExisting' ) {
         emailTypeText = 'email_application_accepted_existing_user';
     }
-    else if ( emailTypeText=="loginData" ) {
+    else if ( emailTypeText=='loginData' ) {
         emailTypeText = 'email_login_data';
         login=userData.username;
         pass=passw;
-        to=userData.emails[0].address
-    } else if ( emailTypeText == "resetPassword" ) {
+        to=userData.emails[0].address;
+    } else if ( emailTypeText == 'resetPassword' ) {
         emailTypeText = 'email_reset_password';
         login=userData.username;
         pass=passw;
@@ -428,19 +428,19 @@ applicationEmail=function ( userData,emailTypeText,passw, lang ) {
             email: userData.emails[0].address,
             when: when
         };
-        urlResetPassword = Meteor.absoluteUrl () + "account/reset_password/" + token;
+        urlResetPassword = Meteor.absoluteUrl () + 'account/reset_password/' + token;
         Meteor.users.update ( userData._id, {$set: {
-            "services.password.reset": tokenRecord
+            'services.password.reset': tokenRecord
         } } );
     }
     else{
-       emailTypeText = 'email_application_confirmation';
+        emailTypeText = 'email_application_confirmation';
         var kwestia=Kwestia.findOne ( {czyAktywny: true,idUser:userData._id } );
-        url=Meteor.absoluteUrl () + "issue_info/" + kwestia._id;
+        url=Meteor.absoluteUrl () + 'issue_info/' + kwestia._id;
     }
     var userName=null;
     if ( userData.profile.firstName!=null && userData.profile.firstName.trim ()!= '' )
-        userName=userData.profile.firstName + " " + userData.profile.lastName;
+        userName=userData.profile.firstName + ' ' + userData.profile.lastName;
     else
         userName=userData.email;
     var html = SSR.render ( emailTypeText,{

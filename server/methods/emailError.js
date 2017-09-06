@@ -9,4 +9,4 @@ Meteor.methods ( {
             email: emailError.email
         } );
     }
- } );
+} );

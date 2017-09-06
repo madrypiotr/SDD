@@ -1,5 +1,5 @@
 Template.editParametrModalInner.rendered=function () {
-    $ ( '.successBtn' ).css ( "visibility", "visible" );
+    $ ( '.successBtn' ).css ( 'visibility', 'visible' );
 },
 Template.editParametrModalInner.helpers ( {
     parametrInScope: function () {
@@ -47,30 +47,30 @@ Template.editParametrModalInner.helpers ( {
     editRRDurationInput: function ( parameterName ) {
         return parameterName==TAPi18n.__ ( 'txv.FREQ_ADD_REPPO' ) ? true : false;
     }
- } );
+} );
 
 Template.editParametrModalInner.events ( {
     'click .btn-danger': function ( e ) {
         e.preventDefault ();
-        Session.setPersistent ( "chosenParameterSession",null );
-        $ ( "#editParametrMod" ).modal ( "hide" );
+        Session.setPersistent ( 'chosenParameterSession',null );
+        $ ( '#editParametrMod' ).modal ( 'hide' );
     },
     'submit form': function ( e ) {
         e.preventDefault ();
         if ( $ ( '#parametrFormEditModal' ).valid () ) {
-            $ ( '.successBtn' ).css ( "visibility", "hidden" );
+            $ ( '.successBtn' ).css ( 'visibility', 'hidden' );
             var odp = checkIssueGlobalParamExists ();
             if ( odp == true ) {
                 bootbox.alert ( TAPi18n.__ ( 'txv.GL_PAR_CHANGE4' ) );
-                $ ( "#editParametrMod" ).modal ( "hide" );
-                document.getElementById ( "parametrFormEditModal" ).reset ();
+                $ ( '#editParametrMod' ).modal ( 'hide' );
+                document.getElementById ( 'parametrFormEditModal' ).reset ();
             }
             else {
-                var session = Session.get ( "chosenParameterSession" );
+                var session = Session.get ( 'chosenParameterSession' );
 
                 var val = session.name;
-                var newValue = document.getElementById ( "param" ).value;
-                if ( newValue == null || newValue.trim () == "" ) {
+                var newValue = document.getElementById ( 'param' ).value;
+                if ( newValue == null || newValue.trim () == '' ) {
                     GlobalNotification.error ( {
                         title: TAPi18n.__ ( 'txv.ERROR' ),
                         content: TAPi18n.__ ( 'txv.FIELD' ) + session.title + TAPi18n.__ ( 'txv.CAN_NOT_BE_EMPTY' ),
@@ -81,11 +81,11 @@ Template.editParametrModalInner.events ( {
                     parametrPreview ( session.name, session.title, session.value, newValue );
                 }
             }
-            $ ( '.successBtn' ).css ( "visibility", "visible" );
+            $ ( '.successBtn' ).css ( 'visibility', 'visible' );
         }
 
     }
- } );
+} );
 
 parametrPreview=function ( paramName,title,oldValue,newValue ) {
     bootbox.dialog ( {
@@ -99,25 +99,25 @@ parametrPreview=function ( paramName,title,oldValue,newValue ) {
         buttons: {
             success: {
                 label: TAPi18n.__ ( 'txv.I_AGREE' ),
-                className: "btn-success successBtn",
+                className: 'btn-success successBtn',
                 callback: function () {
-                    $ ( '.successBtn' ).css ( "visibility", "hidden" );
+                    $ ( '.successBtn' ).css ( 'visibility', 'hidden' );
                     var odp=checkIssueGlobalParamExists ();
                     var params=ParametrDraft.find ( {czyAktywny: true } );
                     if ( odp==true || params.count ()>0 ) {
                         bootbox.alert ( TAPi18n.__ ( 'txv.GL_PAR_CHANGE4' ) );
-                        $ ( "#editParametrMod" ).modal ( "hide" );
+                        $ ( '#editParametrMod' ).modal ( 'hide' );
                     }
                     else
                         createIssueChangeParam ( paramName, title, oldValue, newValue );
-                    $ ( '.successBtn' ).css ( "visibility", "visible" );
+                    $ ( '.successBtn' ).css ( 'visibility', 'visible' );
                 }
             },
             danger: {
                 label: TAPi18n.__ ( 'txv.RESIGNS' ),
-                className: "btn-danger",
+                className: 'btn-danger',
                 callback: function () {
-                    $ ( '.btn-success2' ).css ( "visibility", "visible" );
+                    $ ( '.btn-success2' ).css ( 'visibility', 'visible' );
                 }
             }
         }
@@ -142,20 +142,20 @@ createIssueChangeParam=function ( paramName,title,oldValue,newValue ) {
     var okresSkladaniaRR=params.okresSkladaniaRR;
 
     switch ( paramName ) {
-        case "nazwaOrganizacji":nazwaOrg=newValue;break;
-        case "terytorium":terytorium=newValue;break;
-        case "terytAdres":terytAdres=newValue;break;
-        case "terytCODE":terytCODE=newValue;break;
-        case "terytCity":terytCity=newValue;break;
-        case "kontakty":kontakty=newValue;break;
-        case "regulamin":reg=newValue;break;
-        case "voteDuration":voteDur=newValue;break;
-        case "voteQuantity":voteQuan=newValue;break;
-        case "czasWyczekiwaniaKwestiiSpecjalnej":czasWycz=newValue;break;
-        case "addIssuePause":issuePause=newValue;break;
-        case "addCommentPause":commPause=newValue;break;
-        case "addReferencePause":refPause=newValue;break;
-        case "okresSkladaniaRR":okresSkladaniaRR=newValue;break;
+    case 'nazwaOrganizacji':nazwaOrg=newValue;break;
+    case 'terytorium':terytorium=newValue;break;
+    case 'terytAdres':terytAdres=newValue;break;
+    case 'terytCODE':terytCODE=newValue;break;
+    case 'terytCity':terytCity=newValue;break;
+    case 'kontakty':kontakty=newValue;break;
+    case 'regulamin':reg=newValue;break;
+    case 'voteDuration':voteDur=newValue;break;
+    case 'voteQuantity':voteQuan=newValue;break;
+    case 'czasWyczekiwaniaKwestiiSpecjalnej':czasWycz=newValue;break;
+    case 'addIssuePause':issuePause=newValue;break;
+    case 'addCommentPause':commPause=newValue;break;
+    case 'addReferencePause':refPause=newValue;break;
+    case 'okresSkladaniaRR':okresSkladaniaRR=newValue;break;
     }
     var addParamDraft =
     {
@@ -181,7 +181,7 @@ createIssueChangeParam=function ( paramName,title,oldValue,newValue ) {
             if ( !error ) {
                 var params=ParametrDraft.find ( {czyAktywny: true } );
                 if ( params.count ()>1 ) {
-                    Meteor.call ( "setActivityParametrDraft",ret,false );
+                    Meteor.call ( 'setActivityParametrDraft',ret,false );
                 }
                 else {
                     var dataParams = {
@@ -193,7 +193,7 @@ createIssueChangeParam=function ( paramName,title,oldValue,newValue ) {
                         {
                             idUser: Meteor.userId (),
                             dataWprowadzenia: new Date (),
-                            kwestiaNazwa: TAPi18n.__ ( 'txv.GL_PAR_CHANGE5' ) + Meteor.user ().profile.firstName + "  " + Meteor.user ().profile.lastName,
+                            kwestiaNazwa: TAPi18n.__ ( 'txv.GL_PAR_CHANGE5' ) + Meteor.user ().profile.firstName + '  ' + Meteor.user ().profile.lastName,
                             wartoscPriorytetu: 0,
                             dataGlosowania: null,
                             krotkaTresc: TAPi18n.__ ( 'txv.GL_PAR_CHANGE6' ),
@@ -209,13 +209,13 @@ createIssueChangeParam=function ( paramName,title,oldValue,newValue ) {
                             throwError ( error.reason );
                         else {
                             addPowiadomienieGlobalneFunction ( ret );
-                            Meteor.call ( "sendEmailAddedIssue", ret, getUserLanguage (), function ( error ) {
+                            Meteor.call ( 'sendEmailAddedIssue', ret, getUserLanguage (), function ( error ) {
                                 if ( error ) {
                                     var emailError = {
                                         idIssue: ret,
                                         type: NOTIFICATION_TYPE.NEW_ISSUE
                                     };
-                                    Meteor.call ( "addEmailError", emailError );
+                                    Meteor.call ( 'addEmailError', emailError );
                                 }
                             } );
                         }
@@ -223,8 +223,8 @@ createIssueChangeParam=function ( paramName,title,oldValue,newValue ) {
                 }
             }
         } );
-        Session.setPersistent ( "chosenParameterSession", null );
-        $ ( "#editParametrMod" ).modal ( "hide" );
+        Session.setPersistent ( 'chosenParameterSession', null );
+        $ ( '#editParametrMod' ).modal ( 'hide' );
     }
 };
 
@@ -236,17 +236,17 @@ addPowiadomienieGlobalneFunction=function ( idKwestia ) {
             idOdbiorca: user._id,
             idNadawca: null,
             dataWprowadzenia: kwestia.dataWprowadzenia,
-            tytul: "",
+            tytul: '',
             powiadomienieTyp: NOTIFICATION_TYPE.NEW_ISSUE,
-            tresc: "",
+            tresc: '',
             idKwestia:idKwestia,
             czyAktywny: true,
             czyOdczytany: false
         };
-        Meteor.call ( "addPowiadomienie",newPowiadomienie,function ( error ) {
+        Meteor.call ( 'addPowiadomienie',newPowiadomienie,function ( error ) {
             if ( error )
                 throwError ( error.reason );
-        } )
+        } );
     } );
 
 };

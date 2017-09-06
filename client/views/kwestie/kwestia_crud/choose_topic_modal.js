@@ -20,27 +20,27 @@ Template.chooseTopicModalInner.helpers ( {
                 },
                 {
                     key: '_id',
-                    label: "",
+                    label: '',
                     tmpl: Template.topicName
                 }
             ]
         };
     },
     TopicList: function () {
-            return Temat.find ( { } );
+        return Temat.find ( { } );
     }
- } );
+} );
 
 Template.topicName.events ( {
     'click #choosenTopicBtn': function () {
-        Session.setPersistent ( "choosenTopic", this.nazwaTemat );
-        Session.setPersistent ( "choosenType", null );
+        Session.setPersistent ( 'choosenTopic', this.nazwaTemat );
+        Session.setPersistent ( 'choosenType', null );
         if ( Rodzaj.find ( {idTemat: this._id } ).count ()>0 ) {
-            document.getElementById ( "chooseTypeBtn" ).disabled = false;
+            document.getElementById ( 'chooseTypeBtn' ).disabled = false;
         }else{
-            document.getElementById ( "chooseTypeBtn" ).disabled = true;
+            document.getElementById ( 'chooseTypeBtn' ).disabled = true;
         }
-        document.getElementById ( "addTypeBtn" ).disabled = false;
-        $ ( "#chooseTopicModalId" ).modal ( "hide" );
+        document.getElementById ( 'addTypeBtn' ).disabled = false;
+        $ ( '#chooseTopicModalId' ).modal ( 'hide' );
     }
- } );
+} );

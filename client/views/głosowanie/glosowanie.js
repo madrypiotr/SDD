@@ -20,6 +20,6 @@ Template.glosowanie.helpers({
 Template.dataGlosowaniaKwestia.helpers({
     date: function () {
         var d = this.dataGlosowania;
-        if (d) return moment(d).format("DD-MM-YYYY HH:mm");
+        if (d) return moment(d).format('DD-MM-YYYY HH:mm');
     }
 });

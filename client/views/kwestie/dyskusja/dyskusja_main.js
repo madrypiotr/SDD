@@ -1,5 +1,5 @@
 Template.discussionPostForm.rendered = function () {
-    $ ( "#dyskusjaForm" ).validate ( {
+    $ ( '#dyskusjaForm' ).validate ( {
         messages: {
             message: {
                 required: fieldEmptyMessage (),
@@ -16,7 +16,7 @@ Template.discussionPostForm.rendered = function () {
         errorPlacement: function ( error, element ) {
             validationPlacementError ( error, element );
         }
-    } )
+    } );
 };
 
 Template.discussionPostForm.events ( {
@@ -56,20 +56,20 @@ Template.discussionPostForm.events ( {
 
                 Meteor.call ( 'addPost', post, function ( error, ret ) {
                     if ( error ) {
-                        if ( typeof Errors === "undefined" )
+                        if ( typeof Errors === 'undefined' )
                             Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                         else
                             throwError ( error.reason );
                     } else {
-                        document.getElementById ( "message" ).value = "";
+                        document.getElementById ( 'message' ).value = '';
                     }
                 } );
             }
         }
         else
-            notificationPauseWarning ( "komentarzy",commentIsAllowedToInsert () );
+            notificationPauseWarning ( 'komentarzy',commentIsAllowedToInsert () );
     }
- } );
+} );
 
 Template.discussionRating.events ( {
     'click #ratingButton': function ( e ) {
@@ -84,7 +84,7 @@ Template.discussionRating.events ( {
         var object = {
             idUser: Meteor.userId (),
             value: ratingValue
-        }
+        };
         var flag = false;
 
         for ( var i = 0; i < post.glosujacy.length; i++ ) {
@@ -124,7 +124,7 @@ Template.discussionRating.events ( {
 
         Meteor.call ( 'updatePostRating', ratingPostId, postUpdate, function ( error, ret ) {
             if ( error ) {
-                if ( typeof Errors === "undefined" )
+                if ( typeof Errors === 'undefined' )
                     Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                 else
                     throwError ( error.reason );
@@ -132,13 +132,13 @@ Template.discussionRating.events ( {
         } );
 
     }
- } );
+} );
 
 Template.discussionMain.helpers ( {
     'getPosts': function ( id ) {
         return Posts.find ( {idKwestia: id, isParent: true}, {sort: {wartoscPriorytetu: -1} } );
     }
- } );
+} );
 
 Template.discussionPostForm.helpers ( {
     HasUserRights: function ( status,czyAktywny ) {
@@ -146,20 +146,20 @@ Template.discussionPostForm.helpers ( {
             return false;
         return status == KWESTIA_STATUS.GLOSOWANA || status == KWESTIA_STATUS.ZREALIZOWANA || status == KWESTIA_STATUS.OCZEKUJACA || czyAktywny==false ? false : true;
     }
- } );
+} );
 
 Template.discussionRating.helpers ( {
     isUserLogged: function () {
-        return Meteor.userId () ? "" : "disabled";
+        return Meteor.userId () ? '' : 'disabled';
     },
     'getLabelClass': function ( value ) {
-        return value >= 0 ? "label-success" : "label-danger";
+        return value >= 0 ? 'label-success' : 'label-danger';
     },
     'getSimpleDate': function ( date ) {
-        return moment ( date ).format ( "YYYY-MM-DD" );
+        return moment ( date ).format ( 'YYYY-MM-DD' );
     },
     'getFullHourDate': function ( date ) {
-        return moment ( date ).format ( "HH:mm:ss" );
+        return moment ( date ).format ( 'HH:mm:ss' );
     },
     isGlosowanaZrealizowanaKosz: function () {
         var post=Posts.findOne ( { _id:this.idPost } );
@@ -168,7 +168,7 @@ Template.discussionRating.helpers ( {
             return kwestia.status == KWESTIA_STATUS.GLOSOWANA || kwestia.status == KWESTIA_STATUS.ZREALIZOWANA || kwestia.czyAktywny==false ? true : false;
         }
     }
- } );
+} );
 
 commentIsAllowedToInsert=function () {
     var myPosts=Posts.find ( {idUser:Meteor.userId (),idKwestia:this.idKwestia.value,isParent: true},{sort:{addDate:1} } );

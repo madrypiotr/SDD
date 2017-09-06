@@ -8,7 +8,7 @@ Template.listKwestia.rendered = function () {
                 if ( this.idRodzaj ) {
                     var rodzaj=Rodzaj.findOne ( { _id:this.idRodzaj } );
                     if ( rodzaj ) {
-                        if ( rodzaj.nazwaRodzaj.trim () == "Statutowe" )
+                        if ( rodzaj.nazwaRodzaj.trim () == 'Statutowe' )
                             typKworum = liczenieKworumStatutowe ();
                     }
                 }
@@ -53,22 +53,22 @@ Template.listKwestia.events ( {
     'click #addKwestiaButton': function () {
         var kwestiaCanBeInserted=kwestiaIsAllowedToInsert ();
         if ( kwestiaCanBeInserted==true ) {
-            if ( !!Session.get ( "kwestiaPreview" ) )
-                Session.set ( "kwestiaPreview", null );
-            Router.go ( "addKwestia" );
+            if ( Session.get ( 'kwestiaPreview' ) )
+                Session.set ( 'kwestiaPreview', null );
+            Router.go ( 'addKwestia' );
         }
         else
-            notificationPauseWarning ( "kwestii",kwestiaCanBeInserted );
+            notificationPauseWarning ( 'kwestii',kwestiaCanBeInserted );
     },
-    "change #customFilterSelect": function ( event, template ) {
+    'change #customFilterSelect': function ( event, template ) {
         var input = $ ( event.target ).val ();
         var self = Template.instance ();
         if ( !!input && input==0 )
             self.choosenSortRV.set ( 0 );
-         else
+        else
             self.choosenSortRV.set ( 1 );
     }
- } );
+} );
 
 Template.listKwestia.helpers ( {
     'isDataSortEnabled': function () {
@@ -152,25 +152,25 @@ Template.listKwestia.helpers ( {
     isAdminUser: function () {
         return IsAdminUser ();
     }
- } );
+} );
 
 Template.dataUtwKwestia.helpers ( {
     date: function () {
         var d = this.dataWprowadzenia;
-        if ( d ) return moment ( d ).format ( "DD-MM-YYYY HH:mm:ss" );
+        if ( d ) return moment ( d ).format ( 'DD-MM-YYYY HH:mm:ss' );
     }
- } );
+} );
 Template.id.helpers ( {
     id: function () {
         return this._id;
     }
- } );
+} );
 
 Template.priorytetKwestia.helpers ( {
     priorytet: function () {
         var p = this.wartoscPriorytetu;
         if ( p ) {
-            if ( p > 0 ) p = " + " + p;
+            if ( p > 0 ) p = ' + ' + p;
             return p ;
         }
         else return 0 ;
@@ -184,17 +184,17 @@ Template.priorytetKwestia.helpers ( {
             }
         } );
         if ( myGlos ) {
-            if ( myGlos > 0 ) myGlos = " + " + myGlos;
+            if ( myGlos > 0 ) myGlos = ' + ' + myGlos;
         }
         else
             myGlos = 0;
-        return " ( " + myGlos + " )";
+        return ' ( ' + myGlos + ' )';
     },
     nadanyPriorytet: function () {
         if ( Meteor.userId () )
             return _.contains ( _.pluck ( this.glosujacy,'idUser' ), Meteor.userId () ) ? true : false;
     }
- } );
+} );
 
 Template.listKwestiaColumnLabel.rendered = function () {
     $ ( '[data-toggle="tooltip"]' ).tooltip ();
@@ -208,17 +208,17 @@ Template.listKwestia.helpers ( {
             return Meteor.user ().profile.userType == USERTYPE.CZLONEK ? true : false;
         }
     }
- } );
+} );
 
 Template.kworumNumber.helpers ( {
     'getKworum': function () {
-        return " /" + liczenieKworumZwykle ();
+        return ' /' + liczenieKworumZwykle ();
     },
     'getUsersCount': function () {
         var usersCount = this.glosujacy.length;
         return usersCount.toString ();
     }
- } );
+} );
 kwestiaIsAllowedToInsert=function () {
     var myKwestie=Kwestia.find ( {idUser:Meteor.userId () },{sort:{dataWprowadzenia:1} } );
     if ( myKwestie.count ()>0 ) {
@@ -237,11 +237,11 @@ kwestiaIsAllowedToInsert=function () {
 };
 
 checkTimePause=function ( typePause,lastAddedTime ) {
-    var newTimeToAdd=moment ( lastAddedTime ).add ( typePause,"minutes" ).format ();
+    var newTimeToAdd=moment ( lastAddedTime ).add ( typePause,'minutes' ).format ();
     if ( newTimeToAdd > moment ( new Date () ).format () ) {
-        var ms = moment ( newTimeToAdd,"DD/MM/YYYY HH:mm:ss" ).diff ( moment ( new Date (),"DD/MM/YYYY HH:mm:ss" ) );
-        var s = moment.utc ( ms ).format ( "mm:ss" );
-        var timeString = s.substring ( 0, s.indexOf ( ":" ) ) + TAPi18n.__ ( 'txv.MIN' ) + s.substring ( s.indexOf ( ":" ) + 1, s.length ) + TAPi18n.__ ( 'txv.SEC' );
+        var ms = moment ( newTimeToAdd,'DD/MM/YYYY HH:mm:ss' ).diff ( moment ( new Date (),'DD/MM/YYYY HH:mm:ss' ) );
+        var s = moment.utc ( ms ).format ( 'mm:ss' );
+        var timeString = s.substring ( 0, s.indexOf ( ':' ) ) + TAPi18n.__ ( 'txv.MIN' ) + s.substring ( s.indexOf ( ':' ) + 1, s.length ) + TAPi18n.__ ( 'txv.SEC' );
         return timeString ;
     }
     else
@@ -251,12 +251,12 @@ checkTimePause=function ( typePause,lastAddedTime ) {
 Template.nazwaKwestiLink.helpers ( {
     'issueName': function () {
         if ( this.kwestiaNazwa.length>60 ) {
-            return this.kwestiaNazwa.substr ( 0,60 ) + "...";
+            return this.kwestiaNazwa.substr ( 0,60 ) + '...';
         }else{
-            return this.kwestiaNazwa
+            return this.kwestiaNazwa;
         }
     }
- } );
+} );
 
 Template.tematKwestia.helpers ( {
     'topicName': function () {
@@ -265,12 +265,12 @@ Template.tematKwestia.helpers ( {
         }
         var topic = Temat.findOne ( { _id: this.idTemat } ).nazwaTemat;
         if ( topic.length>20 ) {
-            return topic.substr ( 0,20 ) + "...";
+            return topic.substr ( 0,20 ) + '...';
         }else{
-            return topic
+            return topic;
         }
     }
- } );
+} );
 Template.rodzajKwestia.helpers ( {
     'typeName': function () {
         if ( this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ) {
@@ -278,9 +278,9 @@ Template.rodzajKwestia.helpers ( {
         }
         var type = Rodzaj.findOne ( { _id: this.idRodzaj } ).nazwaRodzaj;
         if ( type.length>20 ) {
-            return type.substr ( 0,20 ) + "...";
+            return type.substr ( 0,20 ) + '...';
         }else{
-            return type
+            return type;
         }
     }
- } );
+} );

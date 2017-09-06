@@ -1,5 +1,5 @@
 Template.addLanguage.rendered = function () {
-    $("#languageForm").validate({
+    $('#languageForm').validate({
         messages: {
             languageName: {
                 required: fieldEmptyMessage()
@@ -23,7 +23,7 @@ Template.addLanguage.rendered = function () {
                 error.insertAfter(element);
             }
         }
-    })
+    });
 };
 Template.addLanguage.events({
     'submit form': function (e) {
@@ -37,7 +37,7 @@ Template.addLanguage.events({
         };
         Meteor.call('addLanguage', newLang, function (error) {
             if (error) {
-                if (typeof Errors === "undefined")
+                if (typeof Errors === 'undefined')
                     Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else {
                     throwError(error.reason);

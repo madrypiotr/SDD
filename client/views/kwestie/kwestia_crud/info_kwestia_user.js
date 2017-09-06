@@ -15,12 +15,12 @@ Template.informacjeKwestia.helpers ( {
             zespol=ZespolRealizacyjny.findOne ( { _id: zespol.idZR } );
         return _.contains ( zespol.zespol, Meteor.userId () ) ? true : false;
     }
- } );
+} );
 
 Template.issueDetails.rendered = function () {
     if ( Meteor.userId ()==null )
         return;
-    if ( Meteor.user ().profile.userType!=USERTYPE.CZLONEK || Meteor.user ().roles == "admin" )
+    if ( Meteor.user ().profile.userType!=USERTYPE.CZLONEK || Meteor.user ().roles == 'admin' )
         return;
 
     var idKwestia=Template.instance ().data._id;
@@ -35,7 +35,7 @@ Template.issueDetails.rendered = function () {
             voters.push ( glosujacy );
             Meteor.call ( 'setVotingTab', kwestia._id, voters, function ( error, ret ) {
                 if ( error ) {
-                    if ( typeof Errors === "undefined" )
+                    if ( typeof Errors === 'undefined' )
                         Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                     else {
                         throwError ( error.reason );
@@ -51,7 +51,7 @@ Template.issueDetails.rendered = function () {
             czyAktywny: true,czyOdczytany: false
         } );
         myNotifications.forEach ( function ( powiadomienie ) {
-               Meteor.call ( "setOdczytaneAktywnoscPowiadomienie",powiadomienie._id,true,false );
+            Meteor.call ( 'setOdczytaneAktywnoscPowiadomienie',powiadomienie._id,true,false );
         } );
     }
 };
@@ -60,17 +60,17 @@ Template.issueDetails.created = function () {
 };
 Template.issueDetails.events ( {
     'click #dyskusja': function ( e ) {
-        var id = document.getElementById ( "dyskusja" ).name;
-        Router.go ( 'dyskusjaKwestia', { _id: id } )
+        var id = document.getElementById ( 'dyskusja' ).name;
+        Router.go ( 'dyskusjaKwestia', { _id: id } );
     },
     'click .btn-success': function ( event, template ) {
         Session.set ( 'kwestiaInScope', this );
     }
- } );
+} );
 
 Template.issueDetails.helpers ( {
     anyEmailProblem: function () {
-       return this.emailProblemNotification ? true : false;
+        return this.emailProblemNotification ? true : false;
     },
     isGlobalParamChange: function () {
         return this.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ? true : false;
@@ -98,7 +98,7 @@ Template.issueDetails.helpers ( {
     },
     wartoscPriorytetuG: function () {
         if ( this.wartoscPriorytetu>0 )
-            return " + " + this.wartoscPriorytetu;
+            return ' + ' + this.wartoscPriorytetu;
         else return this.wartoscPriorytetu;
     },
     // OPCJE
@@ -124,7 +124,7 @@ Template.issueDetails.helpers ( {
             for ( var i = 0; i < g.length; i++ ) {
                 if ( Meteor.userId () == g[i].idUser ) {
                     if ( g[i].value > 0 ) {
-                        g[i].value = " + " + g[i].value;
+                        g[i].value = ' + ' + g[i].value;
                         return g[i].value;
                     }
                     else {
@@ -171,21 +171,21 @@ Template.issueDetails.helpers ( {
     //DATY
     date: function () {
         var d = this.dataWprowadzenia;
-        if ( d ) return moment ( d ).format ( "DD-MM-YYYY HH:mm" );
+        if ( d ) return moment ( d ).format ( 'DD-MM-YYYY HH:mm' );
     },
     dateVoteStart: function () {
         var d = this.startGlosowania;
-        return ( d ) ? moment ( d ).format ( "DD-MM-YYYY, HH:mm" ) : "---";
+        return ( d ) ? moment ( d ).format ( 'DD-MM-YYYY, HH:mm' ) : '---';
     },
     dateVoteFinish: function () {
         var d = this.dataGlosowania;
-        return ( d ) ? moment ( d ).format ( "DD-MM-YYYY, HH:mm" ) : "---";
+        return ( d ) ? moment ( d ).format ( 'DD-MM-YYYY, HH:mm' ) : '---';
     },
     //USERS
     isNotAdminOrDoradca: function () {
         if ( Meteor.user () ) {
             if ( Meteor.user ().roles ) {
-                if ( Meteor.user ().roles == "admin" )
+                if ( Meteor.user ().roles == 'admin' )
                     return false;
                 else {
                     return Meteor.user ().profile.userType !=USERTYPE.DORADCA ? false : true;
@@ -226,17 +226,17 @@ Template.issueDetails.helpers ( {
     helperObserver: function () {
         if ( this.status == KWESTIA_STATUS.OCZEKUJACA || this.status == KWESTIA_STATUS.GLOSOWANA ||
             this.status == KWESTIA_STATUS.REALIZOWANA || this.status == KWESTIA_STATUS.ZREALIZOWANA ) {
-            $ ( "#listZespolRealizacyjny" ).modal ( "hide" );
-            $ ( "#listZespolRealizacyjnyDouble" ).modal ( "hide" );
-            $ ( "#addNazwa" ).modal ( "hide" );
-            $ ( "#decyzjaModalId" ).modal ( "hide" );
+            $ ( '#listZespolRealizacyjny' ).modal ( 'hide' );
+            $ ( '#listZespolRealizacyjnyDouble' ).modal ( 'hide' );
+            $ ( '#addNazwa' ).modal ( 'hide' );
+            $ ( '#decyzjaModalId' ).modal ( 'hide' );
             setTimeout ( function () {
                 return true;
             }, 2000 );
         }
         return false;
     }
- } );
+} );
 Template.issueManageZR.helpers ( {
     getZRName: function ( idZR,zespol ) {
         if ( zespol!=null )
@@ -260,12 +260,12 @@ Template.issueManageZR.helpers ( {
             enableRegex: false, 
             filters: ['customFilter'],
             fields: [
-                { key: 'profile.fullName', label: TAPi18n.__ ( 'txv.F_NAME' ) + " " + TAPi18n.__ ( 'txv.L_NAME' ) },
+                { key: 'profile.fullName', label: TAPi18n.__ ( 'txv.F_NAME' ) + ' ' + TAPi18n.__ ( 'txv.L_NAME' ) },
                 { key: '_id', label: TAPi18n.__ ( 'txv.OPTIONS' ), tmpl: Template.zrOptions }
             ],
             rowClass: function ( item ) {
                 if ( item._id==Meteor.userId () )
-                    return "myselfClass";
+                    return 'myselfClass';
             }
         };
     },
@@ -276,32 +276,32 @@ Template.issueManageZR.helpers ( {
             return users;
         }
     }
- } );
+} );
 
 Template.zrOptions.helpers ( {
     currentUser: function ( idUser ) {
         return idUser==Meteor.userId ()? true : false;
     }
- } );
+} );
 
 Template.zrOptions.events ( {
     'click #giveUpMembership': function ( e ) {
         e.preventDefault ();
-        var idZR=document.getElementById ( "idZR" ).value;
+        var idZR=document.getElementById ( 'idZR' ).value;
         var zr=ZespolRealizacyjny.findOne ( { _id:idZR } );
-        if ( zr._id=="jjXKur4qC5ZGPQkgN" ) {
+        if ( zr._id=='jjXKur4qC5ZGPQkgN' ) {
             bootbox.alert ( TAPi18n.__ ( 'txv.NO_EXIT_INFO1' ) );
         }
         else {
             var zespol = zr.zespol.length;
             if ( zespol == 1 )
-                bootbox.alert ( 2 )
+                bootbox.alert ( 2 );
             else {
-                $ ( "#zrCurrentIssueMyResolutions" ).modal ( "show" );
+                $ ( '#zrCurrentIssueMyResolutions' ).modal ( 'show' );
             }
         }
     }
- } );
+} );
 
 getZRCount=function ( idZR,idIssue ) {
     var zespol = ZespolRealizacyjny.findOne ( { _id: idZR } );

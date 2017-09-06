@@ -25,12 +25,12 @@ Template.opcjeList.helpers ( {
             }
         };
     }
- } );
+} );
 Template.opcjeNazwaKwestiLink.helpers ( {
     isArchiwalna: function () {
         return this.status == KWESTIA_STATUS.ARCHIWALNA ? true : false;
     },
     isKwestiaMain: function () {
-        return Template.instance ().data._id==Session.get ( "idKwestia" ) ? true : false;
+        return Template.instance ().data._id==Session.get ( 'idKwestia' ) ? true : false;
     }
- } );
+} );

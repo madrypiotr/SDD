@@ -32,4 +32,4 @@ Meteor.methods ( {
         var id = ZespolRealizacyjny.update ( id, {$set: {czyAktywny: false}}, {upsert: true } );
         return id;
     }
- } );
+} );

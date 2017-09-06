@@ -13,4 +13,4 @@ Meteor.methods ( {
         Posts.update ( { _id:newRaport.idPost},{$set:{idRaport:id } } );
         return id;
     }
- } );
+} );

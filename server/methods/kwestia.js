@@ -1,8 +1,8 @@
 Meteor.methods ( {
     // metody Kwestia GŁÓWNA
     addKwestia: function ( newKwestia ) {
-        var z = ImplemTeamDraft.insert ( {nazwa: "", zespol: [] } );
-        var issueNumber = "";
+        var z = ImplemTeamDraft.insert ( {nazwa: '', zespol: [] } );
+        var issueNumber = '';
         Meteor.call ( 'generateNextIssueNumber', function ( error, ret ) {
             if ( error ) {
                 throwError ( error.reason );
@@ -38,7 +38,7 @@ Meteor.methods ( {
         return id;
     },
     addKwestiaOsobowa: function ( newKwestia ) {
-        var issueNumber = "";
+        var issueNumber = '';
         Meteor.call ( 'generateNextIssueNumber', function ( error, ret ) {
             if ( error ) {
                 throwError ( error.reason );
@@ -72,15 +72,15 @@ Meteor.methods ( {
         Kwestia.update ( { _id: id }, {$set: {idParent: id }}, {upsert: true } );
         return id;
     },
- addKwestiaADMINISTROWANA: function ( newKwestia ) {
-     var issueNumber = "";
-     Meteor.call ( 'generateNextIssueNumber', function ( error, ret ) {
-         if ( error ) {
-             console.log ( error.reason );
-         } else {
-             issueNumber = ret;
-         }
-     } );
+    addKwestiaADMINISTROWANA: function ( newKwestia ) {
+        var issueNumber = '';
+        Meteor.call ( 'generateNextIssueNumber', function ( error, ret ) {
+            if ( error ) {
+                console.log ( error.reason );
+            } else {
+                issueNumber = ret;
+            }
+        } );
         var id = Kwestia.insert ( {
             idUser: newKwestia[0].idUser,
             dataWprowadzenia: newKwestia[0].dataWprowadzenia,
@@ -102,8 +102,8 @@ Meteor.methods ( {
         return id;
     },
     addKwestiaOpcja: function ( newKwestiaOpcja ) {
-        var z = ImplemTeamDraft.insert ( {idKwestia: id, nazwa: "", zespol: [] } );
-        var issueNumber = "";
+        var z = ImplemTeamDraft.insert ( {idKwestia: id, nazwa: '', zespol: [] } );
+        var issueNumber = '';
         Meteor.call ( 'generateNextIssueNumber', function ( error, ret ) {
             if ( error ) {
                 console.log ( error.reason );
@@ -139,7 +139,7 @@ Meteor.methods ( {
         return id;
     },
     addKwestiaOsobowaOpcja: function ( newKwestia ) {
-        var issueNumber = "";
+        var issueNumber = '';
         Meteor.call ( 'generateNextIssueNumber', function ( error, ret ) {
             if ( error ) {
                 console.log ( error.reason );
@@ -201,7 +201,7 @@ Meteor.methods ( {
         return id;
     },
 	
-	// This function is probably not used. Make sure it is potentially useful
+    // This function is probably not used. Make sure it is potentially useful
     updateWartoscPriorytetu: function ( id, obj ) {
         var id = Kwestia.update ( id, {$set: {wartoscPriorytetu: obj}}, {upsert: true } );
         return id;
@@ -263,7 +263,7 @@ Meteor.methods ( {
         Kwestia.update ( id,{$set: {czyAktywny: false, reason:reason,isAnswerPositive:answer}}, {upsert: true } );
     },
 	
-	// This function is probably not used. Make sure it is potentially useful
+    // This function is probably not used. Make sure it is potentially useful
     setAnswerKwestiaOczekujaca: function ( id,answer ) {
         Kwestia.update ( id,{$set: {isAnswerPositive:answer}}, {upsert: true } );
     },
@@ -272,7 +272,7 @@ Meteor.methods ( {
         Kwestia.update ( id,{$set: {isAnswerPositive:answer,numerUchwaly:nrUch,dataRealizacji:dataRealizacji}}, {upsert: true } );
     },
 	
-	// This function is probably not used. Make sure it is potentially useful
+    // This function is probably not used. Make sure it is potentially useful
     updateStatIdZespolu: function ( id,status,idZR ) {
         var id = Kwestia.update ( id, {
             $set: {
@@ -283,7 +283,7 @@ Meteor.methods ( {
         return id;
     },
 	
-	// This function is probably not used. Make sure it is potentially useful
+    // This function is probably not used. Make sure it is potentially useful
     updateStatusDataOczekwianiaKwestii: function ( id, status,dataOczekiwania ) {
         var id = Kwestia.update ( id, {$set: {status: status, dataRozpoczeciaOczekiwania:dataOczekiwania}}, {upsert: true } );
         return id;
@@ -310,4 +310,4 @@ Meteor.methods ( {
     setIssueProblemSendingEmail: function ( id,emailProblem ) {
         Kwestia.update ( id, {$set: {emailProblemNotification:emailProblem} } );
     }
- } );
+} );

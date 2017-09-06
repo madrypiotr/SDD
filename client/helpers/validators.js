@@ -1,62 +1,62 @@
 //## validation Messages
 
 fieldEmptyMessage = function () {
-	return TAPi18n.__ ( 'txv.THIS_FIELD_IS_REQUIRED' );
+    return TAPi18n.__ ( 'txv.THIS_FIELD_IS_REQUIRED' );
 };
 
 positiveNumberMessage = function () {
-	return TAPi18n.__ ( 'txv.ENTER_A_VALUE_GREATER_THAN_ZERO' );
+    return TAPi18n.__ ( 'txv.ENTER_A_VALUE_GREATER_THAN_ZERO' );
 };
 
 negativeNumberMessage = function () {
-	return TAPi18n.__ ( 'txv.YOU_CAN_NOT_ENTER_NEGATIVE_VALUES' );
+    return TAPi18n.__ ( 'txv.YOU_CAN_NOT_ENTER_NEGATIVE_VALUES' );
 };
 
 decimalNumberMessage = function () {
-	return TAPi18n.__ ( 'txv.THE_SPECIFIED_VALUE_IS_NOT_A_NUMBER' );
+    return TAPi18n.__ ( 'txv.THE_SPECIFIED_VALUE_IS_NOT_A_NUMBER' );
 };
 
 minLengthMessage = function ( length ) {
-	return TAPi18n.__ ( 'txv.THE_FIELD_MUST_HAVE_A_MINIMUM' ) + length + TAPi18n.__ ( 'txv.CHARACTERS' );
+    return TAPi18n.__ ( 'txv.THE_FIELD_MUST_HAVE_A_MINIMUM' ) + length + TAPi18n.__ ( 'txv.CHARACTERS' );
 };
 
 maxLengthMessage = function ( length ) {
-	return TAPi18n.__ ( 'txv.THE_FIELD_MUST_HAVE_A_MAX' ) + length + TAPi18n.__ ( 'txv.CHARACTERS' );
+    return TAPi18n.__ ( 'txv.THE_FIELD_MUST_HAVE_A_MAX' ) + length + TAPi18n.__ ( 'txv.CHARACTERS' );
 };
 
 properLengthMessage = function ( length ) {
-	return TAPi18n.__ ( 'txv.THE_FIELD_MUST_HAVE_A' ) + length + TAPi18n.__ ( 'txv.CHARACTERS' );
+    return TAPi18n.__ ( 'txv.THE_FIELD_MUST_HAVE_A' ) + length + TAPi18n.__ ( 'txv.CHARACTERS' );
 };
 
 validEmailMessage = function () {
-	return TAPi18n.__ ( 'txv.ENTER_THE_CORRECT_EMAIL_ADDRESS' );
+    return TAPi18n.__ ( 'txv.ENTER_THE_CORRECT_EMAIL_ADDRESS' );
 };
 
 equalToMessage = function () {
-	return TAPi18n.__ ( 'txv.ENTER_THE_SAME_VALUE_AGAIN' );
+    return TAPi18n.__ ( 'txv.ENTER_THE_SAME_VALUE_AGAIN' );
 };
 
 //validation- highlight field
 highlightFunction = function ( element ) {
-	var id_attr = "#" + $ ( element ).attr ( "id" ) + "1";
-	$ ( element ).closest ( '.form-group' ).removeClass ( 'has-success' ).addClass ( 'has-error' );
-	$ ( id_attr ).removeClass ( 'glyphicon-ok' ).addClass ( 'glyphicon-remove' );
+    var id_attr = '#' + $ ( element ).attr ( 'id' ) + '1';
+    $ ( element ).closest ( '.form-group' ).removeClass ( 'has-success' ).addClass ( 'has-error' );
+    $ ( id_attr ).removeClass ( 'glyphicon-ok' ).addClass ( 'glyphicon-remove' );
 };
 
 //validation- unhighlight field
 unhighlightFunction = function ( element ) {
-	var id_attr = "#" + $ ( element ).attr ( "id" ) + "1";
-	$ ( element ).closest ( '.form-group' ).removeClass ( 'has-error' ).addClass ( 'has-success' );
-	$ ( id_attr ).removeClass ( 'glyphicon-remove' ).addClass ( 'glyphicon-ok' );
+    var id_attr = '#' + $ ( element ).attr ( 'id' ) + '1';
+    $ ( element ).closest ( '.form-group' ).removeClass ( 'has-error' ).addClass ( 'has-success' );
+    $ ( id_attr ).removeClass ( 'glyphicon-remove' ).addClass ( 'glyphicon-ok' );
 };
 
 //validation - error
 validationPlacementError = function ( error, element ) {
-	if ( element.length ) {
-		error.insertAfter ( element );
-	} else {
-		error.insertAfter ( element );
-	}
+    if ( element.length ) {
+        error.insertAfter ( element );
+    } else {
+        error.insertAfter ( element );
+    }
 };
 
 Meteor.startup(function () {
@@ -170,7 +170,7 @@ Meteor.startup(function () {
 
 //NOT USED!
 trimInput = function ( value ) {
-	return value.replace ( /^\s*|\s*$/g, '' );
+    return value.replace ( /^\s*|\s*$/g, '' );
 };
 
 /*
@@ -180,61 +180,61 @@ trimInput = function ( value ) {
  */
  
 isNotEmpty = function ( value, statement, fieldName ) {
-	value = value.replace ( /\s + /g, '' );
-	if ( value !== '' && value !== '0' ) {
-		if ( fieldName != null ) {
-			document.getElementById ( fieldName ).classList.remove ( 'has-error' );
-		}
-		return true;
-	}
-	if ( fieldName != null ) {
-		document.getElementById ( fieldName ).classList.add ( 'has-error' );
-	}
-	throwError ( TAPi18n.__ ( 'txv.FILL_IN_THE_FIELD' ) + statement );
-	return false;
+    value = value.replace ( /\s + /g, '' );
+    if ( value !== '' && value !== '0' ) {
+        if ( fieldName != null ) {
+            document.getElementById ( fieldName ).classList.remove ( 'has-error' );
+        }
+        return true;
+    }
+    if ( fieldName != null ) {
+        document.getElementById ( fieldName ).classList.add ( 'has-error' );
+    }
+    throwError ( TAPi18n.__ ( 'txv.FILL_IN_THE_FIELD' ) + statement );
+    return false;
 };
 
 isEmail = function ( value ) {
-	var filter = /^ ( [a-zA-Z0-9_\.\-] ) + \@ ( ( [a-zA-Z0-9\-] ) + \. ) + ( [a-zA-Z0-9]{2,4 } ) + $/;
-	if ( filter.test ( value ) ) {
-		return true;
-	}
-	throwError ( TAPi18n.__ ( 'txv.PLEASE_ENTER_A_VALID_EMAIL_ADDRESS' ) );
-	return false;
+    var filter = /^ ( [a-zA-Z0-9_\.\-] ) + \@ ( ( [a-zA-Z0-9\-] ) + \. ) + ( [a-zA-Z0-9]{2,4 } ) + $/;
+    if ( filter.test ( value ) ) {
+        return true;
+    }
+    throwError ( TAPi18n.__ ( 'txv.PLEASE_ENTER_A_VALID_EMAIL_ADDRESS' ) );
+    return false;
 };
 
 isValidPassword = function ( password ) {
-	if ( password.length < 6 ) {
-		throwError ( TAPi18n.__ ( 'txv.PASSWORD_SHOULD_BE_AT_LEAST_6_CHAR' ) );
-		return false;
-	}
-	return true;
+    if ( password.length < 6 ) {
+        throwError ( TAPi18n.__ ( 'txv.PASSWORD_SHOULD_BE_AT_LEAST_6_CHAR' ) );
+        return false;
+    }
+    return true;
 };
 
 areValidPasswords = function ( password, confirm ) {
-	if ( !isValidPassword ( password ) ) {
-		return false;
-	}
-	if ( password !== confirm ) {
-		throwError ( TAPi18n.__ ( 'txv.PASSWORD_DO_NOT_MATCH' ) );
-		return false;
-	}
-	return true;
+    if ( !isValidPassword ( password ) ) {
+        return false;
+    }
+    if ( password !== confirm ) {
+        throwError ( TAPi18n.__ ( 'txv.PASSWORD_DO_NOT_MATCH' ) );
+        return false;
+    }
+    return true;
 };
 
 isPositiveNumber = function ( value, statement ) {
-	if ( value > 0 ) {
-		return true;
-	}
-	throwError ( TAPi18n.__ ( 'txv.YOU_CAN_NOT_GIVE_NEGATIVE_VALUES_IN_A_FIELD' ) + statement );
-	return false;
+    if ( value > 0 ) {
+        return true;
+    }
+    throwError ( TAPi18n.__ ( 'txv.YOU_CAN_NOT_GIVE_NEGATIVE_VALUES_IN_A_FIELD' ) + statement );
+    return false;
 };
 
 isNumeric = function ( value, statement ) {
-	var filter = /^\d + ( [.]\d + )?$/;
-	if ( filter.test ( value ) ) {
-		return true;
-	}
-	throwError ( TAPi18n.__ ( 'txv.PLEASE_ENTER_THE_CORRECT_NUMBER_FORMAT_IN_FIELD' ) + statement );
-	return false;
+    var filter = /^\d + ( [.]\d + )?$/;
+    if ( filter.test ( value ) ) {
+        return true;
+    }
+    throwError ( TAPi18n.__ ( 'txv.PLEASE_ENTER_THE_CORRECT_NUMBER_FORMAT_IN_FIELD' ) + statement );
+    return false;
 };

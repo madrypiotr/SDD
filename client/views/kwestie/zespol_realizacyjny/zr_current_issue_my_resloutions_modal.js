@@ -1,5 +1,5 @@
 Template.zrModalCurrentIssueMyResolutionsInner.rendered=function () {
-    document.getElementById ( "agreeButton" ).disabled=false;
+    document.getElementById ( 'agreeButton' ).disabled=false;
 };
 
 Template.zrModalCurrentIssueMyResolutionsInner.helpers ( {
@@ -22,19 +22,19 @@ Template.zrModalCurrentIssueMyResolutionsInner.helpers ( {
         var issues = Kwestia.find ( { _id: {$in: zr.kwestie}, czyAktywny: true } );
         return issues;
     }
- } );
+} );
 
 Template.zrModalCurrentIssueMyResolutionsInner.events ( {
     'click #agreeButton': function ( e ) {
         e.preventDefault ();
-        document.getElementById ( "agreeButton" ).disabled=true;
-        $ ( "#zrCurrentIssueMyResolutions" ).modal ( "hide" );
+        document.getElementById ( 'agreeButton' ).disabled=true;
+        $ ( '#zrCurrentIssueMyResolutions' ).modal ( 'hide' );
 
 
         var zr=ZespolRealizacyjny.findOne ( { _id:this.idZespolRealizacyjny } );
         var currentIssueId=Router.current ().params._id;
         var zespol= _.without ( zr.zespol, Meteor.userId () );
-        Meteor.call ( "updateCzlonkowieZR",zr._id,zespol,function ( error ) {//to FINISH
+        Meteor.call ( 'updateCzlonkowieZR',zr._id,zespol,function ( error ) {//to FINISH
             if ( error )
                 throwError ( error.reason );
             else{
@@ -60,22 +60,22 @@ Template.zrModalCurrentIssueMyResolutionsInner.events ( {
                     } );
                     var zrCur=ImplemTeamDraft.find ( { _id:{$in:newZRList} } );
                     zrCur.forEach ( function ( zrItem ) {
-                       Meteor.call ( "updateCzlonkowieNazwaZRDraft",zrItem._id,zespol,zr.nazwa );
+                        Meteor.call ( 'updateCzlonkowieNazwaZRDraft',zrItem._id,zespol,zr.nazwa );
                     } );
                 }
-                document.getElementById ( "agreeButton" ).disabled=false;
+                document.getElementById ( 'agreeButton' ).disabled=false;
             }
         } );
     }
- } );
+} );
 
 manageIssuesWithoutZR=function ( issuesArray ) {
     var issues=Kwestia.find ( { _id:{$in:issuesArray},status:{$in:[KWESTIA_STATUS.ZREALIZOWANA,KWESTIA_STATUS.REALIZOWANA]} } );
     issues.forEach ( function ( issue ) {
-        Meteor.call ( "removeIssue",issue._id,function ( error ) {
-           if ( !error ) {
+        Meteor.call ( 'removeIssue',issue._id,function ( error ) {
+            if ( !error ) {
 
-           }
+            }
         } );
     } );
 };

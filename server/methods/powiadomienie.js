@@ -23,4 +23,4 @@ Meteor.methods ( {
     setOdczytaneAktywnoscPowiadomienie: function ( id,czyOdczytany,czyAktywny ) {
         Powiadomienie.update ( id, {$set: {czyOdczytany: czyOdczytany,czyAktywny:czyAktywny}}, {upsert: true } );
     }
- } );
+} );

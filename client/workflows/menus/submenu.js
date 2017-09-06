@@ -4,7 +4,7 @@ Template.subMenu.helpers ( {
         args.pop ();
 
         var active = _.any ( args, function ( name ) {
-            return Router.current () && Router.current ().route.getName () === name
+            return Router.current () && Router.current ().route.getName () === name;
         } );
 
         return active && 'active';
@@ -12,4 +12,4 @@ Template.subMenu.helpers ( {
     isAdminUser: function () {
         return IsAdminUser ();
     }
- } );
+} );

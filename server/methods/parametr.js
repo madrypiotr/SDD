@@ -20,4 +20,4 @@ Meteor.methods ( {
     updateParametr: function ( id, parametr ) {
         Parametr.update ( { _id:id }, {$set: parametr}, {upsert: true } );
     }
- } );
+} );

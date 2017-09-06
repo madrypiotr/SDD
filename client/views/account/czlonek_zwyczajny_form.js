@@ -1,15 +1,15 @@
 //## Support for an Ordinary Member
 
 Template.czlonekZwyczajnyForm.rendered = function () {
-    document.getElementById ( "submitZwyczajny" ).disabled = false;
+    document.getElementById ( 'submitZwyczajny' ).disabled = false;
 
-    $ ( "#userForm" ).validate ( {
+    $ ( '#userForm' ).validate ( {
         rules: {
             email: {
                 email: true
             },
             confirmPassword: {
-                equalTo: "#inputPassword"
+                equalTo: '#inputPassword'
             },
             pesel:{
                 exactlength: 11,
@@ -66,8 +66,8 @@ Template.czlonekZwyczajnyForm.rendered = function () {
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function ( error, element ) {
-            if ( element.attr ( "name" ) == "statutConfirmation" )
-                error.insertAfter ( document.getElementById ( "statutConfirmationSpan" ) );
+            if ( element.attr ( 'name' ) == 'statutConfirmation' )
+                error.insertAfter ( document.getElementById ( 'statutConfirmationSpan' ) );
             else
                 validationPlacementError ( error, element );
         }
@@ -79,10 +79,10 @@ Template.czlonekZwyczajnyForm.events ( {
         e.preventDefault ();
 
         if ( $ ( '#userForm' ).valid () ) {
-            document.getElementById ( "submitZwyczajny" ).disabled = true;
+            document.getElementById ( 'submitZwyczajny' ).disabled = true;
             var email=$ ( e.target ).find ( '[name=email]' ).val ();
 
-            Meteor.call ( "serverCheckExistsUserDraft",email, function ( error, ret ) {
+            Meteor.call ( 'serverCheckExistsUserDraft',email, function ( error, ret ) {
                 if ( error ) {
                     throwError ( error.reason );
                 }
@@ -96,7 +96,7 @@ Template.czlonekZwyczajnyForm.events ( {
                         var newUser = [
                             {
                                 email: $ ( e.target ).find ( '[name=email]' ).val (),
-                                login: "",
+                                login: '',
                                 firstName: firstName,
                                 lastName: lastName,
                                 address: $ ( e.target ).find ( '[name=address]' ).val (),
@@ -124,7 +124,7 @@ Template.czlonekZwyczajnyForm.events ( {
                                     }
                                     else {
                                         throwError ( TAPi18n.__ ( 'txv.USER_EXIST' ) );
-                                        document.getElementById ( "submitZwyczajny" ).disabled = false;
+                                        document.getElementById ( 'submitZwyczajny' ).disabled = false;
                                         return false;
                                     }
                                 }
@@ -133,7 +133,7 @@ Template.czlonekZwyczajnyForm.events ( {
                     }
                     else{
                         throwError ( TAPi18n.__ ( 'txv.ACCESS_EXIST' ) );
-                        document.getElementById ( "submitZwyczajny" ).disabled = false;
+                        document.getElementById ( 'submitZwyczajny' ).disabled = false;
                         return false;
                     }
                 }
@@ -150,12 +150,12 @@ Template.czlonekZwyczajnyForm.events ( {
             buttons: {
                 main: {
                     label: TAPi18n.__ ( 'txv.OK' ),
-                    className: "btn-primary"
+                    className: 'btn-primary'
                 }
             }
         } );
     }
- } );
+} );
 
 Template.czlonekZwyczajnyForm.helpers ( {
     'getLanguages': function () {
@@ -165,15 +165,15 @@ Template.czlonekZwyczajnyForm.helpers ( {
         return getEmail ( this );
     },
     isNotEmpty: function () {
-        return Meteor.userId () ? "disabled" : "";
+        return Meteor.userId () ? 'disabled' : '';
     },
     nazwaOrganizacji: function () {
         return Parametr.findOne () ? Parametr.findOne ().nazwaOrganizacji : TAPi18n.__ ( 'txv.ORG_NAME' );
     }
- } );
+} );
 
 getRegulamin=function () {
-    return Parametr.findOne () ? Parametr.findOne ().regulamin :"";
+    return Parametr.findOne () ? Parametr.findOne ().regulamin :'';
 };
 
 addIssueOsobowa=function ( newUser ) {
@@ -185,19 +185,19 @@ addIssueOsobowa=function ( newUser ) {
             if ( ret == false ) {
                 var firstName = newUser[0].firstName;
                 var lastName = newUser[0].lastName;
-                Meteor.call ( "serverGenerateLogin", firstName, lastName, function ( err, ret ) {
+                Meteor.call ( 'serverGenerateLogin', firstName, lastName, function ( err, ret ) {
                     if ( !err ) {
 
                         newUser[0].login = ret;
                         addUserDraft ( newUser );
                     } else {
-                        throwError ( err.reason )
+                        throwError ( err.reason );
                     }
                 } );
             }
             else {
                 throwError ( TAPi18n.__ ( 'txv.USER_EXIST' ) );
-                document.getElementById ( "submitZwyczajny" ).disabled = false;
+                document.getElementById ( 'submitZwyczajny' ).disabled = false;
                 return false;
             }
         }
@@ -206,20 +206,20 @@ addIssueOsobowa=function ( newUser ) {
 
 addUserDraft=function ( newUser ) {
     Meteor.call ( 'addUserDraft', newUser, function ( error, ret ) {
-            if ( error ) {
-                if ( typeof Errors === "undefined" )
-                    Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
-                else
-                    throwError ( error.reason );
-            }
-            else {
-                addKwestiaOsobowa ( ret, newUser );
-            }
-        } );
+        if ( error ) {
+            if ( typeof Errors === 'undefined' )
+                Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
+            else
+                throwError ( error.reason );
+        }
+        else {
+            addKwestiaOsobowa ( ret, newUser );
+        }
+    } );
 };
 
 addKwestiaOsobowa=function ( idUserDraft,newUser ) {
-    var ZR=ZespolRealizacyjny.findOne ( { _id:"jjXKur4qC5ZGPQkgN" } );
+    var ZR=ZespolRealizacyjny.findOne ( { _id:'jjXKur4qC5ZGPQkgN' } );
     var newZR=[{
         nazwa:ZR.nazwa,
         idZR:ZR._id,
@@ -230,12 +230,12 @@ addKwestiaOsobowa=function ( idUserDraft,newUser ) {
             throwError ( error.reason );
         }
         else{
-            var uwagi="";
+            var uwagi='';
             if ( newUser[0].uwagi!=null )
                 uwagi=newUser[0].uwagi;
 
             var daneAplikanta={
-                fullName:newUser[0].firstName + " " + newUser[0].lastName,
+                fullName:newUser[0].firstName + ' ' + newUser[0].lastName,
                 email:newUser[0].email,
                 pesel:newUser[0].pesel,
                 city:newUser[0].city,
@@ -247,7 +247,7 @@ addKwestiaOsobowa=function ( idUserDraft,newUser ) {
                 {
                     idUser: idUserDraft,
                     dataWprowadzenia: new Date (),
-                    kwestiaNazwa: TAPi18n.__ ( 'txv.APPLYING' ) + newUser[0].firstName + " " + newUser[0].lastName,
+                    kwestiaNazwa: TAPi18n.__ ( 'txv.APPLYING' ) + newUser[0].firstName + ' ' + newUser[0].lastName,
                     wartoscPriorytetu: 0,
                     wartoscPriorytetuWRealizacji:0,
                     idTemat: Temat.findOne ( { } )._id,
@@ -266,24 +266,24 @@ addKwestiaOsobowa=function ( idUserDraft,newUser ) {
                 }
                 else {
                     if ( Meteor.userId () )
-                        Router.go ( "administracjaUserMain" );
+                        Router.go ( 'administracjaUserMain' );
                     else
-                        Router.go ( "home" );
-                    przyjecieWnioskuConfirmation ( Parametr.findOne ().czasWyczekiwaniaKwestiiSpecjalnej,daneAplikanta.email,"członkowstwo" );
+                        Router.go ( 'home' );
+                    przyjecieWnioskuConfirmation ( Parametr.findOne ().czasWyczekiwaniaKwestiiSpecjalnej,daneAplikanta.email,'członkowstwo' );
                     addPowiadomienieAplikacjaIssueFunction ( ret,newKwestia[0].dataWprowadzenia );
                     if ( newUser[0].idUser!=null ) {
-						// If there is already a user, he is an advisor, then send him a confirmation in the message
+                        // If there is already a user, he is an advisor, then send him a confirmation in the message
                         addPowiadomienieAplikacjaRespondFunction ( ret,newKwestia[0].dataWprowadzenia,NOTIFICATION_TYPE.APPLICATION_CONFIRMATION );
                     }
-                    Meteor.call ( "sendApplicationConfirmation", idUserDraft,function ( error ) {
+                    Meteor.call ( 'sendApplicationConfirmation', idUserDraft,function ( error ) {
                         if ( !error ) {
-                            Meteor.call ( "sendEmailAddedIssue", ret, getUserLanguage (), function ( error ) {
+                            Meteor.call ( 'sendEmailAddedIssue', ret, getUserLanguage (), function ( error ) {
                                 if ( error ) {
                                     var emailError = {
                                         idIssue: ret,
                                         type: NOTIFICATION_TYPE.NEW_ISSUE
                                     };
-                                    Meteor.call ( "addEmailError", emailError );
+                                    Meteor.call ( 'addEmailError', emailError );
                                 }
                             } );
                         }else{
@@ -292,7 +292,7 @@ addKwestiaOsobowa=function ( idUserDraft,newUser ) {
                                 idUserDraft: idUserDraft,
                                 type: NOTIFICATION_TYPE.APPLICATION_CONFIRMATION
                             };
-                            Meteor.call ( "addEmailError", emailError );
+                            Meteor.call ( 'addEmailError', emailError );
                         }
                     } );
                 }
@@ -311,17 +311,17 @@ addPowiadomienieAplikacjaIssueFunction=function ( idKwestia,dataWprowadzenia ) {
             idOdbiorca: user._id,
             idNadawca: idNadawca,
             dataWprowadzenia: dataWprowadzenia,
-            tytul: "",
+            tytul: '',
             powiadomienieTyp: NOTIFICATION_TYPE.NEW_ISSUE,
-            tresc: "",
+            tresc: '',
             idKwestia:idKwestia,
             czyAktywny: true,
             czyOdczytany: false
         };
-        Meteor.call ( "addPowiadomienie",newPowiadomienie,function ( error ) {
+        Meteor.call ( 'addPowiadomienie',newPowiadomienie,function ( error ) {
             if ( error )
                 throwError ( error.reason );
-        } )
+        } );
     } );
 };
 
@@ -330,14 +330,14 @@ addPowiadomienieAplikacjaRespondFunction=function ( idKwestia,dataWprowadzenia,t
         idOdbiorca: Meteor.userId (),
         idNadawca: null,
         dataWprowadzenia: dataWprowadzenia,
-        tytul: "",
+        tytul: '',
         powiadomienieTyp: typ,
-        tresc: "",
+        tresc: '',
         idKwestia:idKwestia,
         czyAktywny: true,
         czyOdczytany: false
     };
-    Meteor.call ( "addPowiadomienie",newPowiadomienie,function ( error ) {
+    Meteor.call ( 'addPowiadomienie',newPowiadomienie,function ( error ) {
         if ( error )
             throwError ( error.reason );
     } );

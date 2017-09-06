@@ -116,7 +116,7 @@ Template.map.helpers({
                 streetViewControl: false,
                 zoom: 5,
                 zoomControl: true,
-				scrollwheel: true,
+                scrollwheel: true,
                 styles: [{
                     stylers: [
                         {lightness: 20},

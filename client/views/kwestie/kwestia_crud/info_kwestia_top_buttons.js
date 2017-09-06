@@ -5,12 +5,12 @@ Template.kwestiaTopButtons.helpers ( {
     },
     hasUserRights: function ( idKwestia ) {
         if ( !Meteor.userId () )
-            return "disabled";
+            return 'disabled';
         var user=Meteor.user ().profile;
         if ( user ) {
             if ( user.userType ) {
                 if ( user.userType != USERTYPE.CZLONEK )
-                    return "disabled";
+                    return 'disabled';
             }
         }
         return isKwestiaGlosowana ( idKwestia );
@@ -51,7 +51,7 @@ Template.kwestiaTopButtons.helpers ( {
     isArchiwalna: function ( status,typ ) {
         return _.contains ( [KWESTIA_STATUS.HIBERNOWANA,KWESTIA_STATUS.ARCHIWALNA],status ) || typ==false ? true: false;
     }
- } );
+} );
 Template.kwestiaTopButtons.events ( {
     'click #backToList': function ( e ) {
         window.history.back ();
@@ -70,13 +70,13 @@ Template.kwestiaTopButtons.events ( {
 
                 }
             }
-            Session.setPersistent ( "actualKwestia", kw );
-            Router.go ( "addKwestiaOpcja" );
+            Session.setPersistent ( 'actualKwestia', kw );
+            Router.go ( 'addKwestiaOpcja' );
         }
         else
-            notificationPauseWarning ( "kwestii",kwestiaCanBeInserted );
+            notificationPauseWarning ( 'kwestii',kwestiaCanBeInserted );
     },
-/*    'click #doArchiwum': function ( e ) {
+    /*    'click #doArchiwum': function ( e ) {
         e.preventDefault ();
         var idKw = e.target.name;
         var issue=Kwestia.findOne ( { _id:idKw } );
@@ -98,14 +98,14 @@ Template.kwestiaTopButtons.events ( {
         var idKw = e.target.name;
         var issue=Kwestia.findOne ( { _id:idKw } );
         if ( isIssueAllowedToArchiveBin ( issue )==true ) {
-            var z = Posts.findOne ( {idKwestia: idKw, postType: "kosz" } );
+            var z = Posts.findOne ( {idKwestia: idKw, postType: 'kosz' } );
             if ( z ) {
                 $ ( 'html, body' ).animate ( {
-                    scrollTop: $ ( ".doKoszaClass" ).offset ().top
+                    scrollTop: $ ( '.doKoszaClass' ).offset ().top
                 }, 600 );
             }
             else {
-                $ ( "#uzasadnijWyborKosz" ).modal ( "show" );
+                $ ( '#uzasadnijWyborKosz' ).modal ( 'show' );
             }
         }
     },
@@ -113,15 +113,15 @@ Template.kwestiaTopButtons.events ( {
         e.preventDefault ();
         var odp=getReportsForIssueAtSpecificDuration ( this.idKwestia );
         if ( odp==false )
-            $ ( "#addRRModal" ).modal ( "show" );
+            $ ( '#addRRModal' ).modal ( 'show' );
         else{
-            var className=".doRealizationRaportClass" + odp._id;
+            var className='.doRealizationRaportClass' + odp._id;
             $ ( 'html, body' ).animate ( {
-                 scrollTop: $ ( className ).offset ().top
-             }, 600 );
+                scrollTop: $ ( className ).offset ().top
+            }, 600 );
         }
     }
- } );
+} );
 
 getReportsForIssueAtSpecificDuration=function ( idKwestia ) {
     var timeNow = moment ( new Date () ).format ();
@@ -129,7 +129,7 @@ getReportsForIssueAtSpecificDuration=function ( idKwestia ) {
     var lastReportId=issue.raporty;
     var report=Raport.findOne ( { _id:_.last ( issue.raporty ) } );
     if ( report==null )
-    return false;
+        return false;
     var reportAddedTime=report.dataUtworzenia;
     return reportAddedTime > _.last ( issue.listaDatRR ) ? report : false;
 };
@@ -145,7 +145,7 @@ isIssueAllowedToArchiveBin=function ( issue ) {
             text = TAPi18n.__ ( 'txv.GL_PAR_CHANGE2' );
         else
             text = TAPi18n.__ ( 'txv.GL_PAR_CHANGE3' );
-        bootbox.alert ( TAPi18n.__ ( 'txv.GL_PAR_INFO' ) + text + "!" );
+        bootbox.alert ( TAPi18n.__ ( 'txv.GL_PAR_INFO' ) + text + '!' );
         return false;
     }
     return true;

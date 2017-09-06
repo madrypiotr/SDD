@@ -5,7 +5,7 @@ Template.discussionPostItem.created = function () {
 };
 
 Template.discussionPostItem.rendered = function () {
-    $ ( "#dyskusjaAnswerForm" ).validate ( {
+    $ ( '#dyskusjaAnswerForm' ).validate ( {
         messages: {
             answer_message: {
                 required: fieldEmptyMessage (),
@@ -22,15 +22,15 @@ Template.discussionPostItem.rendered = function () {
         errorPlacement: function ( error, element ) {
             validationPlacementError ( error, element );
         }
-    } )
+    } );
 };
 
 Template.discussionPostItem.helpers ( {
     'getSimpleDate': function ( date ) {
-        return moment ( date ).format ( "YYYY-MM-DD" );
+        return moment ( date ).format ( 'YYYY-MM-DD' );
     },
     'getFullHourDate': function ( date ) {
-        return moment ( date ).format ( "HH:mm:ss" );
+        return moment ( date ).format ( 'HH:mm:ss' );
     },
     'getAnswers': function ( id ) {
         return Posts.find ( {idParent: id, isParent: false, czyAktywny: true}, {sort: {wartoscPriorytetu: -1} } );
@@ -39,7 +39,7 @@ Template.discussionPostItem.helpers ( {
         return Posts.find ( {idParent: id, isParent: false, czyAktywny: true } ).count ();
     },
     'getLabelClass': function ( value ) {
-        return value >= 0 ? "label-success" : "label-danger";
+        return value >= 0 ? 'label-success' : 'label-danger';
     },
     'getText': function ( value, id ) {
         var self = Template.instance ();
@@ -47,7 +47,7 @@ Template.discussionPostItem.helpers ( {
         if ( value.length < DISCUSSION_OPTIONS.POST_CHARACTERS_DISPLAY )
             return value;
         else
-            return isInTab ( id, self.colTextRV.get () ) ? value : value.substring ( 0, DISCUSSION_OPTIONS.POST_CHARACTERS_DISPLAY ) + "...";
+            return isInTab ( id, self.colTextRV.get () ) ? value : value.substring ( 0, DISCUSSION_OPTIONS.POST_CHARACTERS_DISPLAY ) + '...';
     },
     'isInTab': function ( id ) {
         var self = Template.instance ();
@@ -66,7 +66,7 @@ Template.discussionPostItem.helpers ( {
     'isDoKosza': function () {
         var p = Posts.findOne ( { _id: this.idPost } );
         if ( p ) {
-            if ( p.postType == "kosz" ) return true;
+            if ( p.postType == 'kosz' ) return true;
             else return false;
         }
     },
@@ -78,11 +78,11 @@ Template.discussionPostItem.helpers ( {
     'isDoWK': function () {
         var p = Posts.findOne ( { _id: this.idPost } );
         if ( p ) {
-            if ( p.postType == "deliberacja" ) return true;
+            if ( p.postType == 'deliberacja' ) return true;
             else return false;
         }
     }
- } );
+} );
 
 Template.discussionPostItem.events ( {
     'click #rozwinText': function ( e ) {
@@ -105,7 +105,7 @@ Template.discussionPostItem.events ( {
         } );
         self.colTextRV.set ( itemTab );
     }
- } );
+} );
 
 Template.discussionAnswerForm.events ( {
     'submit #dyskusjaAnswerForm': function ( e ) {
@@ -139,19 +139,19 @@ Template.discussionAnswerForm.events ( {
 
             Meteor.call ( 'addPostAnswer', post, function ( error, ret ) {
                 if ( error ) {
-                    if ( typeof Errors === "undefined" )
+                    if ( typeof Errors === 'undefined' )
                         Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                     else
                         throwError ( error.reason );
                 } else {
-                    document.getElementsByName ( "answer_message" + idParent )[0].value = "";
+                    document.getElementsByName ( 'answer_message' + idParent )[0].value = '';
                 }
             } );
         }
         else
-            notificationPauseWarning ( "odniesień",isAllowed );
+            notificationPauseWarning ( 'odniesień',isAllowed );
     }
- } );
+} );
 
 Template.discussionAnswerItem.created = function () {
     this.colTextAnswerRV = new ReactiveVar ();
@@ -161,20 +161,20 @@ Template.discussionAnswerItem.created = function () {
 
 Template.discussionAnswerItem.helpers ( {
     'getSimpleDate': function ( date ) {
-        return moment ( date ).format ( "YYYY-MM-DD" );
+        return moment ( date ).format ( 'YYYY-MM-DD' );
     },
     'getFullHourDate': function ( date ) {
-        return moment ( date ).format ( "HH:mm:ss" );
+        return moment ( date ).format ( 'HH:mm:ss' );
     },
     'getLabelClass': function ( value ) {
-        return value >= 0 ? "label-success" : "label-danger";
+        return value >= 0 ? 'label-success' : 'label-danger';
     },
     'getAnswerText': function ( value, id ) {
         var self = Template.instance ();
         if ( value.length < DISCUSSION_OPTIONS.POST_CHARACTERS_DISPLAY )
             return value;
         else
-            return isInTab ( id, self.colTextAnswerRV.get () ) ? value : value.substring ( 0, DISCUSSION_OPTIONS.POST_ANSWER_CHARACTERS_DISPLAY ) + "...";
+            return isInTab ( id, self.colTextAnswerRV.get () ) ? value : value.substring ( 0, DISCUSSION_OPTIONS.POST_ANSWER_CHARACTERS_DISPLAY ) + '...';
     },
     'isAnswerInTab': function ( id ) {
         var self = Template.instance ();
@@ -183,7 +183,7 @@ Template.discussionAnswerItem.helpers ( {
     'textAnswerTooLong': function ( value ) {
         return value.length < DISCUSSION_OPTIONS.POST_CHARACTERS_DISPLAY ? false : true;
     }
- } );
+} );
 
 Template.discussionAnswerItem.events ( {
     'click #rozwinTextAnswer': function ( e ) {
@@ -205,7 +205,7 @@ Template.discussionAnswerItem.events ( {
         } );
         self.colTextAnswerRV.set ( itemTab );
     }
- } );
+} );
 
 Template.discussionAnswerForm.helpers ( {
     hasUserRights: function () {
@@ -216,7 +216,7 @@ Template.discussionAnswerForm.helpers ( {
             return kwestia.status == KWESTIA_STATUS.GLOSOWANA || kwestia.status == KWESTIA_STATUS.ZREALIZOWANA ||
                kwestia.status == KWESTIA_STATUS.OCZEKUJACA || kwestia.czyAktywny==false ? false : true;
     }
- } );
+} );
 
 referenceIsAllowedToInsert=function ( idParent ) {
     var myPosts=Posts.find ( {idUser:Meteor.userId (),isParent: false, idKwestia:this.idKwestia.value,idParent:idParent},{sort:{addDate:1} } );

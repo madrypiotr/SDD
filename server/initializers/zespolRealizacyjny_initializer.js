@@ -1,10 +1,10 @@
 Meteor.startup ( function () {
     var ZR = {
-        "_id": "jjXKur4qC5ZGPQkgN",
-        "nazwa": TAPi18n.__ ( 'txv.ZR_PERSONS' ),
-        "zespol": [],
-        "kwestie":[],
-        "czyAktywny": true
+        '_id': 'jjXKur4qC5ZGPQkgN',
+        'nazwa': TAPi18n.__ ( 'txv.ZR_PERSONS' ),
+        'zespol': [],
+        'kwestie':[],
+        'czyAktywny': true
     };
 
     if ( ZespolRealizacyjny.find ().count () == 0 ) {
@@ -16,4 +16,4 @@ Meteor.startup ( function () {
             czyAktywny:ZR.czyAktywny
         } );
     }
- } );
+} );

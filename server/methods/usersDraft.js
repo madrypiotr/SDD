@@ -1,6 +1,6 @@
 Meteor.methods ( {
     addUserDraft: function ( newUser ) {
-     var id= UsersDraft.insert ( {
+        var id= UsersDraft.insert ( {
             username: newUser[0].login,
             email: newUser[0].email,
             profile: {
@@ -17,11 +17,11 @@ Meteor.methods ( {
                 city:newUser[0].city,
                 pesel:newUser[0].pesel
             },
-             czyZrealizowany: false, 
-             linkAktywacyjny:null,
-             czyAktywny: true,
-             dataWprowadzenia:new Date (),
-             licznikKlikniec:0
+            czyZrealizowany: false, 
+            linkAktywacyjny:null,
+            czyAktywny: true,
+            dataWprowadzenia:new Date (),
+            licznikKlikniec:0
         } );
         return id;
 
@@ -44,11 +44,11 @@ Meteor.methods ( {
     setActivationHashUserDraft: function ( id,activationLink ) {
         UsersDraft.update ( { _id:id },{$set:{linkAktywacyjny:activationLink} } );
     },
-	/**	Updating click count
+    /**	Updating click count
 	* @param id - Jego źródło ... jego rola w procedurze ... opis opis opis opis opis opis ...
 	* @param counter - Jego źródło ... jego rola w procedurze opis opis opis ...
 	*/
     updateLicznikKlikniec: function ( id, counter ) {
         UsersDraft.update ( { _id: id },{$set: {licznikKlikniec: counter} } );
     },
- } );
+} );

@@ -15,7 +15,7 @@ Template.profileList.rendered = function () {
             tab.push ( item._id );
         } );
         self.usersRV.set ( tab );
-    } )
+    } );
 };
 
 Template.profileList.events ( {
@@ -31,7 +31,7 @@ Template.profileList.events ( {
     'click .glyphicon-pencil': function ( event, template ) {
         Session.set ( 'userInScope', this );
     }
- } );
+} );
 Template.profileList.helpers ( {
     'settings': function () {
         var self = Template.instance ();
@@ -55,9 +55,9 @@ Template.profileList.helpers ( {
             }
         };
     }
- } );
+} );
 Template.userEmailContact.helpers ( {
     myProfile: function ( id ) {
         return id==Meteor.userId () ? true : false;
     }
- } );
+} );

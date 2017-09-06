@@ -23,4 +23,4 @@ Meteor.methods ( {
     setActivityParametrDraft: function ( id,czyAktywny ) {
         ParametrDraft.update ( id, {$set: {czyAktywny: czyAktywny}}, {upsert: true } );
     }
- } );
+} );

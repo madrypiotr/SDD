@@ -1,6 +1,6 @@
 Template.addNazwaModalInner.rendered = function () {
-    $ ( '#nazwaZR' ).css ( "visibility", "visible" );
-    $ ( "addNazwa" ).validate ( {
+    $ ( '#nazwaZR' ).css ( 'visibility', 'visible' );
+    $ ( 'addNazwa' ).validate ( {
         rules:{
             nazwaZR: {
                 checkExistsNazwaZespoluRealizacyjnego : true
@@ -36,8 +36,8 @@ Template.addNazwaModal.events ( {
         var idKwestia=this._id;
         var nazwa = document.getElementById ( 'nazwaZR' ).value;
         var zespoly = ZespolRealizacyjny.find ( {czyAktywny: true } );
-        if ( nazwa.toLowerCase ().trim () =="" ) {
-            $ ( '#nazwaZR' ).css ( "visibility", "visible" );
+        if ( nazwa.toLowerCase ().trim () =='' ) {
+            $ ( '#nazwaZR' ).css ( 'visibility', 'visible' );
             GlobalNotification.error ( {
                 title: TAPi18n.__ ( 'txv.ERROR' ),
                 content: TAPi18n.__ ( 'txv.FILL_NAME_OF_TEAM' ),
@@ -52,14 +52,14 @@ Template.addNazwaModal.events ( {
                     found = true;
             } );
             if ( found == true ) {
-                $ ( '#nazwaZR' ).css ( "visibility", "visible" );
+                $ ( '#nazwaZR' ).css ( 'visibility', 'visible' );
                 GlobalNotification.error ( {
                     title: TAPi18n.__ ( 'txv.ERROR' ),
                     content: TAPi18n.__ ( 'txv.NAME_OF_TEAM_EXIST' ),
                     duration: 4 
                 } );
             } else {
-                $ ( '#nazwaZR' ).css ( "visibility", "hidden" );
+                $ ( '#nazwaZR' ).css ( 'visibility', 'hidden' );
                 var text = TAPi18n.__ ( 'txv.IMPLEMENTATION_TEAM_FOR' ) + nazwa;
                 var kwestia = Kwestia.findOne ( { _id: idKwestia } );
                 if ( kwestia ) {
@@ -73,14 +73,14 @@ Template.addNazwaModal.events ( {
                         };
                         Meteor.call ( 'updateImplemTeamDraft', kwestia.idZespolRealizacyjny, newZespol, function ( error, ret ) {
                             if ( error ) {
-                                if ( typeof Errors === "undefined" )
+                                if ( typeof Errors === 'undefined' )
                                     Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                                 else {
                                     throwError ( error.reason );
                                 }
                             }
                             else {
-                                $ ( "#addNazwa" ).modal ( "hide" );
+                                $ ( '#addNazwa' ).modal ( 'hide' );
                             }
                         } );
                     }
@@ -89,6 +89,6 @@ Template.addNazwaModal.events ( {
         }
     },
 	    'click #cancelButton': function ( e ) {
-        // (pm) jak i gdzie powróciæ?
+        // (pm) jak i gdzie powrï¿½ciï¿½?
     }
- } );
+} );

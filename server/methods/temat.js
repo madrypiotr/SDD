@@ -10,4 +10,4 @@ Meteor.methods ( {
     updateTemat: function ( tematId, temat ) {
         Temat.update ( tematId, {$set: temat}, {upsert: true } );
     }
- } );
+} );

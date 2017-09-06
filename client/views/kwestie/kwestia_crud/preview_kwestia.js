@@ -1,5 +1,5 @@
 Template.previewKwestia.rendered=function () {
-    document.getElementById ( "save" ).disabled = false;
+    document.getElementById ( 'save' ).disabled = false;
 };
 Template.previewKwestia.helpers ( {
     getTematName: function ( id ) {
@@ -9,7 +9,7 @@ Template.previewKwestia.helpers ( {
         return Rodzaj.findOne ( { _id: id } ).nazwaRodzaj;
     },
     temat: function () {
-        var sess=Session.get ( "kwestiaPreview" );
+        var sess=Session.get ( 'kwestiaPreview' );
         var t=null;
         if ( sess ) {
             t=firstLetterToUpperCase ( sess.temat );
@@ -17,27 +17,27 @@ Template.previewKwestia.helpers ( {
         }
     },
     rodzaj: function () {
-        var sess=Session.get ( "kwestiaPreview" );
+        var sess=Session.get ( 'kwestiaPreview' );
         var t=null;
         if ( sess ) {
             t=firstLetterToUpperCase ( sess.rodzaj );
             return t ? t : null;
         }
     }
- } );
+} );
 
 Template.previewKwestia.events ( {
     'click #cancel': function () {
-        Session.set ( "kwestiaPreview", null );
-        Router.go ( "listKwestia" );
+        Session.set ( 'kwestiaPreview', null );
+        Router.go ( 'listKwestia' );
     },
     'click #save': function ( e ) {
         e.preventDefault ();
 
-        document.getElementById ( "save" ).disabled = true;
+        document.getElementById ( 'save' ).disabled = true;
 
         var kwestie=Kwestia.find ( {czyAktywny: true } );
-        var kwestia = Session.get ( "kwestiaPreview" );
+        var kwestia = Session.get ( 'kwestiaPreview' );
 
         var flag=false;
         kwestie.forEach ( function ( item ) {
@@ -49,7 +49,7 @@ Template.previewKwestia.events ( {
             var temat = kwestia.temat;
             var rodzaj = kwestia.rodzaj;
 
-            var idParentKwestii = Session.get ( "idKwestia" );
+            var idParentKwestii = Session.get ( 'idKwestia' );
             var isOption = false;
 
 
@@ -59,7 +59,7 @@ Template.previewKwestia.events ( {
         else
             bootbox.alert ( TAPi18n.__ ( 'txv.GIVEN_ISSUE_EXISTS' ), function () { } );
     }
- } );
+} );
 setValue=function ( temat,rodzaj,isOption,kwestia ) {
     var idTemat=null;
     var idRodzaj=null;
@@ -78,11 +78,11 @@ setValue=function ( temat,rodzaj,isOption,kwestia ) {
 
         var nowyTemat=[{
             nazwaTemat:temat,
-            opis:""
+            opis:''
         }];
         Meteor.call ( 'addTemat', nowyTemat, function ( error,ret ) {
             if ( error ) {
-                if ( typeof Errors === "undefined" )
+                if ( typeof Errors === 'undefined' )
                     Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                 else
                     throwError ( error.reason );
@@ -100,7 +100,7 @@ setValue=function ( temat,rodzaj,isOption,kwestia ) {
 
                 Meteor.call ( 'addRodzaj', newRodzaj, function ( error,ret ) {
                     if ( error ) {
-                        if ( typeof Errors === "undefined" )
+                        if ( typeof Errors === 'undefined' )
                             Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                         else
                             throwError ( error.reason );
@@ -138,7 +138,7 @@ setValue=function ( temat,rodzaj,isOption,kwestia ) {
             }];
             Meteor.call ( 'addRodzaj', newRodzaj, function ( error,ret ) {
                 if ( error ) {
-                    if ( typeof Errors === "undefined" )
+                    if ( typeof Errors === 'undefined' )
                         Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
                     else
                         throwError ( error.reason );
@@ -185,24 +185,24 @@ addKwestia=function ( idTemat,idRodzaj,isOption,kwestia ) {
     }];
     Meteor.call ( 'addKwestia', newKwestia, function ( error, ret ) {
         if ( error ) {
-            if ( typeof Errors === "undefined" )
+            if ( typeof Errors === 'undefined' )
                 Log.error ( TAPi18n.__ ( 'txv.ERROR' ) + error.reason );
             else {
                 throwError ( error.reason );
             }
         }
         else {
-            Session.set ( "kwestiaPreview", null );
-            Meteor.call ( "sendEmailAddedIssue", ret, getUserLanguage (), function ( error ) {
+            Session.set ( 'kwestiaPreview', null );
+            Meteor.call ( 'sendEmailAddedIssue', ret, getUserLanguage (), function ( error ) {
                 if ( error ) {
                     var emailError = {
                         idIssue: ret,
                         type: NOTIFICATION_TYPE.NEW_ISSUE
                     };
-                    Meteor.call ( "addEmailError", emailError );
+                    Meteor.call ( 'addEmailError', emailError );
                 }
             } );
-            addPowiadomienieIssueFunction ( ret,newKwestia[0].dataWprowadzenia,NOTIFICATION_TYPE.NEW_ISSUE,"" );
+            addPowiadomienieIssueFunction ( ret,newKwestia[0].dataWprowadzenia,NOTIFICATION_TYPE.NEW_ISSUE,'' );
             var text=TAPi18n.__ ( 'txv.LACK_OF_ACTIVITY' );
             addPowiadomienieIssueFunction ( ret,newKwestia[0].dataWprowadzenia,NOTIFICATION_TYPE.ISSUE_NO_PRIORITY,text );
             Router.go ( 'administracjaUserMain' );
@@ -217,17 +217,17 @@ addPowiadomienieIssueFunction=function ( idKwestia,dataWprowadzenia,typ,text ) {
             idOdbiorca: user._id,
             idNadawca: null,
             dataWprowadzenia: dataWprowadzenia,
-            tytul: "",
+            tytul: '',
             powiadomienieTyp: typ,
             tresc: text,
             idKwestia:idKwestia,
             czyAktywny: true,
             czyOdczytany: false
         };
-        Meteor.call ( "addPowiadomienie",newPowiadomienie,function ( error ) {
+        Meteor.call ( 'addPowiadomienie',newPowiadomienie,function ( error ) {
             if ( error )
                 throwError ( error.reason );
-        } )
+        } );
     } );
 
 };

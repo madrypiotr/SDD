@@ -38,4 +38,4 @@ Meteor.methods ( {
     removePost: function ( id ) {
         Posts.remove ( { _id:id } );
     }
- } );
+} );

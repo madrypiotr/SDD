@@ -16,25 +16,25 @@ Template.chooseTypeModalInner.helpers ( {
                 },
                 {
                     key: '_id',
-                    label: "",
+                    label: '',
                     tmpl: Template.typeName
                 }
             ]
         };
     },
     TypeList: function () {
-        var topicName = Session.get ( "choosenTopic" );
+        var topicName = Session.get ( 'choosenTopic' );
         var topic = Temat.findOne ( {nazwaTemat: topicName } );
         var topicId = null;
         if ( topic != null )
             topicId = topic._id;
         return Rodzaj.find ( {idTemat: topicId } );
     }
- } );
+} );
 
 Template.typeName.events ( {
     'click #chosenTypeBtn': function () {
-        Session.setPersistent ( "choosenType", this.nazwaRodzaj );
-        $ ( "#chooseTypeModalId" ).modal ( "hide" );
+        Session.setPersistent ( 'choosenType', this.nazwaRodzaj );
+        $ ( '#chooseTypeModalId' ).modal ( 'hide' );
     }
- } );
+} );

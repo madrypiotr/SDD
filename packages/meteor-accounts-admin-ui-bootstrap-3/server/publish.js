@@ -1,7 +1,7 @@
 Meteor.publish('roles', function (){
-	return Meteor.roles.find({});
+    return Meteor.roles.find({});
 });
 
 Meteor.publish('filteredUsers', function(filter) {
-	return filteredUserQuery(this.userId, filter);
+    return filteredUserQuery(this.userId, filter);
 });

@@ -1,6 +1,6 @@
 Template.decyzjaModalInner.rendered=function () {
-    $ ( '#nowyZRButton' ).css ( "visibility", "visible" );
-    $ ( '#istniejacyZRButton' ).css ( "visibility", "visible" );
+    $ ( '#nowyZRButton' ).css ( 'visibility', 'visible' );
+    $ ( '#istniejacyZRButton' ).css ( 'visibility', 'visible' );
 };
 Template.decyzjaModalInner.helpers ( {
     'settings': function () {
@@ -17,7 +17,7 @@ Template.decyzjaModalInner.helpers ( {
         };
     },
     ZRDoubleList: function () {
-        var val=Session.get ( "zespolRealizacyjnyDouble" );
+        var val=Session.get ( 'zespolRealizacyjnyDouble' );
         if ( val ) {
             var zesp = ZespolRealizacyjny.find ( { _id: {$in: val} } );
             if ( zesp ) {
@@ -31,7 +31,7 @@ Template.decyzjaModalInner.helpers ( {
             return null;
         }
     }
- } );
+} );
 
 Template.zespolDoubleTemplatee.helpers ( {
     zespolR: function () {
@@ -41,28 +41,28 @@ Template.zespolDoubleTemplatee.helpers ( {
             if ( z ) {
                 var foundName = Users.findOne ( { _id: z } ).profile.fullName;
                 if ( foundName ) {
-                    tab.push ( " " + foundName );
+                    tab.push ( ' ' + foundName );
                 }
             }
         }
         return tab;
     }
- } );
+} );
 
 
 Template.decyzjaModalInner.events ( {
     'click #istniejacyZRButton': function () {
         //sprawdzam,czy mam uprawnienia
-        $ ( '#nowyZRButton' ).css ( "visibility", "hidden" );
-        $ ( '#istniejacyZRButton' ).css ( "visibility", "hidden" );
-        $ ( "#listZespolRealizacyjnyDouble" ).modal ( "show" );
-        $ ( '#nowyZRButton' ).css ( "visibility", "visible" );
-        $ ( '#istniejacyZRButton' ).css ( "visibility", "visible" );
+        $ ( '#nowyZRButton' ).css ( 'visibility', 'hidden' );
+        $ ( '#istniejacyZRButton' ).css ( 'visibility', 'hidden' );
+        $ ( '#listZespolRealizacyjnyDouble' ).modal ( 'show' );
+        $ ( '#nowyZRButton' ).css ( 'visibility', 'visible' );
+        $ ( '#istniejacyZRButton' ).css ( 'visibility', 'visible' );
     },
     'click #nowyZRButton': function () {
-        $ ( '#nowyZRButton' ).css ( "visibility", "hidden" );
-        $ ( '#istniejacyZRButton' ).css ( "visibility", "hidden" );
+        $ ( '#nowyZRButton' ).css ( 'visibility', 'hidden' );
+        $ ( '#istniejacyZRButton' ).css ( 'visibility', 'hidden' );
         $ ( '#addNazwa' ).modal ( 'show' );
-        $ ( '#nowyZRButton' ).css ( "visibility", "visible" );
+        $ ( '#nowyZRButton' ).css ( 'visibility', 'visible' );
     }
- } );
+} );

@@ -20,23 +20,23 @@
             }
         } );
 
-        Roles.addUsersToRoles ( uID, "user" );
+        Roles.addUsersToRoles ( uID, 'user' );
         return uID;
     },
 
     updateUser: function ( currentUserId,currentUser ) {
         Users.update ( currentUserId,
-          {
-            $set: {
-              "profile.firstName": currentUser.profile.firstName,
-              "profile.lastName": currentUser.profile.lastName,
-              "profile.fullName": currentUser.profile.firstName + ' ' + currentUser.profile.lastName,
-              "profile.address": currentUser.profile.address,
-              "profile.zip": currentUser.profile.zip,
-              "profile.city": currentUser.profile.city,
+            {
+                $set: {
+                    'profile.firstName': currentUser.profile.firstName,
+                    'profile.lastName': currentUser.profile.lastName,
+                    'profile.fullName': currentUser.profile.firstName + ' ' + currentUser.profile.lastName,
+                    'profile.address': currentUser.profile.address,
+                    'profile.zip': currentUser.profile.zip,
+                    'profile.city': currentUser.profile.city,
+                }
             }
-          }
-         );
+        );
     },
     // updateUserLanguage: function ( currentUserId,value ) {
     //     Users.update ( { _id:currentUserId}, {$set:{ 'profile.language': value} } );
@@ -75,19 +75,19 @@
                 if ( _.isEqual ( email.address.toLowerCase (), searchedEmail.toLowerCase () ) ) {
 
                     if ( userType1 ==null && userType2==null )
-						//dla przeszukania czy wgl jest taki user w systemie
+                    //dla przeszukania czy wgl jest taki user w systemie
                         found=true;
                     else {
                         userType=user.profile.userType;
                         if ( userType2 == null ) {
                             if ( userType == userType1 ) {
-								//dla przeszukania czy doradca/czlonek jest w systemie
+                                //dla przeszukania czy doradca/czlonek jest w systemie
                                 found = true;
                             }
                         }
                         else {
                             if ( userType == userType1 || userType == userType2 ) {
-								//dla przeszukania czy owy jest przynajmniej czlonkiem lub doradca
+                                //dla przeszukania czy owy jest przynajmniej czlonkiem lub doradca
                                 found = true;
                             }
                         }
@@ -111,11 +111,11 @@
         var users=Users.find ( { _id: {$in:idUsersArray} } );
         var array=[];
         users.forEach ( function ( user ) {
-            array.push ( user.profile.firstName + " " + user.profile.lastName );
+            array.push ( user.profile.firstName + ' ' + user.profile.lastName );
         } );
         return  array;
     },
-	/**	Generate user login
+    /**	Generate user login
 	* @param u_firstName - Jego źródło ... jego rola w procedurze ... opis opis opis opis opis opis ...
 	* @param u_lastName - Jego źródło ... jego rola w procedurze opis opis opis ...
 	* @return userName - Jego źródło ... jego rola w procedurze opis opis opis ...
@@ -143,4 +143,4 @@
         } );
         return userSearched;
     }
- } );
+} );

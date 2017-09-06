@@ -1,7 +1,7 @@
 Accounts.config ( {
     forbidClientAccountCreation: true,
     loginExpirationInDays: null
- } );
+} );
 
 Users.deny ( {
     insert: function () {
@@ -13,4 +13,4 @@ Users.deny ( {
     remove: function () {
         return true;
     }
- } );
+} );

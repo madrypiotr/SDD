@@ -1,5 +1,5 @@
 Template.addKwestiaOpcjaForm.rendered = function () {
-    $ ( "#kwestiaOpcjaForm" ).validate ( {
+    $ ( '#kwestiaOpcjaForm' ).validate ( {
         rules: {
             kwestiaNazwa: {
                 checkExistsNazwaKwestii: true,
@@ -41,7 +41,7 @@ Template.addKwestiaOpcjaForm.rendered = function () {
                 error.insertAfter ( element );
             }
         }
-    } )
+    } );
 };
 Template.addKwestiaOpcjaForm.helpers ( {
     rodzajNazwa: function () {
@@ -55,26 +55,26 @@ Template.addKwestiaOpcjaForm.helpers ( {
     },
     protectorZR: function () {
         if ( !Meteor.userId () ) return false;
-        var zr=ZespolRealizacyjny.findOne ( { _id:"jjXKur4qC5ZGPQkgN" } );
+        var zr=ZespolRealizacyjny.findOne ( { _id:'jjXKur4qC5ZGPQkgN' } );
         if ( zr ) {
             if ( zr.protector )
                 return zr.protector==Meteor.userId () ? true : false;
         }
     }
- } );
+} );
 
 Template.addKwestiaOpcjaForm.events ( {
     'submit form': function ( e ) {
         e.preventDefault ();
-        document.getElementById ( "submitAddKwestiaOpcja" ).disabled = true;
+        document.getElementById ( 'submitAddKwestiaOpcja' ).disabled = true;
         var parentIssue = this;
         Meteor.setTimeout ( function () {
-            document.getElementById ( "submitAddKwestiaOpcja" ).disabled = false;
+            document.getElementById ( 'submitAddKwestiaOpcja' ).disabled = false;
             var eventForm = $ ( e.target );
             var szczegolowaTresc = null;
             if ( parentIssue.status == KWESTIA_STATUS.OSOBOWA ) {
                 szczegolowaTresc = parentIssue.szczegolowaTresc;
-                szczegolowaTresc.uwagi = $ ( e.target ).find ( '[name=szczegolowaTrescUwagi]' ).val ()
+                szczegolowaTresc.uwagi = $ ( e.target ).find ( '[name=szczegolowaTrescUwagi]' ).val ();
             }
             else
                 szczegolowaTresc = $ ( e.target ).find ( '[name=szczegolowaTresc]' ).val ();
@@ -96,12 +96,12 @@ Template.addKwestiaOpcjaForm.events ( {
                 typ: KWESTIA_TYPE.BASIC,
                 issueNumber: parentIssue.issueNumber
             }];
-            Session.setPersistent ( "actualKwestia", newKwestiaOpcja[0] );
+            Session.setPersistent ( 'actualKwestia', newKwestiaOpcja[0] );
             Router.go ( 'previewKwestiaOpcja' );
         },2000 );
     },
     'click #cancelButton': function () {
-        Session.setPersistent ( "actualKwestia", null );
-        Router.go ( "informacjeKwestia", { _id: Session.get ( "idKwestia" ) } );
+        Session.setPersistent ( 'actualKwestia', null );
+        Router.go ( 'informacjeKwestia', { _id: Session.get ( 'idKwestia' ) } );
     }
- } );
+} );
