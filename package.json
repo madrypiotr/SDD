@@ -1,0 +1,25 @@
+{
+  "name": "SDD",
+  "version": "1.0.0",
+  "description": "![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg)",
+  "scripts": {
+    "start": "meteor",
+    "test": "eslint --ext .js,.jsx --quiet ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madrypiotr/SDD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madrypiotr/SDD/issues"
+  },
+  "homepage": "https://github.com/madrypiotr/SDD",
+  "dependencies": {
+    "meteor-node-stubs": "0.2.11"
+  },
+  "devDependencies": {
+    "eslint": "4.6.1"
+  }
+}
