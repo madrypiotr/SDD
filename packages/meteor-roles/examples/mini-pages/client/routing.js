@@ -59,15 +59,15 @@
     };
 
     Meteor.pages({
-        '/': { to: 'start', as: 'root', nav: 'start', 
-            before: [authenticate] },
+        '/': {to: 'start', as: 'root', nav: 'start',
+            before: [authenticate]},
         '/signin': 'signin',
-        '/start': { to: 'start', nav: 'start', 
-            before: [authenticate] },
-        '/secrets': { to: 'secrets', nav: 'secrets', 
-            before: [authenticate] },
-        '/manage': { to: 'manage', nav: 'manage', 
-            before: [authenticate] },
+        '/start': {to: 'start', nav: 'start',
+            before: [authenticate]},
+        '/secrets': {to: 'secrets', nav: 'secrets',
+            before: [authenticate]},
+        '/manage': {to: 'manage', nav: 'manage',
+            before: [authenticate]},
         '/signout': App.signout,
         '*': 'not_found'
     }, {

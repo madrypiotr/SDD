@@ -18,11 +18,11 @@ Template.infoAccountModalInner.helpers({
         return '';
     },
 
-    userInScope: function() {
+    userInScope: function () {
         return Session.get('userInScope');
     },
 
-    rolePairs: function() {
+    rolePairs: function () {
         var pairs = [];
         if (!this.roles)
             pairs.push({key: 'Roles', value: 'None'});

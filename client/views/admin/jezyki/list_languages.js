@@ -43,8 +43,7 @@ Template.languageOptions.events({
                 else {
                     throwError(error.reason);
                 }
-            }
-            else {
+            } else {
                 Router.go('listLanguages');
             }
         });
@@ -62,8 +61,7 @@ Template.languageOptions.events({
                 else {
                     throwError(error.reason);
                 }
-            }
-            else {
+            } else {
                 Router.go('listLanguages');
             }
         });

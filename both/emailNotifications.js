@@ -1,7 +1,7 @@
 //## E-mail notifications of system events, which will be sent to all users who have the right to view the Issue.
 EmailNotifications = function () {
     //Message after adding a Issue
-    this.registerAddKwestiaNotification = function ( nazwaSystem, organizacja, users, nazwaKwestii, rodzaj, szczegolyKwestii, linkDK, linkLoginTo ) {
+    this.registerAddKwestiaNotification = function (nazwaSystem, organizacja, users, nazwaKwestii, rodzaj, szczegolyKwestii, linkDK, linkLoginTo) {
         var prop = {
             nazwaSystem: nazwaSystem,
             organizacja: organizacja,
@@ -12,10 +12,10 @@ EmailNotifications = function () {
             linkDK: linkDK,
             linkLoginTo: linkLoginTo
         };
-        Meteor.call ( 'registerAddKwestiaNotification', prop );
+        Meteor.call('registerAddKwestiaNotification', prop);
     };
     //Communication after the vote begins
-    this.registerStartGlosowanieNotification = function ( nazwaSystem, organizacja, user, nazwaKwestii, temat, rodzaj, szczegolyKwestii, final, priorytet, linkDK, silaPrior, kworum, obecnych, linkLoginTo ) {
+    this.registerStartGlosowanieNotification = function (nazwaSystem, organizacja, user, nazwaKwestii, temat, rodzaj, szczegolyKwestii, final, priorytet, linkDK, silaPrior, kworum, obecnych, linkLoginTo) {
         var prop = {
             nazwaSystem: nazwaSystem,
             organizacja: organizacja,
@@ -32,10 +32,10 @@ EmailNotifications = function () {
             obecnych: obecnych,
             linkLoginTo: linkLoginTo
         };
-        Meteor.call ( 'registerStartGlosowanieNotification', prop );
+        Meteor.call('registerStartGlosowanieNotification', prop);
     };
     //Communication on the adoption of the resolution
-    this.podjecieUchwalyNotification = function ( nazwaSystem, organizacja, user, status, nazwaKwestii, temat, rodzaj, szczegolyKwestii, pdfUchwala, linkDR, linkLoginTo ) {
+    this.podjecieUchwalyNotification = function (nazwaSystem, organizacja, user, status, nazwaKwestii, temat, rodzaj, szczegolyKwestii, pdfUchwala, linkDR, linkLoginTo) {
         var prop = {
             nazwaSystem: nazwaSystem,
             organizacja: organizacja,
@@ -49,10 +49,10 @@ EmailNotifications = function () {
             linkDR: linkDR,
             linkLoginTo: linkLoginTo
         };
-        Meteor.call ( 'podjecieUchwalyNotification', prop );
+        Meteor.call('podjecieUchwalyNotification', prop);
     };
     //Lobbying for the Issue
-    this.registerLobKwestiaNotification = function ( nazwaSystem, organizacja, user, kwestiaNazwa, temat, rodzaj, szczegolyKwestii, uzasadnienie, mojeImie, mojeNazwisko, mojEmail, linkMojProfil ) {
+    this.registerLobKwestiaNotification = function (nazwaSystem, organizacja, user, kwestiaNazwa, temat, rodzaj, szczegolyKwestii, uzasadnienie, mojeImie, mojeNazwisko, mojEmail, linkMojProfil) {
         var prop = {
             nazwaSystem: nazwaSystem,
             organizacja: organizacja,
@@ -67,6 +67,6 @@ EmailNotifications = function () {
             mojEmail: mojEmail,
             linkMojProfil: linkMojProfil
         };
-        Meteor.call ( 'registerLobKwestiaNotification', prop );
+        Meteor.call('registerLobKwestiaNotification', prop);
     };
 };

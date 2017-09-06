@@ -17,14 +17,14 @@ Template.deleteAccountModalInner.helpers({
         }
         return '';
     },
-    userInScope: function() {
+    userInScope: function () {
         return Session.get('userInScope');
     }
 });
 
 Template.deleteAccountModalInner.events({
-    'click .btn-danger': function(event, template) {
-        Meteor.call('deleteUser', this._id, function(error) {
+    'click .btn-danger': function (event, template) {
+        Meteor.call('deleteUser', this._id, function (error) {
             if (error) {
                 // optionally use a meteor errors package
                 if (typeof Errors === 'undefined')

@@ -10,19 +10,19 @@ if (!Accounts.ui._options) {
 
 Accounts.ui.navigate = function (route, hash) {
     // if routerFiles is iron-routerFiles
-    if(window.Router && _.isFunction(Router.go)) {
+    if (window.Router && _.isFunction(Router.go)) {
         Router.go(route, hash);
     }
 };
 
-Accounts.ui.config = function(options) {
+Accounts.ui.config = function (options) {
     // validate options keys
     var VALID_KEYS = ['passwordSignupFields', 'requestPermissions', 'extraSignupFields', 'requestOfflineToken'];
-    _.each(_.keys(options), function(key) {
+    _.each(_.keys(options), function (key) {
         if (!_.contains(VALID_KEYS, key))
             throw new Error('Accounts.ui.config: Invalid key: ' + key);
     });
-	
+
     options.extraSignupFields = options.extraSignupFields || [];
     // deal with `passwordSignupFields`
     if (options.passwordSignupFields) {
@@ -44,7 +44,7 @@ Accounts.ui.config = function(options) {
 
     // deal with `requestPermissions`
     if (options.requestPermissions) {
-        _.each(options.requestPermissions, function(scope, service) {
+        _.each(options.requestPermissions, function (scope, service) {
             if (Accounts.ui._options.requestPermissions[service]) {
                 throw new Error('Accounts.ui.config: Can\'t set `requestPermissions` more than once for ' + service);
             } else if (!(scope instanceof Array)) {
@@ -60,7 +60,7 @@ Accounts.ui.config = function(options) {
             throw new Error('Accounts.ui.config: `extraSignupFields` must be an array.');
         } else {
             if (options.extraSignupFields) {
-                _.each(options.extraSignupFields, function(field, index) {
+                _.each(options.extraSignupFields, function (field, index) {
                     if (!field.fieldName || !field.fieldLabel)
                         throw new Error('Accounts.ui.config: `extraSignupFields` objects must have `fieldName` and `fieldLabel` attributes.');
                     if (typeof field.visible === 'undefined')
@@ -72,6 +72,6 @@ Accounts.ui.config = function(options) {
     }
 };
 
-Accounts.ui._passwordSignupFields = function() {
+Accounts.ui._passwordSignupFields = function () {
     return Accounts.ui._options.passwordSignupFields || 'EMAIL_ONLY';
 };

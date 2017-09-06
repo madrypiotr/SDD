@@ -1,4 +1,4 @@
-(function() {
+(function () {
     if (!Accounts._loginButtons)
         Accounts._loginButtons = {};
 
@@ -11,8 +11,8 @@
 
     // shared between dropdown and single mode
     Template._loginButtons.events({
-        'click #login-buttons-logout': function() {
-            Meteor.logout(function() {
+        'click #login-buttons-logout': function () {
+            Meteor.logout(function () {
                 loginButtonsSession.closeDropdown();
             });
         }
@@ -22,15 +22,15 @@
     // loginButtonLoggedOut template
     //
 
-    Template._loginButtonsLoggedOut.dropdown = function() {
+    Template._loginButtonsLoggedOut.dropdown = function () {
         return Accounts._loginButtons.dropdown();
     };
 
-    Template._loginButtonsLoggedOut.services = function() {
+    Template._loginButtonsLoggedOut.services = function () {
         return Accounts._loginButtons.getLoginServices();
     };
 
-    Template._loginButtonsLoggedOut.singleService = function() {
+    Template._loginButtonsLoggedOut.singleService = function () {
         var services = Accounts._loginButtons.getLoginServices();
         if (services.length !== 1)
             throw new Error(
@@ -38,7 +38,7 @@
         return services[0];
     };
 
-    Template._loginButtonsLoggedOut.configurationLoaded = function() {
+    Template._loginButtonsLoggedOut.configurationLoaded = function () {
         return Accounts.loginServicesConfigured();
     };
 
@@ -49,11 +49,11 @@
 
     // decide whether we should show a dropdown rather than a row of
     // buttons
-    Template._loginButtonsLoggedIn.dropdown = function() {
+    Template._loginButtonsLoggedIn.dropdown = function () {
         return Accounts._loginButtons.dropdown();
     };
 
-    Template._loginButtonsLoggedIn.displayName = function() {
+    Template._loginButtonsLoggedIn.displayName = function () {
         return Accounts._loginButtons.displayName();
     };
 
@@ -63,11 +63,11 @@
     // loginButtonsMessage template
     //
 
-    Template._loginButtonsMessages.errorMessage = function() {
+    Template._loginButtonsMessages.errorMessage = function () {
         return loginButtonsSession.get('errorMessage');
     };
 
-    Template._loginButtonsMessages.infoMessage = function() {
+    Template._loginButtonsMessages.infoMessage = function () {
         return loginButtonsSession.get('infoMessage');
     };
 
@@ -75,7 +75,7 @@
     // loginButtonsLoggingInPadding template
     //
 
-    Template._loginButtonsLoggingInPadding.dropdown = function() {
+    Template._loginButtonsLoggingInPadding.dropdown = function () {
         return Accounts._loginButtons.dropdown();
     };
 
@@ -83,7 +83,7 @@
     // helpers
     //
 
-    Accounts._loginButtons.displayName = function() {
+    Accounts._loginButtons.displayName = function () {
         var user = Meteor.user();
         if (!user)
             return '';
@@ -98,7 +98,7 @@
         return '';
     };
 
-    Accounts._loginButtons.getLoginServices = function() {
+    Accounts._loginButtons.getLoginServices = function () {
         // First look for OAuth services.
         var services = Package['accounts-oauth'] ? Accounts.oauth.serviceNames() : [];
 
@@ -111,18 +111,18 @@
         if (this.hasPasswordService())
             services.push('password');
 
-        return _.map(services, function(name) {
+        return _.map(services, function (name) {
             return {
                 name: name
             };
         });
     };
 
-    Accounts._loginButtons.hasPasswordService = function() {
+    Accounts._loginButtons.hasPasswordService = function () {
         return !!Package['accounts-password'];
     };
 
-    Accounts._loginButtons.dropdown = function() {
+    Accounts._loginButtons.dropdown = function () {
         return this.hasPasswordService() || Accounts._loginButtons.getLoginServices().length > 1;
     };
 
@@ -130,15 +130,15 @@
     //
     // XXX these will become configurable, and will be validated on
     // the server as well.
-    Accounts._loginButtons.validateUsername = function(username) {
+    Accounts._loginButtons.validateUsername = function (username) {
         if (username.length >= 3) {
             return true;
-        } else {
-            loginButtonsSession.errorMessage('Username must be at least 3 characters long');
-            return false;
         }
+        loginButtonsSession.errorMessage('Username must be at least 3 characters long');
+        return false;
+
     };
-    Accounts._loginButtons.validateEmail = function(email) {
+    Accounts._loginButtons.validateEmail = function (email) {
         if (Accounts.ui._passwordSignupFields() === 'USERNAME_AND_OPTIONAL_EMAIL' && email === '')
             return true;
 
@@ -146,22 +146,22 @@
 
         if (re.test(email)) {
             return true;
-        } else {
-            loginButtonsSession.errorMessage('Invalid email');
-            return false;
         }
+        loginButtonsSession.errorMessage('Invalid email');
+        return false;
+
     };
-    Accounts._loginButtons.validatePassword = function(password) {
+    Accounts._loginButtons.validatePassword = function (password) {
         if (password.length >= 6) {
             return true;
-        } else {
-            loginButtonsSession.errorMessage('Password must be at least 6 characters long');
-            return false;
         }
+        loginButtonsSession.errorMessage('Password must be at least 6 characters long');
+        return false;
+
     };
 
     Accounts._loginButtons.rendered = function () {
-        
+
     };
 
 })();

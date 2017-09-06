@@ -47,11 +47,10 @@ Template.profileEdit.helpers({
         var gen = this.profile.gender;
         if (gen == gender)
             return 'checked';
-        else
-            return '';
+        return '';
     },
     userZwyczajny: function () {
-        return this.profile.userType== USERTYPE.CZLONEK ? true : false;
+        return this.profile.userType == USERTYPE.CZLONEK ? true : false;
     }
 });
 
@@ -62,8 +61,7 @@ Template.profileEdit.events({
         var currentUserId = this._id;
         var userType = Users.findOne({_id: currentUserId}).profile.userType;
         if (isNotEmpty($(e.target).find('[name=name]').val(), 'imię') &&
-            isNotEmpty($(e.target).find('[name=surname]').val(), 'nazwisko')) 
-        {
+            isNotEmpty($(e.target).find('[name=surname]').val(), 'nazwisko')) {
             var userProperties = {
                 profile: {
                     firstName: $(e.target).find('[name=name]').val(),
@@ -84,13 +82,11 @@ Template.profileEdit.events({
                         if (error.error === 409)
                             throwError(error.reason);
                     }
-                }
-                else {
+                } else {
                     Router.go('manage_account');
                 }
             });
-        }
-        else {
+        } else {
             return false;
         }
     }

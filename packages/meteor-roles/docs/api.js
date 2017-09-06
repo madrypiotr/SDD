@@ -1,5 +1,5 @@
-YUI.add('yuidoc-meta', function(Y) {
-    Y.YUIDoc = { meta: {
+YUI.add('yuidoc-meta', function (Y) {
+    Y.YUIDoc = {meta: {
         'classes': [
             'Roles',
             'Roles                                                                                                    // 22',
@@ -41,5 +41,5 @@ YUI.add('yuidoc-meta', function(Y) {
                 'description': 'Provides functions related to user authorization. Compatible with built-in Meteor accounts packages.            // 4\n                                                                                                                // 5'
             }
         ]
-    } };
+    }};
 });

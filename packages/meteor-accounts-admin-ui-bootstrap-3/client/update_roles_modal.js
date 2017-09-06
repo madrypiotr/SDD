@@ -1,16 +1,16 @@
 Template.updateRolesModalInner.helpers({
-    roles: function() {
+    roles: function () {
         return Roles.getAllRoles();
     },
-    adminRole: function() {
+    adminRole: function () {
         return this.name === 'admin';
     }
 });
 
 Template.updateRolesModalInner.events({
-    'click .add-role': function(event, template) {
+    'click .add-role': function (event, template) {
         var role = template.find('.add-role-input').value;
-        Meteor.call('addRole', role, function(error) {
+        Meteor.call('addRole', role, function (error) {
             if (error) {
                 // optionally use a meteor errors package
                 if (typeof Errors === 'undefined')
@@ -23,10 +23,10 @@ Template.updateRolesModalInner.events({
         });
     },
 
-    'click .remove-role' : function(event, template) {
+    'click .remove-role' : function (event, template) {
         var role = this.name;
 
-        Meteor.call('removeRole', role, function(error) {
+        Meteor.call('removeRole', role, function (error) {
             if (error) {
                 // optionally use a meteor errors package
                 if (typeof Errors === 'undefined')
@@ -38,7 +38,7 @@ Template.updateRolesModalInner.events({
         });
     },
 
-    'keyup .add-role-input': function(event, template) {
+    'keyup .add-role-input': function (event, template) {
         var buttonElement = template.find('.add-role');
         var role = template.find('.add-role-input').value;
         if (!role) {
@@ -48,7 +48,7 @@ Template.updateRolesModalInner.events({
         }
 
         if (event.keyCode === 13 && !!role) {
-            Meteor.call('addRole', role, function(error) {
+            Meteor.call('addRole', role, function (error) {
                 if (error) {
                     // optionally use a meteor errors package
                     if (typeof Errors === 'undefined')

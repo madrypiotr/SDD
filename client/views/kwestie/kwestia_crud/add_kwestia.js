@@ -69,14 +69,14 @@ Template.addKwestiaForm.events({
 
         var topicValue = $(e.target).find('[id=sugerowanyTemat]').val();
         var typeValue = $(e.target).find('[id=sugerowanyRodzaj]').val();
-        if(topicValue == null || topicValue == '' || typeValue == null || typeValue == ''){
+        if (topicValue == null || topicValue == '' || typeValue == null || typeValue == '') {
             GlobalNotification.error({
                 title: TAPi18n.__('txv.WARNING'),
                 content: TAPi18n.__('txv.FILL_SUBJ_AND_TYPE'),
                 duration: 4 // duration the notification should stay in seconds
             });
 
-        }else{
+        } else {
             var newKwestia = [
                 {
                     idUser: Meteor.userId(),

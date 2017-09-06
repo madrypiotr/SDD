@@ -18,11 +18,11 @@ Template.updateAccountModalInner.helpers({
         return '';
     },
 
-    userInScope: function() {
+    userInScope: function () {
         return Session.get('userInScope');
     },
 
-    unsetRoles: function() {
+    unsetRoles: function () {
         var allRoles = _.pluck(Roles.getAllRoles().fetch(), 'name');
         if (!this.roles)
             return allRoles;
@@ -31,10 +31,10 @@ Template.updateAccountModalInner.helpers({
 });
 
 Template.updateAccountModalInner.events({
-    'click .add-role': function(event, template) {
+    'click .add-role': function (event, template) {
         var role = this.toString();
         var userId = event.currentTarget.getAttribute('data-user-id');
-        Meteor.call('addUserRole', userId, role, function(error) {
+        Meteor.call('addUserRole', userId, role, function (error) {
             if (error) {
                 // optionally use a meteor errors package
                 if (typeof Errors === 'undefined')
@@ -49,10 +49,10 @@ Template.updateAccountModalInner.events({
         });
     },
 
-    'click .remove-role' : function(event, template) {
+    'click .remove-role' : function (event, template) {
         var role = this.toString();
         var userId = event.currentTarget.getAttribute('data-user-id');
-        Meteor.call('removeUserRole', userId, role, function(error) {
+        Meteor.call('removeUserRole', userId, role, function (error) {
             if (error) {
                 // optionally use a meteor errors package
                 if (typeof Errors === 'undefined')
@@ -67,14 +67,13 @@ Template.updateAccountModalInner.events({
         });
     },
 
-    'change .admin-user-info' : function(event, template) {
+    'change .admin-user-info' : function (event, template) {
 
         var ele = event.currentTarget;
         var userId = ele.getAttribute('data-user-id');
 
-        Meteor.call('updateUserInfo', userId, ele.name, ele.value, function(error) {
-            if (error)
-            {
+        Meteor.call('updateUserInfo', userId, ele.name, ele.value, function (error) {
+            if (error) {
                 if (typeof Errors === 'undefined') Log.error('Error: ' + error.reason);
                 else Errors.throw(error.reason);
                 return;

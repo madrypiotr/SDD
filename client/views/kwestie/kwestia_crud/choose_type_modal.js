@@ -1,18 +1,18 @@
 /**
  * Created by Bartłomiej Szewczyk on 2015-11-23.
  */
-Template.chooseTypeModalInner.helpers ( {
+Template.chooseTypeModalInner.helpers({
     'settings': function () {
         return {
             rowsPerPage: 10,
             showFilter: true,
             showNavigation: 'always',
-            showColumnToggles: false, 
-            enableRegex: false, 
+            showColumnToggles: false,
+            enableRegex: false,
             fields: [
                 {
                     key: 'nazwaRodzaj',
-                    label: TAPi18n.__ ( 'txv.NAME' )
+                    label: TAPi18n.__('txv.NAME')
                 },
                 {
                     key: '_id',
@@ -23,18 +23,18 @@ Template.chooseTypeModalInner.helpers ( {
         };
     },
     TypeList: function () {
-        var topicName = Session.get ( 'choosenTopic' );
-        var topic = Temat.findOne ( {nazwaTemat: topicName } );
+        var topicName = Session.get('choosenTopic');
+        var topic = Temat.findOne({nazwaTemat: topicName});
         var topicId = null;
-        if ( topic != null )
+        if (topic != null)
             topicId = topic._id;
-        return Rodzaj.find ( {idTemat: topicId } );
+        return Rodzaj.find({idTemat: topicId});
     }
-} );
+});
 
-Template.typeName.events ( {
+Template.typeName.events({
     'click #chosenTypeBtn': function () {
-        Session.setPersistent ( 'choosenType', this.nazwaRodzaj );
-        $ ( '#chooseTypeModalId' ).modal ( 'hide' );
+        Session.setPersistent('choosenType', this.nazwaRodzaj);
+        $('#chooseTypeModalId').modal('hide');
     }
-} );
+});

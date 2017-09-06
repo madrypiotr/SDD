@@ -1,5 +1,5 @@
 Template.accountsAdmin.helpers({
-    users: function() {
+    users: function () {
         return filteredUserQuery(Meteor.userId(), Session.get('userFilter'));
     },
 
@@ -22,43 +22,43 @@ Template.accountsAdmin.helpers({
         return '';
     },
 
-    searchFilter: function() {
+    searchFilter: function () {
         return Session.get('userFilter');
     },
 
-    myself: function(userId) {
+    myself: function (userId) {
         return Meteor.userId() === userId;
     }
 });
 
 // search no more than 2 times per second
-var setUserFilter = _.throttle(function(template) {
+var setUserFilter = _.throttle(function (template) {
     var search = template.find('.search-input-filter').value;
     Session.set('userFilter', search);
 }, 500);
 
 Template.accountsAdmin.events({
-    'keyup .search-input-filter': function(event, template) {
+    'keyup .search-input-filter': function (event, template) {
         setUserFilter(template);
         return false;
     },
 
-    'click .glyphicon-trash': function(event, template) {
+    'click .glyphicon-trash': function (event, template) {
         Session.set('userInScope', this);
     },
 
-    'click .glyphicon-info-sign': function(event, template) {
+    'click .glyphicon-info-sign': function (event, template) {
         Session.set('userInScope', this);
     },
 
-    'click .glyphicon-pencil': function(event, template) {
+    'click .glyphicon-pencil': function (event, template) {
         Session.set('userInScope', this);
     }
 });
 
-Template.accountsAdmin.rendered = function() {
+Template.accountsAdmin.rendered = function () {
     var searchElement = document.getElementsByClassName('search-input-filter');
-    if(!searchElement)
+    if (!searchElement)
         return;
     var filterValue = Session.get('userFilter');
 

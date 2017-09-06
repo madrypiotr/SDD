@@ -1,8 +1,8 @@
-Template.modalInner.helpers ( {
+Template.modalInner.helpers({
     modalTitle: function () {
-        return Session.get ( 'modalTitle' );
+        return Session.get('modalTitle');
     },
     modalContent: function () {
-        return Session.get ( 'modalContent' );
+        return Session.get('modalContent');
     }
-} );
+});

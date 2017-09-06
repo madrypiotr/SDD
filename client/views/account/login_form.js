@@ -1,5 +1,5 @@
 Template.loginForm.rendered = function () {
-    $ ( '#loginForm' ).validate ( {
+    $('#loginForm').validate({
         rules: {
             login: {
                 required: true
@@ -11,50 +11,50 @@ Template.loginForm.rendered = function () {
         },
         messages: {
             login: {
-                required: fieldEmptyMessage ()
+                required: fieldEmptyMessage()
             },
             password: {
-                required: fieldEmptyMessage (),
-                minlength: minLengthMessage ( 6 )
+                required: fieldEmptyMessage(),
+                minlength: minLengthMessage(6)
             }
         },
-        highlight: function ( element ) {
-            highlightFunction ( element );
+        highlight: function (element) {
+            highlightFunction(element);
         },
-        unhighlight: function ( element ) {
-            unhighlightFunction ( element );
+        unhighlight: function (element) {
+            unhighlightFunction(element);
         },
         errorElement: 'span',
         errorClass: 'help-block',
-        errorPlacement: function ( error, element ) {
-            validationPlacementError ( error, element );
+        errorPlacement: function (error, element) {
+            validationPlacementError(error, element);
         }
-	 } );
+	 });
 };
 
-Template.loginForm.events ( {
-    'submit form': function ( e ) {
-        e.preventDefault ();
+Template.loginForm.events({
+    'submit form': function (e) {
+        e.preventDefault();
         var user = {
-            login: $ ( e.target ).find ( '[name=login]' ).val (),
-            password: $ ( e.target ).find ( '[name=password]' ).val ()
+            login: $(e.target).find('[name=login]').val(),
+            password: $(e.target).find('[name=password]').val()
         };
-        if ( isNotEmpty ( user.login, 'login' ) && isNotEmpty ( user.password, 'hasło' ) && isValidPassword ( user.password ) ) {
-            Meteor.loginWithPassword ( user.login, user.password, function ( err ) {
-                if ( err ) {
-                    throwError ( TAPi18n.__ ( 'txv.INCOR_LOGIN_DET' ) );
+        if (isNotEmpty(user.login, 'login') && isNotEmpty(user.password, 'hasło') && isValidPassword(user.password)) {
+            Meteor.loginWithPassword(user.login, user.password, function (err) {
+                if (err) {
+                    throwError(TAPi18n.__('txv.INCOR_LOGIN_DET'));
                 } else {
-                    if ( Meteor.loggingIn () ) {
-                        Router.go ( 'home' );
+                    if (Meteor.loggingIn()) {
+                        Router.go('home');
                     }
-                    Meteor.logoutOtherClients ();
+                    Meteor.logoutOtherClients();
                 }
-			 } );
+			 });
         } else {
             return false;
         }
     },
-    'click #forgottenPassword': function ( e ) {
-        Router.go ( 'forgotten_password' );
+    'click #forgottenPassword': function (e) {
+        Router.go('forgotten_password');
     }
-} );
+});

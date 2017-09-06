@@ -14,7 +14,7 @@
     if (!Meteor.roles) {
         Meteor.roles = new Meteor.Collection('roles');
     }
-    if(!Subroles){
+    if (!Subroles) {
         Subroles = new Meteor.Collection('subroles');
     }
 
@@ -265,8 +265,7 @@
                     // On the server we can leverage MongoDB's $in operator for performance
                     Meteor.users.update({_id: {$in: users}}, update, {multi: true});
                 }
-            }
-            catch (ex) {
+            } catch (ex) {
                 var removeNonGroupedRoleFromGroupMsg = 'Cannot apply $pull/$pullAll modifier to non-array';
 
                 if (ex.name === 'MongoError' &&
@@ -523,11 +522,9 @@
             var user = null;
             if (_.isObject(userId)) {
                 user = userId;
-            }
-            else if (_.isString(userId)) {
+            } else if (_.isString(userId)) {
                 user = Meteor.users.findOne({_id: userId});
-            }
-            else {
+            } else {
                 user = Meteor.users.findOne({_id: this.userId});
             }
 
@@ -541,7 +538,7 @@
 
             result = Meteor.roles.findOne({name: {$in: rolesToSearch}, subRoles: {$in: permission}});
 
-            if (result) return user; else return null;
+            if (result) return user; return null;
         },
 
         /**
@@ -585,9 +582,9 @@
                     }
                 });
                 return userGroups;
-            } else {
-                return _.without(_.keys(user.roles), Roles.GLOBAL_GROUP);
             }
+            return _.without(_.keys(user.roles), Roles.GLOBAL_GROUP);
+
 
         }, //End getGroupsForUser
 
@@ -743,8 +740,7 @@
                         update,
                         {multi: true});
                 }
-            }
-            catch (ex) {
+            } catch (ex) {
                 var addNonGroupToGroupedRolesMsg = 'Cannot apply $addToSet modifier to non-array',
                     addGrouped2NonGroupedMsg = 'can\'t append to array using string field name';
 

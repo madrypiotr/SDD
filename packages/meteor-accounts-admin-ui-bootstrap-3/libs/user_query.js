@@ -1,4 +1,4 @@
-filteredUserQuery = function(userId, filter) {
+filteredUserQuery = function (userId, filter) {
     // if not an admin user don't show any other user
     if (!Roles.userIsInRole(userId, ['admin']))
         return Meteor.users.find(userId);
@@ -6,7 +6,7 @@ filteredUserQuery = function(userId, filter) {
     // TODO: configurable limit and paginiation
     var queryLimit = 25;
 
-    if(filter) {
+    if (filter) {
         // TODO: passing to regex directly could be dangerous
         users = Meteor.users.find({
             $or: [

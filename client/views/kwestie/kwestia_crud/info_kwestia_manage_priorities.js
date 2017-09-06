@@ -5,9 +5,9 @@ Template.managePriorities.helpers({
                 priorytet = '+' + priorytet;
                 return priorytet;
             }
-            else return priorytet;
+            return priorytet;
         }
-        else return 0;
+        return 0;
     },
     isSelected: function (number, idParent, glosujacy, status, idKwestia) {
         if (!Meteor.userId())
@@ -27,8 +27,7 @@ Template.managePriorities.helpers({
                         idParametr: globalParams._id
                     });
                 }
-            }
-            else
+            } else
                 var kwestie = Kwestia.find({
                     czyAktywny: true,
                     'glosujacy.idUser': Meteor.userId(),
@@ -42,14 +41,11 @@ Template.managePriorities.helpers({
                 if (glosujacyUser) {
                     if (glosujacyUser.value == number) {
                         flag = true;
-                    }
-                    else flag = false;
-                }
-                else
+                    } else flag = false;
+                } else
                     flag = false;
             }
-        }
-        else {
+        } else {
             kwestie.forEach(function (kwestiaItem) {
                 var array = [];
                 var tabGlosujacych = glosujacy;
@@ -94,8 +90,7 @@ Template.managePriorities.events({
         if (kwestia.status == KWESTIA_STATUS.REALIZOWANA) {
             managePriorityKwestiaRealizowana(ratingKwestiaId, kwestia, object, ratingValue);
 
-        }
-        else {
+        } else {
             managePriorityKwestiaDelibGlosowana(ratingKwestiaId, kwestia, object, ratingValue);
 
         }
@@ -115,8 +110,7 @@ managePriorityKwestiaRealizowana = function (ratingKwestiaId, kwestia, object, r
         object.value = ratingValue;
         glosujacyWRealizacji = newGlosujacyWRealiz;
         glosujacyWRealizacji.push(object);
-    }
-    else {
+    } else {
         wartoscPriorytetuWRealizacji += ratingValue;
         glosujacyWRealizacji.push(object);
     }

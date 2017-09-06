@@ -42,8 +42,7 @@ Template.addLanguage.events({
                 else {
                     throwError(error.reason);
                 }
-            }
-            else {
+            } else {
                 Router.go('listLanguages');
             }
         });

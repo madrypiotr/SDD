@@ -9,10 +9,10 @@
 
     if (!console || !console.log) {
         // stub for IE
-        console = { 
+        console = {
             log: function (msg) {
                 $('#log').append(msg);
-            } 
+            }
         };
     }
 
@@ -26,7 +26,7 @@
         ////////////////////////////////////////////////////////////////////
         // Create Test Secrets
         //
-    
+
         if (Meteor.secrets.find().fetch().length === 0) {
             Meteor.secrets.insert({secret:'ec2 password: apple2'});
             Meteor.secrets.insert({secret:'domain registration pw: apple3'});
@@ -51,20 +51,20 @@
             _.each(users, function (userData) {
                 var id,
                     user;
-      
+
                 console.log(userData);
 
                 id = Accounts.createUser({
                     email: userData.email,
                     password: 'apple1',
-                    profile: { name: userData.name }
+                    profile: {name: userData.name}
                 });
 
                 // email verification
                 Meteor.users.update({_id: id}, {$set:{'emails.0.verified': true}});
 
                 Roles.addUsersToRoles(id, userData.roles);
-    
+
             });
         }
 
@@ -110,7 +110,7 @@
 
         if (Roles.userIsInRole(user, ['admin','manage-users'])) {
             return Meteor.users.find({}, {fields: {emails: 1, profile: 1, roles: 1}});
-        } 
+        }
 
         this.stop();
         return;

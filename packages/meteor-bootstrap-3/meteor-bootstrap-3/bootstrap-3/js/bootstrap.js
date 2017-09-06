@@ -30,7 +30,7 @@ if (typeof jQuery === 'undefined') {
     // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
     // ============================================================
 
-    function transitionEnd() {
+    function transitionEnd () {
         var el = document.createElement('bootstrap');
 
         var transEndEventNames = {
@@ -42,7 +42,7 @@ if (typeof jQuery === 'undefined') {
 
         for (var name in transEndEventNames) {
             if (el.style[name] !== undefined) {
-                return { end: transEndEventNames[name] };
+                return {end: transEndEventNames[name]};
             }
         }
 
@@ -53,8 +53,12 @@ if (typeof jQuery === 'undefined') {
     $.fn.emulateTransitionEnd = function (duration) {
         var called = false;
         var $el = this;
-        $(this).one('bsTransitionEnd', function () { called = true; });
-        var callback = function () { if (!called) $($el).trigger($.support.transition.end); };
+        $(this).one('bsTransitionEnd', function () {
+            called = true;
+        });
+        var callback = function () {
+            if (!called) $($el).trigger($.support.transition.end);
+        };
         setTimeout(callback, duration);
         return this;
     };
@@ -122,7 +126,7 @@ if (typeof jQuery === 'undefined') {
 
         $parent.removeClass('in');
 
-        function removeElement() {
+        function removeElement () {
             // detach from parent, fire event then clean up data
             $parent.detach().trigger('closed.bs.alert').remove();
         }
@@ -138,7 +142,7 @@ if (typeof jQuery === 'undefined') {
     // ALERT PLUGIN DEFINITION
     // =======================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this = $(this);
             var data  = $this.data('bs.alert');
@@ -243,7 +247,7 @@ if (typeof jQuery === 'undefined') {
     // BUTTON PLUGIN DEFINITION
     // ========================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this   = $(this);
             var data    = $this.data('bs.button');
@@ -370,7 +374,9 @@ if (typeof jQuery === 'undefined') {
 
         if (pos > (this.$items.length - 1) || pos < 0) return;
 
-        if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos); }); // yes, "slid"
+        if (this.sliding)       return this.$element.one('slid.bs.carousel', function () {
+            that.to(pos);
+        }); // yes, "slid"
         if (activeIndex == pos) return this.pause().cycle();
 
         return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos));
@@ -432,7 +438,7 @@ if (typeof jQuery === 'undefined') {
             $nextIndicator && $nextIndicator.addClass('active');
         }
 
-        var slidEvent = $.Event('slid.bs.carousel', { relatedTarget: relatedTarget, direction: direction }); // yes, "slid"
+        var slidEvent = $.Event('slid.bs.carousel', {relatedTarget: relatedTarget, direction: direction}); // yes, "slid"
         if ($.support.transition && this.$element.hasClass('slide')) {
             $next.addClass(type);
             $next[0].offsetWidth; // force reflow
@@ -464,7 +470,7 @@ if (typeof jQuery === 'undefined') {
     // CAROUSEL PLUGIN DEFINITION
     // ==========================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this   = $(this);
             var data    = $this.data('bs.carousel');
@@ -649,7 +655,7 @@ if (typeof jQuery === 'undefined') {
     // COLLAPSE PLUGIN DEFINITION
     // ==========================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this   = $(this);
             var data    = $this.data('bs.collapse');
@@ -741,7 +747,7 @@ if (typeof jQuery === 'undefined') {
                 $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus);
             }
 
-            var relatedTarget = { relatedTarget: this };
+            var relatedTarget = {relatedTarget: this};
             $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget));
 
             if (e.isDefaultPrevented()) return;
@@ -790,13 +796,13 @@ if (typeof jQuery === 'undefined') {
         $items.eq(index).trigger('focus');
     };
 
-    function clearMenus(e) {
+    function clearMenus (e) {
         if (e && e.which === 3) return;
         $(backdrop).remove();
         $(toggle).each(function () {
             var $this         = $(this);
             var $parent       = getParent($this);
-            var relatedTarget = { relatedTarget: this };
+            var relatedTarget = {relatedTarget: this};
 
             if (!$parent.hasClass('open')) return;
 
@@ -809,7 +815,7 @@ if (typeof jQuery === 'undefined') {
         });
     }
 
-    function getParent($this) {
+    function getParent ($this) {
         var selector = $this.attr('data-target');
 
         if (!selector) {
@@ -826,7 +832,7 @@ if (typeof jQuery === 'undefined') {
     // DROPDOWN PLUGIN DEFINITION
     // ==========================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this = $(this);
             var data  = $this.data('bs.dropdown');
@@ -856,7 +862,9 @@ if (typeof jQuery === 'undefined') {
 
     $(document)
         .on('click.bs.dropdown.data-api', clearMenus)
-        .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation(); })
+        .on('click.bs.dropdown.data-api', '.dropdown form', function (e) {
+            e.stopPropagation();
+        })
         .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
         .on('keydown.bs.dropdown.data-api', toggle + ', [role="menu"], [role="listbox"]', Dropdown.prototype.keydown);
 
@@ -911,7 +919,7 @@ if (typeof jQuery === 'undefined') {
 
     Modal.prototype.show = function (_relatedTarget) {
         var that = this;
-        var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget });
+        var e    = $.Event('show.bs.modal', {relatedTarget: _relatedTarget});
 
         this.$element.trigger(e);
 
@@ -948,7 +956,7 @@ if (typeof jQuery === 'undefined') {
 
             that.enforceFocus();
 
-            var e = $.Event('shown.bs.modal', { relatedTarget: _relatedTarget });
+            var e = $.Event('shown.bs.modal', {relatedTarget: _relatedTarget});
 
             transition ?
                 that.$element.find('.modal-dialog') // wait for modal to slide in
@@ -1095,7 +1103,7 @@ if (typeof jQuery === 'undefined') {
     // MODAL PLUGIN DEFINITION
     // =======================
 
-    function Plugin(option, _relatedTarget) {
+    function Plugin (option, _relatedTarget) {
         return this.each(function () {
             var $this   = $(this);
             var data    = $this.data('bs.modal');
@@ -1129,7 +1137,7 @@ if (typeof jQuery === 'undefined') {
         var $this   = $(this);
         var href    = $this.attr('href');
         var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))); // strip for ie7
-        var option  = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data());
+        var option  = $target.data('bs.modal') ? 'toggle' : $.extend({remote: !/#/.test(href) && href}, $target.data(), $this.data());
 
         if ($this.is('a')) e.preventDefault();
 
@@ -1215,7 +1223,7 @@ if (typeof jQuery === 'undefined') {
         }
 
         this.options.selector ?
-            (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
+            (this._options = $.extend({}, this.options, {trigger: 'manual', selector: ''})) :
             this.fixTitle();
     };
 
@@ -1322,7 +1330,7 @@ if (typeof jQuery === 'undefined') {
 
             $tip
                 .detach()
-                .css({ top: 0, left: 0, display: 'block' })
+                .css({top: 0, left: 0, display: 'block'})
                 .addClass(placement)
                 .data('bs.' + this.type, this);
 
@@ -1434,7 +1442,7 @@ if (typeof jQuery === 'undefined') {
         var $tip = this.tip();
         var e    = $.Event('hide.bs.' + this.type);
 
-        function complete() {
+        function complete () {
             if (that.hoverState != 'in') $tip.detach();
             that.$element
                 .removeAttr('aria-describedby')
@@ -1479,25 +1487,25 @@ if (typeof jQuery === 'undefined') {
         var elRect    = el.getBoundingClientRect();
         if (elRect.width == null) {
             // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
-            elRect = $.extend({}, elRect, { width: elRect.right - elRect.left, height: elRect.bottom - elRect.top });
+            elRect = $.extend({}, elRect, {width: elRect.right - elRect.left, height: elRect.bottom - elRect.top});
         }
-        var elOffset  = isBody ? { top: 0, left: 0 } : $element.offset();
-        var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() };
-        var outerDims = isBody ? { width: $(window).width(), height: $(window).height() } : null;
+        var elOffset  = isBody ? {top: 0, left: 0} : $element.offset();
+        var scroll    = {scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop()};
+        var outerDims = isBody ? {width: $(window).width(), height: $(window).height()} : null;
 
         return $.extend({}, elRect, scroll, outerDims, elOffset);
     };
 
     Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {
-        return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2  } :
-            placement == 'top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2  } :
-                placement == 'left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
-                    /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width   };
+        return placement == 'bottom' ? {top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2} :
+            placement == 'top'    ? {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2} :
+                placement == 'left'   ? {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth} :
+                    /* placement == 'right' */ {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width};
 
     };
 
     Tooltip.prototype.getViewportAdjustedDelta = function (placement, pos, actualWidth, actualHeight) {
-        var delta = { top: 0, left: 0 };
+        var delta = {top: 0, left: 0};
         if (!this.$viewport) return delta;
 
         var viewportPadding = this.options.viewport && this.options.viewport.padding || 0;
@@ -1586,7 +1594,7 @@ if (typeof jQuery === 'undefined') {
     // TOOLTIP PLUGIN DEFINITION
     // =========================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this   = $(this);
             var data    = $this.data('bs.tooltip');
@@ -1700,7 +1708,7 @@ if (typeof jQuery === 'undefined') {
     // POPOVER PLUGIN DEFINITION
     // =========================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this   = $(this);
             var data    = $this.data('bs.popover');
@@ -1743,7 +1751,7 @@ if (typeof jQuery === 'undefined') {
     // SCROLLSPY CLASS DEFINITION
     // ==========================
 
-    function ScrollSpy(element, options) {
+    function ScrollSpy (element, options) {
         var process  = $.proxy(this.process, this);
 
         this.$body          = $('body');
@@ -1798,7 +1806,9 @@ if (typeof jQuery === 'undefined') {
           && $el.is(':visible')
           && [[$href[offsetMethod]().top + offsetBase, href]]) || null;
             })
-            .sort(function (a, b) { return a[0] - b[0]; })
+            .sort(function (a, b) {
+                return a[0] - b[0];
+            })
             .each(function () {
                 self.offsets.push(this[0]);
                 self.targets.push(this[1]);
@@ -1862,7 +1872,7 @@ if (typeof jQuery === 'undefined') {
     // SCROLLSPY PLUGIN DEFINITION
     // ===========================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this   = $(this);
             var data    = $this.data('bs.scrollspy');
@@ -1969,7 +1979,7 @@ if (typeof jQuery === 'undefined') {
       && $.support.transition
       && (($active.length && $active.hasClass('fade')) || !!container.find('> .fade').length);
 
-        function next() {
+        function next () {
             $active
                 .removeClass('active')
                 .find('> .dropdown-menu > .active')
@@ -2004,7 +2014,7 @@ if (typeof jQuery === 'undefined') {
     // TAB PLUGIN DEFINITION
     // =====================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this = $(this);
             var data  = $this.data('bs.tab');
@@ -2157,7 +2167,7 @@ if (typeof jQuery === 'undefined') {
     // AFFIX PLUGIN DEFINITION
     // =======================
 
-    function Plugin(option) {
+    function Plugin (option) {
         return this.each(function () {
             var $this   = $(this);
             var data    = $this.data('bs.affix');

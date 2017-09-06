@@ -1,6 +1,6 @@
-Meteor.startup(function() {
+Meteor.startup(function () {
     Meteor.subscribe('roles');
-    Deps.autorun(function(e) {
+    Deps.autorun(function (e) {
         Meteor.subscribe('filteredUsers', Session.get('userFilter'));
     });
 });

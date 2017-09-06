@@ -15,7 +15,7 @@ Package.on_use(function (api) {
     //   https://github.com/meteor/meteor/issues/1358
     // The 'weak' flag doesn't work with packages that aren't 
     // in meteor's internal cache (ie. non-core packages)
-    if(uiExists()) {
+    if (uiExists()) {
         api.use(['ui'], 'client', {weak: true});
     }
 
@@ -43,7 +43,7 @@ Package.on_test(function (api) {
 
 // workaround for meter issue #1358
 // https://github.com/meteor/meteor/issues/1358
-function uiExists() {
+function uiExists () {
     var fs = Npm.require('fs'),
         path = Npm.require('path'),
         meteorPackages;

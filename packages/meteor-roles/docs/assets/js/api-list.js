@@ -96,12 +96,12 @@ YUI.add('api-list', function (Y) {
     });
 
     // -- Private Functions --------------------------------------------------------
-    function getFilterResultNode() {
+    function getFilterResultNode () {
         return filter.get('queryType') === 'classes' ? classesNode : modulesNode;
     }
 
     // -- Event Handlers -----------------------------------------------------------
-    function onFilterResults(e) {
+    function onFilterResults (e) {
         var frag         = Y.one(Y.config.doc.createDocumentFragment()),
             resultNode   = getFilterResultNode(),
             typePlural   = filter.get('queryType'),
@@ -131,12 +131,12 @@ YUI.add('api-list', function (Y) {
         focusManager.refresh();
     }
 
-    function onSearchClear(e) {
+    function onSearchClear (e) {
 
         focusManager.refresh();
     }
 
-    function onSearchKey(e) {
+    function onSearchKey (e) {
         var target = e.target;
 
         if (target.test('input,select,textarea')
@@ -150,7 +150,7 @@ YUI.add('api-list', function (Y) {
         focusManager.refresh();
     }
 
-    function onSearchResults(e) {
+    function onSearchResults (e) {
         var frag = Y.one(Y.config.doc.createDocumentFragment());
 
         if (e.results.length) {
@@ -170,7 +170,7 @@ YUI.add('api-list', function (Y) {
         focusManager.refresh();
     }
 
-    function onTabSelectionChange(e) {
+    function onTabSelectionChange (e) {
         var tab  = e.newVal,
             name = tab.get('label').toLowerCase();
 
@@ -220,7 +220,7 @@ YUI.add('api-list', function (Y) {
         }
     }
 
-    function onTabSwitchKey(e) {
+    function onTabSwitchKey (e) {
         var currentTabIndex = tabs.selected.index;
 
         if (!(e.ctrlKey || e.metaKey)) {

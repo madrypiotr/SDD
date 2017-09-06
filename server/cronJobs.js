@@ -3,94 +3,94 @@
  */
 
 //START CRONA
-SyncedCron.start ();
+SyncedCron.start();
 
 //USTAWIENIA CRONA do sprawdzania głosowanych kwestii - co minute
-SyncedCron.add ( {
+SyncedCron.add({
     name: 'checking dates crone',
-    schedule: function ( parser ) {
+    schedule: function (parser) {
         // parser is a later.parse object
-        return parser.text ( 'every 30 seconds' );
+        return parser.text('every 30 seconds');
     },
     job: function () {
-        return checkingEndOfVote ();
+        return checkingEndOfVote();
     }
-} );
+});
 
-SyncedCron.add ( {
+SyncedCron.add({
     name: 'checking RR',
-    schedule: function ( parser ) {
-        return parser.text ( 'every 1 day' );
+    schedule: function (parser) {
+        return parser.text('every 1 day');
     },
     job: function () {
-        return checkingRRExist ();
+        return checkingRRExist();
     }
-} );
+});
 
-SyncedCron.add ( {
+SyncedCron.add({
     name: 'checking if deliberation expired',
-    schedule: function ( parser ) {
+    schedule: function (parser) {
         // parser is a later.parse object
-        return parser.text ( 'every 1 day' );
+        return parser.text('every 1 day');
     },
     job: function () {
-        return checkingDeliberationExpiration ();
+        return checkingDeliberationExpiration();
     }
-} );
+});
 
 
 //==================================== wywoływane metody ======================================================//
 
-checkingRRExist=function () {
-    var kwestie=Kwestia.find ( {
+checkingRRExist = function () {
+    var kwestie = Kwestia.find({
         czyAktywny: true,
         status:{$in:[KWESTIA_STATUS.ZREALIZOWANA,KWESTIA_STATUS.REALIZOWANA]},
-        typ:{$nin:[KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE]} } );
-    kwestie.forEach ( function ( kwestia ) {
-        var initial=_.last ( kwestia.listaDatRR );
+        typ:{$nin:[KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE]}});
+    kwestie.forEach(function (kwestia) {
+        var initial = _.last(kwestia.listaDatRR);
         //console.log ( "ZMIANA_PARAMS" );
-        var nextCheck= moment ( initial ).add ( Parametr.findOne ().okresSkladaniaRR,'days' ).format ();
-        var currentTime=moment ( new Date () ).format ();
+        var nextCheck = moment(initial).add(Parametr.findOne().okresSkladaniaRR,'days').format();
+        var currentTime = moment(new Date()).format();
         //console.log ( "Daty miedzy którymi musi pojawić się raport" );
         //console.log ( initial );
         //console.log ( nextCheck );
         //console.log ( "Obecna godzina" );
         //console.log ( currentTime );
-        if ( nextCheck<=currentTime ) {
-            var raporty=Raport.find ( {idKwestia:kwestia._id,
+        if (nextCheck <= currentTime) {
+            var raporty = Raport.find({idKwestia:kwestia._id,
                 dataUtworzenia: {
-                    $gte: initial,
-                }},{sort:{dataWprowadzenia:-1} } );
+                    $gte: initial
+                }},{sort:{dataWprowadzenia:-1}});
 
-            if ( raporty.count ()==0 ) {
-                Meteor.call ( 'sendEmailNoRealizationReport', kwestia._id, getUserLanguage (), function ( error ) {
-                    if ( error ) {
-                        console.log ( error.reason );
+            if (raporty.count() == 0) {
+                Meteor.call('sendEmailNoRealizationReport', kwestia._id, getUserLanguage(), function (error) {
+                    if (error) {
+                        console.log(error.reason);
                         var emailError = {
                             idIssue: kwestia._id,
                             type: NOTIFICATION_TYPE.LACK_OF_REALIZATION_REPORT
                         };
-                        Meteor.call ( 'addEmailError', emailError );
+                        Meteor.call('addEmailError', emailError);
                     }
-                } );
-                var users = Users.find ( { 'profile.userType': USERTYPE.CZLONEK } );
-                users.forEach ( function ( user ) {
-                    var zr = ZespolRealizacyjny.findOne ( { _id: kwestia.idZespolRealizacyjny } );
-                    addPowiadomienieAplikacjaRespondMethodPosts ( kwestia._id, new Date (), NOTIFICATION_TYPE.LACK_OF_REALIZATION_REPORT, user._id, zr.zespol );
-                } );
+                });
+                var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
+                users.forEach(function (user) {
+                    var zr = ZespolRealizacyjny.findOne({_id: kwestia.idZespolRealizacyjny});
+                    addPowiadomienieAplikacjaRespondMethodPosts(kwestia._id, new Date(), NOTIFICATION_TYPE.LACK_OF_REALIZATION_REPORT, user._id, zr.zespol);
+                });
             }
-            var array=kwestia.listaDatRR;
-            array.push ( currentTime );
-            Meteor.call ( 'updateDeadlineNextRR',kwestia._id,array,function ( error ) {
-                if ( !error ) {
+            var array = kwestia.listaDatRR;
+            array.push(currentTime);
+            Meteor.call('updateDeadlineNextRR',kwestia._id,array,function (error) {
+                if (!error) {
                 }
-            } );
+            });
         }
-    } );
+    });
 };
 checkingEndOfVote = function () {
-    var actualDate = moment ( new Date () ).format ();
-    var kwestie = Kwestia.find ( 
+    var actualDate = moment(new Date()).format();
+    var kwestie = Kwestia.find(
         {
             czyAktywny: true,
             status: {$in: [KWESTIA_STATUS.GLOSOWANA]}//KWESTIA_STATUS.OCZEKUJACA
@@ -100,49 +100,47 @@ checkingEndOfVote = function () {
         }
     );
 
-    kwestie.forEach ( function ( kwestia ) {
-        var issueUpdated = Kwestia.findOne ( { _id: kwestia._id } );
-        if ( issueUpdated.status == KWESTIA_STATUS.GLOSOWANA ) {
-            if ( actualDate >= issueUpdated.dataGlosowania ) {
-                if ( issueUpdated.wartoscPriorytetu > 0 ) {
-                    if ( issueUpdated.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE )
-                        changeParametersSuccess ( issueUpdated );
+    kwestie.forEach(function (kwestia) {
+        var issueUpdated = Kwestia.findOne({_id: kwestia._id});
+        if (issueUpdated.status == KWESTIA_STATUS.GLOSOWANA) {
+            if (actualDate >= issueUpdated.dataGlosowania) {
+                if (issueUpdated.wartoscPriorytetu > 0) {
+                    if (issueUpdated.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
+                        changeParametersSuccess(issueUpdated);
 
                     else {
-                        issueUpdated.dataRealizacji = new Date ();
+                        issueUpdated.dataRealizacji = new Date();
                         issueUpdated.numerUchwaly = issueUpdated.issueNumber;//nadawanieNumeruUchwaly ( kwestia.dataRealizacji );
 
-                        if ( issueUpdated.idParent!=null ) {
-                            hibernateKwestieOpcje ( issueUpdated );
+                        if (issueUpdated.idParent != null) {
+                            hibernateKwestieOpcje(issueUpdated);
                         }
 
-                        var zrDraft = ImplemTeamDraft.findOne ( { _id: issueUpdated.idZespolRealizacyjny } );
-                        if ( zrDraft.idZR != null ) {
-                            var ZR = ZespolRealizacyjny.findOne ( { _id: zrDraft.idZR } );
-                            if ( ZR ) {
-                                updateListKwestie ( ZR, issueUpdated );
-                                Meteor.call ( 'removeImplemTeamDraft',issueUpdated.idZespolRealizacyjny );
+                        var zrDraft = ImplemTeamDraft.findOne({_id: issueUpdated.idZespolRealizacyjny});
+                        if (zrDraft.idZR != null) {
+                            var ZR = ZespolRealizacyjny.findOne({_id: zrDraft.idZR});
+                            if (ZR) {
+                                updateListKwestie(ZR, issueUpdated);
+                                Meteor.call('removeImplemTeamDraft',issueUpdated.idZespolRealizacyjny);
+                            } else {
+                                createNewZR(zrDraft, issueUpdated);
+                                Meteor.call('removeImplemTeamDraft',issueUpdated.idZespolRealizacyjny);
                             }
-                            else {
-                                createNewZR ( zrDraft, issueUpdated );
-                                Meteor.call ( 'removeImplemTeamDraft',issueUpdated.idZespolRealizacyjny );
-                            }
-                        }
-                        else {
-                            createNewZR ( zrDraft, issueUpdated );
-                            Meteor.call ( 'removeImplemTeamDraft',issueUpdated.idZespolRealizacyjny );
+                        } else {
+                            createNewZR(zrDraft, issueUpdated);
+                            Meteor.call('removeImplemTeamDraft',issueUpdated.idZespolRealizacyjny);
                         }
 
 
-                        if ( _.contains ( [KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issueUpdated.typ ) ) {
-                            var userDraft = UsersDraft.findOne ( { _id: issueUpdated.idUser } );
+                        if (_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issueUpdated.typ)) {
+                            var userDraft = UsersDraft.findOne({_id: issueUpdated.idUser});
 
-                            if ( userDraft.profile.idUser!=null ) {
-                                var user=Users.findOne ( { _id:userDraft.profile.idUser } );
-                                if ( user ) {
-                                    var newUserFields=null;
-                                    var text=null;
-                                    if ( issueUpdated.typ==KWESTIA_TYPE.ACCESS_ZWYCZAJNY ) {
+                            if (userDraft.profile.idUser != null) {
+                                var user = Users.findOne({_id:userDraft.profile.idUser});
+                                if (user) {
+                                    var newUserFields = null;
+                                    var text = null;
+                                    if (issueUpdated.typ == KWESTIA_TYPE.ACCESS_ZWYCZAJNY) {
                                         newUserFields = {
                                             address: userDraft.profile.address,
                                             zip: userDraft.profile.zip,
@@ -150,153 +148,150 @@ checkingEndOfVote = function () {
                                             userType: userDraft.profile.userType,
                                             pesel: userDraft.profile.pesel
                                         };
-                                        text='rewriteFromDraftToUser';
+                                        text = 'rewriteFromDraftToUser';
                                     }
 
-                                    Meteor.call ( text,user._id,newUserFields,function ( error ) {
-                                        if ( !error ) {
-                                            Meteor.call ( 'removeUserDraft',userDraft._id,function ( error ) {
-                                                if ( !error ) {
-                                                    addPowiadomienieAplikacjaRespondMethodPosts ( issueUpdated._id,new Date (),NOTIFICATION_TYPE.APPLICATION_ACCEPTED,user._id,null );
-                                                    Meteor.call ( 'sendApplicationAccepted',userDraft,'acceptExisting',function ( error ) {
-                                                        if ( error ) {
+                                    Meteor.call(text,user._id,newUserFields,function (error) {
+                                        if (!error) {
+                                            Meteor.call('removeUserDraft',userDraft._id,function (error) {
+                                                if (!error) {
+                                                    addPowiadomienieAplikacjaRespondMethodPosts(issueUpdated._id,new Date(),NOTIFICATION_TYPE.APPLICATION_ACCEPTED,user._id,null);
+                                                    Meteor.call('sendApplicationAccepted',userDraft,'acceptExisting',function (error) {
+                                                        if (error) {
                                                             var emailError = {
                                                                 idIssue: issueUpdated._id,
                                                                 idUserDraft: userDraft._id,
                                                                 type: NOTIFICATION_TYPE.APPLICATION_ACCEPTED
                                                             };
-                                                            Meteor.call ( 'addEmailError', emailError );
+                                                            Meteor.call('addEmailError', emailError);
                                                         }
-                                                    } );
+                                                    });
                                                 }
-                                            } );
+                                            });
                                         }
-                                    } );
+                                    });
                                 }
-                            }
-                            else {
-                                var activationLink = CryptoJS.MD5 ( userDraft._id ).toString ();
-                                if ( userDraft ) {
-                                    Meteor.call ( 'setZrealizowanyActivationHashUserDraft', userDraft._id, activationLink, true, function ( error, ret ) {
-                                        ( !error );
+                            } else {
+                                var activationLink = CryptoJS.MD5(userDraft._id).toString();
+                                if (userDraft) {
+                                    Meteor.call('setZrealizowanyActivationHashUserDraft', userDraft._id, activationLink, true, function (error, ret) {
+                                        (!error);
                                         {
-                                            Meteor.call ( 'sendApplicationAccepted', UsersDraft.findOne ( { _id: userDraft._id } ), 'acceptNew', function ( error ) {
-                                                if ( error ) {
-                                                    Meteor.call ( 'setIssueProblemSendingEmail',issueUpdated._id,
-                                                        SENDING_EMAIL_PROBLEMS.NO_ACTVATION_LINK );
+                                            Meteor.call('sendApplicationAccepted', UsersDraft.findOne({_id: userDraft._id}), 'acceptNew', function (error) {
+                                                if (error) {
+                                                    Meteor.call('setIssueProblemSendingEmail',issueUpdated._id,
+                                                        SENDING_EMAIL_PROBLEMS.NO_ACTVATION_LINK);
 
                                                     var emailError = {
                                                         idIssue: issueUpdated._id,
                                                         idUserDraft: userDraft._id,
                                                         type: NOTIFICATION_TYPE.APPLICATION_ACCEPTED
                                                     };
-                                                    Meteor.call ( 'addEmailError', emailError );
+                                                    Meteor.call('addEmailError', emailError);
+                                                } else {
+                                                    Meteor.call('updateLicznikKlikniec', userDraft._id, 0);
                                                 }
-                                                else{
-                                                    Meteor.call ( 'updateLicznikKlikniec', userDraft._id, 0 );
-                                                }
-                                            } );
+                                            });
                                         }
-                                    } );
+                                    });
                                 }
                             }
                         }
                     }
-                }
-                else {
-                    if ( issueUpdated.typ==KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ) {
-                        Meteor.call ( 'setActivityParametrDraft', issueUpdated.idParametr, false );
+                } else {
+                    if (issueUpdated.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) {
+                        Meteor.call('setActivityParametrDraft', issueUpdated.idParametr, false);
                     }
-                    var ZRDraft=ImplemTeamDraft.findOne ( { _id:issueUpdated.idZespolRealizacyjny } );
-                    if ( ZRDraft ) {
-                        var zr=null;
-                        if ( ZRDraft.idZR!=null )
-                            zr=ZespolRealizacyjny.findOne ( { _id:ZRDraft.idZR } );
-                        else zr=ZRDraft;
-                        if ( zr )
-                            rewriteZRMembersToList ( zr, issueUpdated );
+                    var ZRDraft = ImplemTeamDraft.findOne({_id:issueUpdated.idZespolRealizacyjny});
+                    if (ZRDraft) {
+                        var zr = null;
+                        if (ZRDraft.idZR != null)
+                            zr = ZespolRealizacyjny.findOne({_id:ZRDraft.idZR});
+                        else zr = ZRDraft;
+                        if (zr)
+                            rewriteZRMembersToList(zr, issueUpdated);
                         else
-                            rewriteZRMembersToList ( ZRDraft, issueUpdated );
-                        Meteor.call ( 'removeImplemTeamDraft', ZRDraft._id, function ( error ) {
-                            if ( error )
-                                console.log ( error.reason );
-                        } );
+                            rewriteZRMembersToList(ZRDraft, issueUpdated);
+                        Meteor.call('removeImplemTeamDraft', ZRDraft._id, function (error) {
+                            if (error)
+                                console.log(error.reason);
+                        });
                     }
-                    if ( _.contains ( [KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issueUpdated.typ ) ) {
-                        var userDraft=UsersDraft.findOne ( { _id:issueUpdated.idUser } );
-                        if ( userDraft ) {
-                            if ( userDraft.profile.idUser!=null ) {
-                                var user = Users.findOne ( { _id:userDraft.profile.idUser } );
-                                addPowiadomienieAplikacjaRespondMethod ( issueUpdated._id,new Date (),NOTIFICATION_TYPE.APPLICATION_REJECTED,user._id );
+                    if (_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issueUpdated.typ)) {
+                        var userDraft = UsersDraft.findOne({_id:issueUpdated.idUser});
+                        if (userDraft) {
+                            if (userDraft.profile.idUser != null) {
+                                var user = Users.findOne({_id:userDraft.profile.idUser});
+                                addPowiadomienieAplikacjaRespondMethod(issueUpdated._id,new Date(),NOTIFICATION_TYPE.APPLICATION_REJECTED,user._id);
                             }
-                            Meteor.call ( 'sendApplicationRejected',userDraft,function ( error,ret ) {
-                                if ( !error )
-                                    Meteor.call ( 'removeUserDraft',userDraft );
-                                else{
+                            Meteor.call('sendApplicationRejected',userDraft,function (error,ret) {
+                                if (!error)
+                                    Meteor.call('removeUserDraft',userDraft);
+                                else {
                                     var emailError = {
                                         idIssue: issueUpdated._id,
                                         idUserDraft: userDraft._id,
                                         type: NOTIFICATION_TYPE.APPLICATION_REJECTED
                                     };
-                                    Meteor.call ( 'addEmailError', emailError );
+                                    Meteor.call('addEmailError', emailError);
                                 }
-                            } );
+                            });
                         }
-                        Meteor.call ( 'removeUserDraftNotZrealizowany',userDraft._id );
+                        Meteor.call('removeUserDraftNotZrealizowany',userDraft._id);
                     }
-                    Meteor.call ( 'removeIssueSetReason', issueUpdated._id,KWESTIA_ACTION.NEGATIVE_PRIORITY_VOTE );
+                    Meteor.call('removeIssueSetReason', issueUpdated._id,KWESTIA_ACTION.NEGATIVE_PRIORITY_VOTE);
 
 
                 }
             }
         }
-    } );
+    });
 };
 
-checkingDeliberationExpiration=function () {
-    var kwestie = Kwestia.find ( {czyAktywny: true, status:
+checkingDeliberationExpiration = function () {
+    var kwestie = Kwestia.find({czyAktywny: true, status:
     {$in: [
         KWESTIA_STATUS.DELIBEROWANA,
         KWESTIA_STATUS.ADMINISTROWANA,
         KWESTIA_STATUS.OSOBOWA
-    ]} } );
-    kwestie.forEach ( function ( kwestia ) {
-        var date=moment ( kwestia.dataWprowadzenia ).add ( 1,'month' ).format ();
-        if ( date<=moment ( new Date ().format () ) )
-            Meteor.call ( 'removeIssueSetReason',kwestia._id,KWESTIA_ACTION.DELIBERATION_EXPIRED );
-    } );
+    ]}});
+    kwestie.forEach(function (kwestia) {
+        var date = moment(kwestia.dataWprowadzenia).add(1,'month').format();
+        if (date <= moment(new Date().format()))
+            Meteor.call('removeIssueSetReason',kwestia._id,KWESTIA_ACTION.DELIBERATION_EXPIRED);
+    });
 };
 //=========================================== metody pomocnicze ===============================================//
 
-awansUzytkownika = function ( idZespoluRealiz, pktZaUdzialWZesp ) {
-    var zespol = ImplemTeamDraft.findOne ( { _id: idZespoluRealiz } ).zespol;
+awansUzytkownika = function (idZespoluRealiz, pktZaUdzialWZesp) {
+    var zespol = ImplemTeamDraft.findOne({_id: idZespoluRealiz}).zespol;
 
-    zespol.forEach ( function ( idUzytkownikaZespolu ) {
-        var uzytkownikAwansujacy = Users.findOne ( { _id: idUzytkownikaZespolu } );
-    } );
+    zespol.forEach(function (idUzytkownikaZespolu) {
+        var uzytkownikAwansujacy = Users.findOne({_id: idUzytkownikaZespolu});
+    });
 };
 
 //Nadawanie numeru uchwały - dla kwesti które przechodzą do realizacji, każdego dnia numery idą od 1
-nadawanieNumeruUchwaly = function ( dataRealizacji ) {
+nadawanieNumeruUchwaly = function (dataRealizacji) {
 
     var numerUchw = 1;
-    var kwestieRealizowane = Kwestia.find ( {czyAktywny: true, numerUchwaly: !null } );
+    var kwestieRealizowane = Kwestia.find({czyAktywny: true, numerUchwaly: !null});
 
-    kwestieRealizowane.forEach ( function ( kwestiaRealizowana ) {
+    kwestieRealizowane.forEach(function (kwestiaRealizowana) {
 
-        if ( kwestiaRealizowana.dataRealizacji.toDateString () == dataRealizacji.toDateString () )
-            numerUchw++; 
-    } );
+        if (kwestiaRealizowana.dataRealizacji.toDateString() == dataRealizacji.toDateString())
+            numerUchw++;
+    });
 
     return numerUchw;
 };
 //...................................................................................
-changeParametersSuccess=function ( kwestia ) {
-    console.log ( kwestia );
-    var globalPramsDraft=ParametrDraft.findOne ( { _id:kwestia.idParametr,czyAktywny: true } );
-    console.log ( 'change param' );
-    console.log ( globalPramsDraft );
-    var obj={
+changeParametersSuccess = function (kwestia) {
+    console.log(kwestia);
+    var globalPramsDraft = ParametrDraft.findOne({_id:kwestia.idParametr,czyAktywny: true});
+    console.log('change param');
+    console.log(globalPramsDraft);
+    var obj = {
         nazwaOrganizacji:globalPramsDraft.nazwaOrganizacji,
         terytorium:globalPramsDraft.terytorium,
         terytAdres:globalPramsDraft.terytAdres,
@@ -312,73 +307,71 @@ changeParametersSuccess=function ( kwestia ) {
         addReferencePause:globalPramsDraft.addReferencePause,
         okresSkladaniaRR:globalPramsDraft.okresSkladaniaRR
     };
-    var globalParam=Parametr.findOne ();
-    Meteor.call ( 'updateParametr',globalParam._id,obj,function ( error ) {
-        if ( !error ) {
-            Meteor.call ( 'setActivityParametrDraft', globalPramsDraft._id, false, function ( error ) {
-                if ( !error )
-                    Meteor.call ( 'updStatNoResDatReaIdImplTeam', kwestia._id, KWESTIA_STATUS.ZREALIZOWANA, kwestia.issueNumber, new Date () );
-            } );
+    var globalParam = Parametr.findOne();
+    Meteor.call('updateParametr',globalParam._id,obj,function (error) {
+        if (!error) {
+            Meteor.call('setActivityParametrDraft', globalPramsDraft._id, false, function (error) {
+                if (!error)
+                    Meteor.call('updStatNoResDatReaIdImplTeam', kwestia._id, KWESTIA_STATUS.ZREALIZOWANA, kwestia.issueNumber, new Date());
+            });
         }
-    } );
+    });
 };
 
-updateListKwestie=function ( ZR,kwestia ) {
-    if ( kwestia ) {
-        var listKwestii = ZR.kwestie.slice ();
-        listKwestii.push ( kwestia._id );
-        Meteor.call ( 'updateListKwesti', ZR._id, listKwestii, function ( error ) {
-            if ( error ) {
-                if ( typeof Errors === 'undefined' )
-                    Log.error ( 'Error: ' + error.reason );
+updateListKwestie = function (ZR,kwestia) {
+    if (kwestia) {
+        var listKwestii = ZR.kwestie.slice();
+        listKwestii.push(kwestia._id);
+        Meteor.call('updateListKwesti', ZR._id, listKwestii, function (error) {
+            if (error) {
+                if (typeof Errors === 'undefined')
+                    Log.error('Error: ' + error.reason);
                 else
-                    throwError ( error.reason );
+                    throwError(error.reason);
 
+            } else {
+                Meteor.call('updateStatNrUchwDtRealIdZespolKwestii', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, ZR._id);
             }
-            else {
-                Meteor.call ( 'updateStatNrUchwDtRealIdZespolKwestii', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, ZR._id );
-            }
-        } );
+        });
     }
 };
 
-createNewZR=function ( zrDraft,kwestia ) {
+createNewZR = function (zrDraft,kwestia) {
     var arrayKwestie = [];
-    arrayKwestie.push ( kwestia._id );
+    arrayKwestie.push(kwestia._id);
     var newZR = [{
         nazwa: zrDraft.nazwa,
         zespol: zrDraft.zespol,
         kwestie: arrayKwestie,
         czyAktywny: true
     }];
-    Meteor.call ( 'addZespolRealizacyjny', newZR, function ( error, ret ) {
-        if ( error ) {
-            if ( typeof Errors === 'undefined' )
-                Log.error ( 'Error: ' + error.reason );
+    Meteor.call('addZespolRealizacyjny', newZR, function (error, ret) {
+        if (error) {
+            if (typeof Errors === 'undefined')
+                Log.error('Error: ' + error.reason);
             else
-                throwError ( error.reason );
+                throwError(error.reason);
 
-        }
-        else {
+        } else {
             var idZR = ret;
-            Meteor.call ( 'updateStatNrUchwDtRealIdZespolKwestii', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, idZR );
+            Meteor.call('updateStatNrUchwDtRealIdZespolKwestii', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, idZR);
         }
-    } );
+    });
 };
-hibernateKwestieOpcje=function ( kwestia ) {
-    kwestieOpcje = Kwestia.find ( {czyAktywny: true, idParent: kwestia.idParent,
-        status:{$in:[KWESTIA_STATUS.GLOSOWANA,KWESTIA_STATUS.DELIBEROWANA]} } );
-    if ( kwestieOpcje.count ()>1 ) {
-        kwestieOpcje.forEach ( function ( kwestiaOpcja ) {
-            if ( kwestiaOpcja._id!=kwestia._id ) {
-                Meteor.call ( 'updateIssueStatus', kwestiaOpcja._id, KWESTIA_STATUS.HIBERNOWANA );
+hibernateKwestieOpcje = function (kwestia) {
+    kwestieOpcje = Kwestia.find({czyAktywny: true, idParent: kwestia.idParent,
+        status:{$in:[KWESTIA_STATUS.GLOSOWANA,KWESTIA_STATUS.DELIBEROWANA]}});
+    if (kwestieOpcje.count() > 1) {
+        kwestieOpcje.forEach(function (kwestiaOpcja) {
+            if (kwestiaOpcja._id != kwestia._id) {
+                Meteor.call('updateIssueStatus', kwestiaOpcja._id, KWESTIA_STATUS.HIBERNOWANA);
             }
-        } );
+        });
     }
 };
 
-addPowiadomienieAplikacjaRespondMethod=function ( idKwestia,dataWprowadzenia,typ,idReceiver ) {
-    var newPowiadomienie ={
+addPowiadomienieAplikacjaRespondMethod = function (idKwestia,dataWprowadzenia,typ,idReceiver) {
+    var newPowiadomienie = {
         idOdbiorca: idReceiver,
         idNadawca: null,
         dataWprowadzenia: dataWprowadzenia,
@@ -389,8 +382,8 @@ addPowiadomienieAplikacjaRespondMethod=function ( idKwestia,dataWprowadzenia,typ
         czyAktywny: true,
         czyOdczytany: false
     };
-    Meteor.call ( 'addPowiadomienie',newPowiadomienie,function ( error ) {
-        if ( error )
-            console.log ( error.reason );
-    } );
+    Meteor.call('addPowiadomienie',newPowiadomienie,function (error) {
+        if (error)
+            console.log(error.reason);
+    });
 };

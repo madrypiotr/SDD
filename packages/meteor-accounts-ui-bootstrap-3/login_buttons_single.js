@@ -36,13 +36,12 @@
         if (this.name === 'github')
         // XXX we should allow service packages to set their capitalized name
             return 'GitHub';
-        else
-            return capitalize(this.name);
+        return capitalize(this.name);
     };
 
     // XXX from http://epeli.github.com/underscore.string/lib/underscore.string.js
-    var capitalize = function(str){
+    var capitalize = function (str) {
         str = str == null ? '' : String(str);
         return str.charAt(0).toUpperCase() + str.slice(1);
     };
-}) ();
+})();

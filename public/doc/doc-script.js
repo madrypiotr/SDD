@@ -19,7 +19,7 @@ var sidebarVisible = (window.localStorage && window.localStorage.docker_showSide
  * @param {string} root Path from current file to root (ie `'../../'` etc.)
  * @param {string} filename The current file name
  */
-function makeTree(treeData, root, filename) {
+function makeTree (treeData, root, filename) {
     var treeNode = document.getElementById('tree');
     var treeHandle = document.getElementById('sidebar-toggle');
     treeHandle.addEventListener('click', toggleTree, false);
@@ -40,7 +40,9 @@ function makeTree(treeData, root, filename) {
     treeNode.onscroll = treeScrolled;
 
     // Only set a class to allow CSS transitions after the tree state has been painted
-    setTimeout(function() { document.body.className += ' slidey'; }, 100);
+    setTimeout(function () {
+        document.body.className += ' slidey';
+    }, 100);
 }
 
 /**
@@ -49,7 +51,7 @@ function makeTree(treeData, root, filename) {
  * Called when the tree is scrolled. Stores the scroll position in localStorage
  * so it can be restored on the next pageview.
  */
-function treeScrolled() {
+function treeScrolled () {
     var tree = document.getElementById('tree');
     if (window.localStorage) window.localStorage.docker_treeScroll = tree.scrollTop;
 }
@@ -61,7 +63,7 @@ function treeScrolled() {
  *
  * @param {Event} e The click event
  */
-function nodeClicked(e) {
+function nodeClicked (e) {
     // Find the target
     var t = e.target;
 
@@ -96,7 +98,7 @@ function nodeClicked(e) {
  * @param {string} path The path form the base to this node
  * @param {string} root Relative path from current page to root
  */
-function nodeHtml(nodename, node, path, root) {
+function nodeHtml (nodename, node, path, root) {
     // Firstly, figure out whether or not the directory is expanded from localStorage
     var isOpen = window.localStorage && window.localStorage['docker_openPath:' + path] == 'yes';
     var out = '<div class="dir' + (isOpen ? ' open' : '') + '" rel="' + path + '">';
@@ -107,10 +109,12 @@ function nodeHtml(nodename, node, path, root) {
     if (node.dirs) {
         var dirs = [];
         for (var i in node.dirs) {
-            if (node.dirs.hasOwnProperty(i)) dirs.push({ name: i, html: nodeHtml(i, node.dirs[i], path + i + '/', root) });
+            if (node.dirs.hasOwnProperty(i)) dirs.push({name: i, html: nodeHtml(i, node.dirs[i], path + i + '/', root)});
         }
         // Have to store them in an array first and then sort them alphabetically here
-        dirs.sort(function(a, b) { return (a.name > b.name) ? 1 : (a.name == b.name) ? 0 : -1; });
+        dirs.sort(function (a, b) {
+            return (a.name > b.name) ? 1 : (a.name == b.name) ? 0 : -1;
+        });
 
         for (var k = 0; k < dirs.length; k += 1) out += dirs[k].html;
     }
@@ -134,7 +138,7 @@ function nodeHtml(nodename, node, path, root) {
  *
  * Toggles the visibility of the folder tree
  */
-function toggleTree() {
+function toggleTree () {
     // Do the actual toggling by modifying the class on the body element. That way we can get some nice CSS transitions going.
     if (sidebarVisible) {
         document.body.className = document.body.className.replace(/\s*sidebar/g, '');
@@ -157,7 +161,7 @@ function toggleTree() {
  *
  * Wires up events on the sidebar tabe
  */
-function wireUpTabs() {
+function wireUpTabs () {
     var tabEl = document.getElementById('sidebar_switch');
     var children = tabEl.childNodes;
 
@@ -165,8 +169,10 @@ function wireUpTabs() {
     for (var i = 0, l = children.length; i < l; i += 1) {
     // Ignore text nodes
         if (children[i].nodeType !== 1) continue;
-        children[i].addEventListener('click', function(c) {
-            return function() { switchTab(c); };
+        children[i].addEventListener('click', function (c) {
+            return function () {
+                switchTab(c);
+            };
         }(children[i].className));
     }
 }
@@ -178,7 +184,7 @@ function wireUpTabs() {
  *
  * @param {string} tab The ID of the tab to switch to
  */
-function switchTab(tab) {
+function switchTab (tab) {
     var tabEl = document.getElementById('sidebar_switch');
     var children = tabEl.childNodes;
 
@@ -209,13 +215,13 @@ function switchTab(tab) {
  *
  * When the document is ready, make the sidebar and all that jazz
  */
-(function(init) {
+(function (init) {
     if (window.addEventListener) {
         window.addEventListener('DOMContentLoaded', init);
     } else { // IE8 and below
         window.onload = init;
     }
-}(function() {
+}(function () {
     makeTree(tree, relativeDir, thisFile);
     wireUpTabs();
 

@@ -23,7 +23,7 @@
     // than accounts-ui so Accounts.verifyEmail might not be defined.
     Meteor.startup(function () {
         if (Accounts._verifyEmailToken) {
-            Accounts.verifyEmail(Accounts._verifyEmailToken, function(error) {
+            Accounts.verifyEmail(Accounts._verifyEmailToken, function (error) {
                 Accounts._enableAutoLogin();
                 if (!error)
                     loginButtonsSession.set('justVerifiedEmail', true);
@@ -36,7 +36,7 @@
     //
     // resetPasswordDialog template
     //
-    Template._resetPasswordDialog.rendered = function() {
+    Template._resetPasswordDialog.rendered = function () {
         var $modal = $(this.find('#login-buttons-reset-password-modal'));
         $modal.modal();
     };
@@ -101,7 +101,7 @@
         }
     });
 
-    Template._enrollAccountDialog.rendered = function() {
+    Template._enrollAccountDialog.rendered = function () {
         $modal = $(this.find('#login-buttons-enroll-account-modal'));
         $modal.modal();
     };
@@ -141,8 +141,10 @@
     });
 
     Template._justVerifiedEmailDialog.visible = function () {
-        if (loginButtonsSession.get('justVerifiedEmail')){
-            setTimeout(function(){$('#login-buttons-email-address-verified-modal').modal();}, 500);
+        if (loginButtonsSession.get('justVerifiedEmail')) {
+            setTimeout(function () {
+                $('#login-buttons-email-address-verified-modal').modal();
+            }, 500);
         }
         return loginButtonsSession.get('justVerifiedEmail');
     };
@@ -181,13 +183,13 @@
         },
         'click #configure-login-service-dialog-save-configuration': function () {
             if (loginButtonsSession.get('configureLoginServiceDialogVisible') &&
-     ! loginButtonsSession.get('configureLoginServiceDialogSaveDisabled')) {
+     !loginButtonsSession.get('configureLoginServiceDialogSaveDisabled')) {
                 // Prepare the configuration document for this login service
                 var serviceName = loginButtonsSession.get('configureLoginServiceDialogServiceName');
                 var configuration = {
                     service: serviceName
                 };
-                _.each(configurationFields(), function(field) {
+                _.each(configurationFields(), function (field) {
                     configuration[field.property] = document.getElementById(
                         'configure-login-service-dialog-' + field.property).value
                         .replace(/^\s*|\s*$/g, ''); // trim;
@@ -218,7 +220,7 @@
     // this is a really strange way to implement this and a Forms
     // Abstraction would make all of this reactive, and simpler.
     var updateSaveDisabled = function () {
-        var anyFieldEmpty = _.any(configurationFields(), function(field) {
+        var anyFieldEmpty = _.any(configurationFields(), function (field) {
             return document.getElementById(
                 'configure-login-service-dialog-' + field.property).value === '';
         });
@@ -257,9 +259,9 @@
 
 
     // XXX from http://epeli.github.com/underscore.string/lib/underscore.string.js
-    var capitalize = function(str){
+    var capitalize = function (str) {
         str = str == null ? '' : String(str);
         return str.charAt(0).toUpperCase() + str.slice(1);
     };
 
-}) ();
+})();

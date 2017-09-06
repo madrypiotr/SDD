@@ -13,7 +13,7 @@ Meteor.methods({
     },
     updateLanguageEnabled: function (id, item) {
         Languages.update(id, {$set: {isEnabled:item.isEnabled}}, {upsert: true});
-    },
+    }
     /* metody dodawania informacji o stronie
     setPagesInfo: function (item) {
         var pageInfo = PagesInfo.findOne({idLanguage:item.idLanguage,routeName:item.routeName});

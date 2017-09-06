@@ -68,7 +68,9 @@ YUI().use(
         pjax.checkVisibility = function (tab) {
             tab || (tab = selectedTab);
 
-            if (!tab) { return; }
+            if (!tab) {
+                return;
+            }
 
             var panelNode = tab.get('panelNode'),
                 visibleItems;
@@ -191,7 +193,7 @@ YUI().use(
             var hash = win.location.hash.substring(1),
                 defaultTab, node, tab, tabPanel;
 
-            function scrollToNode() {
+            function scrollToNode () {
                 if (node.hasClass('protected')) {
                     Y.one('#api-show-protected').set('checked', true);
                     pjax.updateVisibility();

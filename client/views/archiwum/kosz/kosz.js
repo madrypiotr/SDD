@@ -7,10 +7,10 @@ Template.kosz.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                { key: 'kwestiaNazwa', label: TAPi18n.__('glob.NameIssue'), tmpl: Template.nazwaKwestiLink },
-                { key: 'wartoscPriorytetu', label: TAPi18n.__('glob.Priority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'descending'},
-                { key: 'idTemat', label: TAPi18n.__('glob.Subject'), tmpl: Template.tematKwestia },
-                { key: 'idRodzaj', label: TAPi18n.__('glob.Type'), tmpl: Template.rodzajKwestia }
+                {key: 'kwestiaNazwa', label: TAPi18n.__('glob.NameIssue'), tmpl: Template.nazwaKwestiLink},
+                {key: 'wartoscPriorytetu', label: TAPi18n.__('glob.Priority'), tmpl: Template.priorytetKwestia ,sortOrder:1,sortDirection:'descending'},
+                {key: 'idTemat', label: TAPi18n.__('glob.Subject'), tmpl: Template.tematKwestia},
+                {key: 'idRodzaj', label: TAPi18n.__('glob.Type'), tmpl: Template.rodzajKwestia}
             ]
         };
     },

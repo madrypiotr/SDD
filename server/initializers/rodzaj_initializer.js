@@ -5,7 +5,7 @@ Meteor.startup(function () {
         'nazwaRodzaj': TAPi18n.__('txv.ADOPT')
     };
 
-    var rodzaj2= {
+    var rodzaj2 = {
         '_id': 'qMqF9S9hjZFz4bRK8',
         'idTemat': '3TBYqrgpJiQQSDEbt',
         'nazwaRodzaj': TAPi18n.__('txv.STATUTORY')

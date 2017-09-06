@@ -1,35 +1,34 @@
 Template.mainpage.rendered = function () {
 };
 
-Template.mainpage.helpers ( {
+Template.mainpage.helpers({
     isAdminUser: function () {
-        return IsAdminUser ();
+        return IsAdminUser();
     }
-} );
+});
 
-Template.mainpage.helpers ( {
+Template.mainpage.helpers({
     isZwyczajnyLogged: function () {
-        if ( IsAdminUser () )
+        if (IsAdminUser())
             return false;
-        else {
-            return Meteor.user ().profile.userType == USERTYPE.CZLONEK ? true : false;
-        }
+
+        return Meteor.user().profile.userType == USERTYPE.CZLONEK ? true : false;
+
     }
-} );
+});
 
 
-Template.mainpage.events ( {
+Template.mainpage.events({
     'click #addKwestiaButton': function () {
-        var kwestiaCanBeInserted=kwestiaIsAllowedToInsert ();
-        if ( kwestiaCanBeInserted==true ) {
-            if ( Session.get ( 'kwestiaPreview' ) )
-                Session.set ( 'kwestiaPreview', null );
-            Router.go ( 'addKwestia' );
-        }
-        else
-            notificationPauseWarning ( 'kwestii',kwestiaCanBeInserted );
+        var kwestiaCanBeInserted = kwestiaIsAllowedToInsert();
+        if (kwestiaCanBeInserted == true) {
+            if (Session.get('kwestiaPreview'))
+                Session.set('kwestiaPreview', null);
+            Router.go('addKwestia');
+        } else
+            notificationPauseWarning('kwestii',kwestiaCanBeInserted);
     },
     'click #wievMap': function () {
-        Router.go ( 'map' );
+        Router.go('map');
     }
-} );
+});

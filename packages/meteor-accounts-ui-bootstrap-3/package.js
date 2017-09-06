@@ -4,7 +4,7 @@ Package.describe({
     git: 'https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git'
 });
 
-Package.on_use(function(api) {
+Package.on_use(function (api) {
     api.versionsFrom('METEOR@0.9.0');
     api.use(['session', 'handlebars', 'stylus', 'accounts-base', 'underscore', 'templating'], 'client');
 
@@ -26,7 +26,7 @@ Package.on_use(function(api) {
     ], 'client');
 });
 
-Package.on_test(function(api) {
+Package.on_test(function (api) {
     //api.use('meteor-accounts-ui-bootstrap');
     //api.use('tinytest');
     //api.add_files('accounts_ui_tests.js', 'client');

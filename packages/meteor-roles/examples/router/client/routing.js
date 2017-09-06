@@ -62,28 +62,28 @@
                 console.log('filter: loading');
                 return 'loading';
 
-            } else {
+            }
 
-                user = Meteor.user();
+            user = Meteor.user();
 
-                if (!user) {
+            if (!user) {
 
-                    console.log('filter: signin');
-                    return 'signin';
-
-                }
-
-                if (!emailVerified(user)) {
-
-                    console.log('filter: awaiting-verification');
-                    return 'awaiting-verification';
-
-                } 
-
-                console.log('filter: done');
-                return page;
+                console.log('filter: signin');
+                return 'signin';
 
             }
+
+            if (!emailVerified(user)) {
+
+                console.log('filter: awaiting-verification');
+                return 'awaiting-verification';
+
+            }
+
+            console.log('filter: done');
+            return page;
+
+
         }
     });
 

@@ -6,9 +6,9 @@ YUI.add('api-filter', function (Y) {
             this._bindUIACBase();
             this._syncUIACBase();
         },
-        getDisplayName: function(name) {
+        getDisplayName: function (name) {
 
-            Y.each(Y.YUIDoc.meta.allModules, function(i) {
+            Y.each(Y.YUIDoc.meta.allModules, function (i) {
                 if (i.name === name && i.displayName) {
                     name = i.displayName;
                 }
@@ -30,12 +30,12 @@ YUI.add('api-filter', function (Y) {
             },
 
             source: {
-                valueFn: function() {
+                valueFn: function () {
                     var self = this;
-                    return function(q) {
+                    return function (q) {
                         var data = Y.YUIDoc.meta[self.get('queryType')],
                             out = [];
-                        Y.each(data, function(v) {
+                        Y.each(data, function (v) {
                             if (v.toLowerCase().indexOf(q.toLowerCase()) > -1) {
                                 out.push(v);
                             }
