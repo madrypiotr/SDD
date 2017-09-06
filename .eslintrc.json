@@ -35,6 +35,8 @@
         "$": false,
         "EmailError": true,
         "Errors": true,
+        "KWESTIA_STATUS": true,
+        "KWESTIA_TYPE": true,
         "Kwestia": true,
         "Languages": true,
         "Log": false,
@@ -46,10 +48,13 @@
         "Posts": true,
         "Powiadomienie": true,
         "Raport": true,
-        "Router": false,
         "Roles": false,
+        "Router": false,
         "TAPi18n": false,
         "Template": false,
+        "USERTYPE": true,
+        "Users": true,
+        "UsersDraft": true,
         "moment": false,
         "throwError": false
     }

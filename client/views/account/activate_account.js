@@ -3,8 +3,6 @@
 ## Rendering the template activateAccount */
 
 
-
-
 Template.activateAccount.rendered = function () {
     // gets from: `` lib\ `` router.js
     var currentRoute = Router.current().params;
@@ -16,14 +14,17 @@ Template.activateAccount.rendered = function () {
         Meteor.call('updateLicznikKlikniec', userD._id, clickedLinkCount,
             function (error) {
                 if (!error) {
-                    var userDraft = UsersDraft.findOne({linkAktywacyjny: currentRoute.linkAktywacyjny, czyAktywny: true});
+                    var userDraft = UsersDraft.findOne({
+                        linkAktywacyjny: currentRoute.linkAktywacyjny,
+                        czyAktywny: true
+                    });
                     if (userDraft) {
                         // leads to: `` server\methods\``users.js
                         Meteor.call('serverGenerateLogin', userDraft.profile.firstName, userDraft.profile.lastName,
-                            /**	Feature appointing a new user
-					* @param err - ewentualny blad ... opis opis opis ...
-					* @param ret - zwrot z metody "serverGenerateLogin" ... opis opis opis opis opis opis ...
-					*/
+                            /**    Feature appointing a new user
+                             * @param err - ewentualny blad ... opis opis opis ...
+                             * @param ret - zwrot z metody "serverGenerateLogin" ... opis opis opis opis opis opis ...
+                             */
                             function (err, ret) {
                                 if (!err) {
                                     var newUser = [{
@@ -67,10 +68,12 @@ Template.activateAccount.rendered = function () {
                                         }
                                     });
                                 } else throwError(err.reason);
-                            });
+                            }
+                        );
                     }
                 } else throwError(error.reason);
-            });
+            }
+        );
     }
 };
 /*

@@ -5,9 +5,9 @@ Template.answerInvitation.rendered = function () {
     if (kwestia.isAnswerPositive != null) {
         Meteor.call('updateLicznikKlikniec', userDraft._id, licznik, function (error) {
             if (error) throwError(error.reason);
-			 });
+        });
     }
-},
+};
 
 Template.answerInvitation.helpers({
     userNotAnswered: function () {
@@ -86,36 +86,36 @@ Template.answerInvitation.events({
                 if (kwestia.idZespolRealizacyjny) {
                     var zrDraft = ImplemTeamDraft.findOne({
                         _id: kwestia.idZespolRealizacyjny
-					 });
+                    });
                     Meteor.call('removeImplemTeamDraft', kwestia.idZespolRealizacyjny, function (error) {
                         if (!error) {
                             rewriteZRMembersToListMethod(zrDraft, kwestia);
                             var licznik = userDraft.licznikKlikniec + 1;
                             Meteor.call('removeUserDraftNotZrealizowanyLicznik', userDraft._id, licznik, function (error) {
                                 if (error) throwError(error.reason);
-							 });
+                            });
                         }
-					 });
+                    });
                 }
             } else throwError(error.reason);
-		 });
+        });
     }
 });
 
 getKwestia = function (currentRoute) {
     var userDraft = UsersDraft.findOne({
         linkAktywacyjny: currentRoute.linkAktywacyjny
-	 });
+    });
     var kwestia = Kwestia.findOne({
         idUser: userDraft._id
-	 });
+    });
     return kwestia ? kwestia : null;
 };
 
 getUserDraftMethod = function (currentRoute) {
     var userDraft = UsersDraft.findOne({
         linkAktywacyjny: currentRoute.linkAktywacyjny
-	 });
+    });
     return userDraft ? userDraft : null;
 };
 
@@ -126,12 +126,12 @@ applyPositiveMethod = function (kwestia) {
     var idZr = kwestia.idZespolRealizacyjny;
     var zrDraft = ImplemTeamDraft.findOne({
         _id: kwestia.idZespolRealizacyjny
-	 });
+    });
     if (zrDraft.idZR != null) {
         // If draft has id ZR ( copy from existing ZR ), then add to the ZR list of this draft
         var ZR = ZespolRealizacyjny.findOne({
             _id: zrDraft.idZR
-		 });
+        });
         if (ZR) {
             updateListKwestieMethod(ZR, kwestia._id);
         } else {
@@ -147,10 +147,10 @@ applyPositiveMethod = function (kwestia) {
             Meteor.call('updateLicznikKlikniec', userDraft._id, counter, function (error) {
                 if (!error) Meteor.call('setAnswerWaitIssueNrResolDateOfImpl', kwestia._id, true, nrUchw, new Date(), function (error) {
                     if (error) throwError(error.reason);
-				 });
-			 });
+                });
+            });
         }
-	 });
+    });
 };
 
 addNewUser = function (firstName, lastName, city, email, kwestia) {
@@ -186,13 +186,13 @@ addNewUser = function (firstName, lastName, city, email, kwestia) {
                                     };
                                     Meteor.call('addEmailError', emailError);
                                 }
-							 });
+                            });
                         }
-					 });
+                    });
                 }
-			 });
+            });
         } else {
             throwError(err.reason);
         }
-	 });
+    });
 };

@@ -19,7 +19,7 @@ Template.registerForm.rendered = function () {
             confirmPassword: {
                 equalTo: '#inputPassword'
             },
-            pesel:{
+            pesel: {
                 exactlength: 11,
                 peselValidation: true,
                 peselValidation2: true
@@ -28,7 +28,7 @@ Template.registerForm.rendered = function () {
                 zipCodeValidation1: true,
                 zipCodeValidation2: true
             },
-            language:{
+            language: {
                 isNotEmptyValue: true
             }
         },
@@ -59,17 +59,17 @@ Template.registerForm.rendered = function () {
             ZipCode: {
                 required: fieldEmptyMessage()
             },
-            pesel:{
-                required:fieldEmptyMessage()
+            pesel: {
+                required: fieldEmptyMessage()
             },
-            city:{
-                required:fieldEmptyMessage()
+            city: {
+                required: fieldEmptyMessage()
             },
-            language:{
-                required:fieldEmptyMessage()
+            language: {
+                required: fieldEmptyMessage()
             },
-            statutConfirmation:{
-                required:fieldEmptyMessage()
+            statutConfirmation: {
+                required: fieldEmptyMessage()
             }
         },
         highlight: function (element) {
@@ -243,7 +243,7 @@ Template.registerForm.helpers({
         return !!users && users.count() < 5 ? true : false;
     },
     'getLanguages': function () {
-        return Languages.find({ }).map(function (lang) {
+        return Languages.find({}).map(function (lang) {
             return {
                 shortName: lang.shortName,
                 languageName: TAPi18n.__('listLanguages.' + lang.languageName)

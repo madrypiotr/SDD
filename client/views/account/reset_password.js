@@ -38,12 +38,12 @@ Template.resetPassword.events({
         e.preventDefault();
         var token = this.toString();
         var newPassword = $(e.target).find('[name=password]').val();
-        var user = Users.findOne({ });
+        var user = Users.findOne({});
 
         if (user) {
             if (user.services.password.reset.when.addHours(3) > new Date()) {
                 console.log('true');
-                Accounts.resetPassword(token,newPassword);
+                Accounts.resetPassword(token, newPassword);
             } else {
                 throwError(TAPi18n.__('txv.TOKEN_HAS_EXPIRED'));
             }

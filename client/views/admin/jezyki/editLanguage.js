@@ -30,8 +30,7 @@ Template.editLanguage.events({
         e.preventDefault();
 
         var id = this._id;
-        var lang =
-        {
+        var lang = {
             languageName: $(e.target).find('[name=languageName]').val(),
             shortName: $(e.target).find('[name=languageShortName]').val()
         };

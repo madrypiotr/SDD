@@ -8,7 +8,7 @@ isUserCountInImplemTeamNotification = function (id, teamTab, numberOfMembers) {
             title: TAPi18n.__('txv.ERROR'),
             content: komunikat,
             duration: 10
-		 });
+        });
         return true;
     }
     return false;
@@ -30,23 +30,23 @@ addCzlonekToZespolRealizacyjnyNotification = function (idUser, teamToUpdate, num
             // we find Teams
             var zespol = ZespolRealizacyjny.findOne({
                 _id: kwestia.idZespolRealizacyjny
-			 });
+            });
             if (zespol) {
                 var i = 0;
                 _.each(zespol.zespol, function (zespolItem) {
                     // for each current item from the current team
                     if (_.contains(teamToUpdate, zespolItem)) {
                         // if the database contains an array from the Team
-                        i++ ;
+                        i++;
                     }
-				 });
+                });
                 if (i == zespol.zespol.length) {
                     arrayZespolyDouble.push(zespol._id);
                     flag = true;
                     // It may happen that there will be several teams with the same composition, so let's put them on the board
                 }
             }
-		 });
+        });
         if (flag == true) {
             Session.setPersistent('zespolRealizacyjnyDouble', arrayZespolyDouble);
             $('#decyzjaModalId').modal('show');
@@ -58,7 +58,7 @@ addCzlonekToZespolRealizacyjnyNotification = function (idUser, teamToUpdate, num
                 title: TAPi18n.__('txv.SUCCESS'),
                 content: komunikat,
                 duration: 10
-			 });
+            });
             return true;
         }
     } else {
@@ -78,10 +78,10 @@ addCzlonekToZespolRealizacyjnyNotification = function (idUser, teamToUpdate, num
                     title: TAPi18n.__('txv.SUCCESS'),
                     content: komunikat,
                     duration: 10
-				 });
+                });
                 return true;
             }
-		 });
+        });
     }
 };
 
@@ -92,9 +92,10 @@ isUserInImplemTeamNotification = function (id, teamTab) {
             title: TAPi18n.__('txv.ERROR'),
             content: TAPi18n.__('txv.YOU_ARE_ALREADY_IN_THE_IMP_TEAM'),
             duration: 10
-		 });
+        });
         return true;
-    } return false;
+    }
+    return false;
 };
 
 bladNotification = function () {
@@ -103,23 +104,24 @@ bladNotification = function () {
         title: TAPi18n.__('txv.WARNING'),
         content: TAPi18n.__('txv.ERROR'),
         duration: 10
-	 });
+    });
 };
 
 isUserInZRNotification = function (idZespolu) {
     // Examination of decision-making power
     var zespol = ZespolRealizacyjny.findOne({
         _id: idZespolu
-	 });
+    });
     if (zespol) {
         if (!_.contains(zespol.zespol, Meteor.userId())) {
             GlobalNotification.error({
                 title: TAPi18n.__('txv.WARNING'),
                 content: TAPi18n.__('txv.THIS_DECISION_MAY_BE_TAKEN_ONLY_MEMBER_OF_THE_TEAM'),
                 duration: 10
-			 });
+            });
             return true;
-        } return false;
+        }
+        return false;
     }
     return false;
 };
@@ -132,7 +134,7 @@ addMemberToImplemTeamNotificationNew = function (idUser, teamToUpdate, numberOfM
         var arrayZespolyDouble = [];
         var zespoly = ZespolRealizacyjny.find({
             czyAktywny: true
-		 });
+        });
         if (zespoly) {
             zespoly.forEach(function (zespol) {
                 var i = 0;
@@ -140,14 +142,14 @@ addMemberToImplemTeamNotificationNew = function (idUser, teamToUpdate, numberOfM
                     // for each current item from the current team
                     if (_.contains(teamToUpdate, zespolItem)) {
                         // if the database contains an array from the Team
-                        i++ ;
+                        i++;
                     }
-				 });
+                });
                 if (i == zespol.zespol.length) {
                     arrayZespolyDouble.push(zespol._id);
                     flag = true;
                 }
-			 });
+            });
         }
         if (flag == true) {
             // They are so, so we display
@@ -182,10 +184,10 @@ addMemberToImplemTeamNotificationNew = function (idUser, teamToUpdate, numberOfM
                     title: TAPi18n.__('txv.SUCCESS'),
                     content: komunikat,
                     duration: 10
-				 });
+                });
                 return true;
             }
-		 });
+        });
     }
 };
 
@@ -195,7 +197,7 @@ getCzlonekFullName = function (number, idZR, ZRType) {
     if (userID) {
         var user = Users.findOne({
             _id: userID
-		 });
+        });
         if (user.profile) {
             return user.profile.fullName;
         }
@@ -207,10 +209,10 @@ getImplTeamData = function (number, idZR, ZRType) {
     var z = null;
     if (ZRType == 'ZRDraft') z = ImplemTeamDraft.findOne({
         _id: idZR
-	 });
+    });
     else z = ZespolRealizacyjny.findOne({
         _id: idZR
-	 });
+    });
     if (z) {
         teamId = z._id;
         var zespol = z.zespol;
@@ -225,7 +227,7 @@ checkIfInIT = function (idZR, idMember) {
     // Decision on participation or exit from the Implementation Team
     var z = ImplemTeamDraft.findOne({
         _id: idZR
-		 });
+    });
     if (z) {
         return _.contains(z.zespol, idMember) ? idMember : null;
     }
@@ -248,18 +250,18 @@ unsubscribeITAlert = function (idUserZR, idKwestia) {
                 className: 'btn-primary'
             }
         }
-		 });
+    });
 };
 
 unsubscribeITFunction = function (idUserZR, idKwestia) {
     // Abandonment of functions in the implementation team
     var kwestia = Kwestia.findOne({
         _id: idKwestia
-	 });
+    });
     if (kwestia) {
         var zespol = ImplemTeamDraft.findOne({
             _id: kwestia.idZespolRealizacyjny
-		 });
+        });
         if (zespol) {
             var zespolR = zespol.zespol.slice();
             zespolR = _.without(zespolR, Meteor.userId());
@@ -276,7 +278,7 @@ unsubscribeITFunction = function (idUserZR, idKwestia) {
                         throwError(error.reason);
                     }
                 }
-			 });
+            });
         }
     }
 };

@@ -24,7 +24,7 @@ Template.forgottenPassword.rendered = function () {
             if (element.attr('name') == 'statutConfirmation') error.insertAfter(document.getElementById('statutConfirmationSpan'));
             else validationPlacementError(error, element);
         }
-	 });
+    });
 };
 
 Template.forgottenPassword.events({
@@ -55,18 +55,18 @@ Template.forgottenPassword.events({
                                     title: TAPi18n.__('txv.SUCCESS'),
                                     content: TAPi18n.__('txv.LINK_CHAN_PASS'),
                                     duration: 5
-								 });
+                                });
                                 Router.go('login_form');
                                 return true;
                             }
-						 });
+                        });
                     } else {
                         document.getElementById('resetButton').disabled = false;
                         throwError(TAPi18n.__('txv.EM_DOES_NOT'));
                         return false;
                     }
                 }
-			 });
+            });
         } else {
             return false;
         }

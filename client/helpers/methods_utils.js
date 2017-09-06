@@ -11,7 +11,7 @@ notificationPauseWarning = function (text, timeLeft) {
         title: TAPi18n.__('txv.SORRY'),
         content: TAPi18n.__('txv.THERE_IS_A_LIMIT_FREQUENCY_OF_ADDING') + text + TAPi18n.__('txv.NEXT_OF_THIS_TYPE_OF_ACTION_POSSIBLE_FOR') + timeLeft,
         duration: 5
-	 });
+    });
 };
 
 recognizeSexMethod = function (userData) {
@@ -32,7 +32,7 @@ isInTab = function (item, tab) {
     var flag = false;
     tab.forEach(function (a) {
         if (a == item) flag = true;
-	 });
+    });
     return flag;
 };
 

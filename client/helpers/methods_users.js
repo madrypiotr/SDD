@@ -11,7 +11,7 @@ setRoles = function () {
             var option = document.createElement('option');
             option.text = role.name;
             roles.add(option, null);
-		 });
+        });
     }
 };
 
@@ -58,8 +58,8 @@ checkExistsUser = function (searchedEmail, userType1, userType2) {
                     }
                 }
             }
-		 });
-	 });
+        });
+    });
     return found;
 };
 
@@ -74,14 +74,14 @@ przyjecieWnioskuConfirmation = function (time, email, userTypeText) {
                 className: 'btn-primary'
             }
         }
-	 });
+    });
 };
 
 // This function is probably not used. Make sure it is potentially useful
 getAllUsersWhoVoted = function (idKWestia) {
     var kwestia = Kwestia.findOne({
         _id: idKWestia
-	 });
+    });
     if (kwestia) {
         var tab = kwestia.glosujacy;
         if (tab) {

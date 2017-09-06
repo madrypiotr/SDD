@@ -29,7 +29,7 @@ Template.loginForm.rendered = function () {
         errorPlacement: function (error, element) {
             validationPlacementError(error, element);
         }
-	 });
+    });
 };
 
 Template.loginForm.events({
@@ -49,7 +49,7 @@ Template.loginForm.events({
                     }
                     Meteor.logoutOtherClients();
                 }
-			 });
+            });
         } else {
             return false;
         }
