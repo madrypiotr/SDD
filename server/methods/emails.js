@@ -111,7 +111,7 @@ Meteor.methods({
         Users.find({}).forEach(function (item) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
                 var html = SSR.render('email_added_issue', {
-                    welcomeGender: recognizeSex(item),
+                    welcomeGender: recognizeSex(item, lang),
                     userData: item.profile.fullName,
                     organizacja: parametr.nazwaOrganizacji,
                     krotkaTresc: kwestiaItem.krotkaTresc,
@@ -187,11 +187,11 @@ Meteor.methods({
             temat = TAPi18n.__('txv.TECHNICAL', null, lang);
         else temat = temat.nazwaTemat;
 
-        Users.find({}).forEach(function (item, lang) {
+        Users.find({}).forEach(function (item) {
 
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
                 var html = SSR.render('email_no_realization_report', {
-                    welcomeGender: recognizeSex(item),
+                    welcomeGender: recognizeSex(item, lang),
                     userData: item.profile.fullName,
                     organizacja: parametr.nazwaOrganizacji,
                     krotkaTresc: kwestiaItem.krotkaTresc,
@@ -227,7 +227,7 @@ Meteor.methods({
         }
 
         var author = Users.findOne({_id: idAuthor});
-        Users.find({}).forEach(function (item, lang) {
+        Users.find({}).forEach(function (item) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
                 var html = SSR.render('email_lobbing_issue', {
                     email: item.emails[0].address,
@@ -243,7 +243,7 @@ Meteor.methods({
                     userType: item.profile.userType,
                     username: item.username,
                     uzasadnienie: uzasadnienie,
-                    welcomeGender: recognizeSex(item)
+                    welcomeGender: recognizeSex(item, lang)
                 });
                 Email.send({
                     from: author.profile.firstName + ' ' + author.profile.lastName,
@@ -274,7 +274,7 @@ Meteor.methods({
             kworum = liczenieKworumStatutowe();
         else
             kworum = liczenieKworumZwykle();
-        Users.find({}).forEach(function (item, lang) {
+        Users.find({}).forEach(function (item) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
                 var html = SSR.render('email_started_voting', {
                     dataGlosowania: moment(kwestiaItem.dataGlosowania).format('DD-MM-YYYY, HH:mm'),
@@ -291,7 +291,7 @@ Meteor.methods({
                     urlLogin: urlLogin,
                     username: item.profile.fullName,
                     wartoscPriorytetu: kwestiaItem.wartoscPriorytetu,
-                    welcomeGender: recognizeSex(item)
+                    welcomeGender: recognizeSex(item, lang)
                 });
                 Email.send({
                     from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
@@ -304,7 +304,7 @@ Meteor.methods({
     },
     sendApplicationConfirmation: function (idUser, lang) {
         var userData = UsersDraft.findOne({_id: idUser});
-        var data = applicationEmail(userData, 'confirm', null);
+        var data = applicationEmail(userData, 'confirm', null, lang);
         Email.send({
             to: data.to,
             from: data.to,
@@ -313,7 +313,7 @@ Meteor.methods({
         });
     },
     sendApplicationRejected: function (userData, lang) {
-        var data = applicationEmail(userData, 'reject', null);
+        var data = applicationEmail(userData, 'reject', null, lang);
         Email.send({
             to: data.to,
             from: data.to,
@@ -321,18 +321,18 @@ Meteor.methods({
             html: data.html
         });
     },
-    sendApplicationAccepted: function (userData, text, lang) {
-        var data = applicationEmail(userData, text, null);
+    sendApplicationAccepted: function (userData, text) {
+        var data = applicationEmail(userData, text, null, lang);
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TAPi18n.__('txv.POSITIVE_CONSIDER', null, lang) + data.userType,
+            subject: TAPi18n.__('txv.POSITIVE_CONSIDER') + data.userType,
             html: data.html
         });
     },
     sendFirstLoginData: function (idUser, pass, lang) {
         var userData = Users.findOne({_id: idUser});
-        var data = applicationEmail(userData, 'loginData', pass);
+        var data = applicationEmail(userData, 'loginData', pass, lang);
         Email.send({
             to: data.to,
             from: data.to,
@@ -343,14 +343,14 @@ Meteor.methods({
     sendResetPasswordEmail: function (email, pass) {
         var users = Users.find();
         users.forEach(function (user) {
-            _.each(user.emails, function (em, lang) {
+            _.each(user.emails, function (em) {
                 if (_.isEqual(em.address.toLowerCase(), email.toLowerCase())) {
                     var userData = user;
-                    var data = applicationEmail(userData, 'resetPassword', pass);
+                    var data = applicationEmail(userData, 'resetPassword', pass, lang);
                     Email.send({
                         to: data.to,
                         from: data.to,
-                        subject: TAPi18n.__('txv.RESET_ACCES_PASS', null, lang) + Parametr.findOne().nazwaOrganizacji,
+                        subject: TAPi18n.__('txv.RESET_ACCES_PASS') + Parametr.findOne().nazwaOrganizacji,
                         html: data.html
                     });
                 }

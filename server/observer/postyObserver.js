@@ -69,9 +69,9 @@ Meteor.startup(function () {
                                                 var user = Users.findOne({_id:userDraft.profile.idUser});
                                                 addPowiadomienieAplikacjaRespondMethod(kwestia._id,new Date(),NOTIFICATION_TYPE.APPLICATION_REJECTED,user._id);
                                             }
-                                            Meteor.call('sendApplicationRejected',userDraft,function (error,ret) {
+                                            Meteor.call('sendApplicationRejected', userDraft, null, function (error) {
                                                 if (!error)
-                                                    Meteor.call('removeUserDraft',userDraft);
+                                                    Meteor.call('removeUserDraft', userDraft);
                                                 else {
                                                     var emailError = {
                                                         idIssue: kwestia._id,
@@ -123,7 +123,7 @@ Meteor.startup(function () {
                                                 var user = Users.findOne({_id:userDraft.profile.idUser});
                                                 addPowiadomienieAplikacjaRespondMethod(kwestia._id,new Date(),NOTIFICATION_TYPE.APPLICATION_REJECTED,user._id);
                                             }
-                                            Meteor.call('sendApplicationRejected',userDraft,function (error,ret) {
+                                            Meteor.call('sendApplicationRejected', userDraft, null, function (error) {
                                                 if (!error)
                                                     Meteor.call('removeUserDraft',userDraft);
                                                 else {

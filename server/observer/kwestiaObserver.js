@@ -35,7 +35,7 @@ Meteor.startup(function () {
     });
 
     kwestie.observe({
-        changedAt: function (newKwestia, oldKwestia, atIndex) {
+        changedAt: function (newKwestia, oldKwestia) {
             var kworum = liczenieKworumZwykle();
             var usersCount = newKwestia.glosujacy.length;
             var ZRDraft = null;
@@ -104,7 +104,6 @@ Meteor.startup(function () {
                         {sort: {wartoscPriorytetu: -1, dataWprowadzenia: 1}});
 
                     var arrayKwestie = [];
-                    var idParent = oldKwestia.idParent;
                     kwestie.forEach(function (kwestia) {
                         var condtion = null;
                         if (kwestia.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
