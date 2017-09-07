@@ -1,14 +1,14 @@
 Meteor.startup(function () {
     var rodzaj = {
-        "_id": "qMqF9S9hjZFz4bRK7",
-        "idTemat": "3TBYqrgpJiQQSDEbt",
-        "nazwaRodzaj": TAPi18n.__('txv.ADOPT')
+        '_id': 'qMqF9S9hjZFz4bRK7',
+        'idTemat': '3TBYqrgpJiQQSDEbt',
+        'nazwaRodzaj': TAPi18n.__('txv.ADOPT')
     };
 
-    var rodzaj2= {
-        "_id": "qMqF9S9hjZFz4bRK8",
-        "idTemat": "3TBYqrgpJiQQSDEbt",
-        "nazwaRodzaj": TAPi18n.__('txv.STATUTORY')
+    var rodzaj2 = {
+        '_id': 'qMqF9S9hjZFz4bRK8',
+        'idTemat': '3TBYqrgpJiQQSDEbt',
+        'nazwaRodzaj': TAPi18n.__('txv.STATUTORY')
     };
 
     if (Rodzaj.find().count() == 0) {

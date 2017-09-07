@@ -7,8 +7,8 @@
  *
  */
 
-Meteor.startup ( function () {
-    var kwestie = Kwestia.find ( {
+Meteor.startup(function () {
+    var kwestie = Kwestia.find({
         //czyAktywny: true,
         status: {
             $in: [
@@ -20,66 +20,66 @@ Meteor.startup ( function () {
                 KWESTIA_STATUS.OSOBOWA
             ]
         }
-    } );
-    var zespoly = ImplemTeamDraft.find ( { } );
+    });
+    var zespoly = ImplemTeamDraft.find({ });
 
-    zespoly.observe ( {
-        changedAt: function ( newZespol, oldZespol, atIndex ) {
-            var kworum = liczenieKworumZwykle ();
-            var kwestia = Kwestia.findOne ( {czyAktywny: true, idZespolRealizacyjny: newZespol._id } );
-            if ( kwestia != null ) {
-                if ( kwestia.wartoscPriorytetu > 0 && kwestia.glosujacy.length >= kworum && newZespol.zespol.length >= 3 && kwestia.status != KWESTIA_STATUS.REALIZOWANA ) {
-                    if ( kwestia.status == KWESTIA_STATUS.DELIBEROWANA ) {
-                        moveIssueAsAvote ( kwestia );
+    zespoly.observe({
+        changedAt: function (newZespol, oldZespol, atIndex) {
+            var kworum = liczenieKworumZwykle();
+            var kwestia = Kwestia.findOne({czyAktywny: true, idZespolRealizacyjny: newZespol._id});
+            if (kwestia != null) {
+                if (kwestia.wartoscPriorytetu > 0 && kwestia.glosujacy.length >= kworum && newZespol.zespol.length >= 3 && kwestia.status != KWESTIA_STATUS.REALIZOWANA) {
+                    if (kwestia.status == KWESTIA_STATUS.DELIBEROWANA) {
+                        moveIssueAsAvote(kwestia);
                     }
                 }
             }
         }
-    } );
-    moveIssueAsAvote = function ( newKwestia,ZRDraft,ifUpdateZR ) {
-        if ( kwestiaAllowedToGlosowana () ) {
-            var czasGlosowania = Parametr.findOne ( { } ).voteDuration;
-            var final = moment ( new Date () ).add ( czasGlosowania, "hours" ).format ();
-            var start = new Date ();
-            Meteor.call ( 'updStatDateVotingIssueFinal', newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,function ( error ) {
-                if ( error )
-                    console.log ( error.reason );
-            } );
-            Meteor.call ( "sendEmailStartedVoting",newKwestia._id, getUserLanguage (), function ( error ) {
-                if ( error ) {
+    });
+    moveIssueAsAvote = function (newKwestia,ZRDraft,ifUpdateZR) {
+        if (kwestiaAllowedToGlosowana()) {
+            var czasGlosowania = Parametr.findOne({ }).voteDuration;
+            var final = moment(new Date()).add(czasGlosowania, 'hours').format();
+            var start = new Date();
+            Meteor.call('updStatDateVotingIssueFinal', newKwestia._id, KWESTIA_STATUS.GLOSOWANA, final,start,function (error) {
+                if (error)
+                    console.log(error.reason);
+            });
+            Meteor.call('sendEmailStartedVoting',newKwestia._id, getUserLanguage(), function (error) {
+                if (error) {
                     var emailError = {
                         idIssue: newKwestia._id,
                         type: NOTIFICATION_TYPE.VOTE_BEGINNING
                     };
-                    Meteor.call ( "addEmailError", emailError );
+                    Meteor.call('addEmailError', emailError);
                 }
-            } );
-            addNotificationIssueVoteMethod ( newKwestia._id );
+            });
+            addNotificationIssueVoteMethod(newKwestia._id);
         }
     };
 
-    addNotificationIssueVoteMethod=function ( idKwestia ) {
-        var users=Users.find ( { 'profile.userType': USERTYPE.CZLONEK } );
-        var kwestia=Kwestia.findOne ( { _id:idKwestia } );
-        users.forEach ( function ( user ) {
-            var newPowiadomienie ={
+    addNotificationIssueVoteMethod = function (idKwestia) {
+        var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
+        var kwestia = Kwestia.findOne({_id:idKwestia});
+        users.forEach(function (user) {
+            var newPowiadomienie = {
                 idOdbiorca: user._id,
                 idNadawca: null,
-                dataWprowadzenia: new Date (),
-                tytul: "",
+                dataWprowadzenia: new Date(),
+                tytul: '',
                 powiadomienieTyp: NOTIFICATION_TYPE.VOTE_BEGINNING,
-                tresc: "",
+                tresc: '',
                 idKwestia:idKwestia,
                 kwestia:kwestia,
                 czyAktywny: true,
                 czyOdczytany: false
             };
-            Meteor.call ( "addPowiadomienie",newPowiadomienie,function ( error ) {
-                if ( error )
-                    console.log ( error.reason );
-            } );
-        } );
+            Meteor.call('addPowiadomienie',newPowiadomienie,function (error) {
+                if (error)
+                    console.log(error.reason);
+            });
+        });
     };
- } );
+});
 
 

@@ -1,4 +1,4 @@
-;
+
 (function () {
 
     /**
@@ -12,10 +12,10 @@
      *   ex: { _id:<uuid>, name: "admin" }
      */
     if (!Meteor.roles) {
-        Meteor.roles = new Meteor.Collection("roles")
+        Meteor.roles = new Meteor.Collection('roles');
     }
-    if(!Subroles){
-        Subroles = new Meteor.Collection("subroles")
+    if (!Subroles) {
+        Subroles = new Meteor.Collection('subroles');
     }
 
 
@@ -28,12 +28,12 @@
      * @constructor
      */
     if ('undefined' === typeof Roles) {
-        Roles = {}
+        Roles = {};
     }
 
-    "use strict";
+    'use strict';
 
-    var mixingGroupAndNonGroupErrorMsg = "Roles error: Can't mix grouped and non-grouped roles for same user";
+    var mixingGroupAndNonGroupErrorMsg = 'Roles error: Can\'t mix grouped and non-grouped roles for same user';
 
     _.extend(Roles, {
 
@@ -66,27 +66,27 @@
          */
         createRole: function (role) {
             var id,
-                match
+                match;
 
             if (!role
                 || 'string' !== typeof role
                 || role.trim().length === 0) {
-                return
+                return;
             }
 
             try {
-                id = Meteor.roles.insert({'name': role.trim()})
-                return id
+                id = Meteor.roles.insert({'name': role.trim()});
+                return id;
             } catch (e) {
                 // (from Meteor accounts-base package, insertUserDoc func)
                 // XXX string parsing sucks, maybe
                 // https://jira.mongodb.org/browse/SERVER-3069 will get fixed one day
-                if (e.name !== 'MongoError') throw e
-                match = e.err.match(/^E11000 duplicate key error index: ([^ ]+)/)
-                if (!match) throw e
+                if (e.name !== 'MongoError') throw e;
+                match = e.err.match(/^E11000 duplicate key error index: ([^ ]+)/);
+                if (!match) throw e;
                 if (match[1].indexOf('$name') !== -1)
-                    throw new Meteor.Error(403, "Role already exists.")
-                throw e
+                    throw new Meteor.Error(403, 'Role already exists.');
+                throw e;
             }
         },
 
@@ -98,40 +98,40 @@
          * @param {String} role Name of role
          */
         deleteRole: function (role) {
-            if (!role) return
+            if (!role) return;
 
             var foundExistingUser = Meteor.users.findOne(
                 {roles: {$in: [role]}},
-                {fields: {_id: 1}})
+                {fields: {_id: 1}});
 
             if (foundExistingUser) {
-                throw new Meteor.Error(403, 'Role in use')
+                throw new Meteor.Error(403, 'Role in use');
             }
 
-            var thisRole = Meteor.roles.findOne({name: role})
+            var thisRole = Meteor.roles.findOne({name: role});
             if (thisRole) {
-                Meteor.roles.remove({_id: thisRole._id})
+                Meteor.roles.remove({_id: thisRole._id});
             }
         },
 
         deleteSubRole: function (subRole) {
-            if (!subRole) return
+            if (!subRole) return;
 
-            Meteor.roles.update({}, {$pull: {"subRoles": {$in: [subRole]}}}, {multi: true})
+            Meteor.roles.update({}, {$pull: {'subRoles': {$in: [subRole]}}}, {multi: true});
         },
 
         deleteSubRoleFormRole: function (role, subRole) {
-            if (!role || !subRole) return
+            if (!role || !subRole) return;
 
-            Meteor.roles.update({name: role}, {$pull: {"subRoles": {$in: [subRole]}}})
+            Meteor.roles.update({name: role}, {$pull: {'subRoles': {$in: [subRole]}}});
         },
 
         addSubRoleToRole: function (role, subRole) {
-            Meteor.roles.update({name: role}, {$push: {"subRoles": subRole}})
+            Meteor.roles.update({name: role}, {$push: {'subRoles': subRole}});
         },
 
         addRolesToUsers: function (user, roles) {
-            Meteor.users.update({name: user}, {$push: {"roles": roles}});
+            Meteor.users.update({name: user}, {$push: {'roles': roles}});
         },
         /**
          * Add users to roles. Will create roles as needed.
@@ -166,7 +166,7 @@
          */
         addUsersToRoles: function (users, roles, group) {
             // use Template pattern to update user roles
-            Roles._updateUserRoles(users, roles, group, Roles._update_$addToSet_fn)
+            Roles._updateUserRoles(users, roles, group, Roles._update_$addToSet_fn);
         },
 
         /**
@@ -195,7 +195,7 @@
          */
         setUserRoles: function (users, roles, group) {
             // use Template pattern to update user roles
-            Roles._updateUserRoles(users, roles, group, Roles._update_$set_fn)
+            Roles._updateUserRoles(users, roles, group, Roles._update_$set_fn);
         },
 
         /**
@@ -214,67 +214,66 @@
          *                         group will have roles removed.
          */
         removeUsersFromRoles: function (users, roles, group) {
-            var update
+            var update;
 
-            if (!users) throw new Error("Missing 'users' param")
-            if (!roles) throw new Error("Missing 'roles' param")
+            if (!users) throw new Error('Missing \'users\' param');
+            if (!roles) throw new Error('Missing \'roles\' param');
             if (group) {
                 if ('string' !== typeof group)
-                    throw new Error("Roles error: Invalid parameter 'group'. Expected 'string' type")
+                    throw new Error('Roles error: Invalid parameter \'group\'. Expected \'string\' type');
                 if ('$' === group[0])
-                    throw new Error("Roles error: groups can not start with '$'")
+                    throw new Error('Roles error: groups can not start with \'$\'');
 
                 // convert any periods to underscores
-                group = group.replace(/\./g, '_')
+                group = group.replace(/\./g, '_');
             }
 
             // ensure arrays
-            if (!_.isArray(users)) users = [users]
-            if (!_.isArray(roles)) roles = [roles]
+            if (!_.isArray(users)) users = [users];
+            if (!_.isArray(roles)) roles = [roles];
 
             // ensure users is an array of user ids
             users = _.reduce(users, function (memo, user) {
-                var _id
+                var _id;
                 if ('string' === typeof user) {
-                    memo.push(user)
+                    memo.push(user);
                 } else if ('object' === typeof user) {
-                    _id = user._id
+                    _id = user._id;
                     if ('string' === typeof _id) {
-                        memo.push(_id)
+                        memo.push(_id);
                     }
                 }
-                return memo
-            }, [])
+                return memo;
+            }, []);
 
             // update all users, remove from roles set
 
             if (group) {
-                update = {$pullAll: {}}
-                update.$pullAll['roles.' + group] = roles
+                update = {$pullAll: {}};
+                update.$pullAll['roles.' + group] = roles;
             } else {
-                update = {$pullAll: {roles: roles}}
+                update = {$pullAll: {roles: roles}};
             }
 
             try {
                 if (Meteor.isClient) {
                     // Iterate over each user to fulfill Meteor's 'one update per ID' policy
                     _.each(users, function (user) {
-                        Meteor.users.update({_id: user}, update)
-                    })
+                        Meteor.users.update({_id: user}, update);
+                    });
                 } else {
                     // On the server we can leverage MongoDB's $in operator for performance
-                    Meteor.users.update({_id: {$in: users}}, update, {multi: true})
+                    Meteor.users.update({_id: {$in: users}}, update, {multi: true});
                 }
-            }
-            catch (ex) {
-                var removeNonGroupedRoleFromGroupMsg = 'Cannot apply $pull/$pullAll modifier to non-array'
+            } catch (ex) {
+                var removeNonGroupedRoleFromGroupMsg = 'Cannot apply $pull/$pullAll modifier to non-array';
 
                 if (ex.name === 'MongoError' &&
                     ex.err === removeNonGroupedRoleFromGroupMsg) {
-                    throw new Error(mixingGroupAndNonGroupErrorMsg)
+                    throw new Error(mixingGroupAndNonGroupErrorMsg);
                 }
 
-                throw ex
+                throw ex;
             }
         },
 
@@ -312,58 +311,58 @@
                 userRoles,
                 query,
                 groupQuery,
-                found = false
+                found = false;
 
             // ensure array to simplify code
             if (!_.isArray(roles)) {
-                roles = [roles]
+                roles = [roles];
             }
 
-            if (!user) return false
+            if (!user) return false;
             if (group) {
-                if ('string' !== typeof group) return false
-                if ('$' === group[0]) return false
+                if ('string' !== typeof group) return false;
+                if ('$' === group[0]) return false;
 
                 // convert any periods to underscores
-                group = group.replace(/\./g, '_')
+                group = group.replace(/\./g, '_');
             }
 
             if ('object' === typeof user) {
-                userRoles = user.roles
+                userRoles = user.roles;
                 if (_.isArray(userRoles)) {
                     return _.some(roles, function (role) {
-                        return _.contains(userRoles, role)
-                    })
+                        return _.contains(userRoles, role);
+                    });
                 } else if ('object' === typeof userRoles) {
                     // roles field is dictionary of groups
                     found = _.isArray(userRoles[group]) && _.some(roles, function (role) {
-                            return _.contains(userRoles[group], role)
-                        })
+                        return _.contains(userRoles[group], role);
+                    });
                     if (!found) {
                         // not found in regular group or group not specified.
                         // check Roles.GLOBAL_GROUP, if it exists
                         found = _.isArray(userRoles[Roles.GLOBAL_GROUP]) && _.some(roles, function (role) {
-                                return _.contains(userRoles[Roles.GLOBAL_GROUP], role)
-                            })
+                            return _.contains(userRoles[Roles.GLOBAL_GROUP], role);
+                        });
                     }
-                    return found
+                    return found;
                 }
 
                 // missing roles field, try going direct via id
-                id = user._id
+                id = user._id;
             } else if ('string' === typeof user) {
-                id = user
+                id = user;
             }
 
-            if (!id) return false
+            if (!id) return false;
 
 
-            query = {_id: id, $or: []}
+            query = {_id: id, $or: []};
 
             // always check Roles.GLOBAL_GROUP
-            groupQuery = {}
-            groupQuery['roles.' + Roles.GLOBAL_GROUP] = {$in: roles}
-            query.$or.push(groupQuery)
+            groupQuery = {};
+            groupQuery['roles.' + Roles.GLOBAL_GROUP] = {$in: roles};
+            query.$or.push(groupQuery);
 
             if (group) {
                 // structure of query, when group specified including Roles.GLOBAL_GROUP
@@ -372,9 +371,9 @@
                 //      {'roles.group1':{$in: ['admin']}},
                 //      {'roles.__global_roles__':{$in: ['admin']}}
                 //    ]}
-                groupQuery = {}
-                groupQuery['roles.' + group] = {$in: roles}
-                query.$or.push(groupQuery)
+                groupQuery = {};
+                groupQuery['roles.' + group] = {$in: roles};
+                query.$or.push(groupQuery);
             } else {
                 // structure of query, where group not specified. includes
                 // Roles.GLOBAL_GROUP
@@ -383,11 +382,11 @@
                 //      {roles: {$in: ['admin']}},
                 //      {'roles.__global_roles__': {$in: ['admin']}}
                 //    ]}
-                query.$or.push({roles: {$in: roles}})
+                query.$or.push({roles: {$in: roles}});
             }
 
-            found = Meteor.users.findOne(query, {fields: {_id: 1}})
-            return found ? true : false
+            found = Meteor.users.findOne(query, {fields: {_id: 1}});
+            return found ? true : false;
         },
 
         /**
@@ -400,36 +399,36 @@
          * @return {Array} Array of user's roles, unsorted.
          */
         getRolesForUser: function (user, group) {
-            if (!user) return []
+            if (!user) return [];
             if (group) {
-                if ('string' !== typeof group) return []
-                if ('$' === group[0]) return []
+                if ('string' !== typeof group) return [];
+                if ('$' === group[0]) return [];
 
                 // convert any periods to underscores
-                group = group.replace(/\./g, '_')
+                group = group.replace(/\./g, '_');
             }
 
             if ('string' === typeof user) {
                 user = Meteor.users.findOne(
                     {_id: user},
-                    {fields: {roles: 1}})
+                    {fields: {roles: 1}});
 
             } else if ('object' !== typeof user) {
                 // invalid user object
-                return []
+                return [];
             }
 
-            if (!user || !user.roles) return []
+            if (!user || !user.roles) return [];
 
             if (group) {
-                return _.union(user.roles[group] || [], user.roles[Roles.GLOBAL_GROUP] || [])
+                return _.union(user.roles[group] || [], user.roles[Roles.GLOBAL_GROUP] || []);
             }
 
             if (_.isArray(user.roles))
-                return user.roles
+                return user.roles;
 
             // using groups but group not specified. return global group, if exists
-            return user.roles[Roles.GLOBAL_GROUP] || []
+            return user.roles[Roles.GLOBAL_GROUP] || [];
         },
 
         /**
@@ -439,7 +438,7 @@
          * @return {Cursor} cursor of existing roles
          */
         getAllRoles: function () {
-            return Meteor.roles.find({}, {sort: {name: 1}})
+            return Meteor.roles.find({}, {sort: {name: 1}});
         },
 
         /**
@@ -461,27 +460,27 @@
         getUsersInRole: function (role, group) {
             var query,
                 roles = role,
-                groupQuery
+                groupQuery;
 
             // ensure array to simplify query logic
-            if (!_.isArray(roles)) roles = [roles]
+            if (!_.isArray(roles)) roles = [roles];
 
             if (group) {
                 if ('string' !== typeof group)
-                    throw new Error("Roles error: Invalid parameter 'group'. Expected 'string' type")
+                    throw new Error('Roles error: Invalid parameter \'group\'. Expected \'string\' type');
                 if ('$' === group[0])
-                    throw new Error("Roles error: groups can not start with '$'")
+                    throw new Error('Roles error: groups can not start with \'$\'');
 
                 // convert any periods to underscores
-                group = group.replace(/\./g, '_')
+                group = group.replace(/\./g, '_');
             }
 
-            query = {$or: []}
+            query = {$or: []};
 
             // always check Roles.GLOBAL_GROUP
-            groupQuery = {}
-            groupQuery['roles.' + Roles.GLOBAL_GROUP] = {$in: roles}
-            query.$or.push(groupQuery)
+            groupQuery = {};
+            groupQuery['roles.' + Roles.GLOBAL_GROUP] = {$in: roles};
+            query.$or.push(groupQuery);
 
             if (group) {
                 // structure of query, when group specified including Roles.GLOBAL_GROUP
@@ -490,9 +489,9 @@
                 //      {'roles.group1':{$in: ['admin']}},
                 //      {'roles.__global_roles__':{$in: ['admin']}}
                 //    ]}
-                groupQuery = {}
-                groupQuery['roles.' + group] = {$in: roles}
-                query.$or.push(groupQuery)
+                groupQuery = {};
+                groupQuery['roles.' + group] = {$in: roles};
+                query.$or.push(groupQuery);
             } else {
                 // structure of query, where group not specified. includes
                 // Roles.GLOBAL_GROUP
@@ -501,10 +500,10 @@
                 //      {roles: {$in: ['admin']}},
                 //      {'roles.__global_roles__': {$in: ['admin']}}
                 //    ]}
-                query.$or.push({roles: {$in: roles}})
+                query.$or.push({roles: {$in: roles}});
             }
 
-            return Meteor.users.find(query)
+            return Meteor.users.find(query);
         },  // end getUsersInRole
 
         getUsersWithPermissions: function (permissions, query, options) {
@@ -522,12 +521,10 @@
             var result;
             var user = null;
             if (_.isObject(userId)) {
-                user = userId
-            }
-            else if (_.isString(userId)) {
+                user = userId;
+            } else if (_.isString(userId)) {
                 user = Meteor.users.findOne({_id: userId});
-            }
-            else {
+            } else {
                 user = Meteor.users.findOne({_id: this.userId});
             }
 
@@ -541,7 +538,7 @@
 
             result = Meteor.roles.findOne({name: {$in: rolesToSearch}, subRoles: {$in: permission}});
 
-            if (!!result) return user; else return null;
+            if (result) return user; return null;
         },
 
         /**
@@ -556,27 +553,27 @@
         getGroupsForUser: function (user, role) {
             var userGroups = [];
 
-            if (!user) return []
+            if (!user) return [];
             if (role) {
-                if ('string' !== typeof role) return []
-                if ('$' === role[0]) return []
+                if ('string' !== typeof role) return [];
+                if ('$' === role[0]) return [];
 
                 // convert any periods to underscores
-                role = role.replace('.', '_')
+                role = role.replace('.', '_');
             }
 
             if ('string' === typeof user) {
                 user = Meteor.users.findOne(
                     {_id: user},
-                    {fields: {roles: 1}})
+                    {fields: {roles: 1}});
 
             } else if ('object' !== typeof user) {
                 // invalid user object
-                return []
+                return [];
             }
 
             //User has no roles or is not using groups
-            if (!user || !user.roles || _.isArray(user.roles)) return []
+            if (!user || !user.roles || _.isArray(user.roles)) return [];
 
             if (role) {
                 _.each(user.roles, function (groupRoles, groupName) {
@@ -585,9 +582,9 @@
                     }
                 });
                 return userGroups;
-            } else {
-                return _.without(_.keys(user.roles), Roles.GLOBAL_GROUP);
             }
+            return _.without(_.keys(user.roles), Roles.GLOBAL_GROUP);
+
 
         }, //End getGroupsForUser
 
@@ -603,18 +600,18 @@
          * @return {Object} update object for use in MongoDB update command
          */
         _update_$set_fn: function (roles, group) {
-            var update = {}
+            var update = {};
 
             if (group) {
                 // roles is a key/value dict object
-                update.$set = {}
-                update.$set['roles.' + group] = roles
+                update.$set = {};
+                update.$set['roles.' + group] = roles;
             } else {
                 // roles is an array of strings
-                update.$set = {roles: roles}
+                update.$set = {roles: roles};
             }
 
-            return update
+            return update;
         },  // end _update_$set_fn
 
         /**
@@ -628,18 +625,18 @@
          * @return {Object} update object for use in MongoDB update command
          */
         _update_$addToSet_fn: function (roles, group) {
-            var update = {}
+            var update = {};
 
             if (group) {
                 // roles is a key/value dict object
-                update.$addToSet = {}
-                update.$addToSet['roles.' + group] = {$each: roles}
+                update.$addToSet = {};
+                update.$addToSet['roles.' + group] = {$each: roles};
             } else {
                 // roles is an array of strings
-                update.$addToSet = {roles: {$each: roles}}
+                update.$addToSet = {roles: {$each: roles}};
             }
 
-            return update
+            return update;
         },  // end _update_$addToSet_fn
 
 
@@ -667,97 +664,96 @@
          *   @param {String} [group]
          */
         _updateUserRoles: function (users, roles, group, updateFactory) {
-            if (!users) throw new Error("Missing 'users' param")
-            if (!roles) throw new Error("Missing 'roles' param")
+            if (!users) throw new Error('Missing \'users\' param');
+            if (!roles) throw new Error('Missing \'roles\' param');
             if (group) {
                 if ('string' !== typeof group)
-                    throw new Error("Roles error: Invalid parameter 'group'. Expected 'string' type")
+                    throw new Error('Roles error: Invalid parameter \'group\'. Expected \'string\' type');
                 if ('$' === group[0])
-                    throw new Error("Roles error: groups can not start with '$'")
+                    throw new Error('Roles error: groups can not start with \'$\'');
 
                 // convert any periods to underscores
-                group = group.replace(/\./g, '_')
+                group = group.replace(/\./g, '_');
             }
 
             var existingRoles,
                 query,
-                update
+                update;
 
             // ensure arrays to simplify code
-            if (!_.isArray(users)) users = [users]
-            if (!_.isArray(roles)) roles = [roles]
+            if (!_.isArray(users)) users = [users];
+            if (!_.isArray(roles)) roles = [roles];
 
             // remove invalid roles
             roles = _.reduce(roles, function (memo, role) {
                 if (role
                     && 'string' === typeof role
                     && role.trim().length > 0) {
-                    memo.push(role.trim())
+                    memo.push(role.trim());
                 }
-                return memo
-            }, [])
+                return memo;
+            }, []);
 
             // empty roles array is ok, since it might be a $set operation to clear roles
             //if (roles.length === 0) return
 
             // ensure all roles exist in 'roles' collection
             existingRoles = _.reduce(Meteor.roles.find({}).fetch(), function (memo, role) {
-                memo[role.name] = true
-                return memo
-            }, {})
+                memo[role.name] = true;
+                return memo;
+            }, {});
             _.each(roles, function (role) {
                 if (!existingRoles[role]) {
-                    Roles.createRole(role)
+                    Roles.createRole(role);
                 }
-            })
+            });
 
             // ensure users is an array of user ids
             users = _.reduce(users, function (memo, user) {
-                var _id
+                var _id;
                 if ('string' === typeof user) {
-                    memo.push(user)
+                    memo.push(user);
                 } else if ('object' === typeof user) {
-                    _id = user._id
+                    _id = user._id;
                     if ('string' === typeof _id) {
-                        memo.push(_id)
+                        memo.push(_id);
                     }
                 }
-                return memo
-            }, [])
+                return memo;
+            }, []);
 
             // update all users
-            update = updateFactory(roles, group)
+            update = updateFactory(roles, group);
 
             try {
                 if (Meteor.isClient) {
                     // On client, iterate over each user to fulfill Meteor's
                     // 'one update per ID' policy
                     _.each(users, function (user) {
-                        Meteor.users.update({_id: user}, update)
-                    })
+                        Meteor.users.update({_id: user}, update);
+                    });
                 } else {
                     // On the server we can use MongoDB's $in operator for
                     // better performance
                     Meteor.users.update(
                         {_id: {$in: users}},
                         update,
-                        {multi: true})
+                        {multi: true});
                 }
-            }
-            catch (ex) {
+            } catch (ex) {
                 var addNonGroupToGroupedRolesMsg = 'Cannot apply $addToSet modifier to non-array',
-                    addGrouped2NonGroupedMsg = "can't append to array using string field name"
+                    addGrouped2NonGroupedMsg = 'can\'t append to array using string field name';
 
                 if (ex.name === 'MongoError' &&
                     (ex.err === addNonGroupToGroupedRolesMsg ||
                     ex.err.substring(0, 45) === addGrouped2NonGroupedMsg)) {
-                    throw new Error(mixingGroupAndNonGroupErrorMsg)
+                    throw new Error(mixingGroupAndNonGroupErrorMsg);
                 }
 
-                throw ex
+                throw ex;
             }
         }  // end _updateUserRoles
 
-    })  // end _.extend(Roles ...)
+    });  // end _.extend(Roles ...)
 
 }());

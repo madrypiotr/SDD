@@ -1,7 +1,7 @@
-Meteor.methods ( {
-    addParametrDraft: function ( newParametr ) {
-        var id = ParametrDraft.insert ( {
-            dataWprowadzenia: new Date (),
+Meteor.methods({
+    addParametrDraft: function (newParametr) {
+        var id = ParametrDraft.insert({
+            dataWprowadzenia: new Date(),
             nazwaOrganizacji: newParametr.nazwaOrganizacji,
             terytorium: newParametr.terytorium,
             terytAdres: newParametr.terytAdres,
@@ -17,10 +17,10 @@ Meteor.methods ( {
             addReferencePause:newParametr.addReferencePause,
             okresSkladaniaRR:newParametr.okresSkladaniaRR,
             czyAktywny: true
-        } );
+        });
         return id;
     },
-    setActivityParametrDraft: function ( id,czyAktywny ) {
-        ParametrDraft.update ( id, {$set: {czyAktywny: czyAktywny}}, {upsert: true } );
+    setActivityParametrDraft: function (id,czyAktywny) {
+        ParametrDraft.update(id, {$set: {czyAktywny: czyAktywny}}, {upsert: true});
     }
- } );
+});

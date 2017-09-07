@@ -1,9 +1,9 @@
-Accounts.config ( {
+Accounts.config({
     forbidClientAccountCreation: true,
     loginExpirationInDays: null
- } );
+});
 
-Users.deny ( {
+Users.deny({
     insert: function () {
         return true;
     },
@@ -13,4 +13,4 @@ Users.deny ( {
     remove: function () {
         return true;
     }
- } );
+});

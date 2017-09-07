@@ -5,7 +5,7 @@ Accounts.ui.config({
 });
 
 Accounts.config({
-	// disabled: 
+    // disabled: 
     //forbidClientAccountCreation:true
     //restrictCreationByEmailDomain
 });

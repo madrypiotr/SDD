@@ -1,10 +1,10 @@
-Meteor.startup ( function () {
+Meteor.startup(function () {
     //var systemParameters = [
     //    {
     //        "systemPrefix": generateSystemPrefix ()
     //    }
     //];
-    if ( System.find ().count () == 0 ) {
+    if (System.find().count() == 0) {
         //Meteor.call ( 'addSystemParameters', systemParameters, function ( error, ret ) {
         //    if ( error ) {
         //        if ( typeof Errors === "undefined" )
@@ -14,11 +14,11 @@ Meteor.startup ( function () {
         //        }
         //    }
         // } );
-        System.insert ( {
-            systemPrefix: "AA001"
-        } );
+        System.insert({
+            systemPrefix: 'AA001'
+        });
     }
- } );
+});
 
 //TO DO: This function is prepared for next system instances but need to be modified when it will be ready
 //generateSystemPrefix = function () {

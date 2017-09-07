@@ -1,6 +1,6 @@
-Meteor.methods ( {
-    addUserDraft: function ( newUser ) {
-     var id= UsersDraft.insert ( {
+Meteor.methods({
+    addUserDraft: function (newUser) {
+        var id = UsersDraft.insert({
             username: newUser[0].login,
             email: newUser[0].email,
             profile: {
@@ -17,38 +17,38 @@ Meteor.methods ( {
                 city:newUser[0].city,
                 pesel:newUser[0].pesel
             },
-             czyZrealizowany: false, 
-             linkAktywacyjny:null,
-             czyAktywny: true,
-             dataWprowadzenia:new Date (),
-             licznikKlikniec:0
-        } );
+            czyZrealizowany: false,
+            linkAktywacyjny:null,
+            czyAktywny: true,
+            dataWprowadzenia:new Date(),
+            licznikKlikniec:0
+        });
         return id;
 
     },
-    removeUserDraft: function ( id ) {
-        UsersDraft.update ( { _id:id },{$set:{czyAktywny: false, czyZrealizowany: true} } );
+    removeUserDraft: function (id) {
+        UsersDraft.update({_id:id},{$set:{czyAktywny: false, czyZrealizowany: true}});
     },
-    removeUserDraftAddNewIdUser: function ( id,idUser ) {
-        UsersDraft.update ( { _id:id },{$set:{czyAktywny: false, czyZrealizowany: true,'profile.idUser': idUser} } );
+    removeUserDraftAddNewIdUser: function (id,idUser) {
+        UsersDraft.update({_id:id},{$set:{czyAktywny: false, czyZrealizowany: true,'profile.idUser': idUser}});
     },
-    removeUserDraftNotZrealizowany: function ( id ) {
-        UsersDraft.update ( { _id:id },{$set:{czyAktywny: false, czyZrealizowany: false} } );
+    removeUserDraftNotZrealizowany: function (id) {
+        UsersDraft.update({_id:id},{$set:{czyAktywny: false, czyZrealizowany: false}});
     },
-    removeUserDraftNotZrealizowanyLicznik: function ( id,licznik ) {
-        UsersDraft.update ( { _id:id },{$set:{czyAktywny: false, czyZrealizowany: false, licznikKlikniec:licznik} } );
+    removeUserDraftNotZrealizowanyLicznik: function (id,licznik) {
+        UsersDraft.update({_id:id},{$set:{czyAktywny: false, czyZrealizowany: false, licznikKlikniec:licznik}});
     },
-    setZrealizowanyActivationHashUserDraft: function ( id,activationLink,realization ) {
-        UsersDraft.update ( { _id:id },{$set:{linkAktywacyjny:activationLink,czyZrealizowany:realization} } );
+    setZrealizowanyActivationHashUserDraft: function (id,activationLink,realization) {
+        UsersDraft.update({_id:id},{$set:{linkAktywacyjny:activationLink,czyZrealizowany:realization}});
     },
-    setActivationHashUserDraft: function ( id,activationLink ) {
-        UsersDraft.update ( { _id:id },{$set:{linkAktywacyjny:activationLink} } );
+    setActivationHashUserDraft: function (id,activationLink) {
+        UsersDraft.update({_id:id},{$set:{linkAktywacyjny:activationLink}});
     },
-	/**	Updating click count
+    /**	Updating click count
 	* @param id - Jego źródło ... jego rola w procedurze ... opis opis opis opis opis opis ...
 	* @param counter - Jego źródło ... jego rola w procedurze opis opis opis ...
 	*/
-    updateLicznikKlikniec: function ( id, counter ) {
-        UsersDraft.update ( { _id: id },{$set: {licznikKlikniec: counter} } );
-    },
- } );
+    updateLicznikKlikniec: function (id, counter) {
+        UsersDraft.update({_id: id},{$set: {licznikKlikniec: counter}});
+    }
+});

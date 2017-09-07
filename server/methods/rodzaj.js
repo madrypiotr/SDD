@@ -1,6 +1,6 @@
 Meteor.methods({
     addRodzaj: function (newRodzaj) {
-        var id=Rodzaj.insert({
+        var id = Rodzaj.insert({
             idTemat: newRodzaj[0].idTemat,
             nazwaRodzaj: newRodzaj[0].nazwaRodzaj,
             czasDyskusji: newRodzaj[0].czasDyskusji,

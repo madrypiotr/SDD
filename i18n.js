@@ -1,7 +1,7 @@
-i18n.setDefaultLanguage("pl");
+i18n.setDefaultLanguage('pl');
 
 getUserLanguage = function () {
-    var defaultLang = "pl";
+    var defaultLang = 'pl';
     var userId = Meteor.userId();
     var user = Users.findOne({_id: userId});
     if (user && user.profile.language) {

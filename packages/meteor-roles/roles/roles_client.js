@@ -1,4 +1,4 @@
-;
+
 (function () {
 
     /**
@@ -45,28 +45,28 @@
         isInRole: function (role, group) {
             var user = Meteor.user(),
                 comma = (role || '').indexOf(','),
-                roles
+                roles;
 
-            if (!user) return false
-            if (!Match.test(role, String)) return false
+            if (!user) return false;
+            if (!Match.test(role, String)) return false;
 
             if (comma !== -1) {
                 roles = _.reduce(role.split(','), function (memo, r) {
                     if (!r || !r.trim()) {
-                        return memo
+                        return memo;
                     }
-                    memo.push(r.trim())
-                    return memo
-                }, [])
+                    memo.push(r.trim());
+                    return memo;
+                }, []);
             } else {
-                roles = [role]
+                roles = [role];
             }
 
             if (Match.test(group, String)) {
-                return Roles.userIsInRole(user, roles, group)
+                return Roles.userIsInRole(user, roles, group);
             }
 
-            return Roles.userIsInRole(user, roles)
+            return Roles.userIsInRole(user, roles);
         },
         userHasPermission: function (permission) {
             var result = false;
@@ -96,21 +96,21 @@
                 return false;
             }
         }
-    }
+    };
 
     Roles.userHasPermission = Roles._uiHelpers.userHasPermission;
     Roles.userHasRole = Roles._uiHelpers.userHasRole;
 
     if (Package.ui) {
         _.each(Roles._uiHelpers, function (func, name) {
-            Package.ui.UI.registerHelper(name, func)
-        })
+            Package.ui.UI.registerHelper(name, func);
+        });
     } else if (Package.handlebars) {
         _.each(Roles._uiHelpers, function (func, name) {
-            Package.handlebars.Handlebars.registerHelper(name, func)
-        })
+            Package.handlebars.Handlebars.registerHelper(name, func);
+        });
     } else {
-        console.log && console.log('WARNING: Roles template helpers not registered. Handlebars or UI package not found')
+        console.log && console.log('WARNING: Roles template helpers not registered. Handlebars or UI package not found');
     }
 
 }());

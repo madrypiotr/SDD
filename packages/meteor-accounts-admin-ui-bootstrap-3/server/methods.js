@@ -1,109 +1,109 @@
 Meteor.methods({
-	deleteUser: function(userId) {
-		var user = Meteor.user();
-		if (!user || !Roles.userIsInRole(user, ['admin']))
-			throw new Meteor.Error(401, "Musisz być adminem, aby edytować użytkownika.");
+    deleteUser: function (userId) {
+        var user = Meteor.user();
+        if (!user || !Roles.userIsInRole(user, ['admin']))
+            throw new Meteor.Error(401, 'Musisz być adminem, aby edytować użytkownika.');
 
-		if (user._id == userId)
-			throw new Meteor.Error(422, 'Nie możesz usuwać sam siebie.');
-		
-		// remove the user
-		Meteor.users.remove(userId);
-	},
+        if (user._id == userId)
+            throw new Meteor.Error(422, 'Nie możesz usuwać sam siebie.');
 
-	addUserRole: function(userId, role) {
-		var user = Meteor.user();
-		if (!user || !Roles.userIsInRole(user, ['admin']))
-			throw new Meteor.Error(401, "Musisz być adminem, aby edytować użytkownika.");
+        // remove the user
+        Meteor.users.remove(userId);
+    },
 
-		if (user._id == userId)
-			throw new Meteor.Error(422, 'Nie możesz edytować siebie.');
+    addUserRole: function (userId, role) {
+        var user = Meteor.user();
+        if (!user || !Roles.userIsInRole(user, ['admin']))
+            throw new Meteor.Error(401, 'Musisz być adminem, aby edytować użytkownika.');
 
-		// handle invalid role
-		if (Meteor.roles.find({name: role}).count() < 1 )
-			throw new Meteor.Error(422, 'Role ' + role + ' does not exist.');
+        if (user._id == userId)
+            throw new Meteor.Error(422, 'Nie możesz edytować siebie.');
 
-		// handle user already has role
-		if (Roles.userIsInRole(userId, role))
-			throw new Meteor.Error(422, 'Account already has the role ' + role);
+        // handle invalid role
+        if (Meteor.roles.find({name: role}).count() < 1)
+            throw new Meteor.Error(422, 'Role ' + role + ' does not exist.');
 
-		// add the user to the role
-		Roles.addUsersToRoles(userId, role);
-	},
+        // handle user already has role
+        if (Roles.userIsInRole(userId, role))
+            throw new Meteor.Error(422, 'Account already has the role ' + role);
 
-	removeUserRole: function(userId, role) {
-		var user = Meteor.user();
-		console.log(user);
-		console.log(userId);
-		console.log(role);
-		if (!user || !Roles.userIsInRole(user, ['admin']))
-			throw new Meteor.Error(401, "Musisz być adminem, aby edytować użytkownika.");
+        // add the user to the role
+        Roles.addUsersToRoles(userId, role);
+    },
 
-		if (user._id == userId)
-			throw new Meteor.Error(422, 'Nie możesz edytować siebie.');
+    removeUserRole: function (userId, role) {
+        var user = Meteor.user();
+        console.log(user);
+        console.log(userId);
+        console.log(role);
+        if (!user || !Roles.userIsInRole(user, ['admin']))
+            throw new Meteor.Error(401, 'Musisz być adminem, aby edytować użytkownika.');
 
-		// handle invalid role
-		if (Meteor.roles.find({name: role}).count() < 1 )
-			throw new Meteor.Error(422, 'Role ' + role + ' does not exist.');
+        if (user._id == userId)
+            throw new Meteor.Error(422, 'Nie możesz edytować siebie.');
 
-		// handle user already has role
-		if (!Roles.userIsInRole(userId, role))
-			throw new Meteor.Error(422, 'Account does not have the role ' + role);
+        // handle invalid role
+        if (Meteor.roles.find({name: role}).count() < 1)
+            throw new Meteor.Error(422, 'Role ' + role + ' does not exist.');
 
-		Roles.removeUsersFromRoles(userId, role);
-	},
+        // handle user already has role
+        if (!Roles.userIsInRole(userId, role))
+            throw new Meteor.Error(422, 'Account does not have the role ' + role);
 
-	addRole: function(role) {
-		var user = Meteor.user();
-		if (!user || !Roles.userIsInRole(user, ['admin']))
-			throw new Meteor.Error(401, "Musisz być adminem, aby edytować użytkownika.");
+        Roles.removeUsersFromRoles(userId, role);
+    },
 
-		// handle existing role
-		if (Meteor.roles.find({name: role}).count() > 0 )
-			throw new Meteor.Error(422, 'Role ' + role + ' Już istnieje.');
+    addRole: function (role) {
+        var user = Meteor.user();
+        if (!user || !Roles.userIsInRole(user, ['admin']))
+            throw new Meteor.Error(401, 'Musisz być adminem, aby edytować użytkownika.');
 
-		Roles.createRole(role);
-	},
+        // handle existing role
+        if (Meteor.roles.find({name: role}).count() > 0)
+            throw new Meteor.Error(422, 'Role ' + role + ' Już istnieje.');
 
-	removeRole: function(role) {
-		var user = Meteor.user();
-		if (!user || !Roles.userIsInRole(user, ['admin']))
-			throw new Meteor.Error(401, "Musisz być adminem, aby edytować użytkownika.");
+        Roles.createRole(role);
+    },
 
-		// handle non-existing role
-		if (Meteor.roles.find({name: role}).count() < 1 )
-			throw new Meteor.Error(422, 'Role ' + role + ' Nie istnieje.');
+    removeRole: function (role) {
+        var user = Meteor.user();
+        if (!user || !Roles.userIsInRole(user, ['admin']))
+            throw new Meteor.Error(401, 'Musisz być adminem, aby edytować użytkownika.');
 
-		if (role === 'admin')
-			throw new Meteor.Error(422, 'Cannot delete role admin');
+        // handle non-existing role
+        if (Meteor.roles.find({name: role}).count() < 1)
+            throw new Meteor.Error(422, 'Role ' + role + ' Nie istnieje.');
 
-		// remove the role from all users who currently have the role
-		// if successfull remove the role
-		Meteor.users.update(
-			{roles: role },
-			{$pull: {roles: role }},
-			{multi: true},
-			function(error) {
-				if (error) {
-					throw new Meteor.Error(422, error);
-				} else {
-					Roles.deleteRole(role);
-				}
-			}
-		);
-	},
+        if (role === 'admin')
+            throw new Meteor.Error(422, 'Cannot delete role admin');
 
-	updateUserInfo: function(id, property, value) {
-		var user = Meteor.user();
-		if (!user || !Roles.userIsInRole(user, ['admin']))
-			throw new Meteor.Error(401, "Musisz być adminem, aby edytować użytkownika.");
+        // remove the role from all users who currently have the role
+        // if successfull remove the role
+        Meteor.users.update(
+            {roles: role},
+            {$pull: {roles: role}},
+            {multi: true},
+            function (error) {
+                if (error) {
+                    throw new Meteor.Error(422, error);
+                } else {
+                    Roles.deleteRole(role);
+                }
+            }
+        );
+    },
 
-		if (property !== 'profile.name')
-			throw new Meteor.Error(422, "Only 'name' is supported.");
+    updateUserInfo: function (id, property, value) {
+        var user = Meteor.user();
+        if (!user || !Roles.userIsInRole(user, ['admin']))
+            throw new Meteor.Error(401, 'Musisz być adminem, aby edytować użytkownika.');
 
-		obj = {};
-		obj[property] = value;
-		Meteor.users.update({_id: id}, {$set: obj});
+        if (property !== 'profile.name')
+            throw new Meteor.Error(422, 'Only \'name\' is supported.');
 
-	}
+        obj = {};
+        obj[property] = value;
+        Meteor.users.update({_id: id}, {$set: obj});
+
+    }
 });

@@ -1,6 +1,6 @@
-Meteor.methods ( {
-    addParametr: function ( newParametr ) {
-        Parametr.insert ( {
+Meteor.methods({
+    addParametr: function (newParametr) {
+        Parametr.insert({
             nazwaOrganizacji: newParametr[0].nazwaOrganizacji,
             terytorium: newParametr[0].terytorium,
             terytAdres: newParametr[0].terytAdres,
@@ -15,9 +15,9 @@ Meteor.methods ( {
             addCommentPause:newParametr[0].addCommentPause,
             addReferencePause:newParametr[0].addReferencePause,
             okresSkladaniaRR:newParametr[0].okresSkladaniaRR
-        } );
+        });
     },
-    updateParametr: function ( id, parametr ) {
-        Parametr.update ( { _id:id }, {$set: parametr}, {upsert: true } );
+    updateParametr: function (id, parametr) {
+        Parametr.update({_id:id}, {$set: parametr}, {upsert: true});
     }
- } );
+});

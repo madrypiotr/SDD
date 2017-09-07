@@ -5,7 +5,7 @@ Template.map.onRendered(function () {
         var infoWindowOpened;
         Tracker.autorun(function () {
             var parameterId = Session.get('mapParameterId');
-            markers.forEach(function (marker){
+            markers.forEach(function (marker) {
                 marker.setMap(null);
             });
             if (infoWindowOpened) {
@@ -101,9 +101,9 @@ Template.map.helpers({
     isZwyczajnyLogged: function () {
         if (IsAdminUser())
             return false;
-        else {
-            return Meteor.user().profile.userType == USERTYPE.CZLONEK ? true : false;
-        }
+
+        return Meteor.user().profile.userType == USERTYPE.CZLONEK ? true : false;
+
     },
     mapOptions: function () {
         if (GoogleMaps.loaded()) {
@@ -116,7 +116,7 @@ Template.map.helpers({
                 streetViewControl: false,
                 zoom: 5,
                 zoomControl: true,
-				scrollwheel: true,
+                scrollwheel: true,
                 styles: [{
                     stylers: [
                         {lightness: 20},

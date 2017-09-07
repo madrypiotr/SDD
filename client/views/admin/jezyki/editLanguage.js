@@ -1,5 +1,5 @@
 Template.editLanguage.rendered = function () {
-    $("#languageEditForm").validate({
+    $('#languageEditForm').validate({
         messages: {
             languageName: {
                 required: fieldEmptyMessage()
@@ -23,27 +23,25 @@ Template.editLanguage.rendered = function () {
                 error.insertAfter(element);
             }
         }
-    })
+    });
 };
 Template.editLanguage.events({
     'submit form': function (e) {
         e.preventDefault();
 
         var id = this._id;
-        var lang =
-        {
+        var lang = {
             languageName: $(e.target).find('[name=languageName]').val(),
             shortName: $(e.target).find('[name=languageShortName]').val()
         };
         Meteor.call('updateLanguage', id, lang, function (error) {
             if (error) {
-                if (typeof Errors === "undefined")
+                if (typeof Errors === 'undefined')
                     Log.error(TAPi18n.__('txv.ERROR') + error.reason);
                 else {
                     throwError(error.reason);
                 }
-            }
-            else {
+            } else {
                 Router.go('listLanguages');
             }
         });
@@ -57,4 +55,4 @@ Template.editLanguage.helpers({
     'language': function (id) {
         return Languages.findOne({_id: id});
     }
-})
+});

@@ -1,8 +1,8 @@
 Template.layout.rendered = function () {
 };
 
-Template.layout.helpers ( {
+Template.layout.helpers({
     isAdminUser: function () {
-        return IsAdminUser ();
+        return IsAdminUser();
     }
- } );
+});

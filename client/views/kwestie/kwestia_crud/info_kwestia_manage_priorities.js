@@ -2,18 +2,18 @@ Template.managePriorities.helpers({
     priority: function (priorytet) {
         if (priorytet) {
             if (priorytet > 0) {
-                priorytet = "+" + priorytet;
+                priorytet = '+' + priorytet;
                 return priorytet;
             }
-            else return priorytet;
+            return priorytet;
         }
-        else return 0;
+        return 0;
     },
     isSelected: function (number, idParent, glosujacy, status, idKwestia) {
         if (!Meteor.userId())
-            return "disabled";
+            return 'disabled';
         if (Meteor.user().profile.userType != USERTYPE.CZLONEK)
-            return "disabled";
+            return 'disabled';
         var kwestia = Kwestia.findOne({_id: idKwestia});
         var flag = false;
         if (kwestia) {
@@ -27,8 +27,7 @@ Template.managePriorities.helpers({
                         idParametr: globalParams._id
                     });
                 }
-            }
-            else
+            } else
                 var kwestie = Kwestia.find({
                     czyAktywny: true,
                     'glosujacy.idUser': Meteor.userId(),
@@ -42,14 +41,11 @@ Template.managePriorities.helpers({
                 if (glosujacyUser) {
                     if (glosujacyUser.value == number) {
                         flag = true;
-                    }
-                    else flag = false;
-                }
-                else
+                    } else flag = false;
+                } else
                     flag = false;
             }
-        }
-        else {
+        } else {
             kwestie.forEach(function (kwestiaItem) {
                 var array = [];
                 var tabGlosujacych = glosujacy;
@@ -62,13 +58,13 @@ Template.managePriorities.helpers({
                 }
             });
         }
-        return flag == true ? "disabled" : "";
+        return flag == true ? 'disabled' : '';
     },
     isUserOrDoradcaLogged: function () {
         if (!Meteor.userId())
-            return "disabled";
-        return Meteor.user().profile.userType != USERTYPE.CZLONEK ? "disabled" : "";
-        return "";
+            return 'disabled';
+        return Meteor.user().profile.userType != USERTYPE.CZLONEK ? 'disabled' : '';
+        return '';
     },
     koszZrealizowanaArchiwum: function (czyAktywny, status) {
         return czyAktywny == false || status == KWESTIA_STATUS.ZREALIZOWANA || status == KWESTIA_STATUS.ARCHIWALNA || status == KWESTIA_STATUS.OCZEKUJACA
@@ -81,7 +77,7 @@ Template.managePriorities.helpers({
 
 Template.managePriorities.events({
     'click #priorytetButton': function (e) {
-        var aktualnaKwestiaId = Session.set("idK", this._id);
+        var aktualnaKwestiaId = Session.set('idK', this._id);
         var u = Meteor.userId();
         var ratingValue = parseInt(e.target.value);
         var ratingKwestiaId = e.target.name;
@@ -94,8 +90,7 @@ Template.managePriorities.events({
         if (kwestia.status == KWESTIA_STATUS.REALIZOWANA) {
             managePriorityKwestiaRealizowana(ratingKwestiaId, kwestia, object, ratingValue);
 
-        }
-        else {
+        } else {
             managePriorityKwestiaDelibGlosowana(ratingKwestiaId, kwestia, object, ratingValue);
 
         }
@@ -110,13 +105,12 @@ managePriorityKwestiaRealizowana = function (ratingKwestiaId, kwestia, object, r
         wartoscPriorytetuWRealizacji -= myGlos.value;
         wartoscPriorytetuWRealizacji += ratingValue;
         var newGlosujacyWRealiz = _.reject(glosujacyWRealizacji, function (el) {
-            return el.idUser == Meteor.userId()
+            return el.idUser == Meteor.userId();
         });
         object.value = ratingValue;
         glosujacyWRealizacji = newGlosujacyWRealiz;
         glosujacyWRealizacji.push(object);
-    }
-    else {
+    } else {
         wartoscPriorytetuWRealizacji += ratingValue;
         glosujacyWRealizacji.push(object);
     }
@@ -126,7 +120,7 @@ managePriorityKwestiaRealizowana = function (ratingKwestiaId, kwestia, object, r
     }];
     Meteor.call('UpdateIssueInImplemRating', ratingKwestiaId, kwestiaUpdate, function (error, ret) {
         if (error) {
-            if (typeof Errors === "undefined")
+            if (typeof Errors === 'undefined')
                 Log.error(TAPi18n.__('txv.ERROR') + error.reason);
             else
                 throwError(error.reason);
@@ -171,14 +165,14 @@ managePriorityKwestiaDelibGlosowana = function (ratingKwestiaId, kwestia, object
     }];
     Meteor.call('updateIssueRating', ratingKwestiaId, kwestiaUpdate, function (error, ret) {
         if (error) {
-                    if (typeof Errors === "undefined")
-                        Log.error(TAPi18n.__('txv.ERROR') + error.reason);
-                    else {
-                        throwError(error.reason);
-                    }
-                } else {
-                    var komunikat = TAPi18n.__('txv.GIVING_PRIORITY') + ratingValue;
-                    Notifications.success("", komunikat, {timeout: 3000});
+            if (typeof Errors === 'undefined')
+                Log.error(TAPi18n.__('txv.ERROR') + error.reason);
+            else {
+                throwError(error.reason);
+            }
+        } else {
+            var komunikat = TAPi18n.__('txv.GIVING_PRIORITY') + ratingValue;
+            Notifications.success('', komunikat, {timeout: 3000});
 
         }
     });
