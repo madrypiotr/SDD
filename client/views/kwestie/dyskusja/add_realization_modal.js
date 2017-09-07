@@ -11,20 +11,16 @@ Template.addRealizationReportModal.rendered = function () {
         },
         messages: {
             raportTitle: {
-                required: fieldEmptyMessage(),
-                maxlength: maxLengthMessage(400)
+                required: fieldEmptyMessage,
+                maxlength: () => maxLengthMessage(400)
             },
             raportDescription: {
-                required: fieldEmptyMessage(),
-                maxlength: maxLengthMessage(4000)
+                required: fieldEmptyMessage,
+                maxlength: () => maxLengthMessage(4000)
             }
         },
-        highlight: function (element) {
-            highlightFunction(element);
-        },
-        unhighlight: function (element) {
-            unhighlightFunction(element);
-        },
+        highlight: highlightFunction,
+        unhighlight: unhighlightFunction,
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function (error, element) {

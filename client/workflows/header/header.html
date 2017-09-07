@@ -1,338 +1,346 @@
 <template name="header">
-     <script><!-- SCRIPT przenieść we własciwe miejsce-->
-        <!-- czcionka Google -->
-        <link href='http://fonts.googleapis.com/css?family=Coda&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    </script>
-	{{>language}}
-<nav class="navbar navbar-default" role="navigation">
+    {{>language}}
+    <nav class="navbar navbar-default" role="navigation">
 
-    <!-- Grupowanie "marki" i przycisku rozwijania mobilnego menu -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-	
-    <!-- Grupowanie elementów menu w celu lepszego wyświetlania na urządzeniach moblinych -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- Grupowanie "marki" i przycisku rozwijania mobilnego menu -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
 
-<!--    MENU GŁÓWNE     --> 	
+        <!-- Grupowanie elementów menu w celu lepszego wyświetlania na urządzeniach moblinych -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-		<div id="mainmenu">
-			{{#if isAdmin}}
-			<ul class="nav navbar-nav">
-				<li class="{{activeRouteClass 'listLanguages'}}">
-					<a href="{{pathFor 'listLanguages'}}">
-						<i class="fa fa-language"></i> 
-						<!--Języki-->
-						{{_ 'header.heaLanguages'}}
-					</a>
-				</li>
-			</ul>
-			{{/if}}
-			{{#unless isAdmin}}
-			<ul class="nav navbar-nav">
-				<li class="{{activeRouteClass 'listKwestia'}}">
-					<a href="{{pathFor 'listKwestia'}}">
-						<section class="dymek">
-							<i class="fa fa-file-o">&nbsp;&nbsp;&nbsp;</i> 
-							<ul align="left">
-					<a data-toggle="modal" href="#menuKwestia" class="fa fa-info-circle">
-					<!--info i zachęta w dymku-->
-					</a>
-					</ul>
-					<div class="modal fade" id="menuKwestia" role="dialog">
-					<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<p class="modal-title" align="left">
+            <!--    MENU GŁÓWNE     -->
 
-					{{_ 'dym.Issues'}}
-					</p>
-					</div>
-					<div class="modal-body" align="left">
-					<small>
-					<p>{{_ 'dym.IssuesA'}}</p>
-					<p>{{_ 'dym.IssuesB'}}</p>
-					<p>{{_ 'dym.IssuesC'}}</p>
-					</small>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>
-							<!--Kwestie-->
-							{{_ 'header.heaIssues'}}
-					</a>
-				</li>
-				{{#if currentUser}}
-				<li class="{{activeRouteClass 'glosowanie'}}">
-					<a href="{{pathFor 'glosowanie'}}">
-						<section class="dymek">
-							<i class="fa fa-file-text-o">&nbsp;&nbsp;&nbsp;</i> 
-							<ul align="left">
-					<a data-toggle="modal" href="#menuGlosowanie" class="fa fa-info-circle">
-					<!--info i zachęta w dymku-->
-					</a>
-					</ul>
-					<div class="modal fade" id="menuGlosowanie" role="dialog">
-					<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<p class="modal-title" align="left">
-					{{_ 'dym.Voting'}}
-					</p>
-					</div>
-					<div class="modal-body" align="left">
-					<small>
-					<p>{{_ 'dym.VotingA'}}</p>
-					<p><strong>{{_ 'dym.VotingB'}}</strong></p>
-					<p>{{_ 'dym.VotingC'}}</p>
-					<p>{{_ 'dym.VotingD'}}</p>
-					<p>{{_ 'dym.VotingE'}}</p>
-					</small>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>
-							<!--Głosowanie-->
-							{{_ 'header.heaVote'}}
-					</a>
-				</li>
-				{{/if}}
-				<li class="{{activeRouteClass 'realizacja'}}">
-					<a href="{{pathFor 'realizacja'}}">
-						<section class="dymek">
-							<i class="fa fa-file-text">&nbsp;&nbsp;&nbsp;</i> 
-							<ul align="left">
-					<a data-toggle="modal" href="#menuRealizacja" class="fa fa-info-circle">
-					<!--info i zachęta w dymku-->
-					</a>
-					</ul>
-					<div class="modal fade" id="menuRealizacja" role="dialog">
-					<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<p class="modal-title" align="left">
-					{{_ 'dym.Implement'}}
-					</p>
-					</div>
-					<div class="modal-body" align="left">
-					<small>
-					<p>{{_ 'dym.ImplementA'}}</p>
-					<p>{{_ 'dym.ImplementB'}}</p>
-					<p>{{_ 'dym.ImplementC'}}</p>
-					</small>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>
-							<!--Realizacja-->
-							{{_ 'header.heaImplement'}}
-					</a>
-				</li>
-				<li class="{{activeRouteClass 'archiwum'}}">
-					<a href="{{pathFor 'archiwum'}}">
-						<section class="dymek">
-							<span class="fa fa-file-archive-o">&nbsp;&nbsp;&nbsp;</span> 
-							<ul align="left">
-					<a data-toggle="modal" href="#menuArchiwum" class="fa fa-info-circle">
-					<!--info i zachęta w dymku-->
-					</a>
-					</ul>
-					<div class="modal fade" id="menuArchiwum" role="dialog">
-					<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<p class="modal-title" align="left">
-					{{_ 'dym.INarchi'}}
-					</p>
-					</div>
-					<div class="modal-body" align="left">
-					<small>
-					<p>{{_ 'dym.TXarchA'}}</p>
-					<p>{{_ 'dym.TXarchB'}}</p>
-					<p>{{_ 'dym.TXarchC'}}</p>
-					</small>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>
-							<!--Archiwum-->
-							{{_ 'header.heaArchives'}}
-					</a>
-				</li>
-				{{#if currentUser}}
-				<li class="{{activeRouteClass 'administracjaUserMain'}}">
-					<a href="{{pathFor 'administracjaUserMain'}}">
-						<section class="dymek">
-							<i class="fa fa-gears">&nbsp;&nbsp;</i> 
-							<ul align="left">
-					<a data-toggle="modal" href="#menuUstawienia" class="fa fa-info-circle">
-					<!--info i zachęta w dymku-->
-					</a>
-					</ul>
-					<div class="modal fade" id="menuUstawienia" role="dialog">
-					<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<p class="modal-title" align="left">
-					{{_ 'dym.Settings'}}
-					</p>
-					</div>
-					<div class="modal-body" align="left">
-					<small>
-					<p>{{_ 'dym.SettingsA'}}</p>
-					<p>{{_ 'dym.SettingsB'}}</p>
-					<p>{{_ 'dym.SettingsC'}}</p>
-					<p>{{_ 'dym.SettingsD'}}</p>
-					</small>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>
-							<!--Ustawienia-->
-							{{_ 'header.heaSettings'}}
-					</a>
-				</li>
-				{{/if}}
-			</ul>
-			{{/unless}}
-			{{#unless currentUser}}
-			<ul class="nav navbar-nav navbar-right">
-				<li class="{{activeRouteClass 'login_form'}}">
-					<a href="{{pathFor 'login_form'}}">
-						<i class="fa fa-sign-in"></i> 
-						<!--Zaloguj się-->
-						{{_ 'header.heaLogin'}}
-					</a>
-				</li>
-				{{#if lessThanFiveUsers}}
-				<li class="{{activeRouteClass 'register_form'}}">
-					<a href="{{pathFor 'register_form'}}">
-						<i class="fa fa-user-plus"></i> 
-						<!--Zarejestruj się-->
-						{{_ 'header.heaRegistration'}}
-					</a>
-				</li>
-				{{else}}
-				<li>
-					<a class="cursor-pointer" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-						<i class="fa fa-male"></i> 
-						<!--Dołącz-->
-						{{_ 'header.heaJoinUs'}}
-						<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-						<li>
-							<a href="{{pathFor 'czlonek_zwyczajny_form'}}">
-								<!--jako Członek zwyczajny-->
-								{{_ 'header.heaAsOrdMember'}} 
-							</a>
-						</li>
-						<li>
-							<a href="{{pathFor 'doradca_form'}}">
-								<!--jako Doradca-->
-								{{_ 'header.heaAsAdvisor'}}
-							</a>
-						</li>
-						<li>
-							<a href="#" id="newRootClick">
-								<!--Nowy węzeł sieci-->
-								{{_ 'header.heaNewNetNode'}}
-							</a>
-						</li>
-					</ul>
-				</li>
-				{{/if}}
-			</ul>
-			{{/unless}}
-			<ul class="nav navbar-nav navbar-right">
-		{{#if currentUser}}
-			{{#unless isAdmin}}
-				<li class="{{activeRouteClass 'notification_list'}} ">
-					<a href="{{pathFor 'notification_list'}}">
-						<section class="dymek">
-							<i class="fa fa-bullhorn">&nbsp;&nbsp;&nbsp;</i> 
-							<ul align="left">
-					<a data-toggle="modal" href="#menuPow" class="fa fa-info-circle">
-					<!--info i zachęta w dymku-->
-					</a>
-					</ul>
-					<div class="modal fade" id="menuPow" role="dialog">
-					<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<p class="modal-title" align="left">
-					{{_ 'dym.Notifications'}}
-					</p>
-					</div>
-					<div class="modal-body" align="left">
-					<small>
-					<p>{{_ 'dym.NotificationsA'}}</p>
-					<p>{{_ 'dym.NotificationsB'}}</p>
-					<p>{{_ 'dym.NotificationsC'}}</p>
-					<p>{{_ 'dym.NotificationsD'}}</p>
-					</small>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>
-							<!--Powiadomienia-->
-							{{#if anyNotRead}}
-							<span class="badge notification-counter" style="background-color:red" id="notification-counter">{{issuesNotReadCount}}</span>
-							{{/if}}
-					</a>
-				</li>
-			{{/unless}}
-				{{> loginButtons}}
-				{{/if}}
-			</ul>
-		</div>
-<!--   KONIEC MENU GŁÓWNEGO     --> 	
-    </div><!-- /.navbar-collapse -->
-</nav>
+            <div id="mainmenu">
+                {{#if isAdmin}}
+                    <ul class="nav navbar-nav">
+                        <li class="{{activeRouteClass 'listLanguages'}}">
+                            <a href="{{pathFor 'listLanguages'}}">
+                                <i class="fa fa-language"></i>
+                                <!--Języki-->
+                                {{_ 'header.heaLanguages'}}
+                            </a>
+                        </li>
+                    </ul>
+                {{/if}}
+                {{#unless isAdmin}}
+                    <ul class="nav navbar-nav">
+                        <li class="{{activeRouteClass 'listKwestia'}}">
+                            <a href="{{pathFor 'listKwestia'}}">
+                                <section class="dymek">
+                                    <i class="fa fa-file-o">&nbsp;&nbsp;&nbsp;</i>
+                                    <ul align="left">
+                                        <a data-toggle="modal" href="#menuKwestia" class="fa fa-info-circle">
+                                            <!--info i zachęta w dymku-->
+                                        </a>
+                                    </ul>
+                                    <div class="modal fade" id="menuKwestia" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;
+                                                    </button>
+                                                    <p class="modal-title" align="left">
+
+                                                        {{_ 'dym.Issues'}}
+                                                    </p>
+                                                </div>
+                                                <div class="modal-body" align="left">
+                                                    <small>
+                                                        <p>{{_ 'dym.IssuesA'}}</p>
+                                                        <p>{{_ 'dym.IssuesB'}}</p>
+                                                        <p>{{_ 'dym.IssuesC'}}</p>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--Kwestie-->
+                                {{_ 'header.heaIssues'}}
+                            </a>
+                        </li>
+                        {{#if currentUser}}
+                            <li class="{{activeRouteClass 'glosowanie'}}">
+                                <a href="{{pathFor 'glosowanie'}}">
+                                    <section class="dymek">
+                                        <i class="fa fa-file-text-o">&nbsp;&nbsp;&nbsp;</i>
+                                        <ul align="left">
+                                            <a data-toggle="modal" href="#menuGlosowanie" class="fa fa-info-circle">
+                                                <!--info i zachęta w dymku-->
+                                            </a>
+                                        </ul>
+                                        <div class="modal fade" id="menuGlosowanie" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            &times;
+                                                        </button>
+                                                        <p class="modal-title" align="left">
+                                                            {{_ 'dym.Voting'}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-body" align="left">
+                                                        <small>
+                                                            <p>{{_ 'dym.VotingA'}}</p>
+                                                            <p><strong>{{_ 'dym.VotingB'}}</strong></p>
+                                                            <p>{{_ 'dym.VotingC'}}</p>
+                                                            <p>{{_ 'dym.VotingD'}}</p>
+                                                            <p>{{_ 'dym.VotingE'}}</p>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!--Głosowanie-->
+                                    {{_ 'header.heaVote'}}
+                                </a>
+                            </li>
+                        {{/if}}
+                        <li class="{{activeRouteClass 'realizacja'}}">
+                            <a href="{{pathFor 'realizacja'}}">
+                                <section class="dymek">
+                                    <i class="fa fa-file-text">&nbsp;&nbsp;&nbsp;</i>
+                                    <ul align="left">
+                                        <a data-toggle="modal" href="#menuRealizacja" class="fa fa-info-circle">
+                                            <!--info i zachęta w dymku-->
+                                        </a>
+                                    </ul>
+                                    <div class="modal fade" id="menuRealizacja" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;
+                                                    </button>
+                                                    <p class="modal-title" align="left">
+                                                        {{_ 'dym.Implement'}}
+                                                    </p>
+                                                </div>
+                                                <div class="modal-body" align="left">
+                                                    <small>
+                                                        <p>{{_ 'dym.ImplementA'}}</p>
+                                                        <p>{{_ 'dym.ImplementB'}}</p>
+                                                        <p>{{_ 'dym.ImplementC'}}</p>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--Realizacja-->
+                                {{_ 'header.heaImplement'}}
+                            </a>
+                        </li>
+                        <li class="{{activeRouteClass 'archiwum'}}">
+                            <a href="{{pathFor 'archiwum'}}">
+                                <section class="dymek">
+                                    <span class="fa fa-file-archive-o">&nbsp;&nbsp;&nbsp;</span>
+                                    <ul align="left">
+                                        <a data-toggle="modal" href="#menuArchiwum" class="fa fa-info-circle">
+                                            <!--info i zachęta w dymku-->
+                                        </a>
+                                    </ul>
+                                    <div class="modal fade" id="menuArchiwum" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;
+                                                    </button>
+                                                    <p class="modal-title" align="left">
+                                                        {{_ 'dym.INarchi'}}
+                                                    </p>
+                                                </div>
+                                                <div class="modal-body" align="left">
+                                                    <small>
+                                                        <p>{{_ 'dym.TXarchA'}}</p>
+                                                        <p>{{_ 'dym.TXarchB'}}</p>
+                                                        <p>{{_ 'dym.TXarchC'}}</p>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--Archiwum-->
+                                {{_ 'header.heaArchives'}}
+                            </a>
+                        </li>
+                        {{#if currentUser}}
+                            <li class="{{activeRouteClass 'administracjaUserMain'}}">
+                                <a href="{{pathFor 'administracjaUserMain'}}">
+                                    <section class="dymek">
+                                        <i class="fa fa-gears">&nbsp;&nbsp;</i>
+                                        <ul align="left">
+                                            <a data-toggle="modal" href="#menuUstawienia" class="fa fa-info-circle">
+                                                <!--info i zachęta w dymku-->
+                                            </a>
+                                        </ul>
+                                        <div class="modal fade" id="menuUstawienia" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            &times;
+                                                        </button>
+                                                        <p class="modal-title" align="left">
+                                                            {{_ 'dym.Settings'}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-body" align="left">
+                                                        <small>
+                                                            <p>{{_ 'dym.SettingsA'}}</p>
+                                                            <p>{{_ 'dym.SettingsB'}}</p>
+                                                            <p>{{_ 'dym.SettingsC'}}</p>
+                                                            <p>{{_ 'dym.SettingsD'}}</p>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!--Ustawienia-->
+                                    {{_ 'header.heaSettings'}}
+                                </a>
+                            </li>
+                        {{/if}}
+                    </ul>
+                {{/unless}}
+                {{#unless currentUser}}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="{{activeRouteClass 'login_form'}}">
+                            <a href="{{pathFor 'login_form'}}">
+                                <i class="fa fa-sign-in"></i>
+                                <!--Zaloguj się-->
+                                {{_ 'header.heaLogin'}}
+                            </a>
+                        </li>
+                        {{#if lessThanFiveUsers}}
+                            <li class="{{activeRouteClass 'register_form'}}">
+                                <a href="{{pathFor 'register_form'}}">
+                                    <i class="fa fa-user-plus"></i>
+                                    <!--Zarejestruj się-->
+                                    {{_ 'header.heaRegistration'}}
+                                </a>
+                            </li>
+                        {{else}}
+                            <li>
+                                <a class="cursor-pointer" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="true">
+                                    <i class="fa fa-male"></i>
+                                    <!--Dołącz-->
+                                    {{_ 'header.heaJoinUs'}}
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li>
+                                        <a href="{{pathFor 'czlonek_zwyczajny_form'}}">
+                                            <!--jako Członek zwyczajny-->
+                                            {{_ 'header.heaAsOrdMember'}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{pathFor 'doradca_form'}}">
+                                            <!--jako Doradca-->
+                                            {{_ 'header.heaAsAdvisor'}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" id="newRootClick">
+                                            <!--Nowy węzeł sieci-->
+                                            {{_ 'header.heaNewNetNode'}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        {{/if}}
+                    </ul>
+                {{/unless}}
+                <ul class="nav navbar-nav navbar-right">
+                    {{#if currentUser}}
+                        {{#unless isAdmin}}
+                            <li class="{{activeRouteClass 'notification_list'}} ">
+                                <a href="{{pathFor 'notification_list'}}">
+                                    <section class="dymek">
+                                        <i class="fa fa-bullhorn">&nbsp;&nbsp;&nbsp;</i>
+                                        <ul align="left">
+                                            <a data-toggle="modal" href="#menuPow" class="fa fa-info-circle">
+                                                <!--info i zachęta w dymku-->
+                                            </a>
+                                        </ul>
+                                        <div class="modal fade" id="menuPow" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            &times;
+                                                        </button>
+                                                        <p class="modal-title" align="left">
+                                                            {{_ 'dym.Notifications'}}
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-body" align="left">
+                                                        <small>
+                                                            <p>{{_ 'dym.NotificationsA'}}</p>
+                                                            <p>{{_ 'dym.NotificationsB'}}</p>
+                                                            <p>{{_ 'dym.NotificationsC'}}</p>
+                                                            <p>{{_ 'dym.NotificationsD'}}</p>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <!--Powiadomienia-->
+                                    {{#if anyNotRead}}
+                                        <span class="badge notification-counter" style="background-color:red"
+                                              id="notification-counter">{{issuesNotReadCount}}</span>
+                                    {{/if}}
+                                </a>
+                            </li>
+                        {{/unless}}
+                        {{> loginButtons}}
+                    {{/if}}
+                </ul>
+            </div>
+            <!--   KONIEC MENU GŁÓWNEGO     -->
+        </div><!-- /.navbar-collapse -->
+    </nav>
 </template>
 
 <template name="language">
-	<div class="row">
-		<div class="col-md-12">
-		<!-- go home, org & numbr users-->
-			<div class="pull-left">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- go home, org & numbr users-->
+            <div class="pull-left">
 				<span class="clickable" id="organizationName">
 					<span class="fontSizeMoreSmall">
 					<i class="fa fa-home"></i>
 					</span>
 				</span>
-	{{_ "language.lanSystSDD"}} - <strong>{{nazwaOrg}}</strong>
-			</div>		
-		<!-- info & log in -->
-			<div class="pull-right">
-				<div class="btn-group">
-					<button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">
-					{{getUserLang}} <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-right">
-						{{#each langs}}
-						<li><a class="lang">{{shortName}}</a></li>
-						{{/each}}
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+                {{_ "language.lanSystSDD"}} - <strong>{{nazwaOrg}}</strong>
+            </div>
+            <!-- info & log in -->
+            <div class="pull-right">
+                <div class="btn-group">
+                    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        {{getUserLang}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        {{#each langs}}
+                            <li><a class="lang">{{shortName}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>

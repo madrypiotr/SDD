@@ -8,16 +8,12 @@ Template.forgottenPassword.rendered = function () {
         },
         messages: {
             email: {
-                required: fieldEmptyMessage(),
-                email: validEmailMessage()
+                required: fieldEmptyMessage,
+                email: validEmailMessage
             }
         },
-        highlight: function (element) {
-            highlightFunction(element);
-        },
-        unhighlight: function (element) {
-            unhighlightFunction(element);
-        },
+        highlight: highlightFunction,
+        unhighlight: unhighlightFunction,
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function (error, element) {

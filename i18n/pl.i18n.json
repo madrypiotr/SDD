@@ -18,7 +18,7 @@
 	"Type":"Rodzaj ",
 	"Priority":"Priorytet",
 	"Email":"e-mail ",
-	"globFname":"Imię",
+	"Fname":"Imię",
 	"Lname":"Nazwisko",
 	"FandLname":"Imię i Nazwisko",
 	"PID":"PESEL",
@@ -131,7 +131,7 @@
 			"CreatingTeamsRealizC":"Udział w Zespole Realizacyjnym jest funkcją społeczną organizacyjno-kontrolną. Członkowie ZR zobowiaząni są do koordynowania realizacji uchwały wygenerowanej przez tę Kwestię i przekazywania do Systemu relacji na temat rozwoju spraw, z nią związanych.",
 			"CreatingTeamsRealizD":"Członek ZR składa Raporty Realizacyjne o postępach w realizacji, lub jakichkolwiek trudnościach w realizacji tej Kwestii. Częstotliwość Raportów Realizacyjnych ustalana jest w [Parametrach globalnych] Systemu.",
 			"CreatingTeamsRealizE":"UWAGA! Wchodzący do ZR, jako trzeci Członek ma rolę szczególną. Jego zadaniem jest zdefiniowanie (lub wybranie) nazwy dla Zespołu. System go o to poprosi.",
-			
+
 	  "DoesNotDuplic":"Nie dubluj kompetencji Zespołów Realizacyjnych",
 			"DoesNotDuplicA":"Zanim zdecydujesz o utworzeniu ZR, zorientuj się, czy w tym temacie nie działa już odpowiedni Zespół Realizacyjny.",
 			"DoesNotDuplicB":"Czyli ...",
@@ -166,7 +166,7 @@
 		  "ImplementC":"Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do działu Zrealizowane, lub do Kosza, jeśli będzie ona uznana za nietrafioną, lub w inny sposób nie do realizacji.",
 
 		"INarchi":"ARCHIWUM",
-		  "TXarchA":"Archiwum jest podzielone na dwa działy (Kosz i Hibernowane).", 
+		  "TXarchA":"Archiwum jest podzielone na dwa działy (Kosz i Hibernowane).",
 		  "TXarchB":"Dane w archiwum są prezentowane w identycznym formacie jak w wykazie Kwestii.",
 		  "TXarchC":"Archiwum pełni funkcję porządkującą. W Systemie nie ma admina. Wszystkie decyzje będą wynikały z deliberacji i nadawania priorytetów.",
 
@@ -181,7 +181,7 @@
 		  "NotificationsB":"Czemu to służy? Znika problem dochowania tajności, ponieważ z założenia - WEWNĄTRZ ORGANIZACJI WSZYSTKO JEST JAWNE I NATYCHMIAST DOSTĘPNE! Nie ma potrzeby zwracania się z prosbą do kogokolwiek, jako że wszelkie dokumenty znajdują się systemie gotowe do pobrania.",
 		  "NotificationsC":"Dzieki takiemu podejściu, brak jest tendencji dla tzw. świata zewnętrznego do chęci odkrycia tajników procedowania. Również dla Członków Systemu wszystko jest dostępne i UDOKUMENTOWANE! To wlasnie druga (ważniejsza) - dokumentacyjna funkcja (oprócz informacyjnej). Ten rejestr wydarzeń służy Twojej pewności, że nie jest możliwa manipulacja post factum.",
 		  "NotificationsD":"Jest to związane z ogólną zasadą, która tu zakłada brak procedur tajnych. Dlatego też wszelkie zdarzenia i ich wyniki są natychmiast po ich zaistnieniu dostępne dla Ogółu Członków - Użytkowników Systemu.",
-		  
+
 	"PriorInTheDiscus":"Priorytet w dyskusji, komentarzach i odniesieniach",
 		"ThisPrioritySorts":"Ten priorytet sortuje wypowiedzi ...",
 		  "ThisPrioritySortsA":"W dyskusji (w odróżnieniu od priorytetowania Kwestii, które decyduje o jej randze), priorytet tutaj służy sortowaniu wypowiedzi, aby te, które są mocniej akceptowane lokowały się wyżej w wykazie.",
@@ -204,11 +204,11 @@
 	"TrashCan":"KOSZ",
 	"TrashCanA":"Do kosza kierowane są Kwestie zgodnie z wolą Ogółu, po zaakceptowaniu wniosku dowolnego Użytkownika.",
 		"TrashCanB":"(przycisk: Do Kosza).",
-		
+
 		"GlobalParamA":"Ponieważ System działa bez administratora organizacyjnego, wszelkie ustawienia startowe są definiowane przez Ogół Członków i są rozpatrywane na tej samej zasadzie, jak każda inna Kwestia. System będzie funkcjonował tak, jak te parametry zostaną ustawione.",
 		"GlobalParamB":"Zmienić można parametry, począwszy od nazwy i kontaktów organizacji, po szczegółowe zachowania w funkcjach czasu. Każdy Członek może podać nową wartość dowolnego parametru, tworząc automatycznie Kwestię techniczną do przyjęcia przez Ogół. Przejście takiej Kwestii do realizacji oznacza automatyczną zmianę parametru na nową wartość.",
 		 "GlobalParamC":"Ustalone już parametry można również później zmieniać. W danym czasie można procedować zmianę jednego parametru. Po jego ustaleniu można zmieniać kolejny.",
-		 
+
 		"UsersList":"Znajdziesz tutaj wykaz Użytkowników Systemu oraz będziesz mógł się z nimi kontaktować."
   },
   "language":{

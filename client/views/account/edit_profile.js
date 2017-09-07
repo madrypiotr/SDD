@@ -8,24 +8,20 @@ Template.profileEdit.rendered = function () {
         },
         messages: {
             name: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             surname: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             address: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             zipcode: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             }
         },
-        highlight: function (element) {
-            highlightFunction(element);
-        },
-        unhighlight: function (element) {
-            unhighlightFunction(element);
-        },
+        highlight: highlightFunction,
+        unhighlight: unhighlightFunction,
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function (error, element) {

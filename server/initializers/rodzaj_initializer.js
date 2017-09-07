@@ -12,15 +12,14 @@ Meteor.startup(function () {
     };
 
     if (Rodzaj.find().count() == 0) {
-
         Rodzaj.insert({
-            _id:rodzaj._id,
+            _id: rodzaj._id,
             idTemat: rodzaj.idTemat,
             nazwaRodzaj: rodzaj.nazwaRodzaj
         });
 
         Rodzaj.insert({
-            _id:rodzaj2._id,
+            _id: rodzaj2._id,
             idTemat: rodzaj2.idTemat,
             nazwaRodzaj: rodzaj2.nazwaRodzaj
         });

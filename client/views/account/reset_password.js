@@ -12,19 +12,15 @@ Template.resetPassword.rendered = function () {
         },
         messages: {
             password: {
-                required: fieldEmptyMessage(),
-                minlength: minLengthMessage(6)
+                required: fieldEmptyMessage,
+                minlength: () => minLengthMessage(6)
             },
             confirmPassword: {
-                equalTo: equalToMessage()
+                equalTo: equalToMessage
             }
         },
-        highlight: function (element) {
-            highlightFunction(element);
-        },
-        unhighlight: function (element) {
-            unhighlightFunction(element);
-        },
+        highlight: highlightFunction,
+        unhighlight: unhighlightFunction,
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function (error, element) {

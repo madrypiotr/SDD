@@ -14,6 +14,7 @@ check
 cunneen:mailgun
 dburles:google-maps
 dynamic-import
+ecmascript
 ejson
 email@1.2.3
 facebook-config-ui

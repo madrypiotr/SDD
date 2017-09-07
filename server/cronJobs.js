@@ -223,7 +223,7 @@ var checkingEndOfVote = function () {
                                 var user = Users.findOne({_id:userDraft.profile.idUser});
                                 addPowiadomienieAplikacjaRespondMethod(issueUpdated._id,new Date(),NOTIFICATION_TYPE.APPLICATION_REJECTED,user._id);
                             }
-                            Meteor.call('sendApplicationRejected',userDraft,function (error,ret) {
+                            Meteor.call('sendApplicationRejected', userDraft, null, function (error) {
                                 if (!error)
                                     Meteor.call('removeUserDraft',userDraft);
                                 else {
