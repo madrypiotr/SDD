@@ -31,7 +31,7 @@ Template.updateAccountModalInner.helpers({
 });
 
 Template.updateAccountModalInner.events({
-    'click .add-role': function (event, template) {
+    'click .add-role': function (event) {
         var role = this.toString();
         var userId = event.currentTarget.getAttribute('data-user-id');
         Meteor.call('addUserRole', userId, role, function (error) {
@@ -49,7 +49,7 @@ Template.updateAccountModalInner.events({
         });
     },
 
-    'click .remove-role' : function (event, template) {
+    'click .remove-role' : function (event) {
         var role = this.toString();
         var userId = event.currentTarget.getAttribute('data-user-id');
         Meteor.call('removeUserRole', userId, role, function (error) {
@@ -67,7 +67,7 @@ Template.updateAccountModalInner.events({
         });
     },
 
-    'change .admin-user-info' : function (event, template) {
+    'change .admin-user-info' : function (event) {
 
         var ele = event.currentTarget;
         var userId = ele.getAttribute('data-user-id');

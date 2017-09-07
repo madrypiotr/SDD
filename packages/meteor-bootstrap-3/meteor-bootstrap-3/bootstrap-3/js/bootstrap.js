@@ -336,9 +336,9 @@ if (typeof jQuery === 'undefined') {
 
     Carousel.prototype.keydown = function (e) {
         switch (e.which) {
-        case 37: this.prev(); break;
-        case 39: this.next(); break;
-        default: return;
+            case 37: this.prev(); break;
+            case 39: this.next(); break;
+            default: return;
         }
 
         e.preventDefault();

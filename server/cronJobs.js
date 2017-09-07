@@ -41,11 +41,12 @@ SyncedCron.add({
 
 //==================================== wywoływane metody ======================================================//
 
-checkingRRExist = function () {
+var checkingRRExist = function () {
     var kwestie = Kwestia.find({
         czyAktywny: true,
-        status:{$in:[KWESTIA_STATUS.ZREALIZOWANA,KWESTIA_STATUS.REALIZOWANA]},
-        typ:{$nin:[KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE]}});
+        status: {$in: [KWESTIA_STATUS.ZREALIZOWANA, KWESTIA_STATUS.REALIZOWANA]},
+        typ: {$nin: [KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE]}
+    });
     kwestie.forEach(function (kwestia) {
         var initial = _.last(kwestia.listaDatRR);
         //console.log ( "ZMIANA_PARAMS" );
@@ -57,10 +58,14 @@ checkingRRExist = function () {
         //console.log ( "Obecna godzina" );
         //console.log ( currentTime );
         if (nextCheck <= currentTime) {
-            var raporty = Raport.find({idKwestia:kwestia._id,
+            var raporty = Raport.find({
+                idKwestia: kwestia._id,
                 dataUtworzenia: {
                     $gte: initial
-                }},{sort:{dataWprowadzenia:-1}});
+                }
+            }, {
+                sort: {dataWprowadzenia: -1}
+            });
 
             if (raporty.count() == 0) {
                 Meteor.call('sendEmailNoRealizationReport', kwestia._id, getUserLanguage(), function (error) {
@@ -81,24 +86,18 @@ checkingRRExist = function () {
             }
             var array = kwestia.listaDatRR;
             array.push(currentTime);
-            Meteor.call('updateDeadlineNextRR',kwestia._id,array,function (error) {
-                if (!error) {
-                }
-            });
+            Meteor.call('updateDeadlineNextRR', kwestia._id, array);
         }
     });
 };
-checkingEndOfVote = function () {
+var checkingEndOfVote = function () {
     var actualDate = moment(new Date()).format();
-    var kwestie = Kwestia.find(
-        {
-            czyAktywny: true,
-            status: {$in: [KWESTIA_STATUS.GLOSOWANA]}//KWESTIA_STATUS.OCZEKUJACA
-        },
-        {
-            sort: {wartoscPriorytetu: -1, dataWprowadzenia: 1}
-        }
-    );
+    var kwestie = Kwestia.find({
+        czyAktywny: true,
+        status: {$in: [KWESTIA_STATUS.GLOSOWANA]}//KWESTIA_STATUS.OCZEKUJACA
+    }, {
+        sort: {wartoscPriorytetu: -1, dataWprowadzenia: 1}
+    });
 
     kwestie.forEach(function (kwestia) {
         var issueUpdated = Kwestia.findOne({_id: kwestia._id});
@@ -248,7 +247,7 @@ checkingEndOfVote = function () {
     });
 };
 
-checkingDeliberationExpiration = function () {
+var checkingDeliberationExpiration = function () {
     var kwestie = Kwestia.find({czyAktywny: true, status:
     {$in: [
         KWESTIA_STATUS.DELIBEROWANA,
@@ -263,7 +262,7 @@ checkingDeliberationExpiration = function () {
 };
 //=========================================== metody pomocnicze ===============================================//
 
-awansUzytkownika = function (idZespoluRealiz, pktZaUdzialWZesp) {
+var awansUzytkownika = function (idZespoluRealiz, pktZaUdzialWZesp) {
     var zespol = ImplemTeamDraft.findOne({_id: idZespoluRealiz}).zespol;
 
     zespol.forEach(function (idUzytkownikaZespolu) {
@@ -272,7 +271,7 @@ awansUzytkownika = function (idZespoluRealiz, pktZaUdzialWZesp) {
 };
 
 //Nadawanie numeru uchwały - dla kwesti które przechodzą do realizacji, każdego dnia numery idą od 1
-nadawanieNumeruUchwaly = function (dataRealizacji) {
+var nadawanieNumeruUchwaly = function (dataRealizacji) {
 
     var numerUchw = 1;
     var kwestieRealizowane = Kwestia.find({czyAktywny: true, numerUchwaly: !null});
@@ -286,7 +285,7 @@ nadawanieNumeruUchwaly = function (dataRealizacji) {
     return numerUchw;
 };
 //...................................................................................
-changeParametersSuccess = function (kwestia) {
+var changeParametersSuccess = function (kwestia) {
     console.log(kwestia);
     var globalPramsDraft = ParametrDraft.findOne({_id:kwestia.idParametr,czyAktywny: true});
     console.log('change param');
@@ -318,7 +317,7 @@ changeParametersSuccess = function (kwestia) {
     });
 };
 
-updateListKwestie = function (ZR,kwestia) {
+var updateListKwestie = function (ZR,kwestia) {
     if (kwestia) {
         var listKwestii = ZR.kwestie.slice();
         listKwestii.push(kwestia._id);
@@ -336,7 +335,7 @@ updateListKwestie = function (ZR,kwestia) {
     }
 };
 
-createNewZR = function (zrDraft,kwestia) {
+var createNewZR = function (zrDraft,kwestia) {
     var arrayKwestie = [];
     arrayKwestie.push(kwestia._id);
     var newZR = [{
@@ -358,7 +357,8 @@ createNewZR = function (zrDraft,kwestia) {
         }
     });
 };
-hibernateKwestieOpcje = function (kwestia) {
+
+var hibernateKwestieOpcje = function (kwestia) {
     kwestieOpcje = Kwestia.find({czyAktywny: true, idParent: kwestia.idParent,
         status:{$in:[KWESTIA_STATUS.GLOSOWANA,KWESTIA_STATUS.DELIBEROWANA]}});
     if (kwestieOpcje.count() > 1) {

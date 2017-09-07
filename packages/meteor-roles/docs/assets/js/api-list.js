@@ -181,36 +181,36 @@ YUI.add('api-list', function (Y) {
         };
 
         switch (name) {
-        case 'classes': // fallthru
-        case 'modules':
-            filter.setAttrs({
-                minQueryLength: 0,
-                queryType     : name
-            });
+            case 'classes': // fallthru
+            case 'modules':
+                filter.setAttrs({
+                    minQueryLength: 0,
+                    queryType     : name
+                });
 
-            search.set('minQueryLength', -1);
+                search.set('minQueryLength', -1);
 
-            // Only send a request if this isn't the initially-selected tab.
-            if (e.prevVal) {
-                filter.sendRequest(filter.get('value'));
-            }
-            break;
+                // Only send a request if this isn't the initially-selected tab.
+                if (e.prevVal) {
+                    filter.sendRequest(filter.get('value'));
+                }
+                break;
 
-        case 'everything':
-            filter.set('minQueryLength', -1);
-            search.set('minQueryLength', 1);
+            case 'everything':
+                filter.set('minQueryLength', -1);
+                search.set('minQueryLength', 1);
 
-            if (search.get('value')) {
-                search.sendRequest(search.get('value'));
-            } else {
-                inputNode.focus();
-            }
-            break;
+                if (search.get('value')) {
+                    search.sendRequest(search.get('value'));
+                } else {
+                    inputNode.focus();
+                }
+                break;
 
-        default:
-        // WTF? We shouldn't be here!
-            filter.set('minQueryLength', -1);
-            search.set('minQueryLength', -1);
+            default:
+                // WTF? We shouldn't be here!
+                filter.set('minQueryLength', -1);
+                search.set('minQueryLength', -1);
         }
 
         if (focusManager) {
@@ -230,19 +230,19 @@ YUI.add('api-list', function (Y) {
         e.preventDefault();
 
         switch (e.keyCode) {
-        case 37: // left arrow
-            if (currentTabIndex > 0) {
-                tabview.selectChild(currentTabIndex - 1);
-                inputNode.focus();
-            }
-            break;
+            case 37: // left arrow
+                if (currentTabIndex > 0) {
+                    tabview.selectChild(currentTabIndex - 1);
+                    inputNode.focus();
+                }
+                break;
 
-        case 39: // right arrow
-            if (currentTabIndex < (Y.Object.size(tabs) - 2)) {
-                tabview.selectChild(currentTabIndex + 1);
-                inputNode.focus();
-            }
-            break;
+            case 39: // right arrow
+                if (currentTabIndex < (Y.Object.size(tabs) - 2)) {
+                    tabview.selectChild(currentTabIndex + 1);
+                    inputNode.focus();
+                }
+                break;
         }
     }
 

@@ -19,16 +19,16 @@ Template.profileList.rendered = function () {
 };
 
 Template.profileList.events({
-    'click .glyphicon-trash': function (event, template) {
+    'click .glyphicon-trash': function () {
         Session.set('userInScope', this);
     },
-    'click .glyphicon-info-sign': function (event, template) {
+    'click .glyphicon-info-sign': function () {
         Session.set('userInScope', this);
     },
-    'click .glyphicon-cog': function (event, template) {
+    'click .glyphicon-cog': function () {
         Session.set('userInScope', this);
     },
-    'click .glyphicon-pencil': function (event, template) {
+    'click .glyphicon-pencil': function () {
         Session.set('userInScope', this);
     }
 });

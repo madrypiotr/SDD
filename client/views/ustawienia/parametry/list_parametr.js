@@ -3,17 +3,22 @@ Template.listParametr.helpers({
         return Meteor.user().profile.userType == USERTYPE.CZLONEK ? true : false;
     },
     noKwestiaParameters: function () {
-        var kwestie = Kwestia.find({typ:KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE, czyAktywny: true,
-            status:{$nin:[KWESTIA_STATUS.ZREALIZOWANA,KWESTIA_STATUS.ARCHIWALNA]}});
+        var kwestie = Kwestia.find({
+            typ: KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE, czyAktywny: true,
+            status: {$nin: [KWESTIA_STATUS.ZREALIZOWANA, KWESTIA_STATUS.ARCHIWALNA]}
+        });
         //status:{$in:[KWESTIA_STATUS.ADMINISTROWANA,KWESTIA_STATUS.GLOSOWANA]} } );
         return kwestie.count() > 0 ? false : true;
     }
 });
+
 Template.listParametr.events({
     'click #parametersClick': function (e) {
         e.preventDefault();
-        var kwestia = Kwestia.findOne({typ:KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE,
-            czyAktywny: true,status:{$nin:[KWESTIA_STATUS.ZREALIZOWANA]}});
+        var kwestia = Kwestia.findOne({
+            typ: KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE,
+            czyAktywny: true, status: {$nin: [KWESTIA_STATUS.ZREALIZOWANA]}
+        });
         if (kwestia) {
             var path = null;
             path = '/issue_info/' + kwestia._id;
@@ -78,12 +83,13 @@ Template.listParametr.events({
         editParameter('okresSkladaniaRR', TAPi18n.__('txv.FREQ_ADD_REPPO'), this.addReferencePause);
     }
 });
-editParameter = function (name,parameterName,value) {
+
+var editParameter = function (name, parameterName, value) {
     var obj = {
-        name:name,
-        title:parameterName,
-        value:value
+        name: name,
+        title: parameterName,
+        value: value
     };
-    Session.setPersistent('chosenParameterSession',obj);
+    Session.setPersistent('chosenParameterSession', obj);
     $('#editParametrMod').modal('show');
 };

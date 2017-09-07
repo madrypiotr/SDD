@@ -36,7 +36,7 @@ Meteor.startup(function () {
             }
         }
     });
-    moveIssueAsAvote = function (newKwestia,ZRDraft,ifUpdateZR) {
+    var moveIssueAsAvote = function (newKwestia,ZRDraft,ifUpdateZR) {
         if (kwestiaAllowedToGlosowana()) {
             var czasGlosowania = Parametr.findOne({ }).voteDuration;
             var final = moment(new Date()).add(czasGlosowania, 'hours').format();
@@ -58,7 +58,7 @@ Meteor.startup(function () {
         }
     };
 
-    addNotificationIssueVoteMethod = function (idKwestia) {
+    var addNotificationIssueVoteMethod = function (idKwestia) {
         var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
         var kwestia = Kwestia.findOne({_id:idKwestia});
         users.forEach(function (user) {

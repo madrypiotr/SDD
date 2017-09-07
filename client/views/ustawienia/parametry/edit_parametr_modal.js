@@ -1,6 +1,7 @@
 Template.editParametrModalInner.rendered = function () {
     $('.successBtn').css('visibility', 'visible');
-},
+};
+
 Template.editParametrModalInner.helpers({
     parametrInScope: function () {
         return Session.get('chosenParameterSession');
@@ -52,7 +53,7 @@ Template.editParametrModalInner.helpers({
 Template.editParametrModalInner.events({
     'click .btn-danger': function (e) {
         e.preventDefault();
-        Session.setPersistent('chosenParameterSession',null);
+        Session.setPersistent('chosenParameterSession', null);
         $('#editParametrMod').modal('hide');
     },
     'submit form': function (e) {
@@ -67,7 +68,6 @@ Template.editParametrModalInner.events({
             } else {
                 var session = Session.get('chosenParameterSession');
 
-                var val = session.name;
                 var newValue = document.getElementById('param').value;
                 if (newValue == null || newValue.trim() == '') {
                     GlobalNotification.error({
@@ -85,7 +85,7 @@ Template.editParametrModalInner.events({
     }
 });
 
-parametrPreview = function (paramName,title,oldValue,newValue) {
+var parametrPreview = function (paramName, title, oldValue, newValue) {
     bootbox.dialog({
         message: '<p class="bg-warning padding-15 color-red"><b>' + TAPi18n.__('txv.YOU_INT_CHANGE') + '</b></p>' +
         '<p>' + TAPi18n.__('txv.I_SUGG_CH_CONT') + '<b>' + title.toUpperCase() + '</b>' + TAPi18n.__('txv.WITH_THE_VALUE') + '</p>' +
@@ -121,7 +121,7 @@ parametrPreview = function (paramName,title,oldValue,newValue) {
     });
 };
 
-createIssueChangeParam = function (paramName,title,oldValue,newValue) {
+var createIssueChangeParam = function (paramName, title, oldValue, newValue) {
     var params = Parametr.findOne();
     var nazwaOrg = params.nazwaOrganizacji;
     var terytorium = params.terytorium;
@@ -139,23 +139,22 @@ createIssueChangeParam = function (paramName,title,oldValue,newValue) {
     var okresSkladaniaRR = params.okresSkladaniaRR;
 
     switch (paramName) {
-    case 'nazwaOrganizacji':nazwaOrg = newValue;break;
-    case 'terytorium':terytorium = newValue;break;
-    case 'terytAdres':terytAdres = newValue;break;
-    case 'terytCODE':terytCODE = newValue;break;
-    case 'terytCity':terytCity = newValue;break;
-    case 'kontakty':kontakty = newValue;break;
-    case 'regulamin':reg = newValue;break;
-    case 'voteDuration':voteDur = newValue;break;
-    case 'voteQuantity':voteQuan = newValue;break;
-    case 'czasWyczekiwaniaKwestiiSpecjalnej':czasWycz = newValue;break;
-    case 'addIssuePause':issuePause = newValue;break;
-    case 'addCommentPause':commPause = newValue;break;
-    case 'addReferencePause':refPause = newValue;break;
-    case 'okresSkladaniaRR':okresSkladaniaRR = newValue;break;
+        case 'nazwaOrganizacji': nazwaOrg = newValue; break;
+        case 'terytorium': terytorium = newValue; break;
+        case 'terytAdres': terytAdres = newValue; break;
+        case 'terytCODE': terytCODE = newValue; break;
+        case 'terytCity': terytCity = newValue; break;
+        case 'kontakty': kontakty = newValue; break;
+        case 'regulamin': reg = newValue; break;
+        case 'voteDuration': voteDur = newValue; break;
+        case 'voteQuantity': voteQuan = newValue; break;
+        case 'czasWyczekiwaniaKwestiiSpecjalnej': czasWycz = newValue; break;
+        case 'addIssuePause': issuePause = newValue; break;
+        case 'addCommentPause': commPause = newValue; break;
+        case 'addReferencePause': refPause = newValue; break;
+        case 'okresSkladaniaRR': okresSkladaniaRR = newValue; break;
     }
-    var addParamDraft =
-    {
+    var addParamDraft = {
         nazwaOrganizacji: nazwaOrg,
         terytorium: terytorium,
         terytAdres: terytAdres,
@@ -163,13 +162,13 @@ createIssueChangeParam = function (paramName,title,oldValue,newValue) {
         terytCity: terytCity,
         kontakty: kontakty,
         regulamin: reg,
-        voteDuration:voteDur,
-        voteQuantity:voteQuan,
-        czasWyczekiwaniaKwestiiSpecjalnej:czasWycz,
-        addIssuePause:issuePause,
-        addCommentPause:commPause,
-        addReferencePause:refPause,
-        okresSkladaniaRR:okresSkladaniaRR
+        voteDuration: voteDur,
+        voteQuantity: voteQuan,
+        czasWyczekiwaniaKwestiiSpecjalnej: czasWycz,
+        addIssuePause: issuePause,
+        addCommentPause: commPause,
+        addReferencePause: refPause,
+        okresSkladaniaRR: okresSkladaniaRR
     };
     var odp = checkIssueGlobalParamExists();
     var params = ParametrDraft.find({czyAktywny: true});
@@ -178,7 +177,7 @@ createIssueChangeParam = function (paramName,title,oldValue,newValue) {
             if (!error) {
                 var params = ParametrDraft.find({czyAktywny: true});
                 if (params.count() > 1) {
-                    Meteor.call('setActivityParametrDraft',ret,false);
+                    Meteor.call('setActivityParametrDraft', ret, false);
                 } else {
                     var dataParams = {
                         title: title.toUpperCase(),
@@ -224,9 +223,9 @@ createIssueChangeParam = function (paramName,title,oldValue,newValue) {
     }
 };
 
-addPowiadomienieGlobalneFunction = function (idKwestia) {
+var addPowiadomienieGlobalneFunction = function (idKwestia) {
     var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
-    var kwestia = Kwestia.findOne({_id:idKwestia});
+    var kwestia = Kwestia.findOne({_id: idKwestia});
     users.forEach(function (user) {
         var newPowiadomienie = {
             idOdbiorca: user._id,
@@ -235,11 +234,11 @@ addPowiadomienieGlobalneFunction = function (idKwestia) {
             tytul: '',
             powiadomienieTyp: NOTIFICATION_TYPE.NEW_ISSUE,
             tresc: '',
-            idKwestia:idKwestia,
+            idKwestia: idKwestia,
             czyAktywny: true,
             czyOdczytany: false
         };
-        Meteor.call('addPowiadomienie',newPowiadomienie,function (error) {
+        Meteor.call('addPowiadomienie', newPowiadomienie, function (error) {
             if (error)
                 throwError(error.reason);
         });
@@ -247,8 +246,10 @@ addPowiadomienieGlobalneFunction = function (idKwestia) {
 
 };
 
-checkIssueGlobalParamExists = function () {
-    var kwestie = Kwestia.find({typ:KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE, czyAktywny: true,
-        status:{$nin:[KWESTIA_STATUS.ZREALIZOWANA,KWESTIA_STATUS.ARCHIWALNA]}});
+var checkIssueGlobalParamExists = function () {
+    var kwestie = Kwestia.find({
+        typ: KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE, czyAktywny: true,
+        status: {$nin: [KWESTIA_STATUS.ZREALIZOWANA, KWESTIA_STATUS.ARCHIWALNA]}
+    });
     return kwestie.count() > 0 ? true : false;
 };

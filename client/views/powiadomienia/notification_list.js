@@ -39,19 +39,19 @@ Template.tematLink.helpers({
 
 getTopicTypeNotification = function (powiadomienieTyp,idNadawca,idKwestia) {
     switch (powiadomienieTyp) {
-    case NOTIFICATION_TYPE.MESSAGE_FROM_USER: {
-        var user = Users.findOne({_id: idNadawca});
-        return powiadomienieTyp + ' ' + user.profile.fullName;break;
-    }
-    case NOTIFICATION_TYPE.NEW_ISSUE: {//sth wrong,when applies guest
-        var kwestia = Kwestia.findOne({_id:idKwestia});
-        return powiadomienieTyp + ': ' + kwestia.kwestiaNazwa;break;
-    }
-    case NOTIFICATION_TYPE.LOOBBING_MESSAGE: {
-        var user = Users.findOne({_id:idNadawca});
-        if (user)
-            return powiadomienieTyp + TAPi18n.__('txv.BY') + user.profile.fullName;break;
-    }
-    default : return powiadomienieTyp;
+        case NOTIFICATION_TYPE.MESSAGE_FROM_USER: {
+            var user = Users.findOne({_id: idNadawca});
+            return powiadomienieTyp + ' ' + user.profile.fullName;break;
+        }
+        case NOTIFICATION_TYPE.NEW_ISSUE: {//sth wrong,when applies guest
+            var kwestia = Kwestia.findOne({_id:idKwestia});
+            return powiadomienieTyp + ': ' + kwestia.kwestiaNazwa;break;
+        }
+        case NOTIFICATION_TYPE.LOOBBING_MESSAGE: {
+            var user = Users.findOne({_id:idNadawca});
+            if (user)
+                return powiadomienieTyp + TAPi18n.__('txv.BY') + user.profile.fullName;break;
+        }
+        default : return powiadomienieTyp;
     }
 };

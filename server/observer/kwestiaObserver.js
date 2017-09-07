@@ -166,7 +166,7 @@ Meteor.startup(function () {
         var allKwestieGlosowane = Kwestia.find({status:KWESTIA_STATUS.GLOSOWANA,czyAktywny: true}).count();
         return allKwestieGlosowane < 3 ? true : false;
     };
-    changeParametersSuccessObserver = function (kwestia) {//głosowana->zrealizowana
+    var changeParametersSuccessObserver = function (kwestia) {//głosowana->zrealizowana
         var globalPramsDraft = ParametrDraft.findOne({czyAktywny: true});
         var obj = {
             nazwaOrganizacji:globalPramsDraft.nazwaOrganizacji,
@@ -193,7 +193,7 @@ Meteor.startup(function () {
                 });
         });
     };
-    moveIssueAsAvote = function (newKwestia,ZRDraft,ifUpdateZR) {
+    var moveIssueAsAvote = function (newKwestia,ZRDraft,ifUpdateZR) {
         if (kwestiaAllowedToGlosowana()) {
             var czasGlosowania = Parametr.findOne({ }).voteDuration;
             var final = moment(new Date()).add(czasGlosowania, 'hours').format();
@@ -214,7 +214,7 @@ Meteor.startup(function () {
             });
         }
     };
-    setInQueueToVote = function (kwestie,numberKwestieAvailable) {
+    var setInQueueToVote = function (kwestie,numberKwestieAvailable) {
         var tab = [];
         var tabKwestie = [];
         kwestie.forEach(function (item) {
@@ -270,13 +270,13 @@ Meteor.startup(function () {
         }
         return tab;
     };
-    setTabValues = function (numberKwestieAvailable,tabKwestieSort,tab) {
+    var setTabValues = function (numberKwestieAvailable, tabKwestieSort, tab) {
         for (var i = 0;i < numberKwestieAvailable;i++) {
             tab.push(tabKwestieSort[i]._id);
         }
         return tab;
     };
-    rewriteZRMembersToList = function (zespolRealizacyjny,newKwestia) {
+    rewriteZRMembersToList = function (zespolRealizacyjny, newKwestia) {
         var czlonkowieZespolu = [];
         _.each(zespolRealizacyjny.zespol, function (idUser) {
             var user = Users.findOne({_id: idUser});
@@ -291,7 +291,7 @@ Meteor.startup(function () {
                 throwError(error.reason);
         });
     };
-    manageZR = function (newKwestia) {
+    var manageZR = function (newKwestia) {
         var zespolRealizacyjny = ZespolRealizacyjny.findOne({_id: newKwestia.idZespolRealizacyjny});
         if (zespolRealizacyjny.kwestie.length > 0) {
             var kwestie = _.reject(zespolRealizacyjny.kwestie, function (kwestiaId) {
@@ -324,7 +324,7 @@ Meteor.startup(function () {
                 rewriteZRMembersToList(zespolRealizacyjny, newKwestia);
         }
     };
-    unhibernateKwestieOpcje = function (kwestia) {
+    var unhibernateKwestieOpcje = function (kwestia) {
         var kwestieOpcje = Kwestia.find({czyAktywny: true, idParent: kwestia.idParent, status: KWESTIA_STATUS.HIBERNOWANA});
         kwestieOpcje.forEach(function (kwestiaOpcja) {
             if (kwestiaOpcja._id != kwestia._id) {
@@ -334,7 +334,7 @@ Meteor.startup(function () {
     };
 });
 
-addPowiadomienieAplikacjaObsRespondMethod = function (idKwestia,dataWprowadzenia,typ,idReceiver,idUserDraft) {
+var addPowiadomienieAplikacjaObsRespondMethod = function (idKwestia, dataWprowadzenia, typ, idReceiver, idUserDraft) {
     var newPowiadomienie = {
         idOdbiorca: idReceiver,
         idNadawca: null,
@@ -353,7 +353,7 @@ addPowiadomienieAplikacjaObsRespondMethod = function (idKwestia,dataWprowadzenia
     });
 };
 
-addNotificationIssueVoteMethod = function (idKwestia) {
+var addNotificationIssueVoteMethod = function (idKwestia) {
     var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
     var kwestia = Kwestia.findOne({_id:idKwestia});
     users.forEach(function (user) {

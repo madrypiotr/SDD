@@ -1,20 +1,20 @@
 // pobiera pliki .html z folderu private
-SSR.compileTemplate('email_act',Assets.getText('email_act.html'));
-SSR.compileTemplate('email_added_issue',Assets.getText('email_added_issue.html'));
-SSR.compileTemplate('email_new_message',Assets.getText('email_new_message.html'));
-SSR.compileTemplate('email_lobbing_issue',Assets.getText('email_lobbing_issue.html'));
-SSR.compileTemplate('email_started_voting',Assets.getText('email_started_voting.html'));
-SSR.compileTemplate('email_application_confirmation',Assets.getText('email_application_confirmation.html'));
-SSR.compileTemplate('email_application_rejected',Assets.getText('email_application_rejected.html'));
-SSR.compileTemplate('email_application_accepted',Assets.getText('email_application_accepted.html'));
-SSR.compileTemplate('email_application_accepted_existing_user',Assets.getText('email_application_accepted_existing_user.html'));
-SSR.compileTemplate('email_login_data',Assets.getText('email_login_data.html'));
-SSR.compileTemplate('email_no_realization_report',Assets.getText('email_no_realization_report.html'));
-SSR.compileTemplate('email_reset_password',Assets.getText('email_reset_password.html'));
+SSR.compileTemplate('email_act', Assets.getText('email_act.html'));
+SSR.compileTemplate('email_added_issue', Assets.getText('email_added_issue.html'));
+SSR.compileTemplate('email_new_message', Assets.getText('email_new_message.html'));
+SSR.compileTemplate('email_lobbing_issue', Assets.getText('email_lobbing_issue.html'));
+SSR.compileTemplate('email_started_voting', Assets.getText('email_started_voting.html'));
+SSR.compileTemplate('email_application_confirmation', Assets.getText('email_application_confirmation.html'));
+SSR.compileTemplate('email_application_rejected', Assets.getText('email_application_rejected.html'));
+SSR.compileTemplate('email_application_accepted', Assets.getText('email_application_accepted.html'));
+SSR.compileTemplate('email_application_accepted_existing_user', Assets.getText('email_application_accepted_existing_user.html'));
+SSR.compileTemplate('email_login_data', Assets.getText('email_login_data.html'));
+SSR.compileTemplate('email_no_realization_report', Assets.getText('email_no_realization_report.html'));
+SSR.compileTemplate('email_reset_password', Assets.getText('email_reset_password.html'));
 
 Template.email_started_voting.helpers({
-    nadanoPriorytet: function (kwestiaId,userId) {
-        var kwestia = Kwestia.findOne({_id:kwestiaId});
+    nadanoPriorytet: function (kwestiaId, userId) {
+        var kwestia = Kwestia.findOne({_id: kwestiaId});
 
         if (kwestia) {
             var glosujacy = _.pluck(kwestia.glosujacy, 'idUser');
@@ -22,23 +22,24 @@ Template.email_started_voting.helpers({
         }
         return false;
     },
-    mojPriorytet: function (kwestiaId,userId) {
-        var kwestia = Kwestia.findOne({_id:kwestiaId});
-        var myObj = _.reject(kwestia.glosujacy,function (obj) {
+    mojPriorytet: function (kwestiaId, userId) {
+        var kwestia = Kwestia.findOne({_id: kwestiaId});
+        var myObj = _.reject(kwestia.glosujacy, function (obj) {
             return obj.idUser != userId;
         });
         return myObj[0] ? myObj[0].value : null;
     }
 });
+
 Template.email_no_realization_report.helpers({
     czlonekZR: function (idZespolRealizacyjny) {
-        var zr = ZespolRealizacyjny.findOne({_id:idZespolRealizacyjny});
+        var zr = ZespolRealizacyjny.findOne({_id: idZespolRealizacyjny});
         var array = [];
-        _.each(zr.zespol,function (czlonekId) {
-            var user = Users.findOne({_id:czlonekId});
+        _.each(zr.zespol, function (czlonekId) {
+            var user = Users.findOne({_id: czlonekId});
             var obj = {
-                fullName:user.profile.fullName,
-                url:Meteor.absoluteUrl() + 'new_message/' + czlonekId
+                fullName: user.profile.fullName,
+                url: Meteor.absoluteUrl() + 'new_message/' + czlonekId
             };
             array.push(obj);
         });
@@ -49,7 +50,7 @@ Template.email_no_realization_report.helpers({
 Meteor.methods({
     registerAddKwestiaNotification: function (prop) {
         if (!prop.users) {
-            var allUsers = Users.find({ }).fetch();
+            var allUsers = Users.find({}).fetch();
             prop.users = allUsers;
         }
     },
@@ -62,16 +63,16 @@ Meteor.methods({
             text: text
         });
     },
-    sendDirectMessageToUser: function (receiverId,senderName, subject, text) {
+    sendDirectMessageToUser: function (receiverId, senderName, subject, text) {
         this.unblock();
-        var parametr = Parametr.findOne({ });
-        var receiver = Users.findOne({_id:receiverId});
-        var html = SSR.render('email_new_message',{
-            ogranisation:parametr.nazwaOrganizacji,
-            welcomeGender:recognizeSex(receiver),
-            fullName:receiver.profile.fullName,
-            text:text,
-            sender:senderName
+        var parametr = Parametr.findOne({});
+        var receiver = Users.findOne({_id: receiverId});
+        var html = SSR.render('email_new_message', {
+            ogranisation: parametr.nazwaOrganizacji,
+            welcomeGender: recognizeSex(receiver),
+            fullName: receiver.profile.fullName,
+            text: text,
+            sender: senderName
         });
         Email.send({
             to: receiver.emails[0].address,
@@ -83,7 +84,7 @@ Meteor.methods({
     sendEmailForAll: function (from, subject, text) {
         var users = Users.find();
         this.unblock();
-        _.each(users,function (item) {
+        _.each(users, function (item) {
             Email.send({
                 to: item.emails[0].address,
                 from: from,
@@ -94,10 +95,10 @@ Meteor.methods({
     },
     sendEmailAddedIssue: function (idKwestia, lang) {
         this.unblock();
-        var parametr = Parametr.findOne({ });
-        var kwestiaItem = Kwestia.findOne({_id:idKwestia});
-        var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
-        var temat = Temat.findOne({_id:kwestiaItem.idTemat});
+        var parametr = Parametr.findOne({});
+        var kwestiaItem = Kwestia.findOne({_id: idKwestia});
+        var rodzaj = Rodzaj.findOne({_id: kwestiaItem.idRodzaj});
+        var temat = Temat.findOne({_id: kwestiaItem.idTemat});
         if (!rodzaj)
             rodzaj = TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM', null, lang);
         else
@@ -107,20 +108,20 @@ Meteor.methods({
 
         else temat = temat.nazwaTemat;
 
-        Users.find({ }).forEach(function (item) {
+        Users.find({}).forEach(function (item) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
-                var html = SSR.render('email_added_issue',{
-                    welcomeGender:recognizeSex(item),
-                    userData:item.profile.fullName,
+                var html = SSR.render('email_added_issue', {
+                    welcomeGender: recognizeSex(item),
+                    userData: item.profile.fullName,
                     organizacja: parametr.nazwaOrganizacji,
                     krotkaTresc: kwestiaItem.krotkaTresc,
                     nazwaKwestii: kwestiaItem.kwestiaNazwa,
-                    idKwestii:kwestiaItem._id,
+                    idKwestii: kwestiaItem._id,
                     idUser: item._id,
                     rodzaj: rodzaj,
                     temat: temat,
-                    url:Meteor.absoluteUrl() + 'issue_info/' + kwestiaItem._id,
-                    urlLogin:Meteor.absoluteUrl() + 'account/login',
+                    url: Meteor.absoluteUrl() + 'issue_info/' + kwestiaItem._id,
+                    urlLogin: Meteor.absoluteUrl() + 'account/login',
 
                     globDoNotAnswerThat: TAPi18n.__('glob.DoNotAnswerThat', null, lang),
                     globIntroducedAnewIssue: TAPi18n.__('glob.IntroducedAnewIssue', null, lang),
@@ -144,21 +145,21 @@ Meteor.methods({
             }
         });
     },
-    sendEmailAct: function (idKwestia, lang) {
+    sendEmailAct: function (idKwestia) {
         this.unblock();
-        var parametr = Parametr.findOne({ });
-        var kwestiaItem = Kwestia.findOne({_id:idKwestia});
-        var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
-        var temat = Temat.findOne({_id:kwestiaItem.idTemat});
-        Users.find({ }).forEach(function (item, lang) {
+        var parametr = Parametr.findOne({});
+        var kwestiaItem = Kwestia.findOne({_id: idKwestia});
+        var rodzaj = Rodzaj.findOne({_id: kwestiaItem.idRodzaj});
+        var temat = Temat.findOne({_id: kwestiaItem.idTemat});
+        Users.find({}).forEach(function (item, lang) {
             if (!Roles.userIsInRole(item, ['admin'])) {
-                var html = SSR.render('email_act',{
-                    welcomeGender:recognizeSex(item),
-                    username:item.username,
+                var html = SSR.render('email_act', {
+                    welcomeGender: recognizeSex(item),
+                    username: item.username,
                     organizacja: parametr.nazwaOrganizacji,
                     szczegolyKwestii: kwestiaItem.szczegolowaTresc,
                     nazwaKwestii: kwestiaItem.kwestiaNazwa,
-                    idKwestii:kwestiaItem._id,
+                    idKwestii: kwestiaItem._id,
                     rodzaj: rodzaj.nazwaRodzaj,
                     temat: temat.nazwaTemat,
                     userType: item.profile.userType
@@ -174,10 +175,10 @@ Meteor.methods({
     },
     sendEmailNoRealizationReport: function (idKwestia, lang) {
         this.unblock();
-        var parametr = Parametr.findOne({ });
-        var kwestiaItem = Kwestia.findOne({_id:idKwestia});
-        var rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj});
-        var temat = Temat.findOne({_id:kwestiaItem.idTemat});
+        var parametr = Parametr.findOne({});
+        var kwestiaItem = Kwestia.findOne({_id: idKwestia});
+        var rodzaj = Rodzaj.findOne({_id: kwestiaItem.idRodzaj});
+        var temat = Temat.findOne({_id: kwestiaItem.idTemat});
         if (!rodzaj)
             rodzaj = TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM', null, lang);
         else
@@ -186,20 +187,20 @@ Meteor.methods({
             temat = TAPi18n.__('txv.TECHNICAL', null, lang);
         else temat = temat.nazwaTemat;
 
-        Users.find({ }).forEach(function (item, lang) {
+        Users.find({}).forEach(function (item, lang) {
 
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
-                var html = SSR.render('email_no_realization_report',{
-                    welcomeGender:recognizeSex(item),
-                    userData:item.profile.fullName,
+                var html = SSR.render('email_no_realization_report', {
+                    welcomeGender: recognizeSex(item),
+                    userData: item.profile.fullName,
                     organizacja: parametr.nazwaOrganizacji,
                     krotkaTresc: kwestiaItem.krotkaTresc,
                     nazwaKwestii: kwestiaItem.kwestiaNazwa,
-                    idZespolRealizacyjny:kwestiaItem.idZespolRealizacyjny,
+                    idZespolRealizacyjny: kwestiaItem.idZespolRealizacyjny,
                     rodzaj: rodzaj,
                     temat: temat,
-                    url:Meteor.absoluteUrl() + 'issue_info/' + kwestiaItem._id,
-                    urlLogin:Meteor.absoluteUrl() + 'account/login'//
+                    url: Meteor.absoluteUrl() + 'issue_info/' + kwestiaItem._id,
+                    urlLogin: Meteor.absoluteUrl() + 'account/login'//
                 });
                 Email.send({
                     to: item.emails[0].address,
@@ -210,11 +211,10 @@ Meteor.methods({
             }
         });
     },
-    sendEmailLobbingIssue: function (idKwestia,uzasadnienie,idAuthor, lang) {
+    sendEmailLobbingIssue: function (idKwestia, uzasadnienie, idAuthor, lang) {
         this.unblock();
-        var parametr = Parametr.findOne({ });
-        var kwestiaItem = Kwestia.findOne({_id:idKwestia});
-        var htmlText = null;
+        var parametr = Parametr.findOne({});
+        var kwestiaItem = Kwestia.findOne({_id: idKwestia});
         var rodzaj = null;
         var temat = null;
         var url = Meteor.absoluteUrl() + 'issue_info/' + kwestiaItem._id;
@@ -222,43 +222,42 @@ Meteor.methods({
             rodzaj = TAPi18n.__('txv.TECHNICAL', null, lang);
             temat = TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM', null, lang);
         } else {
-            rodzaj = Rodzaj.findOne({_id:kwestiaItem.idRodzaj}).nazwaRodzaj;
-            temat = Temat.findOne({_id:kwestiaItem.idTemat}).nazwaTemat;
+            rodzaj = Rodzaj.findOne({_id: kwestiaItem.idRodzaj}).nazwaRodzaj;
+            temat = Temat.findOne({_id: kwestiaItem.idTemat}).nazwaTemat;
         }
 
-        var author = Users.findOne({_id:idAuthor});
-        Users.find({ }).forEach(function (item, lang) {
+        var author = Users.findOne({_id: idAuthor});
+        Users.find({}).forEach(function (item, lang) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
-                var html = SSR.render('email_lobbing_issue',{
-                    welcomeGender:recognizeSex(item),
-                    username:item.username,
-                    organizacja: parametr.nazwaOrganizacji,
-                    krotkaTresc:kwestiaItem.krotkaTresc,
+                var html = SSR.render('email_lobbing_issue', {
+                    email: item.emails[0].address,
+                    fullName: item.profile.fullName,
+                    imie: author.profile.firstName,
+                    krotkaTresc: kwestiaItem.krotkaTresc,
                     nazwaKwestii: kwestiaItem.kwestiaNazwa,
+                    nazwisko: author.profile.lastName,
+                    organizacja: parametr.nazwaOrganizacji,
                     rodzaj: rodzaj,
                     temat: temat,
+                    url: url,
                     userType: item.profile.userType,
+                    username: item.username,
                     uzasadnienie: uzasadnienie,
-                    email: item.emails[0].address,
-                    fullName:item.profile.fullName,
-                    imie: author.profile.firstName,
-                    nazwisko: author.profile.lastName,
-                    url:url
-
+                    welcomeGender: recognizeSex(item)
                 });
                 Email.send({
-                    to: item.emails[0].address,
                     from: author.profile.firstName + ' ' + author.profile.lastName,
+                    html: html,
                     subject: TAPi18n.__('txv.SUPPORT_MY_ISSUE', null, lang),
-                    html: html
+                    to: item.emails[0].address
                 });
             }
         });
     },
     sendEmailStartedVoting: function (idKwestia, lang) {
         this.unblock();
-        var parametr = Parametr.findOne({ });
-        var kwestiaItem = Kwestia.findOne({_id:idKwestia});
+        var parametr = Parametr.findOne({});
+        var kwestiaItem = Kwestia.findOne({_id: idKwestia});
         var temat = null;
         var rodzaj = null;
         if (kwestiaItem.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) {
@@ -275,37 +274,37 @@ Meteor.methods({
             kworum = liczenieKworumStatutowe();
         else
             kworum = liczenieKworumZwykle();
-        Users.find({ }).forEach(function (item, lang) {
+        Users.find({}).forEach(function (item, lang) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
-                var html = SSR.render('email_started_voting',{
-                    welcomeGender:recognizeSex(item),
-                    username:item.profile.fullName,
-                    organizacja: parametr.nazwaOrganizacji,
-                    szczegolyKwestii: kwestiaItem.krotkaTresc,
-                    nazwaKwestii: kwestiaItem.kwestiaNazwa,
-                    idKwestii:kwestiaItem._id,
-                    dataGlosowania:moment(kwestiaItem.dataGlosowania).format('DD-MM-YYYY, HH:mm'),
-                    rodzaj: rodzaj,
-                    idUser:item._id,
-                    temat: temat,
-                    wartoscPriorytetu:kwestiaItem.wartoscPriorytetu,
-                    glosujacy:kwestiaItem.glosujacy.length,
+                var html = SSR.render('email_started_voting', {
+                    dataGlosowania: moment(kwestiaItem.dataGlosowania).format('DD-MM-YYYY, HH:mm'),
+                    glosujacy: kwestiaItem.glosujacy.length,
+                    idKwestii: kwestiaItem._id,
+                    idUser: item._id,
                     kworum: kworum,
-                    urlLogin:urlLogin,
-                    url:url
+                    nazwaKwestii: kwestiaItem.kwestiaNazwa,
+                    organizacja: parametr.nazwaOrganizacji,
+                    rodzaj: rodzaj,
+                    szczegolyKwestii: kwestiaItem.krotkaTresc,
+                    temat: temat,
+                    url: url,
+                    urlLogin: urlLogin,
+                    username: item.profile.fullName,
+                    wartoscPriorytetu: kwestiaItem.wartoscPriorytetu,
+                    welcomeGender: recognizeSex(item)
                 });
                 Email.send({
-                    to: item.emails[0].address,
                     from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
+                    html: html,
                     subject: BEGAN_VOTING_ISSUE,
-                    html: html
+                    to: item.emails[0].address
                 });
             }
         });
     },
     sendApplicationConfirmation: function (idUser, lang) {
         var userData = UsersDraft.findOne({_id: idUser});
-        var data = applicationEmail(userData,'confirm',null);
+        var data = applicationEmail(userData, 'confirm', null);
         Email.send({
             to: data.to,
             from: data.to,
@@ -314,8 +313,7 @@ Meteor.methods({
         });
     },
     sendApplicationRejected: function (userData, lang) {
-        var data = applicationEmail(userData,'reject',null);
-
+        var data = applicationEmail(userData, 'reject', null);
         Email.send({
             to: data.to,
             from: data.to,
@@ -323,8 +321,8 @@ Meteor.methods({
             html: data.html
         });
     },
-    sendApplicationAccepted: function (userData,text, lang) {
-        var data = applicationEmail(userData,text,null);
+    sendApplicationAccepted: function (userData, text, lang) {
+        var data = applicationEmail(userData, text, null);
         Email.send({
             to: data.to,
             from: data.to,
@@ -332,10 +330,9 @@ Meteor.methods({
             html: data.html
         });
     },
-    sendFirstLoginData: function (idUser,pass, lang) {
-
-        var userData = Users.findOne({_id:idUser});
-        var data = applicationEmail(userData,'loginData',pass);
+    sendFirstLoginData: function (idUser, pass, lang) {
+        var userData = Users.findOne({_id: idUser});
+        var data = applicationEmail(userData, 'loginData', pass);
         Email.send({
             to: data.to,
             from: data.to,
@@ -376,14 +373,18 @@ recognizeSex = function (userData, lang) {
 
     return welcomeGender;
 };
-applicationEmail = function (userData,emailTypeText,passw, lang) {
+applicationEmail = function (userData, emailTypeText, passw, lang) {
     var urlLogin = Meteor.absoluteUrl() + 'account/login';
     var welcomeGender = recognizeSex(userData);
 
     var userTypeData = null;
     switch (userData.profile.userType) {
-    case USERTYPE.CZLONEK: userTypeData = TAPi18n.__('txv.ORD_MEMBER', null, lang);break;
-    case USERTYPE.DORADCA: userTypeData = TAPi18n.__('txv.COUNSELOR', null, lang);break;
+        case USERTYPE.CZLONEK:
+            userTypeData = TAPi18n.__('txv.ORD_MEMBER', null, lang);
+            break;
+        case USERTYPE.DORADCA:
+            userTypeData = TAPi18n.__('txv.COUNSELOR', null, lang);
+            break;
     }
     var url = null;
     var login = null;
@@ -424,12 +425,14 @@ applicationEmail = function (userData,emailTypeText,passw, lang) {
             when: when
         };
         urlResetPassword = Meteor.absoluteUrl() + 'account/reset_password/' + token;
-        Meteor.users.update(userData._id, {$set: {
-            'services.password.reset': tokenRecord
-        }});
+        Meteor.users.update(userData._id, {
+            $set: {
+                'services.password.reset': tokenRecord
+            }
+        });
     } else {
         emailTypeText = 'email_application_confirmation';
-        var kwestia = Kwestia.findOne({czyAktywny: true,idUser:userData._id});
+        var kwestia = Kwestia.findOne({czyAktywny: true, idUser: userData._id});
         url = Meteor.absoluteUrl() + 'issue_info/' + kwestia._id;
     }
     var userName = null;
@@ -437,23 +440,22 @@ applicationEmail = function (userData,emailTypeText,passw, lang) {
         userName = userData.profile.firstName + ' ' + userData.profile.lastName;
     else
         userName = userData.email;
-    var html = SSR.render(emailTypeText,{
-        username:userName,
+    var html = SSR.render(emailTypeText, {
+        username: userName,
         organizacja: Parametr.findOne().nazwaOrganizacji,
-        userTypeData:userTypeData,
-        url:url,
-        urlLogin:urlLogin,
-        welcomeType:welcomeGender,
-        login:login,
-        password:pass,
-        textGender:textGender,
+        userTypeData: userTypeData,
+        url: url,
+        urlLogin: urlLogin,
+        welcomeType: welcomeGender,
+        login: login,
+        password: pass,
+        textGender: textGender,
         urlResetPassword: urlResetPassword
     });
-    var obj = {
-        to:to,
+    return {
+        to: to,
         from: TAPi18n.__('txv.SYSTEM_NAME', null, lang) + Parametr.findOne().nazwaOrganizacji,
-        html:html,
-        userType:userTypeData
+        html: html,
+        userType: userTypeData
     };
-    return obj;
 };

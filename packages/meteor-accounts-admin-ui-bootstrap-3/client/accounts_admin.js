@@ -43,15 +43,15 @@ Template.accountsAdmin.events({
         return false;
     },
 
-    'click .glyphicon-trash': function (event, template) {
+    'click .glyphicon-trash': function () {
         Session.set('userInScope', this);
     },
 
-    'click .glyphicon-info-sign': function (event, template) {
+    'click .glyphicon-info-sign': function () {
         Session.set('userInScope', this);
     },
 
-    'click .glyphicon-pencil': function (event, template) {
+    'click .glyphicon-pencil': function () {
         Session.set('userInScope', this);
     }
 });

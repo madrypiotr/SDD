@@ -61,19 +61,18 @@ Template.addRealizationReportModal.events({
                 var postType = POSTS_TYPES.RAPORT;
 
                 var post = [{
-                    idKwestia: idKwestia,
-                    wiadomosc: message,
-                    uzasadnienie: uzasadnienie,
-                    idUser: idUser,
-                    userFullName: userFullName,
                     addDate: addDate,
-                    isParent: isParent,
-                    idParent: idParent,
                     czyAktywny: czyAktywny,
-                    idParent: idParent,
-                    wartoscPriorytetu: ratingValue,
                     glosujacy: glosujacy,
-                    postType: postType
+                    idKwestia: idKwestia,
+                    idParent: idParent,
+                    idUser: idUser,
+                    isParent: isParent,
+                    postType: postType,
+                    userFullName: userFullName,
+                    uzasadnienie: uzasadnienie,
+                    wartoscPriorytetu: ratingValue,
+                    wiadomosc: message
                 }];
                 Meteor.call('addPost', post, function (error, ret) {
                     if (error) {

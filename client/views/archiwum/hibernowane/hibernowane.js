@@ -1,14 +1,14 @@
 Template.hibernowaneList.events({
-    'click .glyphicon-trash': function (event, template) {
+    'click .glyphicon-trash': function () {
         Session.set('kwestiaInScope', this);
     },
-    'click .glyphicon-pencil': function (event, template) {
+    'click .glyphicon-pencil': function () {
         Session.set('kwestiaInScope', this);
     },
-    'click .glyphicon-repeat': function (event, template) {
+    'click .glyphicon-repeat': function () {
         Session.set('kwestiaInScope', this);
     },
-    'click .glyphicon-info-sign': function (event, template) {
+    'click .glyphicon-info-sign': function () {
         Session.set('kwestiaInScope', this);
     }
 });

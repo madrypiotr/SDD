@@ -2,10 +2,10 @@ Template.listRaport.rendered = function () {
 };
 
 Template.listRaport.events({
-    'click .glyphicon-trash': function (event, template) {
+    'click .glyphicon-trash': function () {
         Session.set('raportInScope', this);
     },
-    'click .glyphicon-pencil': function (event, template) {
+    'click .glyphicon-pencil': function () {
         Session.set('raportInScope', this);
     }
 });

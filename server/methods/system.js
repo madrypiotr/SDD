@@ -49,18 +49,18 @@ Meteor.methods({
 
         var nextIssueNumberString = nextIssueNumber.toString();
         switch (nextIssueNumberString.length) {
-        case 1:
-            nextIssueNumberString = '0000' + nextIssueNumberString;
-            break;
-        case 2:
-            nextIssueNumberString = '000' + nextIssueNumberString;
-            break;
-        case 3:
-            nextIssueNumberString = '00' + nextIssueNumberString;
-            break;
-        case 4:
-            nextIssueNumberString = '0' + nextIssueNumberString;
-            break;
+            case 1:
+                nextIssueNumberString = '0000' + nextIssueNumberString;
+                break;
+            case 2:
+                nextIssueNumberString = '000' + nextIssueNumberString;
+                break;
+            case 3:
+                nextIssueNumberString = '00' + nextIssueNumberString;
+                break;
+            case 4:
+                nextIssueNumberString = '0' + nextIssueNumberString;
+                break;
         }
 
         newFullIssueNumber = systemPrefix + newIssuePrefix + nextIssueNumberString;

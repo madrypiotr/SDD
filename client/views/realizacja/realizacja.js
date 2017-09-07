@@ -28,6 +28,7 @@ Template.realizacjaTab1.events({
         var abstained = 0;
         var membersNames = new Array(3);
         var issueContent;
+        var i;
         for (i = 0; i < 3; i++) {
             membersNames[i] = '';
         }

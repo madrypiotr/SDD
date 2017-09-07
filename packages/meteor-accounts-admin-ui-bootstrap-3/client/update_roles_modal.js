@@ -23,7 +23,7 @@ Template.updateRolesModalInner.events({
         });
     },
 
-    'click .remove-role' : function (event, template) {
+    'click .remove-role' : function () {
         var role = this.name;
 
         Meteor.call('removeRole', role, function (error) {
