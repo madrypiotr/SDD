@@ -14,24 +14,20 @@ Template.addKwestiaOpcjaForm.rendered = function () {
         },
         messages: {
             kwestiaNazwa: {
-                required: fieldEmptyMessage(),
-                maxlength: maxLengthMessage(80)
+                required: fieldEmptyMessage,
+                maxlength: () => maxLengthMessage(80)
             },
             krotkaTresc: {
-                required: fieldEmptyMessage(),
-                maxlength: maxLengthMessage(400)
+                required: fieldEmptyMessage,
+                maxlength: () => maxLengthMessage(400)
             },
             szczegolowaTresc: {
-                required: fieldEmptyMessage(),
-                maxlength: maxLengthMessage(1000)
+                required: fieldEmptyMessage,
+                maxlength: () => maxLengthMessage(1000)
             }
         },
-        highlight: function (element) {
-            highlightFunction(element);
-        },
-        unhighlight: function (element) {
-            unhighlightFunction(element);
-        },
+        highlight: highlightFunction,
+        unhighlight: unhighlightFunction,
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function (error, element) {

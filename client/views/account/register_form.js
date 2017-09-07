@@ -8,6 +8,7 @@ Template.registerForm.rendered = function () {
         sideBySide: true,
         format: 'DD/MM/YYYY'
     });
+
     $('#userForm').validate({
         rules: {
             password: {
@@ -34,50 +35,46 @@ Template.registerForm.rendered = function () {
         },
         messages: {
             role: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             email: {
-                required: fieldEmptyMessage(),
-                email: validEmailMessage()
+                required: fieldEmptyMessage,
+                email: validEmailMessage
             },
             firstName: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             lastName: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             password: {
-                required: fieldEmptyMessage(),
-                minlength: minLengthMessage(6)
+                required: fieldEmptyMessage,
+                minlength: () => minLengthMessage(6)
             },
             confirmPassword: {
-                equalTo: equalToMessage()
+                equalTo: equalToMessage
             },
             address: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             ZipCode: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             pesel: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             city: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             language: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             statutConfirmation: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             }
         },
-        highlight: function (element) {
-            highlightFunction(element);
-        },
-        unhighlight: function (element) {
-            unhighlightFunction(element);
-        },
+        highlight: highlightFunction,
+        unhighlight: unhighlightFunction,
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function (error, element) {
@@ -86,6 +83,11 @@ Template.registerForm.rendered = function () {
             else
                 validationPlacementError(error, element);
         }
+    });
+
+    Tracker.autorun(() => {
+        getUserLanguage();
+        $('#userForm').valid();
     });
 };
 

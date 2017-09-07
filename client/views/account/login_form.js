@@ -11,19 +11,15 @@ Template.loginForm.rendered = function () {
         },
         messages: {
             login: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             password: {
-                required: fieldEmptyMessage(),
-                minlength: minLengthMessage(6)
+                required: fieldEmptyMessage,
+                minlength: () => minLengthMessage(6)
             }
         },
-        highlight: function (element) {
-            highlightFunction(element);
-        },
-        unhighlight: function (element) {
-            unhighlightFunction(element);
-        },
+        highlight: highlightFunction,
+        unhighlight: unhighlightFunction,
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function (error, element) {

@@ -26,29 +26,29 @@ Template.czlonekZwyczajnyForm.rendered = function () {
         },
         messages: {
             role: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             email: {
-                required: fieldEmptyMessage(),
-                email: validEmailMessage()
+                required: fieldEmptyMessage,
+                email: validEmailMessage
             },
             firstName: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             lastName: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             address: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             ZipCode: {
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             pesel:{
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             city:{
-                required: fieldEmptyMessage()
+                required: fieldEmptyMessage
             },
             statutConfirmation:{
                 required:fieldEmptyMessage()
@@ -57,12 +57,8 @@ Template.czlonekZwyczajnyForm.rendered = function () {
                 required:fieldEmptyMessage()
             }
         },
-        highlight: function (element) {
-            highlightFunction(element);
-        },
-        unhighlight: function (element) {
-            unhighlightFunction(element);
-        },
+        highlight: highlightFunction,
+        unhighlight: unhighlightFunction,
         errorElement: 'span',
         errorClass: 'help-block',
         errorPlacement: function (error, element) {

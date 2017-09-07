@@ -77,6 +77,7 @@
     "Temat": true,
     "Template": false,
     "Tinytest": false,
+    "Tracker": false,
     "USERTYPE": true,
     "UniConfig": false,
     "Users": true,
