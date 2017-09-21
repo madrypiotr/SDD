@@ -1,6 +1,6 @@
 /*
 ``client\views\account\``activate_account.js
-## Rendering the template activateAccount */
+## Rendering and helper for the template activate_account.html */
 
 
 Template.activateAccount.rendered = function () {

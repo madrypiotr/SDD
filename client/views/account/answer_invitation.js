@@ -1,3 +1,8 @@
+/*
+``client\views\account\``answer_invitation.js
+## Rendering and helpers for the template answer_invitation.html */
+
+
 Template.answerInvitation.rendered = function () {
     var userDraft = getUserDraftMethod(Router.current().params);
     var kwestia = getKwestia(Router.current().params);
