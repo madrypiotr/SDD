@@ -7,8 +7,14 @@
 # SDD changelog
 
 ---
-### [0.3.6] – 2017-- **Unreleased**
+### [0.4.1] – 2017-- **Unreleased**
 >###### 
+---
+### [0.4.0] – 2017-09-15 **Changed**
+* upgrade METEOR 1.1.0.3 -> 1.5.2,
+* Implement EsLint and organize with it,
+* Optimizing and refactoring code.
+>###### Thanks [Michał Wanat].
 ---
 ### [0.3.5] – 2017-08-01 **Added**
 * README,
@@ -67,7 +73,9 @@ Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 ---
 ###### (c) 2013-2017, PM & Partners. All rights reserved.
 
-[0.3.5]: https://github.com/madrypiotr/SDD
+[0.4.1]: https://github.com/madrypiotr/SDD
+[0.4.0]: https://github.com/madrypiotr/SDD/commit/3fc590830f27e5b8d206c8a35b75179597d90d54
+[0.3.5]: https://github.com/madrypiotr/SDD/blob/master/README.md
 [0.3.4]: https://github.com/madrypiotr/SDD/commit/fe41e173ba88ee22e05f49a503d7a7852d9d8185
 [0.3.3]: https://github.com/madrypiotr/SDD/commits?author=madrypiotr&since=2017-06-25T22:00:00Z&until=2017-06-26T22:00:00Z
 [0.3.2]: https://github.com/madrypiotr/SDD/commits?author=madrypiotr&since=2017-06-10T22:00:00Z&until=2017-06-11T22:00:00Z
@@ -83,3 +91,4 @@ Go to [README] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 [How to contribute]: https://github.com/madrypiotr/SDD/blob/master/HOW-TO-CONTRIBUTE.md
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
 [The documentation of the SDD code is here]: http://sdd.ha.pl/doc/README.md.html
+[Michał Wanat]: https://github.com/MichalW
