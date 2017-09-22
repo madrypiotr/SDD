@@ -1,3 +1,8 @@
+/*
+``client\views\account\`` edit_profile.js
+## Rendering, events and helpers for the template edit_profile.html */
+
+
 Template.profileEdit.rendered = function () {
     $('#profileForm').validate({
         rules: {

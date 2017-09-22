@@ -1,3 +1,8 @@
+/*
+``client\views\account\`` login_form.js
+## Rendering and events for the template login_form.html */
+
+
 Template.loginForm.rendered = function () {
     $('#loginForm').validate({
         rules: {

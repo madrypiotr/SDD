@@ -1,4 +1,7 @@
-//## Registration form
+/*
+``client\views\account\`` register_form.js
+## Rendering, events and helpers for the template register_form.html */
+
 
 Template.registerForm.rendered = function () {
     var users = Users.find({'profile.userType': USERTYPE.CZLONEK});

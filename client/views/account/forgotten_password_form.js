@@ -1,3 +1,8 @@
+/*
+``client\views\account\`` forgotten_password_form.js
+## Rendering and events for the template forgotten_password_form.html */
+
+
 Template.forgottenPassword.rendered = function () {
     document.getElementById('resetButton').disabled = false;
     $('#forgottenPassword').validate({

@@ -1,4 +1,7 @@
-//## Support for an Ordinary Member
+/*
+``client\views\account\`` czlonek_zwyczajny_form.js
+## Rendering, events and helpers for the template czlonek_zwyczajny_form.html */
+
 
 Template.czlonekZwyczajnyForm.rendered = function () {
     document.getElementById('submitZwyczajny').disabled = false;

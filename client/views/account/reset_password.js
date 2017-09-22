@@ -1,4 +1,7 @@
-//## Reset password
+/*
+``client\views\account\`` reset_password.js.js
+## Rendering and events for the template reset_password.html */
+
 
 Template.resetPassword.rendered = function () {
     $('#resetPassword').validate({

@@ -1,4 +1,7 @@
-//## Support for a Member who has the status of Advisor
+/*
+``client\views\account\`` doradca_form.js
+## Rendering, events and helper for the template doradca_form.html */
+
 
 Template.advisorForm.rendered = function () {
     document.getElementById('submitButton').disabled = false;
