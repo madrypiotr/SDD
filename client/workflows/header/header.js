@@ -22,19 +22,6 @@ Template.header.helpers({
 
         return active && 'active';
     },
-    'isAdminUser': function () {
-        return IsAdminUser();
-    },
-    isAdmin: function () {
-        if (Meteor.user()) {
-            if (Meteor.user().roles) {
-                if (Meteor.user().roles == 'admin')
-                    return true;
-                return false;
-            }
-            return false;
-        }
-    },
     lessThanFiveUsers: function () {
         var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
         if (users) {

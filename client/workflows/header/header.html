@@ -18,7 +18,7 @@
             <!--    MENU GŁÓWNE     -->
 
             <div id="mainmenu">
-                {{#if isAdmin}}
+                {{#if isAdminUser}}
                     <ul class="nav navbar-nav">
                         <li class="{{activeRouteClass 'listLanguages'}}">
                             <a href="{{pathFor 'listLanguages'}}">
@@ -29,7 +29,7 @@
                         </li>
                     </ul>
                 {{/if}}
-                {{#unless isAdmin}}
+                {{#unless isAdminUser}}
                     <ul class="nav navbar-nav">
                         <li class="{{activeRouteClass 'listKwestia'}}">
                             <a href="{{pathFor 'listKwestia'}}">
@@ -265,7 +265,7 @@
                 {{/unless}}
                 <ul class="nav navbar-nav navbar-right">
                     {{#if currentUser}}
-                        {{#unless isAdmin}}
+                        {{#unless isAdminUser}}
                             <li class="{{activeRouteClass 'notification_list'}} ">
                                 <a href="{{pathFor 'notification_list'}}">
                                     <section class="dymek">

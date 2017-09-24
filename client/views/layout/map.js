@@ -95,16 +95,6 @@ var _getUserInfoContent = function (user) {
 };
 
 Template.map.helpers({
-    isAdminUser: function () {
-        return IsAdminUser();
-    },
-    isZwyczajnyLogged: function () {
-        if (IsAdminUser())
-            return false;
-
-        return Meteor.user().profile.userType == USERTYPE.CZLONEK ? true : false;
-
-    },
     mapOptions: function () {
         if (GoogleMaps.loaded()) {
             return {

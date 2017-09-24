@@ -1,5 +1,19 @@
 //## Check the role, email, and existence of the user to confirm the adoption
 
+UI.registerHelper('isAdminUser', () => {
+    return IsAdminUser();
+});
+
+UI.registerHelper('isZwyczajnyLogged', () => {
+    if (IsAdminUser()) {
+        return false;
+    }
+    const user = Meteor.user();
+    const profile = user && user.profile;
+
+    return profile && profile.userType == USERTYPE.CZLONEK ? true : false;
+});
+
 IsAdminUser = function () {
     return Roles.userIsInRole(Meteor.user(), ['admin']);
 };

@@ -48,9 +48,6 @@ Template.listRaport.helpers({
     },
     raportCount: function () {
         return Raport.find().count();
-    },
-    isAdminUser: function () {
-        return IsAdminUser();
     }
 });
 
