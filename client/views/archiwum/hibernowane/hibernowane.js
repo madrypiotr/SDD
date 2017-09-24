@@ -53,9 +53,6 @@ Template.hibernowaneList.helpers({
         }).count();
         return count > 0 ? true : false;
     },
-    'isAdminUser': function () {
-        return IsAdminUser();
-    },
     'tematNazwa': function () {
         return Temat.findOne({_id: this.idTemat});
     },

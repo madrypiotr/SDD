@@ -1,23 +1,3 @@
-Template.mainpage.rendered = function () {
-};
-
-Template.mainpage.helpers({
-    isAdminUser: function () {
-        return IsAdminUser();
-    }
-});
-
-Template.mainpage.helpers({
-    isZwyczajnyLogged: function () {
-        if (IsAdminUser())
-            return false;
-
-        return Meteor.user().profile.userType == USERTYPE.CZLONEK ? true : false;
-
-    }
-});
-
-
 Template.mainpage.events({
     'click #addKwestiaButton': function () {
         var kwestiaCanBeInserted = kwestiaIsAllowedToInsert();

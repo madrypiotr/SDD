@@ -8,8 +8,5 @@ Template.subMenu.helpers({
         });
 
         return active && 'active';
-    },
-    isAdminUser: function () {
-        return IsAdminUser();
     }
 });

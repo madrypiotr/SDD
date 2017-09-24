@@ -144,9 +144,6 @@ Template.listKwestia.helpers({
         if (kwestie)
             return kwestie;
         return null;
-    },
-    isAdminUser: function () {
-        return IsAdminUser();
     }
 });
 
@@ -194,16 +191,6 @@ Template.priorytetKwestia.helpers({
 Template.listKwestiaColumnLabel.rendered = function () {
     $('[data-toggle="tooltip"]').tooltip();
 };
-
-Template.listKwestia.helpers({
-    isZwyczajnyLogged: function () {
-        if (IsAdminUser())
-            return false;
-
-        return Meteor.user().profile.userType == USERTYPE.CZLONEK ? true : false;
-
-    }
-});
 
 Template.kworumNumber.helpers({
     'getKworum': function () {

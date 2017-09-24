@@ -78,6 +78,7 @@
     "Template": false,
     "Tinytest": false,
     "Tracker": false,
+    "UI": false,
     "USERTYPE": true,
     "UniConfig": false,
     "Users": true,
