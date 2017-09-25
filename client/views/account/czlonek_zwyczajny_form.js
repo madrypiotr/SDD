@@ -264,9 +264,9 @@ addKwestiaOsobowa = function (idUserDraft,newUser) {
                         // If there is already a user, he is an advisor, then send him a confirmation in the message
                         addPowiadomienieAplikacjaRespondFunction(ret,newKwestia[0].dataWprowadzenia,NOTIFICATION_TYPE.APPLICATION_CONFIRMATION);
                     }
-                    Meteor.call('sendApplicationConfirmation', idUserDraft,function (error) {
+                    Meteor.call('sendApplicationConfirmation', idUserDraft, Etc.getUserLanguage(), function (error) {
                         if (!error) {
-                            Meteor.call('sendEmailAddedIssue', ret, getUserLanguage(), function (error) {
+                            Meteor.call('sendEmailAddedIssue', ret, Etc.getUserLanguage(), function (error) {
                                 if (error) {
                                     var emailError = {
                                         idIssue: ret,

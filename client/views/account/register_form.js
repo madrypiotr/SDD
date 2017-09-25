@@ -89,7 +89,7 @@ Template.registerForm.rendered = function () {
     });
 
     Tracker.autorun(() => {
-        getUserLanguage();
+        Etc.getUserLanguage();
         $('#userForm').valid();
     });
 };

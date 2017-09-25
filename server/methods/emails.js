@@ -54,7 +54,7 @@ Meteor.methods({
             prop.users = allUsers;
         }
     },
-    sendEmail: function (to, from, subject, text) {
+    /*sendEmail: function (to, from, subject, text) {
         this.unblock();
         Email.send({
             to: to,
@@ -62,14 +62,14 @@ Meteor.methods({
             subject: subject,
             text: text
         });
-    },
-    sendDirectMessageToUser: function (receiverId, senderName, subject, text) {
+    },*/
+    sendDirectMessageToUser: function (receiverId, senderName, subject, text, lang) {
         this.unblock();
         var parametr = Parametr.findOne({});
         var receiver = Users.findOne({_id: receiverId});
         var html = SSR.render('email_new_message', {
             ogranisation: parametr.nazwaOrganizacji,
-            welcomeGender: recognizeSex(receiver),
+            welcomeGender: Etc.recognizeSexMethod(receiver, lang),
             fullName: receiver.profile.fullName,
             text: text,
             sender: senderName
@@ -81,7 +81,7 @@ Meteor.methods({
             html: html
         });
     },
-    sendEmailForAll: function (from, subject, text) {
+    /*sendEmailForAll: function (from, subject, text) {
         var users = Users.find();
         this.unblock();
         _.each(users, function (item) {
@@ -92,7 +92,7 @@ Meteor.methods({
                 text: text
             });
         });
-    },
+    },*/
     sendEmailAddedIssue: function (idKwestia, lang) {
         this.unblock();
         var parametr = Parametr.findOne({});
@@ -111,7 +111,7 @@ Meteor.methods({
         Users.find({}).forEach(function (item) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
                 var html = SSR.render('email_added_issue', {
-                    welcomeGender: recognizeSex(item, lang),
+                    welcomeGender: Etc.recognizeSexMethod(item, lang),
                     userData: item.profile.fullName,
                     organizacja: parametr.nazwaOrganizacji,
                     krotkaTresc: kwestiaItem.krotkaTresc,
@@ -145,7 +145,7 @@ Meteor.methods({
             }
         });
     },
-    sendEmailAct: function (idKwestia) {
+    /*sendEmailAct: function (idKwestia) {
         this.unblock();
         var parametr = Parametr.findOne({});
         var kwestiaItem = Kwestia.findOne({_id: idKwestia});
@@ -154,7 +154,7 @@ Meteor.methods({
         Users.find({}).forEach(function (item, lang) {
             if (!Roles.userIsInRole(item, ['admin'])) {
                 var html = SSR.render('email_act', {
-                    welcomeGender: recognizeSex(item),
+                    welcomeGender: Etc.recognizeSexMethod(item),
                     username: item.username,
                     organizacja: parametr.nazwaOrganizacji,
                     szczegolyKwestii: kwestiaItem.szczegolowaTresc,
@@ -172,7 +172,7 @@ Meteor.methods({
                 });
             }
         });
-    },
+    },*/
     sendEmailNoRealizationReport: function (idKwestia, lang) {
         this.unblock();
         var parametr = Parametr.findOne({});
@@ -191,7 +191,7 @@ Meteor.methods({
 
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
                 var html = SSR.render('email_no_realization_report', {
-                    welcomeGender: recognizeSex(item, lang),
+                    welcomeGender: Etc.recognizeSexMethod(item, lang),
                     userData: item.profile.fullName,
                     organizacja: parametr.nazwaOrganizacji,
                     krotkaTresc: kwestiaItem.krotkaTresc,
@@ -243,7 +243,7 @@ Meteor.methods({
                     userType: item.profile.userType,
                     username: item.username,
                     uzasadnienie: uzasadnienie,
-                    welcomeGender: recognizeSex(item, lang)
+                    welcomeGender: Etc.recognizeSexMethod(item, lang)
                 });
                 Email.send({
                     from: author.profile.firstName + ' ' + author.profile.lastName,
@@ -291,12 +291,12 @@ Meteor.methods({
                     urlLogin: urlLogin,
                     username: item.profile.fullName,
                     wartoscPriorytetu: kwestiaItem.wartoscPriorytetu,
-                    welcomeGender: recognizeSex(item, lang)
+                    welcomeGender: Etc.recognizeSexMethod(item, lang)
                 });
                 Email.send({
                     from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
                     html: html,
-                    subject: BEGAN_VOTING_ISSUE,
+                    subject: TAPi18n.__('txv.BEGAN_VOTING_ISSUE', null, lang),
                     to: item.emails[0].address
                 });
             }
@@ -322,11 +322,12 @@ Meteor.methods({
         });
     },
     sendApplicationAccepted: function (userData, text) {
+        const lang = Etc.getUserLanguage(userData);
         var data = applicationEmail(userData, text, null, lang);
         Email.send({
             to: data.to,
             from: data.to,
-            subject: TAPi18n.__('txv.POSITIVE_CONSIDER') + data.userType,
+            subject: TAPi18n.__('txv.POSITIVE_CONSIDER', null, lang) + data.userType,
             html: data.html
         });
     },
@@ -341,8 +342,8 @@ Meteor.methods({
         });
     },
     sendResetPasswordEmail: function (email, pass) {
-        var users = Users.find();
-        users.forEach(function (user) {
+        Users.find().forEach(function (user) {
+            const lang = Etc.getUserLanguage(user);
             _.each(user.emails, function (em) {
                 if (_.isEqual(em.address.toLowerCase(), email.toLowerCase())) {
                     var userData = user;
@@ -350,7 +351,7 @@ Meteor.methods({
                     Email.send({
                         to: data.to,
                         from: data.to,
-                        subject: TAPi18n.__('txv.RESET_ACCES_PASS') + Parametr.findOne().nazwaOrganizacji,
+                        subject: TAPi18n.__('txv.RESET_ACCES_PASS', null, lang) + Parametr.findOne().nazwaOrganizacji,
                         html: data.html
                     });
                 }
@@ -358,24 +359,10 @@ Meteor.methods({
         });
     }
 });
-recognizeSex = function (userData, lang) {
-    var welcomeGender = null;
-    if (userData.profile.pesel) {
-        if (userData.profile.pesel != '') {
-            var pesel = userData.profile.pesel.substring(9, 10);
-            if (_.contains(['1', '3', '5', '7', '9'], pesel))
-                welcomeGender = TAPi18n.__('txv.HONORABLE', null, lang);
-            else welcomeGender = DEAR;
-        } else
-            welcomeGender = TAPi18n.__('txv.MR_MRS', null, lang);
-    } else
-        welcomeGender = TAPi18n.__('txv.MR_MRS', null, lang);
 
-    return welcomeGender;
-};
 applicationEmail = function (userData, emailTypeText, passw, lang) {
     var urlLogin = Meteor.absoluteUrl() + 'account/login';
-    var welcomeGender = recognizeSex(userData);
+    var welcomeGender = Etc.recognizeSexMethod(userData, lang);
 
     var userTypeData = null;
     switch (userData.profile.userType) {

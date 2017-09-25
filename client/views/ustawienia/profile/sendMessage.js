@@ -50,7 +50,7 @@ sendMessage = function (newEmail,idReceiver) {
         } else {
             var from = Meteor.user().profile.firstName + ' ' + Meteor.user().profile.lastName;
             addPowiadomienieFunction(newEmail[0]);
-            Meteor.call('sendDirectMessageToUser', idReceiver, from, newEmail[0].subject, newEmail[0].content, function (error) {
+            Meteor.call('sendDirectMessageToUser', idReceiver, from, newEmail[0].subject, newEmail[0].content, Etc.getUserLanguage(), function (error) {
                 if (error) {
 
                     var emailError = {
