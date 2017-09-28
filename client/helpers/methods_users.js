@@ -14,6 +14,10 @@ UI.registerHelper('isZwyczajnyLogged', () => {
     return profile && profile.userType == USERTYPE.CZLONEK ? true : false;
 });
 
+UI.registerHelper('welcomeGender', () => {
+    return Etc.recognizeSexMethod();
+});
+
 IsAdminUser = function () {
     return Roles.userIsInRole(Meteor.user(), ['admin']);
 };

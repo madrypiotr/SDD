@@ -49,9 +49,6 @@ Template.notificationNewMessage.helpers({
         var user = Users.findOne({_id:this.idNadawca});
         return user ? user.profile.fullName : null;
     },
-    welcomeGender: function () {
-        return recognizeSexMethod(Meteor.user());
-    },
     userData: function () {
         return Meteor.user().profile.fullName;
     },
@@ -65,9 +62,6 @@ Template.notificationNewIssue.helpers({
     },
     actualKwestia: function (idKwestia) {
         return getIssue(idKwestia);
-    },
-    welcomeGender: function () {
-        return recognizeSexMethod(Meteor.user());
     },
     userData: function () {
         return Meteor.user().profile.fullName;
@@ -95,9 +89,6 @@ Template.notificationLackOfRealizationReport.helpers({
     },
     actualKwestia: function (idKwestia) {
         return getIssue(idKwestia);
-    },
-    welcomeGender: function () {
-        return recognizeSexMethod(Meteor.user());
     },
     userData: function () {
         return Meteor.user().profile.fullName;
@@ -138,9 +129,6 @@ Template.notificationApplicationAnswer.helpers({
     actualKwestia: function (idKwestia) {
         return getIssue(idKwestia);
     },
-    welcomeGender: function () {
-        return recognizeSexMethod(Meteor.user());
-    },
     userData: function () {
         return Meteor.user().profile.fullName;
     },
@@ -164,9 +152,6 @@ Template.notificationLobbingMessage.helpers({
     },
     actualKwestia: function (idKwestia) {
         return getIssue(idKwestia);
-    },
-    welcomeGender: function () {
-        return recognizeSexMethod(Meteor.user());
     },
     userData: function () {
         return Meteor.user().profile.fullName;
@@ -199,9 +184,6 @@ Template.notificationNoActivity.helpers({
     actualKwestia: function (idKwestia) {
         return getIssue(idKwestia);
     },
-    welcomeGender: function () {
-        return recognizeSexMethod(Meteor.user());
-    },
     userData: function () {
         return Meteor.user().profile.fullName;
     },
@@ -216,9 +198,6 @@ Template.notificationVoteStarted.helpers({
     },
     actualKwestia: function (idKwestia) {
         return getIssue(idKwestia);
-    },
-    welcomeGender: function () {
-        return recognizeSexMethod(Meteor.user());
     },
     userData: function () {
         return Meteor.user().profile.fullName;

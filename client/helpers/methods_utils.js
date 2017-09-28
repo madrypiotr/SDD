@@ -14,19 +14,6 @@ notificationPauseWarning = function (text, timeLeft) {
     });
 };
 
-recognizeSexMethod = function (userData) {
-    // gender identification based on PESEL number
-    var welcomeGender = null;
-    if (userData.profile.pesel) {
-        if (userData.profile.pesel != '') {
-            var pesel = userData.profile.pesel.substring(9, 10);
-            if (_.contains(['1', '3', '5', '7', '9'], pesel)) welcomeGender = TAPi18n.__('txv.HONORABLE');
-            else welcomeGender = TAPi18n.__('txv.DEAR');
-        } else welcomeGender = TAPi18n.__('txv.MR_MRS');
-    } else welcomeGender = TAPi18n.__('txv.MR_MRS');
-    return welcomeGender;
-};
-
 isInTab = function (item, tab) {
     // Checking the array
     var flag = false;

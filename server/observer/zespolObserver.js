@@ -45,7 +45,7 @@ Meteor.startup(function () {
                 if (error)
                     console.log(error.reason);
             });
-            Meteor.call('sendEmailStartedVoting',newKwestia._id, getUserLanguage(), function (error) {
+            Meteor.call('sendEmailStartedVoting',newKwestia._id, Etc.getUserLanguage(), function (error) {
                 if (error) {
                     var emailError = {
                         idIssue: newKwestia._id,

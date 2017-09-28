@@ -42,7 +42,7 @@ Template.forgottenPassword.events({
                     if (ret == true) {
                         // Accounts.forgotPassword ( options );
                         document.getElementById('resetButton').disabled = true;
-                        Meteor.call('sendResetPasswordEmail', options.email, function (error, ret) {
+                        Meteor.call('sendResetPasswordEmail', options.email, null, function (error) {
                             if (error) {
                                 document.getElementById('resetButton').disabled = false;
                                 throwError(TAPi18n.__('txv.ALERT_LOG4'));

@@ -63,7 +63,7 @@ Template.previewKwestiaOpcja.events({
                     throwError(error.reason);
                 }
             } else {
-                Meteor.call('sendEmailAddedIssue', ret, getUserLanguage(), function (error) {
+                Meteor.call('sendEmailAddedIssue', ret, Etc.getUserLanguage(), function (error) {
                     if (error) {
                         var emailError = {
                             idIssue: ret,

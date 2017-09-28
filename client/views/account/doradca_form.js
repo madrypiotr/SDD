@@ -184,9 +184,9 @@ addKwestiaOsobowaDoradca = function (idUserDraft,newUser) {
                         Router.go('home');
                     addPowiadomienieAplikacjaIssueFunction(ret,newKwestia[0].dataWprowadzenia);
                     przyjecieWnioskuConfirmation(Parametr.findOne().czasWyczekiwaniaKwestiiSpecjalnej, daneAplikanta.email, 'doradztwo');
-                    Meteor.call('sendApplicationConfirmation', idUserDraft,function (error) {
+                    Meteor.call('sendApplicationConfirmation', idUserDraft, Etc.getUserLanguage(), function (error) {
                         if (!error) {
-                            Meteor.call('sendEmailAddedIssue', ret, getUserLanguage(), function (error) {
+                            Meteor.call('sendEmailAddedIssue', ret, Etc.getUserLanguage(), function (error) {
                                 if (error) {
                                     var emailError = {
                                         idIssue: ret,

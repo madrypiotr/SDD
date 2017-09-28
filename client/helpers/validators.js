@@ -61,7 +61,7 @@ validationPlacementError = function (error, element) {
 
 Meteor.startup(function () {
     Tracker.autorun(function () {
-        var lang = getUserLanguage();
+        var lang = Etc.getUserLanguage();
 
         jQuery.validator.addMethod('checkExistsNazwaKwestii', function (value, element) {
             var kwestie = Kwestia.find({

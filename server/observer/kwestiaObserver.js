@@ -202,7 +202,7 @@ Meteor.startup(function () {
                     console.log(error.reason);
             });
             addNotificationIssueVoteMethod(newKwestia._id);
-            Meteor.call('sendEmailStartedVoting',newKwestia._id, getUserLanguage(), function (error) {
+            Meteor.call('sendEmailStartedVoting',newKwestia._id, Etc.getUserLanguage(), function (error) {
                 if (error) {
                     var emailError = {
                         idIssue: newKwestia._id,
