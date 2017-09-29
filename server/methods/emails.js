@@ -123,24 +123,24 @@ Meteor.methods({
                     url: Meteor.absoluteUrl() + 'issue_info/' + kwestiaItem._id,
                     urlLogin: Meteor.absoluteUrl() + 'account/login',
 
-                    globDoNotAnswerThat: TAPi18n.__('glob.DoNotAnswerThat', null, lang),
-                    globIntroducedAnewIssue: TAPi18n.__('glob.IntroducedAnewIssue', null, lang),
-                    globLinkToThisIssue: TAPi18n.__('glob.LinkToThisIssue', null, lang),
-                    globLogIn: TAPi18n.__('glob.LogIn', null, lang),
-                    globLoginToTheSystem: TAPi18n.__('glob.LoginToTheSystem', null, lang),
-                    globOn: TAPi18n.__('glob.On', null, lang),
-                    globShortSystemName: TAPi18n.__('glob.ShortSystemName', null, lang),
-                    globSubject: TAPi18n.__('glob.Subject', null, lang),
-                    globThisIsAnAutomaticInformationSystem: TAPi18n.__('glob.ThisIsAnAutomaticInformationSystem', null, lang),
-                    globToTheSystem: TAPi18n.__('glob.ToTheSystem', null, lang),
-                    globType: TAPi18n.__('glob.Type', null, lang),
-                    globWelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize: TAPi18n.__('glob.WelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize', null, lang)
+                    DoNotAnswerThat: TAPi18n.__('glob.DoNotAnswerThat', null, lang),
+                    IntroducedAnewIssue: TAPi18n.__('glob.IntroducedAnewIssue', null, lang),
+                    LinkToThisIssue: TAPi18n.__('glob.LinkToThisIssue', null, lang),
+                    LogIn: TAPi18n.__('glob.LogIn', null, lang),
+                    LoginToTheSystem: TAPi18n.__('glob.LoginToTheSystem', null, lang),
+                    On: TAPi18n.__('glob.On', null, lang),
+                    ShortSystemName: TAPi18n.__('glob.ShortSystemName', null, lang),
+                    Subject: TAPi18n.__('glob.Subject', null, lang),
+                    ThisIsAnAutomaticInformationSystem: TAPi18n.__('glob.ThisIsAnAutomaticInformationSystem', null, lang),
+                    ToTheSystem: TAPi18n.__('glob.ToTheSystem', null, lang),
+                    Type: TAPi18n.__('glob.Type', null, lang),
+                    WelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize: TAPi18n.__('glob.WelcomeToTheIssuesOfDeliberationDiscussionAndPrioritize', null, lang)
                 });
                 Email.send({
                     to: item.emails[0].address,
                     from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
                     subject: TAPi18n.__('txv.ADD_NEW_ISSUE', null, lang),
-                    html: html
+                    html
                 });
             }
         });

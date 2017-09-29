@@ -34,7 +34,7 @@
                     {{/if}}
                  </table>
                 <button id="backToNotificationList" class="btn btn-primary">
-                    <span class="fa fa-arrow-left"></span> 
+                    <span class="fa fa-arrow-left"></span>
 <!--Powrót do powiadomień-->
 {{_ 'notificationInfo.noiBackToNotifications'}}
                 </button>
@@ -91,29 +91,32 @@
     {{#with powiadomienie idPowiadomienie}}
         {{#with actualKwestia this.idKwestia}}
             <div>
-<!--SDD-->
-{{_ 'notificationNewIssue.nniSystemName'}}</div>
+                <!--SDD-->
+                {{_ 'notificationNewIssue.nniSystemName'}}
+            </div>
+
             <div>{{organisationName}}</div>
             {{welcomeGender}} {{userData}}! <br /><br />
-            
-<!--Do systemu wprowadzono nową Kwestię-->
-{{_ 'notificationNewIssue.nniSystemIntroducedAnewIssue'}}: <b>{{kwestiaNazwa}}</b><br />
-            <b>
-<!--Temat-->
-{{_ 'glob.Subject'}}:</b> {{temat}}<br/>
-            <b>
-<!--Rodzaj-->
-{{_ 'glob.Type'}}:</b> {{rodzaj}}<br />
-            
-<!--dotyczącą-->
-{{_ 'notificationNewIssue.nniOn'}}: <b>{{krotkaTresc}}</b> <br /><br />
 
-            
-<!--Zapraszamy do deliberacji tej Kwestii, dyskusji i nadania priorytetu.-->
-{{_ 'notificationNewIssue.nniWelcomeToTheDeliberationOfTheIssue'}} <br />
+            <!--Do systemu wprowadzono nową Kwestię-->
+            {{_ 'notificationNewIssue.nniSystemIntroducedAnewIssue'}}: <b>{{kwestiaNazwa}}</b><br />
+
+            <!--Temat-->
+            <b>{{_ 'glob.Subject'}}:</b> {{temat}}<br />
+
+            <!--Rodzaj-->
+            <b>{{_ 'glob.Type'}}:</b> {{rodzaj}}<br />
+
+            <!--dotyczącą-->
+            {{_ 'notificationNewIssue.nniOn'}}: <b>{{krotkaTresc}}</b> <br /><br />
+
+
+            <!--Zapraszamy do deliberacji tej Kwestii, dyskusji i nadania priorytetu.-->
+            {{_ 'notificationNewIssue.nniWelcomeToTheDeliberationOfTheIssue'}} <br />
             <a href="{{pathFor 'informacjeKwestia'}}">
-<!--Link do Kwestii-->
-{{_ 'notificationNewIssue.nniLinkToThisIssue'}}</a>
+                <!--Link do Kwestii-->
+                {{_ 'notificationNewIssue.nniLinkToThisIssue'}}
+            </a>
         {{/with}}
     {{/with}}
 </template>
@@ -128,7 +131,7 @@
             <div>{{organisationName}}</div>
             {{welcomeGender}} {{userData}}! <br /><br />
 
-            
+
 <!--Brak w systemie Raportu Realizacyjnego Kwestii-->
 {{_ 'notificationLackOfRealizationReport.nlrNoSystemReportTheImplemIssue'}}: <b>{{kwestiaNazwa}}</b><br />
             <b>
@@ -137,7 +140,7 @@
             <b>
 <!--Rodzaj-->
 {{_ 'glob.Type'}}:</b> {{rodzaj}}<br />
-            
+
 <!--dotyczącej-->
 {{_ 'notificationLackOfRealizationReport.nlrOn'}}: <b>{{krotkaTresc}}</b> <br/><br/>
         {{/with}}
@@ -151,7 +154,7 @@
             {{/each}}
             <br/><br/>
         {{#with actualKwestia this.idKwestia}}
-            
+
 <!--Idź do dyskusji realizacyjnej-->
 {{_ 'notificationLackOfRealizationReport.nlrGoToTheDiscussionOfRealization'}}: <a href="{{pathFor 'informacjeKwestia'}}">
 <!--Link do Kwestii-->

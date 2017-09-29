@@ -21,12 +21,12 @@ Template.hibernowaneList.helpers({
             showColumnToggles: false,
             enableRegex: false,
             fields: [
-                {key: 'dataWprowadzenia', label: TAPi18n.__('txv.DATE_OF_INTRO'), tmpl: Template.dataUtwKwestia},
-                {key: 'kwestiaNazwa', label: TAPi18n.__('txv.NAME'), tmpl: Template.nazwaKwestiiHibernowaneLink},
-                {key: 'wartoscPriorytetu', label: TAPi18n.__('glob.Priority'), tmpl: Template.priorytetKwestia,sortOrder:1,sortDirection:'ascending'},
-                {key: '', label: TAPi18n.__('glob.Subject'), tmpl: Template.tematKwestiiHibernowane},
-                {key: '', label: TAPi18n.__('glob.Type'), tmpl: Template.rodzajKwestiiHibernowane},
-                {key: 'status', label: TAPi18n.__('txv.STATUS')}
+                {key: 'dataWprowadzenia',  label: TAPi18n.__('txv.DATE_OF_INTRO'), tmpl: Template.dataUtwKwestia},
+                {key: 'kwestiaNazwa',      label: TAPi18n.__('txv.NAME'),          tmpl: Template.nazwaKwestiiHibernowaneLink},
+                {key: 'wartoscPriorytetu', label: TAPi18n.__('glob.Priority'),     tmpl: Template.priorytetKwestia,sortOrder:1,sortDirection:'ascending'},
+                {key: '',                  label: TAPi18n.__('glob.Subject'),      tmpl: Template.tematKwestiiHibernowane},
+                {key: '',                  label: TAPi18n.__('glob.Type'),         tmpl: Template.rodzajKwestiiHibernowane},
+                {key: 'status',            label: TAPi18n.__('txv.STATUS')}
             ]
         };
     },
