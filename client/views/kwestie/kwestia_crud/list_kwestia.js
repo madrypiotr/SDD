@@ -242,12 +242,11 @@ Template.tematKwestia.helpers({
         if (this.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) {
             return TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM');
         }
-        var topic = Temat.findOne({_id: this.idTemat}).nazwaTemat;
-        if (topic.length > 20) {
+        var topic = (Temat.findOne({_id: this.idTemat}) || {}).nazwaTemat;
+        if (topic && topic.length > 20) {
             return topic.substr(0,20) + '...';
         }
         return topic;
-
     }
 });
 Template.rodzajKwestia.helpers({
