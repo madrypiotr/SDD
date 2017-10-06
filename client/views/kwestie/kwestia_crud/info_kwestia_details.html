@@ -3,70 +3,50 @@
 ## Template for information about the details of the issue -->
 <template name="kwestiaDetails">
     <div class="clearfix"></div>
-        {{#if isOsobowa typ}}
-<!--
-``txv`` Subject -->
-{{_ "kwestiaDetails.KwdTitle"}}
-               {{krotkaTresc}}
-<!--
-``txv`` Applicant data -->
-{{_ "kwestiaDetails.KwdDataAplicator"}}
-                {{#if isHonorowyType typ}}
-<!--
-``txv`` e-mail -->
-{{_ "glob.Email"}}: 
-                        {{szczegolowaTresc.email}}
-                {{/if}}
-                {{#unless isHonorowyType typ}}
-<!--
-``txv`` Name and surname -->
-{{_ "kwestiaDetails.KwdFnameLname"}}:
-                    {{szczegolowaTresc.fullName}}
-                {{#if protectorZR}}
-<!--
-``txv`` e-mail -->
-{{_ "glob.Email"}}: 
-                        {{szczegolowaTresc.email}}
-<!--
-``txv`` PID -->
-{{_ "glob.PID"}}:
-                        {{szczegolowaTresc.pesel}}
-<!--
-``txv`` Address -->
-{{_ "glob.Address"}}: 
-                        {{szczegolowaTresc.address}}
-<!--
-``txv`` Postal Code -->
-{{_ "glob.PostalC"}}: 
-                        {{szczegolowaTresc.zip}}
-                {{/if}}
-<!--
-``txv`` City -->
-{{_ "glob.City"}}: 
-                        {{szczegolowaTresc.city}}
-                {{/unless}}
-<!--
-``txv`` Additional -->
-{{_ "kwestiaDetails.KwdAdditional"}}
-                {{szczegolowaTresc.uwagi}}
-        {{else}}
-            {{#if isGlobalParamsChange typ}}
-<!--
-``txv`` Paramter -->
-{{_ "kwestiaDetails.KwdParameter"}}: 
-                    {{szczegolowaTresc.title}}
-<!--
-``txv`` Initial value -->
-{{_ "kwestiaDetails.KwdInitialValue"}}:
-                    {{szczegolowaTresc.oldValue}}
-<!--
-``txv`` Proposed value -->
-{{_ "kwestiaDetails.KwdTheProposedValue"}}: 
-                   {{szczegolowaTresc.newValue}}
-            {{else}}
-<!--
-``txv`` Short description of the Issue -->
-Treść Kwestii: <strong>{{krotkaTresc}}. </strong> {{szczegolowaTresc}}
-            {{/if}}
+    {{#if isOsobowa typ}}
+        <!-- ``txv`` Subject -->
+        {{_ "kwestiaDetails.KwdTitle"}}
+        {{krotkaTresc}}
+        <!-- ``txv`` Applicant data -->
+        {{_ "kwestiaDetails.KwdDataAplicator"}}
+
+        <!-- ``txv`` Name and surname -->
+        {{_ "kwestiaDetails.KwdFnameLname"}}:
+        {{szczegolowaTresc.fullName}}
+        {{#if protectorZR}}
+            <!-- ``txv`` e-mail -->
+            {{_ "glob.Email"}}:
+            {{szczegolowaTresc.email}}
+            <!-- ``txv`` PID -->
+            {{_ "glob.PID"}}:
+            {{szczegolowaTresc.pesel}}
+            <!-- ``txv`` Address -->
+            {{_ "glob.Address"}}:
+            {{szczegolowaTresc.address}}
+            <!-- ``txv`` Postal Code -->
+            {{_ "glob.PostalC"}}:
+            {{szczegolowaTresc.zip}}
         {{/if}}
+        <!-- ``txv`` City -->
+        {{_ "glob.City"}}:
+        {{szczegolowaTresc.city}}
+        <!-- ``txv`` Additional -->
+        {{_ "kwestiaDetails.KwdAdditional"}}
+        {{szczegolowaTresc.uwagi}}
+    {{else}}
+        {{#if isGlobalParamsChange typ}}
+            <!-- ``txv`` Paramter -->
+            {{_ "kwestiaDetails.KwdParameter"}}:
+            {{szczegolowaTresc.title}}
+            <!-- ``txv`` Initial value -->
+            {{_ "kwestiaDetails.KwdInitialValue"}}:
+            {{szczegolowaTresc.oldValue}}
+            <!-- ``txv`` Proposed value -->
+            {{_ "kwestiaDetails.KwdTheProposedValue"}}:
+            {{szczegolowaTresc.newValue}}
+        {{else}}
+            <!-- ``txv`` Short description of the Issue -->
+            Treść Kwestii: <strong>{{krotkaTresc}}. </strong> {{szczegolowaTresc}}
+        {{/if}}
+    {{/if}}
 </template>
