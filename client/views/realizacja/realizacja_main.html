@@ -1,82 +1,87 @@
 <template name="realizacja">
-        <div class="main">
-            <div>
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active">
-					<a href="#realizacja" aria-controls="realizacja" role="tab" data-toggle="tab">
-<!--Realizowane-->
-						<section class="dymek">
-							<i class="fa fa-cog">&nbsp;&nbsp;&nbsp;</i> 
-							<ul align="left">
-					<a data-toggle="modal" href="#podmenuRealizo" class="fa fa-info-circle">
-					<!--info i zachęta w dymku-->
-					</a>
-					</ul>
-					<div class="modal fade" id="podmenuRealizo" role="dialog">
-					<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-<p class="modal-title" align="left">xxx{{_ 'realizacja.rzcDuringImplementation'}}</p>
-					</div>
-					<div class="modal-body" align="left">
-					<small>
-					<p>{{_ 'dym.OnTheImplementOf'}}</p>
-					<p>{{_ 'dym.OnTheImplementOfA'}}</p>
-					<p>{{_ 'dym.OnTheImplementOfB'}}</p>
-					</small>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>
-							<!--napis Realizowane-->
-							{{_ 'realizacja.rzcDuringImplementation'}}
+    <div class="main">
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#realizacja" aria-controls="realizacja" role="tab" data-toggle="tab">
+                        <!--Realizowane-->
+                        <section class="dymek">
+                            <i class="fa fa-cog"></i>
+                            <ul align="left">
+                                <a data-toggle="modal" href="#podmenuRealizo" class="fa fa-info-circle">
+                                    <!--info i zachęta w dymku-->
+                                </a>
+                            </ul>
+                            <div class="modal fade" id="podmenuRealizo" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <p class="modal-title" align="left">xxx{{_
+                                                    'realizacja.rzcDuringImplementation'}}</p>
+                                        </div>
+                                        <div class="modal-body" align="left">
+                                            <small>
+                                                <p>{{_ 'dym.OnTheImplementOf'}}</p>
+                                                <p>{{_ 'dym.OnTheImplementOfA'}}</p>
+                                                <p>{{_ 'dym.OnTheImplementOfB'}}</p>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--napis Realizowane-->
+                        {{_ 'realizacja.rzcDuringImplementation'}}
 
-</a></li>
-                    <li role="presentation"><a href="#zrealizowane" aria-controls="zrealizowane" role="tab" data-toggle="tab">
-<!--Zrealizowane-->
-						<section class="dymek">
-							<i class="fa fa-thumbs-up">&nbsp;&nbsp;&nbsp;
-</i> 
-							<ul align="left">
-					<a data-toggle="modal" href="#podmenuZrealizo" class="fa fa-info-circle">
-					<!--info i zachęta w dymku-->
-					</a>
-					</ul>
-					<div class="modal fade" id="podmenuZrealizo" role="dialog">
-					<div class="modal-dialog">
-					<div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-<p class="modal-title" align="left">{{_ 'realizacjaTab2.pinfoCompletedImplementation'}}</p>
-					</div>
-					<div class="modal-body" align="left">
-					<small>
-					<p>{{_ 'realizacjaTab2.pinfoCompletedImplemA'}}</p>
-					<p>{{_ 'realizacjaTab2.pinfoCompletedImplemB'}}</p>
-					</small>
-					</div>
-					</div>
-					</div>
-					</div>
-					</section>							
-							<!--napis Zrealizowane-->
-							{{_ 'realizacja.rzcCompletedImplementation'}}
-							</a>							
-							</li>
-							</ul>
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="realizacja">
-                        <br />
-                        {{> realizacjaTab1}}
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="zrealizowane">
-                        <br />
-                        {{> realizacjaTab2}}
-                    </div>
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#zrealizowane" aria-controls="zrealizowane" role="tab" data-toggle="tab">
+                        <!--Zrealizowane-->
+                        <section class="dymek">
+                            <i class="fa fa-thumbs-up">&nbsp;&nbsp;&nbsp;
+                            </i>
+                            <ul align="left">
+                                <a data-toggle="modal" href="#podmenuZrealizo" class="fa fa-info-circle">
+                                    <!--info i zachęta w dymku-->
+                                </a>
+                            </ul>
+                            <div class="modal fade" id="podmenuZrealizo" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <p class="modal-title" align="left">
+                                                {{_ 'realizacjaTab2.pinfoCompletedImplementation'}}
+                                            </p>
+                                        </div>
+                                        <div class="modal-body" align="left">
+                                            <small>
+                                                <p>{{_ 'realizacjaTab2.pinfoCompletedImplemA'}}</p>
+                                                <p>{{_ 'realizacjaTab2.pinfoCompletedImplemB'}}</p>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--napis Zrealizowane-->
+                        {{_ 'realizacja.rzcCompletedImplementation'}}
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="realizacja">
+                    <br />
+                    {{> realizacjaTab1}}
+                </div>
+                <div role="tabpanel" class="tab-pane" id="zrealizowane">
+                    <br />
+                    {{> realizacjaTab2}}
                 </div>
             </div>
         </div>
+    </div>
     {{>GlobalNotifications}}
 </template>

@@ -1,55 +1,60 @@
 Template.kwestiaTopButtons.helpers({
     actualIssue: function (id) {
-        var issue = Kwestia.findOne({_id:id});
-        return issue ? issue : null;
+        const issue = Kwestia.findOne({_id: id});
+        return issue || null;
     },
     hasUserRights: function (idKwestia) {
-        if (!Meteor.userId())
+        const user = Meteor.user();
+        const profile = user && user.profile;
+
+        if (!profile) {
             return 'disabled';
-        var user = Meteor.user().profile;
-        if (user) {
-            if (user.userType) {
-                if (user.userType != USERTYPE.CZLONEK)
-                    return 'disabled';
-            }
         }
+
+        if (profile.userType && user.userType != USERTYPE.CZLONEK) {
+            return 'disabled';
+        }
+
         return isKwestiaGlosowana(idKwestia);
     },
-    isRealizowanaNieaktywny: function (status,czyAktywny) {
-        return (status == KWESTIA_STATUS.REALIZOWANA || status == KWESTIA_STATUS.ZREALIZOWANA) && czyAktywny == true ? true : false;
+    isRealizowanaNieaktywny: function (status, isActive, onlyRealised) {
+        if (onlyRealised) {
+            return status == KWESTIA_STATUS.REALIZOWANA && isActive;
+        }
+        return (status == KWESTIA_STATUS.REALIZOWANA || status == KWESTIA_STATUS.ZREALIZOWANA) && isActive;
     },
     isGlobalParams: function (typ) {
-        return typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ? true : false;
+        return typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE;
     },
     isInZR: function (idZR) {
-        var zr = ZespolRealizacyjny.findOne({_id:idZR});
-        return _.contains(zr.zespol, Meteor.userId()) ? true : false;
+        var zr = ZespolRealizacyjny.findOne({_id: idZR});
+        return _.contains(zr && zr.zespol, Meteor.userId());
     },
-    isZrealizowanaChangeParamsGlosowana: function (typ,status) {
+    isZrealizowanaChangeParamsGlosowana: function (typ, status) {
         if (Meteor.userId())
             return true;
-        return status == KWESTIA_STATUS.ZREALIZOWANA || typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ? true : false;
+        return status == KWESTIA_STATUS.ZREALIZOWANA || typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE;
     },
-    isKwestiaAccessOrChangeParams: function (typ,status,czyAktywny) {
+    isKwestiaAccessOrChangeParams: function (typ, status, czyAktywny) {
         return typ == KWESTIA_TYPE.ACCESS_DORADCA ||
             typ == KWESTIA_TYPE.ACCESS_ZWYCZAJNY ||
             typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE ||
             status == KWESTIA_STATUS.GLOSOWANA ||
             status == KWESTIA_STATUS.ZREALIZOWANA ||
             status == KWESTIA_STATUS.ARCHIWALNA ||
-            czyAktywny == false ? true : false;
+            czyAktywny == false;
     },
-    isKwestiaAccessOrChangeParamsRealizacja: function (typ,status,czyAktywny) {
+    isKwestiaAccessOrChangeParamsRealizacja: function (typ, status, czyAktywny) {
         return ((typ == KWESTIA_TYPE.ACCESS_DORADCA ||
-        typ == KWESTIA_TYPE.ACCESS_ZWYCZAJNY ||
-        typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) && (status == KWESTIA_STATUS.REALIZOWANA || status == KWESTIA_STATUS.ZREALIZOWANA) && czyAktywny == false) ||
-        status == KWESTIA_STATUS.GLOSOWANA ||
-        status == KWESTIA_STATUS.OCZEKUJACA ||
-        status == KWESTIA_STATUS.ARCHIWALNA ||
-        czyAktywny == false ? true : false;
+            typ == KWESTIA_TYPE.ACCESS_ZWYCZAJNY ||
+            typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE) && (status == KWESTIA_STATUS.REALIZOWANA || status == KWESTIA_STATUS.ZREALIZOWANA) && czyAktywny == false) ||
+            status == KWESTIA_STATUS.GLOSOWANA ||
+            status == KWESTIA_STATUS.OCZEKUJACA ||
+            status == KWESTIA_STATUS.ARCHIWALNA ||
+            czyAktywny == false;
     },
-    isArchiwalna: function (status,typ) {
-        return _.contains([KWESTIA_STATUS.HIBERNOWANA,KWESTIA_STATUS.ARCHIWALNA],status) || typ == false ? true : false;
+    isArchiwalna: function (status, typ) {
+        return _.contains([KWESTIA_STATUS.HIBERNOWANA, KWESTIA_STATUS.ARCHIWALNA], status) || typ == false;
     }
 });
 Template.kwestiaTopButtons.events({
@@ -73,7 +78,7 @@ Template.kwestiaTopButtons.events({
             Session.setPersistent('actualKwestia', kw);
             Router.go('addKwestiaOpcja');
         } else
-            notificationPauseWarning('kwestii',kwestiaCanBeInserted);
+            notificationPauseWarning('kwestii', kwestiaCanBeInserted);
     },
     /*    'click #doArchiwum': function ( e ) {
         e.preventDefault ();
@@ -91,19 +96,35 @@ Template.kwestiaTopButtons.events({
             }
         }
     },
-*/	
+*/
     'click #doKosza': function (e) {
         e.preventDefault();
         var idKw = e.target.name;
-        var issue = Kwestia.findOne({_id:idKw});
+        var issue = Kwestia.findOne({_id: idKw});
         if (isIssueAllowedToArchiveBin(issue) == true) {
-            var z = Posts.findOne({idKwestia: idKw, postType: 'kosz'});
+            var z = Posts.findOne({idKwestia: idKw, postType: POSTS_TYPES.KOSZ});
             if (z) {
                 $('html, body').animate({
                     scrollTop: $('.doKoszaClass').offset().top
                 }, 600);
             } else {
                 $('#uzasadnijWyborKosz').modal('show');
+            }
+        }
+    },
+    'click #zrealizowano': function (e) {
+        e.preventDefault();
+        const idKw = e.target.name;
+        const issue = Kwestia.findOne({_id: idKw});
+
+        if (issue.status === KWESTIA_STATUS.REALIZOWANA) {
+            var z = Posts.findOne({idKwestia: idKw, postType: POSTS_TYPES.ZREALIZOWANA});
+            if (z) {
+                $('html, body').animate({
+                    scrollTop: $('#heading' + z._id).offset().top
+                }, 600);
+            } else {
+                $('#uzasadnijWyborZrealizowano').modal('show');
             }
         }
     },
@@ -123,9 +144,9 @@ Template.kwestiaTopButtons.events({
 
 getReportsForIssueAtSpecificDuration = function (idKwestia) {
     var timeNow = moment(new Date()).format();
-    var issue = Kwestia.findOne({_id:idKwestia});
+    var issue = Kwestia.findOne({_id: idKwestia});
     var lastReportId = issue.raporty;
-    var report = Raport.findOne({_id:_.last(issue.raporty)});
+    var report = Raport.findOne({_id: _.last(issue.raporty)});
     if (report == null)
         return false;
     var reportAddedTime = report.dataUtworzenia;
@@ -134,7 +155,7 @@ getReportsForIssueAtSpecificDuration = function (idKwestia) {
 
 isIssueAllowedToArchiveBin = function (issue) {
     if ((issue.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE && issue.status == KWESTIA_STATUS.ZREALIZOWANA) ||
-        (_.contains([KWESTIA_TYPE.ACCESS_DORADCA,KWESTIA_TYPE.ACCESS_ZWYCZAJNY],issue.typ) && issue.status == KWESTIA_STATUS.REALIZOWANA)) {
+        (_.contains([KWESTIA_TYPE.ACCESS_DORADCA, KWESTIA_TYPE.ACCESS_ZWYCZAJNY], issue.typ) && issue.status == KWESTIA_STATUS.REALIZOWANA)) {
         var text = null;
         if (issue.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
             text = TAPi18n.__('txv.GL_PAR_CHANGE1');
@@ -146,6 +167,4 @@ isIssueAllowedToArchiveBin = function (issue) {
         return false;
     }
     return true;
-
 };
-

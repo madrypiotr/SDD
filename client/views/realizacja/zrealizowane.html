@@ -1,28 +1,29 @@
 <template name="realizacjaTab2">
     <div class="main">
-            <div class="row">
-                <div class="col-md-12">
-
-                    {{> reactiveTable
-                    class = "table table-bordered table-hover"
-                    fields = settings.fields
-                    settings = settings
-                    collection = "ZrealizowaneList"
-                    }}
-
-                </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{> reactiveTable
+                        class = "table table-bordered table-hover"
+                        fields = settings.fields
+                        settings = settings
+                        collection = "ZrealizowaneList"
+                }}
             </div>
+        </div>
     </div>
-<!--
-### footer page info `` label `` EXECUTED -->
-<div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;   {{_ "realizacjaTab2.pinfoCompletedImplementation"}} </div>
-	<div id="container">
-		<div class="footer_center">
-						<br /><br />
-		<p>{{_ "more.ComplImplA"}}</p>
-		<p>{{_ "more.ComplImplB"}}</p>
-		</div>
-	</div>
-</div>
+    <!--
+    ### footer page info `` label `` EXECUTED -->
+    <div class="footer">
+        <div id="button">
+            <i class="fa fa-info-circle"></i> &nbsp;
+            {{_ "realizacjaTab2.pinfoCompletedImplementation"}}
+        </div>
+        <div id="container">
+            <div class="footer_center">
+                <br /><br />
+                <p>{{_ "more.ComplImplA"}}</p>
+                <p>{{_ "more.ComplImplB"}}</p>
+            </div>
+        </div>
+    </div>
 </template>

@@ -18,9 +18,8 @@ Template.zrModalCurrentIssueMyResolutionsInner.helpers({
         };
     },
     IssuesList: function () {
-        var zr = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
-        var issues = Kwestia.find({_id: {$in: zr.kwestie}, czyAktywny: true});
-        return issues;
+        const zr = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
+        return zr && Kwestia.find({_id: {$in: zr.kwestie}, czyAktywny: true});
     }
 });
 

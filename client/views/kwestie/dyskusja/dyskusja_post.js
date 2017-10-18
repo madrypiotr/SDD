@@ -61,8 +61,7 @@ Template.discussionPostItem.helpers({
     'isDoKosza': function () {
         var p = Posts.findOne({_id: this.idPost});
         if (p) {
-            if (p.postType == 'kosz') return true;
-            return false;
+            return p.postType === POSTS_TYPES.KOSZ;
         }
     },
     'isRaportRealizacyjny': function () {

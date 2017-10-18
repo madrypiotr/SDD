@@ -27,48 +27,42 @@
     czyAktywny=czyAktywny
     }}
 </template>
-<!--
-## Template for the discussion form -->
+
+<!-- ## Template for the discussion form -->
 <template name="discussionPostForm">
     <form id="dyskusjaForm" class="form-horizontal">
         <div class="form-group">
             {{#if HasUserRights status czyAktywny}}
             <div class="col-xs-9">
-				<!--
-				``txv`` Enter comment ... -->
+				<!-- ``txv`` Enter comment ... -->
                 <textarea id="message" name="message" type="text" class="form-control"  required placeholder="{{_ 'discussionPostForm.diEnterAcomment'}}"  ></textarea>
             </div>
             <input id="idKwestia" name="idKwestia" type="hidden" value="{{idKwestia}}">
 			<div class="warnCommNotChange">
-			<!--
-			``txv`` Add comment -->
-            <input type="submit" for="dyskusjaForm" class="btn btn-primary" value="{{_ 'discussionPostForm.diAddAcomment'}}">  <br> 
-				<!--
-				``txv`` Attention: the comment may not be removed nor changed. -->
+			<!-- ``txv`` Add comment -->
+            <input type="submit" for="dyskusjaForm" class="btn btn-primary" value="{{_ 'discussionPostForm.diAddAcomment'}}">  <br>
+				<!-- ``txv`` Attention: the comment may not be removed nor changed. -->
                 {{_ "discussionPostForm.diCommentCanNotBeDeletedOrChanged"}}
 			</div>
             {{/if}}
         </div>
     </form>
 </template>
-<!--
-## Comment priority template -->
+
+<!-- ## Comment priority template -->
 <template name="discussionRating">
     <div>
         <form>
-			<!--
-			``Balloon`` priority of this statement -->
+			<!-- ``Balloon`` priority of this statement -->
             <section class="dymek">
                 <small>
-					<!--
-					``txv`` The priority of this statement -->
+					<!-- ``txv`` The priority of this statement -->
 					{{_ "discussionRating.drThePriorityOfThisStatement"}}:
                 </small>
                 <ul>
                     <a data-toggle="modal" href="#discusMain">
-                        <p class="fa fa-question-circle"><small> 
-							<!--
-							``txv`` This priority sorts out expressions..." -->
+                        <p class="fa fa-question-circle"><small>
+							<!-- ``txv`` This priority sorts out expressions..." -->
                             {{_ "dym.ThisPrioritySorts"}}
                             <sub class="fa fa-external-link"></sub></small>
                         </p>
@@ -80,8 +74,7 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <p class="modal-title">
-									<!--
-									``txv`` Priority in discussions, comments and references -->
+									<!-- ``txv`` Priority in discussions, comments and references -->
                                     {{_ "dym.PriorInTheDiscus"}}
                                 </p>
                             </div>
@@ -94,19 +87,16 @@
                     </div>
                 </div>
             </section>
-            <i class=" label {{getLabelClass wartoscPriorytetu}}">{{wartoscPriorytetu}}</i>  
+            <i class=" label {{getLabelClass wartoscPriorytetu}}">{{wartoscPriorytetu}}</i>
             <small>
-				<!--
-				``Balloon`` Give your support or not -->
+				<!-- ``Balloon`` Give your support or not -->
                 <section class="dymek">
-					<!--
-					``txv`` Give priority to this content -->
+					<!-- ``txv`` Give priority to this content -->
                     {{_ "discussionRating.drGivePriorityToThisContent"}}
                     <ul>
                         <a href="#">
                             <li class="fa fa-info-circle">
-								<!--
-								``txv`` Give your support or not -->
+								<!-- ``txv`` Give your support or not -->
                                 {{_ "discussionRating.drGrantSupportOrNot"}}
                             </li>
                         </a>
@@ -147,8 +137,7 @@
                 </button>
             </div>
             {{/unless}}
-			<!--
-			``Balloon`` Author of the content -->
+			<!-- ``Balloon`` Author of the content -->
             <section class="dymek">
                 <b class="fontSize">{{userFullName}},</b>
                 <ul>
@@ -160,9 +149,9 @@
                 </ul>
             </section>
             <small>{{getSimpleDate addDate}}</small>
-            <small class="fontSizeSmall">{{getFullHourDate addDate}}</small> 
+            <small class="fontSizeSmall">{{getFullHourDate addDate}}</small>
         </form>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="yourPath/animatedModal.min.js"></script>		
+    <script src="/vendors/animatedModal.min.js"></script>
 </template>
