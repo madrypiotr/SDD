@@ -3,7 +3,6 @@
 ## Template for decision to continue or resign from participation in the implementing team ImplementationTeam -->
 <template name="zrModalCurrentIssueMyResolutions">
     <div id="zrCurrentIssueMyResolutions" class="modal fade" tabindex="-1" data-width="760" style="display:none;">
-
         <div class="modal-dialog">
             <div class="modal-content">
                 {{> zrModalCurrentIssueMyResolutionsInner}}
@@ -11,55 +10,50 @@
         </div>
     </div>
 </template>
-<!--
-### Template for decision to continue or resign ... (inner^^^) -->
+<!-- ### Template for decision to continue or resign ... (inner^^^) -->
 <template name="zrModalCurrentIssueMyResolutionsInner">
     <div class="modal-header">
         <h4>
-<!--
-``txv`` Resignation from participation in Implementation Team -->
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrCancellationOfParticipationInTheImplemTeam'}}</h4>
+            <!-- ``txv`` Resignation from participation in Implementation Team -->
+            {{_ 'zrModalCurrentIssueMyResolutionsInner.zmrCancellationOfParticipationInTheImplemTeam'}}</h4>
     </div>
     <div class="modal-body">
         <p class="col-md-12 bg-danger padding-15">
             <b>
-<!--
-``txv`` Think over this step! - The taken Resolution may not be executed! -->
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrThinkThisStep'}}</b>
+                <!-- ``txv`` Think over this step! - The taken Resolution may not be executed! -->
+                {{_ 'zrModalCurrentIssueMyResolutionsInner.zmrThinkThisStep'}}</b>
         </p>
-        <br/>
-        &nbsp;
+        <br />
         &nbsp;
         <h5><b>
-<!--
-``txv`` Resolutions that you take care of its' execution -->
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrTheResolutionsWhoseImplementationIsCaring'}}: </b></h5>
+            <!-- ``txv`` Resolutions that you take care of its' execution -->
+            {{_ 'zrModalCurrentIssueMyResolutionsInner.zmrTheResolutionsWhoseImplementationIsCaring'}}: </b></h5>
         <div class="row">
             <div class="col-md-12">
                 {{> reactiveTable
-                class = "table table-bordered table-hover"
-                fields = settings.fields
-                settings = settings
-                collection = IssuesList}}
+                        class = "table table-bordered table-hover"
+                        fields = settings.fields
+                        settings = settings
+                        collection = IssuesList
+                }}
             </div>
         </div>
-        <br/>
+        <br />
     </div>
     <div class="modal-footer">
-        &nbsp;
         <p class="col-md-12 bg-danger padding-15" style="text-align: center">
             <b>
-<!--
-``txv`` Are you still decided to leave the Implementation Team? -->
-{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYouDoNeverthelessTeaveTheRealizationTeam'}}</b>
+                <!-- ``txv`` Are you still decided to leave the Implementation Team? -->
+                {{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYouDoNeverthelessTeaveTheRealizationTeam'}}</b>
         </p>
         &nbsp;
         <div class="row">
             <div class="col-md-12 centered">
-<!--
-``txv`` Yes -->
-<input type="submit" class="btn btn-success" id="agreeButton" value="{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYes'}}"/>
-<input type="reset" data-dismiss="modal" class="btn btn-danger" id="cancelButton" value="{{_ 'glob.Cancel'}}"/>
+                <!-- ``txv`` Yes -->
+                <input type="submit" class="btn btn-success" id="agreeButton"
+                       value="{{_ 'zrModalCurrentIssueMyResolutionsInner.zmrYes'}}" />
+                <input type="reset" data-dismiss="modal" class="btn btn-danger" id="cancelButton"
+                       value="{{_ 'glob.Cancel'}}" />
             </div>
         </div>
     </div>

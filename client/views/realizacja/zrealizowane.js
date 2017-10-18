@@ -1,5 +1,5 @@
 Template.realizacjaTab2.helpers({
-    'settings': function () {
+    settings: function () {
         return {
             rowsPerPage: 20,
             showFilter: true,

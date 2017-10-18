@@ -1,38 +1,41 @@
 <template name="realizacjaTab1">
-        <div class="main">
-            <div class="row">
-                <div class="col-md-12">
-
-                    {{> reactiveTable
-                    class = "table table-bordered table-hover"
-                    fields = settings.fields
-                    settings = settings
-                    collection = "RealizacjaList"
-                    }}
-
-                </div>
+    <div class="main">
+        <div class="row">
+            <div class="col-md-12">
+                {{> reactiveTable
+                        class = "table table-bordered table-hover"
+                        fields = settings.fields
+                        settings = settings
+                        collection = "RealizacjaList"
+                }}
             </div>
         </div>
+    </div>
     {{>GlobalNotifications}}
-<!--
-### footer page info `` label `` REALIZED -->
-<div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "realizacjaTab1.pinfoDuringImplementation"}} </div>
-	<div id="container">
-		<div class="footer_center">
-			<p>{{_ "more.DuringImpA"}}</p>
-			<p>{{_ "more.DuringImpB"}}</p>
-			<p>{{_ "more.DuringImpC"}}</p>
-			<p>{{_ "more.DuringImpD"}}</p>
-		</div>       
-	</div>
-</div>
+    <!--
+    ### footer page info `` label `` REALIZED -->
+    <div class="footer">
+        <div id="button">
+            <i class="fa fa-info-circle"></i> &nbsp;
+            {{_ "realizacjaTab1.pinfoDuringImplementation"}}
+        </div>
+        <div id="container">
+            <div class="footer_center">
+                <p>{{_ "more.DuringImpA"}}</p>
+                <p>{{_ "more.DuringImpB"}}</p>
+                <p>{{_ "more.DuringImpC"}}</p>
+                <p>{{_ "more.DuringImpD"}}</p>
+            </div>
+        </div>
+    </div>
 </template>
 
 
 <template name="editColumnRealization">
-<!--Drukuj Uchwałę do pliku PDF-->
-	<a id="printResolution" data-toggle="tooltip" data-placement="top" title="{{_ 'editColumnRealization.retResolutionPrintToPDF'}}"> <i class="glyphicon glyphicon-print clickable"></i>
+    <!--Drukuj Uchwałę do pliku PDF-->
+    <a id="printResolution" data-toggle="tooltip" data-placement="top"
+       title="{{_ 'editColumnRealization.retResolutionPrintToPDF'}}">
+        <i class="glyphicon glyphicon-print clickable"></i>
     </a>
 </template>
 
@@ -57,13 +60,13 @@
         {{#if reportCurrentDurationExists raporty}}
             {{#with currentReport raporty}}
                 <a href="{{pathFor 'informacjeRaport'}}">
-<!--Pokaż-->
-{{_ 'raport.raporShow'}}</a>
+                    <!--Pokaż-->
+                    {{_ 'raport.raporShow'}}</a>
             {{/with}}
         {{else}}
             <a href="#" id="showReport">
-<!--Pokaż-->
-{{_ 'raport.raporShow'}}</a>
+                <!--Pokaż-->
+                {{_ 'raport.raporShow'}}</a>
         {{/if}}
     {{/if}}
 </template>

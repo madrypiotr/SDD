@@ -1,0 +1,87 @@
+<!--
+``client\views\kwestie\dyskusja\``uzasadnienie_zrealizowano_modal.html
+## Template of the justification for referring the issue to the trash -->
+<template name="uzasadnienieZrealizowanoModal">
+    <div id="uzasadnijWyborZrealizowano" class="modal fade" data-keyboard="false" data-backdrop="static" tabindex="-1"
+         data-width="760" style="display:none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{> uzasadnienieZrealizowanoModalInner}}
+            </div>
+        </div>
+    </div>
+</template>
+<!--
+## Template as above + Inner -->
+<template name="uzasadnienieZrealizowanoModalInner">
+<!--{{#with kwestiaInScope}}-->
+    <div class="modal-header">
+        <h4>
+            <!--
+            ``txv`` Justify the proposal -->
+            {{_ 'uzasadnienieZrealizowanoModalInner.ukiExplainYourProposal'}}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <!--
+                    ``txv``  -->
+                    <!--Zamierzasz wnioskować o skierowanie tej-->
+                    {{_ 'uzasadnienieZrealizowanoModalInner.ukiYouIntendToApply'}} <b>
+                    <!--
+                    ``txv``  -->
+                    <!--Kwestii do Zrealizowanych, -->
+                    {{_ 'uzasadnienieZrealizowanoModalInner.ukiIssueToTheCompleted'}}</b>
+                    <!--
+                    ``txv``  -->
+                    <!--gdzie odsyłane są Kwestie nieudane, błędne, bez szans na wdrożenie. Zostaną one ostatecznie zarchiwizowane (bez możliwości wznowienia).-->
+                    {{_ 'uzasadnienieZrealizowanoModalInner.ukiWhereSentBackIissuesFailed'}}
+                </p>
+
+                <p>
+                    <!--
+                    ``txv``  -->
+                    <!--Jeśli Twoja decyzja jest zgodna z takim zamiarem - podaj poniżej jej "-->
+                    {{_ 'uzasadnienieZrealizowanoModalInner.ukiIfYourDecisionIsConsisten'}} <b>
+                    <!--
+                    ``txv`` substantiation -->
+                    {{_ 'uzasadnienieZrealizowanoModalInner.ukiBroaderJustification'}}</b>.
+                </p>
+                <p>
+                    <!--
+                    ``txv`` Otherwise press -->
+                    {{_ 'uzasadnienieZrealizowanoModalInner.ukiOtherwisePress'}} <b>
+                    <!--
+                    ``txv`` Return -->
+                    {{_ 'glob.Return'}}</b>.
+                </p>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <!--
+                ``txv`` substantiation -->
+                <textarea class="form-control" rows="4"
+                          placeholder="{{_ 'uzasadnienieZrealizowanoModalInner.ukiBroaderJustification'}}"
+                          id="uzasadnienieZrealizowano" name="uzasadnienieZrealizowano"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-12">
+                <!--
+                ``txv`` Return -->
+                <input type="submit" data-dismiss="modal" class="btn btn-default" id="cancelButton"
+                       value="{{_ 'glob.Return'}}" />
+                <!--
+                ``txv`` Approve -->
+                <input type="submit" class="btn btn-danger" value="{{_ 'uzasadnienieZrealizowanoModalInner.ukiSubmit'}}"
+                       id="zatwierdzPrzeniesDoZrealizowanych" />
+            </div>
+        </div>
+    </div>
+        <!--{{/with}}-->
+</template>
