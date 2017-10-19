@@ -233,12 +233,12 @@ Meteor.methods({
         }, {upsert: true});
     },
 
-    updStatDateVotingIssueFinal: function (id, status, dataGlosowania,start) {
+    updStatDateVotingIssueFinal: function (id, status, dataGlosowania, start) {
         return Kwestia.update(id, {
             $set: {
                 status: status,
                 dataGlosowania: dataGlosowania,
-                startGlosowania:start
+                startGlosowania: start
             }
         }, {upsert: true});
     },
