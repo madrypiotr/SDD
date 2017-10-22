@@ -132,7 +132,7 @@ applyPositiveMethod = function (kwestia) {
     var zrDraft = ImplemTeamDraft.findOne({
         _id: kwestia.idZespolRealizacyjny
     });
-    if (zrDraft.idZR != null) {
+    if (zrDraft.idZR) {
         // If draft has id ZR ( copy from existing ZR ), then add to the ZR list of this draft
         var ZR = ZespolRealizacyjny.findOne({
             _id: zrDraft.idZR
