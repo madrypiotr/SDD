@@ -113,7 +113,7 @@ var checkingEndOfVote = function () {
                     }
 
                     var zrDraft = ImplemTeamDraft.findOne({_id: issueUpdated.idZespolRealizacyjny});
-                    if (zrDraft && zrDraft.idZR != null) {
+                    if (zrDraft && zrDraft.idZR) {
                         var ZR = ZespolRealizacyjny.findOne({_id: zrDraft.idZR});
                         if (ZR) {
                             updateListKwestie(ZR, issueUpdated);
@@ -122,7 +122,7 @@ var checkingEndOfVote = function () {
                             createNewZR(zrDraft, issueUpdated);
                             Meteor.call('removeImplemTeamDraft', issueUpdated.idZespolRealizacyjny);
                         }
-                    } else {
+                    } else if (zrDraft) {
                         createNewZR(zrDraft, issueUpdated);
                         Meteor.call('removeImplemTeamDraft', issueUpdated.idZespolRealizacyjny);
                     }
