@@ -64,6 +64,12 @@ Template.discussionPostItem.helpers({
             return p.postType === POSTS_TYPES.KOSZ;
         }
     },
+    'isToComplete': function () {
+        var p = Posts.findOne({_id: this.idPost});
+        if (p) {
+            return p.postType === POSTS_TYPES.ZREALIZOWANA;
+        }
+    },
     'isRaportRealizacyjny': function () {
         var p = Posts.findOne({_id: this.idPost});
         if (p)

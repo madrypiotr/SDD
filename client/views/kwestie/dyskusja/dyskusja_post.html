@@ -23,8 +23,7 @@
                                        data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
                                        aria-controls="{{idPost}}">
                                         {{getAnswersCount idPost}}
-                                        <!--
-                                        ``txv`` References -->
+                                        <!-- ``txv`` References -->
                                         {{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
                                             class="glyphicon glyphicon-triangle-bottom"></i>
                                     </a>
@@ -41,13 +40,11 @@
                                     <small>
                                         {{#if isInTab idPost}}
                                             [ <a id="zwinText" name="{{idPost}}">
-                                            <!--
-                                            ``txv`` less -->
+                                            <!-- ``txv`` less -->
                                             {{_ 'discussionPostItem.dPiLess'}}</a> ]
                                         {{else}}
                                             [ <a id="rozwinText" name="{{idPost}}">
-                                            <!--
-                                            ``txv`` more -->
+                                            <!-- ``txv`` more -->
                                             {{_ 'discussionPostItem.dPiMore'}}</a> ]
                                         {{/if}}
                                     </small>
@@ -55,8 +52,7 @@
                             </p>
 
                             <h5>
-                                <!--
-                                ``txv`` Substantiation -->
+                                <!-- ``txv`` Substantiation -->
                                 {{_ 'discussionPostItem.dPiExplainThis'}}:
                                 <small>{{uzasadnienie}}</small>
                             </h5>
@@ -84,8 +80,7 @@
             </div>
         {{else}}
             {{#if isRaportRealizacyjny}}
-                <div class="panel-heading doRealizationRaportClass{{this.idRaport}}" role="tab" id="heading{{idPost}}"
-                     style="background-color: lightgreen">
+                <div class="panel-heading doRealizationRaportClass{{this.idRaport}}" role="tab" id="heading{{idPost}}" style="background-color: lightgreen">
                     <h4 class="panel-title">
                         <div class="row">
                             <div class="col-md-12">
@@ -106,8 +101,7 @@
                                            data-parent="#accordion{{idPost}}" href="#{{idPost}}" aria-expanded="true"
                                            aria-controls="{{idPost}}">
                                             {{getAnswersCount idPost}}
-                                            <!--
-                                            ``txv`` References -->
+                                            <!-- ``txv`` References -->
                                             {{_ 'discussionPostItem.dPiReferences'}}&nbsp; <i
                                                 class="glyphicon glyphicon-triangle-bottom"></i>
                                         </a>
@@ -118,8 +112,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h4>
-                                    <!--
-                                    ``txv`` Implementation Report -->
+                                    <!-- ``txv`` Implementation Report -->
                                     {{_ 'discussionPostItem.dPiTheImplemReport'}}</h4>
                                 <br />
                                 <p class="text-wraping">
@@ -128,21 +121,18 @@
                                         <small>
                                             {{#if isInTab idPost}}
                                                 [ <a id="zwinText" name="{{idPost}}">
-                                                <!--
-                                                ``txv`` less -->
+                                                <!-- ``txv`` less -->
                                                 {{_ 'discussionPostItem.dPiLess'}}</a> ]
                                             {{else}}
                                                 [ <a id="rozwinText" name="{{idPost}}">
-                                                <!--
-                                                ``txv`` more -->
+                                                <!-- ``txv`` more -->
                                                 {{_ 'discussionPostItem.dPiMore'}}</a> ]
                                             {{/if}}
                                         </small>
                                     {{/if}}
                                 </p>
                                 <h5><b>
-                                    <!--
-                                    ``txv`` Description -->
+                                    <!-- ``txv`` Description -->
                                     {{_ 'discussionPostItem.dPiDescription'}}:</b></h5>
                                 <small>{{uzasadnienie}}</small>
                             </div>
@@ -168,7 +158,7 @@
                     </div>
                 </div>
             {{else}}
-                <div class="panel-heading" role="tab" id="heading{{idPost}}">
+                <div class="panel-heading" role="tab" id="heading{{idPost}}" style="{{#if isToComplete}}background-color: #dceaff{{/if}}">
                     <h4 class="panel-title">
                         <div class="row">
                             <div class="col-md-12">
@@ -217,6 +207,15 @@
                                     {{/if}}
                                 </p>
 
+                                {{#if uzasadnienie}}
+                                    <h5>
+                                        <b>
+                                            <!-- ``txv`` Description -->
+                                            {{_ 'discussionPostItem.dPiDescription'}}:
+                                        </b>
+                                    </h5>
+                                    <small>{{uzasadnienie}}</small>
+                                {{/if}}
                             </div>
                         </div>
                         <div class="clearfix"></div>
