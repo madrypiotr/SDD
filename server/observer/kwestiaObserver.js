@@ -47,7 +47,7 @@ Meteor.startup(function () {
                 else {
                     ZRDraft = ZespolRealizacyjny.findOne({_id: newKwestia.idZespolRealizacyjny});
                     if (ZRDraft)
-                        zespolCount = ZRDraft.zespol.length;
+                        zespolCount = ZRDraft.zespol && ZRDraft.zespol.length;
                     else {
                         if (newKwestia.czyAktywny == false)
                             zespolCount = newKwestia.zespol.czlonkowie.length;
