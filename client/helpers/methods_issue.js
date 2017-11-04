@@ -71,7 +71,7 @@ isKwestiaGlosowana = function (idKwestia) {
 };
 
 setInQueueToVoteMethod = function (kwestie) {
-    // setting the question to the voting queue 
+    // setting the question to the voting queue
     var tab = [];
     var tabKwestie = [];
     kwestie.forEach(function (item) {
@@ -185,7 +185,7 @@ updateListKwestieMethod = function (ZR, kwestiaId) {
                 else throwError(error.reason);
             } else {
                 // update the Implementation Team id for this Issue
-                Meteor.call('updateStatNrUchwDtRealIdZespolKwestii', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, ZR._id);
+                Meteor.call('updStatNoResDatReaIdImplTeam', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, ZR._id);
             }
         });
     }
@@ -208,7 +208,7 @@ createNewZRMethod = function (zrDraft, kwestia) {
         } else {
             // update the Implementation Team id for this Issue
             var idZR = ret;
-            Meteor.call('updateStatNrUchwDtRealIdZespolKwestii', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, idZR);
+            Meteor.call('updStatNoResDatReaIdImplTeam', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, idZR);
         }
     });
 };

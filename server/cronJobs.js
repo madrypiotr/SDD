@@ -326,7 +326,7 @@ var updateListKwestie = function (ZR, kwestia) {
                     throwError(error.reason);
 
             } else {
-                Meteor.call('updateStatNrUchwDtRealIdZespolKwestii', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, ZR._id);
+                Meteor.call('updStatNoResDatReaIdImplTeam', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, ZR._id);
             }
         });
     }
@@ -336,8 +336,8 @@ var createNewZR = function (zrDraft, kwestia) {
     var arrayKwestie = [];
     arrayKwestie.push(kwestia._id);
     var newZR = [{
-        nazwa: zrDraft.nazwa,
-        zespol: zrDraft.zespol,
+        nazwa: zrDraft && zrDraft.nazwa,
+        zespol: zrDraft && zrDraft.zespol,
         kwestie: arrayKwestie,
         czyAktywny: true
     }];
@@ -350,7 +350,7 @@ var createNewZR = function (zrDraft, kwestia) {
 
         } else {
             var idZR = ret;
-            Meteor.call('updateStatNrUchwDtRealIdZespolKwestii', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, idZR);
+            Meteor.call('updStatNoResDatReaIdImplTeam', kwestia._id, KWESTIA_STATUS.REALIZOWANA, kwestia.numerUchwaly, kwestia.dataRealizacji, idZR);
         }
     });
 };
