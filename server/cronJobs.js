@@ -122,7 +122,7 @@ var checkingEndOfVote = function () {
                             createNewZR(zrDraft, issueUpdated);
                             Meteor.call('removeImplemTeamDraft', issueUpdated.idZespolRealizacyjny);
                         }
-                    } else if (zrDraft) {
+                    } else {
                         createNewZR(zrDraft, issueUpdated);
                         Meteor.call('removeImplemTeamDraft', issueUpdated.idZespolRealizacyjny);
                     }
