@@ -64,7 +64,7 @@ Template.ZRTemplate.helpers({
         }
         var data = [];
         if (zespol) {
-            for (var i = 0;i < zespol.zespol.length;i++) {
+            for (var i = 0;i < zespol.zespol && zespol.zespol.length;i++) {
                 var user = Users.findOne({_id:zespol.zespol[i]});
                 data.push(user.profile.fullName);
             }
@@ -72,7 +72,7 @@ Template.ZRTemplate.helpers({
         return data;
     },
     getZRMembersTrashCan: function (zespol) {
-        // getZRCzlonkowieTrashCan only once here. Check if you need it?	
+        // getZRCzlonkowieTrashCan only once here. Check if you need it?
         var data = '';
         _.each(zespol.czlonkowie,function (czlonek) {
             data += czlonek + ',';

@@ -120,7 +120,7 @@ Meteor.startup(function () {
                                 if (!zespol) {
                                     zespol = ImplemTeamDraft.findOne({_id: kwestia.idZespolRealizacyjny});
                                 }
-                                if (zespol.zespol.length >= 3)
+                                if (zespol.zespol && zespol.zespol.length >= 3)
                                     arrayKwestie.push(kwestia);
                             } else
                                 arrayKwestie.push(kwestia);

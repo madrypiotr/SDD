@@ -311,9 +311,9 @@ getZRCount = function (idZR,idIssue) {
                     var issue = Kwestia.findOne({_id: idIssue});
                     if (issue.status == KWESTIA_STATUS.GLOSOWANA)
                         return 3;
-                    return zespol.zespol.length;
-                } return zespol.zespol.length;
-            } return zespol.zespol.length;
+                    return zespol.zespol && zespol.zespol.length;
+                } return zespol.zespol && zespol.zespol.length;
+            } return zespol.zespol && zespol.zespol.length;
         }
     } else {
         return 0;

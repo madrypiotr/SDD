@@ -154,11 +154,11 @@ Template.registerForm.events({
                                                             } else {
                                                                 var zespol = ZespolRealizacyjny.findOne({_id: 'jjXKur4qC5ZGPQkgN'});
                                                                 if (zespol) {
-                                                                    if (zespol.zespol.length < 3) {
+                                                                    if (zespol.zespol && zespol.zespol.length < 3) {
                                                                         var ZR = zespol.zespol.slice();
                                                                         ZR.push(addedUser);
 
-                                                                        if (zespol.zespol.length == 0) {
+                                                                        if (zespol.zespol && zespol.zespol.length == 0) {
                                                                             Meteor.call('updateCzlonkowieZRProtector', zespol._id, ZR, addedUser, function (error, ret) {
                                                                                 if (error) {
                                                                                     // optionally use a meteor errors package
