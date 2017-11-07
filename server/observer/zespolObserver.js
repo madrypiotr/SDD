@@ -28,7 +28,7 @@ Meteor.startup(function () {
             var kworum = liczenieKworumZwykle();
             var kwestia = Kwestia.findOne({czyAktywny: true, idZespolRealizacyjny: newZespol._id});
             if (kwestia != null) {
-                if (kwestia.wartoscPriorytetu > 0 && kwestia.glosujacy.length >= kworum && newZespol.zespol.length >= 3 && kwestia.status != KWESTIA_STATUS.REALIZOWANA) {
+                if (kwestia.wartoscPriorytetu > 0 && kwestia.glosujacy.length >= kworum && newzespol.zespol && zespol.zespol.length >= 3 && kwestia.status != KWESTIA_STATUS.REALIZOWANA) {
                     if (kwestia.status == KWESTIA_STATUS.DELIBEROWANA) {
                         moveIssueAsAvote(kwestia);
                     }

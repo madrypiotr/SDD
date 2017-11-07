@@ -7,24 +7,24 @@
         <input id="status" name="status" type="hidden" value="{{status}}">
         <div class="col-xs-12">
             {{#each getPosts _id}}
-            {{> discussionPostItem
-            wiadomosc = wiadomosc
-            uzasadnienie=uzasadnienie
-            idUser = idUser
-            userFullName = userFullName
-            addDate=addDate
-            idKwestia=idKwestia
-            idRaport=idRaport
-            idPost=_id
-            wartoscPriorytetu = wartoscPriorytetu
-            }}
+                {{> discussionPostItem
+                        wiadomosc = wiadomosc
+                        uzasadnienie=uzasadnienie
+                        idUser = idUser
+                        userFullName = userFullName
+                        addDate=addDate
+                        idKwestia=idKwestia
+                        idRaport=idRaport
+                        idPost=_id
+                        wartoscPriorytetu = wartoscPriorytetu
+                }}
             {{/each}}
         </div>
     </div>
     {{> discussionPostForm
-    status=status
-    idKwestia=_id
-    czyAktywny=czyAktywny
+            status=status
+            idKwestia=_id
+            czyAktywny=czyAktywny
     }}
 </template>
 
@@ -152,6 +152,6 @@
             <small class="fontSizeSmall">{{getFullHourDate addDate}}</small>
         </form>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     <script src="/vendors/animatedModal.min.js"></script>
 </template>

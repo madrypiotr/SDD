@@ -1,7 +1,7 @@
 //## Methods for adding members to Implementing Teams and creating IT
 
 isUserCountInImplemTeamNotification = function (id, teamTab, numberOfMembers) {
-    // 
+    //
     if (teamTab.length == 3) {
         var komunikat = TAPi18n.__('txv.ITS_ALREADY') + numberOfMembers + TAPi18n.__('txv.MEMBERS_OF_IMPL_TEAM');
         GlobalNotification.error({
@@ -15,7 +15,7 @@ isUserCountInImplemTeamNotification = function (id, teamTab, numberOfMembers) {
 };
 
 addCzlonekToZespolRealizacyjnyNotification = function (idUser, teamToUpdate, numberOfMembers, teamId) {
-    // 
+    //
     if (teamToUpdate.length == 2) {
         // I check if we have such a band with another member going
         teamToUpdate.push(idUser);
@@ -40,7 +40,7 @@ addCzlonekToZespolRealizacyjnyNotification = function (idUser, teamToUpdate, num
                         i++;
                     }
                 });
-                if (i == zespol.zespol.length) {
+                if (i == zespol.zespol && zespol.zespol.length) {
                     arrayZespolyDouble.push(zespol._id);
                     flag = true;
                     // It may happen that there will be several teams with the same composition, so let's put them on the board
@@ -145,7 +145,7 @@ addMemberToImplemTeamNotificationNew = function (idUser, teamToUpdate, numberOfM
                         i++;
                     }
                 });
-                if (i == zespol.zespol.length) {
+                if (i == zespol.zespol && zespol.zespol.length) {
                     arrayZespolyDouble.push(zespol._id);
                     flag = true;
                 }

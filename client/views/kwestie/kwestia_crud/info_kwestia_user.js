@@ -222,8 +222,12 @@ Template.issueDetails.helpers({
         return (result > 1) ? result + TAPi18n.__('txv.MEMBERS') : result + TAPi18n.__('txv.MEMBER');
     },
     helperObserver: function () {
-        if (this.status == KWESTIA_STATUS.OCZEKUJACA || this.status == KWESTIA_STATUS.GLOSOWANA ||
-            this.status == KWESTIA_STATUS.REALIZOWANA || this.status == KWESTIA_STATUS.ZREALIZOWANA) {
+        if (
+            this.status == KWESTIA_STATUS.OCZEKUJACA ||
+            this.status == KWESTIA_STATUS.GLOSOWANA ||
+            this.status == KWESTIA_STATUS.REALIZOWANA ||
+            this.status == KWESTIA_STATUS.ZREALIZOWANA
+        ) {
             $('#listZespolRealizacyjny').modal('hide');
             $('#listZespolRealizacyjnyDouble').modal('hide');
             $('#addNazwa').modal('hide');
@@ -311,9 +315,9 @@ getZRCount = function (idZR,idIssue) {
                     var issue = Kwestia.findOne({_id: idIssue});
                     if (issue.status == KWESTIA_STATUS.GLOSOWANA)
                         return 3;
-                    return zespol.zespol.length;
-                } return zespol.zespol.length;
-            } return zespol.zespol.length;
+                    return zespol.zespol && zespol.zespol.length;
+                } return zespol.zespol && zespol.zespol.length;
+            } return zespol.zespol && zespol.zespol.length;
         }
     } else {
         return 0;
