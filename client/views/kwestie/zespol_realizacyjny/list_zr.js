@@ -24,12 +24,15 @@ Template.listZespolRealizacyjnyModalInner.helpers({
 Template.zespolTemplate.helpers({
     zespolR: function () {
         var tab = [];
-        for (var i = 0;i < this.zespol.length;i++) {
-            var z = this.zespol[i];
-            if (z) {
-                var foundName = Users.findOne({_id: z}).profile.fullName;
-                if (foundName) {
-                    tab.push(' ' + foundName);
+        if (this.zespol) {
+            for (var i = 0; i < this.zespol.length; i++) {
+                var z = this.zespol[i];
+                if (z) {
+                    const user = Users.findOne({_id: z});
+                    const foundName = user && user.profile && user.profile.fullName;
+                    if (foundName) {
+                        tab.push(' ' + foundName);
+                    }
                 }
             }
         }

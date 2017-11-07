@@ -115,41 +115,34 @@ Template.ZRTemplate.events({
             if (addMemberToImplemTeamNotificationNew(Meteor.userId(), teamToUpdate, 2, teamId) == false) {
                 bladNotification();
             }
-
         }
     },
     'click #czlonek2': function () {
-
         teamId = this.idZR;
         var idUser = checkIfInIT(teamId, Meteor.userId());
         if (idUser == Meteor.userId()) { // That means I'm already in the band and I can give up
             unsubscribeITAlert(checkIfInIT(teamId, Meteor.userId()), this.idKwestia);
         } else {
             var z = ImplemTeamDraft.findOne({_id: teamId});
-
             var teamToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 
             if (isUserInImplemTeamNotification(Meteor.userId(), teamToUpdate) == false) {
                 if (isUserCountInImplemTeamNotification(Meteor.userId(), teamToUpdate, 2) == false) {
-
                     if (addMemberToImplemTeamNotificationNew(Meteor.userId(), teamToUpdate, liczba, teamId) == false) {
                         bladNotification();
                     }
                 }
             }
         }
-
     },
     'click #czlonek3': function () {
-
         teamId = this.idZR;
         var idUser = checkIfInIT(teamId, Meteor.userId());
         if (idUser == Meteor.userId()) {
             unsubscribeITAlert(checkIfInIT(teamId, Meteor.userId()), this.idKwestia);
         } else {
             var z = ImplemTeamDraft.findOne({_id: teamId});
-
             var teamToUpdate = z.zespol.slice();
             var liczba = 3 - z.zespol.length - 1;
 

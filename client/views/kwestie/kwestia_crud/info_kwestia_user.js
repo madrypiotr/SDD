@@ -222,8 +222,12 @@ Template.issueDetails.helpers({
         return (result > 1) ? result + TAPi18n.__('txv.MEMBERS') : result + TAPi18n.__('txv.MEMBER');
     },
     helperObserver: function () {
-        if (this.status == KWESTIA_STATUS.OCZEKUJACA || this.status == KWESTIA_STATUS.GLOSOWANA ||
-            this.status == KWESTIA_STATUS.REALIZOWANA || this.status == KWESTIA_STATUS.ZREALIZOWANA) {
+        if (
+            this.status == KWESTIA_STATUS.OCZEKUJACA ||
+            this.status == KWESTIA_STATUS.GLOSOWANA ||
+            this.status == KWESTIA_STATUS.REALIZOWANA ||
+            this.status == KWESTIA_STATUS.ZREALIZOWANA
+        ) {
             $('#listZespolRealizacyjny').modal('hide');
             $('#listZespolRealizacyjnyDouble').modal('hide');
             $('#addNazwa').modal('hide');

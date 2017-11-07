@@ -9,12 +9,16 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active" id="issueInfoDetails">
                             <a href="#issueInfoo" aria-controls="issueInfoo" role="tab" data-toggle="tab">
-                            <!-- ``txv`` Details of the Issue -->
-                            {{_ "informacjeKwestia.ikDetailsIssue"}}</a></li>
+                                <!-- ``txv`` Details of the Issue -->
+                                {{_ "informacjeKwestia.ikDetailsIssue"}}
+                            </a>
+                        </li>
                         <li role="presentation">
                             <a href="#manageZRIssue" aria-controls="manageZRIssue" role="tab" data-toggle="tab">
-                            <!-- ``txv`` Implementation Team -->
-                            {{_ "informacjeKwestia.ikZespReal"}}</a></li>
+                                <!-- ``txv`` Implementation Team -->
+                                {{_ "informacjeKwestia.ikZespReal"}}
+                            </a>
+                        </li>
                     </ul>
 
                     <div class="tab-content">
@@ -44,8 +48,7 @@
         {{else}}
             {{> issueDetails}}
         {{/if}}
-        {{> zrModalCurrentIssueMyResolutions
-                idZespolRealizacyjny = idZespolRealizacyjny }}
+        {{> zrModalCurrentIssueMyResolutions idZespolRealizacyjny = idZespolRealizacyjny}}
     {{else}}
         {{> issueDetails}}
     {{/if}}
@@ -159,7 +162,7 @@
                     </p>
                 {{/unless}}
             </div>
-            <!--{{thisKwestia}}-->
+            {{!-- thisKwestia --}}
             {{> kwestiaTopButtons
                     status=status
                     typ=typ
@@ -174,8 +177,7 @@
         <table class="table table-bordered manageTable">
             {{#if isRealizowana}}
                 <td>
-                    <!--
-                    ``txv`` Priority in voting -->
+                    <!-- ``txv`` Priority in voting -->
                     {{_ "issueDetails.iDePriorityVote"}}: &nbsp;{{wartoscPriorytetuG}}</td>
             {{/if}}
             <tr>
@@ -226,9 +228,10 @@
             <div class="row">
                 <div class="col-md-12">
                     {{> discussionMain
-                            _id =_id
-                            status=status
-                            czyAktywny=czyAktywny}}
+                        _id =_id
+                        status=status
+                        czyAktywny=czyAktywny
+                    }}
                 </div>
             </div>
         {{/if}}
@@ -295,8 +298,7 @@
         </div>
     </div>
 </template>
-<!--
-## Template for manage Implementation Team -->
+<!-- ## Template for manage Implementation Team -->
 <template name="issueManageZR">
     <input type="hidden" id="idZR" value="{{idZespolRealizacyjny}}" />
     <legend>{{getZRName idZespolRealizacyjny zespol}}</legend>
