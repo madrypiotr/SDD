@@ -178,10 +178,11 @@
             {{#if isRealizowana}}
                 <td>
                     <!-- ``txv`` Priority in voting -->
-                    {{_ "issueDetails.iDePriorityVote"}}: &nbsp;{{wartoscPriorytetuG}}</td>
-            {{/if}}
-            <tr>
-                {{>managePriorities
+                    {{_ "issueDetails.iDePriorityVote"}}: &nbsp;{{wartoscPriorytetuG}}
+                </td>
+            {{else}}
+                <tr>
+                    {{> managePriorities
                         priorytet=wartoscPriorytetu
                         priorytetRealizacja=wartoscPriorytetuWRealizacji
                         idKwestia=_id
@@ -189,8 +190,9 @@
                         glosujacy=glosujacy
                         status=status
                         czyAktywny=czyAktywny
-                }}
-            </tr>
+                    }}
+                </tr>
+            {{/if}}
         </table>
         {{>kwestiaDetails
                 krotkaTresc=krotkaTresc
