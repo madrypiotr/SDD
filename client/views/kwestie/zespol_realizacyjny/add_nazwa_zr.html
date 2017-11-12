@@ -1,8 +1,8 @@
-<!--
-``client\views\kwestie\zespol_realizacyjny\``add_nazwa_zr.html
+<!-- ``client\views\kwestie\zespol_realizacyjny\``add_nazwa_zr.html
 ## Template for Modal for naming the Implementation Team -->
 <template name="addNazwaModal">
-    <div id="addNazwa" class="modal fade" data-keyboard="false" data-backdrop="static" tabindex="-1" data-width="760" style="display:none;">
+    <div id="addNazwa" class="modal fade" data-keyboard="false" data-backdrop="static" tabindex="-1" data-width="760"
+         style="display:none;">
         <div class="modal-dialog">
             <div class="modal-content">
                 {{> addNazwaModalInner}}
@@ -11,53 +11,55 @@
     </div>
     {{> GlobalNotifications}}
 </template>
-<!--
-### Template for Modal for naming  ... (inner^^^) -->
+
+<!-- ### Template for Modal for naming  ... (inner^^^) -->
 <template name="addNazwaModalInner">
     <div class="modal-header">
         <h4>
-		<!--
-		``txv`` Give name to this Implementation Team -->
-{{_ 'addNazwaModalInner.pleaseNameTheIT'}}</h4>
+            <!-- ``txv`` Give name to this Implementation Team -->
+            {{_ 'addNazwaModalInner.pleaseNameTheIT'}}</h4>
     </div>
     <div class="modal-body">
         <div class="row">
             <div class="col-md-12">
                 <label>
-		<!--
-		``txv`` Implementation Team for -->
-{{_ 'addNazwaModalInner.aniTheImplementationTeamForThe'}}</label>
-		<!--
-		``txv`` Name of the Implementation Team -->
-<input name="nazwaZR" id="nazwaZR" class="form-control"  placeholder="{{_ 'addNazwaModalInner.aniNameTheImplementationTeam'}}"/>
+                    <!-- ``txv`` Implementation Team for -->
+                    {{_ 'addNazwaModalInner.aniTheImplementationTeamForThe'}}
+                </label>
+                <!-- ``txv`` Name of the Implementation Team -->
+                <input name="nazwaZR" id="nazwaZR" class="form-control"
+                       placeholder="{{_ 'addNazwaModalInner.aniNameTheImplementationTeam'}}" />
             </div>
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div class="row">
             <div class="col-md-12">
                 <p><u>
-		<!--
-		``txv`` Explanation -->
-{{_ 'addNazwaModalInner.aniExplanation'}}:</u></p>
+                    <!-- ``txv`` Explanation -->
+                    {{_ 'addNazwaModalInner.aniExplanation'}}:
+                </u></p>
                 <p>{{_ 'addNazwaModalInner.OnlyTheContinue'}}</p>
-<strong><p>{{_ 'addNazwaModalInner.OnlyTheContinueA'}}</p>
-                <p>{{_ 'addNazwaModalInner.OnlyTheContinueB'}}</p>
-                <p>{{_ 'addNazwaModalInner.OnlyTheContinueC'}}</p></strong>
+                <strong>
+                    <p>{{_ 'addNazwaModalInner.OnlyTheContinueA'}}</p>
+                    <p>{{_ 'addNazwaModalInner.OnlyTheContinueB'}}</p>
+                    <p>{{_ 'addNazwaModalInner.OnlyTheContinueC'}}</p>
+                </strong>
                 <p>{{_ 'addNazwaModalInner.OnlyTheContinueD'}}</p>
             </div>
         </div>
-        <br/>
+        <br />
     </div>
     <div class="modal-footer">
         <div class="row">
             <div class="col-md-12">
-				<!--
-				``txv`` Save -->
-                <button class = "btn btn-success" id="zapiszButton">
-				{{_ 'glob.Save'}}</button>
-				<button class = "btn btn-default" id="cancelButton">
-				{{_ 'glob.Cancel'}}</button>
+                <!-- ``txv`` Save -->
+                <button class="btn btn-success" id="zapiszButton">
+                    {{_ 'glob.Save'}}
+                </button>
+                <button class="btn btn-default" id="cancelButton">
+                    {{_ 'glob.Cancel'}}
+                </button>
             </div>
         </div>
     </div>

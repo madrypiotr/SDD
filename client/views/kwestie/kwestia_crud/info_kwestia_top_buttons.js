@@ -11,7 +11,7 @@ Template.kwestiaTopButtons.helpers({
             return 'disabled';
         }
 
-        if (profile.userType && user.userType != USERTYPE.CZLONEK) {
+        if (profile.userType && profile.userType != USERTYPE.CZLONEK) {
             return 'disabled';
         }
 

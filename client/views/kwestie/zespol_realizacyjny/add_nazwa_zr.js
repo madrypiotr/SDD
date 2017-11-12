@@ -1,9 +1,9 @@
 Template.addNazwaModalInner.rendered = function () {
     $('#nazwaZR').css('visibility', 'visible');
     $('addNazwa').validate({
-        rules:{
+        rules: {
             nazwaZR: {
-                checkExistsNazwaZespoluRealizacyjnego : true
+                checkExistsNazwaZespoluRealizacyjnego: true
             }
         },
         messages: {
@@ -32,7 +32,8 @@ Template.addNazwaModal.events({
         var idKwestia = this._id;
         var nazwa = document.getElementById('nazwaZR').value;
         var zespoly = ZespolRealizacyjny.find({czyAktywny: true});
-        if (nazwa.toLowerCase().trim() == '') {
+
+        if (nazwa.toLowerCase().trim() === '') {
             $('#nazwaZR').css('visibility', 'visible');
             GlobalNotification.error({
                 title: TAPi18n.__('txv.ERROR'),
@@ -42,11 +43,12 @@ Template.addNazwaModal.events({
         } else {
             var found = false;
             var text = TAPi18n.__('txv.IMPLEMENTATION_TEAM_FOR') + nazwa;
-            zespoly.forEach(function (zespol) {
-                if (_.isEqual(zespol.nazwa.toLowerCase().trim(), text.toLowerCase().trim()))
+            zespoly.forEach(({nazwa}) => {
+                if (_.isEqual(nazwa && nazwa.toLowerCase().trim(), text.toLowerCase().trim())) {
                     found = true;
+                }
             });
-            if (found == true) {
+            if (found) {
                 $('#nazwaZR').css('visibility', 'visible');
                 GlobalNotification.error({
                     title: TAPi18n.__('txv.ERROR'),
@@ -63,8 +65,8 @@ Template.addNazwaModal.events({
                         var tablicaZR = zespol.zespol.slice();
                         tablicaZR.push(Meteor.userId());
                         var newZespol = {
-                            nazwa:text,
-                            zespol:tablicaZR
+                            nazwa: text,
+                            zespol: tablicaZR
                         };
                         Meteor.call('updateImplemTeamDraft', kwestia.idZespolRealizacyjny, newZespol, function (error, ret) {
                             if (error) {
@@ -82,7 +84,7 @@ Template.addNazwaModal.events({
             }
         }
     },
-	    'click #cancelButton': function (e) {
+    'click #cancelButton': function (e) {
         // (pm) jak i gdzie powr�ci�?
     }
 });
