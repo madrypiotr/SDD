@@ -102,7 +102,6 @@ Meteor.methods({
         return id;
     },
     addKwestiaOpcja: function (newKwestiaOpcja) {
-        var z = ImplemTeamDraft.insert({idKwestia: id, nazwa: '', zespol: []});
         var issueNumber = '';
         Meteor.call('generateNextIssueNumber', function (error, ret) {
             if (error) {
@@ -112,7 +111,7 @@ Meteor.methods({
             }
         });
 
-        return Kwestia.insert({
+        const idKwestia = Kwestia.insert({
             idUser: Meteor.userId(),
             dataWprowadzenia: newKwestiaOpcja[0].dataWprowadzenia,
             kwestiaNazwa: newKwestiaOpcja[0].kwestiaNazwa,
@@ -132,10 +131,14 @@ Meteor.methods({
             isOption: true,
             idParent: newKwestiaOpcja[0].idParent,
             numerUchwaly: newKwestiaOpcja[0].numerUchwaly,
-            idZespolRealizacyjny: z,
             typ:newKwestiaOpcja[0].typ,
             issueNumber: issueNumber
         });
+
+        const zId = ImplemTeamDraft.insert({idKwestia, nazwa: '', zespol: []});
+        Kwestia.update({_id: idKwestia}, {$set: {
+            idZespolRealizacyjny: zId
+        }});
     },
     addKwestiaOsobowaOpcja: function (newKwestia) {
         var issueNumber = '';

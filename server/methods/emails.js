@@ -97,8 +97,8 @@ Meteor.methods({
         this.unblock();
         var parametr = Parametr.findOne({});
         var kwestiaItem = Kwestia.findOne({_id: idKwestia});
-        var rodzaj = Rodzaj.findOne({_id: kwestiaItem.idRodzaj});
-        var temat = Temat.findOne({_id: kwestiaItem.idTemat});
+        var rodzaj = kwestiaItem && Rodzaj.findOne({_id: kwestiaItem.idRodzaj});
+        var temat = kwestiaItem && Temat.findOne({_id: kwestiaItem.idTemat});
         if (!rodzaj)
             rodzaj = TAPi18n.__('txv.BELONGS_TO_THE_SYSTEM', null, lang);
         else
@@ -114,13 +114,13 @@ Meteor.methods({
                     welcomeGender: Etc.recognizeSexMethod(item, lang),
                     userData: item.profile.fullName,
                     organizacja: parametr.nazwaOrganizacji,
-                    krotkaTresc: kwestiaItem.krotkaTresc,
-                    nazwaKwestii: kwestiaItem.kwestiaNazwa,
-                    idKwestii: kwestiaItem._id,
+                    krotkaTresc: kwestiaItem && kwestiaItem.krotkaTresc,
+                    nazwaKwestii: kwestiaItem && kwestiaItem.kwestiaNazwa,
+                    idKwestii: kwestiaItem && kwestiaItem._id,
                     idUser: item._id,
                     rodzaj: rodzaj,
                     temat: temat,
-                    url: Meteor.absoluteUrl() + 'issue_info/' + kwestiaItem._id,
+                    url: Meteor.absoluteUrl() + 'issue_info/' + (kwestiaItem && kwestiaItem._id),
                     urlLogin: Meteor.absoluteUrl() + 'account/login',
 
                     DoNotAnswerThat: TAPi18n.__('glob.DoNotAnswerThat', null, lang),
