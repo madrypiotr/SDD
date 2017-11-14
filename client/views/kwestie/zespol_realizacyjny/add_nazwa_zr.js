@@ -85,6 +85,6 @@ Template.addNazwaModal.events({
         }
     },
     'click #cancelButton': function (e) {
-        // (pm) jak i gdzie powr�ci�?
+        $('#addNazwa').modal('hide');
     }
 });
