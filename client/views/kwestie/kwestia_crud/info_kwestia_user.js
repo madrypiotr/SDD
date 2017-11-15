@@ -7,12 +7,17 @@ Template.informacjeKwestia.helpers({
         return false;
     },
     myselfInZR: function () {
-        var zespol = null;
-        zespol = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
-        if (!zespol)
+        let zespol = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
+        if (!zespol) {
             zespol = ImplemTeamDraft.findOne({_id: this.idZespolRealizacyjny});
-        if (zespol.idZR)
+        }
+        if (!zespol) {
+            zespol = ZespolRealizacyjny.findOne({kwestie: this._id});
+        }
+        if (zespol && zespol.idZR) {
             zespol = ZespolRealizacyjny.findOne({_id: zespol.idZR});
+        }
+
         return _.contains(zespol.zespol, Meteor.userId()) ? true : false;
     }
 });

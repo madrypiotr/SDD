@@ -180,19 +180,18 @@
                     <!-- ``txv`` Priority in voting -->
                     {{_ "issueDetails.iDePriorityVote"}}: &nbsp;{{wartoscPriorytetuG}}
                 </td>
-            {{else}}
-                <tr>
-                    {{> managePriorities
-                        priorytet=wartoscPriorytetu
-                        priorytetRealizacja=wartoscPriorytetuWRealizacji
-                        idKwestia=_id
-                        idParent=idParent
-                        glosujacy=glosujacy
-                        status=status
-                        czyAktywny=czyAktywny
-                    }}
-                </tr>
             {{/if}}
+            <tr>
+                {{> managePriorities
+                    priorytet=wartoscPriorytetu
+                    priorytetRealizacja=wartoscPriorytetuWRealizacji
+                    idKwestia=_id
+                    idParent=idParent
+                    glosujacy=glosujacy
+                    status=status
+                    czyAktywny=czyAktywny
+                }}
+            </tr>
         </table>
         {{>kwestiaDetails
                 krotkaTresc=krotkaTresc

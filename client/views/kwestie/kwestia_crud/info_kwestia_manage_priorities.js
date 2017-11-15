@@ -89,10 +89,8 @@ Template.managePriorities.events({
         };
         if (kwestia.status == KWESTIA_STATUS.REALIZOWANA) {
             managePriorityKwestiaRealizowana(ratingKwestiaId, kwestia, object, ratingValue);
-
         } else {
             managePriorityKwestiaDelibGlosowana(ratingKwestiaId, kwestia, object, ratingValue);
-
         }
     }
 });
