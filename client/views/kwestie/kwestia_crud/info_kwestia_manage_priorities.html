@@ -9,6 +9,7 @@
                     <!-- ``txv`` Priority in execution -->
                     {{_ "managePriorities.mpPriorityInTheImplem"}}:
                 </strong>
+                <b class="color-red"> {{priority priorytetRealizacja}}</b>
             {{else}}
                 <!-- ``Balloon`` Priorytet -->
                 <section class="dymek">
@@ -40,8 +41,8 @@
                         </div>
                     </div>
                 </section>
+                <b class="color-red"> {{priority priorytet}}</b>
             {{/if}}
-            <b class="color-red"> {{priority priorytet}}</b>
         </div>
         {{#unless koszZrealizowanaArchiwum czyAktywny status}}
             <div class="col-md-11">
