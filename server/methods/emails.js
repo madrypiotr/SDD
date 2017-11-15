@@ -72,7 +72,12 @@ Meteor.methods({
             welcomeGender: Etc.recognizeSexMethod(receiver, lang),
             fullName: receiver.profile.fullName,
             text: text,
-            sender: senderName
+            sender: senderName,
+
+            Regards: TAPi18n.__('glob.Regards', null, lang),
+            ShortSystemName: TAPi18n.__('glob.ShortSystemName', null, lang),
+            ThisIsApersonalMessageToYou: TAPi18n.__('glob.ThisIsApersonalMessageToYou', null, lang),
+            YouCanRespondToItByTheSystem: TAPi18n.__('glob.YouCanRespondToItByTheSystem', null, lang)
         });
         Email.send({
             to: receiver.emails[0].address,
@@ -200,7 +205,21 @@ Meteor.methods({
                     rodzaj: rodzaj,
                     temat: temat,
                     url: Meteor.absoluteUrl() + 'issue_info/' + kwestiaItem._id,
-                    urlLogin: Meteor.absoluteUrl() + 'account/login'//
+                    urlLogin: Meteor.absoluteUrl() + 'account/login',
+
+                    DoNotAnswerThat: TAPi18n.__('glob.DoNotAnswerThat', null, lang),
+                    GoToTheDiscussionOfImplementation: TAPi18n.__('glob.GoToTheDiscussionOfImplementation', null, lang),
+                    LinkToThisIssue: TAPi18n.__('glob.LinkToThisIssue', null, lang),
+                    LogIn: TAPi18n.__('glob.LogIn', null, lang),
+                    LoginToTheSystem: TAPi18n.__('glob.LoginToTheSystem', null, lang),
+                    On: TAPi18n.__('glob.On', null, lang),
+                    Post: TAPi18n.__('glob.Post', null, lang),
+                    ShortSystemName: TAPi18n.__('glob.ShortSystemName', null, lang),
+                    Subject: TAPi18n.__('glob.Subject', null, lang),
+                    TheImplementationTeam: TAPi18n.__('glob.TheImplementationTeam', null, lang),
+                    TheSystemReportLackTheImplemReportIssues: TAPi18n.__('glob.TheSystemReportLackTheImplemReportIssues', null, lang),
+                    ThisIsAnAutomaticInformationSystem: TAPi18n.__('glob.ThisIsAnAutomaticInformationSystem', null, lang),
+                    Type: TAPi18n.__('glob.Type', null, lang)
                 });
                 Email.send({
                     to: item.emails[0].address,
@@ -243,7 +262,15 @@ Meteor.methods({
                     userType: item.profile.userType,
                     username: item.username,
                     uzasadnienie: uzasadnienie,
-                    welcomeGender: Etc.recognizeSexMethod(item, lang)
+                    welcomeGender: Etc.recognizeSexMethod(item, lang),
+
+                    ExplainThis: TAPi18n.__('glob.ExplainThis', null, lang),
+                    IencourageYouToSupportIssue: TAPi18n.__('glob.IencourageYouToSupportIssue', null, lang),
+                    On: TAPi18n.__('glob.On', null, lang),
+                    ShortSystemName: TAPi18n.__('glob.ShortSystemName', null, lang),
+                    Subject: TAPi18n.__('glob.Subject', null, lang),
+                    ThankYou: TAPi18n.__('glob.ThankYou', null, lang),
+                    Type: TAPi18n.__('glob.Type', null, lang)
                 });
                 Email.send({
                     from: author.profile.firstName + ' ' + author.profile.lastName,
@@ -291,7 +318,26 @@ Meteor.methods({
                     urlLogin: urlLogin,
                     username: item.profile.fullName,
                     wartoscPriorytetu: kwestiaItem.wartoscPriorytetu,
-                    welcomeGender: Etc.recognizeSexMethod(item, lang)
+                    welcomeGender: Etc.recognizeSexMethod(item, lang),
+
+                    CurrentPresence: TAPi18n.__('glob.CurrentPresence', null, lang),
+                    DoNotAnswerThat: TAPi18n.__('glob.DoNotAnswerThat', null, lang),
+                    DoNotYouVotedYetOnThisIssueWelcome: TAPi18n.__('glob.DoNotYouVotedYetOnThisIssueWelcome', null, lang),
+                    EndOfVoting: TAPi18n.__('glob.EndOfVoting', null, lang),
+                    GivenPriority: TAPi18n.__('glob.GivenPriority', null, lang),
+                    LinkToThisIssue: TAPi18n.__('glob.LinkToThisIssue', null, lang),
+                    LogIn: TAPi18n.__('glob.LogIn', null, lang),
+                    LoginToTheSystem: TAPi18n.__('glob.LoginToTheSystem', null, lang),
+                    On: TAPi18n.__('glob.On', null, lang),
+                    RequiredQuorum: TAPi18n.__('glob.RequiredQuorum', null, lang),
+                    ShortSystemName: TAPi18n.__('glob.ShortSystemName', null, lang),
+                    Subject: TAPi18n.__('glob.Subject', null, lang),
+                    ThanksForVoting: TAPi18n.__('glob.ThanksForVoting', null, lang),
+                    TheCurrentStrengthOfPriority: TAPi18n.__('glob.TheCurrentStrengthOfPriority', null, lang),
+                    ThisIsAnAutomaticInformationSystem: TAPi18n.__('glob.ThisIsAnAutomaticInformationSystem', null, lang),
+                    Type: TAPi18n.__('glob.Type', null, lang),
+                    WeInformYouAboutTheOngoingVotingProcedureIssues: TAPi18n.__('glob.WeInformYouAboutTheOngoingVotingProcedureIssues', null, lang),
+                    YouCanEvenChangeThePriorityBeforeItHasFinishedVoting: TAPi18n.__('glob.YouCanEvenChangeThePriorityBeforeItHasFinishedVoting', null, lang)
                 });
                 Email.send({
                     from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
@@ -423,10 +469,11 @@ applicationEmail = function (userData, emailTypeText, passw, lang) {
         url = Meteor.absoluteUrl() + 'issue_info/' + kwestia._id;
     }
     var userName = null;
-    if (userData.profile.firstName != null && userData.profile.firstName.trim() != '')
+    if (userData.profile.firstName != null && userData.profile.firstName.trim() != '') {
         userName = userData.profile.firstName + ' ' + userData.profile.lastName;
-    else
+    } else {
         userName = userData.email;
+    }
     var html = SSR.render(emailTypeText, {
         username: userName,
         organizacja: Parametr.findOne().nazwaOrganizacji,
@@ -437,7 +484,18 @@ applicationEmail = function (userData, emailTypeText, passw, lang) {
         login: login,
         password: pass,
         textGender: textGender,
-        urlResetPassword: urlResetPassword
+        urlResetPassword: urlResetPassword,
+
+        DoNotAnswerThat: TAPi18n.__('glob.DoNotAnswerThat', null, lang),
+        Here: TAPi18n.__('glob.Here', null, lang),
+        InTheSystem: TAPi18n.__('glob.InTheSystem', null, lang),
+        ItWasSettledPositively: TAPi18n.__('glob.ItWasSettledPositively', null, lang),
+        LogIn: TAPi18n.__('glob.LogIn', null, lang),
+        LoginToTheSystem: TAPi18n.__('glob.LoginToTheSystem', null, lang),
+        ShortSystemName: TAPi18n.__('glob.ShortSystemName', null, lang),
+        ThisIsAnAutomaticInformationSystem: TAPi18n.__('glob.ThisIsAnAutomaticInformationSystem', null, lang),
+        ToActivateYourAccountClick: TAPi18n.__('glob.ToActivateYourAccountClick', null, lang),
+        WeAreHappyToInformYouThatYourApplicationFor: TAPi18n.__('glob.WeAreHappyToInformYouThatYourApplicationFor', null, lang)
     });
     return {
         to: to,
