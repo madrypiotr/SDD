@@ -81,7 +81,7 @@ Meteor.methods({
                 issueNumber = ret;
             }
         });
-        var id = Kwestia.insert({
+        return Kwestia.insert({
             idUser: newKwestia[0].idUser,
             dataWprowadzenia: newKwestia[0].dataWprowadzenia,
             kwestiaNazwa: newKwestia[0].kwestiaNazwa,
@@ -99,7 +99,6 @@ Meteor.methods({
             typ:newKwestia[0].typ,
             issueNumber: issueNumber
         });
-        return id;
     },
     addKwestiaOpcja: function (newKwestiaOpcja) {
         var issueNumber = '';

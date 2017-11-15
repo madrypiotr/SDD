@@ -184,30 +184,29 @@ var createIssueChangeParam = function (paramName, title, oldValue, newValue) {
                         oldValue: oldValue,
                         newValue: newValue
                     };
-                    var newKwestia = [
-                        {
-                            idUser: Meteor.userId(),
-                            dataWprowadzenia: new Date(),
-                            kwestiaNazwa: TAPi18n.__('txv.GL_PAR_CHANGE5') + Meteor.user().profile.firstName + '  ' + Meteor.user().profile.lastName,
-                            wartoscPriorytetu: 0,
-                            dataGlosowania: null,
-                            krotkaTresc: TAPi18n.__('txv.GL_PAR_CHANGE6'),
-                            szczegolowaTresc: dataParams,
-                            isOption: false,
-                            status: KWESTIA_STATUS.ADMINISTROWANA,
-                            idParametr: ret,
-                            typ: KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE
-                        }];
+                    var newKwestia = [{
+                        idUser: Meteor.userId(),
+                        dataWprowadzenia: new Date(),
+                        kwestiaNazwa: TAPi18n.__('txv.GL_PAR_CHANGE5') + Meteor.user().profile.firstName + '  ' + Meteor.user().profile.lastName,
+                        wartoscPriorytetu: 0,
+                        dataGlosowania: null,
+                        krotkaTresc: TAPi18n.__('txv.GL_PAR_CHANGE6'),
+                        szczegolowaTresc: dataParams,
+                        isOption: false,
+                        status: KWESTIA_STATUS.ADMINISTROWANA,
+                        idParametr: ret,
+                        typ: KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE
+                    }];
 
-                    Meteor.call('addKwestiaADMINISTROWANA', newKwestia, function (error, ret) {
+                    Meteor.call('addKwestiaADMINISTROWANA', newKwestia, function (error, kwestiaId) {
                         if (error)
                             throwError(error.reason);
                         else {
-                            addPowiadomienieGlobalneFunction(ret);
-                            Meteor.call('sendEmailAddedIssue', ret, Etc.getUserLanguage(), function (error) {
+                            addPowiadomienieGlobalneFunction(kwestiaId);
+                            Meteor.call('sendEmailAddedIssue', kwestiaId, Etc.getUserLanguage(), function (error) {
                                 if (error) {
                                     var emailError = {
-                                        idIssue: ret,
+                                        idIssue: kwestiaId,
                                         type: NOTIFICATION_TYPE.NEW_ISSUE
                                     };
                                     Meteor.call('addEmailError', emailError);
