@@ -19,6 +19,7 @@ Template.activateAccount.rendered = function () {
                         czyAktywny: true
                     });
                     if (userDraft) {
+                        const language = userDraft.profile.language;
                         // leads to: `` server\methods\``users.js
                         Meteor.call('serverGenerateLogin', userDraft.profile.firstName, userDraft.profile.lastName,
                             /**    Feature appointing a new user
@@ -37,7 +38,7 @@ Template.activateAccount.rendered = function () {
                                         role: 'user',
                                         userType: userDraft.profile.userType,
                                         uwagi: userDraft.profile.uwagi,
-                                        language: userDraft.profile.language,
+                                        language,
                                         city: userDraft.profile.city,
                                         pesel: userDraft.profile.pesel
                                     }];
@@ -52,15 +53,18 @@ Template.activateAccount.rendered = function () {
                                             Meteor.call('removeUserDraftAddNewIdUser', userDraft._id, idUser, function (error) {
                                                 if (error) throwError(error.reason);
                                                 else {
-                                                    Meteor.call('sendFirstLoginData', idUser, newUser[0].password, function (error) {
+                                                    Meteor.call('sendFirstLoginData', idUser, newUser[0].password, language, function (error) {
                                                         if (error) {
                                                             // ``txv`` (notice that a link to the login failed because of a mail server error)
-                                                            bootbox.alert(TAPi18n.__('txv.ALERT_LOG1') + TAPi18n.__('txv.ALERT_LOG2') + TAPi18n.__('txv.ALERT_LOG3'));
-                                                            var emailError = {
+                                                            bootbox.alert(
+                                                                TAPi18n.__('txv.ALERT_LOG1', null, language) +
+                                                                TAPi18n.__('txv.ALERT_LOG2', null, language) +
+                                                                TAPi18n.__('txv.ALERT_LOG3', null, language)
+                                                            );
+                                                            Meteor.call('addEmailError', {
                                                                 idUserDraft: userDraft._id,
                                                                 type: NOTIFICATION_TYPE.FIRST_LOGIN_DATA
-                                                            };
-                                                            Meteor.call('addEmailError', emailError);
+                                                            });
                                                         }
                                                     });
                                                 }
