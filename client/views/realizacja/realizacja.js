@@ -47,14 +47,16 @@ Template.realizacjaTab1.events({
         } else {
             issueContent = this.krotkaTresc;
         }
-        var numerUchwaly = this.numerUchwaly.toString();
+
+        var numerUchwaly = this.numerUchwaly && this.numerUchwaly.toString();
         var glosujacyLength = this.glosujacy.length;
         var issueName = this.kwestiaNazwa;
         var realizationDate = moment(this.dataRealizacji).format('DD.MM.YYYY').toString();
 
-        if (this.idZespolRealizacyjny) {
-            var realizationTeam = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny}).zespol;
-            Meteor.call('serverGetFullName',realizationTeam,function (error,ret) {
+        const zespolRealizacyjny = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
+        const realizationTeam = zespolRealizacyjny && zespolRealizacyjny.zespol;
+        if (realizationTeam) {
+            Meteor.call('serverGetFullName', realizationTeam, function (error, ret) {
                 if (!error) {
                     membersNames = ret;
                     var docDefinition = {
@@ -98,11 +100,11 @@ Template.realizacjaTab1.events({
                     {text: globalParameters.nazwaOrganizacji + '\n' +
                     globalParameters.terytorium + '\n' +
                     globalParameters.terytAdres + '\n' +
-     globalParameters.terytCODE + '\n' +
-     globalParameters.terytCity + '\n' +
+                    globalParameters.terytCODE + '\n' +
+                    globalParameters.terytCity + '\n' +
                     globalParameters.kontakty + '\n'
                     },
-                    {text: TAPi18n.__('txv.RESOLUTION_NO') + ': ' + this.numerUchwaly.toString() + '\n' + TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ': ' + this.kwestiaNazwa , style: 'uchwalaHeadline'},
+                    {text: TAPi18n.__('txv.RESOLUTION_NO') + ': ' + (this.numerUchwaly || '').toString() + '\n' + TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ': ' + this.kwestiaNazwa , style: 'uchwalaHeadline'},
                     {text: '\n\t\t' + TAPi18n.__('txv.DESCRIPTION') + ': ' + issueContent, style: 'contentStyle'},
                     {text: '\n' + TAPi18n.__('txv.NUMBER_OF_USERS') + ' - ' + this.glosujacy.length +
                     '\n' + TAPi18n.__('txv.NUMBER_OF_PRESENT') + '  - ' + this.glosujacy.length +
