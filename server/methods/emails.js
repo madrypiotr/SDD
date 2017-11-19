@@ -304,7 +304,7 @@ Meteor.methods({
         Users.find({}).forEach(function (item) {
             if (!Roles.userIsInRole(item, ['admin']) && item.profile.userType == USERTYPE.CZLONEK) {
                 var html = SSR.render('email_started_voting', {
-                    dataGlosowania: moment(kwestiaItem.dataGlosowania).format('DD-MM-YYYY, HH:mm'),
+                    dataGlosowania: moment(kwestiaItem.dataGlosowania).add(parametr.voteDuration || 0, 'hours').format('DD-MM-YYYY, HH:mm'),
                     glosujacy: kwestiaItem.glosujacy.length,
                     idKwestii: kwestiaItem._id,
                     idUser: item._id,
