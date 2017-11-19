@@ -407,6 +407,7 @@ Meteor.methods({
 });
 
 applicationEmail = function (userData, emailTypeText, passw, lang) {
+    lang = lang || Etc.getUserLanguage(userData);
     var urlLogin = Meteor.absoluteUrl() + 'account/login';
     var welcomeGender = Etc.recognizeSexMethod(userData, lang);
 
