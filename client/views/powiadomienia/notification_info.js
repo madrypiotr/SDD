@@ -232,7 +232,8 @@ Template.notificationVoteStarted.helpers({
         return myObj[0] ? myObj[0].value : null;
     },
     dataGlosowania: function () {
-        return formatDate(this.kwestia.dataGlosowania);
+        const parametr = Parametr.findOne();
+        return moment(this.kwestia.dataGlosowania).add(parametr && parametr.voteDuration || 0, 'hours').format('DD-MM-YYYY, HH:mm');
     },
     attendance: function () {
         return this.kwestia.glosujacy.length;
