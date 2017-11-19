@@ -71,12 +71,14 @@ Template.realizacjaTab2.events({
         } else {
             issueContent = this.krotkaTresc;
         }
-        var numerUchwaly = this.numerUchwaly.toString();
+        var numerUchwaly = this.numerUchwaly && this.numerUchwaly.toString();
         var glosujacyLength = this.glosujacy.length;
         var issueName = this.kwestiaNazwa;
 
-        if (this.idZespolRealizacyjny) {
-            var realizationTeam = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny}).zespol;
+        const zespolRealizacyjny = ZespolRealizacyjny.findOne({_id: this.idZespolRealizacyjny});
+        const realizationTeam = zespolRealizacyjny && zespolRealizacyjny.zespol;
+
+        if (realizationTeam) {
             Meteor.call('serverGetFullName', realizationTeam, function (error, ret) {
                 if (!error) {
                     membersNames = ret;
@@ -132,7 +134,7 @@ Template.realizacjaTab2.events({
                     globalParameters.terytCity + '\n' +
                     globalParameters.kontakty + '\n'
                 }, {
-                    text: TAPi18n.__('txv.RESOLUTION_NO') + ': ' + this.numerUchwaly.toString() + '\n' + TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ': ' + this.kwestiaNazwa,
+                    text: TAPi18n.__('txv.RESOLUTION_NO') + ': ' + (this.numerUchwaly || '').toString() + '\n' + TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ': ' + this.kwestiaNazwa,
                     style: 'uchwalaHeadline'
                 }, {
                     text: '\n\t\t' + TAPi18n.__('txv.DESCRIPTION') + ': ' + issueContent, style: 'contentStyle'
