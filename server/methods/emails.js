@@ -497,6 +497,12 @@ applicationEmail = function (userData, emailTypeText, passw, lang) {
         ThankYouForApplyingFor: TAPi18n.__('glob.ThankYouForApplyingFor', null, lang),
         afterVotingProcessYouWillReceiveOurDecision: TAPi18n.__('answerInvitation.afterVotingProcessYouWillReceiveOurDecision', null, lang),
         ThisIsAnAutomaticInformationSystem: TAPi18n.__('glob.ThisIsAnAutomaticInformationSystem', null, lang),
+        ThankYouForRegisteringInOurSystem: TAPi18n.__('glob.ThankYouForRegisteringInOurSystem', null, lang),
+        YourLoginData: TAPi18n.__('glob.YourLoginData', null, lang),
+        Login: TAPi18n.__('glob.Login', null, lang),
+        Password: TAPi18n.__('glob.Password', null, lang),
+        AfterLoggingInYou: TAPi18n.__('glob.AfterLoggingInYou', null, lang),
+        ChangeYourPassword: TAPi18n.__('glob.ChangeYourPassword', null, lang),
         ToActivateYourAccountClick: TAPi18n.__('glob.ToActivateYourAccountClick', null, lang),
         ToViewTheDetailsOfTheIssueClick: TAPi18n.__('glob.ToViewTheDetailsOfTheIssueClick', null, lang),
         WeAreHappyToInformYouThatYourApplicationFor: TAPi18n.__('glob.WeAreHappyToInformYouThatYourApplicationFor', null, lang)
