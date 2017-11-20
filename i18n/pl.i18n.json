@@ -90,7 +90,7 @@
     "heaLogin": "Logowanie",
     "heaRegistration": "Zarejestruj",
     "heaJoinUs": "Dołącz",
-    "heaAsOrdMember": "jako Członek Zwyczajny",
+    "heaAsOrdMember": "jako Członek",
     "heaAsAdvisor": "jako Doradca",
     "heaNewNetNode": "Nowy węzeł sieci"
   },
@@ -103,7 +103,7 @@
     "AboutSystemE": "Obszerniejszy opis Systemu",
     "BeforeYouAdd": "O dodawaniu Kwestii",
     "AddingIssues": "Dodawanie Kwestii",
-    "AddingIssueA": "Każdy zalogowany Członek Zwyczajny może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
+    "AddingIssueA": "Każdy zalogowany Członek może dodać dowolną Kwestię, czyli problem do rozwiązania, pomysł, wniosek, projekt uchwały, która następnie będzie oceniana przez Ogół Użytkowników tego Systemu. Ocen Kwestii dokonuje się przez nadawanie jej własnego priorytetu (od -5 do +5). ",
     "AddingIssueB": "Priorytety poszczególnych Użytkowników sumują się i najlepsze Kwestie przechodzą do głosowania. Pozytywne głosowanie powoduje, że Kwestia staje się uchwałą obowiązującą wszyskich, zgromadzonych tu, Użytkowników.",
     "AddingIssueC": "Prosimy o rozważne dodawanie. Dodanej Kwestii nie można usuwać ani edytować.",
     "DescrOfSubject": "Temat, czyli dziedzina funkcjonowania.",
