@@ -21,6 +21,8 @@
     "Fname": "Imię",
     "Lname": "Nazwisko",
     "FandLname": "Imię i Nazwisko",
+    "Member": "Członek",
+    "Advisor": "Doradca",
     "PID": "PESEL",
     "Address": "Adres",
     "PostalC": "Kod pocztowy",
