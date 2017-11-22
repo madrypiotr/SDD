@@ -2,11 +2,11 @@
 ``client\views\account\`` register_form.js
 ## Rendering, events and helpers for the template register_form.html */
 
-
 Template.registerForm.rendered = function () {
     var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
-    if (users.count() >= 5)
+    if (users.count() >= 5) {
         document.getElementById('submitRegistration').disabled = false;
+    }
     $('#dataUrodzeniaDatePicker').datetimepicker({
         sideBySide: true,
         format: 'DD/MM/YYYY'
@@ -198,7 +198,7 @@ Template.registerForm.events({
                                                                 });
                                                             }
                                                         });
-
+                                                        addKwestiaOsobowa(addedUser, newUser);
                                                     }
                                                 });
                                             } else {
@@ -245,7 +245,7 @@ Template.registerForm.helpers({
     'lessThanFiveUsers': function () {
         var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
         //var users=Users.find ();
-        return !!users && users.count() < 5 ? true : false;
+        return !!users && users.count() < 5;
     },
     'getLanguages': function () {
         return Languages.find({}).map(function (lang) {
@@ -256,3 +256,49 @@ Template.registerForm.helpers({
         });
     }
 });
+
+var addKwestiaOsobowa = function (idUser, newUser) {
+    const ZR = ZespolRealizacyjny.findOne({_id: 'jjXKur4qC5ZGPQkgN'});
+    const newZR = [{
+        nazwa: ZR.nazwa,
+        idZR: ZR._id,
+        zespol: ZR.zespol
+    }];
+    Meteor.call('addImplemTeamDraft', newZR, function (error, ret) {
+        if (error) {
+            throwError(error.reason);
+        } else {
+            const uwagi = newUser[0].uwagi != null ? newUser[0].uwagi : '';
+            const daneAplikanta = {
+                fullName: newUser[0].firstName + ' ' + newUser[0].lastName,
+                email: newUser[0].email,
+                pesel: newUser[0].pesel,
+                city: newUser[0].city,
+                zip: newUser[0].zip,
+                address: newUser[0].address,
+                uwagi: uwagi
+            };
+            const newKwestia = [{
+                idUser: idUser,
+                dataWprowadzenia: new Date(),
+                kwestiaNazwa: TAPi18n.__('txv.APPLYING') + newUser[0].firstName + ' ' + newUser[0].lastName,
+                wartoscPriorytetu: 0,
+                wartoscPriorytetuWRealizacji: 0,
+                idTemat: Temat.findOne({})._id,
+                idRodzaj: Rodzaj.findOne({})._id,
+                idZespolRealizacyjny: ret,
+                dataGlosowania: null,
+                krotkaTresc: TAPi18n.__('txv.APPLY_SYSTEM') + newUser[0].userType,
+                szczegolowaTresc: daneAplikanta,
+                isOption: false,
+                status: KWESTIA_STATUS.OSOBOWA,
+                typ: KWESTIA_TYPE.ACCESS_ZWYCZAJNY
+            }];
+            Meteor.call('addKwestiaOsobowa', newKwestia, function (error, ret) {
+                if (error) {
+                    throwError(error.reason);
+                }
+            });
+        }
+    });
+};

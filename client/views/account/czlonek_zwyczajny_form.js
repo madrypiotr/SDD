@@ -14,7 +14,7 @@ Template.czlonekZwyczajnyForm.rendered = function () {
             confirmPassword: {
                 equalTo: '#inputPassword'
             },
-            pesel:{
+            pesel: {
                 exactlength: 11,
                 peselValidation: true,
                 peselValidation2: true
@@ -23,7 +23,7 @@ Template.czlonekZwyczajnyForm.rendered = function () {
                 zipCodeValidation1: true,
                 zipCodeValidation2: true
             },
-            language:{
+            language: {
                 isNotEmptyValue: true
             }
         },
@@ -47,17 +47,17 @@ Template.czlonekZwyczajnyForm.rendered = function () {
             ZipCode: {
                 required: fieldEmptyMessage
             },
-            pesel:{
+            pesel: {
                 required: fieldEmptyMessage
             },
-            city:{
+            city: {
                 required: fieldEmptyMessage
             },
-            statutConfirmation:{
-                required:fieldEmptyMessage()
+            statutConfirmation: {
+                required: fieldEmptyMessage()
             },
-            language:{
-                required:fieldEmptyMessage()
+            language: {
+                required: fieldEmptyMessage()
             }
         },
         highlight: highlightFunction,
@@ -81,34 +81,31 @@ Template.czlonekZwyczajnyForm.events({
             document.getElementById('submitZwyczajny').disabled = true;
             var email = $(e.target).find('[name=email]').val();
 
-            Meteor.call('serverCheckExistsUserDraft',email, function (error, ret) {
+            Meteor.call('serverCheckExistsUserDraft', email, function (error, ret) {
                 if (error) {
                     throwError(error.reason);
                 } else {
                     if (ret == false) {
-                        var idUser = null;
-                        if (Meteor.userId())
-                            idUser = Meteor.userId();
+                        var idUser = Meteor.userId() || null;
                         var firstName = $(e.target).find('[name=firstName]').val();
                         var lastName = $(e.target).find('[name=lastName]').val();
-                        var newUser = [
-                            {
-                                email: $(e.target).find('[name=email]').val(),
-                                login: '',
-                                firstName: firstName,
-                                lastName: lastName,
-                                address: $(e.target).find('[name=address]').val(),
-                                zip: $(e.target).find('[name=ZipCode]').val(),
-                                role: 'user',
-                                userType: USERTYPE.CZLONEK,
-                                uwagi: $(e.target).find('[name=uwagi]').val(),
-                                language: $(e.target).find('[name=language]').val(),
-                                isExpectant: false,
-                                idUser: idUser,
-                                city: $(e.target).find('[name=city]').val(),
-                                pesel: $(e.target).find('[name=pesel]').val()
-                            }];
-                        if (Meteor.userId()) {
+                        var newUser = [{
+                            email: $(e.target).find('[name=email]').val(),
+                            login: '',
+                            firstName: firstName,
+                            lastName: lastName,
+                            address: $(e.target).find('[name=address]').val(),
+                            zip: $(e.target).find('[name=ZipCode]').val(),
+                            role: 'user',
+                            userType: USERTYPE.CZLONEK,
+                            uwagi: $(e.target).find('[name=uwagi]').val(),
+                            language: $(e.target).find('[name=language]').val(),
+                            isExpectant: false,
+                            idUser: idUser,
+                            city: $(e.target).find('[name=city]').val(),
+                            pesel: $(e.target).find('[name=pesel]').val()
+                        }];
+                        if (idUser) {
                             addIssueOsobowa(newUser);
                         } else {
                             Meteor.call('serverCheckExistsUser', email, USERTYPE.DORADCA, function (error, ret) {
@@ -153,7 +150,7 @@ Template.czlonekZwyczajnyForm.events({
 
 Template.czlonekZwyczajnyForm.helpers({
     'getLanguages': function () {
-        return Languages.find({ });
+        return Languages.find({});
     },
     email: function () {
         return getEmail(this);
@@ -180,7 +177,6 @@ addIssueOsobowa = function (newUser) {
                 var lastName = newUser[0].lastName;
                 Meteor.call('serverGenerateLogin', firstName, lastName, function (err, ret) {
                     if (!err) {
-
                         newUser[0].login = ret;
                         addUserDraft(newUser);
                     } else {
@@ -209,29 +205,26 @@ addUserDraft = function (newUser) {
     });
 };
 
-addKwestiaOsobowa = function (idUserDraft,newUser) {
-    var ZR = ZespolRealizacyjny.findOne({_id:'jjXKur4qC5ZGPQkgN'});
+var addKwestiaOsobowa = function (idUserDraft, newUser) {
+    var ZR = ZespolRealizacyjny.findOne({_id: 'jjXKur4qC5ZGPQkgN'});
     var newZR = [{
-        nazwa:ZR.nazwa,
-        idZR:ZR._id,
-        zespol:ZR.zespol
+        nazwa: ZR.nazwa,
+        idZR: ZR._id,
+        zespol: ZR.zespol
     }];
-    Meteor.call('addImplemTeamDraft', newZR, function (error,ret) {
+    Meteor.call('addImplemTeamDraft', newZR, function (error, ret) {
         if (error) {
             throwError(error.reason);
         } else {
-            var uwagi = '';
-            if (newUser[0].uwagi != null)
-                uwagi = newUser[0].uwagi;
-
+            const uwagi = newUser[0].uwagi != null ? newUser[0].uwagi : '';
             var daneAplikanta = {
-                fullName:newUser[0].firstName + ' ' + newUser[0].lastName,
-                email:newUser[0].email,
-                pesel:newUser[0].pesel,
-                city:newUser[0].city,
-                zip:newUser[0].zip,
-                address:newUser[0].address,
-                uwagi:uwagi
+                fullName: newUser[0].firstName + ' ' + newUser[0].lastName,
+                email: newUser[0].email,
+                pesel: newUser[0].pesel,
+                city: newUser[0].city,
+                zip: newUser[0].zip,
+                address: newUser[0].address,
+                uwagi: uwagi
             };
             var newKwestia = [
                 {
@@ -239,18 +232,18 @@ addKwestiaOsobowa = function (idUserDraft,newUser) {
                     dataWprowadzenia: new Date(),
                     kwestiaNazwa: TAPi18n.__('txv.APPLYING') + newUser[0].firstName + ' ' + newUser[0].lastName,
                     wartoscPriorytetu: 0,
-                    wartoscPriorytetuWRealizacji:0,
-                    idTemat: Temat.findOne({ })._id,
-                    idRodzaj: Rodzaj.findOne({ })._id,
-                    idZespolRealizacyjny:ret,
+                    wartoscPriorytetuWRealizacji: 0,
+                    idTemat: Temat.findOne({})._id,
+                    idRodzaj: Rodzaj.findOne({})._id,
+                    idZespolRealizacyjny: ret,
                     dataGlosowania: null,
                     krotkaTresc: TAPi18n.__('txv.APPLY_SYSTEM') + newUser[0].userType,
                     szczegolowaTresc: daneAplikanta,
                     isOption: false,
                     status: KWESTIA_STATUS.OSOBOWA,
-                    typ:KWESTIA_TYPE.ACCESS_ZWYCZAJNY
+                    typ: KWESTIA_TYPE.ACCESS_ZWYCZAJNY
                 }];
-            Meteor.call('addKwestiaOsobowa', newKwestia, function (error,ret) {
+            Meteor.call('addKwestiaOsobowa', newKwestia, function (error, ret) {
                 if (error) {
                     throwError(error.reason);
                 } else {
@@ -258,11 +251,11 @@ addKwestiaOsobowa = function (idUserDraft,newUser) {
                         Router.go('administracjaUserMain');
                     else
                         Router.go('home');
-                    przyjecieWnioskuConfirmation(Parametr.findOne().czasWyczekiwaniaKwestiiSpecjalnej,daneAplikanta.email,'członkowstwo');
-                    addPowiadomienieAplikacjaIssueFunction(ret,newKwestia[0].dataWprowadzenia);
+                    przyjecieWnioskuConfirmation(Parametr.findOne().czasWyczekiwaniaKwestiiSpecjalnej, daneAplikanta.email, 'członkowstwo');
+                    addPowiadomienieAplikacjaIssueFunction(ret, newKwestia[0].dataWprowadzenia);
                     if (newUser[0].idUser != null) {
                         // If there is already a user, he is an advisor, then send him a confirmation in the message
-                        addPowiadomienieAplikacjaRespondFunction(ret,newKwestia[0].dataWprowadzenia,NOTIFICATION_TYPE.APPLICATION_CONFIRMATION);
+                        addPowiadomienieAplikacjaRespondFunction(ret, newKwestia[0].dataWprowadzenia, NOTIFICATION_TYPE.APPLICATION_CONFIRMATION);
                     }
                     Meteor.call('sendApplicationConfirmation', idUserDraft, Etc.getUserLanguage(), function (error) {
                         if (!error) {
@@ -290,7 +283,7 @@ addKwestiaOsobowa = function (idUserDraft,newUser) {
     });
 };
 
-addPowiadomienieAplikacjaIssueFunction = function (idKwestia,dataWprowadzenia) {
+addPowiadomienieAplikacjaIssueFunction = function (idKwestia, dataWprowadzenia) {
     var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
     var idNadawca = null;
     if (Meteor.userId())
@@ -303,18 +296,18 @@ addPowiadomienieAplikacjaIssueFunction = function (idKwestia,dataWprowadzenia) {
             tytul: '',
             powiadomienieTyp: NOTIFICATION_TYPE.NEW_ISSUE,
             tresc: '',
-            idKwestia:idKwestia,
+            idKwestia: idKwestia,
             czyAktywny: true,
             czyOdczytany: false
         };
-        Meteor.call('addPowiadomienie',newPowiadomienie,function (error) {
+        Meteor.call('addPowiadomienie', newPowiadomienie, function (error) {
             if (error)
                 throwError(error.reason);
         });
     });
 };
 
-addPowiadomienieAplikacjaRespondFunction = function (idKwestia,dataWprowadzenia,typ) {
+addPowiadomienieAplikacjaRespondFunction = function (idKwestia, dataWprowadzenia, typ) {
     var newPowiadomienie = {
         idOdbiorca: Meteor.userId(),
         idNadawca: null,
@@ -322,11 +315,11 @@ addPowiadomienieAplikacjaRespondFunction = function (idKwestia,dataWprowadzenia,
         tytul: '',
         powiadomienieTyp: typ,
         tresc: '',
-        idKwestia:idKwestia,
+        idKwestia: idKwestia,
         czyAktywny: true,
         czyOdczytany: false
     };
-    Meteor.call('addPowiadomienie',newPowiadomienie,function (error) {
+    Meteor.call('addPowiadomienie', newPowiadomienie, function (error) {
         if (error)
             throwError(error.reason);
     });

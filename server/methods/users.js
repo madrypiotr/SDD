@@ -1,6 +1,6 @@
 ﻿Meteor.methods({
     addUser: function (newUser) {
-        var uID  =  Accounts.createUser({
+        const uID = Accounts.createUser({
             username: newUser[0].login,
             email: newUser[0].email,
             password: newUser[0].password,
