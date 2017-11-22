@@ -11,7 +11,8 @@
 **[WanWeb]**.
 
 * **Supporting organizations:** 
-**proSDD**. 
+**[proSDD]**,
+**[PACTUM]**. 
 
 * **Trainers:**
 Tomasz Jakut (**[Comandeer]**).
@@ -42,7 +43,7 @@ Jolanta Dziembała,
 Stanisław Franczak, 
 Paweł Gębuś, 
 Andrew Gorayski, 
-Piotr Gos (proSDD), 
+Piotr Gos ([proSD]), 
 Krzysztof Jakuczek, 
 Marzena Jędrzejewska, 
 Andrzej Jędrzejewski, 
@@ -52,7 +53,7 @@ Maciej Kamiński,
 Roman Klimczyk, 
 Powel Kontny, 
 Rafał Kornatka, 
-Jacek Lesinski (proSDD), 
+Jacek Lesinski ([proSD]), 
 Bartłomiej Lipiński, 
 Małgorzata Łabędzka, 
 Krzysztof Łęcki, 
@@ -66,9 +67,9 @@ Jan Sposób,
 Piotr Strzelewicz, 
 Magdalena Szymczyk, 
 Ireneusz Trubilowicz, 
-Ryszard Tutko, 
+Ryszard Tutko ([PACTUM]), 
 Leszek Urbaniak, 
-Marian Waszkielewicz (proSDD), 
+Marian Waszkielewicz ([proSD]), 
 Wojtek Wojcik, 
 Jerzy Wojnar, 
 Partyk Wołczyński, 
@@ -87,10 +88,10 @@ Jacek Bursy,
 Arkadiusz Jan Derkacz, 
 Waldemar Deska, 
 Anna Dmitruk, 
-Małgorzata Dobrowolska (proSDD), 
+Małgorzata Dobrowolska ([proSD]), 
 Kinga Duraj, 
 Hubert Durlik,
-Justyna Gos (proSDD), 
+Justyna Gos ([proSD]), 
 Dariusz Grudziecki, 
 Ryszard Kakowski, 
 Adam Kramarczyk, 
@@ -98,7 +99,7 @@ Tomasz Korzan,
 Filip Kowalski, 
 Michał Krukowski, 
 Renek Książkiewicz, 
-Joanna Kubicka (proSDD), 
+Joanna Kubicka ([proSD]), 
 Marek Lechowicz, 
 Bartek Lipiński, 
 Paweł Nogal, 
@@ -136,3 +137,5 @@ Go to [README] | [CHANGELOG] | [LICENSE] | [CODE OF CONDUCT]
 [CODE OF CONDUCT]: https://github.com/madrypiotr/SDD/blob/master/CODE-OF-CONDUCT.md
 [Comandeer]: http://helion.pl/ksiazki/javascript-programowanie-zaawansowane-tomasz-comandeer-jakut,jascpz.htm
 [The documentation of the SDD code is here]: http://sdd.ha.pl/doc/README.md.html
+[proSDD]: http://www.prosdd.pl
+[PACTUM]: http://pactum.pl
