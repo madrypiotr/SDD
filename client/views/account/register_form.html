@@ -5,141 +5,150 @@
 <template name="registerForm">
     <div class="main">
         <legend>
-				<!--
-				``txv`` Create account
-				-->
-{{_ 'registerForm.rFoCreateAnAccount'}}</legend>
-<!--
-### If less than five users are registered ...
--->
-        {{#if  lessThanFiveUsers}}
+            <!--
+            ``txv`` Create account
+            -->
+            {{_ 'registerForm.rFoCreateAnAccount'}}</legend>
+        <!--
+        ### If less than five users are registered ...
+        -->
+        {{#if lessThanFiveUsers}}
             <div class="row">
                 <div class="col col-md-10">
                     <form class="form-horizontal" id="userForm">
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputEmail">
-				<!--
-				``txv`` Email
-				-->
-{{_ 'glob.Email'}}: </label>
+                                <!--
+                                ``txv`` Email
+                                -->
+                                {{_ 'glob.Email'}}: </label>
 
                             <div class="col-xs-9">
-<input name="email" type="email" class="form-control" id="inputEmail" placeholder="{{_ 'glob.Email'}}" required>
+                                <input name="email" type="email" class="form-control" id="inputEmail"
+                                       placeholder="{{_ 'glob.Email'}}" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="firstName">
-				<!--
-				``txv`` First name
-				-->
-{{_ 'glob.Fname'}}: </label>
+                                <!--
+                                ``txv`` First name
+                                -->
+                                {{_ 'glob.Fname'}}: </label>
 
                             <div class="col-xs-9">
-<input name="firstName" type="text" class="form-control" id="firstName" placeholder="{{_ 'glob.Fname'}}" required >
+                                <input name="firstName" type="text" class="form-control" id="firstName"
+                                       placeholder="{{_ 'glob.Fname'}}" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="lastName">
-				<!--
-				``txv`` Last name
-				-->
-{{_ 'glob.Lname'}}: </label>
+                                <!--
+                                ``txv`` Last name
+                                -->
+                                {{_ 'glob.Lname'}}: </label>
                             <div class="col-xs-9">
-<input name="lastName" type="text" class="form-control" id="lastName" placeholder="{{_ 'glob.Lname'}}"  required >
+                                <input name="lastName" type="text" class="form-control" id="lastName"
+                                       placeholder="{{_ 'glob.Lname'}}" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="inputPassword">
-				<!--
-				``txv`` Password
-				-->
-{{_ 'registerForm.rFoPassword'}}: </label>
+                                <!--
+                                ``txv`` Password
+                                -->
+                                {{_ 'registerForm.rFoPassword'}}: </label>
 
                             <div class="col-xs-9">
-<input name="password" type="password" class="form-control" id="inputPassword"
+                                <input name="password" type="password" class="form-control" id="inputPassword"
                                        placeholder="{{_ 'registerForm.rFoPassword'}}" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="confirmPassword">
-				<!--
-				``txv`` ConfirmPassword
-				-->
-{{_ 'registerForm.rFoConfirmPassword'}}: </label>
+                                <!--
+                                ``txv`` ConfirmPassword
+                                -->
+                                {{_ 'registerForm.rFoConfirmPassword'}}: </label>
 
                             <div class="col-xs-9">
-<input name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="{{_ 'registerForm.rFoConfirmPassword'}}">
+                                <input name="confirmPassword" type="password" class="form-control" id="confirmPassword"
+                                       placeholder="{{_ 'registerForm.rFoConfirmPassword'}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="phoneNumber">
-				<!--
-				``txv`` Personal ID
-				-->
-{{_ 'glob.PID'}}: </label>
+                                <!--
+                                ``txv`` Personal ID
+                                -->
+                                {{_ 'glob.PID'}}: </label>
 
                             <div class="col-xs-9">
-<input name="pesel" type="text" class="form-control" id="pesel" placeholder="{{_ 'glob.PID'}}"  required>
+                                <input name="pesel" type="text" class="form-control" id="pesel"
+                                       placeholder="{{_ 'glob.PID'}}" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="postalAddress">
-				<!--
-				``txv`` Address
-				-->
-{{_ 'glob.Address'}}: </label>
+                                <!--
+                                ``txv`` Address
+                                -->
+                                {{_ 'glob.Address'}}: </label>
                             <div class="col-xs-9">
-<textarea name="address" rows="3" class="form-control" id="postalAddress" placeholder="{{_ 'glob.Address'}}"  required></textarea>
+                                <textarea name="address" rows="3" class="form-control" id="postalAddress"
+                                          placeholder="{{_ 'glob.Address'}}" required></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3">
-				<!--
-				``txv`` Postal Code
-				-->
-{{_ 'glob.PostalC'}}: </label>
+                                <!--
+                                ``txv`` Postal Code
+                                -->
+                                {{_ 'glob.PostalC'}}: </label>
                             <div class="col-xs-9">
-<input class="form-control" type="text" name="ZipCode" id="ZipCode" placeholder="{{_ 'glob.PostalC'}}" required/>
+                                <input class="form-control" type="text" name="ZipCode" id="ZipCode"
+                                       placeholder="{{_ 'glob.PostalC'}}" required />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3">
-				<!--
-				``txv`` City
-				-->
-{{_ 'glob.City'}}: </label>
+                                <!--
+                                ``txv`` City
+                                -->
+                                {{_ 'glob.City'}}: </label>
                             <div class="col-xs-9">
-<input name="city" type="text" class="form-control" id="city" placeholder="{{_ 'glob.City'}}"  required >
+                                <input name="city" type="text" class="form-control" id="city"
+                                       placeholder="{{_ 'glob.City'}}" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3" for="uwagiStatus">
-				<!--
-				``txv`` Additional
-				-->
-{{_ 'registerForm.rFoAdditional'}}: </label>
+                                <!--
+                                ``txv`` Additional
+                                -->
+                                {{_ 'registerForm.rFoAdditional'}}: </label>
 
                             <div class="col-xs-9">
-				<!--
-				``txv`` remarks...
-				-->
-<textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus" placeholder="{{_ 'registerForm.rFoComments'}}"></textarea>
+                                <!--
+                                ``txv`` remarks...
+                                -->
+                                <textarea name="uwagi" rows="3" class="form-control" id="uwagiStatus"
+                                          placeholder="{{_ 'registerForm.rFoComments'}}"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-xs-3">
-				<!--
-				``txv`` Language of the User
-				-->
-{{_ 'registerForm.rFoLanguageUser'}}: </label>
+                                <!--
+                                ``txv`` Language of the User
+                                -->
+                                {{_ 'registerForm.rFoLanguageUser'}}: </label>
 
                             <div class="col-xs-9">
                                 <select name="language" id="language" class="form-control" required>
                                     <option value="0">
-				<!--
-				``txv`` Choose the language 
-				-->
-{{_ 'registerForm.rFoChooseLanguage'}}</option>
+                                        <!--
+                                        ``txv`` Choose the language
+                                        -->
+                                        {{_ 'registerForm.rFoChooseLanguage'}}</option>
                                     {{#each getLanguages}}
                                         <option value="{{shortName}}">{{languageName}}</option>
                                     {{/each}}
@@ -149,49 +158,51 @@
                         <div class="form-group">
                             <div class="col-xs-offset-3 col-xs-9">
                                 <div class="input-group">
-                                    <input type="checkbox" name="statutConfirmation"  {{isSelected 'kobieta'}} required/>
+                                    <input type="checkbox" name="statutConfirmation"  {{isSelected 'kobieta'}}
+                                           required />
                                     <span id="statutConfirmationSpan">
 				<!--
-				``txv`` I confirm knowledge of 
+				``txv`` I confirm knowledge of
 				-->
-{{_ 'registerForm.rFoIconfirmKnowledge'}} <a id="statutBootbox">
+                                        {{_ 'registerForm.rFoIconfirmKnowledge'}} <a id="statutBootbox">
 				<!--
 				``txv`` the Regulations
 				-->
-{{_ 'registerForm.rFoRegulations'}}</a> </span>
+                                        {{_ 'registerForm.rFoRegulations'}}</a> </span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-offset-3 col-xs-9">
-				<!--
-				``txv`` Save
-				-->
-<input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}" id="submitRegistration">
-<input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
+                                <!--
+                                ``txv`` Save
+                                -->Aaaaaaaaaaaaaaaaaaa
+                                <input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}"
+                                       id="submitRegistration">
+                                <input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         {{else}}
-				<!--
-				``txv`` Registration not possible due to reaching limit of persons that may register individually. To apply click join.
-				-->
-{{_ 'registerForm.rFoRegistrationIsNotPossible'}}
+            <!--
+            ``txv`` Registration not possible due to reaching limit of persons that may register individually. To apply click join.
+            -->
+            {{_ 'registerForm.rFoRegistrationIsNotPossible'}}
         {{/if}}
     </div>
-<!--
-### footer page info `` label `` REGISTER FORM -->
-<div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "registerForm.Label"}} </div>
-	<div id="container">
-		<div class="footer_center">
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-			<p>{{_ "."}}</p>
-		</div>
-	</div>
-</div>
+    <!--
+    ### footer page info `` label `` REGISTER FORM -->
+    <div class="footer">
+        <div id="button"><i class="fa fa-info-circle"></i> &nbsp;  {{_ "registerForm.Label"}} </div>
+        <div id="container">
+            <div class="footer_center">
+                <p>{{_ "."}}</p>
+                <p>{{_ "."}}</p>
+                <p>{{_ "."}}</p>
+                <p>{{_ "."}}</p>
+            </div>
+        </div>
+    </div>
 </template>

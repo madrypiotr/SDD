@@ -5,8 +5,9 @@
 
 Template.registerForm.rendered = function () {
     var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
-    if (users.count() >= 5)
+    if (users.count() >= 5) {
         document.getElementById('submitRegistration').disabled = false;
+    }
     $('#dataUrodzeniaDatePicker').datetimepicker({
         sideBySide: true,
         format: 'DD/MM/YYYY'
@@ -245,7 +246,7 @@ Template.registerForm.helpers({
     'lessThanFiveUsers': function () {
         var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
         //var users=Users.find ();
-        return !!users && users.count() < 5 ? true : false;
+        return !!users && users.count() < 5;
     },
     'getLanguages': function () {
         return Languages.find({}).map(function (lang) {
