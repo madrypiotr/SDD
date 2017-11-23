@@ -23,8 +23,11 @@ Template.header.helpers({
         return active && 'active';
     },
     lessThanFiveUsers: function () {
+        const param = Parametr.findOne();
+        const regStart = param && param.regStart || 5;
+
         const users = Users.find({'profile.userType': USERTYPE.CZLONEK});
-        return users && users.count() < 5;
+        return users && users.count() < regStart;
     },
     issuesNotReadCount: function () {
         var powiad = Powiadomienie.find({idOdbiorca: Meteor.userId(), czyOdczytany: false, czyAktywny: true});

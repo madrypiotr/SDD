@@ -7,46 +7,49 @@ Template.editParametrModalInner.helpers({
         return Session.get('chosenParameterSession');
     },
     nazwaOrganizacjiInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.ORG_NAME') ? true : false;
+        return parameterName == TAPi18n.__('txv.ORG_NAME');
     },
     terytoriumInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.TERITORY') ? true : false;
+        return parameterName == TAPi18n.__('txv.TERITORY');
     },
     terytAdresInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.TERITADR') ? true : false;
+        return parameterName == TAPi18n.__('txv.TERITADR');
     },
     terytCODEInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.TERITCOD') ? true : false;
+        return parameterName == TAPi18n.__('txv.TERITCOD');
     },
     terytCityInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.TERITCITY') ? true : false;
+        return parameterName == TAPi18n.__('txv.TERITCITY');
     },
     kontaktInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.CONTACTS') ? true : false;
+        return parameterName == TAPi18n.__('txv.CONTACTS');
     },
     statutInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.STATUT') ? true : false;
+        return parameterName == TAPi18n.__('txv.STATUT');
     },
     voteDurationInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.VOTE_TIME') ? true : false;
+        return parameterName == TAPi18n.__('txv.VOTE_TIME');
     },
     czasWyczekiwaniaKwestiiSpecjalnejInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.WAITING_TIME') ? true : false;
+        return parameterName == TAPi18n.__('txv.WAITING_TIME');
     },
     editVoteQuantityInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.MAX_ISSUE_IN_VOTING') ? true : false;
+        return parameterName == TAPi18n.__('txv.MAX_ISSUE_IN_VOTING');
     },
     editIssuePauseInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.FREQ_ADD_ISSUE') ? true : false;
+        return parameterName == TAPi18n.__('txv.FREQ_ADD_ISSUE');
     },
     editCommentPauseInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.FREQ_ADD_COMM') ? true : false;
+        return parameterName == TAPi18n.__('txv.FREQ_ADD_COMM');
     },
     editReferencePauseInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.FREQ_ADD_REFER') ? true : false;
+        return parameterName == TAPi18n.__('txv.FREQ_ADD_REFER');
     },
     editRRDurationInput: function (parameterName) {
-        return parameterName == TAPi18n.__('txv.FREQ_ADD_REPPO') ? true : false;
+        return parameterName == TAPi18n.__('txv.FREQ_ADD_REPPO');
+    },
+    editRegStartInput: function (parameterName) {
+        return parameterName == TAPi18n.__('txv.regStart');
     }
 });
 
@@ -137,6 +140,7 @@ var createIssueChangeParam = function (paramName, title, oldValue, newValue) {
     var commPause = params.addCommentPause;
     var refPause = params.addReferencePause;
     var okresSkladaniaRR = params.okresSkladaniaRR;
+    var regStart = params.regStart;
 
     switch (paramName) {
         case 'nazwaOrganizacji': nazwaOrg = newValue; break;
@@ -153,6 +157,7 @@ var createIssueChangeParam = function (paramName, title, oldValue, newValue) {
         case 'addCommentPause': commPause = newValue; break;
         case 'addReferencePause': refPause = newValue; break;
         case 'okresSkladaniaRR': okresSkladaniaRR = newValue; break;
+        case 'regStart': regStart = newValue; break;
     }
     var addParamDraft = {
         nazwaOrganizacji: nazwaOrg,
@@ -168,7 +173,8 @@ var createIssueChangeParam = function (paramName, title, oldValue, newValue) {
         addIssuePause: issuePause,
         addCommentPause: commPause,
         addReferencePause: refPause,
-        okresSkladaniaRR: okresSkladaniaRR
+        okresSkladaniaRR: okresSkladaniaRR,
+        regStart: regStart
     };
     var odp = checkIssueGlobalParamExists();
     var params = ParametrDraft.find({czyAktywny: true});
@@ -250,5 +256,5 @@ var checkIssueGlobalParamExists = function () {
         typ: KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE, czyAktywny: true,
         status: {$nin: [KWESTIA_STATUS.ZREALIZOWANA, KWESTIA_STATUS.ARCHIWALNA]}
     });
-    return kwestie.count() > 0 ? true : false;
+    return kwestie.count() > 0;
 };

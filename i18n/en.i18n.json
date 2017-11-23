@@ -640,7 +640,8 @@
     "lipAddingCommentWithinAissue": "Adding comment withing given Issue",
     "lipTheAdditionOfAreferWithinTheComm": "Adding refference within given comment",
     "lipReportsOfImplementation": "Implementation Reports",
-    "lipDeadlineForFilingTheReportsInDays": "Period for forwarding Implementation Reports (in days)"
+    "lipDeadlineForFilingTheReportsInDays": "Period for forwarding Implementation Reports (in days)",
+    "regStart": "How many registrants"
   },
   "userEmailContact": {
     "uecPost": "Write"
