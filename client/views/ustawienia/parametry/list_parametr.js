@@ -81,6 +81,10 @@ Template.listParametr.events({
     'click #editRRDuration': function (e) {
         e.preventDefault();
         editParameter('okresSkladaniaRR', TAPi18n.__('txv.FREQ_ADD_REPPO'), this.addReferencePause);
+    },
+    'click #editRegStart': function (e) {
+        e.preventDefault();
+        editParameter('regStart', TAPi18n.__('txv.regStart'), this.regStart);
     }
 });
 

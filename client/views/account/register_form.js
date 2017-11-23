@@ -243,9 +243,12 @@ Template.registerForm.events({
 
 Template.registerForm.helpers({
     'lessThanFiveUsers': function () {
+        const param = Parametr.findOne();
+        const regStart = param && param.regStart || 5;
+
         var users = Users.find({'profile.userType': USERTYPE.CZLONEK});
         //var users=Users.find ();
-        return !!users && users.count() < 5;
+        return !!users && users.count() < regStart;
     },
     'getLanguages': function () {
         return Languages.find({}).map(function (lang) {

@@ -247,7 +247,36 @@
                                value="{{okresSkladaniaRR}}">
                     </div>
                 </div>
+                <br>
 
+                <legend>
+                    <!--Użytkownicy-->
+                    {{_ 'more.Users'}}
+                </legend>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3" for="inputEmail">
+                        {{_ 'listParametr.regStart'}}:</label>
+                    <div class="btn-group col-xs-1">
+                        {{#if isUserCzlonek}}
+                            {{#if noKwestiaParameters}}
+                                <a class="btn btn-primary" id="editRegStart"><i class="fa fa-edit"></i>
+                                    <!--Edytuj-->
+                                    {{_ 'glob.Edit'}}
+                                </a>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                    <div class="col-xs-1">
+                        <input
+                            class="form-control"
+                            id="regStart"
+                            name="regStart"
+                            readonly
+                            value="{{regStart}}"
+                        />
+                    </div>
+                </div>
             </form>
         </div>
     </div>

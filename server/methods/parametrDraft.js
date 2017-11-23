@@ -16,7 +16,8 @@ Meteor.methods({
             addCommentPause:newParametr.addCommentPause,
             addReferencePause:newParametr.addReferencePause,
             okresSkladaniaRR:newParametr.okresSkladaniaRR,
-            czyAktywny: true
+            czyAktywny: true,
+            regStart: newParametr.regStart
         });
         return id;
     },

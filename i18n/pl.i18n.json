@@ -644,7 +644,8 @@
     "lipAddingCommentWithinAissue": "Dodanie komentarza w ramach danej Kwestii",
     "lipTheAdditionOfAreferWithinTheComm": "Dodanie odniesienia w ramach danego komentarza",
     "lipReportsOfImplementation": "Raporty Realizacyjne",
-    "lipDeadlineForFilingTheReportsInDays": "Okres składania Raportów Realizacyjnych (w dniach)"
+    "lipDeadlineForFilingTheReportsInDays": "Okres składania Raportów Realizacyjnych (w dniach)",
+    "regStart": "Liczba rejestrujących się"
   },
   "userEmailContact": {
     "uecPost": "Napisz"

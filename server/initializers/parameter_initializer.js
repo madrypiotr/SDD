@@ -7,13 +7,14 @@ Meteor.startup(function () {
         'terytCity': TAPi18n.__('txv.MISSING_TERITCITY'),
         'kontakty': TAPi18n.__('txv.MISSING_CONTACTS'),
         'regulamin': TAPi18n.__('txv.MISSING_RULES'),
-        'czasWyczekiwaniaKwestiiSpecjalnej':1,
-        'voteQuantity':3,
-        'voteDuration':1,
-        'addIssuePause':2,
-        'addCommentPause':2,
-        'addReferencePause':2,
-        'okresSkladaniaRR':2
+        'czasWyczekiwaniaKwestiiSpecjalnej': 1,
+        'voteQuantity': 3,
+        'voteDuration': 1,
+        'addIssuePause': 2,
+        'addCommentPause': 2,
+        'addReferencePause': 2,
+        'okresSkladaniaRR': 2,
+        'regStart': 5
     }];
     if (Parametr.find().count() == 0) {
         Meteor.call('addParametr', globalParameters, function (error, ret) {
