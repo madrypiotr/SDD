@@ -301,7 +301,8 @@ var changeParametersSuccess = function (kwestia) {
         addIssuePause: globalPramsDraft.addIssuePause,
         addCommentPause: globalPramsDraft.addCommentPause,
         addReferencePause: globalPramsDraft.addReferencePause,
-        okresSkladaniaRR: globalPramsDraft.okresSkladaniaRR
+        okresSkladaniaRR: globalPramsDraft.okresSkladaniaRR,
+        regStart: globalPramsDraft.regStart
     };
     var globalParam = Parametr.findOne();
     Meteor.call('updateParametr', globalParam._id, obj, function (error) {
