@@ -66,7 +66,7 @@
             'profile.pesel': fields.pesel
         }});
     },
-    serverCheckExistsUser: function (searchedEmail,userType1,userType2) {
+    serverCheckExistsUser: function (searchedEmail, userType1, userType2) {
         var found = false;
         var userType = null;
         var users = Users.find();
