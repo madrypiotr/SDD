@@ -315,11 +315,9 @@ var addIssueOsobowa = function (newUser) {
             throwError(error.reason);
         } else {
             if (ret == false) {
-                console.log('a7');
                 var firstName = newUser[0].firstName;
                 var lastName = newUser[0].lastName;
                 Meteor.call('serverGenerateLogin', firstName, lastName, function (err, ret) {
-                    console.log('a8');
                     if (!err) {
                         newUser[0].login = ret;
                         addUserDraft(newUser);

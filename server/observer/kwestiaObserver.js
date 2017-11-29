@@ -78,8 +78,23 @@ Meteor.startup(function () {
                     } else
                         throwError(error.reason);
                 });
-
             }
+
+            if (newKwestia.typ === KWESTIA_TYPE.ACCESS_ZWYCZAJNY && (
+                (
+                    newKwestia.status == KWESTIA_STATUS.OSOBOWA &&
+                    newKwestia.wartoscPriorytetu <= 0 &&
+                    usersCount >= kworum &&
+                    zespolCount >= 3
+                ) || (
+                    newKwestia.status == KWESTIA_STATUS.REALIZOWANA &&
+                    newKwestia.wartoscPriorytetuWRealizacji < ((-1) * newKwestia.wartoscPriorytetu) &&
+                    newKwestia.czyAktywny == true
+                )
+            )) {
+                Kwestia.update({_id: newKwestia._id}, {$set: {status: KWESTIA_STATUS.KOSZ}});
+            }
+
             if (oldKwestia.status != newKwestia.status) {
                 if (oldKwestia.status == KWESTIA_STATUS.REALIZOWANA && (newKwestia.status == KWESTIA_STATUS.ZREALIZOWANA || newKwestia.status == KWESTIA_STATUS.ARCHIWALNA)) {
                     unhibernateKwestieOpcje(newKwestia);
@@ -121,7 +136,7 @@ Meteor.startup(function () {
                                 if (!zespol) {
                                     zespol = ImplemTeamDraft.findOne({_id: kwestia.idZespolRealizacyjny});
                                 }
-                                if (zespol.zespol && zespol.zespol.length >= 3)
+                                if (zespol && zespol.zespol && zespol.zespol.length >= 3)
                                     arrayKwestie.push(kwestia);
                             } else
                                 arrayKwestie.push(kwestia);

@@ -41,7 +41,6 @@ Template.resetPassword.events({
 
         if (user) {
             if (user.services.password.reset.when.addHours(3) > new Date()) {
-                console.log('true');
                 Accounts.resetPassword(token, newPassword);
             } else {
                 throwError(TAPi18n.__('txv.TOKEN_HAS_EXPIRED'));
