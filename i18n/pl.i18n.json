@@ -33,10 +33,10 @@
     "MapC": "z rozlokowaniem użytkowników.",
     "InTheSystem": " w systemie ",
     "DescrWithTheReasons": "Opis z uzasadnieniem",
-    "WeAreHappyToInformYouThatYourApplicationFor": "Z radością informujemy, że Twoja aplikacja na ",
+    "WeAreHappyToInformYouThatYourApplicationFor": "Z radością informujemy, że Twoja aplikacja jako ",
     "ItWasSettledPositively": " została rozpatrzona pozytywnie.",
     "ToActivateYourAccountClick": "Aby aktywować konto kliknij ",
-    "ToActivateYourAccountGoTo1": "Aby aktywować swoje konto sprawdź swoją pocztę ",
+    "ToActivateYourAccountGoTo1": "Aby aktywować konto sprawdź swoją pocztę ",
     "ToActivateYourAccountGoTo2": " i  kliknij w podany link.",
     "ThisIsAnAutomaticInformationSystem": "Jest to automatyczna informacja z systemu",
     "DoNotAnswerThat": "Nie odpowiadaj na nią.",
@@ -646,8 +646,7 @@
     "lipAddingCommentWithinAissue": "Dodanie komentarza w ramach danej Kwestii",
     "lipTheAdditionOfAreferWithinTheComm": "Dodanie odniesienia w ramach danego komentarza",
     "lipReportsOfImplementation": "Raporty Realizacyjne",
-    "lipDeadlineForFilingTheReportsInDays": "Okres składania Raportów Realizacyjnych (w dniach)",
-    "regStart": "Liczba rejestrujących się"
+    "lipDeadlineForFilingTheReportsInDays": "Okres składania Raportów Realizacyjnych (w dniach)"
   },
   "userEmailContact": {
     "uecPost": "Napisz"
