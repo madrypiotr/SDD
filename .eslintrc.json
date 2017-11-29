@@ -44,6 +44,7 @@
     "EmailNotifications": false,
     "Errors": true,
     "Etc": false,
+    "GlobalNotification": false,
     "GoogleMaps": false,
     "ImplemTeamDraft": true,
     "IsAdminUser": false,

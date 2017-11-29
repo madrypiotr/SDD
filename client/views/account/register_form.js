@@ -391,6 +391,12 @@ var addKwestiaOsobowa = function (idUserDraft, newUser) {
                     throwError(error.reason);
                 } else {
                     Router.go('home');
+
+                    GlobalNotification.info({
+                        title: TAPi18n.__('glob.ToActivateYourAccountGoTo1'),
+                        content: TAPi18n.__('glob.ToActivateYourAccountGoTo2'),
+                        duration: 5
+                    });
                 }
             });
         }
