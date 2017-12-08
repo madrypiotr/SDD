@@ -78,8 +78,9 @@ Mateusz Wójtowicz,
 Tomasz Wciślik, 
 Arkadiusz Wronka, 
 Wojciech Zapała, 
+Jerzy Zenderowski, 
 Adam Zubrzycki, 
-Krzysztof Żurawski. 
+Krzysztof Żurawski.
 
 * **Supporting Fans:** 
 Janusz Allina, 
