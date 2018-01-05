@@ -16,11 +16,21 @@ Template.ZRTemplate.helpers({
         }
     },
     isInKoszOrZrealizowana: function (czyAktywny,status) {
-        return czyAktywny == false || status == KWESTIA_STATUS.ZREALIZOWANA || status == KWESTIA_STATUS.ARCHIWALNA ? true : false;
+        return (
+            czyAktywny == false ||
+            status == KWESTIA_STATUS.ZREALIZOWANA ||
+            status == KWESTIA_STATUS.ARCHIWALNA
+        );
     },
     statusGlosowanaOsobowaRealizowanaZrealizowana: function (status,typ,czyAktywny) {
-        return status == KWESTIA_STATUS.GLOSOWANA || status == KWESTIA_STATUS.OSOBOWA ||
-        status == KWESTIA_STATUS.REALIZOWANA || status == KWESTIA_STATUS.ZREALIZOWANA || status == KWESTIA_STATUS.ARCHIWALNA || czyAktywny == false ? true : false;
+        return (
+            status == KWESTIA_STATUS.GLOSOWANA ||
+            status == KWESTIA_STATUS.OSOBOWA ||
+            status == KWESTIA_STATUS.REALIZOWANA ||
+            status == KWESTIA_STATUS.ZREALIZOWANA ||
+            status == KWESTIA_STATUS.ARCHIWALNA ||
+            czyAktywny == false
+        );
     },
     pierwszyCzlonekFullName: function (idZR) {
         return getCzlonekFullName(0,idZR,'ZRDraft');

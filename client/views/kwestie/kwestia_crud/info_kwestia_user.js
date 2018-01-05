@@ -243,6 +243,9 @@ Template.issueDetails.helpers({
         }
         return false;
     }
+    /*getZespol: function () {
+        return ZespolRealizacyjny.findOne(this.idZespolRealizacyjny);
+    }*/
 });
 Template.issueManageZR.helpers({
     getZRName: function (idZR,zespol) {
