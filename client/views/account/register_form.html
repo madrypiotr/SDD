@@ -152,7 +152,9 @@
                                         -->
                                         {{_ 'registerForm.rFoChooseLanguage'}}</option>
                                     {{#each getLanguages}}
-                                        <option value="{{shortName}}">{{languageName}}</option>
+                                        <option value="{{key}}">
+                                            {{getLangText keyLong}}
+                                        </option>
                                     {{/each}}
                                 </select>
                             </div>

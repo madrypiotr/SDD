@@ -300,12 +300,16 @@ Template.registerForm.helpers({
         return usersCount < regStart;
     },
     'getLanguages': function () {
-        return Languages.find({}).map(function (lang) {
-            return {
-                shortName: lang.shortName,
-                languageName: TAPi18n.__('listLanguages.' + lang.languageName)
-            };
-        });
+        return Languages.find().map(lang => ({
+            shortName: lang.shortName,
+            languageName: TAPi18n.__('listLanguages.' + lang.languageName),
+            key: lang.key,
+            keyLong: lang.keyLong
+        }));
+    },
+    getLangText: function (key) {
+        const lang = Etc.getUserLanguage();
+        return TAPi18n.__(`txv.${key.toUpperCase()}`, null, lang);
     }
 });
 

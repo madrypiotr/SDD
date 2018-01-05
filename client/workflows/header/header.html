@@ -336,7 +336,11 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-right">
                         {{#each langs}}
-                            <li><a class="lang">{{shortName}}</a></li>
+                            <li>
+                                <a class="lang" data-key={{key}}>
+                                    {{getLangText key}}
+                                </a>
+                            </li>
                         {{/each}}
                     </ul>
                 </div>

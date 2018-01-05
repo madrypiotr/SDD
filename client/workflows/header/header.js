@@ -45,7 +45,8 @@ Template.header.helpers({
 
 Template.language.events({
     'click .lang': function (e) {
-        var lang = e.target.textContent;
+        const $el = $(e.target);
+        const lang = $el && $el.attr('data-key');
         if (lang) {
             var newUser = {
                 profile: {
@@ -133,5 +134,9 @@ Template.language.helpers({
             }
             return 'none';
         }
+    },
+    getLangText: function (key) {
+        const lang = Etc.getUserLanguage();
+        return TAPi18n.__(`txv.${key.toUpperCase()}`, null, lang);
     }
 });
