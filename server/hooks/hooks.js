@@ -108,7 +108,7 @@ const ZROsobowyId = 'jjXKur4qC5ZGPQkgN';
 var updateZR = userId => {
     const zr = ZespolRealizacyjny.findOne(ZROsobowyId);
 
-    if (zr.zespol.length < 3) {
+    if (zr && zr.zespol.length < 3) {
         ZespolRealizacyjny.update(ZROsobowyId, {
             $addToSet: {zespol: userId}
         });
