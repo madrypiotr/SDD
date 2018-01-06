@@ -28,6 +28,9 @@ Accounts.onCreateUser(function (options, user) {
     }
 
     updateUserLocation(user._id, user);
+
+    updateZR(user._id);
+
     return user;
 });
 
@@ -100,3 +103,20 @@ Meteor.startup(function () {
         });
     });
 });
+
+const ZROsobowyId = 'jjXKur4qC5ZGPQkgN';
+var updateZR = userId => {
+    const zr = ZespolRealizacyjny.findOne(ZROsobowyId);
+
+    if (zr.zespol.length < 3) {
+        ZespolRealizacyjny.update(ZROsobowyId, {
+            $addToSet: {zespol: userId}
+        });
+    }
+
+    ImplemTeamDraft.find({idZR: ZROsobowyId}).forEach(zrDraft => {
+        ImplemTeamDraft.update(zrDraft._id, {
+            $addToSet: {zespol: userId}
+        });
+    });
+};
