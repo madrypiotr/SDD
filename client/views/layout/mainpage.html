@@ -6,37 +6,13 @@
 						<p class="fontSizeBig">{{_ "glob.ShortSystemName"}}</p>
 						<p class="fontSizeMore">{{_ "more.fullNameSystem"}}</p>
 						<p class="fontSizeMoreSmall">{{_ "more.descriptionOfTheSystem"}}</p>
-						{{#if currentUser}} {{#if isZwyczajnyLogged}}
-						<section class="dymek">
-							<small><a class="btn btn-primary" id="addKwestiaButton"><i class="fa fa-plus"></i> <!--Dodaj nową Kwestię-->{{_ 'listKwestia.liAddANewIssue'}}</a></small>
-							<div align="left" style="margin-left: 2em">
-								<a data-toggle="modal" href="#mainZanimDod"><small>{{_ 'dym.BeforeYouAdd'}} <sub class="fa fa-external-link"></sub></small></a>
-							</div>
-							<div class="modal fade" id="mainZanimDod" role="dialog">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button class="close" data-dismiss="modal" type="button">&times;</button>
-											<p align="left" class="modal-title">{{_ 'dym.AddingIssues'}}</p>
-										</div>
-										<div align="left" class="modal-body">
-											<small></small>
-											<p><small>{{_ 'dym.AddingIssueA'}}</small></p>
-											<p><small>{{_ 'dym.AddingIssueB'}}</small></p>
-											<p><small><strong>{{_ 'dym.AddingIssueC'}}</strong></small></p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section><br>
-						{{/if}} {{/if}}
 						<a class="btn btn-info" id="wievMap"><i class="fa fa-map"></i> mapa</a>
 					</div>
 				</div>
 			</div>
 			<div>
 				<center>
-					WERSJA TESTOWA - możesz bez konsekwencji sprawdzać funkcje. | Dla programistów - <a href="http://sdd.ha.pl/doc/README.md.html"><b> dokumentacja kodu</b></a>
+					WERSJA WDROŻENIOWA STOWARZYSZENIA proSDD || (testy możesz przeprowadzać tutaj: <a href="https://sdd-test.ha.pl">wersja testowa</a>)
 				</center>
 			</div>
 		</div>
