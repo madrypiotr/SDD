@@ -18,6 +18,10 @@ UI.registerHelper('welcomeGender', () => {
     return Etc.recognizeSexMethod();
 });
 
+UI.registerHelper('nl2br', function (str) {
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br />$2');
+});
+
 IsAdminUser = function () {
     return Roles.userIsInRole(Meteor.user(), ['admin']);
 };

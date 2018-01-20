@@ -35,7 +35,9 @@
                         <div class="col-md-12">
 
                             <p class="text-wraping">
-                                {{getText wiadomosc idPost}}
+                                {{#with getText wiadomosc idPost}}
+                                    {{{nl2br this}}}
+                                {{/with}}
                                 {{#if textTooLong wiadomosc}}
                                     <small>
                                         {{#if isInTab idPost}}
@@ -116,7 +118,10 @@
                                     {{_ 'discussionPostItem.dPiTheImplemReport'}}</h4>
                                 <br />
                                 <p class="text-wraping">
-                                    Temat:{{getText wiadomosc idPost}}
+                                    Temat:
+                                    {{#with getText wiadomosc idPost}}
+                                        {{{nl2br this}}}
+                                    {{/with}}
                                     {{#if textTooLong wiadomosc}}
                                         <small>
                                             {{#if isInTab idPost}}
@@ -189,7 +194,9 @@
                             <div class="col-md-12">
 
                                 <p class="text-wraping">
-                                    {{getText wiadomosc idPost}}
+                                    {{#with getText wiadomosc idPost}}
+                                        {{{nl2br this}}}
+                                    {{/with}}
                                     {{#if textTooLong wiadomosc}}
                                         <small>
                                             {{#if isInTab idPost}}
@@ -286,7 +293,9 @@
     <div class="row">
         <div class="col-md-12">
             <p class="text-wraping">
-                {{getAnswerText wiadomosc idPost}}
+                {{#with getAnswerText wiadomosc idPost}}
+                    {{{nl2br this}}}
+                {{/with}}
                 {{#if textAnswerTooLong wiadomosc}}
                     <small>
                         {{#if isAnswerInTab idPost}}
