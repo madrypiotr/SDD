@@ -56,7 +56,7 @@
                             <h5>
                                 <!-- ``txv`` Substantiation -->
                                 {{_ 'discussionPostItem.dPiExplainThis'}}:
-                                <small>{{uzasadnienie}}</small>
+                                {{{nl2br uzasadnienie}}}
                             </h5>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                                 <h5><b>
                                     <!-- ``txv`` Description -->
                                     {{_ 'discussionPostItem.dPiDescription'}}:</b></h5>
-                                <small>{{uzasadnienie}}</small>
+                                {{{nl2br uzasadnienie}}}
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -219,9 +219,8 @@
                                         <b>
                                             <!-- ``txv`` Description -->
                                             {{_ 'discussionPostItem.dPiDescription'}}:
-                                        </b>
-                                    </h5>
-                                    <small>{{uzasadnienie}}</small>
+                                    </b></h5>
+                                    {{{nl2br uzasadnienie}}}
                                 {{/if}}
                             </div>
                         </div>
