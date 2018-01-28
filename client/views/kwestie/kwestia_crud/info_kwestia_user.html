@@ -256,7 +256,7 @@
             {{#if isDeliberowana}} {{_ "more.DeliberIssueDetails"}} {{/if}}
             {{#unless kwestiaInKosz}}
                 <!-- ... voted on ``txv`` DETAILS OF VOTING ISSUE -->
-                {{#if isGlosowana}} {{_ "more.VotingDetails"}} {{/if}}
+            {{#if isGlosowana}} {{_ "more.VotingDetails"}} {{/if}}
             {{/unless}}
             <!-- ... implemented ``txv`` DETAILS OF THE IMPLEMENTED ISSUE -->
             {{#if isRealizowana}} {{_ "more.ImplemIssueDetails"}} {{/if}}
@@ -264,6 +264,8 @@
             {{#if isZrealizowana}} {{_ "more.CompletedIssueDetails"}} {{/if}}
             <!-- ... in trash ``txv`` DETAILS OF THE ISSUE WHICH IS IN TRASH -->
             {{#if kwestiaInKosz}} {{_ "more.TheIssueInTheTrashCan"}} {{/if}}
+            <!-- ... in administration  -->
+            {{#if administrowana}} {{_ "more.TheIssueInAdministration"}} {{/if}}
         </div>
         <div id="container">
             <div class="footer_center">
@@ -279,9 +281,14 @@
                     <p><b>{{_ "more.ImplemIssueDetailsD"}}</b></p>
                 {{/if}}
                 {{#if  isZrealizowana}}
-                    <p>{{_ "more.A"}}</p>
-                    <p>{{_ "more.B"}}</p>
-                    <p>{{_ "more.C"}}</p>
+                    <p>{{_ "more.CompletedIssueDetailsA"}}</p>
+                    <p>{{_ "more.CompletedIssueDetailsB"}}</p>
+                    <p>{{_ "more.CompletedIssueDetailsC"}}</p>
+                {{/if}}
+                {{#if  administrowana}}
+                    <p>{{_ "more.TheIssueInAdministrationA"}}</p>
+                    <p>{{_ "more.TheIssueInAdministrationB"}}</p>
+                    <p>{{_ "more.TheIssueInAdministrationC"}}</p>
                 {{/if}}
                 {{#unless kwestiaInKosz}}
                     {{#if isGlosowana}}
