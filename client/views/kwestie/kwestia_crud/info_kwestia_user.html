@@ -265,7 +265,7 @@
             <!-- ... in trash ``txv`` DETAILS OF THE ISSUE WHICH IS IN TRASH -->
             {{#if kwestiaInKosz}} {{_ "more.TheIssueInTheTrashCan"}} {{/if}}
             <!-- ... in administration  -->
-            {{#if ADMINISTROWANA}} {{_ "more.TheIssueInAdministration"}} {{/if}}
+            {{#if isADMINISTROWANA}} {{_ "more.TheIssueInAdministration"}} {{/if}}
         </div>
         <div id="container">
             <div class="footer_center">
@@ -285,7 +285,7 @@
                     <p>{{_ "more.CompletedIssueDetailsB"}}</p>
                     <p>{{_ "more.CompletedIssueDetailsC"}}</p>
                 {{/if}}
-                {{#if  ADMINISTROWANA}}
+                {{#if  isADMINISTROWANA}}
                     <p>{{_ "more.TheIssueInAdministrationA"}}</p>
                     <p>{{_ "more.TheIssueInAdministrationB"}}</p>
                     <p>{{_ "more.TheIssueInAdministrationC"}}</p>
