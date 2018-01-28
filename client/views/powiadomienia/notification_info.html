@@ -197,20 +197,20 @@
             {{welcomeGender}} {{userData}}! <br /><br />
 
             <div>
-                Zachęcam Cię do wsparcia Kwestii:
+                {{_ "glob.IencourageYouToSupportIssue"}}
                 <b><a href="{{pathFor 'informacjeKwestia'}}">{{kwestiaNazwa}}</a></b>
             </div>
             <br />
 
-            <b>Temat:</b> {{temat}}<br />
-            <b>Rodzaj:</b> {{rodzaj}} <br /><br />
+            <b>{{_ "glob.Subject"}}:</b> {{temat}}<br />
+            <b>{{_ "glob.Type"}}:</b> {{rodzaj}} <br /><br />
 
-            <b>Szczegóły:</b> <br />
+            <b>{{_ "glob.Details1"}}:</b> <br />
             {{krotkaTresc}}<br /><br />
         {{/with}}
-        <b>Uzasadnienie:</b><br />
-        {{uzasadnienie}}<br /><br />
-        Dziękuję!<br />
+        <b>{{_ "glob.ExplainThis"}}:</b><br />
+        {{{nl2br uzasadnienie}}}<br /><br />
+        {{_ "glob.ThankYou"}}<br />
         {{sender}}
     {{/with}}
 </template>
@@ -223,8 +223,8 @@
         {{welcomeGender}} {{userData}}! <br /><br />
 
         Informujemy o trwającej procedurze głosowania Kwestii: {{kwestia.kwestiaNazwa}}<br />
-        <b>Temat:</b> {{temat}},<br />
-        <b>Rodzaj:</b> {{rodzaj}}<br />
+        <b>{{_ "glob.Subject"}}:</b> {{temat}},<br />
+        <b>{{_ "glob.Type"}}:</b> {{rodzaj}}<br />
         dotyczącej:<b>{{kwestia.krotkaTresc}}</b> <br /><br />
 
         <b>Zakończenie głosowania:</b> {{dataGlosowania}}<br /><br />

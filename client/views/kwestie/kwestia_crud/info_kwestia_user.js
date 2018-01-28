@@ -98,6 +98,9 @@ Template.issueDetails.helpers({
     isZrealizowana: function () {
         return this.status == KWESTIA_STATUS.ZREALIZOWANA ? true : false;
     },
+    isAdministrowana: function () {
+        return this.status == KWESTIA_STATUS.ADMINISTROWANA ? true : false;
+    },
     kwestiaInKosz: function () {
         return this.czyAktywny == false ? true : false;
     },

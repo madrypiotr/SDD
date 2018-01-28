@@ -36,17 +36,20 @@
     {{else}}
         {{#if isGlobalParamsChange typ}}
             <!-- ``txv`` Paramter -->
-            {{_ "kwestiaDetails.KwdParameter"}}:
+            <strong>{{_ "kwestiaDetails.KwdParameter"}}:</strong><br />
             {{szczegolowaTresc.title}}
+            <br /><br />
             <!-- ``txv`` Initial value -->
-            {{_ "kwestiaDetails.KwdInitialValue"}}:
-            {{szczegolowaTresc.oldValue}}
+            <strong>{{_ "kwestiaDetails.KwdInitialValue"}}:</strong><br />
+            {{{nl2br szczegolowaTresc.oldValue}}}
+            <br /><br />
             <!-- ``txv`` Proposed value -->
-            {{_ "kwestiaDetails.KwdTheProposedValue"}}:
-            {{szczegolowaTresc.newValue}}
+            <strong>{{_ "kwestiaDetails.KwdTheProposedValue"}}:</strong><br />
+            {{{nl2br szczegolowaTresc.newValue}}}
+            <br /><br />
         {{else}}
             <!-- ``txv`` Short description of the Issue -->
-            Treść Kwestii: <strong>{{krotkaTresc}}. </strong> {{szczegolowaTresc}}
+            Treść Kwestii: <strong>{{krotkaTresc}}. </strong> <br /> {{{nl2br szczegolowaTresc}}}
         {{/if}}
     {{/if}}
 </template>

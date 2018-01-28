@@ -35,7 +35,9 @@
                         <div class="col-md-12">
 
                             <p class="text-wraping">
-                                {{getText wiadomosc idPost}}
+                                {{#with getText wiadomosc idPost}}
+                                    {{{nl2br this}}}
+                                {{/with}}
                                 {{#if textTooLong wiadomosc}}
                                     <small>
                                         {{#if isInTab idPost}}
@@ -54,7 +56,7 @@
                             <h5>
                                 <!-- ``txv`` Substantiation -->
                                 {{_ 'discussionPostItem.dPiExplainThis'}}:
-                                <small>{{uzasadnienie}}</small>
+                                {{{nl2br uzasadnienie}}}
                             </h5>
                         </div>
                     </div>
@@ -116,7 +118,10 @@
                                     {{_ 'discussionPostItem.dPiTheImplemReport'}}</h4>
                                 <br />
                                 <p class="text-wraping">
-                                    Temat:{{getText wiadomosc idPost}}
+                                    Temat:
+                                    {{#with getText wiadomosc idPost}}
+                                        {{{nl2br this}}}
+                                    {{/with}}
                                     {{#if textTooLong wiadomosc}}
                                         <small>
                                             {{#if isInTab idPost}}
@@ -134,7 +139,7 @@
                                 <h5><b>
                                     <!-- ``txv`` Description -->
                                     {{_ 'discussionPostItem.dPiDescription'}}:</b></h5>
-                                <small>{{uzasadnienie}}</small>
+                                {{{nl2br uzasadnienie}}}
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -189,7 +194,9 @@
                             <div class="col-md-12">
 
                                 <p class="text-wraping">
-                                    {{getText wiadomosc idPost}}
+                                    {{#with getText wiadomosc idPost}}
+                                        {{{nl2br this}}}
+                                    {{/with}}
                                     {{#if textTooLong wiadomosc}}
                                         <small>
                                             {{#if isInTab idPost}}
@@ -212,9 +219,8 @@
                                         <b>
                                             <!-- ``txv`` Description -->
                                             {{_ 'discussionPostItem.dPiDescription'}}:
-                                        </b>
-                                    </h5>
-                                    <small>{{uzasadnienie}}</small>
+                                    </b></h5>
+                                    {{{nl2br uzasadnienie}}}
                                 {{/if}}
                             </div>
                         </div>
@@ -286,7 +292,9 @@
     <div class="row">
         <div class="col-md-12">
             <p class="text-wraping">
-                {{getAnswerText wiadomosc idPost}}
+                {{#with getAnswerText wiadomosc idPost}}
+                    {{{nl2br this}}}
+                {{/with}}
                 {{#if textAnswerTooLong wiadomosc}}
                     <small>
                         {{#if isAnswerInTab idPost}}
