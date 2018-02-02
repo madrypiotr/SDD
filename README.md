@@ -32,13 +32,11 @@ OR
 ## Tests
 * npm run test
 
+SDD does not have an admin panel.
+All settings are done according to the will of all users
+
 ### [How to contribute] to the development of this project?
 
-#### Admin login (language setting only) 
-* Login: adminSDD, 
-* Password: (ask by m@drypiotr.pl)
-
----
 #### The task of the application will be:
 1. accept requests for new users,
 2. accept User requests on various matters,
