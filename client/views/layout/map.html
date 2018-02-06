@@ -1,44 +1,39 @@
 <template name="map">
-<div class="main">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="mainmain">
-			
-<!-- tymczasowo wył. w testach
-				{{#if currentUser}}
-				{{#if isZwyczajnyLogged}}
--->
+    <div class="main">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mainmain">
+                    {{!-- #if currentUser}}
+                        {{#if isZwyczajnyLogged --}}
+                            <p class="fontSizeMore">M A P A &nbsp; O R G A N I Z A C J I</p>
 
-            <p class="fontSizeMore">M A P A &nbsp; O R G A N I Z A C J I</p>
+                            {{#if mapParameterName}}
+                                <span class="label label-primary">
+                                    {{mapParameterName}}
+                                    <a href="#" class="btn btn-small js-close-parameter"><i class="fa fa-close"></i></a>
+                                </span>
+                            {{/if}}
 
-            {{#if mapParameterName}}
-                <span class="label label-primary">
-                    {{mapParameterName}}
-                    <a href="#" class="btn btn-small js-close-parameter"><i class="fa fa-close"></i></a>
-                </span>
-            {{/if}}
-
-            <div class="main-map-container">
-                {{> googleMap name="mainMap" options=mapOptions}}
+                            <div class="main-map-container">
+                                {{> googleMap name="mainMap" options=mapOptions}}
+                            </div>
+                        {{!-- /if}}
+                    {{/if --}}
+                </div>
             </div>
-			
-<!--				{{/if}}
-				{{/if}}
--->
-			</div>
-		</div>
-	</div>
-</div>
-<!--
-### footer page info `` label `` MAP -->
-<div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ glob.Map}} </div>
-	<div id="container">
-			<div class="footer_center"> <h4>
-					<p>{{_ "glob.MapA"}}</p>
-					<p>{{_ "glob.MapB"}}</p>
-					<p>{{_ "glob.MapC"}}</p></h4>
-			</div>
-	</div>
-</div>
+        </div>
+    </div>
+    <!-- ### footer page info `` label `` MAP -->
+    <div class="footer">
+        <div id="button"><i class="fa fa-info-circle"></i> &nbsp;  {{_ glob.Map}} </div>
+        <div id="container">
+            <div class="footer_center">
+                <h4>
+                    <p>{{_ "glob.MapA"}}</p>
+                    <p>{{_ "glob.MapB"}}</p>
+                    <p>{{_ "glob.MapC"}}</p>
+                </h4>
+            </div>
+        </div>
+    </div>
 </template>

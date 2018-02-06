@@ -13,34 +13,40 @@ Template.map.onRendered(function () {
             }
             markers = [];
 
+            let showUsers = false;
             if (!parameterId) {
+                if (!Parametr.find({terytLocation: {$exists: true}}).count()) {
+                    showUsers = true;
+                }
+
                 Parametr.find({terytLocation: {$exists: true}}).forEach(function (parametr) {
                     var location = parametr.terytLocation;
-                    if (!location || !location.lat || !location.lng) {
-                        return;
-                    }
-
-                    var marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(location.lat, location.lng),
-                        map: map.instance,
-                        optimized: false,
-                        _id: parametr._id
-                    });
-
-                    var listenerHandle = marker.addListener('click', function () {
-                        var infowindow = new google.maps.InfoWindow({
-                            content: _getInfoContent(parametr)
+                    if (location && location.lat && location.lng) {
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(location.lat, location.lng),
+                            map: map.instance,
+                            optimized: false,
+                            _id: parametr._id
                         });
 
-                        infowindow.open(map.instance, marker);
-                        if (infoWindowOpened) {
-                            infoWindowOpened.close();
-                        }
-                        infoWindowOpened = infowindow;
-                    });
-                    markers.push(marker);
+                        var listenerHandle = marker.addListener('click', function () {
+                            var infowindow = new google.maps.InfoWindow({
+                                content: _getInfoContent(parametr)
+                            });
+
+                            infowindow.open(map.instance, marker);
+                            if (infoWindowOpened) {
+                                infoWindowOpened.close();
+                            }
+                            infoWindowOpened = infowindow;
+                        });
+                        markers.push(marker);
+                    } else {
+                        showUsers = true;
+                    }
                 });
-            } else {
+            }
+            if (parameterId || showUsers) {
                 Meteor.users.find({
                     'profile.location': {$exists: true},
                     'profile.fullName': {$exists: true}
