@@ -150,7 +150,12 @@ Template.czlonekZwyczajnyForm.events({
 
 Template.czlonekZwyczajnyForm.helpers({
     'getLanguages': function () {
-        return Languages.find({});
+        return Languages.find().map(lang => ({
+            shortName: lang.shortName,
+            languageName: TAPi18n.__('listLanguages.' + lang.languageName),
+            key: lang.key,
+            keyLong: lang.keyLong
+        }));
     },
     email: function () {
         return getEmail(this);
