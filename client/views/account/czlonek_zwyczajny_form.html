@@ -5,10 +5,14 @@
 <template name="czlonekZwyczajnyForm">
     <div class="main">
         <legend>
-            <!-- ``txv`` Applying for Ordinary Member in organization -->
-            {{_ 'czlonekZwyczajnyForm.cZwApplyingAmemberOfTheOrdinary'}} {{nazwaOrganizacji}}
+		<!-- 
+		``txv`` Applying for Ordinary Member in organization 
+		-->
+        {{_ 'czlonekZwyczajnyForm.cZwApplyingAmemberOfTheOrdinary'}} {{nazwaOrganizacji}}
         </legend>
-        <!-- ### If the user is logged in ... -->
+        <!-- 
+		### If the user is logged in ... 
+		-->
         {{#if currentUser}}
             <p class="col-md-12 bg-danger padding-15">
                 <!-- ``txv`` Fill in missing fields in application. -->
@@ -127,16 +131,22 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
-                            <!-- ``txv`` Language of the User -->
+                            <!-- 
+							``txv`` Language of the User 
+							-->
                             {{_ 'czlonekZwyczajnyForm.cZwLanguageUser'}}: </label>
 
                         <div class="col-xs-9">
                             <select name="language" id="language" class="form-control" required>
                                 <option value="0">
-                                    <!-- ``txv`` Choose the language -->
+                                    <!-- 
+									``txv`` Choose the language 
+									-->
                                     {{_ 'czlonekZwyczajnyForm.cZwChooseLanguage'}}</option>
                                 {{#each getLanguages}}
-                                    <option value="{{shortName}}">{{languageName}}</option>
+                                        <option value="{{key}}">
+                                            {{getLangText keyLong}}
+                                        </option>
                                 {{/each}}
                             </select>
                         </div>
