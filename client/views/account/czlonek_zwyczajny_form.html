@@ -144,9 +144,7 @@
 									-->
                                     {{_ 'czlonekZwyczajnyForm.cZwChooseLanguage'}}</option>
                                 {{#each getLanguages}}
-                                        <option value="{{key}}">
-                                            {{getLangText keyLong}}
-                                        </option>
+                                    <option value="{{shortName}}">{{languageName}}</option>
                                 {{/each}}
                             </select>
                         </div>
