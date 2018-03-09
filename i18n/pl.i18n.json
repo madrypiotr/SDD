@@ -353,6 +353,11 @@
     "cZwIapplyForAdmission": "Aplikuję o przyjęcie"
   },
   "advisorForm": {
+    "dorApplyingAdvisor": "DOŁĄCZ JAKO DORADCA",
+    "dorAplyAdvisA": "Zanim wyślesz wniosek aplikacyjny, miej świadomość, że ten System, to nie jest kolejny portal społecznościowy. Tutaj tworzymy prawo, które będzie nas obowiązywało. Liczymy, że na serio zamierzasz pomóc nam w tym dziele.",
+    "dorAplyAdvisB": "O każdym aspekcie zdarzeń decyduje Ogół Członków większością głosów. Będziesz miał te same możliwości oddziaływania na bieg spraw, co każdy Członek, za wyjatkiem procedury głosowania.",
+    "dorAplyAdvisC": "Ta aplikacja gwarantuje równość wnioskowania, dyskutowania i rozstrzygania o wszystkich Kwestiach pojawiających się w Systenie, ponieważ nie ma tu administratora, który mógłby ingerować w ten proces.",
+    "dorAplyAdvisD": "ZAPRASZAMY!",
     "dorApplyingAdvisorInTheOrganization": "Aplikowanie na doradcę w organizacji",
     "dorAdditional": "Dodatkowe",
     "dorWriteAfewWordsAboutYourself": "Napisz parę słów do nas, o sobie i powodach Twojego wniosku...",
