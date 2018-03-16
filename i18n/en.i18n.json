@@ -26,6 +26,7 @@
     "PostalC": "Postal Code",
     "City": "City",
     "Map": "MAP",
+    "Guide": "Guide",
     "MapA": "When you click on the tag",
     "MapB": "You will enter the map of the selected SDD",
     "MapC": "with the deployment of users",

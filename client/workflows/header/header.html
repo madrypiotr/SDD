@@ -327,10 +327,13 @@
 				</span>
                 {{_ "language.lanSystSDD"}} - <strong>{{nazwaOrg}}</strong>
             </div>
-            <!-- info & log in -->
+            <!-- BUTTONS: Guide & chose language -->
             <div class="pull-right">
-                <div class="btn-group">
-                    <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown"
+				<a class="btn btn-default btn-xs" id="guide"> 
+				<i class="fa fa-info-circle"> </i> 
+				{{_ "glob.Guide"}} </a>
+             <div class="btn-group">
+				<button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         {{getUserLang}} <span class="caret"></span>
                     </button>
