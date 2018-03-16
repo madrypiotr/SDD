@@ -31,7 +31,6 @@
     "PostalC": "Kod pocztowy",
     "City": "Miasto",
     "Map": "MAPA",
-    "Guide": "Przewodnik",
     "MapA": "Kiedy klikniesz na znacznik",
     "MapB": "wejdziesz w mapę wybranego SDD",
     "MapC": "z rozlokowaniem użytkowników.",
@@ -86,7 +85,10 @@
     "DoNotYouVotedYetOnThisIssueWelcome": "Nie zagłosowałaś/eś jeszcze w tej Kwestii, zapraszamy: ",
     "TheCurrentStrengthOfPriority": "Aktualna siła priorytetu: ",
     "RequiredQuorum": "Wymagane kworum: ",
-    "CurrentPresence": "aktualna obecność: "
+    "CurrentPresence": "aktualna obecność: ",
+    "Guide": "Przewodnik",
+    "GeneralInformation": "Informacje ogólne",
+    "SystemPanels": "Panele Systemu"
   },
   "ques": {
     "WhatIsIt": "Co to jest SDD i do czego służy?"
@@ -156,7 +158,7 @@
     "VotingC": "1. odpowiednie wsparcie Kwestii przez Użytkowników (wysoki dodatni priorytet). W danym momencie tylko 3 najwyżej oceniane Kwestie przechodzą do głosowania,",
     "VotingD": "2. istnienie wymaganego kworum obecnych w głosowaniu,",
     "VotingE": "3. akces troje chętnych do składu Zespołu Realizacyjnego.",
-    "Implement": "Realizacja",
+    "Implement": "REALIZACJA",
     "ImplementA": "Tu zobaczysz Kwestie, które z powodzeniem przeszły proces deliberacji, a później głosowania.",
     "ImplementB": "W takim wypadku generowana jest uchwała, a tym samym rozpoczyna się jej realizacja pilotowana przez Zespół Realizacyjny.",
     "ImplementC": "Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do działu Zrealizowane, lub do Archiwum, jeśli będzie ona uznana za nietrafioną, lub w inny sposób nie do realizacji.",
