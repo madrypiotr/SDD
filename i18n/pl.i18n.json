@@ -88,6 +88,9 @@
     "RequiredQuorum": "Wymagane kworum: ",
     "CurrentPresence": "aktualna obecność: "
   },
+  "ques": {
+    "WhatIsIt": "Co to jest SDD i do czego służy?"
+  },
   "header": {
     "heaLanguages": "Języki",
     "heaIssues": "Kwestie",
@@ -105,7 +108,7 @@
   "dym": {
     "AboutSystem": "O Systemie Deliberacyjno Decyzyjnym...",
     "AboutSystemA": "SDD, to platforma dla tworzenia prawa, a następnie zarządzania jego stosowaniem. Umożliwi Ci wpływ na wszystko, cokolwiek będzie procedowane w społeczności nim objętej. Tu masz równy wobec innych dostęp do wnioskowania, uzgadniania i podejmowania decyzji.",
-    "AboutSystemB": "SDD działa na zasadzie Zebranie Ogólnego Członków trwającego nieprzerwanie, a wszystkie decyzje wynikają z woli Ogółu zgromadzonych tu Członków. W konsekwencji, SDD czyni zbędnymi ingerencje jednoosobowego decydenta i zarządu dla potrzeb wewnętrznych organizacji.",
+    "AboutSystemB": "SDD jest narzędziem dla grup, organizacji i społeczności dla kompleksowego zarządzania swoją działalnością. Narzędzie to wyróżnia się od innych z tej dziedziny tym, że wszystkie procedury i decyzje są realizowane zgodnie z wolą ogółu użytkowników Systemu. Pozwala prowadzić permanentne zebranie ogólne, generując uchwały obowiazujące w organizacji, wyręczając tym samym funkcje prezesa i zarządu w organizacji społecznej.",
     "AboutSystemC": "Nie ma tu administratora, który mógłby arbitralnie cokolwiek zmieniać. Wszelkie parametry funkcjonalne Systemu ustawiane są tylko decyzją Ogółu.",
     "AboutSystemD": "Twórcy Systemu życzą wielu sukcesów i zadowolenia z jego używania!",
     "AboutSystemE": "Obszerniejszy opis Systemu",
