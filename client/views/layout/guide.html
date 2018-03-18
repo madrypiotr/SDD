@@ -6,60 +6,147 @@
 		<div class="row">
 			<div class="col-lg-12 ">
 <h3><center>{{_ "glob.Guide"}}</center></h3>
-<h4>{{_ "glob.GeneralInformation"}}</h4>
 			
 <div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#g0001" aria-expanded="false" aria-controls="g0001">
     {{_ "ques.WhatIsIt"}} </a></div> <div aria-expanded="true"  class="collapse" id="g0001">   <div class="card card-body">
-    {{_ "dym.AboutSystemB"}} 
+    {{_ "dym.AboutSystemB"}} <br /> {{_ "dym.AboutSystemA"}} {{_ "dym.AboutSystemG"}} 
   </div></div>
 			
-<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#g0002" aria-expanded="false" aria-controls="g0002">
-    Jak działa, jakie funkcje zapewnia SDD? </a></div> <div class="collapse" id="g0002">   <div class="card card-body">
-    2 Opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+ <div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#g0002" aria-expanded="false" aria-controls="g0002">
+    {{_ "ques.HowItWorks"}} </a></div> 
+	<div class="collapse" id="g0002">   <div class="card card-body">
+    {{_ "dym.AboutSystemF"}} {{_ "dym.AboutSystemC"}} {{_ "dym.AboutSystemH"}} <br />{{_ "more.AplyMembA"}}
   </div></div>
-			
+
 <div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#g0003" aria-expanded="false" aria-controls="g0003">
-    Jakiś temat3 </a></div> <div class="collapse" id="g0003">   <div class="card card-body">
-    3 Opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+      {{_ "ques.ImplemOfRes"}} </a></div> 
+	<div class="collapse" id="g0003">   <div class="card card-body">
+    {{_ "dym.ImplementD"}} {{_ "dym.CreatingTeamsRealizA"}} {{_ "dym.CreatingTeamsRealizD"}} {{_ "dym.ImplementC"}} <br />
+    {{_ "dym.OnTheImplementOfB"}} <br />
+    {{_ "more.DuringImpC"}} 
   </div></div>
 
-
-
-<h4>{{_ "glob.SystemPanels"}}</h4>
-
-
+<!-- Tabs group 1 -->
  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#kwe">{{_ "dym.Issues"}}</a></li>
-    <li><a data-toggle="tab" href="#glo">{{_ "dym.Voting"}}</a></li>
-    <li><a data-toggle="tab" href="#rea">{{_ "dym.Implement"}}</a></li>
-    <li><a data-toggle="tab" href="#arc">{{_ "dym.INarchi"}}</a></li>
+    <li class="active"><a data-toggle="tab" href="#kwe"> <small>{{_ "dym.Issues"}}</small></a></li>
+    <li><a data-toggle="tab" href="#glo"><small> {{_ "dym.Voting"}}</small></a></li>
+    <li><a data-toggle="tab" href="#rea"><small> {{_ "dym.Implement"}}</small></a></li>
   </ul>
-
   <div class="tab-content">
 		<div id="kwe" class="tab-pane fade in active">
 				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#k0001" aria-expanded="false" aria-controls="k0001">
-					{{_ "header.heaIssues"}} </a></div> <div aria-expanded="true"  class="collapse" id="k0001">   <div class="card card-body">
-					{{_ "dym.AboutSystemB"}} 
+					{{_ "ques.WhatIsTheIssue"}} </a></div> <div aria-expanded="true"  class="collapse" id="k0001">   <div class="card card-body">
+					{{_ "dym.IssuesA"}} {{_ "dym.IssuesB"}} {{_ "dym.IssuesC"}} 
 				  </div></div>
 							
 				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#k0002" aria-expanded="false" aria-controls="k0002">
-					Jak? </a></div> <div class="collapse" id="k0002">   <div class="card card-body">
-					Opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+					{{_ "ques.-"}}  </a></div> <div class="collapse" id="k0002">   <div class="card card-body">
+					{{_ "dym.-"}} {{_ "dym.-"}} {{_ "dym.-"}} 
 				  </div></div>
 							
 				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#k0003" aria-expanded="false" aria-controls="k0003">
-					Jakiś </a></div> <div class="collapse" id="k0003">   <div class="card card-body">
-					Opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+					{{_ "ques.-"}}  </a></div> <div class="collapse" id="k0003">   <div class="card card-body">
+					{{_ "dym.-"}} {{_ "dym.-"}} {{_ "dym.-"}} 
 				  </div></div>
 		</div>
 		<div id="glo" class="tab-pane fade">
-		glo    
+				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#gl001" aria-expanded="false" aria-controls="gl001">
+					{{_ "ques.HowIsTheVoteImplem"}} </a></div> <div aria-expanded="true"  class="collapse" id="gl001">   <div class="card card-body">
+					{{_ "dym.VotingA"}}. <br />
+					{{_ "dym.OnTheImplementOf"}} 
+					{{_ "more.VotingA"}} 
+					{{_ "more.VotingB"}} 
+				  </div></div>
+							
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#gl002" aria-expanded="false" aria-controls="gl002">
+					{{_ "ques.TermsOfVoting"}}  </a></div> <div class="collapse" id="gl002">   <div class="card card-body">
+					{{_ "dym.VotingB"}} <br />
+					{{_ "dym.VotingC"}} <br />
+					{{_ "dym.VotingD"}} <br />
+					{{_ "dym.VotingE"}} <br />
+				  </div></div>
+							
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#gl003" aria-expanded="false" aria-controls="gl003">
+					{{_ "ques.-"}}  </a></div> <div class="collapse" id="gl003">   <div class="card card-body">
+					{{_ "dym.-"}} {{_ "dym.-"}} {{_ "dym.-"}} 
+				  </div></div>
 		</div>
 		<div id="rea" class="tab-pane fade">
-		rea    
+<!-- Realizowane -->
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<b class="btn  btn-default disabled btn-sm">{{_ "realizacja.rzcDuringImplementation"}}</b><br />
+
+				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#r0001" aria-expanded="false" aria-controls="r0001">
+					{{_ "ques.-"}} </a></div> <div aria-expanded="true"  class="collapse" id="r0001">   <div class="card card-body">
+					{{_ "more.-"}} {{_ "more.-"}} {{_ "more.-"}} <br />
+					{{_ "dym.-"}} {{_ "dym.-"}}  
+					{{_ "dym.-"}} {{_ "dym.-"}}  
+				  </div></div>
+							
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#r0002" aria-expanded="false" aria-controls="r0002">
+					{{_ "ques.-"}}  </a></div> <div class="collapse" id="r0002">   <div class="card card-body">
+					Opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+				  </div></div>
+							
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#r0003" aria-expanded="false" aria-controls="r0003">
+					{{_ "ques.-"}} </a></div> <div class="collapse" id="r0003">   <div class="card card-body">
+					Opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+				  </div></div>
+<!-- Zrealizowane -->
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<b class="btn  btn-default disabled btn-sm">{{_ "realizacja.rzcCompletedImplementation"}}</b>
+
+				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#z0001" aria-expanded="false" aria-controls="z0001">
+					{{_ "ques.-"}} </a></div> <div aria-expanded="true"  class="collapse" id="z0001">   <div class="card card-body">
+					{{_ "more.-"}} {{_ "more.-"}} {{_ "more.-"}} <br />
+					{{_ "dym.-"}} {{_ "dym.-"}}  
+					{{_ "dym.-"}} {{_ "dym.-"}}  
+				  </div></div>
+							
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#z0002" aria-expanded="false" aria-controls="z0002">
+					{{_ "ques.-"}}  </a></div> <div class="collapse" id="z0002">   <div class="card card-body">
+					Opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+				  </div></div>
+							
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#z0003" aria-expanded="false" aria-controls="z0003">
+					{{_ "ques.-"}}  </a></div> <div class="collapse" id="z0003">   <div class="card card-body">
+					Opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+				  </div></div>
+			
 		</div>
-		<div id="arc" class="tab-pane fade">
-		arc
+	</div>
+
+<!-- Tabs group 2 -->
+ <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#arc"><small>{{_ "dym.INarchi"}}</small></a></li>
+    <li><a data-toggle="tab" href="#hib"><small>{{_ "dym.Hibernating"}}</small></a></li>
+    <li><a data-toggle="tab" href="#ust"><small>{{_ "dym.Settings"}}</small></a></li>
+  </ul>
+
+   <div class="tab-content">
+		<div id="arc" class="tab-pane fade in active">
+				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#a0001" aria-expanded="false" aria-controls="a0001">
+					{{_ "ques.WhatIsTheArchive"}} </a></div> <div aria-expanded="true"  class="collapse" id="a0001">   <div class="card card-body">
+					{{_ "more.TheIssueInTheTrashCanA"}} {{_ "more.TheIssueInTheTrashCanB"}} {{_ "more.TheIssueInTheTrashCanC"}} <br />
+					{{_ "dym.ImplementC"}} {{_ "dym.TXarchC"}}  
+					{{_ "dym.TXarchA"}} {{_ "dym.TXarchB"}}  
+				  </div></div>
+							
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#a0002" aria-expanded="false" aria-controls="a0002">
+					{{_ "ques.-"}}  </a></div> <div class="collapse" id="a0002">   <div class="card card-body">
+					Opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+				  </div></div>
+							
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#a0003" aria-expanded="false" aria-controls="a0003">
+					{{_ "ques.-"}}  </a></div> <div class="collapse" id="a0003">   <div class="card card-body">
+					Opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+				  </div></div>
+		</div>
+		<div id="hib" class="tab-pane fade">
+		hib    
+		</div>
+		<div id="ust" class="tab-pane fade">
+		ust    
 		</div>
     </div>
 
