@@ -5,8 +5,8 @@
 	<div class="main" >
 		<div class="row">
 			<div class="col-lg-12 ">
-<h3><center>{{_ "glob.Guide"}}</center></h3>
-			
+<center><h3>{{_ "glob.Guide"}}</h3>
+	<small>{{_ "more.GuideC"}}</small>		</center>	
 <div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#g0001" aria-expanded="false" aria-controls="g0001">
     {{_ "ques.WhatIsIt"}} </a></div> <div aria-expanded="true"  class="collapse" id="g0001">   <div class="card card-body">
     {{_ "dym.AboutSystemB"}} <br /> {{_ "dym.AboutSystemA"}} {{_ "dym.AboutSystemG"}} 
@@ -15,7 +15,7 @@
  <div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#g0002" aria-expanded="false" aria-controls="g0002">
     {{_ "ques.HowItWorks"}} </a></div> 
 	<div class="collapse" id="g0002">   <div class="card card-body">
-    {{_ "dym.AboutSystemF"}} {{_ "dym.AboutSystemC"}} {{_ "dym.AboutSystemH"}} <br />{{_ "more.AplyMembA"}}
+    {{_ "dym.AboutSystemF"}} {{_ "dym.AboutSystemC"}} {{_ "dym.AboutSystemH"}} 	<br />{{_ "more.AplyMembA"}}
   </div></div>
 
 <div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#g0003" aria-expanded="false" aria-controls="g0003">
@@ -32,22 +32,33 @@
     <li><a data-toggle="tab" href="#glo"><small> {{_ "dym.Voting"}}</small></a></li>
     <li><a data-toggle="tab" href="#rea"><small> {{_ "dym.Implement"}}</small></a></li>
   </ul>
+<!-- KWESTIA -->
   <div class="tab-content">
 		<div id="kwe" class="tab-pane fade in active">
 				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#k0001" aria-expanded="false" aria-controls="k0001">
 					{{_ "ques.WhatIsTheIssue"}} </a></div> <div aria-expanded="true"  class="collapse" id="k0001">   <div class="card card-body">
 					{{_ "dym.IssuesA"}} {{_ "dym.IssuesB"}} {{_ "dym.IssuesC"}} 
 				  </div></div>
-							
+
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#k0001a" aria-expanded="false" aria-controls="k0001a">
+					{{_ "dym.NamingIssues"}}  </a></div> <div class="collapse" id="k0001a">   <div class="card card-body">
+					{{_ "dym.HowToName"}} {{_ "dym.NamingIssuesA"}} 
+				  </div></div>
+				  
 				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#k0002" aria-expanded="false" aria-controls="k0002">
-					{{_ "ques.-"}}  </a></div> <div class="collapse" id="k0002">   <div class="card card-body">
-					{{_ "dym.-"}} {{_ "dym.-"}} {{_ "dym.-"}} 
+					{{_ "ques.SubjectAndTypeOfIssue"}}  </a></div> <div class="collapse" id="k0002">   <div class="card card-body">
+					<strong>{{_ "glob.Subject"}}</strong>. {{_ "dym.DescrOfSubject"}} {{_ "dym.DescrOfSubjectA"}} <br />
+					<strong>{{_ "glob.Type"}}</strong>. {{_ "dym.DescrOfType"}} {{_ "dym.DescrOfTypeA"}} 
 				  </div></div>
 							
-				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#k0003" aria-expanded="false" aria-controls="k0003">
-					{{_ "ques.-"}}  </a></div> <div class="collapse" id="k0003">   <div class="card card-body">
-					{{_ "dym.-"}} {{_ "dym.-"}} {{_ "dym.-"}} 
+				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#k0002a" aria-expanded="false" aria-controls="k0002a">
+					{{_ "ques.WhatIsThePriorityOfTheIssue"}}  </a></div> <div class="collapse" id="k0002a">   <div class="card card-body">
+					{{_ "dym.PriorityIssuesB"}} {{_ "dym.PriorityIssuesC"}} 
+					{{_ "dym.PriorityIssuesA"}} 
+					{{_ "more.VotingB"}} <br />
+					{{_ "more.ImplemIssueDetailsC"}} 
 				  </div></div>
+<!-- G£OSOWANIE -->
 		</div>
 		<div id="glo" class="tab-pane fade">
 				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#gl001" aria-expanded="false" aria-controls="gl001">
@@ -71,6 +82,7 @@
 					{{_ "dym.-"}} {{_ "dym.-"}} {{_ "dym.-"}} 
 				  </div></div>
 		</div>
+<!-- REALIZACJA -->
 		<div id="rea" class="tab-pane fade">
 <!-- Realizowane -->
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -119,10 +131,9 @@
 <!-- Tabs group 2 -->
  <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#arc"><small>{{_ "dym.INarchi"}}</small></a></li>
-    <li><a data-toggle="tab" href="#hib"><small>{{_ "dym.Hibernating"}}</small></a></li>
     <li><a data-toggle="tab" href="#ust"><small>{{_ "dym.Settings"}}</small></a></li>
   </ul>
-
+<!-- ARCHIWUM -->
    <div class="tab-content">
 		<div id="arc" class="tab-pane fade in active">
 				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#a0001" aria-expanded="false" aria-controls="a0001">
@@ -131,22 +142,25 @@
 					{{_ "dym.ImplementC"}} {{_ "dym.TXarchC"}}  
 					{{_ "dym.TXarchA"}} {{_ "dym.TXarchB"}}  
 				  </div></div>
-							
-				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#a0002" aria-expanded="false" aria-controls="a0002">
-					{{_ "ques.-"}}  </a></div> <div class="collapse" id="a0002">   <div class="card card-body">
-					Opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis opis o.
-				  </div></div>
-							
-				<div><a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#a0003" aria-expanded="false" aria-controls="a0003">
-					{{_ "ques.-"}}  </a></div> <div class="collapse" id="a0003">   <div class="card card-body">
-					Opis opis opis opis opis opis opis opis opis opis opis opis opis o.
+<!-- HIBERNOWANE -->
+				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#h0001" aria-expanded="false" aria-controls="h0001">
+					{{_ "ques.WhatIsHibernatingTheIssue"}} </a></div> <div aria-expanded="true"  class="collapse" id="h0001">   <div class="card card-body">
+					{{_ "dym.HibernatingA"}} {{_ "dym.HibernatingB"}} {{_ "dym.HibernatingC"}} 
 				  </div></div>
 		</div>
-		<div id="hib" class="tab-pane fade">
-		hib    
-		</div>
+<!-- USTAWIENIA -->
 		<div id="ust" class="tab-pane fade">
-		ust    
+				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#u0001" aria-expanded="false" aria-controls="u0001">
+					{{_ "ques.WhatAreTheSettings"}} </a></div> <div aria-expanded="true"  class="collapse" id="u0001">   <div class="card card-body">
+					{{_ "dym.SettingsA"}} {{_ "dym.SettingsC"}} <br />
+					{{_ "dym.SettingsB"}} {{_ "dym.SettingsD"}}
+				  </div></div> 
+				  
+				<div><a  class="btn btn-primary btn-xs" data-toggle="collapse" href="#u0002" aria-expanded="false" aria-controls="u0002">
+					{{_ "ques.WhyShouldWeSetGlobalParam"}} </a></div> <div aria-expanded="true"  class="collapse" id="u0002">   <div class="card card-body">
+				{{_ "dym.SettingsE"}}	 <br /> {{_ "dym.AboutSystemC"}} {{_ "dym.AboutSystemH"}}
+					
+				  </div></div>
 		</div>
     </div>
 
@@ -159,20 +173,14 @@
 
 <!--
 ### footer page info `` label `` GUIDE -->
-<div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "glob.Guide"}} </div>
-	<div id="container">
-		<div class="footer_center">
-					<p>{{_ "more.GuideA"}}</p>
-					<p>{{_ "more.GuideB"}}</p>
-					<p>{{_ "more.GuideC"}}</p>
+	<div class="footer">
+	  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "glob.Guide"}} </div>
+		<div id="container">
+			<div class="footer_center">
+						<p>{{_ "more.GuideA"}}</p>
+						<p>{{_ "more.GuideB"}}</p>
+						<p>{{_ "more.GuideC"}}</p>
+			</div>
 		</div>
 	</div>
-</div>
-
-<script>
-
-</script>
- 
-
 </template>
