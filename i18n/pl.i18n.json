@@ -99,6 +99,8 @@
     "TermsOfVoting": "Warunki awansu Kwestii do głosowania",
     "WhatIsTheImplemOfTheIssue": "Co to jest realizacja Kwestii?",
     "WhenIssueIsImplemented": "Kiedy Kwestia jest zrealizowana?",
+    "HowToMakeIssueTransferredToCompleted": "Jak spowodować przeniesienie Kwestii do zrealizowanych?",
+    "WhatIsIssueOption": "Co to jest Kwestia-Opcja?",
     "WhatIsTheArchive": "Czym jest Archiwum?",
     "WhatIsHibernatingTheIssue": "Co to jest hibernowanie Kwestii?",
     "WhatAreTheSettings": "Co to są ustawienia?",
@@ -647,8 +649,10 @@
   "realizacjaTab2": {
     "pinfoCompletedImplementation": "ZREALIZOWANE",
     "pinfoCompletedImplemA": "Realizacja Kwestii trwa tak długo, dopóki Ogół Użytkowników nie uzna ją za zrealizowaną, przesyłając ją do tego właśnie dzału - Zrealizowane.",
-    "pinfoCompletedImplemB": "Kwestie zrealizowane, to również Kwestie dotyczące ustawień globalnych, Kwestii okolicznościowych, dotyczacych jednorazowych wydarzeń, lub prcedur zakończonych, jednoznacznie sfinalizowanych, itp...."
-  },
+    "pinfoCompletedImplemB": "Kwestie zrealizowane, to również Kwestie dotyczące skutecznych ustawień globalnych, Kwestii okolicznościowych, dotyczacych jednorazowych wydarzeń, lub prcedur zakończonych, jednoznacznie sfinalizowanych, itp....",
+     "HowToMakeIssueMoveToComplA": "Kiedy uznasz, że Kwestia zasługuje na miano zrealizowanej - naciśnij przycisk [Zrealizowana] w podglądzie jej szczegółów, podaj uzasadnienie i zatwierdź. ",
+     "HowToMakeIssueMoveToComplB": "Powstanie w dyskusji tej Kwestii komentarz specjalny, który spowoduje przeniesienie jej do działu [Zrealizowane], ale nie natychmiast. Będzie to zależało od ogółu Użytkowników, którzy swoimi priorytetami wesprą Twoją propozycję. "
+ },
   "editParametrModalInner": {
     "epmParameterEdition": "Edycja parametru",
     "epmConfirmChanges": "Zmień"
