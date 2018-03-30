@@ -94,7 +94,11 @@ Template.language.events({
 
     'click #organizationName': function () {
         Router.go('home');
+    },
+	'click #guide': function () {
+	Router.go('guide');
     }
+
 });
 
 Template.header.events({

@@ -10,5 +10,5 @@ Template.mainpage.events({
     },
     'click #wievMap': function () {
         Router.go('map');
-    }
+    },
 });

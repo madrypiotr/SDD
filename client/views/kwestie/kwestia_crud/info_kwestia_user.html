@@ -71,11 +71,7 @@
                     <strong>{{kwestiaNazwa}}</strong>,
                     <small> {{status}}
                         <!-- ``txv`` from date -->
-                        {{_ "issueDetails.iDeFrom"}} {{date}},
-                        <!-- ``txv`` Subject -->
-                        {{_ "glob.Subject"}}: {{tematNazwa.nazwaTemat}},
-                        <!-- ``txv`` Type -->
-                        {{_ "glob.Type"}} {{rodzajNazwa.nazwaRodzaj}}</small>
+                        {{_ "issueDetails.iDeFrom"}} {{date}} </small>
                 </legend>
                 {{#if anyEmailProblem}}
                     <div class="col-md-6 bg-danger padding-10" style="text-align: center ">
