@@ -1,0 +1,33 @@
+<!--
+``client\views\admin\jezyki\``trans_language.html
+## Translate language -->
+<template name="transLanguage">
+    {{#if currentUser}}
+        <div class="main">
+            <legend>
+				<!--
+				``txv`` Language list -->
+{{_ "language.translateLanguage"}}</legend>
+            <div class="row">
+                <div class="col-md-12">
+                 <form><center>
+				<input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
+				<input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
+				</center></form>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+<!--
+### footer page info `` label `` LIST OF LANGUAGES -->
+<div class="footer">
+  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "language.translateLanguage"}} </div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "language.translateInfoA"}}</p>
+			<p>{{_ "language.translateInfoB"}}</p>
+			<p>{{_ "language.translateInfoC"}}</p>
+		</div>
+	</div>
+</div>
+</template>

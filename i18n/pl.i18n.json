@@ -219,7 +219,12 @@
     "UsersList": "Znajdziesz tutaj wykaz Użytkowników Systemu oraz będziesz mógł się z nimi kontaktować."
   },
   "language": {
-    "lanSystSDD": "SDD"
+    "lanSystSDD": "SDD",
+    "translateLanguage": "Tłumaczenie języka",
+    "translate": "Tłumacz",
+    "translateInfoA": "Jeśli język, na który chcesz tłumaczyć SDD nie istnieje - dodaj go najpierw do listy.",
+    "translateInfoB": ".",
+    "translateInfoC": "."
   },
   "addLanguage": {
     "AddLangua": "Dodaj język",
@@ -239,6 +244,9 @@
   },
   "listLanguages": {
     "listOfLanguages": "Lista języków",
+    "listOfLanguagesA": ".",
+    "listOfLanguagesB": ".",
+    "listOfLanguagesC": ".",
     "Label": "WYKAZ JĘZYKÓW",
     "polski": "polski",
     "angielski": "angielski",
