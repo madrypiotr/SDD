@@ -7,7 +7,12 @@
 # SDD changelog
 
 ---
-### [0.4.1] – 2017-- **Unreleased**
+### [0.4.2] – 2018-- **Unreleased**
+>###### 
+---
+### [0.4.1] – 2018-04-01 **Changed, added**
+* upgrade METEOR 1.5.2 -> 1.6.1,
+* implement Guide.
 >###### 
 ---
 ### [0.4.0] – 2017-09-15 **Changed**
