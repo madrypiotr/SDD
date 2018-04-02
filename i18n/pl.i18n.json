@@ -220,11 +220,10 @@
   },
   "language": {
     "lanSystSDD": "SDD",
-    "translateLanguage": "Tłumaczenie języka",
-    "translate": "Tłumacz",
+    "translate": "TŁUMACZ",
     "translateInfoA": "Tutaj dokonujesz translacji wszystkich słów, zdań i komunikatów dla wybranego języka. Jeśli się tego podejmujesz - doprowadź do końca tłumaczenia dla wszystkich pól. Puste miejsca z prawej kolumny będą zastępowane nazwami zmiennych tekstowych kodu źródłowego. ",
     "translateInfoB": "Najpierw wskaż język, który będzie dla Ciebie najlepszym wzorem (lewa kolumna), a następnie wybierz język docelowy (na który odbędzie się tłumaczenie). ",
-    "translateInfoC": "Wpisuj (lub edytuj) odpowiednie pola w prawej kolumnie. Jeśli język, na który chcesz tłumaczyć SDD nie istnieje - dodaj go najpierw do listy. Tłumaczenie istniejącego już języka w SDD możesz rozumieć jako edytowanie istniejących już słów i zdań, lub definiowanie nowych, gdy pole jest puste.",
+    "translateInfoC": "Wpisuj (lub edytuj) odpowiednie pola w prawej kolumnie. Jeśli język, na który chcesz tłumaczyć SDD nie istnieje - wróć i dodaj go najpierw do listy. Tłumaczenie istniejącego już języka w SDD możesz rozumieć jako edytowanie istniejących już słów i zdań, lub definiowanie nowych, gdy pole jest puste.",
     "translateInfoD": "Nie zapomnij kliknąć przycisku [Zapisz], aby nie utracić swojej pracy."
   },
   "addLanguage": {

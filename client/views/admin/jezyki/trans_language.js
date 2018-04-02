@@ -4,3 +4,4 @@ Template.transLanguage.events({
         Router.go('listLanguages');
     }
 });
+
