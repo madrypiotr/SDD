@@ -9,41 +9,31 @@
 			
 {{languageCount}}		<br />			
 {{languages}}		        <br />	
-
+ <br />	
 		
-{{language0}}		<br />	
-{{language1}}		<br />	
-{{language2}}		<br />	
-{{language3}}		<br />	
-			
-			
+<!-- Poniżej, to tylko prosty kod, dla uzyskania szkicu poglądowego strony. 
+       Oczywiście dane dla wyboru muszą pochodzić z bazy dostepnych języków -->			
+                 <form action="*">
 <center>
 			<input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
 				<input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
 </center>
-<!-- Poniżej, to tylko prosty kod, dla uzyskania szkicu poglądowego strony. 
-       Oczywiście dane dla wyboru muszą pochodzić z bazy dostepnych języków -->			
-                 <form action="*">
 <div>
 <table style="width:100%" class= "table-bordered"  border="1">
 	<th style="width:50%" >
 				 Język źródłowy: 
 				 <select>
-					  <option>
-					  
-					  pl
-					  
-					  </option>
-					  <option>en</option>
-					  <option>fr</option>
+					  <option>{{languageSource0}}</option>
+					  <option>{{languageSource1}}</option>
+					  <option>{{languageSource2}}</option>
 				</select>
 	</th>				
 	<th style="width:50%"  >
 				 Język docelowy: 
 				 <select>
-					  <option>en</option>
-					  <option>pl</option>
-					  <option>fr</option>
+					  <option>{{languageTarget0}}</option>
+					  <option>{{languageTarget1}}</option>
+					  <option>{{languageTarget2}}</option>
 				</select>
 	</th>	
 	<tr><td valign="top">SDD</td> <td valign="top"><textarea   rows="5" cols="75%">SDD</textarea></td></tr> 
@@ -56,11 +46,11 @@
 	<tr><td valign="top">Logowanie do systemu: </td> <td valign="top"><textarea   rows="5" cols="75%">System logging in: </textarea></td></tr> 
 </table>				
 </div>					
-				</form>
 <center>
 			<input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
 				<input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
 </center>
+				</form>
 			</div>	
     {{/if}}
 	

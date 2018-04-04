@@ -12,24 +12,43 @@ Template.transLanguage.helpers({
         return Languages.find().count();
     },
     languages: function () {
+		
         return Languages.find({}).fetch();
 		
 		
    },
-    language0: function (id) {
-        return Languages.findOne({_id: 0});
+    languageSource0: function () {
+		wart = "pl";
+		return wart
+        
     },
 	
-    language1: function () {
-        return Languages.find(1);
+    languageSource1: function () {
+		wart = "en";
+		return wart
     },
 	
-    language2: function () {
-        return Languages.find(2);
+    languageSource2: function () {
+		wart = "fr";
+		return wart
     },
 	
-    language3: function () {
-        return Languages.find(3);
+	
+    languageTarget0: function () {
+		wart = "en";
+		return wart
+        
+    },
+	
+    languageTarget1: function () {
+		wart = "pl";
+		return wart
+    },
+	
+    languageTarget2: function () {
+		wart = "fr";
+		return wart
     }
+	
 	
 });
