@@ -64,69 +64,18 @@
                                    placeholder="{{_ 'glob.Lname'}}" value={{profile.lastName}} required {{isNotEmpty}}>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" for="phoneNumber">
-                            <!-- ``txv`` Personal ID -->
-                            {{_ 'glob.PID'}}: </label>
 
-                        <div class="col-xs-9">
-                            <input name="pesel" type="text" class="form-control" id="pesel"
-                                   placeholder="{{_ 'glob.PID'}}" value={{profile.pesel}} required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" for="postalAddress">
-                            <!-- ``txv`` Address -->
-                            {{_ 'glob.Address'}}: </label>
-
-                        <div class="col-xs-9">
-                            <textarea
-                                    name="address"
-                                    rows="3"
-                                    class="form-control"
-                                    id="postalAddress"
-                                    placeholder="{{_ 'glob.Address'}}"
-                                    value={{profile.address}}
-                                    required
-                            ></textarea>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
-                            <!-- ``txv`` Postal Code -->
-                            {{_ 'glob.PostalC'}}: </label>
-                        <div class="col-xs-9">
-                            <input class="form-control" type="text" name="ZipCode" id="ZipCode"
-                                   placeholder="{{_ 'glob.PostalC'}}" required />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3">
-                            <!-- ``txv`` City -->
-                            {{_ 'glob.City'}}: </label>
-                        <div class="col-xs-9">
-                            <input name="city" type="text" class="form-control" id="city"
-                                   placeholder="{{_ 'glob.City'}}" value={{profile.city}} required {{isNotEmpty}}>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-xs-3" for="uwagiStatus">
-                            <!-- ``txv`` Additional -->
-                            {{_ 'czlonekZwyczajnyForm.cZwAdditional'}}: </label>
+				
 
-                        <div class="col-xs-9">
-                            <!-- ``txv`` Write some words about yourself and motivation of your application... -->
-                            <textarea
-                                    name="uwagi"
-                                    rows="3"
-                                    class="form-control"
-                                    id="uwagiStatus"
-                                    placeholder="{{_ 'czlonekZwyczajnyForm.cZwWriteAfewWordsToUsAboutYourself'}}"
-                            ></textarea>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label class="control-label col-xs-3">
+<!-- zawartoœæ wyciêta na okres testów ... 			
+Po testach - dla uzupe³nienia wstawiæ tê czêœæ kodu z wersji wczeœniejszej. -->		
+						</label>
+					</div>	
+					
                             <!-- ``txv`` Language of the User -->
                             {{_ 'czlonekZwyczajnyForm.cZwLanguageUser'}}: </label>
 

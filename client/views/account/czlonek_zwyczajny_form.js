@@ -14,6 +14,7 @@ Template.czlonekZwyczajnyForm.rendered = function () {
             confirmPassword: {
                 equalTo: '#inputPassword'
             },
+/* wyciete na okres testów ...
             pesel: {
                 exactlength: 11,
                 peselValidation: true,
@@ -23,6 +24,7 @@ Template.czlonekZwyczajnyForm.rendered = function () {
                 zipCodeValidation1: true,
                 zipCodeValidation2: true
             },
+*/			
             language: {
                 isNotEmptyValue: true
             }
@@ -41,7 +43,11 @@ Template.czlonekZwyczajnyForm.rendered = function () {
             lastName: {
                 required: fieldEmptyMessage
             },
+/* wyciete na okres testów ...
             address: {
+                required: fieldEmptyMessage
+            },
+            city: {
                 required: fieldEmptyMessage
             },
             ZipCode: {
@@ -50,9 +56,7 @@ Template.czlonekZwyczajnyForm.rendered = function () {
             pesel: {
                 required: fieldEmptyMessage
             },
-            city: {
-                required: fieldEmptyMessage
-            },
+*/			
             statutConfirmation: {
                 required: fieldEmptyMessage()
             },
@@ -94,16 +98,18 @@ Template.czlonekZwyczajnyForm.events({
                             login: '',
                             firstName: firstName,
                             lastName: lastName,
+/* wycięte na okres testów ...
                             address: $(e.target).find('[name=address]').val(),
+                            city: $(e.target).find('[name=city]').val(),
                             zip: $(e.target).find('[name=ZipCode]').val(),
+                            pesel: $(e.target).find('[name=pesel]').val(),
+*/
                             role: 'user',
                             userType: USERTYPE.CZLONEK,
                             uwagi: $(e.target).find('[name=uwagi]').val(),
                             language: $(e.target).find('[name=language]').val(),
                             isExpectant: false,
-                            idUser: idUser,
-                            city: $(e.target).find('[name=city]').val(),
-                            pesel: $(e.target).find('[name=pesel]').val()
+                            idUser: idUser
                         }];
                         if (idUser) {
                             addIssueOsobowa(newUser);
