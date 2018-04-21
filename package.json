@@ -1,6 +1,6 @@
 {
   "name": "SDD",
-  "version": "1.0.0",
+  "version": "0.4.1",
   "description": "![](https://github.com/madrypiotr/SDD/blob/master/client/stylesheets/sdd_baner.jpg)",
   "scripts": {
     "start": "meteor",
