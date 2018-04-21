@@ -8,7 +8,7 @@ Template.realizacjaTab1.helpers({
             enableRegex: false,
             fields: [
                 {key: 'dataRealizacji', label: TAPi18n.__('txv.START_OF_THE_IMPLEMENTATION'), tmpl: Template.dataRealizKwestia},
-                // { key: 'numerUchwaly', label: TAPi18n.__ ( 'txv.RESOLUTION_NO' ), tmpl: Template.numerUchwKwestia },
+                { key: 'numerUchwaly', label: TAPi18n.__ ( 'txv.RESOLUTION_NO' ), tmpl: Template.numerUchwKwestia },
                 {key: 'kwestiaNazwa', label: TAPi18n.__('glob.NameIssue'), tmpl: Template.nazwaKwestiLink},
                 {key: 'idTemat', label: TAPi18n.__('glob.Subject'), tmpl: Template.tematKwestia},
                 // { key: 'idRodzaj', label: TAPi18n.__ ( 'txv.TYPE' ), tmpl: Template.rodzajKwestia },
