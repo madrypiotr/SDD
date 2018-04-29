@@ -26,13 +26,9 @@ Template.realizacjaTab2.helpers({
                 key: 'options',
                 label: TAPi18n.__('txv.OPTIONS'),
                 tmpl: Template.editColumnRealization
-            },
-                {
-				key: 'numerUchwaly', 
-				label: TAPi18n.__ ( 'txv.RESOLUTION_NO' ), 
-				tmpl: Template.numerUchwKwestia 
-			}
-                //                { key: 'idRodzaj', label: TAPi18n.__ ( 'glob.Type' ), tmpl: Template.rodzajKwestia }
+            }
+                //                { key: 'numerUchwaly', label: TAPi18n.__ ( 'txv.RESOLUTION_NO' ), tmpl: Template.numerUchwKwestia },
+                //                { key: 'idRodzaj', label: TAPi18n.__ ( 'glob.Type' ), tmpl: Template.rodzajKwestia },
             ]
         };
     },
