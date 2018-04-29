@@ -39,7 +39,7 @@ SyncedCron.add({
 });
 
 
-//==================================== wywoływane metody ======================================================//
+//====== wywoływane metody ======//
 
 var checkingRRExist = function () {
     var kwestie = Kwestia.find({
