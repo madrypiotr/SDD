@@ -39,7 +39,7 @@ SyncedCron.add({
 });
 
 
-//==================================== wywoływane metody ======================================================//
+//====== wywoływane metody ======//
 
 var checkingRRExist = function () {
     var kwestie = Kwestia.find({
@@ -106,7 +106,8 @@ var checkingEndOfVote = function () {
                     changeParametersSuccess(issueUpdated);
                 } else {
                     issueUpdated.dataRealizacji = new Date();
-                    issueUpdated.numerUchwaly = issueUpdated.issueNumber;//nadawanieNumeruUchwaly ( kwestia.dataRealizacji );
+                    issueUpdated.numerUchwaly = issueUpdated.issueNumber;
+					// nadawanieNumeruUchwaly(kwestia.dataRealizacji);
 
                     if (issueUpdated.idParent != null) {
                         hibernateKwestieOpcje(issueUpdated);
@@ -257,7 +258,7 @@ var checkingDeliberationExpiration = function () {
         }
     });
 };
-//=========================================== metody pomocnicze ===============================================//
+//======= metody pomocnicze ======//
 
 var awansUzytkownika = function (idZespoluRealiz, pktZaUdzialWZesp) {
     var zespol = ImplemTeamDraft.findOne({_id: idZespoluRealiz}).zespol;
@@ -267,18 +268,16 @@ var awansUzytkownika = function (idZespoluRealiz, pktZaUdzialWZesp) {
     });
 };
 
-//Nadawanie numeru uchwały - dla kwesti które przechodzą do realizacji, każdego dnia numery idą od 1
+//======= Nadawanie numeru uchwały - dla kwesti które przechodzą do realizacji, każdego dnia numery idą od 1
+// Ten sposób nadawania numeru uchwale nie jest właściwy. 
+// Brać numer z numeru Kwestii. Poprawny jest generowany w pliku server\methods\system.js
 var nadawanieNumeruUchwaly = function (dataRealizacji) {
-
     var numerUchw = 1;
     var kwestieRealizowane = Kwestia.find({czyAktywny: true, numerUchwaly: !null});
-
     kwestieRealizowane.forEach(function (kwestiaRealizowana) {
-
         if (kwestiaRealizowana.dataRealizacji.toDateString() == dataRealizacji.toDateString())
             numerUchw++;
     });
-
     return numerUchw;
 };
 //...................................................................................

@@ -57,7 +57,7 @@
     "HeAdoptedAresolutionOnTheImplemOfIssue": " podjęła uchwałę (w zał.) w sprawie realizacji Kwestii: ",
     "On": " dotyczącą: ",
     "WeInviteYouToSupportTheImplemOfThisResolution": "Zapraszamy do wsparcia realizacji tej uchwały: ",
-    "GoToTheDiscussionOfImplementation": "Idż do dyskusji realizacyjnej: ",
+    "GoToTheDiscussionOfImplementation": "Idź do dyskusji realizacyjnej: ",
     "LinkToDiscussion": "Link do dyskusji",
     "LinkToThisIssue": "Link do Kwestii",
     "IntroducedAnewIssue": " wprowadzono nową Kwestię",
@@ -207,7 +207,7 @@
     "OnTheImplementOfA": "Przykładem może być Kwestia osobowa (członkostwo użytkownika), która również znajduje się w realizacji tak długo, dopóki Użytkownik jest aktywny w Systemie.",
     "OnTheImplementOfB": "Kwestia w realizacji również podlega priorytetowaniu, co daje orientację Użytkownikom o jej stanie, a w razie obniżenia jej priorytetu realizacyjnego, Kwestia wypada z realizacji do Archiwum. Nie jest celowe utrzymywanie Kwestii w realizacji, co do której Ogół nie ma przekonania, że jest trafiona, lub uzna, że brak jest możliwości jej realizacji. Ogół również ma prawo się pomylić, natomiast wycofanie błędnej decyzji może nastąpić szybko.",
     "Hibernating": "HIBERNOWANE",
-    "HibernatingA": "Hibernowaniu podlegają wyłacznie te Kwestie-Opcje, które przegrały głosowanie i trwają w zamrożeniu, dopóki zwycieska Kwestia-Opcja jest w realizacji.",
+    "HibernatingA": "Hibernowaniu podlegają wyłacznie te Kwestie-Opcje, które przegrały głosowanie i trwają w zamrożeniu, dopóki zwycięska Kwestia-Opcja jest w realizacji.",
     "HibernatingB": "Kiedy Kwestia-Opcja wypadnie z realizacji, Kwestie hibernowane są przywracane do deliberacji.",
     "HibernatingC": "To logiczne, że spośród opcji, tylko jedna może znajdować się w realizacji.",
     "TrashCan": "ARCHIWUM",
@@ -219,7 +219,12 @@
     "UsersList": "Znajdziesz tutaj wykaz Użytkowników Systemu oraz będziesz mógł się z nimi kontaktować."
   },
   "language": {
-    "lanSystSDD": "SDD"
+    "lanSystSDD": "SDD",
+    "translate": "TŁUMACZ",
+    "translateInfoA": "Tutaj dokonujesz translacji wszystkich słów, zdań i komunikatów dla wybranego języka. Jeśli się tego podejmujesz - doprowadź do końca tłumaczenia dla wszystkich pól. Puste miejsca z prawej kolumny będą zastępowane nazwami zmiennych tekstowych kodu źródłowego. ",
+    "translateInfoB": "Najpierw wskaż język, który będzie dla Ciebie najlepszym wzorem (lewa kolumna), a następnie wybierz język docelowy (na który odbędzie się tłumaczenie). ",
+    "translateInfoC": "Wpisuj (lub edytuj) odpowiednie pola w prawej kolumnie. Jeśli język, na który chcesz tłumaczyć SDD nie istnieje - wróć i dodaj go najpierw do listy. Tłumaczenie istniejącego już języka w SDD możesz rozumieć jako edytowanie istniejących już słów i zdań, lub definiowanie nowych, gdy pole jest puste.",
+    "translateInfoD": "Nie zapomnij kliknąć przycisku [Zapisz], aby nie utracić swojej pracy."
   },
   "addLanguage": {
     "AddLangua": "Dodaj język",
@@ -239,6 +244,9 @@
   },
   "listLanguages": {
     "listOfLanguages": "Lista języków",
+    "listOfLanguagesA": ".",
+    "listOfLanguagesB": ".",
+    "listOfLanguagesC": ".",
     "Label": "WYKAZ JĘZYKÓW",
     "polski": "polski",
     "angielski": "angielski",

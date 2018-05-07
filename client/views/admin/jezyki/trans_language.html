@@ -1,0 +1,71 @@
+<!--
+``client\views\admin\jezyki\``trans_language.html
+## Translate language -->
+<template name="transLanguage">
+    {{#if currentUser}}
+        <div class="main">
+			<legend>{{_ "language.translate"}}</legend>
+			
+			
+{{languageCount}}		<br />			
+{{languages}}		        <br />	
+ <br />	
+		
+<!-- Poniżej, to tylko prosty kod, dla uzyskania szkicu poglądowego strony. 
+       Oczywiście dane dla wyboru muszą pochodzić z bazy dostepnych języków -->			
+                 <form action="*">
+<center>
+			<input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
+				<input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
+</center>
+<div>
+<table style="width:100%" class= "table-bordered"  border="1">
+	<th style="width:50%" >
+				 Język źródłowy: 
+				 <select>
+					  <option>{{languageSource0}}</option>
+					  <option>{{languageSource1}}</option>
+					  <option>{{languageSource2}}</option>
+				</select>
+	</th>				
+	<th style="width:50%"  >
+				 Język docelowy: 
+				 <select>
+					  <option>{{languageTarget0}}</option>
+					  <option>{{languageTarget1}}</option>
+					  <option>{{languageTarget2}}</option>
+				</select>
+	</th>	
+	<tr><td valign="top">SDD</td> <td valign="top"><textarea   rows="5" cols="75%">SDD</textarea></td></tr> 
+	<tr><td valign="top">Szanowny/a</td><td valign="top"><textarea   rows="5" cols="75%">Dear</textarea></td></tr>
+	<tr><td valign="top">SDD jest narzędziem dla grup, organizacji i społeczności dla kompleksowego zarządzania swoją działalnością. Narzędzie to wyróżnia się od innych z tej dziedziny tym, że wszystkie procedury i decyzje są realizowane zgodnie z wolą ogółu użytkowników Systemu. Pozwala prowadzić permanentne Zebranie Ogólne Członków, generując uchwały obowiazujące w organizacji, wyręczając tym samym funkcje prezesa i zarządu w organizacji społecznej.</td> <td valign="top"><textarea   rows="5" cols="75%">There is no need to chose one person Decision maker nor any bodies alike. These functions provides this System. Any decisions result from the will of its Members. You will best understand its' functioning imagining is as General Meting of Members which never stops. That is not possible in so called real everyday life. But thanks the System it became possible. Special decisive bodies in form of boards became superfluous.</textarea></td></tr> 
+	<tr><td valign="top">Regulamin</td><td valign="top"><textarea   rows="5" cols="75%">Regulamin</textarea></td></tr>
+	<tr><td valign="top">Opis z uzasadnieniem</td><td valign="top"><textarea   rows="5" cols="75%">Description with justification</textarea></td></tr>
+	<tr><td valign="top">Powstanie Zespołu Realizacyjnego, to jeden z trzech warunków (poza wymaganym kworum i wielkością priorytetu), aby Kwestia mogła przejść do realizacji.</td> <td valign="top"><textarea   rows="5" cols="75%">Before the Issue can be executed the creation of the Implementation Team as one of the three conditions must happen (the other conditions are Quorum and Priority rank value).</textarea></td></tr> 
+	<tr><td valign="top">System nie narzuca Ci konkretnych nazw, ale prosimy o dobór określeń adekwatnych do treści, abyśmy potem mogli łatwo odnajdywać Kwestie w oczekiwanych dziedzinach. Zanim samodzielnie ustalisz jego nazwę, sprawdź, czy istnieje już Rodzaj odpowiedni dla Tematu Twojej Kwestii? Przykładowy Rodzaj w Temacie organizacja to: zebranie, konferencja, zlot, impreza, wykład ... W temacie finanse: składki, dotacje, terminy, jawność, ... itp... Najlepiej ujmij Rodzaj jednym słowem.</td> <td valign="top"><textarea   rows="5" cols="75%">The System does not imply to use specific terms but you are welcome to select descriptions relevant to the content so that we might easily be able to find Matters in expected areas. Before you set your description check if there is already Field appropriate for Topic of your Matter? An example Field in Topic organisation is: meeting, conference, jamboree, event, lecture... In Topic finance: premium, subsidies, dates, transparency, ... etc. Best keep Field in one word.</textarea></td></tr> 
+	<tr><td valign="top">Logowanie do systemu: </td> <td valign="top"><textarea   rows="5" cols="75%">System logging in: </textarea></td></tr> 
+</table>				
+</div>					
+<center>
+			<input type="submit" class="btn btn-primary" value="{{_ 'glob.Save'}}">
+				<input type="reset" class="btn btn-default" value="{{_ 'glob.Cancel'}}">
+</center>
+				</form>
+			</div>	
+    {{/if}}
+	
+<!--
+### footer page info `` label `` LIST OF LANGUAGES -->
+<div class="footer">
+  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "language.translate"}} </div>
+	<div id="container">
+		<div class="footer_center">
+			<p>{{_ "language.translateInfoA"}}</p>
+			<p>{{_ "language.translateInfoB"}}</p>
+			<p>{{_ "language.translateInfoC"}}</p>
+			<p><strong>{{_ "language.translateInfoD"}}</strong></p>
+		</div>
+	</div>
+</div>
+
+</template>

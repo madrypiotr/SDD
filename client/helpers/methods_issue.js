@@ -213,6 +213,7 @@ createNewZRMethod = function (zrDraft, kwestia) {
     });
 };
 
+// Ten sposób nadawania numeru uchwale nie jest właściwy. Poprawny jest generowany w pliku server\methods\system.js
 nadawanieNumeruUchwalyMethod = function (dataRealizacji) {
     // assignment of Resolution Number
     var numerUchw = 1;

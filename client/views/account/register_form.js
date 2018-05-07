@@ -28,10 +28,12 @@ Template.registerForm.rendered = function () {
                 peselValidation: true,
                 peselValidation2: true
             },
+/* wyciete na okres testów ...
             ZipCode: {
                 zipCodeValidation1: true,
                 zipCodeValidation2: true
             },
+*/
             language: {
                 isNotEmptyValue: true
             }
@@ -57,6 +59,7 @@ Template.registerForm.rendered = function () {
             confirmPassword: {
                 equalTo: equalToMessage
             },
+/* wyciete na okres testów ...
             address: {
                 required: fieldEmptyMessage
             },
@@ -69,6 +72,7 @@ Template.registerForm.rendered = function () {
             city: {
                 required: fieldEmptyMessage
             },
+*/
             language: {
                 required: fieldEmptyMessage
             },
