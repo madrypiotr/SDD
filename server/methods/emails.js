@@ -81,7 +81,7 @@ Meteor.methods({
         });
         Email.send({
             to: receiver.emails[0].address,
-            from: senderName,
+            from: Etc.getEmailFrom(senderName),
             subject: subject,
             html: html
         });
@@ -143,7 +143,7 @@ Meteor.methods({
                 });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
+                    from: Etc.getEmailFrom(TAPi18n.__('txv.SYSTEM_NAME', null, lang)),
                     subject: TAPi18n.__('txv.ADD_NEW_ISSUE', null, lang),
                     html
                 });
@@ -223,7 +223,7 @@ Meteor.methods({
                 });
                 Email.send({
                     to: item.emails[0].address,
-                    from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
+                    from: Etc.getEmailFrom(TAPi18n.__('txv.SYSTEM_NAME', null, lang)),
                     subject: TAPi18n.__('txv.NO_CURRENT_REPORT', null, lang),
                     html: html
                 });
@@ -273,7 +273,7 @@ Meteor.methods({
                     Type: TAPi18n.__('glob.Type', null, lang)
                 });
                 Email.send({
-                    from: author.profile.firstName + ' ' + author.profile.lastName,
+                    from: Etc.getEmailFrom(author.profile.firstName + ' ' + author.profile.lastName),
                     html: html,
                     subject: TAPi18n.__('txv.SUPPORT_MY_ISSUE', null, lang),
                     to: item.emails[0].address
@@ -340,7 +340,7 @@ Meteor.methods({
                     YouCanEvenChangeThePriorityBeforeItHasFinishedVoting: TAPi18n.__('glob.YouCanEvenChangeThePriorityBeforeItHasFinishedVoting', null, lang)
                 });
                 Email.send({
-                    from: TAPi18n.__('txv.SYSTEM_NAME', null, lang),
+                    from: Etc.getEmailFrom(TAPi18n.__('txv.SYSTEM_NAME', null, lang)),
                     html: html,
                     subject: TAPi18n.__('txv.BEGAN_VOTING_ISSUE', null, lang),
                     to: item.emails[0].address
@@ -353,7 +353,7 @@ Meteor.methods({
         var data = applicationEmail(userData, 'confirm', null, lang);
         Email.send({
             to: data.to,
-            from: data.to,
+            from: Etc.getEmailFrom(),
             subject: TAPi18n.__('txv.CONFIRM_OF_RECE', null, lang) + data.userType,
             html: data.html
         });
@@ -362,7 +362,7 @@ Meteor.methods({
         var data = applicationEmail(userData, 'reject', null, lang);
         Email.send({
             to: data.to,
-            from: data.to,
+            from: Etc.getEmailFrom(),
             subject: TAPi18n.__('txv.REJECT_OF_APLIC', null, lang) + data.userType,
             html: data.html
         });
@@ -372,7 +372,7 @@ Meteor.methods({
         var data = applicationEmail(userData, text, null, lang);
         Email.send({
             to: data.to,
-            from: data.to,
+            from: Etc.getEmailFrom(),
             subject: TAPi18n.__('txv.POSITIVE_CONSIDER', null, lang) + data.userType,
             html: data.html
         });
@@ -382,7 +382,7 @@ Meteor.methods({
         var data = applicationEmail(userData, 'loginData', pass, lang);
         Email.send({
             to: data.to,
-            from: data.to,
+            from: Etc.getEmailFrom(),
             subject: TAPi18n.__('txv.DATA_LOGGING', null, lang) + Parametr.findOne().nazwaOrganizacji,
             html: data.html
         });
@@ -396,7 +396,7 @@ Meteor.methods({
                     var data = applicationEmail(userData, 'resetPassword', pass, lang);
                     Email.send({
                         to: data.to,
-                        from: data.to,
+                        from: Etc.getEmailFrom(),
                         subject: TAPi18n.__('txv.RESET_ACCES_PASS', null, lang) + Parametr.findOne().nazwaOrganizacji,
                         html: data.html
                     });
