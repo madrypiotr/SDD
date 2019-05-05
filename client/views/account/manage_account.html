@@ -11,14 +11,19 @@
 {{_ 'manageAccount.mAcYourProfile'}}</legend>
         <div class="pull-right">
             <a href="{{pathFor 'profile_edit'}}" class="btn btn-primary">
-                <span class="glyphicon glyphicon-pencil"></span> 
-{{_ 'manageAccount.mAcEditProfile'}}</a>
+                <span class="glyphicon glyphicon-pencil"></span>
+                {{_ 'manageAccount.mAcEditProfile'}}
+            </a>
+            <button id="doKosza" name="{{idKwestia}}" class="btn btn-danger">
+                <span class="fa fa-trash"></span>
+                {{_ "informacjeKwestiaArchiwum.ikaToTheTrash"}}
+            </button>
         </div>
         <div class="clearfix"></div>
         <hr/>
         <table class="table table-bordered manageTable">
             <tr>
-                <td><span class="glyphicon glyphicon-user"></span><strong> 
+                <td><span class="glyphicon glyphicon-user"></span><strong>
 				<!--
 				``txv`` Login
 				-->
@@ -26,7 +31,7 @@
                 <td>{{username}}</td>
             </tr>
             <tr>
-                <td><span class="glyphicon glyphicon-envelope"></span><strong> 
+                <td><span class="glyphicon glyphicon-envelope"></span><strong>
 				<!--
 				``txv`` e-mail
 				-->
@@ -34,7 +39,7 @@
                 <td>{{test emails}}</td>
             </tr>
             <tr>
-                <td><span class="glyphicon glyphicon-info-sign"></span><strong> 
+                <td><span class="glyphicon glyphicon-info-sign"></span><strong>
 				<!--
 				``txv`` Name and Surname
 				-->
@@ -46,7 +51,7 @@
 -->
             {{#if profile.pesel}}
                 <tr>
-                    <td><span class="fa fa-envelope"></span><strong> 
+                    <td><span class="fa fa-envelope"></span><strong>
 				<!--
 				``txv`` Personal ID
 				-->
@@ -55,7 +60,7 @@
                 </tr>
             {{/if}}
             <tr>
-                <td><span class="glyphicon glyphicon-book"></span><strong> 
+                <td><span class="glyphicon glyphicon-book"></span><strong>
 				<!--
 				``txv`` Position in the System
 				-->
@@ -64,7 +69,7 @@
                 </td>
             </tr>
             <tr>
-                <td><span class="glyphicon glyphicon-map-marker"></span><strong> 
+                <td><span class="glyphicon glyphicon-map-marker"></span><strong>
 				<!--
 				``txv`` Address
 				-->
@@ -75,14 +80,16 @@
                 <td><span class="glyphicon glyphicon-star"></span></td></tr>
         </table>
     </div>
-<!--
-### footer page info `` label `` Edit profile -->
-<div class="footer">
-  <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "manageAccount.mAcEditProfile"}} </div>
-	<div id="container">
-		<div class="footer_center">
-			<p>{{_ "more.EditProfileA"}}</p>
-		</div>
-	</div>
-</div>
+    <!--
+    ### footer page info `` label `` Edit profile -->
+    <div class="footer">
+      <div id="button"> <i class="fa fa-info-circle"></i> &nbsp;  {{_ "manageAccount.mAcEditProfile"}} </div>
+      <div id="container">
+        <div class="footer_center">
+          <p>{{_ "more.EditProfileA"}}</p>
+        </div>
+      </div>
+    </div>
+
+    {{> uzasadnienieKoszModal idKwestia=idKwestia}}
 </template>

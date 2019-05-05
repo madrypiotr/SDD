@@ -183,7 +183,7 @@ trimInput = function (value) {
  @fieldName- name of field, that has to be highlighted or not depending of value content
  */
 
-isNotEmpty = function (value, statement, fieldName) {
+isNotEmpty = function (value = '', statement, fieldName) {
     value = value.replace(/\s + /g, '');
     if (value !== '' && value !== '0') {
         if (fieldName != null) {
