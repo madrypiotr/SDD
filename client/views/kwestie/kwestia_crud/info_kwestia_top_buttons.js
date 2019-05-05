@@ -101,7 +101,8 @@ Template.kwestiaTopButtons.events({
         e.preventDefault();
         var idKw = e.target.name;
         var issue = Kwestia.findOne({_id: idKw});
-        if (isIssueAllowedToArchiveBin(issue) == true) {
+
+        isIssueAllowedToArchiveBin(issue, () => {
             var z = Posts.findOne({idKwestia: idKw, postType: POSTS_TYPES.KOSZ});
             if (z) {
                 $('html, body').animate({
@@ -110,7 +111,7 @@ Template.kwestiaTopButtons.events({
             } else {
                 $('#uzasadnijWyborKosz').modal('show');
             }
-        }
+        });
     },
     'click #zrealizowano': function (e) {
         e.preventDefault();
@@ -142,7 +143,7 @@ Template.kwestiaTopButtons.events({
     }
 });
 
-getReportsForIssueAtSpecificDuration = function (idKwestia) {
+var getReportsForIssueAtSpecificDuration = function (idKwestia) {
     var timeNow = moment(new Date()).format();
     var issue = Kwestia.findOne({_id: idKwestia});
     var lastReportId = issue.raporty;
@@ -153,17 +154,18 @@ getReportsForIssueAtSpecificDuration = function (idKwestia) {
     return reportAddedTime > _.last(issue.listaDatRR) ? report : false;
 };
 
-isIssueAllowedToArchiveBin = function (issue) {
+var isIssueAllowedToArchiveBin = function (issue, onConfirm) {
     if ((issue.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE && issue.status == KWESTIA_STATUS.ZREALIZOWANA) ||
         (_.contains([KWESTIA_TYPE.ACCESS_DORADCA, KWESTIA_TYPE.ACCESS_ZWYCZAJNY], issue.typ) && issue.status == KWESTIA_STATUS.REALIZOWANA)) {
-        var text = null;
-        if (issue.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            text = TAPi18n.__('txv.GL_PAR_CHANGE1');
-        if (issue.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE)
-            text = TAPi18n.__('txv.GL_PAR_CHANGE2');
-        else
-            text = TAPi18n.__('txv.GL_PAR_CHANGE3');
-        bootbox.alert(TAPi18n.__('txv.GL_PAR_INFO') + text + '!');
+        const text = issue.typ == KWESTIA_TYPE.GLOBAL_PARAMETERS_CHANGE
+            ? TAPi18n.__('txv.GL_PAR_CHANGE2')
+            : TAPi18n.__('txv.GL_PAR_CHANGE3');
+
+        bootbox.confirm(TAPi18n.__('txv.GL_PAR_INFO') + text + '!', (confirm) => {
+            if (confirm) {
+                onConfirm();
+            }
+        });
         return false;
     }
     return true;
