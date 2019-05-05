@@ -18,7 +18,7 @@ Meteor.methods({
         }
         //Generating other issue numbers
         var fullIssueNumber = Kwestia.find({}, {sort: {issueNumber: -1}}).fetch()[0].issueNumber;
-        var issueNumber = parseInt(fullIssueNumber.substring(7));
+        var issueNumber = parseInt(fullIssueNumber.substring(7)) || 1;
         var nextIssueNumber = issueNumber + 1;
         var issuePrefix = fullIssueNumber.substring(5,7);
         var newIssuePrefix = '';

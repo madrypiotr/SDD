@@ -2,14 +2,8 @@ Meteor.methods({
     // metody Kwestia GŁÓWNA
     addKwestia: function (newKwestia) {
         var z = ImplemTeamDraft.insert({nazwa: '', zespol: []});
-        var issueNumber = '';
-        Meteor.call('generateNextIssueNumber', function (error, ret) {
-            if (error) {
-                throwError(error.reason);
-            } else {
-                issueNumber = ret;
-            }
-        });
+        const issueNumber = Meteor.call('generateNextIssueNumber');
+
         var id = Kwestia.insert({
             idUser: newKwestia[0].idUser,
             dataWprowadzenia: newKwestia[0].dataWprowadzenia,
@@ -38,14 +32,8 @@ Meteor.methods({
         return id;
     },
     addKwestiaOsobowa: function (newKwestia) {
-        var issueNumber = '';
-        Meteor.call('generateNextIssueNumber', function (error, ret) {
-            if (error) {
-                throwError(error.reason);
-            } else {
-                issueNumber = ret;
-            }
-        });
+        const issueNumber = Meteor.call('generateNextIssueNumber');
+
         var id = Kwestia.insert({
             idUser: newKwestia[0].idUser,
             dataWprowadzenia: newKwestia[0].dataWprowadzenia,
@@ -73,14 +61,8 @@ Meteor.methods({
         return id;
     },
     addKwestiaADMINISTROWANA: function (newKwestia) {
-        var issueNumber = '';
-        Meteor.call('generateNextIssueNumber', function (error, ret) {
-            if (error) {
-                console.log(error.reason);
-            } else {
-                issueNumber = ret;
-            }
-        });
+        const issueNumber = Meteor.call('generateNextIssueNumber');
+
         return Kwestia.insert({
             idUser: newKwestia[0].idUser,
             dataWprowadzenia: newKwestia[0].dataWprowadzenia,
@@ -101,14 +83,7 @@ Meteor.methods({
         });
     },
     addKwestiaOpcja: function (newKwestiaOpcja) {
-        var issueNumber = '';
-        Meteor.call('generateNextIssueNumber', function (error, ret) {
-            if (error) {
-                console.log(error.reason);
-            } else {
-                issueNumber = ret;
-            }
-        });
+        const issueNumber = Meteor.call('generateNextIssueNumber');
 
         const idKwestia = Kwestia.insert({
             idUser: Meteor.userId(),
@@ -140,14 +115,7 @@ Meteor.methods({
         }});
     },
     addKwestiaOsobowaOpcja: function (newKwestia) {
-        var issueNumber = '';
-        Meteor.call('generateNextIssueNumber', function (error, ret) {
-            if (error) {
-                console.log(error.reason);
-            } else {
-                issueNumber = ret;
-            }
-        });
+        const issueNumber = Meteor.call('generateNextIssueNumber');
 
         return Kwestia.insert({
             idUser: newKwestia[0].idUser,

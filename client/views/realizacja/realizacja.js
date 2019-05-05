@@ -104,7 +104,7 @@ Template.realizacjaTab1.events({
                     globalParameters.terytCity + '\n' +
                     globalParameters.kontakty + '\n'
                     },
-                    {text: TAPi18n.__('txv.RESOLUTION_NO') + ': ' + (this.numerUchwaly || '').toString() + '\n' + TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ': ' + this.kwestiaNazwa , style: 'uchwalaHeadline'},
+                    {text: TAPi18n.__('txv.RESOLUTION_NO') + ': ' + numerUchwaly + '\n' + TAPi18n.__('txv.BELONGS_TO_THE_ISSUES') + ': ' + this.kwestiaNazwa , style: 'uchwalaHeadline'},
                     {text: '\n\t\t' + TAPi18n.__('txv.DESCRIPTION') + ': ' + issueContent, style: 'contentStyle'},
                     {text: '\n' + TAPi18n.__('txv.NUMBER_OF_USERS') + ' - ' + this.glosujacy.length +
                     '\n' + TAPi18n.__('txv.NUMBER_OF_PRESENT') + '  - ' + this.glosujacy.length +
