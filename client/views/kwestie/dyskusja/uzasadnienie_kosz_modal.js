@@ -51,14 +51,17 @@ Template.uzasadnienieKoszModal.events({
                             } else {
                                 var postId = ret;
                                 var z2 = Posts.find({idKwestia: idKwestia, postType: POSTS_TYPES.KOSZ});
-                                if (z2.count() <= 1) {
+
+                                if (document.getElementById('message')) {
                                     document.getElementById('message').value = '';
+                                }
+
+                                if (z2.count() <= 1) {
                                     $('#uzasadnijWyborKosz').modal('hide');
                                     $('html, body').animate({
-                                        scrollTop: $('.doKoszaClass').offset().top
+                                        scrollTop: $('.doKoszaClass').offset() && $('.doKoszaClass').offset().top
                                     }, 600);
                                 } else {
-                                    document.getElementById('message').value = '';
                                     $('#uzasadnijWyborKosz').modal('hide');
                                     Meteor.call('removePost', postId, function (error, ret) {
                                         if (!error) {
