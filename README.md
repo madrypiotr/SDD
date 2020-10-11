@@ -74,7 +74,7 @@ Go to [CHANGELOG] | [LICENSE] | [CONTRIBUTING] | [CODE OF CONDUCT]
 ---
 ###### (c) 2013-2017, PM & Partners. All rights reserved.
 
-[SDD]: https://sdd-test.ha.pl 
+[SDD]: https://sdd.ha.pl 
 [SDD GitHub issue page]: https://github.com/madrypiotr/SDD/issues
 [Download the SDD source code]: https://github.com/madrypiotr/SDD
 [Install the METEOR]: https://www.meteor.com/install
